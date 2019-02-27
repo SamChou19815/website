@@ -40,7 +40,7 @@ export default function App() {
             <Button color="inherit">
               <Link
                 color="inherit"
-                href="https://samlang-docs.developersam.com"
+                href="https://samlang.developersam.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
