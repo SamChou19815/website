@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function deploy() {
+    echo "Deploying ${1}..."
+    cd ${1}-frontend/
+    yarn
+    yarn build
+    cd ../
+    rm -rf ${1}-backend/src/main/webapp/static/
+    mkdir ${1}-backend/src/main/webapp/static
+    cp -R ${1}-frontend/build/. ${1}-backend/src/main/webapp/static
+    cd ${1}-backend
+    ./gradlew appengineDeploy
+    cd ../
+    echo "Finished Deploying $1."
+}
+
+if [ "$1" = "samlang-demo" ]; then
+    deploy $1
+elif [ "$1" = "ten-web" ]; then
+    deploy $1
+elif [ "$1" = "" ]; then
+    echo "No deployment target specified. Abort!"
+    exit 1
+else
+    echo "Unsupported deployment target!"
+    exit 1
+fi
