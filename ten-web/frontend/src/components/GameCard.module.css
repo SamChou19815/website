@@ -1,0 +1,39 @@
+@media only screen and (max-width: 600px) {
+  .GameCard {
+    margin: 0.5em;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .GameCard {
+    width: 560px;
+    margin: 1em auto;
+  }
+}
+
+.Overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.GameCells {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.GameCardControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GameCardControlsText {
+  margin: 0 4px 4px 4px;
+  padding: 0 16px;
+}

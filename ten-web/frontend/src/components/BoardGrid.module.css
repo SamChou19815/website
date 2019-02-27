@@ -1,0 +1,41 @@
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.VerticalLine {
+  background-color: #333333;
+  width: 1px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+}
+
+.HorizontalLine {
+  background-color: #333333;
+  width: 300px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+}
+
+.VerticalLine1 {
+  left: 101px;
+}
+
+.VerticalLine2 {
+  left: 200px;
+}
+
+.HorizontalLine1 {
+  top: 99px;
+}
+
+.HorizontalLine2 {
+  top: 199px;
+}

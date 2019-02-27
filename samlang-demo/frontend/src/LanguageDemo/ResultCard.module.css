@@ -1,0 +1,7 @@
+.ColoredResult {
+  padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-left-style: solid;
+  border-left-width: 2px;
+}

@@ -1,0 +1,6 @@
+.BoardCell {
+  width: 23px;
+  height: 23px;
+  margin: 4px;
+  cursor: pointer;
+}

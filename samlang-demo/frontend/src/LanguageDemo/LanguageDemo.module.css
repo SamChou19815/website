@@ -1,0 +1,42 @@
+.LanguageDemo {
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+  overflow: scroll;
+}
+
+.ParallelCard {
+  max-height: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  .LanguageDemo {
+    flex-direction: row;
+  }
+
+  .ParallelCard {
+    width: 48%;
+    margin: 1em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .LanguageDemo {
+    flex-direction: column;
+  }
+
+  .ParallelCard {
+    width: 90vw;
+    margin: 1em auto;
+  }
+}
+
+.Blocker {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+}
