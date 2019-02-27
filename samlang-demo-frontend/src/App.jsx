@@ -26,9 +26,6 @@ const theme = createMuiTheme({
 });
 
 export default function App() {
-  const homeOnClick = () => window.open('https://developersam.com');
-  const docsOnClick = () => window.open('https://samlang-docs.developersam.com');
-
   return (
     <MuiThemeProvider theme={theme}>
       <div className={styles.App}>
