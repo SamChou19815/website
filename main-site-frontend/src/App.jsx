@@ -1,5 +1,6 @@
 // @flow strict
 
+import type { Node } from 'react';
 import React from 'react';
 // $FlowFixMe
 import AppBar from '@material-ui/core/AppBar';
@@ -20,11 +21,19 @@ import styles from './App.module.css';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#263238',
+      main: '#3E7AE2',
     },
   },
   typography: { useNextVariants: true },
 });
+
+const ButtonLink = ({ href, children }: {| +href: string; children: Node |}): Node => (
+  <Button color="inherit">
+    <Link color="inherit" href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </Link>
+  </Button>
+);
 
 export default function App() {
   return (
@@ -35,16 +44,8 @@ export default function App() {
             <Typography variant="h6" color="inherit" className={styles.Title}>
               Developer Sam
             </Typography>
-            <Button color="inherit">
-              <Link
-                color="inherit"
-                href="https://developersam.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Self
-              </Link>
-            </Button>
+            <ButtonLink href="https://blog.developersam.com">Blog</ButtonLink>
+            <ButtonLink href="https://github.com/SamChou19815">GitHub</ButtonLink>
           </Toolbar>
         </AppBar>
         <div>TODO</div>
