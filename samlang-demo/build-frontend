@@ -1,9 +1,0 @@
-#!/bin/bash
-
-cd frontend/
-yarn build
-cd ../
-rm -rf backend/src/main/webapp/static/
-mkdir backend/src/main/webapp/static
-cp -R frontend/build/. backend/src/main/webapp/static
-

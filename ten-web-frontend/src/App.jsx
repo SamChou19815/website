@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 // $FlowFixMe
 import AppBar from '@material-ui/core/AppBar';
 // $FlowFixMe
+import Link from '@material-ui/core/Link';
+// $FlowFixMe
 import Toolbar from '@material-ui/core/Toolbar';
 // $FlowFixMe
 import Typography from '@material-ui/core/Typography';
@@ -29,8 +31,6 @@ const theme = createMuiTheme({
 export default function App(): Node {
   const [mode, setMode] = React.useState<Mode>('Local');
 
-  const homeOnClick = () => window.open('https://developersam.com');
-
   return (
     <MuiThemeProvider theme={theme}>
       <div className={styles.App}>
@@ -41,7 +41,16 @@ export default function App(): Node {
             </Typography>
             <Button color="inherit" onClick={() => setMode('Local')}>Local</Button>
             <Button color="inherit" onClick={() => setMode('Distributed')}>Distributed</Button>
-            <Button color="inherit" onClick={homeOnClick}>Home</Button>
+            <Button color="inherit">
+              <Link
+                color="inherit"
+                href="https://developersam.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Home
+              </Link>
+            </Button>
           </Toolbar>
         </AppBar>
         {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}

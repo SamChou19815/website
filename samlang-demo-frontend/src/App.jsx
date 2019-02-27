@@ -4,6 +4,8 @@ import React from 'react';
 // $FlowFixMe
 import AppBar from '@material-ui/core/AppBar';
 // $FlowFixMe
+import Link from '@material-ui/core/Link';
+// $FlowFixMe
 import Button from '@material-ui/core/Button';
 // $FlowFixMe
 import Toolbar from '@material-ui/core/Toolbar';
@@ -35,8 +37,26 @@ export default function App() {
             <Typography variant="h6" color="inherit" className={styles.Title}>
               SAMLANG Type-checker & Interpreter Demo
             </Typography>
-            <Button color="inherit" onClick={docsOnClick}>Docs</Button>
-            <Button color="inherit" onClick={homeOnClick}>Home</Button>
+            <Button color="inherit">
+              <Link
+                color="inherit"
+                href="https://samlang-docs.developersam.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Docs
+              </Link>
+            </Button>
+            <Button color="inherit">
+              <Link
+                color="inherit"
+                href="https://developersam.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Home
+              </Link>
+            </Button>
           </Toolbar>
         </AppBar>
         <LanguageDemo />
