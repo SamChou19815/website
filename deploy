@@ -15,14 +15,15 @@ function deploy() {
     echo "Finished Deploying $1."
 }
 
-if [[ "$1" = "samlang-demo" ]]; then
+if [[ "$1" = "dispatch" ]]; then
+    gcloud app deploy dispatch.yaml --project=dev-sam
+elif [[ "$1" = "samlang-demo" ]]; then
     deploy $1
 elif [[ "$1" = "ten-web" ]]; then
     deploy $1
-elif [[ "$1" = "dispatch" ]]; then
-    gcloud app deploy dispatch.yaml --project=dev-sam
 elif [[ "$1" = "" ]]; then
     echo "No deployment target specified. Abort!"
+    echo "Supported commands: deploy dispatch, deploy samlang-demo, deploy ten-web"
     exit 1
 else
     echo "Unsupported deployment target!"
