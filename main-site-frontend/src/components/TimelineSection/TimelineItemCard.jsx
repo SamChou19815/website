@@ -12,6 +12,8 @@ import CardActions from '@material-ui/core/CardActions';
 // $FlowFixMe
 import CardContent from '@material-ui/core/CardContent';
 // $FlowFixMe
+import CardMedia from '@material-ui/core/CardMedia';
+// $FlowFixMe
 import Icon from '@material-ui/core/Icon';
 import type { TimelineItem } from './items';
 import styles from './TimelineItemCard.module.css';
@@ -19,7 +21,7 @@ import ButtonLink from '../Common/ButtonLink';
 
 type Props = {| +item: TimelineItem |};
 
-export default ({ item: { title, type, detail, time, links } }: Props): Node => {
+export default ({ item: { title, type, time, image, detail, links } }: Props): Node => {
   let iconId: string;
   let subheader: string;
   switch (type) {
@@ -46,6 +48,7 @@ export default ({ item: { title, type, detail, time, links } }: Props): Node => 
         </div>
         <span className={styles.ConnectorDot} />
         <Card className={styles.Card}>
+          {image != null && <CardMedia image={image} title={title} component="img" />}
           <CardHeader avatar={<Icon>{iconId}</Icon>} title={title} subheader={subheader} />
           {detail != null && <CardContent>{detail}</CardContent>}
           {links != null && (

@@ -7,7 +7,7 @@ import styles from './FirstPageCodeBlock.module.css';
 
 const code = `
 /**
- * © 2015–2019 Developer Sam.
+ * Copyright (C) 2015–2019 Developer Sam.
  *
  * @author sam
  */

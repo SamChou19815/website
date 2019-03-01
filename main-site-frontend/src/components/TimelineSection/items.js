@@ -1,9 +1,21 @@
 // @flow strict
 
+import ChunkReader from '../../assets/timeline/chunk-reader.jpg';
+import CritterCompiler from '../../assets/timeline/critter-compiler.png';
+import FacebookHackerWay from '../../assets/timeline/fb-hacker-way.jpg';
+import FacebookStickerAndPen from '../../assets/timeline/fb-sticker-pen.jpg';
+import TEN from '../../assets/projects/ten.png';
+import SAMFirst from '../../assets/timeline/sam-first.png';
+import SAMLater from '../../assets/timeline/sam-later.png';
+import SAMLANG from '../../assets/projects/samlang.png';
+import Samwise from '../../assets/projects/samwise.png';
+import SAMPL from '../../assets/timeline/sampl.png';
+
 export type TimelineItem = {|
   +title: string;
   +type: 'work' | 'project' | 'event';
   +time: string;
+  +image?: string;
   +detail?: string;
   +links?: {| +name: string; url: string; |}[];
 |};
@@ -13,6 +25,18 @@ const items: TimelineItem[] = [
     title: 'Facebook SWE Intern',
     type: 'work',
     time: '2019-05',
+    image: FacebookHackerWay,
+  },
+  {
+    title: 'Website Redesign v3',
+    type: 'event',
+    time: '2019-03',
+    links: [
+      {
+        name: 'GitHub Repo',
+        url: 'https://github.com/SamChou19815/website',
+      },
+    ],
   },
   {
     title: 'Cornell DTI TPM',
@@ -24,6 +48,7 @@ const items: TimelineItem[] = [
     title: 'SAMLANG',
     type: 'project',
     time: '2019-01',
+    image: SAMLANG,
     detail: 'Sam\'s new programming language with full type-inference.',
     links: [
       {
@@ -37,9 +62,16 @@ const items: TimelineItem[] = [
     ],
   },
   {
+    title: 'Facebook SWE Intern Final Interview',
+    type: 'event',
+    time: '2018-10',
+    image: FacebookStickerAndPen,
+  },
+  {
     title: 'Cornell DTI Software Developer',
     type: 'work',
     time: '2018-09',
+    image: Samwise,
     detail: 'Frontend Developer of Samwise',
     links: [
       {
@@ -52,6 +84,7 @@ const items: TimelineItem[] = [
     title: 'Critter Compiler',
     type: 'project',
     time: '2018-08',
+    image: CritterCompiler,
     links: [
       {
         name: 'GitHub Repo',
@@ -64,9 +97,25 @@ const items: TimelineItem[] = [
     ],
   },
   {
+    title: 'Website Redesign v2',
+    type: 'event',
+    time: '2018-07',
+    links: [
+      {
+        name: 'GitHub Repo',
+        url: 'https://github.com/SamChou19815/dev-sam-frontend',
+      },
+      {
+        name: 'Archive',
+        url: 'https://web.archive.org/web/20190102202556/https://developersam.com/',
+      },
+    ],
+  },
+  {
     title: 'SAMPL',
     type: 'project',
     time: '2018-06',
+    image: SAMPL,
     detail: 'Sam\'s first programming language. Archived in favor of SAMLANG.',
     links: [
       {
@@ -88,6 +137,7 @@ const items: TimelineItem[] = [
     title: 'First winning hackathon',
     type: 'event',
     time: '2017-09',
+    image: ChunkReader,
     detail: 'Developed a text analysis app during Cornell BigRedHack. Best use of Google Cloud.',
     links: [
       {
@@ -109,6 +159,7 @@ const items: TimelineItem[] = [
     title: 'TEN',
     type: 'project',
     time: '2017-07',
+    image: TEN,
     links: [
       {
         name: 'GitHub Repo',
@@ -131,11 +182,13 @@ const items: TimelineItem[] = [
     title: 'Computerization Club President',
     type: 'work',
     time: '2015-09',
+    image: SAMLater,
   },
   {
     title: 'SAM First Release',
     type: 'project',
     time: '2015-04',
+    image: SAMFirst,
     links: [
       {
         name: 'GitHub Repo',
@@ -152,6 +205,13 @@ const items: TimelineItem[] = [
     title: 'Bought developersam.com',
     type: 'event',
     time: '2015-02',
+    detail: 'Check how it looks initially!',
+    links: [
+      {
+        name: 'Initial Version',
+        url: 'https://web.archive.org/web/20160506203739/http://www.developersam.com/',
+      },
+    ],
   },
   {
     title: 'Entered WFLA',
@@ -167,11 +227,13 @@ const items: TimelineItem[] = [
     title: 'First Non-trivial VB Program Written',
     type: 'project',
     time: '2011-12',
+    detail: 'The code was crappy and now it\'s forever lost.',
   },
   {
     title: 'Started Coding',
     type: 'event',
     time: '2011-07',
+    detail: 'I bought a bad C++ intro book and almost gave up.',
   },
   {
     title: 'Entered Huayu Middle School',
