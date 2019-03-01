@@ -1,0 +1,22 @@
+.ProjectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 720px) {
+  .ProjectCard {
+    margin: 1em auto;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .ProjectCard {
+    margin: 1em;
+    width: 400px;
+  }
+}

@@ -2,7 +2,13 @@
   line-height: 1.5em;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 350px) {
+  .Block {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 400px) {
   .Block {
     font-size: 12px;
   }

@@ -15,6 +15,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import styles from './App.module.css';
 import ButtonLink from './components/ButtonLink';
 import FirstPage from './components/FirstPage';
+import ProjectsSection from './components/ProjectsSection';
 
 const theme = createMuiTheme({
   palette: {
@@ -33,12 +34,32 @@ export default (): Node => (
           <Typography variant="h6" color="inherit" className={styles.Title}>
             Developer Sam
           </Typography>
-          <ButtonLink href="/resume.pdf" className={styles.Resume}>Resume</ButtonLink>
-          <ButtonLink href="https://blog.developersam.com">Blog</ButtonLink>
-          <ButtonLink href="https://github.com/SamChou19815">GitHub</ButtonLink>
+          <ButtonLink
+            href="/resume.pdf"
+            color="inherit"
+            openInNewTab
+            className={styles.Resume}
+          >
+            Resume
+          </ButtonLink>
+          <ButtonLink
+            href="https://blog.developersam.com"
+            color="inherit"
+            openInNewTab
+          >
+            Blog
+          </ButtonLink>
+          <ButtonLink
+            href="https://github.com/SamChou19815"
+            color="inherit"
+            openInNewTab
+          >
+            GitHub
+          </ButtonLink>
         </Toolbar>
       </AppBar>
       <FirstPage />
+      <ProjectsSection />
     </div>
   </MuiThemeProvider>
 );

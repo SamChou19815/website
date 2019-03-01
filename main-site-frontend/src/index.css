@@ -10,6 +10,10 @@ body {
   color: #38484F;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 code {
   font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

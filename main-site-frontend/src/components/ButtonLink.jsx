@@ -10,13 +10,28 @@ import Link from '@material-ui/core/Link';
 type Props = {|
   +href: string;
   +children: Node;
+  +color: string;
+  +openInNewTab: boolean;
+  +onClick?: () => void;
   +className?: string;
 |};
 
-export default ({ href, children, className }: Props): Node => (
-  <Button color="inherit" className={className}>
-    <Link color="inherit" href={href} target="_blank" rel="noopener noreferrer">
+const ButtonLink = ({ href, children, color, openInNewTab, onClick, className }: Props): Node => (
+  <Button color={color} className={className} onClick={onClick}>
+    <Link
+      color={color}
+      href={href === '' ? undefined : href}
+      target={openInNewTab ? '_blank' : undefined}
+      rel="noopener noreferrer"
+    >
       {children}
     </Link>
   </Button>
 );
+
+ButtonLink.defaultProps = {
+  color: 'primary',
+  openInNewTab: false,
+};
+
+export default ButtonLink;
