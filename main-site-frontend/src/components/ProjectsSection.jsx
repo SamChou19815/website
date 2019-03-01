@@ -48,7 +48,7 @@ export default (): Node => (
         <CardHeader avatar={<Icon>code</Icon>} title="Samwise" subheader="Web App" />
         <CardContent>
           {'A Student Planner for Everyone. Designed, developed and maintained by '}
-          <a href="https://cornelldti.org">Cornell DTI</a>
+          <a href="https://cornelldti.org" target="_blank" rel="noopener noreferrer">Cornell DTI</a>
           .
         </CardContent>
         <CardActions>
