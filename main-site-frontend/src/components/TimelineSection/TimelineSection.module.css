@@ -1,3 +1,21 @@
+.ControlSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ControlSectionTitle {
+  margin-right: 2em;
+}
+
+@media screen and (max-width: 500px) {
+  .ControlSectionTitle {
+    display: none;
+  }
+}
+
 .TimelineSection {
   display: flex;
   justify-content: center;

@@ -227,7 +227,6 @@ const items: TimelineItem[] = [
     title: 'First Non-trivial VB Program Written',
     type: 'project',
     time: '2011-12',
-    detail: 'The code was crappy and now it\'s forever lost.',
   },
   {
     title: 'Started Coding',
