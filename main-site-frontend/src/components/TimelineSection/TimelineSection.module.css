@@ -17,18 +17,12 @@
 
 @media screen and (max-width: 660px) {
   .VerticalBar {
-    left: 120px;
+    left: 130px;
   }
 }
 
-@media screen and (min-width: 660px) and (max-width: 960px) {
+@media screen and (min-width: 660px) {
   .VerticalBar {
-    left: calc(50% - 171px);
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .VerticalBar {
-    left: calc(50% - 136px);
+    left: calc(50% - 184px);
   }
 }

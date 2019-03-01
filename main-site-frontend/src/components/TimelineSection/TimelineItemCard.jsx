@@ -44,9 +44,7 @@ export default ({ item: { title, type, detail, time, links } }: Props): Node => 
         <div className={styles.Timestamp}>
           {time}
         </div>
-        <span className={styles.Connector} />
         <span className={styles.ConnectorDot} />
-        <span className={styles.Connector} />
         <Card className={styles.Card}>
           <CardHeader avatar={<Icon>{iconId}</Icon>} title={title} subheader={subheader} />
           {detail != null && <CardContent>{detail}</CardContent>}

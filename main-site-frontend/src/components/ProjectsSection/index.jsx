@@ -22,7 +22,7 @@ import SAMLANG from '../../assets/projects/samlang.png';
 import Samwise from '../../assets/projects/samwise.png';
 
 export default (): Node => (
-  <ConsoleSection id="projects" title="./active-projects --pretty">
+  <ConsoleSection id="projects" title="./active-projects --pretty-print">
     <div className={styles.ProjectContainer}>
       <Card className={styles.ProjectCard}>
         <CardMedia image={SAMLANG} title="SAMLANG" component="img" />

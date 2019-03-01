@@ -9,7 +9,7 @@ import TimelineItemCard from './TimelineItemCard';
 import styles from './TimelineSection.module.css';
 
 export default (): Node => (
-  <ConsoleSection id="timeline" title="./timeline --fancy">
+  <ConsoleSection id="timeline" title="./timeline --fancy-display">
     <div className={styles.TimelineSection}>
       <div className={styles.VerticalBar} />
       {items.map((item, index) => <TimelineItemCard key={index} item={item} />)}
