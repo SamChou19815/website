@@ -5,10 +5,6 @@ import React from 'react';
 // $FlowFixMe
 import AppBar from '@material-ui/core/AppBar';
 // $FlowFixMe
-import Link from '@material-ui/core/Link';
-// $FlowFixMe
-import Button from '@material-ui/core/Button';
-// $FlowFixMe
 import Toolbar from '@material-ui/core/Toolbar';
 // $FlowFixMe
 import Typography from '@material-ui/core/Typography';
@@ -17,6 +13,8 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 // $FlowFixMe
 import { createMuiTheme } from '@material-ui/core/styles';
 import styles from './App.module.css';
+import ButtonLink from './components/ButtonLink';
+import FirstPage from './components/FirstPage';
 
 const theme = createMuiTheme({
   palette: {
@@ -27,29 +25,20 @@ const theme = createMuiTheme({
   typography: { useNextVariants: true },
 });
 
-const ButtonLink = ({ href, children }: {| +href: string; children: Node |}): Node => (
-  <Button color="inherit">
-    <Link color="inherit" href={href} target="_blank" rel="noopener noreferrer">
-      {children}
-    </Link>
-  </Button>
+export default (): Node => (
+  <MuiThemeProvider theme={theme}>
+    <div className={styles.App}>
+      <AppBar position="fixed" className={styles.AppBar}>
+        <Toolbar>
+          <Typography variant="h6" color="inherit" className={styles.Title}>
+            Developer Sam
+          </Typography>
+          <ButtonLink href="/resume.pdf" className={styles.Resume}>Resume</ButtonLink>
+          <ButtonLink href="https://blog.developersam.com">Blog</ButtonLink>
+          <ButtonLink href="https://github.com/SamChou19815">GitHub</ButtonLink>
+        </Toolbar>
+      </AppBar>
+      <FirstPage />
+    </div>
+  </MuiThemeProvider>
 );
-
-export default function App() {
-  return (
-    <MuiThemeProvider theme={theme}>
-      <div className={styles.App}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" color="inherit" className={styles.Title}>
-              Developer Sam
-            </Typography>
-            <ButtonLink href="https://blog.developersam.com">Blog</ButtonLink>
-            <ButtonLink href="https://github.com/SamChou19815">GitHub</ButtonLink>
-          </Toolbar>
-        </AppBar>
-        <div>TODO</div>
-      </div>
-    </MuiThemeProvider>
-  );
-}

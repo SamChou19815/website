@@ -1,0 +1,37 @@
+.FirstPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+}
+
+.InfoCard {
+  margin: 8px;
+}
+
+@media screen and (max-width: 720px) {
+  .InfoCard {
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .InfoCard {
+    width: calc(100% - 500px);
+    margin-left: 50px;
+    max-width: 300px;
+  }
+}
+
+.IconLine {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  line-height: 24px;
+}
+
+.IconLineText {
+  margin-left: 8px;
+}

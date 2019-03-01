@@ -1,7 +1,15 @@
-.App {
-  height: 100vh;
+.App {}
+
+.AppBar {
+  opacity: 0.8;
 }
 
 .Title {
   flex: 1 1 auto;
+}
+
+@media screen and (max-width: 400px) {
+  .Resume {
+    display: none !important;
+  }
 }
