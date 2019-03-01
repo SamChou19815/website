@@ -14,15 +14,15 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 // $FlowFixMe
 import Icon from '@material-ui/core/Icon';
-import ConsoleSection from './ConsoleSection';
+import ConsoleSection from '../Common/ConsoleSection';
 import styles from './ProjectsSection.module.css';
-import ButtonLink from './ButtonLink';
-import TEN from '../assets/projects/ten.png';
-import SAMLANG from '../assets/projects/samlang.png';
-import Samwise from '../assets/projects/samwise.png';
+import ButtonLink from '../Common/ButtonLink';
+import TEN from '../../assets/projects/ten.png';
+import SAMLANG from '../../assets/projects/samlang.png';
+import Samwise from '../../assets/projects/samwise.png';
 
 export default (): Node => (
-  <ConsoleSection id="projects" title="active-projects --pretty">
+  <ConsoleSection id="projects" title="./active-projects --pretty">
     <div className={styles.ProjectContainer}>
       <Card className={styles.ProjectCard}>
         <CardMedia image={SAMLANG} title="SAMLANG" component="img" />

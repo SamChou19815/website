@@ -2,7 +2,7 @@
 
 import type { Node } from 'react';
 import React from 'react';
-import CodeBlock from './CodeBlock';
+import CodeBlock from '../Common/CodeBlock';
 import styles from './FirstPageCodeBlock.module.css';
 
 const code = `

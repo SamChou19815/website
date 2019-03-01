@@ -14,7 +14,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
 import styles from './FirstPage.module.css';
 import FirstPageCodeBlock from './FirstPageCodeBlock';
-import ButtonLink from './ButtonLink';
+import ButtonLink from '../Common/ButtonLink';
 
 const IconLine = ({ icon, children }: {| +icon: string; +children: string |}): Node => (
   <CardContent className={styles.IconLine}>

@@ -13,9 +13,10 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 // $FlowFixMe
 import { createMuiTheme } from '@material-ui/core/styles';
 import styles from './App.module.css';
-import ButtonLink from './components/ButtonLink';
+import ButtonLink from './components/Common/ButtonLink';
 import FirstPage from './components/FirstPage';
 import ProjectsSection from './components/ProjectsSection';
+import TimelineSection from './components/TimelineSection';
 
 const theme = createMuiTheme({
   palette: {
@@ -60,6 +61,7 @@ export default (): Node => (
       </AppBar>
       <FirstPage />
       <ProjectsSection />
+      <TimelineSection />
     </div>
   </MuiThemeProvider>
 );
