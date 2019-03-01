@@ -112,6 +112,30 @@ const items: TimelineItem[] = [
     ],
   },
   {
+    title: 'Badges for GCP Cloud Build',
+    type: 'project',
+    time: '2018-08',
+    detail: 'Automatically generating badges for build status on GCP Cloud Build.',
+    links: [
+      {
+        name: 'GitHub Repo',
+        url: 'https://github.com/SamChou19815/badges-4-gcp-cloud-build',
+      },
+    ],
+  },
+  {
+    title: 'typed-store',
+    type: 'project',
+    time: '2018-07',
+    detail: 'A type-safe wrapper for Google Cloud Datastore.',
+    links: [
+      {
+        name: 'GitHub Repo',
+        url: 'https://github.com/SamChou19815/typed-store',
+      },
+    ],
+  },
+  {
     title: 'SAMPL',
     type: 'project',
     time: '2018-06',
