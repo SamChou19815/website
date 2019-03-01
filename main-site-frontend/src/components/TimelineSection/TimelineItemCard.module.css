@@ -1,0 +1,76 @@
+.Container {
+  margin: 1em;
+  width: 100%;
+}
+
+.ContentWrapper {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  max-width: 600px;
+}
+
+.Timestamp {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  margin-right: 0;
+  border-radius: 12px;
+  padding: 8px;
+  width: 64px;
+  text-align: center;
+  color: #F7F7F7;
+  background-color: #3E7AE2AA;
+}
+
+.Connector {
+  margin-top: 30px;
+  height: 3px;
+  background-color: #3E7AE2EE;
+}
+
+.ConnectorDot {
+  margin-top: 24px;
+  margin-left: -2px;
+  margin-right: -2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #3E7AE2EE;
+}
+
+.Card {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 660px) {
+  .Connector {
+    width: 20px;
+  }
+
+  .Card {
+    width: calc(100% - 130px);
+  }
+}
+
+@media screen and (min-width: 660px) and (max-width: 960px) {
+  .Connector {
+    width: 40px;
+  }
+
+  .Card {
+    width: calc(100% - 180px);
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .Connector {
+    width: 80px;
+  }
+
+  .Card {
+    width: calc(100% - 250px);
+  }
+}
