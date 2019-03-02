@@ -1,6 +1,17 @@
 .Section {
-  margin: 1em;
   padding-top: 3em;
+}
+
+@media screen and (max-width: 600px) {
+  .Section {
+    margin: 0.5em;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .Section {
+    margin: 1em;
+  }
 }
 
 .Title {

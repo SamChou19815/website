@@ -16,7 +16,7 @@ highlight.registerLanguage('samlang', hljs => ({
     hljs.NUMBER_MODE,
     {
       className: 'type',
-      begin: /(?<![A-Za-z0-9])[A-Z][A-Za-z0-9]*/,
+      begin: '/(?<![A-Za-z0-9])[A-Z][A-Za-z0-9]*/',
       end: '',
     },
     {

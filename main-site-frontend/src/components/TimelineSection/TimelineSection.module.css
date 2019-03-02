@@ -28,19 +28,19 @@
 .VerticalBar {
   position: absolute;
   width: 3px;
-  top: 46px;
+  top: 34px;
   bottom: 56px;
   background-color: #3E7AE2;
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 600px) {
   .VerticalBar {
-    left: 130px;
+    left: 98px;
   }
 }
 
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 600px) {
   .VerticalBar {
-    left: calc(50% - 184px);
+    left: calc(50% - 202px);
   }
 }

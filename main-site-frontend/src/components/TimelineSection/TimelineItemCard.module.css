@@ -1,5 +1,5 @@
 .Container {
-  margin: 1em;
+  margin-bottom: 1em;
   width: 100%;
 }
 
@@ -15,22 +15,35 @@
 .Timestamp {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 18px;
   margin-right: 0;
-  padding: 8px;
-  width: 80px;
+  padding-top: 8px;
+  width: 70px;
   text-align: center;
+  font-size: 13px;
   font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .ConnectorDot {
-  margin-top: 24px;
-  margin-left: 1em;
-  margin-right: 2em;
+  margin-top: 27px;
   width: 16px;
   height: 16px;
   border-radius: 8px;
+  margin-left: 0;
   background-color: #3E7AE2;
+}
+
+@media screen and (max-width: 600px) {
+  .ConnectorDot {
+    margin-right: 1em;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .ConnectorDot {
+    margin-left: 1em;
+    margin-right: 2em;
+  }
 }
 
 .Card {
