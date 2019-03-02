@@ -34,6 +34,10 @@
 **/.env.test.local
 **/.env.production.local
 
+## firebase
+**/.firebase
+
+## logs
 **/npm-debug.log*
 **/yarn-debug.log*
 **/yarn-error.log*

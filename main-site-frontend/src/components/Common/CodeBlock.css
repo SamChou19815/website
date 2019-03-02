@@ -15,11 +15,15 @@
 
 .hljs-doctag, .hljs-keyword, .hljs-formula, .hljs-built_in {
   color: #3E7AE2;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .hljs-class, .hljs-type {
   color: #9A30AD;
+}
+
+.hljs-method {
+  color: #D52262;
 }
 
 .hljs-type-params {

@@ -14,7 +14,14 @@ type Props = {|
 
 export default function CodeBlock({ children, className, style }: Props): Node {
   const codeBlockRef = React.useRef(null);
-  React.useEffect(() => highlight.highlightBlock(codeBlockRef.current));
+  React.useEffect(() => {
+    try {
+      highlight.highlightBlock(codeBlockRef.current);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log('Safari does not support lookbehind regex. Skip rerender!');
+    }
+  });
   return (
     <pre className={className} style={style}>
       <code className="samlang" ref={codeBlockRef}>
