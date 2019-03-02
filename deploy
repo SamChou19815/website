@@ -1,11 +1,15 @@
 #!/bin/bash
 
-function deploy() {
-    echo "Deploying ${1}..."
+function buildFrontend() {
     cd ${1}-frontend/
     yarn
     yarn build
     cd ../
+}
+
+function deployAppEngineApp() {
+    echo "Deploying ${1}..."
+    buildFrontend $1
     rm -rf ${1}-backend/src/main/webapp/static/
     mkdir ${1}-backend/src/main/webapp/static
     cp -R ${1}-frontend/build/. ${1}-backend/src/main/webapp/static
@@ -17,10 +21,15 @@ function deploy() {
 
 if [[ "$1" = "dispatch" ]]; then
     gcloud app deploy dispatch.yaml --project=dev-sam
+elif [[ "$1" = "main-site" ]]; then
+    echo "Deploying ${1}..."
+    buildFrontend $1
+    cd main-site-frontend
+    firebase deploy
 elif [[ "$1" = "samlang-demo" ]]; then
-    deploy $1
+    deployAppEngineApp $1
 elif [[ "$1" = "ten-web" ]]; then
-    deploy $1
+    deployAppEngineApp $1
 elif [[ "$1" = "" ]]; then
     echo "No deployment target specified. Abort!"
     echo "Supported commands: deploy dispatch, deploy samlang-demo, deploy ten-web"
