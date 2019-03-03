@@ -32,7 +32,7 @@ export default function App() {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" color="inherit" className={styles.Title}>
-              SAMLANG Type-checker & Interpreter Demo
+              SAMLANG Demo
             </Typography>
             <Button color="inherit">
               <Link
