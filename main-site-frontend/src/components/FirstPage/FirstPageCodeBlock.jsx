@@ -18,21 +18,20 @@ const code = `
 // Try it by yourself at
 // https://samlang-demo.developersam.com
  
-class Birthday(year: int, month: int, day: int) {
-  public function ofSam(): Birthday =
-    { year: 1998, month: 11, day: 15 }
+class List<T>(Nil(unit), Cons([T * List<T>])) {
+  public function <T> of(t: T): List<T> =
+    Cons([t, Nil(unit)])
+  public method cons(t: T): List<T> =
+    Cons([t, this])
 }
 class Developer(
-  name: string, university: string,
-  github: string, birthday: Birthday,
+  name: string, github: string,
+  projects: List<string>,
 ) {
   public function sam(): Developer =
-    val university = "Cornell University";
+    val l = List::of("SAMLANG")::cons("...");
     val github = "SamChou19815";
-    { 
-      name: "Sam Zhou", university, github,
-      birthday: Birthday::ofSam(),
-    }
+    { name: "Sam Zhou", github, projects: l }
 }
 util Main {
   function main(): Developer = Developer::sam()

@@ -28,7 +28,7 @@ highlight.registerLanguage('samlang', hljs => ({
     },
     {
       className: 'type-params',
-      begin: /</,
+      begin: /<(?!(int|string|bool))/,
       end: />/,
       excludeBegin: true,
       excludeEnd: true,
