@@ -52,6 +52,9 @@ export default (): Node => (
           .
         </CardContent>
         <CardActions>
+          <ButtonLink href="https://samwise.today" openInNewTab>
+            App
+          </ButtonLink>
           <ButtonLink href="https://github.com/cornell-dti/samwise" openInNewTab>
             GitHub Repo
           </ButtonLink>
