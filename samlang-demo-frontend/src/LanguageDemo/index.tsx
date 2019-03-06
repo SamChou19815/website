@@ -1,17 +1,16 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styles from './LanguageDemo.module.css';
 import ResultCard from './ResultCard';
 import InputCard from './InputCard';
-import interpret from './interpret';
+import interpret, { Response } from './interpret';
+
+type Resp = Response | 'waiting' | 'server-error' | null;
 
 /**
  * The component of the language demo.
  */
-export default function LanguageDemo(): Node {
-  const [response, setResponse] = React.useState(null);
+export default function LanguageDemo(): ReactElement {
+  const [response, setResponse] = React.useState<Resp>(null);
 
   const onSubmit = (programString: string): void => {
     interpret(programString)

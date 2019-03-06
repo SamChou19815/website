@@ -1,17 +1,20 @@
-// @flow strict
+type GoodProgramResponse = {
+  readonly type: 'GOOD_PROGRAM';
+  readonly detail: {
+    readonly result: string;
+    readonly prettyPrintedProgram: string;
+  };
+};
 
-type GoodProgramResponse = {|
-  +type: 'GOOD_PROGRAM';
-  +detail: {| +result: string; +prettyPrintedProgram: string |};
-|};
-type BadSyntaxResponse = {|
-  +type: 'BAD_SYNTAX';
-  +detail: string;
-|};
-type BadTypeResponse = {|
-  +type: 'BAD_TYPE';
-  +detail: string;
-|};
+type BadSyntaxResponse = {
+  readonly type: 'BAD_SYNTAX';
+  readonly detail: string;
+};
+
+type BadTypeResponse = {
+  readonly type: 'BAD_TYPE';
+  readonly detail: string;
+};
 export type Response = GoodProgramResponse | BadSyntaxResponse | BadTypeResponse;
 
 /**

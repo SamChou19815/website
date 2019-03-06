@@ -1,22 +1,13 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
-// $FlowFixMe
 import Card from '@material-ui/core/Card';
-// $FlowFixMe
 import CardContent from '@material-ui/core/CardContent';
-// $FlowFixMe
 import CardActions from '@material-ui/core/CardActions';
-// $FlowFixMe
 import CardHeader from '@material-ui/core/CardHeader';
-// $FlowFixMe
 import TextField from '@material-ui/core/TextField';
 import styles from './LanguageDemo.module.css';
 
-type Props = {| +onSubmit: (string) => void; |};
+type Props = { readonly onSubmit: (code: string) => void; };
 
 const initialText = '/* Start to type your program */\n'
   + '/* Add your comments */\n'
@@ -25,7 +16,7 @@ const initialText = '/* Start to type your program */\n'
 /**
  * The component of the language demo.
  */
-export default function InputCard({ onSubmit }: Props): Node {
+export default function InputCard({ onSubmit }: Props): ReactElement {
   const [text, setText] = React.useState<string>(initialText);
   return (
     <Card className={styles.ParallelCard}>

@@ -1,26 +1,20 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactNode, ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
-// $FlowFixMe
 import CardContent from '@material-ui/core/CardContent';
-// $FlowFixMe
 import CardHeader from '@material-ui/core/CardHeader';
-import type { Response } from './interpret';
+import { Response } from './interpret';
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
 
-type Props = {|
-  +response: Response | 'waiting' | 'server-error' | null;
-|};
+type Props = {
+  readonly response: Response | 'waiting' | 'server-error' | null;
+};
 
 /**
  * The component of the language demo.
  */
-export default function ResultCard({ response }: Props): Node {
-  let children: Node;
+export default function ResultCard({ response }: Props): ReactElement {
+  let children: ReactNode;
   if (response === null) {
     children = 'Submit a program to see the interpretation result.';
   } else if (response === 'waiting') {
