@@ -1,14 +1,11 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styles from './BoardCell.module.css';
 
-type Props = {|
-  +tileStatus: number;
-  +doesNeedHighlight: boolean;
-  +onClick: () => void;
-|};
+type Props = {
+  readonly tileStatus: number;
+  readonly doesNeedHighlight: boolean;
+  readonly onClick: () => void;
+};
 
 /**
  * The board cell to display.
@@ -19,7 +16,7 @@ type Props = {|
  * @return {Node} the rendered node.
  * @constructor
  */
-export default function BoardCell({ tileStatus, doesNeedHighlight, onClick }: Props): Node {
+export default function BoardCell({ tileStatus, doesNeedHighlight, onClick }: Props): ReactElement {
   let backgroundColor: string;
   if (tileStatus === 1) {
     backgroundColor = 'black';

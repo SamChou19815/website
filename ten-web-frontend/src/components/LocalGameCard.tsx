@@ -1,30 +1,29 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-import {
-  getGameStatus,
-  makeMoveWithoutCheck,
-} from '../game/board';
+import React, { ReactElement } from 'react';
+import { getGameStatus, makeMoveWithoutCheck, Board } from '../game/board';
+// @ts-ignore
 import AIEngineWorker from '../game/ai-engine.worker';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';
+import { Status } from './GameCard';
+import { MctsResponse } from '../game/mcts';
 
 // $FlowFixMe flow doesn't have support for worker yet...
 const worker: any = new AIEngineWorker();
 
+type EventType =  { data: { aiResponse: MctsResponse, board: Board } };
+
 /**
  * The game card in local mode.
  */
-export default function LocalGameCard(): Node {
+export default function LocalGameCard(): ReactElement {
   const [gameState, setGameState] = React.useState(initialGameState);
   const [isWorkerListenerSet, setIsWorkerListenerSet] = React.useState(false);
 
-  const aiResponseListener = (event) => {
+  const aiResponseListener = (event: EventType) => {
     const { aiResponse, board } = event.data;
     const { move, winningPercentage, simulationCounter } = aiResponse;
     const newBoardAfterAI = makeMoveWithoutCheck(board, move);
     const gameStatus = getGameStatus(newBoardAfterAI);
-    let newStatus;
+    let newStatus: Status;
     if (gameStatus === 1) {
       newStatus = 'BLACK_WINS';
     } else if (gameStatus === -1) {

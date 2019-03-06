@@ -1,21 +1,11 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
-import Button from '@material-ui/core/Button';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import AppBar from '@material-ui/core/AppBar';
-// $FlowFixMe
+import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
-// $FlowFixMe
 import Toolbar from '@material-ui/core/Toolbar';
-// $FlowFixMe
 import Typography from '@material-ui/core/Typography';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-// $FlowFixMe
-import { blueGrey } from '@material-ui/core/colors';
-// $FlowFixMe
+import { blueGrey as primary } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 import DistributedGameCard from './components/DistributedGameCard';
 import LocalGameCard from './components/LocalGameCard';
@@ -24,11 +14,11 @@ import styles from './App.module.css';
 type Mode = 'Local' | 'Distributed';
 
 const theme = createMuiTheme({
-  palette: { primary: blueGrey },
+  palette: { primary },
   typography: { useNextVariants: true },
 });
 
-export default function App(): Node {
+export default function App(): ReactElement {
   const [mode, setMode] = React.useState<Mode>('Local');
 
   return (

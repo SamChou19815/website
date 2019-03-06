@@ -1,11 +1,11 @@
 // @flow strict
 
-export opaque type Board : { +tiles: number[]; +playerIdentity: 1 | -1 } = {|
+export type Board = {
   /**
    * In variable names, a big square refers to a 3*3 square;
    * a tile refers to a 1*1 square.
    */
-  +tiles: number[];
+  readonly tiles: number[];
   /**
    * Keep track of winning progress on big squares.
    * 1 ==> BLACK_WINS
@@ -13,22 +13,22 @@ export opaque type Board : { +tiles: number[]; +playerIdentity: 1 | -1 } = {|
    * 0 ==> INCONCLUSIVE
    * -2 ==> ALL_OCCUPIED
    */
-  +bigSquareStatusArray: number[];
+  readonly bigSquareStatusArray: number[];
   /**
    * The current legal big square to pick as next move. If it's value is -1,
    * that means the user can place the move everywhere.
    * This variable is important for maintaining the current game state.
    */
-  +bigSquareToPick: number;
+  readonly bigSquareToPick: number;
   /**
    * Counter of big squares occupied by black or white.
    */
-  +winningCounter: [number, number];
+  readonly winningCounter: [number, number];
   /**
    * The identity of the current player. Either 1 or -1.
    */
-  +playerIdentity: 1 | -1;
-|};
+  readonly playerIdentity: 1 | -1;
+};
 
 export type Move = [number, number];
 
@@ -77,7 +77,7 @@ export function allLegalMovesForAI(board: Board): Move[] {
   if (bigSquareToPick === -1) {
     for (let i = 0; i < 9; i += 1) {
       for (let j = 0; j < 9; j += 1) {
-        const move = [i, j];
+        const move: Move = [i, j];
         if (isLegalMove(board, move)) {
           list.push(move);
         }
@@ -85,7 +85,7 @@ export function allLegalMovesForAI(board: Board): Move[] {
     }
   } else {
     for (let j = 0; j < 9; j += 1) {
-      const move = [bigSquareToPick, j];
+      const move: Move = [bigSquareToPick, j];
       if (isLegalMove(board, move)) {
         list.push(move);
       }
@@ -165,8 +165,8 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
   } else if (newBigSquareStatus === -1) {
     whiteCounter += 1;
   }
-  const winningCounter = [blackCounter, whiteCounter];
-  const playerIdentity = -oldPlayerIdentity;
+  const winningCounter: [number, number] = [blackCounter, whiteCounter];
+  const playerIdentity = (-oldPlayerIdentity) as 1 | -1;
   return {
     tiles, bigSquareStatusArray, bigSquareToPick, winningCounter, playerIdentity,
   };
@@ -202,7 +202,7 @@ export function getGameStatus(board: Board): 1 | -1 | 0 {
 /**
  * Convert the board to a json for server communication.
  */
-export function boardToJson(board: Board): mixed {
+export function boardToJson(board: Board): object {
   const { tiles, bigSquareToPick, playerIdentity } = board;
   return { tiles, bigSquareToPick, playerIdentity };
 }

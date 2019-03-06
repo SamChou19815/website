@@ -1,19 +1,13 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';
-import type { Board } from '../game/board';
-import {
-  boardToJson,
-  getGameStatus,
-  makeMoveWithoutCheck,
-} from '../game/board';
+import { Board } from '../game/board';
+import { boardToJson, getGameStatus, makeMoveWithoutCheck } from '../game/board';
+import { Status } from './GameCard';
 
 /**
  * The game card in local mode.
  */
-export default function DistributedGameCard(): Node {
+export default function DistributedGameCard(): ReactElement {
   const [gameState, setGameState] = React.useState(initialGameState);
 
   const aiResponder = (board: Board): void => {
@@ -23,7 +17,7 @@ export default function DistributedGameCard(): Node {
         const { move, winningPercentage, simulationCounter } = json;
         const newBoardAfterAI = makeMoveWithoutCheck(board, move);
         const gameStatus = getGameStatus(newBoardAfterAI);
-        let newStatus;
+        let newStatus: Status;
         if (gameStatus === 1) {
           newStatus = 'BLACK_WINS';
         } else if (gameStatus === -1) {
@@ -31,11 +25,12 @@ export default function DistributedGameCard(): Node {
         } else {
           newStatus = 'PLAYER_MOVE';
         }
+        const aiInfo: [number, number] = [winningPercentage, simulationCounter];
         setGameState({
           board: newBoardAfterAI,
           highlightedCell: move,
           status: newStatus,
-          aiInfo: [winningPercentage, simulationCounter],
+          aiInfo,
         });
       });
   };

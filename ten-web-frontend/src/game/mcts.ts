@@ -1,23 +1,16 @@
 // @flow strict
 
-import type {
-  Board,
-  Move,
-} from './board';
-import {
-  allLegalMovesForAI,
-  getGameStatus,
-  makeMoveWithoutCheck,
-} from './board';
+import { Board, Move } from './board';
+import { allLegalMovesForAI, getGameStatus, makeMoveWithoutCheck } from './board';
 
-type Node = {|
-  +parent: Node | null;
-  +move: Move;
-  +board: Board;
-  +children: Node[];
+type Node = {
+  readonly parent: Node | null;
+  readonly move: Move;
+  readonly board: Board;
+  readonly children: Node[];
   winningProbNum: number;
   winningProbDen: number;
-|};
+};
 
 const timeLimit: number = 1500;
 
@@ -148,11 +141,11 @@ function think(root: Node, playerIdentity: 1 | -1): number {
   return simCounter;
 }
 
-export type MctsResponse = {|
-  +move: Move;
-  +winningPercentage: number;
-  +simulationCounter: number;
-|};
+export type MctsResponse = {
+  readonly move: Move;
+  readonly winningPercentage: number;
+  readonly simulationCounter: number;
+};
 
 /**
  * Select the best move.
@@ -161,7 +154,7 @@ export type MctsResponse = {|
  * @return {[Move, number, number]} the move chosen, winning percentage, and simulation counter.
  */
 export default function selectMove(board: Board): MctsResponse {
-  const root = {
+  const root: Node = {
     parent: null,
     move: [-1, -1],
     board,

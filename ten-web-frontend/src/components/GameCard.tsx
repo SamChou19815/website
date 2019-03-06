@@ -1,31 +1,23 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
-// $FlowFixMe
 import Card from '@material-ui/core/Card';
-// $FlowFixMe
 import CardContent from '@material-ui/core/CardContent';
-// $FlowFixMe
 import CardActions from '@material-ui/core/CardActions';
-// $FlowFixMe
 import CardHeader from '@material-ui/core/CardHeader';
-import type { Board } from '../game/board';
+import { Board } from '../game/board';
 import BoardGrid from './BoardGrid';
 import styles from './GameCard.module.css';
 
 export type Status = 'PLAYER_MOVE' | 'ILLEGAL_MOVE' | 'AI_MOVE' | 'BLACK_WINS' | 'WHITE_WINS';
 
-type Props = {|
-  +board: Board;
-  +clickCallback: (number, number) => void;
-  +onSelectSide: (1 | -1) => void;
-  +status: Status;
-  +highlightedCell: [number, number] | null;
-  +aiInfo: [number, number] | null;
-|};
+type Props = {
+  readonly board: Board;
+  readonly clickCallback: (a: number, b: number) => void;
+  readonly onSelectSide: (side: 1 | -1) => void;
+  readonly status: Status;
+  readonly highlightedCell: [number, number] | null;
+  readonly aiInfo: [number, number] | null;
+};
 
 /**
  * The presentational game card.
@@ -34,7 +26,7 @@ type Props = {|
  * @return {Node} the rendered node.
  * @constructor
  */
-export default function GameCard(props: Props): Node {
+export default function GameCard(props: Props): ReactElement {
   const {
     board, clickCallback, onSelectSide,
     status, highlightedCell, aiInfo,
@@ -66,7 +58,7 @@ export default function GameCard(props: Props): Node {
     default:
       throw new Error('Bad status!');
   }
-  let aiInfoNode: Node;
+  let aiInfoNode: ReactElement | null;
   if (aiInfo === null) {
     aiInfoNode = null;
   } else {

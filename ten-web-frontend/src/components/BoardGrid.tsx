@@ -1,15 +1,12 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import BoardCell from './BoardCell';
 import styles from './BoardGrid.module.css';
 
-type Props = {|
-  +tiles: number[];
-  +highlightedCell: [number, number] | null;
-  +clickCallback: (number, number) => void;
-|};
+type Props = {
+  readonly tiles: number[];
+  readonly highlightedCell: [number, number] | null;
+  readonly clickCallback: (a: number, b: number) => void;
+};
 
 /**
  * The board grid to display.
@@ -20,7 +17,7 @@ type Props = {|
  * @return {Node} the rendered node.
  * @constructor
  */
-export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Props): Node {
+export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Props): ReactElement {
   const children = [];
   for (let i = 0; i < 9; i += 1) {
     for (let j = 0; j < 9; j += 1) {
