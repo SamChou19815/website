@@ -1,29 +1,26 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
-// $FlowFixMe
 import CardHeader from '@material-ui/core/CardHeader';
-// $FlowFixMe
 import CardActions from '@material-ui/core/CardActions';
-// $FlowFixMe
 import CardContent from '@material-ui/core/CardContent';
-// $FlowFixMe
 import Icon from '@material-ui/core/Icon';
 import styles from './FirstPage.module.css';
 import FirstPageCodeBlock from './FirstPageCodeBlock';
 import ButtonLink from '../Common/ButtonLink';
 
-const IconLine = ({ icon, children }: {| +icon: string; +children: string |}): Node => (
+type IconLineProps = {
+  readonly icon: string;
+  readonly children: string;
+}
+
+const IconLine = ({ icon, children }: IconLineProps): ReactElement => (
   <CardContent className={styles.IconLine}>
     <Icon>{icon}</Icon>
     <span className={styles.IconLineText}>{children}</span>
   </CardContent>
 );
 
-export default (): Node => (
+export default (): ReactElement => (
   <div id="about" className={styles.FirstPage}>
     <FirstPageCodeBlock />
     <Card className={styles.InfoCard}>

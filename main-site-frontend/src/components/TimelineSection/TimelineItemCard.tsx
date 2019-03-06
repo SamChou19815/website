@@ -1,27 +1,19 @@
-// @flow strict
 /* eslint-disable react/no-array-index-key */
 
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
-// $FlowFixMe
 import CardHeader from '@material-ui/core/CardHeader';
-// $FlowFixMe
 import CardActions from '@material-ui/core/CardActions';
-// $FlowFixMe
 import CardContent from '@material-ui/core/CardContent';
-// $FlowFixMe
 import CardMedia from '@material-ui/core/CardMedia';
-// $FlowFixMe
 import Icon from '@material-ui/core/Icon';
-import type { TimelineItem } from './items';
+import { TimelineItem } from './items';
 import styles from './TimelineItemCard.module.css';
 import ButtonLink from '../Common/ButtonLink';
 
-type Props = {| +item: TimelineItem |};
+type Props = { readonly item: TimelineItem };
 
-export default ({ item: { title, type, time, image, detail, links } }: Props): Node => {
+export default ({ item: { title, type, time, image, detail, links } }: Props): ReactElement => {
   let iconId: string;
   let subheader: string;
   switch (type) {

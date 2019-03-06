@@ -1,22 +1,22 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import highlight from 'highlight.js';
 import './CodeBlock.css';
 
-type Props = {|
-  +children: string;
-  +className?: string;
-  +style?: { +[string]: string }
-|};
+type Props = {
+  readonly children: string;
+  readonly className?: string;
+  readonly style?: { [cssProp: string]: string }
+};
 
-export default function CodeBlock({ children, className, style }: Props): Node {
+export default function CodeBlock({ children, className, style }: Props): ReactElement {
   const codeBlockRef = React.useRef(null);
   React.useEffect(() => {
+    const node = codeBlockRef.current;
+    if (node == null) {
+      return;
+    }
     try {
-      highlight.highlightBlock(codeBlockRef.current);
+      highlight.highlightBlock(node);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log('Safari does not support lookbehind regex. Skip rerender!');

@@ -1,23 +1,22 @@
-// @flow strict
 /* eslint-disable react/no-array-index-key */
 
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
-// $FlowFixMe
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-// $FlowFixMe
 import Checkbox from '@material-ui/core/Checkbox';
 import ConsoleSection from '../Common/ConsoleSection';
-import type { TimelineItem } from './items';
+import { TimelineItem } from './items';
 import items from './items';
 import TimelineItemCard from './TimelineItemCard';
 import styles from './TimelineSection.module.css';
 
-type CheckboxProps = {| +label: string; +checked: boolean; onChange: () => void |};
+type CheckboxProps = {
+  readonly label: string;
+  readonly checked: boolean;
+  readonly onChange: () => void;
+};
 
-const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): Node => (
+const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactElement => (
   <FormControlLabel
     control={(
       <Checkbox
@@ -30,7 +29,7 @@ const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): Node =
   />
 );
 
-export default (): Node => {
+export default (): ReactElement => {
   const [workChecked, setWorkChecked] = React.useState(true);
   const [projectsChecked, setProjectsChecked] = React.useState(true);
   const [eventsChecked, setEventsChecked] = React.useState(true);

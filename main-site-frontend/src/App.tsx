@@ -1,16 +1,8 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import AppBar from '@material-ui/core/AppBar';
-// $FlowFixMe
 import Toolbar from '@material-ui/core/Toolbar';
-// $FlowFixMe
 import Typography from '@material-ui/core/Typography';
-// $FlowFixMe
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-// $FlowFixMe
 import { createMuiTheme } from '@material-ui/core/styles';
 import styles from './App.module.css';
 import ButtonLink from './components/Common/ButtonLink';
@@ -27,7 +19,7 @@ const theme = createMuiTheme({
   typography: { useNextVariants: true },
 });
 
-export default (): Node => (
+export default (): ReactElement => (
   <MuiThemeProvider theme={theme}>
     <div className={styles.App}>
       <AppBar position="fixed" className={styles.AppBar}>

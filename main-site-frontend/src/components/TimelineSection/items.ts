@@ -1,5 +1,3 @@
-// @flow strict
-
 import ChunkReader from '../../assets/timeline/chunk-reader.jpg';
 import CritterCompiler from '../../assets/timeline/critter-compiler.png';
 import FacebookHackerWay from '../../assets/timeline/fb-hacker-way.jpg';
@@ -11,14 +9,14 @@ import SAMLANG from '../../assets/projects/samlang.png';
 import Samwise from '../../assets/projects/samwise.png';
 import SAMPL from '../../assets/timeline/sampl.png';
 
-export type TimelineItem = {|
-  +title: string;
-  +type: 'work' | 'project' | 'event';
-  +time: string;
-  +image?: string;
-  +detail?: string;
-  +links?: {| +name: string; url: string; |}[];
-|};
+export type TimelineItem = {
+  readonly title: string;
+  readonly type: 'work' | 'project' | 'event';
+  readonly time: string;
+  readonly image?: string;
+  readonly detail?: string;
+  readonly links?: { readonly name: string; readonly url: string; }[];
+};
 
 const items: TimelineItem[] = [
   {

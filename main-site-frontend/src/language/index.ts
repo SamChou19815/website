@@ -1,8 +1,6 @@
-// @flow strict
-
-// $FlowFixMe
 import highlight from 'highlight.js';
 
+// @ts-ignore
 highlight.registerLanguage('samlang', hljs => ({
   keywords: {
     keyword: 'class util val function method as public if then else match',
@@ -10,9 +8,13 @@ highlight.registerLanguage('samlang', hljs => ({
     built_in: 'unit int bool string this panic',
   },
   contains: [
+    // @ts-ignore
     hljs.QUOTE_STRING_MODE,
+    // @ts-ignore
     hljs.C_LINE_COMMENT_MODE,
+    // @ts-ignore
     hljs.C_BLOCK_COMMENT_MODE,
+    // @ts-ignore
     hljs.NUMBER_MODE,
     {
       className: 'type',

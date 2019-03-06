@@ -1,18 +1,9 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
-// $FlowFixMe
+import React, { ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
-// $FlowFixMe
 import CardHeader from '@material-ui/core/CardHeader';
-// $FlowFixMe
 import CardActions from '@material-ui/core/CardActions';
-// $FlowFixMe
 import CardContent from '@material-ui/core/CardContent';
-// $FlowFixMe
 import CardMedia from '@material-ui/core/CardMedia';
-// $FlowFixMe
 import Icon from '@material-ui/core/Icon';
 import ConsoleSection from '../Common/ConsoleSection';
 import styles from './ProjectsSection.module.css';
@@ -21,7 +12,7 @@ import TEN from '../../assets/projects/ten.png';
 import SAMLANG from '../../assets/projects/samlang.png';
 import Samwise from '../../assets/projects/samwise.png';
 
-export default (): Node => (
+export default (): ReactElement => (
   <ConsoleSection id="projects" title="./active-projects --pretty-print">
     <div className={styles.ProjectContainer}>
       <Card className={styles.ProjectCard}>

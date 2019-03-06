@@ -1,7 +1,4 @@
-// @flow strict
-
-import type { Node } from 'react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import CodeBlock from '../Common/CodeBlock';
 import styles from './FirstPageCodeBlock.module.css';
 
@@ -17,7 +14,7 @@ const code = `
 // The code below is a well-typed SAMLANG program.
 // Try it by yourself at
 // https://samlang-demo.developersam.com
- 
+
 class List<T>(Nil(unit), Cons([T * List<T>])) {
   public function <T> of(t: T): List<T> =
     Cons([t, Nil(unit)])
@@ -38,4 +35,4 @@ util Main {
 }
 `;
 
-export default (): Node => <CodeBlock className={styles.Block}>{code}</CodeBlock>;
+export default (): ReactElement => <CodeBlock className={styles.Block}>{code}</CodeBlock>;
