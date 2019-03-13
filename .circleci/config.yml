@@ -78,6 +78,6 @@ workflows:
       - tsc-main-site-frontend
       - tsc-samlang-demo-frontend
       - tsc-ten-web-frontend
-      - deploy-main-site-frontend
-        requires:
-          - tsc-main-site-frontend
+      - deploy-main-site-frontend:
+          requires:
+            - tsc-main-site-frontend
