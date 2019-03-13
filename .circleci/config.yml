@@ -65,6 +65,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Chrome
+          command: |
+            apk add --no-cache nss@edge
+            apk add --no-cache chromium@edge
+      - run:
           name: Deploy to Firebase
           command: |
             if [ "${CIRCLE_BRANCH}" = "master" ]; then
