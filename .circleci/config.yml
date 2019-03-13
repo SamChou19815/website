@@ -1,6 +1,7 @@
-version: 2
+version: 2.1
 jobs:
   tsc-main-site-frontend:
+    description: Run TypeScript type-checker on main-site-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -11,7 +12,7 @@ jobs:
             - main-site-frontend-dependencies-{{ .Branch }}-{{ checksum "main-site-frontend/yarn.lock" }}
             - main-site-frontend-dependencies-{{ .Branch }}-
             - main-site-frontend-dependencies-
-      - run: cd main-site-frontend && yarn install --frozen-lockfile
+      - run: cd main-site-frontend && yarn install
       - save_cache:
           paths:
             - main-site-frontend/node_modules
@@ -19,6 +20,7 @@ jobs:
       # run typescript compiler
       - run: cd main-site-frontend && yarn tsc
   tsc-samlang-demo-frontend:
+    description: Run TypeScript type-checker on samlang-demo-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -29,7 +31,7 @@ jobs:
             - samlang-demo-frontend-dependencies-{{ .Branch }}-{{ checksum "samlang-demo-frontend/yarn.lock" }}
             - samlang-demo-frontend-dependencies-{{ .Branch }}-
             - samlang-demo-frontend-dependencies-
-      - run: cd samlang-demo-frontend && yarn install --frozen-lockfile
+      - run: cd samlang-demo-frontend && yarn install
       - save_cache:
           paths:
             - samlang-demo-frontend/node_modules
@@ -37,6 +39,7 @@ jobs:
       # run typescript compiler
       - run: cd samlang-demo-frontend && yarn tsc
   tsc-ten-web-frontend:
+    description: Run TypeScript type-checker on ten-web-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -47,13 +50,30 @@ jobs:
             - ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
             - ten-web-frontend-dependencies-{{ .Branch }}-
             - ten-web-frontend-dependencies-
-      - run: cd ten-web-frontend && yarn install --frozen-lockfile
+      - run: cd ten-web-frontend && yarn install
       - save_cache:
           paths:
             - ten-web-frontend/node_modules
           key: ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
       # run typescript compiler
       - run: cd ten-web-frontend && yarn tsc
+  deploy-main-site-frontend:
+    description: Deploy main-site-frontend to firebase hosting
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+    steps:
+      - run:
+          name: Deploy to Firebase
+          command: |
+            if [ "${CIRCLE_BRANCH}" = "master" ]; then
+              cd main-site-frontend
+              yarn build
+              ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting
+              cd ../
+            else
+              echo "Not master branch, do not deploy"
+            fi
 workflows:
   version: 2
   tsc-all-frontend:
@@ -61,3 +81,6 @@ workflows:
       - tsc-main-site-frontend
       - tsc-samlang-demo-frontend
       - tsc-ten-web-frontend
+      - deploy-main-site-frontend:
+          requires:
+            - tsc-main-site-frontend
