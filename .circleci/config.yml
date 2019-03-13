@@ -17,7 +17,7 @@ jobs:
             - main-site-frontend/node_modules
           key: main-site-frontend-dependencies-{{ .Branch }}-{{ checksum "main-site-frontend/yarn.lock" }}
       # run typescript compiler
-      - run: cd main-site-frontend & yarn tsc
+      - run: cd main-site-frontend && yarn tsc
   tsc-samlang-demo-frontend:
     docker:
       - image: circleci/node:lts
@@ -35,7 +35,7 @@ jobs:
             - samlang-demo-frontend/node_modules
           key: samlang-demo-frontend-dependencies-{{ .Branch }}-{{ checksum "samlang-demo-frontend/yarn.lock" }}
       # run typescript compiler
-      - run: cd samlang-demo-frontend & yarn tsc
+      - run: cd samlang-demo-frontend && yarn tsc
   tsc-ten-web-frontend:
     docker:
       - image: circleci/node:lts
@@ -53,7 +53,7 @@ jobs:
             - ten-web-frontend/node_modules
           key: ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
       # run typescript compiler
-      - run: cd ten-web-frontend & yarn tsc
+      - run: cd ten-web-frontend && yarn tsc
 workflows:
   version: 2
   tsc-all-frontend:
