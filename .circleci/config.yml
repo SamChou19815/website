@@ -63,11 +63,13 @@ jobs:
       - image: circleci/node:lts
     working_directory: ~/repo
     steps:
+      - checkout
       - run:
           name: Deploy to Firebase
           command: |
             if [ "${CIRCLE_BRANCH}" = "master" ]; then
               cd main-site-frontend
+              yarn
               yarn build
               ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting
               cd ../
