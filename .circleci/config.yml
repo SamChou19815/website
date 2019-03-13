@@ -59,8 +59,9 @@ jobs:
       - run: cd ten-web-frontend && yarn tsc
   deploy-main-site-frontend:
     description: Deploy main-site-frontend to firebase hosting
-    docker:
-      - image: circleci/node:lts-browsers
+    machine:
+      node:
+        version: 10
     working_directory: ~/repo
     steps:
       - checkout
