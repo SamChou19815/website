@@ -1,6 +1,7 @@
-version: 2
+version: 2.1
 jobs:
   tsc-main-site-frontend:
+    description: Run TypeScript type-checker on main-site-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -19,6 +20,7 @@ jobs:
       # run typescript compiler
       - run: cd main-site-frontend && yarn tsc
   tsc-samlang-demo-frontend:
+    description: Run TypeScript type-checker on samlang-demo-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -37,6 +39,7 @@ jobs:
       # run typescript compiler
       - run: cd samlang-demo-frontend && yarn tsc
   tsc-ten-web-frontend:
+    description: Run TypeScript type-checker on ten-web-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -54,6 +57,20 @@ jobs:
           key: ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
       # run typescript compiler
       - run: cd ten-web-frontend && yarn tsc
+  deploy-main-site-frontend:
+    description: Deploy main-site-frontend to firebase hosting
+    steps:
+      - run:
+          name: Deploy to Firebase
+          command: |
+            if [ "${CIRCLE_BRANCH}" = "master" ]; then
+              cd main-site-frontend
+              yarn build
+              ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting
+              cd ../
+            else
+              echo "Not master branch, do not deploy"
+            fi
 workflows:
   version: 2
   tsc-all-frontend:
@@ -61,3 +78,6 @@ workflows:
       - tsc-main-site-frontend
       - tsc-samlang-demo-frontend
       - tsc-ten-web-frontend
+      - deploy-main-site-frontend
+        requires:
+          - tsc-main-site-frontend

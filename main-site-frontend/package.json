@@ -21,7 +21,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
-    "flow-bin": "^0.94.0",
+    "firebase-tools": "^6.5.0",
     "react-snap": "^1.23.0",
     "typescript": "^3.3.3333"
   },
