@@ -1,0 +1,63 @@
+version: 2
+jobs:
+  tsc-main-site-frontend:
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - main-site-frontend-dependencies-{{ .Branch }}-{{ checksum "main-site-frontend/yarn.lock" }}
+            - main-site-frontend-dependencies-{{ .Branch }}-
+            - main-site-frontend-dependencies-
+      - run: cd main-site-frontend && yarn install --frozen-lockfile
+      - save_cache:
+          paths:
+            - main-site-frontend/node_modules
+          key: main-site-frontend-dependencies-{{ .Branch }}-{{ checksum "main-site-frontend/yarn.lock" }}
+      # run typescript compiler
+      - run: cd main-site-frontend & yarn tsc
+  tsc-samlang-demo-frontend:
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - samlang-demo-frontend-dependencies-{{ .Branch }}-{{ checksum "samlang-demo-frontend/yarn.lock" }}
+            - samlang-demo-frontend-dependencies-{{ .Branch }}-
+            - samlang-demo-frontend-dependencies-
+      - run: cd samlang-demo-frontend && yarn install --frozen-lockfile
+      - save_cache:
+          paths:
+            - samlang-demo-frontend/node_modules
+          key: samlang-demo-frontend-dependencies-{{ .Branch }}-{{ checksum "samlang-demo-frontend/yarn.lock" }}
+      # run typescript compiler
+      - run: cd samlang-demo-frontend & yarn tsc
+  tsc-ten-web-frontend:
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
+            - ten-web-frontend-dependencies-{{ .Branch }}-
+            - ten-web-frontend-dependencies-
+      - run: cd ten-web-frontend && yarn install --frozen-lockfile
+      - save_cache:
+          paths:
+            - ten-web-frontend/node_modules
+          key: ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
+      # run typescript compiler
+      - run: cd ten-web-frontend & yarn tsc
+workflows:
+  version: 2
+  tsc-all-frontend:
+    jobs:
+      - tsc-main-site-frontend
+      - tsc-samlang-demo-frontend
+      - tsc-ten-web-frontend
