@@ -1,17 +1,35 @@
 {
-  "extends": [
-    "airbnb",
-    "plugin:flowtype/recommended"
-  ],
+  "extends": ["airbnb"],
   "parser": "babel-eslint",
-  "plugins": [
-    "flowtype"
-  ],
+  "plugins": [],
   "env": {
     "browser": true,
     "node": true
   },
   "rules": {
-    "no-underscore-dangle": "off"
+    "object-curly-newline": [
+      "error", {
+        "ObjectExpression": {
+          "minProperties": 10,
+          "multiline": true,
+          "consistent": true
+        },
+        "ObjectPattern": {
+          "minProperties": 10,
+          "multiline": true,
+          "consistent": true
+        },
+        "ImportDeclaration": {
+          "minProperties": 10,
+          "multiline": true,
+          "consistent": true
+        },
+        "ExportDeclaration": {
+          "minProperties": 10,
+          "multiline": true,
+          "consistent": true
+        }
+      }
+    ]
   }
 }
