@@ -1,6 +1,8 @@
 dispatch:
   - url: "dev-sam.appspot.com/*"
     service: default
+  - url: "admin.developersam.com/*"
+    service: admin
   - url: "ten.developersam.com/*"
     service: game-ten
   - url: "samlang-demo.developersam.com/*"

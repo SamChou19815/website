@@ -1,0 +1,29 @@
+{
+  "name": "admin-backend",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "prepare": "yarn gcp-build",
+    "pretest": "yarn gcp-build",
+    "test": "repo-tools test app -- dist/index.js",
+    "posttest": "yarn lint",
+    "lint": "echo hi",
+    "start": "node ./dist/index.js",
+    "gcp-build": "tsc -p tsconfig.json",
+    "deploy": "gcloud app deploy --project=dev-sam --version=v1 --stop-previous-version"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "firebase-admin": "^7.2.0"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.2.0",
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.12.1",
+    "typescript": "^3.4.1"
+  }
+}
