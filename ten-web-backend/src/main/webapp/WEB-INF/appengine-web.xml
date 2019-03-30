@@ -8,6 +8,7 @@
     <runtime>java8</runtime>
     <public-root>/static</public-root>
     <static-files>
+        <include path="/**.txt"/>
         <include path="/**.jpg"/>
         <include path="/**.ico"/>
         <include path="/**.gif"/>
