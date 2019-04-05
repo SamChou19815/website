@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@dev-sam/996-icu-banner": "^0.3.0",
     "@material-ui/core": "^3.9.3",
     "highlight.js": "^9.15.6",
     "react": "^16.8.6",
@@ -15,6 +16,8 @@
     "@types/node": "^11.12.1",
     "@types/react": "^16.8.10",
     "@types/react-dom": "^16.8.3",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
     "eslint": "^5.15.3",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
@@ -42,6 +45,9 @@
     "not op_mini all"
   ],
   "reactSnap": {
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }
