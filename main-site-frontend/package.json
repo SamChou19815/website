@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@dev-sam/996-icu-banner": "^0.3.0",
+    "@dev-sam/996-icu-banner": "^0.4.0",
     "@material-ui/core": "^3.9.3",
     "highlight.js": "^9.15.6",
     "react": "^16.8.6",

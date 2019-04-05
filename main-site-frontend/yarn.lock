@@ -767,10 +767,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@dev-sam/996-icu-banner@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@dev-sam/996-icu-banner/-/996-icu-banner-0.3.0.tgz#f3674eafb7a0091ed75ba5f82a4015c1d263fdd1"
-  integrity sha512-O8KG+SpjWyqI0mH+3y7W0W8N7qjIJM/S5WO2XE2GQC5P4c1YqKyTJXvHlFTtC0zEGdwW4gKWP4rPZEpnYsPu/Q==
+"@dev-sam/996-icu-banner@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@dev-sam/996-icu-banner/-/996-icu-banner-0.4.0.tgz#7bd68fe2c7ee0e5ce86a7bdd2533b54cce7da904"
+  integrity sha512-XS7VG+ALHCcVUQdYnGXHwvq8Z6SKSS3eeOKVzfBIklYbIhWgQiGJIBYQTNPL1dkvukgHd4iTyd2NaJ5KIn2ppA==
   dependencies:
     react "^16.8.6"
     react-dom "^16.8.6"
