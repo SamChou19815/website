@@ -1029,6 +1029,11 @@
     "@svgr/plugin-svgo" "^4.0.3"
     loader-utils "^1.1.0"
 
+"@types/anymatch@*":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
+  integrity sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
+
 "@types/jest-diff@*":
   version "20.0.1"
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
@@ -1099,10 +1104,22 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/tapable@*":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.4.tgz#b4ffc7dc97b498c969b360a41eee247f82616370"
+  integrity sha512-78AdXtlhpCHT0K3EytMpn4JNxaf5tbqbLcbIRoQIHzpTIyjpxLQKRoxU55ujBXAtg3Nl2h/XWvfDa9dsMOd0pQ==
+
 "@types/tapable@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
   integrity sha512-42zEJkBpNfMEAvWR5WlwtTH22oDzcMjFsL9gDGExwF8X8WvAiw7Vwop7hPw03QT8TKfec83LwbHj6SvpqM4ELQ==
+
+"@types/uglify-js@*":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.0.4.tgz#96beae23df6f561862a830b4288a49e86baac082"
+  integrity sha512-SudIN9TRJ+v8g5pTG8RRCqfqTMNqgWCKKd3vtynhGzkIIjxaicNAMuY5TRadJ6tzDu3Dotf3ngaMILtmOdmWEQ==
+  dependencies:
+    source-map "^0.6.1"
 
 "@types/unist@*", "@types/unist@^2.0.0":
   version "2.0.3"
@@ -1125,6 +1142,44 @@
     "@types/node" "*"
     "@types/unist" "*"
     "@types/vfile-message" "*"
+
+"@types/webpack@^4.4.19":
+  version "4.4.27"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.4.27.tgz#8bb9429185977a6b3b9e6e6132f561066aa7e7c2"
+  integrity sha512-xSll/4UXnLQ0xjdAoTRIFxA6NPC2abJ8nHxRH6SqTymHrfGCc8er7qH0npwCP8q3VFoJh2Hjz1wH8oTjwx9/jQ==
+  dependencies:
+    "@types/anymatch" "*"
+    "@types/node" "*"
+    "@types/tapable" "*"
+    "@types/uglify-js" "*"
+    source-map "^0.6.0"
+
+"@typescript-eslint/eslint-plugin@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-1.6.0.tgz#a5ff3128c692393fb16efa403ec7c8a5593dab0f"
+  integrity sha512-U224c29E2lo861TQZs6GSmyC0OYeRNg6bE9UVIiFBxN2MlA0nq2dCrgIVyyRbC05UOcrgf2Wk/CF2gGOPQKUSQ==
+  dependencies:
+    "@typescript-eslint/parser" "1.6.0"
+    "@typescript-eslint/typescript-estree" "1.6.0"
+    requireindex "^1.2.0"
+    tsutils "^3.7.0"
+
+"@typescript-eslint/parser@1.6.0", "@typescript-eslint/parser@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-1.6.0.tgz#f01189c8b90848e3b8e45a6cdad27870529d1804"
+  integrity sha512-VB9xmSbfafI+/kI4gUK3PfrkGmrJQfh0N4EScT1gZXSZyUxpsBirPL99EWZg9MmPG0pzq/gMtgkk7/rAHj4aQw==
+  dependencies:
+    "@typescript-eslint/typescript-estree" "1.6.0"
+    eslint-scope "^4.0.0"
+    eslint-visitor-keys "^1.0.0"
+
+"@typescript-eslint/typescript-estree@1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-1.6.0.tgz#6cf43a07fee08b8eb52e4513b428c8cdc9751ef0"
+  integrity sha512-A4CanUwfaG4oXobD5y7EXbsOHjCwn8tj1RDd820etpPAjH+Icjc2K9e/DQM1Hac5zH2BSy+u6bjvvF2wwREvYA==
+  dependencies:
+    lodash.unescape "4.0.1"
+    semver "5.5.0"
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -3340,6 +3395,11 @@ dotenv@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
   integrity sha512-FlWbnhgjtwD+uNLUGHbMykMOYQaTivdHEmYwAKFjn6GKe/CqY0fNae93ZHTd20snh9ZLr8mTzIL9m0APQ1pjQg==
+
+dotenv@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
+  integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
 duplexer@^0.1.1:
   version "0.1.1"
@@ -6291,6 +6351,11 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
+lodash.unescape@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.unescape/-/lodash.unescape-4.0.1.tgz#bf2249886ce514cda112fae9218cdc065211fc9c"
+  integrity sha1-vyJJiGzlFM2hEvrpIYzcBlIR/Jw=
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -6617,6 +6682,18 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+monaco-editor-webpack-plugin@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-1.7.0.tgz#920cbeecca25f15d70d568a7e11b0ba4daf1ae83"
+  integrity sha512-oItymcnlL14Sjd7EF7q+CMhucfwR/2BxsqrXIBrWL6LQplFfAfV+grLEQRmVHeGSBZ/Gk9ptzfueXnWcoEcFuA==
+  dependencies:
+    "@types/webpack" "^4.4.19"
+
+monaco-editor@^0.16.0, monaco-editor@^0.16.2:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/monaco-editor/-/monaco-editor-0.16.2.tgz#950084ed82eeaef1c8c9d3c1bcab849fe11b2415"
+  integrity sha512-NtGrFzf54jADe7qsWh3lazhS7Kj0XHkJUGBq9fA/Jbwc+sgVcyfsYF6z2AQ7hPqDC+JmdOt/OwFjBnRwqXtx6w==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -8128,7 +8205,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.6.0, prop-types@^15.6.2:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8311,6 +8388,15 @@ react-app-polyfill@^0.2.2:
     raf "3.4.1"
     whatwg-fetch "3.0.0"
 
+react-app-rewired@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-app-rewired/-/react-app-rewired-2.1.1.tgz#cf8bf22e027f4272dae95d2f7da07f2639701422"
+  integrity sha512-Ukj2vbKN61bPF3f1EJLe2LtaKJio++iqUoyTQ5VAzyj7XRthkDrk4sGFaTjJrmWt7yJ/Ry9JbFGGSmfzlbt5Cg==
+  dependencies:
+    cross-spawn "^6.0.5"
+    dotenv "^6.2.0"
+    semver "^5.6.0"
+
 react-dev-utils@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-8.0.0.tgz#7c5b227a45a32ea8ff7fbc318f336cf9e2c6e34c"
@@ -8375,6 +8461,15 @@ react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-monaco-editor@^0.25.1:
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/react-monaco-editor/-/react-monaco-editor-0.25.1.tgz#29215061da23d0e4ad7bf928d9403288d5be4e92"
+  integrity sha512-VLksQjt8fmeIZoET9fQgmR0sdCCBFaiss92MwW5JvgO3JfrnhHtrLBqrSQRjtbUmef1EmEKi4gZp5Mh0oidvVg==
+  dependencies:
+    "@types/react" "*"
+    monaco-editor "^0.16.0"
+    prop-types "^15.7.2"
 
 react-scripts@2.1.8:
   version "2.1.8"
@@ -8749,6 +8844,11 @@ require-main-filename@^1.0.1:
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
   integrity sha1-l/cXtp1IeE9fUmpsWqj/3aBVpNE=
 
+requireindex@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
+  integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
+
 requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
@@ -8943,6 +9043,11 @@ selfsigned@^1.9.1:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
+
+semver@5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+  integrity sha512-4SJ3dm0WAwWy/NVeioZh5AntkdJoWKxHxcmyP622fOkgHa4z3R0TdBJICINyaSDE6uNwVc8gZr+ZinwZAH4xIA==
 
 send@0.16.2:
   version "0.16.2"
@@ -9771,10 +9876,17 @@ ts-pnp@^1.0.0:
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.0.1.tgz#fde74a6371676a167abaeda1ffc0fdb423520098"
   integrity sha512-Zzg9XH0anaqhNSlDRibNC8Kp+B9KNM0uRIpLpGkGyrgRIttA7zZBhotTSEoEyuDrz3QW2LGtu2dxuk34HzIGnQ==
 
-tslib@^1.9.0:
+tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
+
+tsutils@^3.7.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.10.0.tgz#6f1c95c94606e098592b0dff06590cf9659227d6"
+  integrity sha512-q20XSMq7jutbGB8luhKKsQldRKWvyBO2BGqni3p4yq8Ys9bEP/xQw3KepKmMRt9gJ4lvQSScrihJrcKdKoSU7Q==
+  dependencies:
+    tslib "^1.8.1"
 
 tty-browserify@0.0.0:
   version "0.0.0"

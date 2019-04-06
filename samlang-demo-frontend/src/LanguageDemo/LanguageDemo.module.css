@@ -9,6 +9,10 @@
   max-height: 100%;
 }
 
+.EditorCard {
+  min-width: 660px;
+}
+
 @media only screen and (min-width: 800px) {
   .LanguageDemo {
     flex-direction: row;
