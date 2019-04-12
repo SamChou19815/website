@@ -6,7 +6,7 @@
     "dev-sam": {
       "hosting": {
         "main-site": [
-          "dev-sam-main-site"
+          "dev-sam"
         ],
         "samlang-demo": [
           "dev-sam-samlang-demo"
