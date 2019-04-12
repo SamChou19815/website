@@ -33,10 +33,9 @@ const editorDidMount = (editor: monacoEditor.editor.IStandaloneCodeEditor): void
 
 const useEditorHeight = (): number => {
   const [height, setHeight] = useState(window.innerHeight - 200);
-  useEffect((): (() => void) => {
+  useEffect((): void => {
     const listener = (): void => setHeight(window.innerHeight - 200);
-    window.addEventListener('resize', listener);
-    return (): void => window.removeEventListener('resize', listener);
+    setInterval(listener, 500);
   }, []);
   return height;
 };
