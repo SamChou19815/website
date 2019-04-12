@@ -4,10 +4,10 @@
 LATEST_COMMIT=$(git rev-parse HEAD)
 
 function deployIfChanged() {
-    FOLDER_COMMIT=$(git log -1 --format=format:%H --full-diff ${1})
+    FOLDER_COMMIT=$(git log -1 --format=format:%H --full-diff ${1}-frontend)
     if [ $FOLDER_COMMIT = $LATEST_COMMIT ]; then
-        echo "${1} has changed since the last commit. Prepare deployment"
-        cd ${1}
+        echo "${1}-frontend has changed since the last commit. Prepare deployment"
+        cd ${1}-frontend
         yarn
         yarn build
         cd ../
@@ -19,9 +19,9 @@ function deployIfChanged() {
 yarn init -y
 yarn add --dev firebase-tools
 
-deployIfChanged 'main-site-frontend'
-deployIfChanged 'samlang-demo-frontend'
-deployIfChanged 'ten-web-frontend'
+deployIfChanged 'main-site'
+deployIfChanged 'samlang-demo'
+deployIfChanged 'ten-web'
 
 # cleanup
 rm -rf node_modules/
