@@ -1,7 +1,4 @@
-// @flow strict
-
-import { Board, Move } from './board';
-import { allLegalMovesForAI, getGameStatus, makeMoveWithoutCheck } from './board';
+import { Board, Move, allLegalMovesForAI, getGameStatus, makeMoveWithoutCheck } from './board';
 
 type Node = {
   readonly parent: Node | null;
@@ -12,7 +9,7 @@ type Node = {
   winningProbDen: number;
 };
 
-const timeLimit: number = 1500;
+const timeLimit = 1500;
 
 /**
  * Returns the winning probability association with a node.

@@ -1,12 +1,15 @@
-# IntelliJ IDEA
-/.idea/
+# IDE
+**/.idea/
 **/build/
-**/out/
-**/.gradle/
+**/.settings
+*.project
+*.classpath
 *.iml
 
 # Build
+**/.gradle/
 **/build
+**/out/
 
 # Git Files
 *.log
@@ -21,9 +24,6 @@
 **/node_modules
 **/.pnp
 **/.pnp.js
-
-## types
-**/flow-typed
 
 ## testing
 **/coverage

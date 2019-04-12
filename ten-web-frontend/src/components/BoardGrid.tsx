@@ -32,7 +32,7 @@ export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Pro
           doesNeedHighlight = true;
         }
       }
-      const onClick = () => clickCallback(a, b);
+      const onClick = (): void => clickCallback(a, b);
       children.push(
         <BoardCell
           key={index}

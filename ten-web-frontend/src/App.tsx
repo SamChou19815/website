@@ -29,8 +29,12 @@ export default function App(): ReactElement {
             <Typography variant="h6" color="inherit" className={styles.Title}>
               {`TEN - ${mode}`}
             </Typography>
-            <Button color="inherit" onClick={() => setMode('Local')}>Local</Button>
-            <Button color="inherit" onClick={() => setMode('Distributed')}>Distributed</Button>
+            <Button color="inherit" onClick={(): void => setMode('Local')}>
+              Local
+            </Button>
+            <Button color="inherit" onClick={(): void => setMode('Distributed')}>
+              Distributed
+            </Button>
             <Button color="inherit">
               <Link
                 color="inherit"

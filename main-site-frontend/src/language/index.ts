@@ -1,10 +1,13 @@
-import highlight from 'highlight.js';
+import highlight, { HLJSStatic, IModeBase } from 'highlight.js';
 
 // @ts-ignore
-highlight.registerLanguage('samlang', hljs => ({
+
+// eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
+highlight.registerLanguage('samlang', (hljs: HLJSStatic): IModeBase => ({
   keywords: {
     keyword: 'class util val function method as public if then else match',
     literal: 'false true _',
+    // eslint-disable-next-line @typescript-eslint/camelcase
     built_in: 'unit int bool string this panic',
   },
   contains: [
@@ -41,4 +44,4 @@ highlight.registerLanguage('samlang', hljs => ({
       end: '',
     },
   ],
-}));
+} as IModeBase));

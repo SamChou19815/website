@@ -1,5 +1,3 @@
-// @flow strict
-
 export type Board = {
   /**
    * In variable names, a big square refers to a 3*3 square;

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';
-import { Board } from '../game/board';
-import { boardToJson, getGameStatus, makeMoveWithoutCheck } from '../game/board';
+import { Board, boardToJson, getGameStatus, makeMoveWithoutCheck } from '../game/board';
 import { Status } from './GameCard';
+import { MctsResponse } from '../game/mcts';
 
 /**
  * The game card in local mode.
@@ -12,8 +12,8 @@ export default function DistributedGameCard(): ReactElement {
 
   const aiResponder = (board: Board): void => {
     fetch('/api/respond', { method: 'POST', body: JSON.stringify(boardToJson(board)) })
-      .then(resp => resp.json())
-      .then((json) => {
+      .then((resp): Promise<MctsResponse> => resp.json())
+      .then((json): void => {
         const { move, winningPercentage, simulationCounter } = json;
         const newBoardAfterAI = makeMoveWithoutCheck(board, move);
         const gameStatus = getGameStatus(newBoardAfterAI);

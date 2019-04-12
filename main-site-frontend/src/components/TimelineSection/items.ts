@@ -15,7 +15,7 @@ export type TimelineItem = {
   readonly time: string;
   readonly image?: string;
   readonly detail?: string;
-  readonly links?: { readonly name: string; readonly url: string; }[];
+  readonly links?: { readonly name: string; readonly url: string }[];
 };
 
 const items: TimelineItem[] = [

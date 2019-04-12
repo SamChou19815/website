@@ -1,0 +1,51 @@
+{
+  "hosting": [
+    {
+      "target": "main-site",
+      "public": "main-site-frontend/build",
+      "ignore": ["**/.*"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "samlang-demo",
+      "public": "samlang-demo-frontend/build",
+      "ignore": ["**/.*"],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "samlang-demo-backend",
+            "region": "us-central1"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "ten-web",
+      "public": "ten-web-frontend/build",
+      "ignore": ["**/.*"],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "run": {
+            "serviceId": "ten-web-backend",
+            "region": "us-central1"
+          }
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -13,21 +13,26 @@
     "@types/node": "^11.12.1",
     "@types/react": "^16.8.10",
     "@types/react-dom": "^16.8.3",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
     "eslint": "^5.15.3",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "react-app-rewired": "^2.1.1",
+    "react-snap": "^1.23.0",
     "typescript": "^3.4.1",
     "worker-loader": "^2.0.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "postbuild": "react-snap",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "tsc": "tsc -p tsconfig.json"
+    "tsc": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx"
   },
   "eslintConfig": {
     "extends": "react-app"

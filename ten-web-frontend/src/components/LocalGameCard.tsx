@@ -6,10 +6,10 @@ import StatefulGameCard, { initialGameState } from './StatefulGameCard';
 import { Status } from './GameCard';
 import { MctsResponse } from '../game/mcts';
 
-// $FlowFixMe flow doesn't have support for worker yet...
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const worker: any = new AIEngineWorker();
 
-type EventType =  { data: { aiResponse: MctsResponse, board: Board } };
+type EventType = { data: { aiResponse: MctsResponse; board: Board } };
 
 /**
  * The game card in local mode.
@@ -18,7 +18,7 @@ export default function LocalGameCard(): ReactElement {
   const [gameState, setGameState] = React.useState(initialGameState);
   const [isWorkerListenerSet, setIsWorkerListenerSet] = React.useState(false);
 
-  const aiResponseListener = (event: EventType) => {
+  const aiResponseListener = (event: EventType): void => {
     const { aiResponse, board } = event.data;
     const { move, winningPercentage, simulationCounter } = aiResponse;
     const newBoardAfterAI = makeMoveWithoutCheck(board, move);
@@ -39,7 +39,7 @@ export default function LocalGameCard(): ReactElement {
     });
   };
 
-  React.useEffect(() => {
+  React.useEffect((): void => {
     if (!isWorkerListenerSet) {
       worker.addEventListener('message', aiResponseListener);
       setIsWorkerListenerSet(true);
@@ -50,7 +50,7 @@ export default function LocalGameCard(): ReactElement {
     <StatefulGameCard
       gameState={gameState}
       setGameState={setGameState}
-      aiResponder={b => worker.postMessage(b)}
+      aiResponder={(b): void => worker.postMessage(b)}
     />
   );
 }

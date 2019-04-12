@@ -45,7 +45,7 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
           {detail != null && <CardContent>{detail}</CardContent>}
           {links != null && (
             <CardActions>
-              {links.map(({ name, url }, index) => (
+              {links.map(({ name, url }, index): ReactElement => (
                 <ButtonLink key={index} href={url} openInNewTab>{name}</ButtonLink>
               ))}
             </CardActions>

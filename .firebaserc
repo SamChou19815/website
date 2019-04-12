@@ -1,0 +1,20 @@
+{
+  "projects": {
+    "default": "dev-sam"
+  },
+  "targets": {
+    "dev-sam": {
+      "hosting": {
+        "main-site": [
+          "dev-sam-main-site"
+        ],
+        "samlang-demo": [
+          "dev-sam-samlang-demo"
+        ],
+        "ten-web": [
+          "dev-sam-ten-web"
+        ]
+      }
+    }
+  }
+}

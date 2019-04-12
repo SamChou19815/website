@@ -5,12 +5,12 @@ import './CodeBlock.css';
 type Props = {
   readonly children: string;
   readonly className?: string;
-  readonly style?: { [cssProp: string]: string }
+  readonly style?: { [cssProp: string]: string };
 };
 
 export default function CodeBlock({ children, className, style }: Props): ReactElement {
   const codeBlockRef = React.useRef(null);
-  React.useEffect(() => {
+  React.useEffect((): void => {
     const node = codeBlockRef.current;
     if (node == null) {
       return;

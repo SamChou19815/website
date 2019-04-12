@@ -5,8 +5,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import ConsoleSection from '../Common/ConsoleSection';
-import { TimelineItem } from './items';
-import items from './items';
+import items, { TimelineItem } from './items';
 import TimelineItemCard from './TimelineItemCard';
 import styles from './TimelineSection.module.css';
 
@@ -34,9 +33,10 @@ export default (): ReactElement => {
   const [projectsChecked, setProjectsChecked] = React.useState(true);
   const [eventsChecked, setEventsChecked] = React.useState(true);
 
-  const workOnChange = () => setWorkChecked(prev => !prev);
-  const projectsOnChange = () => setProjectsChecked(prev => !prev);
-  const eventsOnChange = () => setEventsChecked(prev => !prev);
+  const inverter = (prev: boolean): boolean => !prev;
+  const workOnChange = (): void => setWorkChecked(inverter);
+  const projectsOnChange = (): void => setProjectsChecked(inverter);
+  const eventsOnChange = (): void => setEventsChecked(inverter);
 
   let title = './timeline --fancy-display';
   if (!(workChecked && projectsChecked && eventsChecked)) {
@@ -56,7 +56,7 @@ export default (): ReactElement => {
     }
   }
 
-  const filteredItems = items.filter(({ type }: TimelineItem) => {
+  const filteredItems = items.filter(({ type }: TimelineItem): boolean => {
     if (type === 'work' && workChecked) {
       return true;
     }
@@ -80,7 +80,9 @@ export default (): ReactElement => {
       </FormGroup>
       <div className={styles.TimelineSection}>
         <div className={styles.VerticalBar} />
-        {filteredItems.map((item, index) => <TimelineItemCard key={index} item={item} />)}
+        {filteredItems.map((item, index): ReactElement => (
+          <TimelineItemCard key={index} item={item} />
+        ))}
       </div>
     </ConsoleSection>
   );

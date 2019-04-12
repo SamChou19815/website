@@ -1,7 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react';
-// $FlowFixMe
 import Button from '@material-ui/core/Button';
-// $FlowFixMe
 import Link from '@material-ui/core/Link';
 
 type Props = {
@@ -13,7 +11,14 @@ type Props = {
   readonly className?: string;
 };
 
-const ButtonLink = ({ href, children, color, openInNewTab, onClick, className }: Props): ReactElement => (
+const ButtonLink = ({
+  href,
+  children,
+  color,
+  openInNewTab,
+  onClick,
+  className,
+}: Props): ReactElement => (
   <Button color={color} className={className} onClick={onClick}>
     <Link
       color={color}

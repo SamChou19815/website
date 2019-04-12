@@ -85,10 +85,10 @@ export default function GameCard(props: Props): ReactElement {
         </CardContent>
         <CardActions className={styles.GameCardControls}>
           <span className={styles.GameCardControlsText}>New Game</span>
-          <Button size="small" color="primary" onClick={() => onSelectSide(1)}>
+          <Button size="small" color="primary" onClick={(): void => onSelectSide(1)}>
             Play as Black
           </Button>
-          <Button size="small" color="primary" onClick={() => onSelectSide(-1)}>
+          <Button size="small" color="primary" onClick={(): void => onSelectSide(-1)}>
             Play as White
           </Button>
         </CardActions>

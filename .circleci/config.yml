@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
-  tsc-main-site-frontend:
-    description: Run TypeScript type-checker on main-site-frontend
+  code-quality-check-main-site-frontend:
+    description: Run code quality check on main-site-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -19,8 +19,10 @@ jobs:
           key: main-site-frontend-dependencies-{{ .Branch }}-{{ checksum "main-site-frontend/yarn.lock" }}
       # run typescript compiler
       - run: cd main-site-frontend && yarn tsc
-  tsc-samlang-demo-frontend:
-    description: Run TypeScript type-checker on samlang-demo-frontend
+      # run linter
+      - run: cd main-site-frontend && yarn lint
+  code-quality-check-samlang-demo-frontend:
+    description: Run code quality check on samlang-demo-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -38,8 +40,10 @@ jobs:
           key: samlang-demo-frontend-dependencies-{{ .Branch }}-{{ checksum "samlang-demo-frontend/yarn.lock" }}
       # run typescript compiler
       - run: cd samlang-demo-frontend && yarn tsc
-  tsc-ten-web-frontend:
-    description: Run TypeScript type-checker on ten-web-frontend
+      # run linter
+      - run: cd samlang-demo-frontend && yarn lint
+  code-quality-check-ten-web-frontend:
+    description: Run code quality check on ten-web-frontend
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -57,8 +61,10 @@ jobs:
           key: ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
       # run typescript compiler
       - run: cd ten-web-frontend && yarn tsc
-  deploy-main-site-frontend:
-    description: Deploy main-site-frontend to firebase hosting
+      # run linter
+      - run: cd ten-web-frontend && yarn lint
+  deploy-changed-frontend:
+    description: Deploy changed frontend directory to firebase hosting
     docker:
       - image: circleci/node:jessie-browsers
     working_directory: ~/repo
@@ -68,11 +74,7 @@ jobs:
           name: Deploy to Firebase
           command: |
             if [ "${CIRCLE_BRANCH}" = "master" ]; then
-              cd main-site-frontend
-              yarn
-              yarn build
-              ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting
-              cd ../
+              ./ci-deploy
             else
               echo "Not master branch, do not deploy"
             fi
@@ -80,9 +82,11 @@ workflows:
   version: 2
   tsc-all-frontend:
     jobs:
-      - tsc-main-site-frontend
-      - tsc-samlang-demo-frontend
-      - tsc-ten-web-frontend
-      - deploy-main-site-frontend:
+      - code-quality-check-main-site-frontend
+      - code-quality-check-samlang-demo-frontend
+      - code-quality-check-ten-web-frontend
+      - deploy-changed-frontend:
           requires:
-            - tsc-main-site-frontend
+            - code-quality-check-main-site-frontend
+            - code-quality-check-samlang-demo-frontend
+            - code-quality-check-ten-web-frontend

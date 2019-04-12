@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
-import { Board, Move } from '../game/board';
 import {
+  Board,
+  Move,
   emptyBoard,
   getGameStatus,
   makeMove,
   makeMoveWithoutCheck,
 } from '../game/board';
-import { Status } from './GameCard';
-import GameCard from './GameCard';
+import GameCard, { Status } from './GameCard';
 
 type GameState = {
   readonly board: Board;
@@ -32,16 +32,18 @@ type Props = {
 /**
  * The game card in local mode.
  */
-export default function StatefulGameCard({ gameState, setGameState, aiResponder }: Props): ReactElement {
-  const {
-    board, highlightedCell, status, aiInfo,
-  } = gameState;
+export default function StatefulGameCard({
+  gameState,
+  setGameState,
+  aiResponder,
+}: Props): ReactElement {
+  const { board, highlightedCell, status, aiInfo } = gameState;
 
-  const clickCellCallback = (a: number, b: number) => {
+  const clickCellCallback = (a: number, b: number): void => {
     const move: Move = [a, b];
     const newBoard = makeMove(board, move);
     if (newBoard === null) {
-      setGameState(prev => ({ ...prev, status: 'ILLEGAL_MOVE' }));
+      setGameState((prev): GameState => ({ ...prev, status: 'ILLEGAL_MOVE' }));
       return;
     }
     const gameStatus = getGameStatus(newBoard);
@@ -62,7 +64,7 @@ export default function StatefulGameCard({ gameState, setGameState, aiResponder 
     aiResponder(newBoard);
   };
 
-  const onSelectSide = (id: 1 | -1) => {
+  const onSelectSide = (id: 1 | -1): void => {
     const newBoard = id === 1 ? emptyBoard : makeMoveWithoutCheck(emptyBoard, [4, 4]);
     setGameState({
       board: newBoard,

@@ -14,8 +14,8 @@ export default function LanguageDemo(): ReactElement {
 
   const onSubmit = (programString: string): void => {
     interpret(programString)
-      .then(resp => setResponse(resp))
-      .catch(() => setResponse('server-error'));
+      .then((resp): void => setResponse(resp))
+      .catch((): void => setResponse('server-error'));
     setResponse('waiting');
   };
 
