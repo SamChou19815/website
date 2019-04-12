@@ -80,7 +80,7 @@ jobs:
             fi
 workflows:
   version: 2
-  tsc-all-frontend:
+  check-and-deploy-frontend:
     jobs:
       - code-quality-check-main-site-frontend
       - code-quality-check-samlang-demo-frontend

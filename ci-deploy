@@ -11,7 +11,7 @@ function deployIfChanged() {
         yarn
         yarn build
         cd ../
-        # ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
+        ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
     fi
 }
 
