@@ -5,6 +5,7 @@
 *.project
 *.classpath
 *.iml
+*.code-workspace
 
 # Build
 **/.gradle/
