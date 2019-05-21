@@ -7,7 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import ConsoleSection from '../Common/ConsoleSection';
 import items, { TimelineItem } from './items';
 import TimelineItemCard from './TimelineItemCard';
-import styles from './TimelineSection.module.css';
+import styles from './index.module.css';
 
 type CheckboxProps = {
   readonly label: string;

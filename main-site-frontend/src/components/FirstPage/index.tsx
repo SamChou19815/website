@@ -4,7 +4,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
-import styles from './FirstPage.module.css';
+import styles from './index.module.css';
 import FirstPageCodeBlock from './FirstPageCodeBlock';
 import ButtonLink from '../Common/ButtonLink';
 
@@ -26,13 +26,14 @@ export default (): ReactElement => (
     <Card className={styles.InfoCard}>
       <CardHeader avatar={<Icon>account_circle</Icon>} title="Sam Zhou" subheader="About Myself" />
       <IconLine icon="work">Facebook SWE Intern</IconLine>
-      <IconLine icon="work">Cornell DTI TPM</IconLine>
+      <IconLine icon="work">Cornell DTI Dev Lead</IconLine>
       <IconLine icon="school">Cornell University</IconLine>
       <IconLine icon="domain">Computer Science</IconLine>
       <IconLine icon="bar_chart">GPA: 4.18/4.3</IconLine>
       <IconLine icon="code">Coding since 13</IconLine>
       <CardActions>
         <ButtonLink href="#projects">Projects</ButtonLink>
+        <ButtonLink href="#tech-talks">Talks</ButtonLink>
         <ButtonLink href="#timeline">Timeline</ButtonLink>
       </CardActions>
     </Card>

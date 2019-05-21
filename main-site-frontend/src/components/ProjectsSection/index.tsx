@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Icon from '@material-ui/core/Icon';
 import ConsoleSection from '../Common/ConsoleSection';
-import styles from './ProjectsSection.module.css';
+import styles from './index.module.css';
 import ButtonLink from '../Common/ButtonLink';
 import TEN from '../../assets/projects/ten.png';
 import SAMLANG from '../../assets/projects/samlang.png';

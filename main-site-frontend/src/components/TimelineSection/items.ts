@@ -9,13 +9,15 @@ import SAMLANG from '../../assets/projects/samlang.png';
 import Samwise from '../../assets/projects/samwise.png';
 import SAMPL from '../../assets/timeline/sampl.png';
 
+type NamedLink = { readonly name: string; readonly url: string };
+
 export type TimelineItem = {
   readonly title: string;
   readonly type: 'work' | 'project' | 'event';
   readonly time: string;
   readonly image?: string;
   readonly detail?: string;
-  readonly links?: { readonly name: string; readonly url: string }[];
+  readonly links?: readonly NamedLink[];
 };
 
 const items: TimelineItem[] = [
@@ -24,6 +26,12 @@ const items: TimelineItem[] = [
     type: 'work',
     time: '2019-05',
     image: FacebookHackerWay,
+  },
+  {
+    title: 'Xi++ Compiler',
+    type: 'project',
+    time: '2019-05',
+    detail: 'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly',
   },
   {
     title: 'Website Redesign v3',
