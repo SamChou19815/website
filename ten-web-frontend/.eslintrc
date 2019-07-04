@@ -44,7 +44,7 @@
         "extensions": [".jsx", ".tsx"]
       }
     ],
-    "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx"],
+    "import/extensions": "off",
     "indent": "off",
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/prefer-interface": "off",
