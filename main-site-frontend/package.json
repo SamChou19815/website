@@ -18,9 +18,11 @@
     "@typescript-eslint/parser": "^1.9.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-react-app": "^4.0.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
+    "firebase-tools": "7.0.2",
     "react-snap": "^1.23.0",
     "typescript": "^3.5.2"
   },

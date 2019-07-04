@@ -44,7 +44,7 @@ export default function LocalGameCard(): ReactElement {
       worker.addEventListener('message', aiResponseListener);
       setIsWorkerListenerSet(true);
     }
-  });
+  }, [isWorkerListenerSet]);
 
   return (
     <StatefulGameCard
