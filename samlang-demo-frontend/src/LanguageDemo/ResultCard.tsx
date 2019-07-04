@@ -2,6 +2,7 @@ import React, { ReactNode, ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import CodeBlock from 'sam-highlighter';
 import { Response } from './interpret';
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
@@ -37,7 +38,7 @@ export default function ResultCard({ response }: Props): ReactElement {
             <div>
               <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'green' }}>
                 <h3>Pretty Printed Program:</h3>
-                <code><pre>{prettyPrintedProgram}</pre></code>
+                <CodeBlock language="samlang">{prettyPrintedProgram}</CodeBlock>
               </div>
             </div>
           </div>

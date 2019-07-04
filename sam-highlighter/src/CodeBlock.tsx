@@ -3,12 +3,13 @@ import highlight from 'highlight.js';
 import './CodeBlock.css';
 
 type Props = {
+  readonly language: string;
   readonly children: string;
   readonly className?: string;
   readonly style?: CSSProperties;
 };
 
-export default ({ children, className, style }: Props): ReactElement => {
+export default ({ language, children, className, style }: Props): ReactElement => {
   const codeBlockRef = React.useRef(null);
   React.useEffect((): void => {
     const node = codeBlockRef.current;
@@ -24,7 +25,7 @@ export default ({ children, className, style }: Props): ReactElement => {
   });
   return (
     <pre className={className} style={style}>
-      <code className="samlang" ref={codeBlockRef}>
+      <code className={language} ref={codeBlockRef}>
         {children}
       </code>
     </pre>
