@@ -2,7 +2,7 @@ import React, { ReactNode, ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import CodeBlock from 'sam-highlighter';
+import CodeBlock, { initialize } from 'sam-highlighter';
 import { Response } from './interpret';
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
@@ -10,6 +10,8 @@ import ResultStyles from './ResultCard.module.css';
 type Props = {
   readonly response: Response | 'waiting' | 'server-error' | null;
 };
+
+initialize();
 
 /**
  * The component of the language demo.

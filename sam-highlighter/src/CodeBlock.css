@@ -23,7 +23,8 @@
 }
 
 .hljs-class,
-.hljs-type {
+.hljs-type,
+.hljs-title {
   color: #9a30ad;
 }
 
@@ -69,8 +70,7 @@
 .hljs-bullet,
 .hljs-link,
 .hljs-meta,
-.hljs-selector-id,
-.hljs-title {
+.hljs-selector-id {
   color: #4078f2;
 }
 
