@@ -1,5 +1,5 @@
 {
-  "name": "@dev-sam/sam-highlighter",
+  "name": "sam-highlighter",
   "version": "0.1.0",
   "description": "The common code highlighter used across Developer Sam's website.",
   "keywords": [

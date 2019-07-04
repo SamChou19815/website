@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "workspaces": [
+    "main-site-frontend",
+    "sam-highlighter",
+    "samlang-demo-frontend",
+    "ten-web-frontend"
+  ]
+}

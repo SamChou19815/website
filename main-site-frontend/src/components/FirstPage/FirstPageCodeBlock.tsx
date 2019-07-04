@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import CodeBlock from '@dev-sam/sam-highlighter';
+import CodeBlock from 'sam-highlighter';
 import styles from './FirstPageCodeBlock.module.css';
 
 const code = `
