@@ -1,8 +1,10 @@
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import './index.css';
+import { initialize as initializeHighlighter } from '@dev-sam/sam-highlighrer';
 import App from './App';
-import './language';
+
+initializeHighlighter();
 
 const rootElement = document.getElementById('root');
 if (rootElement == null) {

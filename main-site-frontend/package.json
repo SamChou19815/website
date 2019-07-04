@@ -3,28 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@dev-sam/996-icu-banner": "^0.4.0",
+    "@dev-sam/sam-highlighrer": "link:../sam-highlighter",
     "@material-ui/core": "^3.9.3",
-    "highlight.js": "^9.15.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "@types/highlight.js": "^9.12.3",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.2",
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.13.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
     "react-snap": "^1.23.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
