@@ -8,24 +8,24 @@ SAMLANG_DEMO_COMMIT=$(git log -1 --format=format:%H --full-diff samlang-demo-fro
 TEN_WEB_COMMIT=$(git log -1 --format=format:%H --full-diff ten-web-frontend)
 
 function deploy() {
-    echo "${1}-frontend has changed since the last commit. Prepare deployment..."
+    echo "${1}-frontend has changed since the last commit. Prepare deployment..." >@2
     cd ${1}-frontend
-    cd ../
     yarn build
+    cd ../
     ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
-    echo "${1}-frontend has been deployed."
+    echo "${1}-frontend has been deployed." >@2
 }
 
 if [ $DEPLOY_COMMIT != $LATEST_COMMIT ] \
     && [ $MAIN_SITE_COMMIT != $LATEST_COMMIT ] \
     && [ $SAMLANG_DEMO_COMMIT != $LATEST_COMMIT ] \
     && [ $TEN_WEB_COMMIT != $LATEST_COMMIT ]; then
-    echo "Nothing new to deploy."
+    echo "Nothing new to deploy." >@2
     exit 0
 fi
 
-echo "Installing tools necessary for deployments."
-yarn init -y
+echo "Installing tools necessary for deployments." >@2
+yarn init -y > /dev/null 2> /dev/null
 yarn install
 # OK to ignore the check since it's a one time use.
 yarn add --ignore-workspace-root-check --dev firebase-tools
