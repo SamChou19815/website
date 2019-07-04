@@ -1,5 +1,24 @@
 version: 2.1
 jobs:
+  code-quality-check-sam-highlighter:
+    description: Run code quality check on sam-highlighter
+    docker:
+      - image: circleci/node:lts
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - sam-highlighter-dependencies-{{ .Branch }}-{{ checksum "sam-highlighter/yarn.lock" }}
+            - sam-highlighter-dependencies-{{ .Branch }}-
+            - sam-highlighter-dependencies-
+      - run: cd sam-highlighter && yarn install
+      - save_cache:
+          paths:
+            - sam-highlighter/node_modules
+          key: sam-highlighter-dependencies-{{ .Branch }}-{{ checksum "sam-highlighter/yarn.lock" }}
+      # run typescript compiler
+      - run: cd sam-highlighter && yarn tsc
   code-quality-check-main-site-frontend:
     description: Run code quality check on main-site-frontend
     docker:
@@ -82,11 +101,13 @@ workflows:
   version: 2
   check-and-deploy-frontend:
     jobs:
+      - code-quality-check-sam-highlighter
       - code-quality-check-main-site-frontend
       - code-quality-check-samlang-demo-frontend
       - code-quality-check-ten-web-frontend
       - deploy-changed-frontend:
           requires:
+            - code-quality-check-sam-highlighter
             - code-quality-check-main-site-frontend
             - code-quality-check-samlang-demo-frontend
             - code-quality-check-ten-web-frontend
