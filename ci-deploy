@@ -8,8 +8,6 @@ function deployIfChanged() {
     if [ $FOLDER_COMMIT = $LATEST_COMMIT ]; then
         echo "${1}-frontend has changed since the last commit. Prepare deployment"
         cd ${1}-frontend
-        yarn
-        yarn build
         cd ../
         ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
     fi
@@ -17,6 +15,7 @@ function deployIfChanged() {
 
 # install deployment tools
 yarn init -y
+yarn install
 yarn add --dev firebase-tools
 
 deployIfChanged 'main-site'
