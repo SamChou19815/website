@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/SamChou19815/website.git"
   },
-  "private": false,
+  "private": true,
   "scripts": {
     "build": "tsc && cp src/*.css dist/",
     "prepare": "tsc && cp src/*.css dist/"
