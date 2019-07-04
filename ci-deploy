@@ -16,7 +16,8 @@ function deployIfChanged() {
 # install deployment tools
 yarn init -y
 yarn install
-yarn add --dev firebase-tools
+# OK to ignore the check since it's a one time use.
+yarn add --ignore-workspace-root-check --dev firebase-tools
 
 deployIfChanged 'main-site'
 deployIfChanged 'samlang-demo'
