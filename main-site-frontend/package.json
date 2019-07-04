@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@dev-sam/sam-highlighrer": "link:../sam-highlighter",
+    "@dev-sam/sam-highlighter": "link:../sam-highlighter",
     "@material-ui/core": "^3.9.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
