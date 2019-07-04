@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
-  code-quality-check-sam-highlighter:
-    description: Run code quality check on sam-highlighter
+  code-quality-check:
+    description: Run code quality checks
     docker:
       - image: circleci/node:lts
     working_directory: ~/repo
@@ -9,78 +9,24 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - sam-highlighter-dependencies-{{ .Branch }}-{{ checksum "sam-highlighter/yarn.lock" }}
-            - sam-highlighter-dependencies-{{ .Branch }}-
-            - sam-highlighter-dependencies-
-      - run: cd sam-highlighter && yarn install
+            - yarn-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-dependencies-{{ .Branch }}-
+            - yarn-dependencies-
+      - run: yarn install
       - save_cache:
           paths:
-            - sam-highlighter/node_modules
-          key: sam-highlighter-dependencies-{{ .Branch }}-{{ checksum "sam-highlighter/yarn.lock" }}
-      # run typescript compiler
+            - node_modules
+          key: yarn-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      # Check sam-highlighter
       - run: cd sam-highlighter && yarn tsc
-  code-quality-check-main-site-frontend:
-    description: Run code quality check on main-site-frontend
-    docker:
-      - image: circleci/node:lts
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - main-site-frontend-dependencies-{{ .Branch }}-{{ checksum "main-site-frontend/yarn.lock" }}
-            - main-site-frontend-dependencies-{{ .Branch }}-
-            - main-site-frontend-dependencies-
-      - run: cd main-site-frontend && yarn install
-      - save_cache:
-          paths:
-            - main-site-frontend/node_modules
-          key: main-site-frontend-dependencies-{{ .Branch }}-{{ checksum "main-site-frontend/yarn.lock" }}
-      # run typescript compiler
+      # Check main-site-frontend
       - run: cd main-site-frontend && yarn tsc
-      # run linter
       - run: cd main-site-frontend && yarn lint
-  code-quality-check-samlang-demo-frontend:
-    description: Run code quality check on samlang-demo-frontend
-    docker:
-      - image: circleci/node:lts
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - samlang-demo-frontend-dependencies-{{ .Branch }}-{{ checksum "samlang-demo-frontend/yarn.lock" }}
-            - samlang-demo-frontend-dependencies-{{ .Branch }}-
-            - samlang-demo-frontend-dependencies-
-      - run: cd samlang-demo-frontend && yarn install
-      - save_cache:
-          paths:
-            - samlang-demo-frontend/node_modules
-          key: samlang-demo-frontend-dependencies-{{ .Branch }}-{{ checksum "samlang-demo-frontend/yarn.lock" }}
-      # run typescript compiler
+      # Check samlang-demo-frontend:
       - run: cd samlang-demo-frontend && yarn tsc
-      # run linter
       - run: cd samlang-demo-frontend && yarn lint
-  code-quality-check-ten-web-frontend:
-    description: Run code quality check on ten-web-frontend
-    docker:
-      - image: circleci/node:lts
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
-            - ten-web-frontend-dependencies-{{ .Branch }}-
-            - ten-web-frontend-dependencies-
-      - run: cd ten-web-frontend && yarn install
-      - save_cache:
-          paths:
-            - ten-web-frontend/node_modules
-          key: ten-web-frontend-dependencies-{{ .Branch }}-{{ checksum "ten-web-frontend/yarn.lock" }}
-      # run typescript compiler
+      # Check ten-web-frontend:
       - run: cd ten-web-frontend && yarn tsc
-      # run linter
       - run: cd ten-web-frontend && yarn lint
   deploy-changed-frontend:
     description: Deploy changed frontend directory to firebase hosting
@@ -101,13 +47,7 @@ workflows:
   version: 2
   check-and-deploy-frontend:
     jobs:
-      - code-quality-check-sam-highlighter
-      - code-quality-check-main-site-frontend
-      - code-quality-check-samlang-demo-frontend
-      - code-quality-check-ten-web-frontend
+      - code-quality-check
       - deploy-changed-frontend:
           requires:
-            - code-quality-check-sam-highlighter
-            - code-quality-check-main-site-frontend
-            - code-quality-check-samlang-demo-frontend
-            - code-quality-check-ten-web-frontend
+            - code-quality-check
