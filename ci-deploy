@@ -2,28 +2,40 @@
 
 # latest commit
 LATEST_COMMIT=$(git rev-parse HEAD)
+DEPLOY_COMMIT=$(git log -1 --format=format:%H --full-diff ci-deploy)
+MAIN_SITE_COMMIT=$(git log -1 --format=format:%H --full-diff main-site-frontend)
+SAMLANG_DEMO_COMMIT=$(git log -1 --format=format:%H --full-diff samlang-demo-frontend)
+TEN_WEB_COMMIT=$(git log -1 --format=format:%H --full-diff ten-web-frontend)
 
-function deployIfChanged() {
-    FOLDER_COMMIT=$(git log -1 --format=format:%H --full-diff ${1}-frontend)
-    if [ $FOLDER_COMMIT = $LATEST_COMMIT ]; then
-        echo "${1}-frontend has changed since the last commit. Prepare deployment"
-        cd ${1}-frontend
-        cd ../
-        yarn build
-        ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
-    fi
+function deploy() {
+    echo "${1}-frontend has changed since the last commit. Prepare deployment..."
+    cd ${1}-frontend
+    cd ../
+    yarn build
+    ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
+    echo "${1}-frontend has been deployed."
 }
 
-# install deployment tools
+if [ $DEPLOY_COMMIT != $LATEST_COMMIT ] \
+    && [ $MAIN_SITE_COMMIT != $LATEST_COMMIT ] \
+    && [ $SAMLANG_DEMO_COMMIT != $LATEST_COMMIT ] \
+    && [ $TEN_WEB_COMMIT != $LATEST_COMMIT ]; then
+    echo "Nothing new to deploy."
+    exit 0
+fi
+
+echo "Installing tools necessary for deployments."
 yarn init -y
 yarn install
 # OK to ignore the check since it's a one time use.
 yarn add --ignore-workspace-root-check --dev firebase-tools
 
-deployIfChanged 'main-site'
-deployIfChanged 'samlang-demo'
-deployIfChanged 'ten-web'
-
-# cleanup
-rm -rf node_modules/
-rm package.json yarn.lock
+if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
+    deploy 'main-site'
+fi
+if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
+    deploy 'samlang-demo'
+fi
+if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
+    deploy 'ten-web'
+fi
