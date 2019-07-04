@@ -9,6 +9,7 @@ function deployIfChanged() {
         echo "${1}-frontend has changed since the last commit. Prepare deployment"
         cd ${1}-frontend
         cd ../
+        yarn build
         ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
     fi
 }
