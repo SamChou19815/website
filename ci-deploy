@@ -11,20 +11,20 @@ if [ $DEPLOY_COMMIT != $LATEST_COMMIT ] \
     && [ $MAIN_SITE_COMMIT != $LATEST_COMMIT ] \
     && [ $SAMLANG_DEMO_COMMIT != $LATEST_COMMIT ] \
     && [ $TEN_WEB_COMMIT != $LATEST_COMMIT ]; then
-    echo "Nothing new to deploy." >@2
+    echo "Nothing new to deploy."
     exit 0
 fi
 
-echo "Installing tools necessary for deployments." >@2
+echo "Installing tools necessary for deployments."
 yarn install
 
 function deploy() {
-    echo "${1}-frontend has changed since the last commit. Prepare deployment..." >@2
-    cd ${1}-frontend
-    yarn build
-    cd ../
-    ./main-site-frontend/node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
-    echo "${1}-frontend has been deployed." >@2
+    WORKSPACE="${1}-frontend"
+    echo "${WORKSPACE} has changed since the last commit. Prepare deployment..."
+    yarn workspace ${WORKSPACE} build && \
+      ./main-site-frontend/node_modules/.bin/firebase deploy \
+      --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
+    echo "${1}-frontend has been deployed."
 }
 
 if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
