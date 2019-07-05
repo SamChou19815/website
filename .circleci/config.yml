@@ -18,16 +18,16 @@ jobs:
             - node_modules
           key: yarn-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
       # Check sam-highlighter
-      - run: cd sam-highlighter && yarn tsc
+      - run: yarn workspace sam-highlighter tsc
       # Check main-site-frontend
-      - run: cd main-site-frontend && yarn tsc
-      - run: cd main-site-frontend && yarn lint
+      - run: yarn workspace main-site-frontend tsc
+      - run: yarn workspace main-site-frontend lint
       # Check samlang-demo-frontend:
-      - run: cd samlang-demo-frontend && yarn tsc
-      - run: cd samlang-demo-frontend && yarn lint
+      - run: yarn workspace samlang-demo-frontend tsc
+      - run: yarn workspace samlang-demo-frontend lint
       # Check ten-web-frontend:
-      - run: cd ten-web-frontend && yarn tsc
-      - run: cd ten-web-frontend && yarn lint
+      - run: yarn workspace ten-web-frontend tsc
+      - run: yarn workspace ten-web-frontend lint
   deploy-changed-frontend:
     description: Deploy changed frontend directory to firebase hosting
     docker:
