@@ -17,14 +17,15 @@ fi
 
 echo "Installing tools necessary for deployments."
 yarn install
+yarn workspace sam-highlighter build
 
 function deploy() {
     WORKSPACE="${1}-frontend"
     echo "${WORKSPACE} has changed since the last commit. Prepare deployment..."
     yarn workspace ${WORKSPACE} build && \
       ./main-site-frontend/node_modules/.bin/firebase deploy \
-      --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1}
-    echo "${1}-frontend has been deployed."
+      --token=$FIREBASE_TOKEN --non-interactive --only hosting:${1} && \
+      echo "${1}-frontend has been deployed."
 }
 
 if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
