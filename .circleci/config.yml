@@ -31,7 +31,7 @@ jobs:
   deploy-changed-frontend:
     description: Deploy changed frontend directory to firebase hosting
     docker:
-      - image: circleci/node:lts
+      - image: circleci/node:lts-browsers
     working_directory: ~/repo
     steps:
       - checkout
