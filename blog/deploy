@@ -1,3 +1,0 @@
-#!/bin/bash
-
-GIT_USER=SamChou19815 yarn run deploy

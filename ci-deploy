@@ -3,11 +3,13 @@
 # latest commit
 LATEST_COMMIT=$(git rev-parse HEAD)
 DEPLOY_COMMIT=$(git log -1 --format=format:%H --full-diff ci-deploy)
+BLOG_COMMIT=$(git log -1 --format=format:%H --full-diff blog)
 MAIN_SITE_COMMIT=$(git log -1 --format=format:%H --full-diff main-site-frontend)
 SAMLANG_DEMO_COMMIT=$(git log -1 --format=format:%H --full-diff samlang-demo-frontend)
 TEN_WEB_COMMIT=$(git log -1 --format=format:%H --full-diff ten-web-frontend)
 
 if [ $DEPLOY_COMMIT != $LATEST_COMMIT ] \
+    && [ $BLOG_COMMIT != $LATEST_COMMIT ] \
     && [ $MAIN_SITE_COMMIT != $LATEST_COMMIT ] \
     && [ $SAMLANG_DEMO_COMMIT != $LATEST_COMMIT ] \
     && [ $TEN_WEB_COMMIT != $LATEST_COMMIT ]; then
@@ -28,6 +30,10 @@ function deploy() {
       echo "${1}-frontend has been deployed."
 }
 
+if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $BLOG_COMMIT == $LATEST_COMMIT ]; then
+    echo "blog has changed since the last commit. Prepare deployment..."
+    GIT_USER=SamChou19815 yarn workspace blog deploy && echo "blog has been deployed."
+fi
 if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
     deploy 'main-site'
 fi
