@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) 2019-present, Developer Sam.
  *
- * This source code is licensed under the MIT license found in the
+ * This source code is licensed under the AGPLv3 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
