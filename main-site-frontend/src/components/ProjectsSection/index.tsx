@@ -60,7 +60,7 @@ export default (): ReactElement => (
         </CardContent>
         <CardActions>
           <ButtonLink href="https://ten.developersam.com" openInNewTab>Demo</ButtonLink>
-          <ButtonLink href="https://github.com/SamChou19815/ten" openInNewTab>
+          <ButtonLink href="https://github.com/SamChou19815/ten-golang" openInNewTab>
             GitHub Repo
           </ButtonLink>
         </CardActions>

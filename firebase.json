@@ -35,11 +35,8 @@
       "ignore": ["**/.*"],
       "rewrites": [
         {
-          "source": "/api/**",
-          "run": {
-            "serviceId": "ten-web-backend",
-            "region": "us-central1"
-          }
+          "source": "/api/respond",
+          "function": "HandleTenAIMoveRequest"
         },
         {
           "source": "**",

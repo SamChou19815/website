@@ -10,9 +10,6 @@ function deployBackend() {
 if [[ "$1" = "samlang-demo-backend" ]]; then
     echo "Deploying ${1}..."
     deployBackend $1
-elif [[ "$1" = "ten-web-backend" ]]; then
-    echo "Deploying ${1}..."
-    deployBackend $1
 elif [[ "$1" = "" ]]; then
     echo "No deployment target specified. Abort!"
     echo "Supported commands: deploy dispatch, deploy samlang-demo, deploy ten-web"

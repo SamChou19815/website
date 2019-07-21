@@ -44,5 +44,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "https://ten.developersam.com"
+  "proxy": "https://us-central1-dev-sam.cloudfunctions.net/HandleTenAIMoveRequest"
 }
