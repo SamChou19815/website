@@ -1,18 +1,18 @@
 {
   "projects": {
-    "default": "dev-sam"
+    "default": "developer-sam"
   },
   "targets": {
-    "dev-sam": {
+    "developer-sam": {
       "hosting": {
         "main-site": [
-          "dev-sam"
+          "developer-sam"
         ],
         "samlang-demo": [
-          "dev-sam-samlang-demo"
+          "developer-sam-samlang-demo"
         ],
         "ten-web": [
-          "dev-sam-ten-web"
+          "developer-sam-ten-web"
         ]
       }
     }
