@@ -43,8 +43,13 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Set up Node
-        if: github.branch == 'master'
         uses: actions/setup-node@v1
       - name: CI Deploy
         if: github.branch == 'master'
-        run: ./ci-deploy
+        run: |
+          command: |
+            if [ "$(git symbolic-ref --short HEAD)" = "master" ]; then
+              ./ci-deploy
+            else
+              echo "Not master branch, do not deploy"
+            fi
