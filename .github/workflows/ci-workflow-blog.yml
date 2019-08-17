@@ -2,7 +2,7 @@ name: ci-blog
 on:
   pull_request:
     paths:
-      - .github/*
+      - .github/workflows/*
       - sam-highlighter/*
       - blog/*
 
