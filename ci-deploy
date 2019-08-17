@@ -14,6 +14,8 @@ function deploy-firebase-frontend() {
 }
 
 function deploy-blog() {
+    git config --global user.name "SamChou19815"
+    git config --global user.email "sam@developersam.com"
     GIT_USER=SamChou19815 yarn workspace blog deploy
 }
 
