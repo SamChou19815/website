@@ -3,11 +3,13 @@
 # latest commit
 LATEST_COMMIT=$(git rev-parse HEAD)
 DEPLOY_COMMIT=$(git log -1 --format=format:%H --full-diff ci-deploy)
+BLOG_COMMIT=$(git log -1 --format=format:%H --full-diff blog)
 MAIN_SITE_COMMIT=$(git log -1 --format=format:%H --full-diff main-site-frontend)
 SAMLANG_DEMO_COMMIT=$(git log -1 --format=format:%H --full-diff samlang-demo-frontend)
 TEN_WEB_COMMIT=$(git log -1 --format=format:%H --full-diff ten-web-frontend)
 
 if [ $DEPLOY_COMMIT != $LATEST_COMMIT ] \
+    && [ $BLOG_COMMIT != $LATEST_COMMIT ] \
     && [ $MAIN_SITE_COMMIT != $LATEST_COMMIT ] \
     && [ $SAMLANG_DEMO_COMMIT != $LATEST_COMMIT ] \
     && [ $TEN_WEB_COMMIT != $LATEST_COMMIT ]; then
@@ -19,7 +21,7 @@ echo "Installing tools necessary for deployments."
 yarn install
 yarn workspace sam-highlighter build
 
-function deploy() {
+function deploy-firebase-frontend() {
     WORKSPACE="${1}-frontend"
     echo "${WORKSPACE} has changed since the last commit. Prepare deployment..."
     yarn workspace ${WORKSPACE} build && \
@@ -28,12 +30,19 @@ function deploy() {
       echo "${1}-frontend has been deployed."
 }
 
-if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
-    deploy 'main-site'
+function deploy-blog() {
+    GIT_USER=SamChou19815 yarn workspace blog deploy
+}
+
+if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $BLOG_COMMIT == $LATEST_COMMIT ]; then
+    deploy-blog
 fi
 if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
-    deploy 'samlang-demo'
+    deploy-firebase-frontend 'main-site'
 fi
-if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $MAIN_SITE_COMMIT == $LATEST_COMMIT ]; then
-    deploy 'ten-web'
+if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $SAMLANG_DEMO_COMMIT == $LATEST_COMMIT ]; then
+    deploy-firebase-frontend 'samlang-demo'
+fi
+if [ $DEPLOY_COMMIT == $LATEST_COMMIT ] || [ $TEN_WEB_COMMIT == $LATEST_COMMIT ]; then
+    deploy-firebase-frontend 'ten-web'
 fi

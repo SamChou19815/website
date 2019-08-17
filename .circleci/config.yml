@@ -28,6 +28,8 @@ jobs:
       # Check ten-web-frontend:
       - run: yarn workspace ten-web-frontend tsc
       - run: yarn workspace ten-web-frontend lint
+      # Check blog:
+      - run: yarn workspace blog build
   deploy-changed-frontend:
     description: Deploy changed frontend directory to firebase hosting
     docker:
