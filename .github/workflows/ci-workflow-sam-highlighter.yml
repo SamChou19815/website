@@ -2,7 +2,7 @@ name: ci-sam-highlighter
 on:
   pull_request:
     paths:
-      - .github/*
+      - .github/workflows/*
       - sam-highlighter/*
 
 jobs:

@@ -2,7 +2,7 @@ name: ci-ten-web-frontend
 on:
   pull_request:
     paths:
-      - .github/*
+      - .github/workflows/*
       - sam-highlighter/*
       - ten-web-frontend/*
 
