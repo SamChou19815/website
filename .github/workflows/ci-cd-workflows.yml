@@ -40,7 +40,9 @@ jobs:
         uses: actions/setup-node@v1
       - name: CI Deploy
         run: |
-          if [ "$(git rev-parse --abbrev-ref HEAD)" = "master" ]; then
+          BRANCH=$(git rev-parse --abbrev-ref HEAD)
+          echo "Current branch is $BRANCH"
+          if [ "$BRANCH" = "master" ]; then
             ./ci-deploy
           else
             echo "Not master branch, do not deploy"
