@@ -1,5 +1,5 @@
 name: CI-CD
-on: [push]
+on: [pull_request]
 
 jobs:
   build-and-check:
@@ -31,19 +31,3 @@ jobs:
       # blog
       - name: Build blog
         run: yarn workspace blog build
-  deploy-changed-frontend:
-    needs: build-and-check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Set up Node
-        uses: actions/setup-node@v1
-      - name: CI Deploy
-        run: |
-          BRANCH=$(git rev-parse --abbrev-ref HEAD)
-          echo "Current branch is $BRANCH"
-          if [ "$BRANCH" = "master" ]; then
-            ./ci-deploy
-          else
-            echo "Not master branch, do not deploy"
-          fi
