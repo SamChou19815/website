@@ -1,5 +1,6 @@
 name: CI-CD
 on: [push]
+
 jobs:
   build-and-check:
     runs-on: ubuntu-latest
