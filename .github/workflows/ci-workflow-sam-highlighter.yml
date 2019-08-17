@@ -14,5 +14,5 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      - name: Type Check sam-highlighter
+      - name: Type Check
         run: yarn workspace sam-highlighter tsc

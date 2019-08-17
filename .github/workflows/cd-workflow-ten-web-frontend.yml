@@ -1,0 +1,32 @@
+name: cd-ten-web-frontend
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .github/*
+      - sam-highlighter/*
+      - ten-web-frontend/*
+
+jobs:
+  check-lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      # Build Dependencies
+      - name: Build sam-highlighter
+        run: yarn workspace sam-highlighter build
+      # Build
+      - name: Build
+        run: yarn workspace ten-web-frontend build
+      # Deploy
+      - name: Deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          ./main-site-frontend/node_modules/.bin/firebase deploy \
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web

@@ -1,6 +1,8 @@
-name: ci-samlang-demo-frontend
+name: cd-samlang-demo-frontend
 on:
-  pull_request:
+  push:
+    branches:
+      - master
     paths:
       - .github/*
       - sam-highlighter/*
@@ -18,10 +20,13 @@ jobs:
       # Build Dependencies
       - name: Build sam-highlighter
         run: yarn workspace sam-highlighter build
-      # Run Checks
-      - name: Type Check
-        run: yarn workspace samlang-demo-frontend tsc
-      - name: Lint
-        run: yarn workspace samlang-demo-frontend lint
+      # Build
       - name: Build
         run: yarn workspace samlang-demo-frontend build
+      # Deploy
+      - name: Deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          ./main-site-frontend/node_modules/.bin/firebase deploy \
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-demo
