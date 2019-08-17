@@ -18,22 +18,16 @@ jobs:
         run: yarn workspace main-site-frontend tsc
       - name: Lint main-site-frontend
         run: yarn workspace main-site-frontend lint
-      - name: Build main-site-frontend
-        run: yarn workspace main-site-frontend build
       # samlang-demo-frontend
       - name: Type Check samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend tsc
       - name: Lint samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend lint
-      - name: Build samlang-demo-frontend
-        run: yarn workspace samlang-demo-frontend build
       # ten-web-frontend
       - name: Type Check ten-web-frontend
         run: yarn workspace ten-web-frontend tsc
       - name: Lint ten-web-frontend
         run: yarn workspace ten-web-frontend lint
-      - name: Build ten-web-frontend
-        run: yarn workspace ten-web-frontend build
       # blog
       - name: Build blog
         run: yarn workspace blog build
