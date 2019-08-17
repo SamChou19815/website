@@ -1,0 +1,3 @@
+style "configuration/style.rb"
+git_recurse true
+ignore_front_matter true

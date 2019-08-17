@@ -1,7 +1,6 @@
-# samlang-demo-frontend
+# blog
 
-The SAMLANG demo website.
-[https://samlang-demo.developersam.com](https://samlang-demo.developersam.com)
+Sam's blog. [https://blog.developersam.com](https://blog.developersam.com)
 
 ## Tech Specification
 

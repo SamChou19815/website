@@ -1,0 +1,18 @@
+name: ci-sam-highlighter
+on:
+  pull_request:
+    paths:
+      - .github/*
+      - sam-highlighter/*
+
+jobs:
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      - name: Type Check sam-highlighter
+        run: yarn workspace sam-highlighter tsc
