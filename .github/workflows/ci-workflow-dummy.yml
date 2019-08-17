@@ -6,14 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Do Nothing
-        runs: echo "Bye!"
+        run: echo "Bye!"
   check-lint-build:
     runs-on: ubuntu-latest
     steps:
       - name: Do Nothing
-        runs: echo "Bye!"
+        run: echo "Bye!"
   type-check:
     runs-on: ubuntu-latest
     steps:
       - name: Do Nothing
-        runs: echo "Bye!"
+        run: echo "Bye!"
