@@ -10,3 +10,4 @@ The SAMLANG demo website.
 - Linted by ESLint
 - Built by Yarn Workspaces
 - Deployed on Firebase Hosting
+- Workflow Automated by GitHub Actions
