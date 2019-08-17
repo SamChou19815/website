@@ -40,7 +40,7 @@ jobs:
         uses: actions/setup-node@v1
       - name: CI Deploy
         run: |
-          if [ "$(git symbolic-ref --short HEAD)" = "master" ]; then
+          if [ "$(git rev-parse --abbrev-ref HEAD)" = "master" ]; then
             ./ci-deploy
           else
             echo "Not master branch, do not deploy"
