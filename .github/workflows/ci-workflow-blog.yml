@@ -1,4 +1,4 @@
-name: ci-ten-web-frontend
+name: ci-blog
 on:
   pull_request:
     paths:
