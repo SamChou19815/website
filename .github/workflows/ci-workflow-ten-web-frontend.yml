@@ -1,0 +1,27 @@
+name: ci-ten-web-frontend
+on:
+  pull_request:
+    paths:
+      - .github/*
+      - sam-highlighter/*
+      - ten-web-frontend/*
+
+jobs:
+  check-lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      # Build Dependencies
+      - name: Build sam-highlighter
+        run: yarn workspace sam-highlighter build
+      # Run Checks
+      - name: Type Check
+        run: yarn workspace ten-web-frontend tsc
+      - name: Lint
+        run: yarn workspace ten-web-frontend lint
+      - name: Build
+        run: yarn workspace ten-web-frontend build
