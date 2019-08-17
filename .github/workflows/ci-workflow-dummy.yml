@@ -1,0 +1,19 @@
+name: ci-dummy
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do Nothing
+        runs: echo "Bye!"
+  check-lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do Nothing
+        runs: echo "Bye!"
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do Nothing
+        runs: echo "Bye!"
