@@ -7,7 +7,7 @@ on:
       - blog/*
 
 jobs:
-  check-lint-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
