@@ -1,5 +1,6 @@
 name: CI-CD
 on: [push]
+
 jobs:
   build-and-check:
     runs-on: ubuntu-latest
@@ -17,22 +18,16 @@ jobs:
         run: yarn workspace main-site-frontend tsc
       - name: Lint main-site-frontend
         run: yarn workspace main-site-frontend lint
-      - name: Build main-site-frontend
-        run: yarn workspace main-site-frontend build
       # samlang-demo-frontend
       - name: Type Check samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend tsc
       - name: Lint samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend lint
-      - name: Build samlang-demo-frontend
-        run: yarn workspace samlang-demo-frontend build
       # ten-web-frontend
       - name: Type Check ten-web-frontend
         run: yarn workspace ten-web-frontend tsc
       - name: Lint ten-web-frontend
         run: yarn workspace ten-web-frontend lint
-      - name: Build ten-web-frontend
-        run: yarn workspace ten-web-frontend build
       # blog
       - name: Build blog
         run: yarn workspace blog build
@@ -42,8 +37,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Set up Node
-        if: github.branch == 'master'
         uses: actions/setup-node@v1
       - name: CI Deploy
-        if: github.branch == 'master'
-        run: ./ci-deploy
+        run: |
+          if [ "$(git rev-parse --abbrev-ref HEAD)" = "master" ]; then
+            ./ci-deploy
+          else
+            echo "Not master branch, do not deploy"
+          fi
