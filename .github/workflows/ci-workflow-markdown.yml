@@ -1,5 +1,5 @@
 name: ci-markdown
-on: [pull_request, push]
+on: pull_request
 
 jobs:
   markdown-lint:
@@ -10,4 +10,4 @@ jobs:
       - name: Setup Markdown Lint
         run: gem install mdl
       - name: Run Markdown Lint
-        run: mdl --style .github/configuration/style.rb .
+        run: mdl .

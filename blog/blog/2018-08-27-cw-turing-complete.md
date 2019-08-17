@@ -171,7 +171,7 @@ fun main(): void =
 The code already looks nasty somewhere, but the compiled code's readability is comparable to
 assembly. Here is a random segment of it:
 
-```
+```text
 ...
 {nearby[mem[13]] = 0 and mem[14] = 1} and {{mem[10] = 2 and mem[11] = 0} and ahead[1] = 0 - 2} -->
   mem[10] := 3

@@ -113,7 +113,7 @@ or a normal one. The second fix is to add an additional `isClassFunction` flag f
 expression in type-decorated AST. With this additional information, the compiler can now generate
 efficient code with functions on JVM.
 
-### One More Thing?
+### One More Thing
 
 Second Alpha of SAMPL is released today. Now the error messages contain line numbers so it's easier
 to debug now. Still, I welcome your participation!

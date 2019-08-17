@@ -11,9 +11,9 @@ Badges:
 
 GitHub badges look good. Having them in GitHub README is an indication of a good open source
 project. In the
-[last blog post](https://blog.developersam.com/design-choices/2018/08/02/website-architecture-update/), I
-talked about how I containerized my website. In this post, I will describe how I setup CI/CD for my
-open source projects.
+[last blog post](https://blog.developersam.com/design-choices/2018/08/02/website-architecture-update/),
+I talked about how I containerized my website. In this post, I will describe how I setup CI/CD for
+my open source projects.
 
 <!--truncate-->
 
