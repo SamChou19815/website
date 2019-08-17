@@ -45,7 +45,6 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: CI Deploy
-        if: github.branch == 'master'
         run: |
           command: |
             if [ "$(git symbolic-ref --short HEAD)" = "master" ]; then
