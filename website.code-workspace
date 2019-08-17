@@ -1,0 +1,26 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": ".github"
+    },
+    {
+      "path": "blog"
+    },
+    {
+      "path": "main-site-frontend"
+    },
+    {
+      "path": "sam-highlighter"
+    },
+    {
+      "path": "samlang-demo-frontend"
+    },
+    {
+      "path": "ten-web-frontend"
+    }
+  ],
+  "settings": {}
+}
