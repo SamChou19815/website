@@ -40,9 +40,10 @@ jobs:
     needs: build-and-check
     runs-on: ubuntu-latest
     steps:
-      - if: github.branch == 'master'
       - uses: actions/checkout@master
       - name: Set up Node
+        if: github.branch == 'master'
         uses: actions/setup-node@v1
       - name: CI Deploy
+        if: github.branch == 'master'
         run: ./ci-deploy
