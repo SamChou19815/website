@@ -19,15 +19,19 @@ jobs:
           key: yarn-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
       # Check sam-highlighter
       - run: yarn workspace sam-highlighter tsc
+      - run: yarn workspace sam-highlighter build
       # Check main-site-frontend
       - run: yarn workspace main-site-frontend tsc
       - run: yarn workspace main-site-frontend lint
+      - run: yarn workspace main-site-frontend build
       # Check samlang-demo-frontend:
       - run: yarn workspace samlang-demo-frontend tsc
       - run: yarn workspace samlang-demo-frontend lint
+      - run: yarn workspace samlang-demo-frontend build
       # Check ten-web-frontend:
       - run: yarn workspace ten-web-frontend tsc
       - run: yarn workspace ten-web-frontend lint
+      - run: yarn workspace ten-web-frontend build
       # Check blog:
       - run: yarn workspace blog build
   deploy-changed-frontend:
