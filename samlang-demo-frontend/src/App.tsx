@@ -9,14 +9,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import styles from './App.module.css';
 import LanguageDemo from './LanguageDemo';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#3E7AE2',
-    },
-  },
-  typography: { useNextVariants: true },
-});
+const theme = createMuiTheme({ palette: { primary: { main: '#3E7AE2' } } });
 
 export default function App(): ReactElement {
   return (

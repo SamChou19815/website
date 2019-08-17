@@ -1,8 +1,6 @@
-// @flow strict
-
 import selectMove from './mcts';
 
-// $FlowFixMe
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const doWork = ({ data }) => postMessage({
   aiResponse: selectMove(data),
   board: data,

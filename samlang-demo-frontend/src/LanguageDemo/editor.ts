@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-object-literal-type-assertion */
 import { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
 
 export const editorOptions: editor.IEditorConstructionOptions = {
@@ -82,8 +81,9 @@ export const languageConfiguration: languages.LanguageConfiguration = {
   },
 };
 
-// eslint-disable-next-line @typescript-eslint/no-angle-bracket-type-assertion
-export const languageDefinition: languages.IMonarchLanguage = <languages.IMonarchLanguage>{
+export const languageDefinition: languages.IMonarchLanguage = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
   keywords: [
     'val',
     'as',

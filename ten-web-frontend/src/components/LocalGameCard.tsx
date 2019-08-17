@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { getGameStatus, makeMoveWithoutCheck, Board } from '../game/board';
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import AIEngineWorker from '../game/ai-engine.worker';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';

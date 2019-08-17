@@ -13,10 +13,7 @@ import styles from './App.module.css';
 
 type Mode = 'Local' | 'Distributed';
 
-const theme = createMuiTheme({
-  palette: { primary },
-  typography: { useNextVariants: true },
-});
+const theme = createMuiTheme({ palette: { primary } });
 
 export default function App(): ReactElement {
   const [mode, setMode] = React.useState<Mode>('Local');

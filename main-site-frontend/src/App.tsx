@@ -11,10 +11,7 @@ import ProjectsSection from './components/ProjectsSection';
 import TimelineSection from './components/TimelineSection';
 import TechTalkSection from './components/TechTalkSection';
 
-const theme = createMuiTheme({
-  palette: { primary: { main: '#3E7AE2' } },
-  typography: { useNextVariants: true },
-});
+const theme = createMuiTheme({ palette: { primary: { main: '#3E7AE2' } } });
 
 export default (): ReactElement => (
   <MuiThemeProvider theme={theme}>

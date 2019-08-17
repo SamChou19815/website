@@ -35,7 +35,7 @@ function getUpperConfidenceBound(node: Node, isPlayer: boolean, parent: Node): n
   if (!isPlayer) {
     winningProb = 1 - winningProb;
   }
-  return winningProb + Math.sqrt(2.0 * Math.log(parent.winningProbDen) / node.winningProbDen);
+  return winningProb + Math.sqrt((2.0 * Math.log(parent.winningProbDen)) / node.winningProbDen);
 }
 
 /**
@@ -173,6 +173,6 @@ export default function selectMove(board: Board): MctsResponse {
     }
   }
   const { move, winningProbNum, winningProbDen } = bestNode;
-  const winningPercentage = Math.floor(winningProbNum * 100 / winningProbDen);
+  const winningPercentage = Math.floor((winningProbNum * 100) / winningProbDen);
   return { move, winningPercentage, simulationCounter };
 }
