@@ -17,7 +17,7 @@ export default ({ metadata, items }) => (
   <Layout title="Developer Sam Blog" description="Developer Sam Blog">
     <div className={styles.Container}>
       <div className="row">
-        <div className="col col--8 col--offset-2">
+        <div className="col col--6 col--offset-3">
           {items.map(({ content: BlogPostContent, metadata: blogPostMetadata }) => (
             <div className={styles.BlogPostItem} key={blogPostMetadata.permalink}>
               <BlogPostItem
