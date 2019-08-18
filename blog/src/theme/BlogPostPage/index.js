@@ -18,7 +18,7 @@ export default ({ content: BlogPostContents, metadata, nextItem, prevItem }) => 
     {BlogPostContents && (
       <div className={styles.Container}>
         <div className="row">
-          <div className="col col--8 col--offset-2">
+          <div className="col col--6 col--offset-3">
             <div className={styles.BlogPostItem}>
               <BlogPostItem frontMatter={BlogPostContents.frontMatter} metadata={metadata}>
                 <BlogPostContents />
