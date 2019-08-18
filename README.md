@@ -1,6 +1,6 @@
 # website
 
-[![Build Status](https://action-badges.now.sh/SamChou19815/website)](https://github.com/SamChou19815/samlang/website)
+[![Build Status](https://action-badges.now.sh/SamChou19815/website)](https://github.com/SamChou19815/website)
 ![GitHub](https://img.shields.io/github/license/SamChou19815/website.svg)
 
 This is a monorepo of Sam's [website](https://developersam.com).
