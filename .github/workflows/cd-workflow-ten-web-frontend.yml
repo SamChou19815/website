@@ -9,7 +9,7 @@ on:
       - ten-web-frontend/*
 
 jobs:
-  check-lint-build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
