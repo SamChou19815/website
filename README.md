@@ -37,5 +37,5 @@ This is a monorepo of Sam's [website](https://developersam.com).
 
 ## Stability
 
-This repository will be in 'move-fast' move. i.e. Unstable technologies and libraries can go into
+This repository will be in 'move-fast' mode. i.e. Unstable technologies and libraries can go into
 master and be deployed on Sam's website.
