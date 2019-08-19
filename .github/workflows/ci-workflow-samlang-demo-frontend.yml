@@ -7,7 +7,7 @@ on:
       - samlang-demo-frontend/*
 
 jobs:
-  check-lint-build:
+  check-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -21,7 +21,5 @@ jobs:
       # Run Checks
       - name: Type Check
         run: yarn workspace samlang-demo-frontend tsc
-      - name: Lint
-        run: yarn workspace samlang-demo-frontend lint
       - name: Build
         run: yarn workspace samlang-demo-frontend build

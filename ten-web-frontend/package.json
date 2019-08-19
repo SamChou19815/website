@@ -21,11 +21,7 @@
     "postbuild": "react-snap",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "tsc": "tsc -p tsconfig.json",
-    "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "tsc": "tsc -p tsconfig.json"
   },
   "browserslist": [
     ">0.2%",
