@@ -5,6 +5,7 @@
     "main-site-frontend",
     "sam-highlighter",
     "samlang-demo-frontend",
-    "ten-web-frontend"
+    "ten-web-frontend",
+    "tooling"
   ]
 }
