@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - .github/workflows/*
+      - tooling/*
       - sam-highlighter/*
       - ten-web-frontend/*
 
