@@ -14,7 +14,7 @@
   },
   "private": true,
   "scripts": {
-    "build": "./tsc && cp src/*.css dist/",
+    "build": "tsc && cp src/*.css dist/",
     "prepare": "tsc && cp src/*.css dist/"
   },
   "types": "dist/index.d.ts",
