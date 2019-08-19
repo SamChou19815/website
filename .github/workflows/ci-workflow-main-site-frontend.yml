@@ -7,7 +7,7 @@ on:
       - main-site-frontend/*
 
 jobs:
-  check-lint-build:
+  check-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -21,7 +21,5 @@ jobs:
       # Run Checks
       - name: Type Check
         run: yarn workspace main-site-frontend tsc
-      - name: Lint
-        run: yarn workspace main-site-frontend lint
       - name: Build
         run: yarn workspace main-site-frontend build

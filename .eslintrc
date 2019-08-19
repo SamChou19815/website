@@ -6,12 +6,6 @@
     "browser": true,
     "node": true
   },
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
   "rules": {
     "object-curly-newline": [
       "error",

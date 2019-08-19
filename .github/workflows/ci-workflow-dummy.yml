@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Do Nothing
         run: echo "Bye!"
-  check-lint-build:
+  check-build:
     runs-on: ubuntu-latest
     steps:
       - name: Do Nothing
