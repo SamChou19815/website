@@ -28,5 +28,5 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
-          ./main-site-frontend/node_modules/.bin/firebase deploy \
+          ./tooling/node_modules/.bin/firebase deploy \
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-demo
