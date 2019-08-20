@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - .github/workflows/*
+      - configuration/*
       - tooling/*
       - sam-highlighter/*
       - samlang-demo-frontend/*

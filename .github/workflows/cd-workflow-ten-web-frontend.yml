@@ -5,6 +5,7 @@ on:
       - master
     paths:
       - .github/workflows/*
+      - configuration/*
       - tooling/*
       - sam-highlighter/*
       - ten-web-frontend/*

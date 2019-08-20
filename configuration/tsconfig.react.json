@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es5",
+    "allowJs": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  }
+}
