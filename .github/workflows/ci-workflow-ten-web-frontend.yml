@@ -20,4 +20,4 @@ jobs:
         run: yarn install
 
       - name: Build ten-web-frontend
-        run: yarn workspace build ten-web-frontend
+        run: yarn workspace ten-web-frontend build

@@ -23,9 +23,9 @@ jobs:
         run: yarn install
 
       - name: Build dependency sam-highlighter
-        run: yarn workspace build sam-highlighter
+        run: yarn workspace sam-highlighter build
       - name: Build blog
-        run: yarn workspace build blog
+        run: yarn workspace blog build
 
       - name: Build & Deploy blog
         env:

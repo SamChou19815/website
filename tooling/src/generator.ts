@@ -15,13 +15,13 @@ const getBuildCommands = (
     .forEach((dependency) => {
       commands.push(
         `${indentedLine(`- name: Build dependency ${dependency}`, 6)}`,
-        `${indentedLine(`  run: yarn workspace build ${dependency}`, 6)}`,
+        `${indentedLine(`  run: yarn workspace ${dependency} build`, 6)}`,
       );
     });
   const workspace = dependencyChain[dependencyChain.length - 1];
   commands.push(
     `${indentedLine(`- name: Build ${workspace}`, 6)}`,
-    `${indentedLine(`  run: yarn workspace build ${workspace}`, 6)}`,
+    `${indentedLine(`  run: yarn workspace ${workspace} build`, 6)}`,
   );
   return commands.join('\n');
 };
@@ -119,6 +119,7 @@ export default (): readonly [string, string][] => [
   // CI
   generateFrontendPackageCIWorkflow('blog'),
   generateFrontendPackageCIWorkflow('main-site-frontend'),
+  generateFrontendPackageCIWorkflow('sam-highlighter'),
   generateFrontendPackageCIWorkflow('samlang-demo-frontend'),
   generateFrontendPackageCIWorkflow('ten-web-frontend'),
   // CD
