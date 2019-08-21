@@ -1,10 +1,12 @@
+# @generated
+
 name: cd-samlang-demo-frontend
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/*
+      - .github/workflows/cd-workflow-samlang-demo-frontend.yml
       - configuration/*
       - tooling/*
       - sam-highlighter/*
@@ -19,16 +21,14 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      # Build Dependencies
-      - name: Build sam-highlighter
+
+      - name: Build dependency sam-highlighter
         run: yarn workspace sam-highlighter build
-      # Build
-      - name: Build
+      - name: Build samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend build
-      # Deploy
-      - name: Deploy
+
+      - name: Deploy samlang-demo-frontend
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
-          ./tooling/node_modules/.bin/firebase deploy \
-          --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-demo
+          ./tooling/node_modules/.bin/firebase deploy           --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-demo-frontend

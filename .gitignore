@@ -1,6 +1,5 @@
 # IDE
 **/.idea/
-**/build/
 **/.settings
 *.project
 *.classpath
@@ -8,7 +7,8 @@
 
 # Build
 **/.gradle/
-**/build
+**/dist/
+**/build/
 **/out/
 
 # Git Files
@@ -63,3 +63,9 @@
 
 ## Generated static files
 **/webapp/static/**
+
+# Script
+
+## MyPy
+
+.mypy_cache

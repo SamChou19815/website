@@ -1,15 +1,16 @@
+# @generated
+
 name: ci-ten-web-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/*
+      - .github/workflows/ci-workflow-ten-web-frontend.yml
       - configuration/*
       - tooling/*
-      - sam-highlighter/*
       - ten-web-frontend/*
 
 jobs:
-  check-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -17,11 +18,6 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      # Build Dependencies
-      - name: Build sam-highlighter
-        run: yarn workspace sam-highlighter build
-      # Run Checks
-      - name: Type Check
-        run: yarn workspace ten-web-frontend tsc
-      - name: Build
+
+      - name: Build ten-web-frontend
         run: yarn workspace ten-web-frontend build
