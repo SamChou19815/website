@@ -1,8 +1,10 @@
+# @generated
+
 name: ci-blog
 on:
   pull_request:
     paths:
-      - .github/workflows/*
+      - .github/workflows/ci-workflow-blog.yml
       - configuration/*
       - tooling/*
       - sam-highlighter/*
@@ -17,9 +19,8 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      # Build Dependencies
-      - name: Build sam-highlighter
-        run: yarn workspace sam-highlighter build
-      # Run Checks
-      - name: Build
-        run: yarn workspace blog build
+
+      - name: Build dependency: sam-highlighter
+        run: yarn workspace build sam-highlighter
+      - name: Build blog
+        run: yarn workspace build blog

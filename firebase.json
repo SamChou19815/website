@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "main-site",
+      "target": "main-site-frontend",
       "public": "main-site-frontend/build",
       "ignore": ["**/.*"],
       "rewrites": [
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "target": "samlang-demo",
+      "target": "samlang-demo-frontend",
       "public": "samlang-demo-frontend/build",
       "ignore": ["**/.*"],
       "rewrites": [
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "target": "ten-web",
+      "target": "ten-web-frontend",
       "public": "ten-web-frontend/build",
       "ignore": ["**/.*"],
       "rewrites": [

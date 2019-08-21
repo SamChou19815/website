@@ -1,13 +1,14 @@
+# @generated
+
 name: cd-ten-web-frontend
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/*
+      - .github/workflows/cd-workflow-ten-web-frontend.yml
       - configuration/*
       - tooling/*
-      - sam-highlighter/*
       - ten-web-frontend/*
 
 jobs:
@@ -19,16 +20,12 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      # Build Dependencies
-      - name: Build sam-highlighter
-        run: yarn workspace sam-highlighter build
-      # Build
-      - name: Build
-        run: yarn workspace ten-web-frontend build
-      # Deploy
-      - name: Deploy
+
+      - name: Build ten-web-frontend
+        run: yarn workspace build ten-web-frontend
+
+      - name: Deploy ten-web-frontend
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
-          ./tooling/node_modules/.bin/firebase deploy \
-          --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web
+          ./tooling/node_modules/.bin/firebase deploy           --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web-frontend

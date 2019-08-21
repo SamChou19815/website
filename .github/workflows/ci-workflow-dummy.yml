@@ -7,13 +7,3 @@ jobs:
     steps:
       - name: Do Nothing
         run: echo "Bye!"
-  check-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Do Nothing
-        run: echo "Bye!"
-  type-check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Do Nothing
-        run: echo "Bye!"

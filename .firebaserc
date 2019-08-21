@@ -5,13 +5,13 @@
   "targets": {
     "developer-sam": {
       "hosting": {
-        "main-site": [
+        "main-site-frontend": [
           "developer-sam"
         ],
-        "samlang-demo": [
+        "samlang-demo-frontend": [
           "developer-sam-samlang-demo"
         ],
-        "ten-web": [
+        "ten-web-frontend": [
           "developer-sam-ten-web"
         ]
       }

@@ -1,15 +1,17 @@
+# @generated
+
 name: ci-main-site-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/*
+      - .github/workflows/ci-workflow-main-site-frontend.yml
       - configuration/*
       - tooling/*
       - sam-highlighter/*
       - main-site-frontend/*
 
 jobs:
-  check-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -17,11 +19,8 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      # Build Dependencies
-      - name: Build sam-highlighter
-        run: yarn workspace sam-highlighter build
-      # Run Checks
-      - name: Type Check
-        run: yarn workspace main-site-frontend tsc
-      - name: Build
-        run: yarn workspace main-site-frontend build
+
+      - name: Build dependency: sam-highlighter
+        run: yarn workspace build sam-highlighter
+      - name: Build main-site-frontend
+        run: yarn workspace build main-site-frontend
