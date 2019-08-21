@@ -20,10 +20,12 @@ jobs:
       - uses: actions/checkout@master
       - name: Set up Node
         uses: actions/setup-node@v1
-      - name: Yarn Install
-        run: yarn install
+      - name: Install TypeScript
+        run: yarn global add typescript
+      - name: Compile tooling
+        run: cd tooling && tsc
       - name: Generate Workflows
-        run: yarn generate-workflows --out .github/workflows
+        run: node tooling generate-workflows --out .github/workflows
       - name: Check changed
         run: |
           if [[ `git status --porcelain` ]]; then
