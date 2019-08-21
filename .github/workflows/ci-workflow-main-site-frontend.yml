@@ -20,7 +20,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Build dependency: sam-highlighter
+      - name: Build dependency sam-highlighter
         run: yarn workspace build sam-highlighter
       - name: Build main-site-frontend
         run: yarn workspace build main-site-frontend

@@ -14,7 +14,7 @@ const getBuildCommands = (
     .slice(0, dependencyChain.length - 1)
     .forEach((dependency) => {
       commands.push(
-        `${indentedLine(`- name: Build dependency: ${dependency}`, 6)}`,
+        `${indentedLine(`- name: Build dependency ${dependency}`, 6)}`,
         `${indentedLine(`  run: yarn workspace build ${dependency}`, 6)}`,
       );
     });
