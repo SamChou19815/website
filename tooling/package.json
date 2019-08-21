@@ -15,7 +15,8 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "postinstall": "yarn build"
   },
   "dependencies": {
     "yargs": "^14.0.0"

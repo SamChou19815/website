@@ -22,8 +22,6 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      - name: Build tooling
-        run: yarn workspace tooling build
       - name: Generate Workflows
         run: yarn generate-workflows --out .github/workflows
       - name: Check changed
