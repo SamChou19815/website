@@ -7,8 +7,9 @@ on:
       - master
     paths:
       - .github/workflows/cd-workflow-ten-web-frontend.yml
-      - configuration/*
-      - tooling/*
+      - package.json
+      - configuration/**
+      - tooling/**
       - ten-web-frontend/**
 
 jobs:

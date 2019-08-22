@@ -1,35 +1,50 @@
 {
-  "extends": ["airbnb", "plugin:@typescript-eslint/recommended", "react-app"],
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
   "env": {
     "browser": true,
     "node": true
   },
+  "extends": ["airbnb", "plugin:@typescript-eslint/recommended", "react-app"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/no-angle-bracket-type-assertion": "off",
+    "@typescript-eslint/no-object-literal-type-assertion": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "vars": "all"
+      }
+    ],
+    "@typescript-eslint/prefer-interface": "off",
+    "import/extensions": "off",
+    "indent": "off",
     "no-underscore-dangle": "off",
     "object-curly-newline": [
       "error",
       {
-        "ObjectExpression": {
+        "ExportDeclaration": {
+          "consistent": true,
           "minProperties": 10,
-          "multiline": true,
-          "consistent": true
-        },
-        "ObjectPattern": {
-          "minProperties": 10,
-          "multiline": true,
-          "consistent": true
+          "multiline": true
         },
         "ImportDeclaration": {
+          "consistent": true,
           "minProperties": 10,
-          "multiline": true,
-          "consistent": true
+          "multiline": true
         },
-        "ExportDeclaration": {
+        "ObjectExpression": {
+          "consistent": true,
           "minProperties": 10,
-          "multiline": true,
-          "consistent": true
+          "multiline": true
+        },
+        "ObjectPattern": {
+          "consistent": true,
+          "minProperties": 10,
+          "multiline": true
         }
       }
     ],
@@ -38,26 +53,12 @@
       {
         "extensions": [".jsx", ".tsx"]
       }
-    ],
-    "import/extensions": "off",
-    "indent": "off",
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/prefer-interface": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-object-literal-type-assertion": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "vars": "all",
-        "args": "after-used",
-        "ignoreRestSiblings": true
-      }
     ]
   },
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".mjs", ".js", ".json", ".ts", ".tsx"]
+        "extensions": [".js", ".json", ".mjs", ".ts", ".tsx"]
       }
     }
   }
