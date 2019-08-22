@@ -7,8 +7,9 @@ on:
       - master
     paths:
       - .github/workflows/cd-workflow-blog.yml
-      - configuration/*
-      - tooling/*
+      - package.json
+      - configuration/**
+      - tooling/**
       - sam-highlighter/**
       - blog/**
 

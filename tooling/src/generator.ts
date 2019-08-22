@@ -2,22 +2,16 @@ import { getDependencyChain } from './workspace';
 
 const indentedLine = (text: string, space: number): string => `${' '.repeat(space)}${text}`;
 
-const getPaths = (
-  dependencyChain: readonly string[],
-): string => dependencyChain.map((dependency) => indentedLine(`- ${dependency}/**`, 6)).join('\n');
+const getPaths = (dependencyChain: readonly string[]): string => dependencyChain.map((dependency) => indentedLine(`- ${dependency}/**`, 6)).join('\n');
 
-const getBuildCommands = (
-  dependencyChain: readonly string[],
-): string => {
+const getBuildCommands = (dependencyChain: readonly string[]): string => {
   const commands: string[] = [];
-  dependencyChain
-    .slice(0, dependencyChain.length - 1)
-    .forEach((dependency) => {
-      commands.push(
-        `${indentedLine(`- name: Build dependency ${dependency}`, 6)}`,
-        `${indentedLine(`  run: yarn workspace ${dependency} build`, 6)}`,
-      );
-    });
+  dependencyChain.slice(0, dependencyChain.length - 1).forEach((dependency) => {
+    commands.push(
+      `${indentedLine(`- name: Build dependency ${dependency}`, 6)}`,
+      `${indentedLine(`  run: yarn workspace ${dependency} build`, 6)}`,
+    );
+  });
   const workspace = dependencyChain[dependencyChain.length - 1];
   commands.push(
     `${indentedLine(`- name: Build ${workspace}`, 6)}`,
@@ -35,6 +29,7 @@ on:
   pull_request:
     paths:
       - .github/workflows/ci-workflow-${workspace}.yml
+      - package.json
       - configuration/**
       - tooling/**
 ${getPaths(dependencyChain)}
@@ -68,8 +63,9 @@ on:
       - master
     paths:
       - .github/workflows/cd-workflow-${workspace}.yml
-      - configuration/*
-      - tooling/*
+      - package.json
+      - configuration/**
+      - tooling/**
 ${getPaths(dependencyChain)}
 
 jobs:
