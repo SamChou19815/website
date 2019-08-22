@@ -90,7 +90,7 @@ const generateReactFrontendPackageCDWorkflow = (workspace: string): [string, str
         env:
           FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
         run: |
-          ./tooling/node_modules/.bin/firebase deploy \\
+          ./node_modules/.bin/firebase deploy \\
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:${workspace}`;
   return generateFrontendPackageCDWorkflow(workspace, deployStepGenerator);
 };
