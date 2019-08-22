@@ -5,10 +5,10 @@ on:
   pull_request:
     paths:
       - .github/workflows/ci-workflow-samlang-demo-frontend.yml
-      - configuration/*
-      - tooling/*
-      - sam-highlighter/*
-      - samlang-demo-frontend/*
+      - configuration/**
+      - tooling/**
+      - sam-highlighter/**
+      - samlang-demo-frontend/**
 
 jobs:
   build:

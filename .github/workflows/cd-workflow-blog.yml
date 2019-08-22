@@ -9,8 +9,8 @@ on:
       - .github/workflows/cd-workflow-blog.yml
       - configuration/*
       - tooling/*
-      - sam-highlighter/*
-      - blog/*
+      - sam-highlighter/**
+      - blog/**
 
 jobs:
   deploy:
