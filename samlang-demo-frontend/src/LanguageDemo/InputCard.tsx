@@ -14,7 +14,7 @@ const initialText = `/* Start to type your program */
 // Add your comments */
 // Press enter to add a new line.
 
-util Main {
+class Main {
   function main(): string = "Hello World!"
 }
 `;
