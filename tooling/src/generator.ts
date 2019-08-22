@@ -4,7 +4,7 @@ const indentedLine = (text: string, space: number): string => `${' '.repeat(spac
 
 const getPaths = (
   dependencyChain: readonly string[],
-): string => dependencyChain.map((dependency) => indentedLine(`- ${dependency}/*`, 6)).join('\n');
+): string => dependencyChain.map((dependency) => indentedLine(`- ${dependency}/**`, 6)).join('\n');
 
 const getBuildCommands = (
   dependencyChain: readonly string[],
@@ -35,8 +35,8 @@ on:
   pull_request:
     paths:
       - .github/workflows/ci-workflow-${workspace}.yml
-      - configuration/*
-      - tooling/*
+      - configuration/**
+      - tooling/**
 ${getPaths(dependencyChain)}
 
 jobs:
@@ -94,7 +94,7 @@ const generateReactFrontendPackageCDWorkflow = (workspace: string): [string, str
         env:
           FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
         run: |
-          ./tooling/node_modules/.bin/firebase deploy \
+          ./tooling/node_modules/.bin/firebase deploy \\
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:${workspace}`;
   return generateFrontendPackageCDWorkflow(workspace, deployStepGenerator);
 };

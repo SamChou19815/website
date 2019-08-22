@@ -9,7 +9,7 @@ on:
       - .github/workflows/cd-workflow-ten-web-frontend.yml
       - configuration/*
       - tooling/*
-      - ten-web-frontend/*
+      - ten-web-frontend/**
 
 jobs:
   deploy:
@@ -28,4 +28,5 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
-          ./tooling/node_modules/.bin/firebase deploy           --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web-frontend
+          ./tooling/node_modules/.bin/firebase deploy \
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web-frontend

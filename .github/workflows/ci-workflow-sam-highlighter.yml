@@ -5,9 +5,9 @@ on:
   pull_request:
     paths:
       - .github/workflows/ci-workflow-sam-highlighter.yml
-      - configuration/*
-      - tooling/*
-      - sam-highlighter/*
+      - configuration/**
+      - tooling/**
+      - sam-highlighter/**
 
 jobs:
   build:

@@ -9,8 +9,8 @@ on:
       - .github/workflows/cd-workflow-samlang-demo-frontend.yml
       - configuration/*
       - tooling/*
-      - sam-highlighter/*
-      - samlang-demo-frontend/*
+      - sam-highlighter/**
+      - samlang-demo-frontend/**
 
 jobs:
   deploy:
@@ -31,4 +31,5 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
-          ./tooling/node_modules/.bin/firebase deploy           --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-demo-frontend
+          ./tooling/node_modules/.bin/firebase deploy \
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-demo-frontend

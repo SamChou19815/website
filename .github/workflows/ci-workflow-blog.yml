@@ -5,10 +5,10 @@ on:
   pull_request:
     paths:
       - .github/workflows/ci-workflow-blog.yml
-      - configuration/*
-      - tooling/*
-      - sam-highlighter/*
-      - blog/*
+      - configuration/**
+      - tooling/**
+      - sam-highlighter/**
+      - blog/**
 
 jobs:
   build:
