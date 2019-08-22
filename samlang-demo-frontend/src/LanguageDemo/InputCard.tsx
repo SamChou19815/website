@@ -56,7 +56,6 @@ export default function InputCard({ onSubmit }: Props): ReactElement {
     <Card className={className}>
       <CardContent>
         <MonacoEditor
-          width="660"
           height={editorHeight}
           language="samlang"
           theme="sam-theme"
