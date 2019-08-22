@@ -2,6 +2,7 @@ import { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
 
 export const editorOptions: editor.IEditorConstructionOptions = {
   minimap: { enabled: false },
+  automaticLayout: true,
   scrollBeyondLastLine: false,
 };
 

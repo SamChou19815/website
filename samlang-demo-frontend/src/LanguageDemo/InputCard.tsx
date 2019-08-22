@@ -14,7 +14,7 @@ const initialText = `/* Start to type your program */
 // Add your comments */
 // Press enter to add a new line.
 
-util Main {
+class Main {
   function main(): string = "Hello World!"
 }
 `;
@@ -56,7 +56,6 @@ export default function InputCard({ onSubmit }: Props): ReactElement {
     <Card className={className}>
       <CardContent>
         <MonacoEditor
-          width="660"
           height={editorHeight}
           language="samlang"
           theme="sam-theme"
