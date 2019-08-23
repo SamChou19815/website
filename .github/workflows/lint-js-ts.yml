@@ -9,7 +9,7 @@ on:
       - '*.jsx'
 
 jobs:
-  lint-js-ts:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master

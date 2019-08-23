@@ -12,7 +12,7 @@ on:
       - '*.html'
 
 jobs:
-  check-format:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
