@@ -2,6 +2,7 @@ name: lint-check-format
 on:
   push:
     paths:
+      - .github/workflows/lint-check-format.yml
       - '*.ts'
       - '*.js'
       - '*.tsx'
