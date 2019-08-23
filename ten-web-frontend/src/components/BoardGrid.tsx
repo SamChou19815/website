@@ -39,7 +39,7 @@ export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Pro
           tileStatus={tileStatus}
           doesNeedHighlight={doesNeedHighlight}
           onClick={onClick}
-        />,
+        />
       );
     }
   }

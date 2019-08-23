@@ -25,13 +25,13 @@ const items: TimelineItem[] = [
     title: 'Facebook SWE Intern',
     type: 'work',
     time: '2019-05',
-    image: FacebookHackerWay,
+    image: FacebookHackerWay
   },
   {
     title: 'Xi++ Compiler',
     type: 'project',
     time: '2019-05',
-    detail: 'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly',
+    detail: 'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly'
   },
   {
     title: 'Website Redesign v3',
@@ -40,38 +40,38 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/website',
-      },
-    ],
+        url: 'https://github.com/SamChou19815/website'
+      }
+    ]
   },
   {
     title: 'Cornell DTI TPM',
     type: 'work',
     time: '2019-01',
-    detail: 'Technical product manager of the Samwise subteam.',
+    detail: 'Technical product manager of the Samwise subteam.'
   },
   {
     title: 'SAMLANG',
     type: 'project',
     time: '2019-01',
     image: SAMLANG,
-    detail: 'Sam\'s new programming language with full type-inference.',
+    detail: "Sam's new programming language with full type-inference.",
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/samlang',
+        url: 'https://github.com/SamChou19815/samlang'
       },
       {
         name: 'Docs',
-        url: 'https://samlang.developersam.com/',
-      },
-    ],
+        url: 'https://samlang.developersam.com/'
+      }
+    ]
   },
   {
     title: 'Facebook SWE Intern Final Interview',
     type: 'event',
     time: '2018-10',
-    image: FacebookStickerAndPen,
+    image: FacebookStickerAndPen
   },
   {
     title: 'Cornell DTI Software Developer',
@@ -82,9 +82,9 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/cornell-dti/samwise',
-      },
-    ],
+        url: 'https://github.com/cornell-dti/samwise'
+      }
+    ]
   },
   {
     title: 'Critter Compiler',
@@ -94,13 +94,13 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/primitivize',
+        url: 'https://github.com/SamChou19815/primitivize'
       },
       {
         name: 'Blog Post',
-        url: 'https://blog.developersam.com/math/2018/08/27/cw-turing-complete/',
-      },
-    ],
+        url: 'https://blog.developersam.com/math/2018/08/27/cw-turing-complete/'
+      }
+    ]
   },
   {
     title: 'Website Redesign v2',
@@ -109,13 +109,13 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/dev-sam-frontend',
+        url: 'https://github.com/SamChou19815/dev-sam-frontend'
       },
       {
         name: 'Archive',
-        url: 'https://web.archive.org/web/20190102202556/https://developersam.com/',
-      },
-    ],
+        url: 'https://web.archive.org/web/20190102202556/https://developersam.com/'
+      }
+    ]
   },
   {
     title: 'Badges for GCP Cloud Build',
@@ -125,9 +125,9 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/badges-4-gcp-cloud-build',
-      },
-    ],
+        url: 'https://github.com/SamChou19815/badges-4-gcp-cloud-build'
+      }
+    ]
   },
   {
     title: 'typed-store',
@@ -137,31 +137,31 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/typed-store',
-      },
-    ],
+        url: 'https://github.com/SamChou19815/typed-store'
+      }
+    ]
   },
   {
     title: 'SAMPL',
     type: 'project',
     time: '2018-06',
     image: SAMPL,
-    detail: 'Sam\'s first programming language. Archived in favor of SAMLANG.',
+    detail: "Sam's first programming language. Archived in favor of SAMLANG.",
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/sampl',
+        url: 'https://github.com/SamChou19815/sampl'
       },
       {
         name: 'Blog Post',
-        url: 'https://blog.developersam.com/design-choices/2018/06/15/sampl-alpha-design-choices/',
-      },
-    ],
+        url: 'https://blog.developersam.com/design-choices/2018/06/15/sampl-alpha-design-choices/'
+      }
+    ]
   },
   {
     title: 'ULearn Educational Group SWE Intern',
     type: 'work',
-    time: '2018-05',
+    time: '2018-05'
   },
   {
     title: 'First winning hackathon',
@@ -172,18 +172,18 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/chunk-reader',
+        url: 'https://github.com/SamChou19815/chunk-reader'
       },
       {
         name: 'DevPost Link',
-        url: 'https://devpost.com/software/chunk-reader',
-      },
-    ],
+        url: 'https://devpost.com/software/chunk-reader'
+      }
+    ]
   },
   {
     title: 'Entered Cornell University',
     type: 'event',
-    time: '2017-08',
+    time: '2017-08'
   },
   {
     title: 'TEN',
@@ -193,9 +193,9 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/ten',
-      },
-    ],
+        url: 'https://github.com/SamChou19815/ten'
+      }
+    ]
   },
   {
     title: 'Graduated from WFLA',
@@ -204,15 +204,15 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'Blog: CS in High Schools',
-        url: 'https://blog.developersam.com/tech-journey/2018/12/31/cs-in-high-schools/',
-      },
-    ],
+        url: 'https://blog.developersam.com/tech-journey/2018/12/31/cs-in-high-schools/'
+      }
+    ]
   },
   {
     title: 'Computerization Club President',
     type: 'work',
     time: '2015-09',
-    image: SAMLater,
+    image: SAMLater
   },
   {
     title: 'SAM First Release',
@@ -222,14 +222,14 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/SAM',
-      },
-    ],
+        url: 'https://github.com/SamChou19815/SAM'
+      }
+    ]
   },
   {
     title: 'Computerization Software Developer',
     type: 'work',
-    time: '2015-02',
+    time: '2015-02'
   },
   {
     title: 'Bought developersam.com',
@@ -239,41 +239,41 @@ const items: TimelineItem[] = [
     links: [
       {
         name: 'Initial Version',
-        url: 'https://web.archive.org/web/20160506203739/http://www.developersam.com/',
-      },
-    ],
+        url: 'https://web.archive.org/web/20160506203739/http://www.developersam.com/'
+      }
+    ]
   },
   {
     title: 'Entered WFLA',
     type: 'event',
-    time: '2014-08',
+    time: '2014-08'
   },
   {
     title: 'Graduated from Huayu Middle School',
     type: 'event',
-    time: '2014-06',
+    time: '2014-06'
   },
   {
     title: 'First Non-trivial VB Program Written',
     type: 'project',
-    time: '2011-12',
+    time: '2011-12'
   },
   {
     title: 'Started Coding',
     type: 'event',
     time: '2011-07',
-    detail: 'I bought a bad C++ intro book and almost gave up.',
+    detail: 'I bought a bad C++ intro book and almost gave up.'
   },
   {
     title: 'Entered Huayu Middle School',
     type: 'event',
-    time: '2010-09',
+    time: '2010-09'
   },
   {
     title: 'Born',
     type: 'event',
-    time: '1998-11',
-  },
+    time: '1998-11'
+  }
 ];
 
 export default items;

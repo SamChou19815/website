@@ -21,7 +21,7 @@
   width: 70px;
   text-align: center;
   font-size: 13px;
-  font-family: "Roboto Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: 'Roboto Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .ConnectorDot {
@@ -30,7 +30,7 @@
   height: 16px;
   border-radius: 8px;
   margin-left: 0;
-  background-color: #3E7AE2;
+  background-color: #3e7ae2;
 }
 
 @media screen and (max-width: 600px) {

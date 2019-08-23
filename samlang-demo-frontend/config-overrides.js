@@ -1,6 +1,6 @@
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
-module.exports = (config) => {
+module.exports = config => {
   config.plugins.push(
     new MonacoWebpackPlugin({
       languages: ['samlang'],
@@ -38,9 +38,9 @@ module.exports = (config) => {
         'transpose',
         'wordHighlighter',
         'wordOperations',
-        'wordPartOperations',
-      ],
-    }),
+        'wordPartOperations'
+      ]
+    })
   );
   return config;
 };

@@ -122,7 +122,7 @@ function think(root: Node, playerIdentity: 1 | -1): number {
           board: newBoard,
           children: [],
           winningProbNum: playerWins ? 1 : 0,
-          winningProbDen: 1,
+          winningProbDen: 1
         };
         children.push(childNode);
       }
@@ -157,7 +157,7 @@ export default function selectMove(board: Board): MctsResponse {
     board,
     children: [],
     winningProbNum: 0,
-    winningProbDen: 0,
+    winningProbDen: 0
   };
   const { playerIdentity } = board;
   const simulationCounter = think(root, playerIdentity);

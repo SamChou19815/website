@@ -5,7 +5,7 @@ import {
   emptyBoard,
   getGameStatus,
   makeMove,
-  makeMoveWithoutCheck,
+  makeMoveWithoutCheck
 } from '../game/board';
 import GameCard, { Status } from './GameCard';
 
@@ -20,7 +20,7 @@ export const initialGameState: GameState = {
   board: emptyBoard,
   highlightedCell: null,
   status: 'PLAYER_MOVE',
-  aiInfo: null,
+  aiInfo: null
 };
 
 type Props = {
@@ -35,7 +35,7 @@ type Props = {
 export default function StatefulGameCard({
   gameState,
   setGameState,
-  aiResponder,
+  aiResponder
 }: Props): ReactElement {
   const { board, highlightedCell, status, aiInfo } = gameState;
 
@@ -59,7 +59,7 @@ export default function StatefulGameCard({
       board: newBoard,
       highlightedCell: move,
       status: newStatus,
-      aiInfo: null,
+      aiInfo: null
     });
     aiResponder(newBoard);
   };
@@ -70,7 +70,7 @@ export default function StatefulGameCard({
       board: newBoard,
       highlightedCell: null,
       status: 'PLAYER_MOVE',
-      aiInfo: null,
+      aiInfo: null
     });
   };
 

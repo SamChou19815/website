@@ -27,10 +27,7 @@ type Props = {
  * @constructor
  */
 export default function GameCard(props: Props): ReactElement {
-  const {
-    board, clickCallback, onSelectSide,
-    status, highlightedCell, aiInfo,
-  } = props;
+  const { board, clickCallback, onSelectSide, status, highlightedCell, aiInfo } = props;
   const { tiles, playerIdentity } = board;
   let message: string;
   let blockerActive: boolean;
@@ -104,8 +101,7 @@ export default function GameCard(props: Props): ReactElement {
           >
             TEN game (Ultimate tic-tac-toe)
           </a>
-          , except that a draw is a win for white in this game.
-          AI thinking time is 1.5s.
+          , except that a draw is a win for white in this game. AI thinking time is 1.5s.
         </CardContent>
       </Card>
     </div>

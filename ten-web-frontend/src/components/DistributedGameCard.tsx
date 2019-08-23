@@ -30,16 +30,12 @@ export default function DistributedGameCard(): ReactElement {
           board: newBoardAfterAI,
           highlightedCell: move,
           status: newStatus,
-          aiInfo,
+          aiInfo
         });
       });
   };
 
   return (
-    <StatefulGameCard
-      gameState={gameState}
-      setGameState={setGameState}
-      aiResponder={aiResponder}
-    />
+    <StatefulGameCard gameState={gameState} setGameState={setGameState} aiResponder={aiResponder} />
   );
 }

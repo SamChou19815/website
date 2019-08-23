@@ -23,7 +23,7 @@ const getWorkspacesInformation = (): WorkspacesInformation => {
 
 const getWorkspaceInformation = (
   workspaces: WorkspacesInformation,
-  workspace: string,
+  workspace: string
 ): WorkspaceInformation => {
   const information = workspaces[workspace];
   if (information == null) {
@@ -41,7 +41,7 @@ export const _constructDependencyChain = (
   dependencyChain: string[] = [],
   parentChain: string[] = [],
   parentSet: Set<string> = new Set(),
-  allVisited: Set<string> = new Set(),
+  allVisited: Set<string> = new Set()
 ): void => {
   // Check cyclic dependencies.
   if (allVisited.has(workspace)) {
@@ -55,9 +55,10 @@ export const _constructDependencyChain = (
   }
 
   // Check dependencies.
-  const {
-    workspaceDependencies, mismatchedWorkspaceDependencies,
-  } = getWorkspaceInformation(workspaces, workspace);
+  const { workspaceDependencies, mismatchedWorkspaceDependencies } = getWorkspaceInformation(
+    workspaces,
+    workspace
+  );
   if (mismatchedWorkspaceDependencies.length > 0) {
     throw new Error(`Mismatched dependencies: ${mismatchedWorkspaceDependencies.join(', ')}.`);
   }
@@ -66,14 +67,14 @@ export const _constructDependencyChain = (
   allVisited.add(workspace);
   parentChain.push(workspace);
   parentSet.add(workspace);
-  workspaceDependencies.forEach((dependency) => {
+  workspaceDependencies.forEach(dependency => {
     _constructDependencyChain(
       workspaces,
       dependency,
       dependencyChain,
       parentChain,
       parentSet,
-      allVisited,
+      allVisited
     );
   });
   parentSet.delete(workspace);
@@ -87,7 +88,7 @@ export const _constructDependencyChain = (
  */
 export const validateDependencyChain = (): boolean => {
   const workspaces = getWorkspacesInformation();
-  return Object.keys(workspaces).every((workspace) => {
+  return Object.keys(workspaces).every(workspace => {
     try {
       _constructDependencyChain(workspaces, workspace);
       return true;

@@ -39,7 +39,7 @@ export const emptyBoard: Board = {
   bigSquareStatusArray: Array(9).fill(0),
   bigSquareToPick: -1,
   winningCounter: [0, 0],
-  playerIdentity: 1,
+  playerIdentity: 1
 };
 
 /**
@@ -102,14 +102,16 @@ export function allLegalMovesForAI(board: Board): Move[] {
  * @return {boolean} whether the player wins the square.
  */
 function playerSimplyWinSquare(s: number[], offset: number, id: 1 | -1): boolean {
-  return (s[offset] === id && s[offset + 1] === id && s[offset + 2] === id)
-    || (s[offset + 3] === id && s[offset + 4] === id && s[offset + 5] === id)
-    || (s[offset + 6] === id && s[offset + 7] === id && s[offset + 8] === id)
-    || (s[offset] === id && s[offset + 3] === id && s[offset + 6] === id)
-    || (s[offset + 1] === id && s[offset + 4] === id && s[offset + 7] === id)
-    || (s[offset + 2] === id && s[offset + 5] === id && s[offset + 8] === id)
-    || (s[offset] === id && s[offset + 4] === id && s[offset + 8] === id)
-    || (s[offset + 2] === id && s[offset + 4] === id && s[offset + 6] === id);
+  return (
+    (s[offset] === id && s[offset + 1] === id && s[offset + 2] === id) ||
+    (s[offset + 3] === id && s[offset + 4] === id && s[offset + 5] === id) ||
+    (s[offset + 6] === id && s[offset + 7] === id && s[offset + 8] === id) ||
+    (s[offset] === id && s[offset + 3] === id && s[offset + 6] === id) ||
+    (s[offset + 1] === id && s[offset + 4] === id && s[offset + 7] === id) ||
+    (s[offset + 2] === id && s[offset + 5] === id && s[offset + 8] === id) ||
+    (s[offset] === id && s[offset + 4] === id && s[offset + 8] === id) ||
+    (s[offset + 2] === id && s[offset + 4] === id && s[offset + 6] === id)
+  );
 }
 
 /**
@@ -126,9 +128,16 @@ function computeBigSquareStatus(s: number[], offset: number): 1 | -1 | 0 | -2 {
   if (playerSimplyWinSquare(s, offset, -1)) {
     return -1;
   }
-  const allOccupied = s[offset] !== 0 && s[offset + 1] !== 0 && s[offset + 2] !== 0
-    && s[offset + 3] !== 0 && s[offset + 4] !== 0 && s[offset + 5] !== 0
-    && s[offset + 6] !== 0 && s[offset + 7] !== 0 && s[offset + 8] !== 0;
+  const allOccupied =
+    s[offset] !== 0 &&
+    s[offset + 1] !== 0 &&
+    s[offset + 2] !== 0 &&
+    s[offset + 3] !== 0 &&
+    s[offset + 4] !== 0 &&
+    s[offset + 5] !== 0 &&
+    s[offset + 6] !== 0 &&
+    s[offset + 7] !== 0 &&
+    s[offset + 8] !== 0;
   return allOccupied ? -2 : 0;
 }
 
@@ -148,7 +157,7 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
     tiles: oldTiles,
     bigSquareStatusArray: oldBigSquareStatusArray,
     winningCounter: oldWinningCounter,
-    playerIdentity: oldPlayerIdentity,
+    playerIdentity: oldPlayerIdentity
   } = board;
   const tiles = [...oldTiles];
   const [a, b] = move;
@@ -164,9 +173,13 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
     whiteCounter += 1;
   }
   const winningCounter: [number, number] = [blackCounter, whiteCounter];
-  const playerIdentity = (-oldPlayerIdentity) as 1 | -1;
+  const playerIdentity = -oldPlayerIdentity as 1 | -1;
   return {
-    tiles, bigSquareStatusArray, bigSquareToPick, winningCounter, playerIdentity,
+    tiles,
+    bigSquareStatusArray,
+    bigSquareToPick,
+    winningCounter,
+    playerIdentity
   };
 }
 
