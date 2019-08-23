@@ -6,9 +6,9 @@ on:
     paths:
       - .github/workflows/ci-workflow-ten-web-frontend.yml
       - package.json
-      - configuration/**
-      - tooling/**
-      - ten-web-frontend/**
+      - configuration/
+      - tooling/
+      - ten-web-frontend/
 
 jobs:
   build:

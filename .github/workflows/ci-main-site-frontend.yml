@@ -6,10 +6,10 @@ on:
     paths:
       - .github/workflows/ci-workflow-main-site-frontend.yml
       - package.json
-      - configuration/**
-      - tooling/**
-      - sam-highlighter/**
-      - main-site-frontend/**
+      - configuration/
+      - tooling/
+      - sam-highlighter/
+      - main-site-frontend/
 
 jobs:
   build:

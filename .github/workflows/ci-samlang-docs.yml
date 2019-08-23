@@ -6,10 +6,10 @@ on:
     paths:
       - .github/workflows/ci-workflow-samlang-docs.yml
       - package.json
-      - configuration/**
-      - tooling/**
-      - sam-highlighter/**
-      - samlang-docs/**
+      - configuration/
+      - tooling/
+      - sam-highlighter/
+      - samlang-docs/
 
 jobs:
   build:
