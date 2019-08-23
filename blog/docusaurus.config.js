@@ -35,7 +35,7 @@ module.exports = {
       copyright: `Copyright © 2018-${new Date().getFullYear()} Developer Sam.`
     }
   },
-  themes: [['@docusaurus/theme-classic', { customCss: require.resolve('./css/custom.css') }]],
+  themes: [['@docusaurus/theme-classic', { customCss: require.resolve('./src/css/custom.css') }]],
   plugins: [
     [
       '@docusaurus/plugin-content-blog',

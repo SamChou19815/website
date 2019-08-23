@@ -1,0 +1,27 @@
+# @generated
+
+name: ci-samlang-docs
+on:
+  pull_request:
+    paths:
+      - .github/workflows/ci-workflow-samlang-docs.yml
+      - package.json
+      - configuration/**
+      - tooling/**
+      - sam-highlighter/**
+      - samlang-docs/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+
+      - name: Build dependency sam-highlighter
+        run: yarn workspace sam-highlighter build
+      - name: Build samlang-docs
+        run: yarn workspace samlang-docs build

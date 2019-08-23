@@ -9,7 +9,7 @@ export default (): void =>
       }
       return {
         keywords: {
-          keyword: 'class util val function method as public if then else match',
+          keyword: 'class val function method as public if then else match import from',
           literal: 'false true _',
           // eslint-disable-next-line @typescript-eslint/camelcase
           built_in: 'unit int bool string this panic'

@@ -1,6 +1,6 @@
-# blog
+# samlang-docs
 
-Sam's blog. [https://blog.developersam.com](https://blog.developersam.com)
+SAMLANG's documentation site. [https://samlang.developersam.com](https://samlang.developersam.com)
 
 ## Tech Specification
 

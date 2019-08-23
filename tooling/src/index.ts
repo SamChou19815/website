@@ -36,7 +36,7 @@ const main = (): unknown =>
     .command(
       'generate-workflows',
       'Generate CI/CD workflows',
-      args => args.option('out', { demandOption: true }),
+      args => args.option('out', { demandOption: true, default: '.github/workflows' }),
       ({ out }) => {
         generateWorkflows().forEach(([workflowFilename, workflowFileContent]) => {
           writeFileSync(`${out}/${workflowFilename}`, workflowFileContent);
