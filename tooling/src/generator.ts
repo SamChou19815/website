@@ -29,7 +29,7 @@ name: ci-${workspace}
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-workflow-${workspace}.yml
+      - .github/workflows/ci-${workspace}.yml
       - package.json
       - configuration/
       - tooling/
@@ -63,7 +63,7 @@ on:
     branches:
       - master
     paths:
-      - .github/workflows/cd-workflow-${workspace}.yml
+      - .github/workflows/cd-${workspace}.yml
       - package.json
       - configuration/
       - tooling/

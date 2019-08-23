@@ -4,7 +4,7 @@ name: ci-blog
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-workflow-blog.yml
+      - .github/workflows/ci-blog.yml
       - package.json
       - configuration/
       - tooling/

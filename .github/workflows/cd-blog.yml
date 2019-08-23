@@ -6,7 +6,7 @@ on:
     branches:
       - master
     paths:
-      - .github/workflows/cd-workflow-blog.yml
+      - .github/workflows/cd-blog.yml
       - package.json
       - configuration/
       - tooling/

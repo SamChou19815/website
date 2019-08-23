@@ -4,7 +4,7 @@ name: ci-samlang-docs
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-workflow-samlang-docs.yml
+      - .github/workflows/ci-samlang-docs.yml
       - package.json
       - configuration/
       - tooling/
