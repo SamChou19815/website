@@ -17,7 +17,7 @@ const ButtonLink = ({
   color,
   openInNewTab,
   onClick,
-  className,
+  className
 }: Props): ReactElement => (
   <Button color={color} className={className} onClick={onClick}>
     <Link
@@ -33,7 +33,7 @@ const ButtonLink = ({
 
 ButtonLink.defaultProps = {
   color: 'primary',
-  openInNewTab: false,
+  openInNewTab: false
 };
 
 export default ButtonLink;

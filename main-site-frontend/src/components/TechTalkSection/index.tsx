@@ -17,7 +17,7 @@ export default (): ReactElement => (
         <CardHeader avatar={schoolIcon} title="How to scale" subheader="Learning Series" />
         <CardContent>
           {'Tips on scaling your codebase and your workload,'}
-          {' with lessons learned from Samwise\'s codebase.'}
+          {" with lessons learned from Samwise's codebase."}
         </CardContent>
         <CardActions>
           <ButtonLink href="/how-to-scale.pdf" openInNewTab>
@@ -35,7 +35,7 @@ export default (): ReactElement => (
             Slides
           </ButtonLink>
           <ButtonLink href="https://jessicahong9.github.io/" openInNewTab>
-            {'Co-speaker Jessica\'s website'}
+            {"Co-speaker Jessica's website"}
           </ButtonLink>
         </CardActions>
       </Card>

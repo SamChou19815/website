@@ -3,7 +3,7 @@ import { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
 export const editorOptions: editor.IEditorConstructionOptions = {
   minimap: { enabled: false },
   automaticLayout: true,
-  scrollBeyondLastLine: false,
+  scrollBeyondLastLine: false
 };
 
 export const theme: editor.IStandaloneThemeData = {
@@ -11,44 +11,44 @@ export const theme: editor.IStandaloneThemeData = {
   inherit: false,
   colors: {
     'editor.foreground': '#38484F',
-    'editor.background': '#F7F7F7',
+    'editor.background': '#F7F7F7'
   },
   rules: [
     {
       token: 'keyword',
       foreground: '#3E7AE2',
-      fontStyle: 'bold',
+      fontStyle: 'bold'
     },
     {
       token: 'string',
-      foreground: '#1A8F52',
+      foreground: '#1A8F52'
     },
     {
       token: 'number',
-      foreground: '#C33B30',
+      foreground: '#C33B30'
     },
     {
       token: 'type',
-      foreground: '#9A30AD',
+      foreground: '#9A30AD'
     },
     {
       token: 'comments',
-      foreground: '#808080',
+      foreground: '#808080'
     },
     {
       token: 'functions',
-      foreground: '#D52262',
+      foreground: '#D52262'
     },
     {
       token: 'identifier',
-      foreground: '#38484F',
+      foreground: '#38484F'
     },
     {
       token: 'comment',
       foreground: '#808080',
-      fontStyle: '',
-    },
-  ],
+      fontStyle: ''
+    }
+  ]
 };
 
 export const languageConfiguration: languages.LanguageConfiguration = {
@@ -56,7 +56,7 @@ export const languageConfiguration: languages.LanguageConfiguration = {
   wordPattern: /(-?\d*\.\d\w*)|([^`~!#%^&*()\-=+[{\]}\\|;:'",.<>/?\s]+)/g,
   comments: {
     lineComment: '//',
-    blockComment: ['/*', '*/'],
+    blockComment: ['/*', '*/']
   },
   brackets: [['{', '}'], ['[', ']'], ['(', ')']],
   autoClosingPairs: [
@@ -64,7 +64,7 @@ export const languageConfiguration: languages.LanguageConfiguration = {
     { open: '[', close: ']' },
     { open: '(', close: ')' },
     { open: '"', close: '"' },
-    { open: "'", close: "'" },
+    { open: "'", close: "'" }
   ],
   surroundingPairs: [
     { open: '{', close: '}' },
@@ -72,14 +72,14 @@ export const languageConfiguration: languages.LanguageConfiguration = {
     { open: '(', close: ')' },
     { open: '"', close: '"' },
     { open: "'", close: "'" },
-    { open: '<', close: '>' },
+    { open: '<', close: '>' }
   ],
   folding: {
     markers: {
       start: new RegExp('^\\s*//\\s*(?:(?:#?region\\b)|(?:<editor-fold\\b))'),
-      end: new RegExp('^\\s*//\\s*(?:(?:#?endregion\\b)|(?:</editor-fold>))'),
-    },
-  },
+      end: new RegExp('^\\s*//\\s*(?:(?:#?endregion\\b)|(?:</editor-fold>))')
+    }
+  }
 };
 
 export const languageDefinition: languages.IMonarchLanguage = {
@@ -99,7 +99,7 @@ export const languageDefinition: languages.IMonarchLanguage = {
     'method',
     'string',
     'int',
-    'bool',
+    'bool'
   ],
   operators: ['=', '>', '<', '!', ':', '==', '<=', '>=', '!=', '&&', '||', '+', '-', '*', '/', '%'],
   symbols: /[=><!~?:&|+\-*/^%]+/,
@@ -116,9 +116,9 @@ export const languageDefinition: languages.IMonarchLanguage = {
         {
           cases: {
             '@keywords': { token: 'keyword' },
-            '@default': 'identifier',
-          },
-        },
+            '@default': 'identifier'
+          }
+        }
       ],
       [/[A-Z][a-zA-Z-0-9]*/, 'type'],
       // whitespace
@@ -131,9 +131,9 @@ export const languageDefinition: languages.IMonarchLanguage = {
         {
           cases: {
             '@operators': 'delimiter',
-            '@default': '',
-          },
-        },
+            '@default': ''
+          }
+        }
       ],
       // numbers
       [/(@digits)[eE]([-+]?(@digits))?[fFdD]?/, 'number.float'],
@@ -149,20 +149,20 @@ export const languageDefinition: languages.IMonarchLanguage = {
       // characters
       [/'[^\\']'/, 'string'],
       [/(')(@escapes)(')/, ['string', 'string.escape', 'string']],
-      [/'/, 'string.invalid'],
+      [/'/, 'string.invalid']
     ],
     whitespace: [
       [/[ \t\r\n]+/, ''],
       [/\/\*\*(?!\/)/, 'comment.doc', '@javadoc'],
       [/\/\*/, 'comment', '@comment'],
-      [/\/\/.*$/, 'comment'],
+      [/\/\/.*$/, 'comment']
     ],
     comment: [
       [/[^/*]+/, 'comment'],
       // [/\/\*/, 'comment', '@push' ],    // nested comment not allowed :-(
       // [/\/\*/,    'comment.invalid' ],    // this breaks block comments in the shape of /* //*/
       [/\*\//, 'comment', '@pop'],
-      [/[/*]/, 'comment'],
+      [/[/*]/, 'comment']
     ],
     // Identical copy of comment above, except for the addition of .doc
     javadoc: [
@@ -170,13 +170,13 @@ export const languageDefinition: languages.IMonarchLanguage = {
       // [/\/\*/, 'comment.doc', '@push' ],    // nested comment not allowed :-(
       [/\/\*/, 'comment.doc.invalid'],
       [/\*\//, 'comment.doc', '@pop'],
-      [/[/*]/, 'comment.doc'],
+      [/[/*]/, 'comment.doc']
     ],
     string: [
       [/[^\\"]+/, 'string'],
       [/@escapes/, 'string.escape'],
       [/\\./, 'string.escape.invalid'],
-      [/"/, 'string', '@pop'],
-    ],
-  },
+      [/"/, 'string', '@pop']
+    ]
+  }
 };

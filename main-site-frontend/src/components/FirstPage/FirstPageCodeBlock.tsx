@@ -36,5 +36,7 @@ util Main {
 `;
 
 export default (): ReactElement => (
-  <CodeBlock language="samlang" className={styles.Block}>{code}</CodeBlock>
+  <CodeBlock language="samlang" className={styles.Block}>
+    {code}
+  </CodeBlock>
 );

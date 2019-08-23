@@ -35,9 +35,7 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
   return (
     <div className={styles.Container}>
       <div className={styles.ContentWrapper}>
-        <div className={styles.Timestamp}>
-          {time}
-        </div>
+        <div className={styles.Timestamp}>{time}</div>
         <span className={styles.ConnectorDot} />
         <Card className={styles.Card}>
           {image != null && <CardMedia image={image} title={title} component="img" />}
@@ -45,9 +43,13 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
           {detail != null && <CardContent>{detail}</CardContent>}
           {links != null && (
             <CardActions>
-              {links.map(({ name, url }, index): ReactElement => (
-                <ButtonLink key={index} href={url} openInNewTab>{name}</ButtonLink>
-              ))}
+              {links.map(
+                ({ name, url }, index): ReactElement => (
+                  <ButtonLink key={index} href={url} openInNewTab>
+                    {name}
+                  </ButtonLink>
+                )
+              )}
             </CardActions>
           )}
         </Card>

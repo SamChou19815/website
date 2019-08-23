@@ -11,7 +11,7 @@ import ButtonLink from '../Common/ButtonLink';
 type IconLineProps = {
   readonly icon: string;
   readonly children: string;
-}
+};
 
 const IconLine = ({ icon, children }: IconLineProps): ReactElement => (
   <CardContent className={styles.IconLine}>

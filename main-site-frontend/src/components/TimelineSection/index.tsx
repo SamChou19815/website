@@ -17,13 +17,7 @@ type CheckboxProps = {
 
 const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactElement => (
   <FormControlLabel
-    control={(
-      <Checkbox
-        checked={checked}
-        onChange={onChange}
-        color="primary"
-      />
-    )}
+    control={<Checkbox checked={checked} onChange={onChange} color="primary" />}
     label={label}
   />
 );
@@ -80,9 +74,11 @@ export default (): ReactElement => {
       </FormGroup>
       <div className={styles.TimelineSection}>
         <div className={styles.VerticalBar} />
-        {filteredItems.map((item, index): ReactElement => (
-          <TimelineItemCard key={index} item={item} />
-        ))}
+        {filteredItems.map(
+          (item, index): ReactElement => (
+            <TimelineItemCard key={index} item={item} />
+          )
+        )}
       </div>
     </ConsoleSection>
   );
