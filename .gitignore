@@ -42,6 +42,10 @@
 **/yarn-debug.log*
 **/yarn-error.log*
 
+## docusaurus generated files
+.docusaurus
+.cache-loader
+
 # Backend
 
 ## Compiled class file
