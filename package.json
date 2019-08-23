@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "prettier": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
-    "prettier:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
+    "prettier": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
+    "prettier:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx",
     "lint:fix": "yarn lint --fix",
     "validate-dependency": "node tooling validate-dependency",

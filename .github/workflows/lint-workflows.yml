@@ -1,0 +1,30 @@
+name: lint-workflows
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/*
+      - package.json
+      - configuration/**
+      - tooling/**
+
+jobs:
+  lint-workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      - name: Generate Workflows
+        run: yarn generate-workflows --out .github/workflows
+      - name: Check changed
+        run: |
+          if [[ `git status --porcelain` ]]; then
+            echo "Workflow files are not in sync!"
+            exit 1
+          else
+            echo "Workflow files are in sync. Good to go!"
+          fi
