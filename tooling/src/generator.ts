@@ -117,6 +117,7 @@ export default (): readonly [string, string][] => [
   generateFrontendPackageCIWorkflow('main-site-frontend'),
   generateFrontendPackageCIWorkflow('sam-highlighter'),
   generateFrontendPackageCIWorkflow('samlang-demo-frontend'),
+  generateFrontendPackageCIWorkflow('samlang-docs'),
   generateFrontendPackageCIWorkflow('ten-web-frontend'),
   // CD
   generateDocusaurusPackageCDWorkflow('blog'),
