@@ -3,7 +3,7 @@ import { getDependencyChain } from './workspace';
 const indentedLine = (text: string, space: number): string => `${' '.repeat(space)}${text}`;
 
 const getPaths = (dependencyChain: readonly string[]): string =>
-  dependencyChain.map(dependency => indentedLine(`- '${dependency}/**'`, 6)).join('\n');
+  dependencyChain.map(dependency => indentedLine(`- ${dependency}/`, 6)).join('\n');
 
 const getBuildCommands = (dependencyChain: readonly string[]): string => {
   const commands: string[] = [];
@@ -31,8 +31,8 @@ on:
     paths:
       - .github/workflows/ci-workflow-${workspace}.yml
       - package.json
-      - 'configuration/**'
-      - 'tooling/**'
+      - configuration/
+      - tooling/
 ${getPaths(dependencyChain)}
 
 jobs:
@@ -65,8 +65,8 @@ on:
     paths:
       - .github/workflows/cd-workflow-${workspace}.yml
       - package.json
-      - 'configuration/**'
-      - 'tooling/**'
+      - configuration/
+      - tooling/
 ${getPaths(dependencyChain)}
 
 jobs:
