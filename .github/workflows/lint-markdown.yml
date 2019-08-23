@@ -2,7 +2,7 @@ name: lint
 on:
   push:
     paths:
-      - *.md
+      - '*.md'
 
 jobs:
   lint-markdown:

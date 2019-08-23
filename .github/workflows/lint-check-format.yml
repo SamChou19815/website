@@ -2,13 +2,13 @@ name: lint-check-format
 on:
   push:
     paths:
-      - *.ts
-      - *.js
-      - *.tsx
-      - *.jsx
-      - *.scss
-      - *.css
-      - *.html
+      - '*.ts'
+      - '*.js'
+      - '*.tsx'
+      - '*.jsx'
+      - '*.scss'
+      - '*.css'
+      - '*.html'
 
 jobs:
   check-format:

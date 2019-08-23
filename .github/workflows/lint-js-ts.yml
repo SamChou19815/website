@@ -2,10 +2,10 @@ name: lint-js-ts
 on:
   push:
     paths:
-      - *.ts
-      - *.js
-      - *.tsx
-      - *.jsx
+      - '*.ts'
+      - '*.js'
+      - '*.tsx'
+      - '*.jsx'
 
 jobs:
   lint-js-ts:
