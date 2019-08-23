@@ -16,3 +16,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Do Nothing
+        run: echo "Bye!"
