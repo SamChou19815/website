@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
+      - name: Validate Dependencies
+        run: yarn validate-dependency
       - name: Generate Workflows
         run: yarn generate-workflows --out .github/workflows
       - name: Check changed
