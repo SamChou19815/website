@@ -1,17 +1,17 @@
 # @generated
 
-name: cd-blog
+name: cd-samlang-docs
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-workflow-blog.yml
+      - .github/workflows/cd-workflow-samlang-docs.yml
       - package.json
       - configuration/**
       - tooling/**
       - sam-highlighter/**
-      - blog/**
+      - samlang-docs/**
 
 jobs:
   deploy:
@@ -25,13 +25,13 @@ jobs:
 
       - name: Build dependency sam-highlighter
         run: yarn workspace sam-highlighter build
-      - name: Build blog
-        run: yarn workspace blog build
+      - name: Build samlang-docs
+        run: yarn workspace samlang-docs build
 
-      - name: Build & Deploy blog
+      - name: Build & Deploy samlang-docs
         env:
           DEPLOY_GH_PAGE_TOKEN: ${{ secrets.DEPLOY_GH_PAGE_TOKEN }}
         run: |
           git config --global user.name "SamChou19815"
           git config --global user.email "sam@developersam.com"
-          GIT_USER=$DEPLOY_GH_PAGE_TOKEN yarn workspace blog deploy
+          GIT_USER=$DEPLOY_GH_PAGE_TOKEN yarn workspace samlang-docs deploy

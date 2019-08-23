@@ -22,11 +22,21 @@
       "path": "samlang-demo-frontend"
     },
     {
+      "path": "samlang-docs"
+    },
+    {
       "path": "ten-web-frontend"
     },
     {
       "path": "tooling"
     }
   ],
-  "settings": {}
+  "settings": {
+    "eslint.workingDirectories": ["${workspaceFolder}"]
+    /*
+    "eslint.options": {
+      "ignorePath": "${workspaceFolder}/.eslintignore"
+    }
+    */
+  }
 }

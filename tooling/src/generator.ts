@@ -96,17 +96,16 @@ const generateReactFrontendPackageCDWorkflow = (workspace: string): [string, str
   return generateFrontendPackageCDWorkflow(workspace, deployStepGenerator);
 };
 
-const generateBlogPackageCDWorkflow = (): [string, string] => {
+const generateDocusaurusPackageCDWorkflow = (workspace: string): [string, string] => {
   const deployStepGenerator = (): string => `
-      - name: Build & Deploy blog
+      - name: Build & Deploy ${workspace}
         env:
           DEPLOY_GH_PAGE_TOKEN: \${{ secrets.DEPLOY_GH_PAGE_TOKEN }}
-          FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
         run: |
           git config --global user.name "SamChou19815"
           git config --global user.email "sam@developersam.com"
-          GIT_USER=$DEPLOY_GH_PAGE_TOKEN yarn workspace blog deploy`;
-  return generateFrontendPackageCDWorkflow('blog', deployStepGenerator);
+          GIT_USER=$DEPLOY_GH_PAGE_TOKEN yarn workspace ${workspace} deploy`;
+  return generateFrontendPackageCDWorkflow(workspace, deployStepGenerator);
 };
 
 /**
@@ -120,8 +119,9 @@ export default (): readonly [string, string][] => [
   generateFrontendPackageCIWorkflow('samlang-demo-frontend'),
   generateFrontendPackageCIWorkflow('ten-web-frontend'),
   // CD
-  generateBlogPackageCDWorkflow(),
+  generateDocusaurusPackageCDWorkflow('blog'),
   generateReactFrontendPackageCDWorkflow('main-site-frontend'),
   generateReactFrontendPackageCDWorkflow('samlang-demo-frontend'),
+  generateDocusaurusPackageCDWorkflow('samlang-docs'),
   generateReactFrontendPackageCDWorkflow('ten-web-frontend')
 ];
