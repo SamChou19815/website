@@ -8,10 +8,10 @@ on:
     paths:
       - .github/workflows/cd-workflow-blog.yml
       - package.json
-      - configuration/**
-      - tooling/**
-      - sam-highlighter/**
-      - blog/**
+      - 'configuration/**'
+      - 'tooling/**'
+      - 'sam-highlighter/**'
+      - 'blog/**'
 
 jobs:
   deploy:

@@ -6,9 +6,9 @@ on:
     paths:
       - .github/workflows/ci-workflow-sam-highlighter.yml
       - package.json
-      - configuration/**
-      - tooling/**
-      - sam-highlighter/**
+      - 'configuration/**'
+      - 'tooling/**'
+      - 'sam-highlighter/**'
 
 jobs:
   build:
