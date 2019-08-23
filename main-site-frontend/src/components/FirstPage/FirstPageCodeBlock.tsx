@@ -30,7 +30,7 @@ class Developer(
     val github = "SamChou19815";
     { name: "Sam Zhou", github, projects: l }
 }
-util Main {
+class Main {
   function main(): Developer = Developer::sam()
 }
 `;
