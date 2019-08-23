@@ -6,7 +6,7 @@ on:
     branches:
       - master
     paths:
-      - .github/workflows/cd-workflow-samlang-demo-frontend.yml
+      - .github/workflows/cd-samlang-demo-frontend.yml
       - package.json
       - configuration/
       - tooling/

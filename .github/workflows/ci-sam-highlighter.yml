@@ -4,7 +4,7 @@ name: ci-sam-highlighter
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-workflow-sam-highlighter.yml
+      - .github/workflows/ci-sam-highlighter.yml
       - package.json
       - configuration/
       - tooling/

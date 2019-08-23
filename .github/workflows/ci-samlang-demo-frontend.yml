@@ -4,7 +4,7 @@ name: ci-samlang-demo-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-workflow-samlang-demo-frontend.yml
+      - .github/workflows/ci-samlang-demo-frontend.yml
       - package.json
       - configuration/
       - tooling/

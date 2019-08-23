@@ -4,7 +4,7 @@ name: ci-main-site-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-workflow-main-site-frontend.yml
+      - .github/workflows/ci-main-site-frontend.yml
       - package.json
       - configuration/
       - tooling/
