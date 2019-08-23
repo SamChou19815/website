@@ -1,0 +1,23 @@
+name: lint-js-ts
+on:
+  push:
+    paths:
+      - .github/workflows/lint-js-ts.yml
+      - '*.ts'
+      - '*.js'
+      - '*.tsx'
+      - '*.jsx'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      - name: Build sam-highlighter
+        run: yarn workspace sam-highlighter build
+      - name: Lint
+        run: yarn lint

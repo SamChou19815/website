@@ -47,7 +47,7 @@ jobs:
 
 ${getBuildCommands(dependencyChain)}
 `;
-  return [`ci-workflow-${workspace}.yml`, ymlContent];
+  return [`ci-${workspace}.yml`, ymlContent];
 };
 
 const generateFrontendPackageCDWorkflow = (
@@ -82,7 +82,7 @@ jobs:
 ${getBuildCommands(dependencyChain)}
 ${deployStepGenerator()}
 `;
-  return [`cd-workflow-${workspace}.yml`, ymlContent];
+  return [`cd-${workspace}.yml`, ymlContent];
 };
 
 const generateReactFrontendPackageCDWorkflow = (workspace: string): [string, string] => {

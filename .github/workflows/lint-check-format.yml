@@ -1,0 +1,24 @@
+name: lint-check-format
+on:
+  push:
+    paths:
+      - .github/workflows/lint-check-format.yml
+      - '*.ts'
+      - '*.js'
+      - '*.tsx'
+      - '*.jsx'
+      - '*.scss'
+      - '*.css'
+      - '*.html'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      - name: Run Prettier
+        run: 'yarn prettier:check'
