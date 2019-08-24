@@ -16,6 +16,8 @@ jobs:
         with:
           python-version: '3.7'
       - name: Install black
-        run: python3 -m pip install -U black
-      - name: Lint
+        run: python3 -m pip install -U black flake8
+      - name: Lint with black
         run: black --check .
+      - name: Lint with flake8
+        run: flake8 .
