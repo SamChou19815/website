@@ -1,0 +1,20 @@
+name: ci-builder
+on:
+  pull_request:
+    paths:
+      - .github/workflows/ci-builder.yml
+      - 'builder/**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Install mypy
+        run: python3 -m pip install -U mypy
+      - name: Type Check builder
+        run: mypy builder/
