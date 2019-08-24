@@ -1,11 +1,11 @@
 name: lint-workflows
 on:
-  push:
+  pull_request:
     paths:
       - .github/workflows/
       - package.json
-      - configuration/
-      - tooling/
+      - configuration/**
+      - tooling/**
 
 jobs:
   lint:

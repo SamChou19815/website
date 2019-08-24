@@ -8,10 +8,9 @@ on:
     paths:
       - .github/workflows/cd-blog.yml
       - package.json
-      - configuration/
-      - tooling/
-      - sam-highlighter/
-      - blog/
+      - 'configuration/**'
+      - 'sam-highlighter/**'
+      - 'blog/**'
 
 jobs:
   deploy:
