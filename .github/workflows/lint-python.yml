@@ -1,0 +1,21 @@
+name: lint-python
+on:
+  pull_request:
+    paths:
+      - .github/workflows/lint-python.yml
+      - '**/*.py'
+      - '**/*.pyi'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Install black
+        run: python3 -m pip install -U black
+      - name: Lint
+        run: black --check .
