@@ -4,10 +4,7 @@
     "prettier": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "prettier:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx",
-    "lint:fix": "yarn lint --fix",
-    "validate-dependency": "node tooling validate-dependency",
-    "get-dependency-chain": "node tooling dependency-chain",
-    "generate-workflows": "node tooling generate-workflows"
+    "lint:fix": "yarn lint --fix"
   },
   "workspaces": [
     "blog",
@@ -15,8 +12,7 @@
     "sam-highlighter",
     "samlang-demo-frontend",
     "samlang-docs",
-    "ten-web-frontend",
-    "tooling"
+    "ten-web-frontend"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.0.0",
