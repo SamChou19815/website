@@ -1,12 +1,10 @@
-name: lint-js-ts
+name: lint-python
 on:
   pull_request:
     paths:
-      - .github/workflows/lint-js-ts.yml
-      - '**/*.ts'
-      - '**/*.js'
-      - '**/*.tsx'
-      - '**/*.jsx'
+      - .github/workflows/lint-python.yml
+      - '**/*.py'
+      - '**/*.pyi'
 
 jobs:
   lint:
@@ -17,5 +15,7 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.7'
+      - name: Install black
+        run: python3 -m pip install -U black
       - name: Lint
         run: black --check .
