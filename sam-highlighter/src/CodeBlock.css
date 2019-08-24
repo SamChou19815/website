@@ -56,7 +56,10 @@
   color: #1a8f52;
 }
 
-.hljs-attr,
+.hljs-attr {
+  color: #3e7ae2;
+}
+
 .hljs-variable,
 .hljs-template-variable,
 .hljs-selector-class,
