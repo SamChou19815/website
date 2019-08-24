@@ -6,10 +6,9 @@ on:
     paths:
       - .github/workflows/ci-samlang-demo-frontend.yml
       - package.json
-      - configuration/
-      - tooling/
-      - sam-highlighter/
-      - samlang-demo-frontend/
+      - 'configuration/**'
+      - 'sam-highlighter/**'
+      - 'samlang-demo-frontend/**'
 
 jobs:
   build:

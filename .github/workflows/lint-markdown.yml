@@ -1,9 +1,9 @@
 name: lint-markdown
 on:
-  push:
+  pull_request:
     paths:
       - .github/workflows/lint-markdown.yml
-      - '*.md'
+      - '**/*.md'
 
 jobs:
   lint:

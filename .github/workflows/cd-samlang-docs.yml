@@ -8,10 +8,9 @@ on:
     paths:
       - .github/workflows/cd-samlang-docs.yml
       - package.json
-      - configuration/
-      - tooling/
-      - sam-highlighter/
-      - samlang-docs/
+      - 'configuration/**'
+      - 'sam-highlighter/**'
+      - 'samlang-docs/**'
 
 jobs:
   deploy:
