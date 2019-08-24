@@ -51,7 +51,6 @@ ${getBuildCommands(dependencyChain)}
 
 const generateFrontendPackageCDWorkflow = (
   workspace: string,
-  deployStepGenerator: () => string
 ): [string, string] => {
   const dependencyChain = getDependencyChain(workspace);
   const ymlContent = `# @generated
@@ -78,32 +77,15 @@ jobs:
         run: yarn install
 
 ${getBuildCommands(dependencyChain)}
-${deployStepGenerator()}
-`;
-  return [`cd-${workspace}.yml`, ymlContent];
-};
 
-const generateReactFrontendPackageCDWorkflow = (workspace: string): [string, string] => {
-  const deployStepGenerator = (): string => `
       - name: Deploy ${workspace}
         env:
           FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
         run: |
           ./node_modules/.bin/firebase deploy \\
-          --token=$FIREBASE_TOKEN --non-interactive --only hosting:${workspace}`;
-  return generateFrontendPackageCDWorkflow(workspace, deployStepGenerator);
-};
-
-const generateDocusaurusPackageCDWorkflow = (workspace: string): [string, string] => {
-  const deployStepGenerator = (): string => `
-      - name: Build & Deploy ${workspace}
-        env:
-          DEPLOY_GH_PAGE_TOKEN: \${{ secrets.DEPLOY_GH_PAGE_TOKEN }}
-        run: |
-          git config --global user.name "SamChou19815"
-          git config --global user.email "sam@developersam.com"
-          GIT_USER=$DEPLOY_GH_PAGE_TOKEN yarn workspace ${workspace} deploy`;
-  return generateFrontendPackageCDWorkflow(workspace, deployStepGenerator);
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:${workspace}
+`;
+  return [`cd-${workspace}.yml`, ymlContent];
 };
 
 /**
@@ -118,9 +100,9 @@ export default (): readonly [string, string][] => [
   generateFrontendPackageCIWorkflow('samlang-docs'),
   generateFrontendPackageCIWorkflow('ten-web-frontend'),
   // CD
-  generateDocusaurusPackageCDWorkflow('blog'),
-  generateReactFrontendPackageCDWorkflow('main-site-frontend'),
-  generateReactFrontendPackageCDWorkflow('samlang-demo-frontend'),
-  generateDocusaurusPackageCDWorkflow('samlang-docs'),
-  generateReactFrontendPackageCDWorkflow('ten-web-frontend')
+  generateFrontendPackageCDWorkflow('blog'),
+  generateFrontendPackageCDWorkflow('main-site-frontend'),
+  generateFrontendPackageCDWorkflow('samlang-demo-frontend'),
+  generateFrontendPackageCDWorkflow('samlang-docs'),
+  generateFrontendPackageCDWorkflow('ten-web-frontend')
 ];

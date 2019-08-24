@@ -27,10 +27,9 @@ jobs:
       - name: Build samlang-docs
         run: yarn workspace samlang-docs build
 
-      - name: Build & Deploy samlang-docs
+      - name: Deploy samlang-docs
         env:
-          DEPLOY_GH_PAGE_TOKEN: ${{ secrets.DEPLOY_GH_PAGE_TOKEN }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
-          git config --global user.name "SamChou19815"
-          git config --global user.email "sam@developersam.com"
-          GIT_USER=$DEPLOY_GH_PAGE_TOKEN yarn workspace samlang-docs deploy
+          ./node_modules/.bin/firebase deploy \
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-docs

@@ -5,11 +5,17 @@
   "targets": {
     "developer-sam": {
       "hosting": {
+        "blog": [
+          "developer-sam-blog"
+        ],
         "main-site-frontend": [
           "developer-sam"
         ],
         "samlang-demo-frontend": [
           "developer-sam-samlang-demo"
+        ],
+        "samlang-docs": [
+          "developer-sam-samlang-docs"
         ],
         "ten-web-frontend": [
           "developer-sam-ten-web"

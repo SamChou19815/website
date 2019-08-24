@@ -1,6 +1,11 @@
 {
   "hosting": [
     {
+      "target": "blog",
+      "public": "blog/build",
+      "ignore": ["**/.*"]
+    },
+    {
       "target": "main-site-frontend",
       "public": "main-site-frontend/build",
       "ignore": ["**/.*"],
@@ -28,6 +33,11 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "samlang-docs",
+      "public": "samlang-docs/build",
+      "ignore": ["**/.*"]
     },
     {
       "target": "ten-web-frontend",
