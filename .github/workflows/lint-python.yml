@@ -1,0 +1,21 @@
+name: lint-js-ts
+on:
+  pull_request:
+    paths:
+      - .github/workflows/lint-js-ts.yml
+      - '**/*.ts'
+      - '**/*.js'
+      - '**/*.tsx'
+      - '**/*.jsx'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Lint
+        run: black --check .
