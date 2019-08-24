@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.7'
       - name: Validate Dependencies
-        run: python -m builder.builder validate-dependency
+        run: python -m builder.builder validate-dependencies
       - name: Generate Workflows
         run: python -m builder.builder generate-workflows
       - name: Check changed
