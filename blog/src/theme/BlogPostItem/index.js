@@ -45,14 +45,7 @@ export default ({ children, frontMatter, metadata, truncated }) => {
           <Link to={permalink}>{title}</Link>
         </h1>
         <div className="margin-bottom--sm">
-          <small>
-            {month}
-            {' '}
-            {day}
-            ,
-            {' '}
-            {year}
-          </small>
+          <small>{`${month} ${day}, ${year}`}</small>
         </div>
         <div className="avatar margin-bottom--md">
           {authorImageURL && (
