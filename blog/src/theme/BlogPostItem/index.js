@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { MDXProvider } from '@mdx-js/react';
 
 import Link from '@docusaurus/Link';
@@ -45,7 +46,12 @@ export default ({ children, frontMatter, metadata, truncated }) => {
         </h1>
         <div className="margin-bottom--sm">
           <small>
-            {month} {day}, {year}
+            {month}
+            {' '}
+            {day}
+            ,
+            {' '}
+            {year}
           </small>
         </div>
         <div className="avatar margin-bottom--md">

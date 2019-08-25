@@ -21,6 +21,12 @@
     ],
     "@typescript-eslint/prefer-interface": "off",
     "import/extensions": "off",
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["^@theme", "^@docusaurus", "^@generated"]
+      }
+    ],
     "indent": "off",
     "no-underscore-dangle": "off",
     "object-curly-newline": [
@@ -48,12 +54,8 @@
         }
       }
     ],
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [".jsx", ".tsx"]
-      }
-    ]
+    "react/jsx-filename-extension": "off",
+    "react/prop-types": "off"
   },
   "settings": {
     "import/resolver": {
@@ -61,5 +63,13 @@
         "extensions": [".js", ".json", ".mjs", ".ts", ".tsx"]
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ]
 }
