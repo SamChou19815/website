@@ -23,7 +23,7 @@ const buttons: ReactElement = (
 
 const appStyles = {
   appBar: styles.AppBar,
-  title: styles.Title,
+  title: styles.Title
 };
 
 export default (): ReactElement => (

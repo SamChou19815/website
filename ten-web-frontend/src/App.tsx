@@ -11,24 +11,22 @@ type Mode = 'Local' | 'Distributed';
 export default function App(): ReactElement {
   const [mode, setMode] = React.useState<Mode>('Local');
 
+  const buttons = (
+    <>
+      <Button color="inherit" onClick={(): void => setMode('Local')}>
+        Local
+      </Button>
+      <Button color="inherit" onClick={(): void => setMode('Distributed')}>
+        Distributed
+      </Button>
+      <MaterialButtonLink href="https://developersam.com" color="inherit" openInNewTab>
+        Home
+      </MaterialButtonLink>
+    </>
+  );
+
   return (
-    <MaterialThemedApp
-      styles={{ title: styles.Title }}
-      title={`TEN - ${mode}`}
-      buttons={(
-        <>
-          <Button color="inherit" onClick={(): void => setMode('Local')}>
-            Local
-          </Button>
-          <Button color="inherit" onClick={(): void => setMode('Distributed')}>
-            Distributed
-          </Button>
-          <MaterialButtonLink href="https://developersam.com" color="inherit" openInNewTab>
-            Home
-          </MaterialButtonLink>
-        </>
-      )}
-    >
+    <MaterialThemedApp styles={{ title: styles.Title }} title={`TEN - ${mode}`} buttons={buttons}>
       {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
     </MaterialThemedApp>
   );

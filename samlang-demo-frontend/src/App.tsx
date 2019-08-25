@@ -17,7 +17,7 @@ const buttons: ReactElement = (
 
 const appStyles = {
   app: styles.App,
-  title: styles.Title,
+  title: styles.Title
 };
 
 export default (): ReactElement => (
