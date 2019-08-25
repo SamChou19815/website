@@ -8,7 +8,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-monaco-editor": "^0.29.0",
-    "sam-highlighter": "0.1.0"
+    "sam-react-common": "0.1.0"
   },
   "devDependencies": {
     "monaco-editor-webpack-plugin": "^1.7.0"

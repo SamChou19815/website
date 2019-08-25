@@ -11,8 +11,8 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import withBaseUrl from '@docusaurus/withBaseUrl';
-import CodeBlock from 'sam-highlighter/CodeBlock';
-import initialize from 'sam-highlighter/language';
+import CodeBlock from 'sam-react-common/CodeBlock';
+import initialize from 'sam-react-common/language';
 import styles from './styles.module.css';
 
 initialize();

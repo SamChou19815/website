@@ -7,7 +7,7 @@ on:
       - .github/workflows/generated-ci-blog.yml
       - package.json
       - 'configuration/**'
-      - 'sam-highlighter/**'
+      - 'sam-react-common/**'
       - 'blog/**'
 
 jobs:

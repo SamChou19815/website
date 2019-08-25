@@ -7,7 +7,7 @@ on:
       - .github/workflows/generated-ci-samlang-docs.yml
       - package.json
       - 'configuration/**'
-      - 'sam-highlighter/**'
+      - 'sam-react-common/**'
       - 'samlang-docs/**'
 
 jobs:

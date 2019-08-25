@@ -1,4 +1,4 @@
-# sam-highligher
+# sam-react-common
 
 A syntax highlighter with Sam's unique color configuration.
 

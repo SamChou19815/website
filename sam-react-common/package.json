@@ -1,7 +1,7 @@
 {
-  "name": "sam-highlighter",
+  "name": "sam-react-common",
   "version": "0.1.0",
-  "description": "The common code highlighter used across Developer Sam's website.",
+  "description": "The common React code used across Developer Sam's website.",
   "keywords": [
     "highligher",
     "samlang"

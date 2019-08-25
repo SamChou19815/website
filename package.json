@@ -9,7 +9,7 @@
   "workspaces": [
     "blog",
     "main-site-frontend",
-    "sam-highlighter",
+    "sam-react-common",
     "samlang-demo-frontend",
     "samlang-docs",
     "ten-web-frontend"

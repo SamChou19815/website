@@ -48,9 +48,9 @@
 
 ## Project Specific
 
-### sam-highlighter
-sam-highlighter/**/*.js
-sam-highlighter/**/*.d.ts
+### sam-react-common
+sam-react-common/**/*.js
+sam-react-common/**/*.d.ts
 
 # Backend
 

@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import CodeBlock from 'sam-highlighter/CodeBlock';
-import initialize from 'sam-highlighter/language';
+import CodeBlock from 'sam-react-common/CodeBlock';
+import initialize from 'sam-react-common/language';
 
 import styles from './styles.module.css';
 
