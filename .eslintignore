@@ -7,3 +7,7 @@
 **/config-overrides.js
 blog/
 samlang-docs/
+
+# Generated Files
+sam-highlighter/*.js
+sam-highlighter/*.d.ts

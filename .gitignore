@@ -46,6 +46,12 @@
 .docusaurus
 .cache-loader
 
+## Project Specific
+
+### sam-highlighter
+sam-highlighter/**/*.js
+sam-highlighter/**/*.d.ts
+
 # Backend
 
 ## Compiled class file
