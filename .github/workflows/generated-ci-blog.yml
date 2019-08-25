@@ -1,9 +1,10 @@
 # @generated
 
+name: ci-blog
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-blog.yml
+      - .github/workflows/generated-ci-blog.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'

@@ -1,9 +1,10 @@
 # @generated
 
+name: ci-sam-highlighter
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-sam-highlighter.yml
+      - .github/workflows/generated-ci-sam-highlighter.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'

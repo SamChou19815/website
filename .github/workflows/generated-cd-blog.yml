@@ -1,11 +1,12 @@
 # @generated
 
+name: cd-blog
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-blog.yml
+      - .github/workflows/generated-cd-blog.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'

@@ -19,13 +19,15 @@ def _get_build_commands(dependency_chain: Sequence[str]) -> str:
 
 def _generate_frontend_ci_workflow(workspace: str) -> Tuple[str, str]:
     dependency_chain = get_dependency_chain(workspace=workspace)
-    yml_filename = f"generated-ci-{workspace}.yml"
+    job_name = f"ci-{workspace}"
+    yml_filename = f"generated-{job_name}.yml"
     yml_content = f"""# @generated
 
+name: {job_name}
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-{workspace}.yml
+      - .github/workflows/{yml_filename}
       - package.json
       - 'configuration/**'
 {_get_paths(dependency_chain=dependency_chain)}
@@ -48,15 +50,17 @@ jobs:
 
 def _generate_frontend_cd_workflow(workspace: str) -> Tuple[str, str]:
     dependency_chain = get_dependency_chain(workspace=workspace)
-    yml_filename = f"generated-cd-{workspace}.yml"
+    job_name = f"cd-{workspace}"
+    yml_filename = f"generated-{job_name}.yml"
     yml_content = f"""# @generated
 
+name: {job_name}
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-{workspace}.yml
+      - .github/workflows/{yml_filename}
       - package.json
       - 'configuration/**'
 {_get_paths(dependency_chain=dependency_chain)}

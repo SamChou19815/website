@@ -1,11 +1,12 @@
 # @generated
 
+name: cd-ten-web-frontend
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-ten-web-frontend.yml
+      - .github/workflows/generated-cd-ten-web-frontend.yml
       - package.json
       - 'configuration/**'
       - 'ten-web-frontend/**'

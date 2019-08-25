@@ -1,3 +1,4 @@
+name: lint-check-format
 on:
   pull_request:
     paths:

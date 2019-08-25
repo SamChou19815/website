@@ -1,11 +1,12 @@
 # @generated
 
+name: cd-samlang-docs
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-samlang-docs.yml
+      - .github/workflows/generated-cd-samlang-docs.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'

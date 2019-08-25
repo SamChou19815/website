@@ -1,9 +1,10 @@
 # @generated
 
+name: ci-main-site-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-main-site-frontend.yml
+      - .github/workflows/generated-ci-main-site-frontend.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'

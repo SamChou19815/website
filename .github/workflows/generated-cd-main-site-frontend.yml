@@ -1,11 +1,12 @@
 # @generated
 
+name: cd-main-site-frontend
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-main-site-frontend.yml
+      - .github/workflows/generated-cd-main-site-frontend.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'

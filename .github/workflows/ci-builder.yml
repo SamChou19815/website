@@ -1,3 +1,4 @@
+name: ci-builder
 on:
   pull_request:
     paths:

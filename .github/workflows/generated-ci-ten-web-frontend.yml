@@ -1,9 +1,10 @@
 # @generated
 
+name: ci-ten-web-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-ten-web-frontend.yml
+      - .github/workflows/generated-ci-ten-web-frontend.yml
       - package.json
       - 'configuration/**'
       - 'ten-web-frontend/**'

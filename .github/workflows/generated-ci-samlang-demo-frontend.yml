@@ -1,9 +1,10 @@
 # @generated
 
+name: ci-samlang-demo-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-samlang-demo-frontend.yml
+      - .github/workflows/generated-ci-samlang-demo-frontend.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'

@@ -1,3 +1,4 @@
+name: lint-markdown
 on:
   pull_request:
     paths:

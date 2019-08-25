@@ -1,3 +1,4 @@
+name: lint-workflows
 on:
   pull_request:
     paths:

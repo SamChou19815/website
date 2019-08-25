@@ -1,3 +1,4 @@
+name: lint-js-ts
 on:
   pull_request:
     paths:
