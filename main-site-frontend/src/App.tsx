@@ -4,8 +4,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
+import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
 import styles from './App.module.css';
-import ButtonLink from './components/Common/ButtonLink';
 import FirstPage from './components/FirstPage';
 import ProjectsSection from './components/ProjectsSection';
 import TimelineSection from './components/TimelineSection';
@@ -21,15 +21,20 @@ export default (): ReactElement => (
           <Typography variant="h6" color="inherit" className={styles.Title}>
             Developer Sam
           </Typography>
-          <ButtonLink href="/resume.pdf" color="inherit" openInNewTab className={styles.Resume}>
+          <MaterialButtonLink
+            href="/resume.pdf"
+            color="inherit"
+            openInNewTab
+            className={styles.Resume}
+          >
             Resume
-          </ButtonLink>
-          <ButtonLink href="https://blog.developersam.com" color="inherit" openInNewTab>
+          </MaterialButtonLink>
+          <MaterialButtonLink href="https://blog.developersam.com" color="inherit" openInNewTab>
             Blog
-          </ButtonLink>
-          <ButtonLink href="https://github.com/SamChou19815" color="inherit" openInNewTab>
+          </MaterialButtonLink>
+          <MaterialButtonLink href="https://github.com/SamChou19815" color="inherit" openInNewTab>
             GitHub
-          </ButtonLink>
+          </MaterialButtonLink>
         </Toolbar>
       </AppBar>
       <FirstPage />

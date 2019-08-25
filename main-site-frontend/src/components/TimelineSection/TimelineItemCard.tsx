@@ -7,9 +7,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Icon from '@material-ui/core/Icon';
+import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
 import { TimelineItem } from './items';
 import styles from './TimelineItemCard.module.css';
-import ButtonLink from '../Common/ButtonLink';
 
 type Props = { readonly item: TimelineItem };
 
@@ -45,9 +45,9 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
             <CardActions>
               {links.map(
                 ({ name, url }, index): ReactElement => (
-                  <ButtonLink key={index} href={url} openInNewTab>
+                  <MaterialButtonLink key={index} href={url} openInNewTab>
                     {name}
-                  </ButtonLink>
+                  </MaterialButtonLink>
                 )
               )}
             </CardActions>

@@ -11,7 +11,7 @@ type Props = {
   readonly className?: string;
 };
 
-const ButtonLink = ({
+const MaterialButtonLink = ({
   href,
   children,
   color,
@@ -31,9 +31,9 @@ const ButtonLink = ({
   </Button>
 );
 
-ButtonLink.defaultProps = {
+MaterialButtonLink.defaultProps = {
   color: 'primary',
   openInNewTab: false
 };
 
-export default ButtonLink;
+export default MaterialButtonLink;
