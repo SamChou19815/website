@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = config => {

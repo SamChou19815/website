@@ -100,9 +100,9 @@ function Home() {
           <section className={styles.features}>
             <div className="container">
               <div className="row">
-                {features.map(({ title, code }, idx) => (
+                {features.map(({ title, code }) => (
                   <div
-                    key={idx}
+                    key={title}
                     className={classnames('col col--6', styles.feature, styles.CodeBlockWrapper)}
                   >
                     <h3>{title}</h3>
