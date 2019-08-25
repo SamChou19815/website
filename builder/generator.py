@@ -89,7 +89,7 @@ def generate_workflows() -> Sequence[Tuple[str, str]]:
         # CI
         _generate_frontend_ci_workflow(workspace="blog"),
         _generate_frontend_ci_workflow(workspace="main-site-frontend"),
-        _generate_frontend_ci_workflow(workspace="sam-highlighter"),
+        _generate_frontend_ci_workflow(workspace="sam-react-common"),
         _generate_frontend_ci_workflow(workspace="samlang-demo-frontend"),
         _generate_frontend_ci_workflow(workspace="samlang-docs"),
         _generate_frontend_ci_workflow(workspace="ten-web-frontend"),

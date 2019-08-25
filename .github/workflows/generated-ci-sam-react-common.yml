@@ -1,13 +1,13 @@
 # @generated
 
-name: ci-sam-highlighter
+name: ci-sam-react-common
 on:
   pull_request:
     paths:
-      - .github/workflows/generated-ci-sam-highlighter.yml
+      - .github/workflows/generated-ci-sam-react-common.yml
       - package.json
       - 'configuration/**'
-      - 'sam-highlighter/**'
+      - 'sam-react-common/**'
 
 jobs:
   build:
@@ -19,5 +19,5 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Build sam-highlighter
-        run: yarn workspace sam-highlighter build
+      - name: Build sam-react-common
+        run: yarn workspace sam-react-common build

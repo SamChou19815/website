@@ -9,7 +9,7 @@ on:
       - .github/workflows/generated-cd-samlang-docs.yml
       - package.json
       - 'configuration/**'
-      - 'sam-highlighter/**'
+      - 'sam-react-common/**'
       - 'samlang-docs/**'
 
 jobs:

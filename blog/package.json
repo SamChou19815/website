@@ -15,7 +15,7 @@
     "classnames": "^2.2.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "sam-highlighter": "0.1.0"
+    "sam-react-common": "0.1.0"
   },
   "browserslist": {
     "production": [
