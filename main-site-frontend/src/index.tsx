@@ -1,7 +1,7 @@
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import './index.css';
-import { initialize as initializeHighlighter } from 'sam-highlighter';
+import initializeHighlighter from 'sam-highlighter/language';
 import App from './App';
 
 initializeHighlighter();
