@@ -6,25 +6,15 @@ from .workspace import validate_dependency_chain
 from .generator import generate_workflows
 
 
-def _validate_dependencies(arguments: argparse.Namespace) -> bool:
-    try:
-        validate_dependency_chain()
-        return True
-    except Exception as exception:
-        print(f"ERROR: {str(exception)}")
-        return False
+def _validate_dependencies(arguments: argparse.Namespace) -> None:
+    validate_dependency_chain()
 
 
-def _generate_workflows(arguments: argparse.Namespace) -> bool:
-    try:
-        output_directory = arguments.output_directory
-        for yml_file, yml_file_content in generate_workflows():
-            with open(os.path.join(output_directory, yml_file), "w") as output_file:
-                output_file.write(yml_file_content)
-        return True
-    except Exception as exception:
-        print(f"ERROR: {str(exception)}")
-        return False
+def _generate_workflows(arguments: argparse.Namespace) -> None:
+    output_directory = arguments.output_directory
+    for yml_file, yml_file_content in generate_workflows():
+        with open(os.path.join(output_directory, yml_file), "w") as output_file:
+            output_file.write(yml_file_content)
 
 
 def main() -> bool:
@@ -50,7 +40,12 @@ def main() -> bool:
         print("Command is not specified!")
         return False
 
-    return arguments.command(arguments=arguments)
+    try:
+        arguments.command(arguments=arguments)
+        return True
+    except Exception as exception:
+        print(f"ERROR: {str(exception)}")
+        return False
 
 
 if __name__ == "__main__":
