@@ -1,14 +1,14 @@
 # @generated
 
-name: ci-blog
+name: ci-samlang-demo-frontend
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-blog.yml
+      - .github/workflows/generated-ci-samlang-demo-frontend.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'
-      - 'blog/**'
+      - 'samlang-demo-frontend/**'
 
 jobs:
   build:
@@ -22,5 +22,5 @@ jobs:
 
       - name: Build dependency sam-highlighter
         run: yarn workspace sam-highlighter build
-      - name: Build blog
-        run: yarn workspace blog build
+      - name: Build samlang-demo-frontend
+        run: yarn workspace samlang-demo-frontend build

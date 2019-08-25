@@ -1,13 +1,14 @@
 # @generated
 
-name: ci-ten-web-frontend
+name: ci-blog
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-ten-web-frontend.yml
+      - .github/workflows/generated-ci-blog.yml
       - package.json
       - 'configuration/**'
-      - 'ten-web-frontend/**'
+      - 'sam-highlighter/**'
+      - 'blog/**'
 
 jobs:
   build:
@@ -19,5 +20,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Build ten-web-frontend
-        run: yarn workspace ten-web-frontend build
+      - name: Build dependency sam-highlighter
+        run: yarn workspace sam-highlighter build
+      - name: Build blog
+        run: yarn workspace blog build

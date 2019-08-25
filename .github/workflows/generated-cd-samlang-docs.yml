@@ -1,15 +1,16 @@
 # @generated
 
-name: cd-ten-web-frontend
+name: cd-samlang-docs
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-ten-web-frontend.yml
+      - .github/workflows/generated-cd-samlang-docs.yml
       - package.json
       - 'configuration/**'
-      - 'ten-web-frontend/**'
+      - 'sam-highlighter/**'
+      - 'samlang-docs/**'
 
 jobs:
   deploy:
@@ -21,12 +22,14 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Build ten-web-frontend
-        run: yarn workspace ten-web-frontend build
+      - name: Build dependency sam-highlighter
+        run: yarn workspace sam-highlighter build
+      - name: Build samlang-docs
+        run: yarn workspace samlang-docs build
 
-      - name: Deploy ten-web-frontend
+      - name: Deploy samlang-docs
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           ./node_modules/.bin/firebase deploy \
-          --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web-frontend
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-docs

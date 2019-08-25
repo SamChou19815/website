@@ -1,16 +1,16 @@
 # @generated
 
-name: cd-blog
+name: cd-main-site-frontend
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-blog.yml
+      - .github/workflows/generated-cd-main-site-frontend.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'
-      - 'blog/**'
+      - 'main-site-frontend/**'
 
 jobs:
   deploy:
@@ -24,12 +24,12 @@ jobs:
 
       - name: Build dependency sam-highlighter
         run: yarn workspace sam-highlighter build
-      - name: Build blog
-        run: yarn workspace blog build
+      - name: Build main-site-frontend
+        run: yarn workspace main-site-frontend build
 
-      - name: Deploy blog
+      - name: Deploy main-site-frontend
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           ./node_modules/.bin/firebase deploy \
-          --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:main-site-frontend
