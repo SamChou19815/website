@@ -14,12 +14,13 @@
   },
   "private": true,
   "scripts": {
-    "build": "tsc && cp src/*.css dist/",
+    "build": "tsc",
     "postinstall": "yarn build"
   },
-  "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "*.js",
+    "*.d.ts",
+    "*.css"
   ],
   "dependencies": {
     "react": "^16.9.0",

@@ -2,11 +2,11 @@
   "extends": "../configuration/tsconfig.base.json",
   "compilerOptions": {
     "target": "es6",
-    "outDir": "dist",
+    "outDir": ".",
     "declaration": true,
     "isolatedModules": false,
     "noEmit": false,
     "jsx": "react"
   },
-  "include": ["src"]
+  "exclude": []
 }
