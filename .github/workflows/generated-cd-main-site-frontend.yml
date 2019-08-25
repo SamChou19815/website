@@ -22,8 +22,6 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Build dependency sam-highlighter
-        run: yarn workspace sam-highlighter build
       - name: Build main-site-frontend
         run: yarn workspace main-site-frontend build
 

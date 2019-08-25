@@ -6,12 +6,8 @@ def _get_paths(dependency_chain: Sequence[str]) -> str:
     return "\n".join([f"      - '{dependency}/**'" for dependency in dependency_chain])
 
 
-def _get_build_commands(dependency_chain: Sequence[str]) -> str:
+def _get_build_commands(workspace: str) -> str:
     commands: List[str] = []
-    for dependency in dependency_chain[:-1]:
-        commands.append(f"      - name: Build dependency {dependency}".ljust(6))
-        commands.append(f"        run: yarn workspace {dependency} build".ljust(6))
-    workspace = dependency_chain[-1]
     commands.append(f"      - name: Build {workspace}".ljust(6))
     commands.append(f"        run: yarn workspace {workspace} build".ljust(6))
     return "\n".join(commands)
@@ -42,7 +38,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-{_get_build_commands(dependency_chain=dependency_chain)}
+{_get_build_commands(workspace=workspace)}
 """
 
     return yml_filename, yml_content
@@ -75,7 +71,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-{_get_build_commands(dependency_chain=dependency_chain)}
+{_get_build_commands(workspace=workspace)}
 
       - name: Deploy {workspace}
         env:

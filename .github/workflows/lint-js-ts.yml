@@ -17,7 +17,5 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      - name: Build sam-highlighter
-        run: yarn workspace sam-highlighter build
       - name: Lint
         run: yarn lint

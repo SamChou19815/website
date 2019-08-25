@@ -20,7 +20,5 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Build dependency sam-highlighter
-        run: yarn workspace sam-highlighter build
       - name: Build samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend build

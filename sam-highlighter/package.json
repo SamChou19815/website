@@ -14,7 +14,8 @@
   },
   "private": true,
   "scripts": {
-    "build": "tsc && cp src/*.css dist/"
+    "build": "tsc && cp src/*.css dist/",
+    "postinstall": "yarn build"
   },
   "types": "dist/index.d.ts",
   "files": [
