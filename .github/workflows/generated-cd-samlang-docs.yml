@@ -1,16 +1,15 @@
 # @generated
 
-name: cd-main-site-frontend
 on:
   push:
     branches:
       - master
     paths:
-      - .github/workflows/cd-main-site-frontend.yml
+      - .github/workflows/cd-samlang-docs.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'
-      - 'main-site-frontend/**'
+      - 'samlang-docs/**'
 
 jobs:
   deploy:
@@ -24,12 +23,12 @@ jobs:
 
       - name: Build dependency sam-highlighter
         run: yarn workspace sam-highlighter build
-      - name: Build main-site-frontend
-        run: yarn workspace main-site-frontend build
+      - name: Build samlang-docs
+        run: yarn workspace samlang-docs build
 
-      - name: Deploy main-site-frontend
+      - name: Deploy samlang-docs
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           ./node_modules/.bin/firebase deploy \
-          --token=$FIREBASE_TOKEN --non-interactive --only hosting:main-site-frontend
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-docs

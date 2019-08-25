@@ -1,17 +1,18 @@
 # @generated
 
-name: ci-main-site-frontend
 on:
-  pull_request:
+  push:
+    branches:
+      - master
     paths:
-      - .github/workflows/ci-main-site-frontend.yml
+      - .github/workflows/cd-blog.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'
-      - 'main-site-frontend/**'
+      - 'blog/**'
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -22,5 +23,12 @@ jobs:
 
       - name: Build dependency sam-highlighter
         run: yarn workspace sam-highlighter build
-      - name: Build main-site-frontend
-        run: yarn workspace main-site-frontend build
+      - name: Build blog
+        run: yarn workspace blog build
+
+      - name: Deploy blog
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          ./node_modules/.bin/firebase deploy \
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog

@@ -19,9 +19,9 @@ def _get_build_commands(dependency_chain: Sequence[str]) -> str:
 
 def _generate_frontend_ci_workflow(workspace: str) -> Tuple[str, str]:
     dependency_chain = get_dependency_chain(workspace=workspace)
+    yml_filename = f"generated-ci-{workspace}.yml"
     yml_content = f"""# @generated
 
-name: ci-{workspace}
 on:
   pull_request:
     paths:
@@ -43,14 +43,14 @@ jobs:
 {_get_build_commands(dependency_chain=dependency_chain)}
 """
 
-    return f"ci-{workspace}.yml", yml_content
+    return yml_filename, yml_content
 
 
 def _generate_frontend_cd_workflow(workspace: str) -> Tuple[str, str]:
     dependency_chain = get_dependency_chain(workspace=workspace)
+    yml_filename = f"generated-cd-{workspace}.yml"
     yml_content = f"""# @generated
 
-name: cd-{workspace}
 on:
   push:
     branches:
@@ -81,7 +81,7 @@ jobs:
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:{workspace}
 """
 
-    return f"cd-{workspace}.yml", yml_content
+    return yml_filename, yml_content
 
 
 def generate_workflows() -> Sequence[Tuple[str, str]]:

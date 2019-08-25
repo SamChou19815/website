@@ -1,14 +1,12 @@
 # @generated
 
-name: ci-samlang-docs
 on:
   pull_request:
     paths:
-      - .github/workflows/ci-samlang-docs.yml
+      - .github/workflows/ci-ten-web-frontend.yml
       - package.json
       - 'configuration/**'
-      - 'sam-highlighter/**'
-      - 'samlang-docs/**'
+      - 'ten-web-frontend/**'
 
 jobs:
   build:
@@ -20,7 +18,5 @@ jobs:
       - name: Yarn Install
         run: yarn install
 
-      - name: Build dependency sam-highlighter
-        run: yarn workspace sam-highlighter build
-      - name: Build samlang-docs
-        run: yarn workspace samlang-docs build
+      - name: Build ten-web-frontend
+        run: yarn workspace ten-web-frontend build

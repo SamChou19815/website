@@ -1,19 +1,16 @@
 # @generated
 
-name: cd-blog
 on:
-  push:
-    branches:
-      - master
+  pull_request:
     paths:
-      - .github/workflows/cd-blog.yml
+      - .github/workflows/ci-blog.yml
       - package.json
       - 'configuration/**'
       - 'sam-highlighter/**'
       - 'blog/**'
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -26,10 +23,3 @@ jobs:
         run: yarn workspace sam-highlighter build
       - name: Build blog
         run: yarn workspace blog build
-
-      - name: Deploy blog
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: |
-          ./node_modules/.bin/firebase deploy \
-          --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog

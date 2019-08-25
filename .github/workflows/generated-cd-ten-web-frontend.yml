@@ -1,16 +1,17 @@
 # @generated
 
-name: ci-ten-web-frontend
 on:
-  pull_request:
+  push:
+    branches:
+      - master
     paths:
-      - .github/workflows/ci-ten-web-frontend.yml
+      - .github/workflows/cd-ten-web-frontend.yml
       - package.json
       - 'configuration/**'
       - 'ten-web-frontend/**'
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -21,3 +22,10 @@ jobs:
 
       - name: Build ten-web-frontend
         run: yarn workspace ten-web-frontend build
+
+      - name: Deploy ten-web-frontend
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          ./node_modules/.bin/firebase deploy \
+          --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web-frontend
