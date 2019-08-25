@@ -4,8 +4,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
+import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
 import styles from './index.module.css';
-import ButtonLink from '../Common/ButtonLink';
 import ConsoleSection from '../Common/ConsoleSection';
 
 const schoolIcon = <Icon>school</Icon>;
@@ -20,9 +20,9 @@ export default (): ReactElement => (
           {" with lessons learned from Samwise's codebase."}
         </CardContent>
         <CardActions>
-          <ButtonLink href="/how-to-scale.pdf" openInNewTab>
+          <MaterialButtonLink href="/how-to-scale.pdf" openInNewTab>
             Slides
-          </ButtonLink>
+          </MaterialButtonLink>
         </CardActions>
       </Card>
       <Card className={styles.TechTalkCard}>
@@ -31,12 +31,12 @@ export default (): ReactElement => (
           Tech stack discussion on Firebase, and why Samwise switched to Firebase.
         </CardContent>
         <CardActions>
-          <ButtonLink href="/intro-to-firebase.pdf" openInNewTab>
+          <MaterialButtonLink href="/intro-to-firebase.pdf" openInNewTab>
             Slides
-          </ButtonLink>
-          <ButtonLink href="https://jessicahong9.github.io/" openInNewTab>
+          </MaterialButtonLink>
+          <MaterialButtonLink href="https://jessicahong9.github.io/" openInNewTab>
             {"Co-speaker Jessica's website"}
-          </ButtonLink>
+          </MaterialButtonLink>
         </CardActions>
       </Card>
     </div>

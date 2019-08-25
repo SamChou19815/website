@@ -4,9 +4,9 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Icon from '@material-ui/core/Icon';
+import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
 import styles from './index.module.css';
 import FirstPageCodeBlock from './FirstPageCodeBlock';
-import ButtonLink from '../Common/ButtonLink';
 
 type IconLineProps = {
   readonly icon: string;
@@ -32,9 +32,9 @@ export default (): ReactElement => (
       <IconLine icon="bar_chart">GPA: 4.18/4.3</IconLine>
       <IconLine icon="code">Coding since 13</IconLine>
       <CardActions>
-        <ButtonLink href="#projects">Projects</ButtonLink>
-        <ButtonLink href="#tech-talks">Talks</ButtonLink>
-        <ButtonLink href="#timeline">Timeline</ButtonLink>
+        <MaterialButtonLink href="#projects">Projects</MaterialButtonLink>
+        <MaterialButtonLink href="#tech-talks">Talks</MaterialButtonLink>
+        <MaterialButtonLink href="#timeline">Timeline</MaterialButtonLink>
       </CardActions>
     </Card>
   </div>

@@ -5,9 +5,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Icon from '@material-ui/core/Icon';
+import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
 import ConsoleSection from '../Common/ConsoleSection';
 import styles from './index.module.css';
-import ButtonLink from '../Common/ButtonLink';
 import TEN from '../../assets/projects/ten.png';
 import SAMLANG from '../../assets/projects/samlang.png';
 import Samwise from '../../assets/projects/samwise.png';
@@ -23,15 +23,15 @@ export default (): ReactElement => (
           programming language developed by Sam.
         </CardContent>
         <CardActions>
-          <ButtonLink href="https://samlang.developersam.com" openInNewTab>
+          <MaterialButtonLink href="https://samlang.developersam.com" openInNewTab>
             Official Site
-          </ButtonLink>
-          <ButtonLink href="https://samlang-demo.developersam.com" openInNewTab>
+          </MaterialButtonLink>
+          <MaterialButtonLink href="https://samlang-demo.developersam.com" openInNewTab>
             Demo
-          </ButtonLink>
-          <ButtonLink href="https://github.com/SamChou19815/samlang" openInNewTab>
+          </MaterialButtonLink>
+          <MaterialButtonLink href="https://github.com/SamChou19815/samlang" openInNewTab>
             GitHub Repo
-          </ButtonLink>
+          </MaterialButtonLink>
         </CardActions>
       </Card>
       <Card className={styles.ProjectCard}>
@@ -45,12 +45,12 @@ export default (): ReactElement => (
           .
         </CardContent>
         <CardActions>
-          <ButtonLink href="https://samwise.today" openInNewTab>
+          <MaterialButtonLink href="https://samwise.today" openInNewTab>
             App
-          </ButtonLink>
-          <ButtonLink href="https://github.com/cornell-dti/samwise" openInNewTab>
+          </MaterialButtonLink>
+          <MaterialButtonLink href="https://github.com/cornell-dti/samwise" openInNewTab>
             GitHub Repo
-          </ButtonLink>
+          </MaterialButtonLink>
         </CardActions>
       </Card>
       <Card className={styles.ProjectCard}>
@@ -58,12 +58,12 @@ export default (): ReactElement => (
         <CardHeader avatar={<Icon>code</Icon>} title="TEN" subheader="Game AI" />
         <CardContent>Interesting board game with simple rules. Powered by an MCTS AI.</CardContent>
         <CardActions>
-          <ButtonLink href="https://ten.developersam.com" openInNewTab>
+          <MaterialButtonLink href="https://ten.developersam.com" openInNewTab>
             Demo
-          </ButtonLink>
-          <ButtonLink href="https://github.com/SamChou19815/ten-golang" openInNewTab>
+          </MaterialButtonLink>
+          <MaterialButtonLink href="https://github.com/SamChou19815/ten-golang" openInNewTab>
             GitHub Repo
-          </ButtonLink>
+          </MaterialButtonLink>
         </CardActions>
       </Card>
     </div>
