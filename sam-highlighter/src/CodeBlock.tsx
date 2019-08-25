@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import React, { CSSProperties, ReactElement } from 'react';
 import highlight from 'highlight.js';
 import './CodeBlock.css';
@@ -20,8 +19,7 @@ export default ({ language, children, className, style }: Props): ReactElement =
     try {
       highlight.highlightBlock(node);
     } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log('Safari does not support lookbehind regex. Skip rerender!');
+      // Safari does not support lookbehind regex. Skip rerender!
     }
   });
   return (
