@@ -1,10 +1,16 @@
 # sam-react-common
 
-A syntax highlighter with Sam's unique color configuration.
+A collection of React components for Developer Sam's websites.
+
+## Components
+
+- `<CodeBlock />`: ayntax highlighted code block with Sam's unique color configuration.
+- `<MaterialButtonLink />`: Material design button link.
+- `<MaterialThemedApp />`: Material design top-level app with AppBar.
 
 ## Tech Specification
 
-- Powered by React and `highlight.js`
-- Type Checked by TypeScript
+- Powered by React, Material-UI, and `highlight.js`
+- Type checked and compiled by TypeScript
 - Built by Yarn Workspaces
 - Workflow Automated by GitHub Actions
