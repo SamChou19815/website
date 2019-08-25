@@ -21,10 +21,10 @@
     "dist"
   ],
   "dependencies": {
-    "@types/highlight.js": "^9.12.3",
-    "highlight.js": "^9.15.9"
+    "react": "^16.9.0",
+    "highlight.js": "^9.15.10"
   },
   "devDependencies": {
-    "@types/react": "^16.9.2"
+    "@types/highlight.js": "^9.12.3"
   }
 }
