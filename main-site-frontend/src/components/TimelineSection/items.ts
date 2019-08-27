@@ -22,6 +22,17 @@ export type TimelineItem = {
 
 const items: TimelineItem[] = [
   {
+    title: 'Cornell DTI Developer Lead',
+    type: 'work',
+    time: '2019-06',
+    links: [
+      {
+        name: 'Cornell DTI Website',
+        url: 'https://www.cornelldti.org'
+      }
+    ]
+  },
+  {
     title: 'Facebook SWE Intern',
     type: 'work',
     time: '2019-05',
@@ -48,7 +59,13 @@ const items: TimelineItem[] = [
     title: 'Cornell DTI TPM',
     type: 'work',
     time: '2019-01',
-    detail: 'Technical product manager of the Samwise subteam.'
+    detail: 'Technical product manager of the Samwise subteam.',
+    links: [
+      {
+        name: 'Cornell DTI Website',
+        url: 'https://www.cornelldti.org'
+      }
+    ]
   },
   {
     title: 'SAMLANG',
