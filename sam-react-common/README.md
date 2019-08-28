@@ -12,5 +12,7 @@ A collection of React components for Developer Sam's websites.
 
 - Powered by React, Material-UI, and `highlight.js`
 - Type checked and compiled by TypeScript
+- Formatted by Prettier
+- Linted by ESLint
 - Built by Yarn Workspaces
 - Workflow Automated by GitHub Actions
