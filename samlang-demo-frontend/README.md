@@ -7,6 +7,7 @@ The SAMLANG demo website.
 
 - Powered by React and Material-UI
 - Type Checked by TypeScript
+- Formatted by Prettier
 - Linted by ESLint
 - Built by Yarn Workspaces
 - Deployed on Firebase Hosting

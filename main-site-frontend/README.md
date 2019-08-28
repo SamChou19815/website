@@ -8,6 +8,7 @@ The main website. [https://developersam.com](https://developersam.com)
 
 - Powered by React and Material-UI
 - Type Checked by TypeScript
+- Formatted by Prettier
 - Linted by ESLint
 - Built by Yarn Workspaces
 - Deployed on Firebase Hosting
