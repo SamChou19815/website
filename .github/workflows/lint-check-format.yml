@@ -1,15 +1,5 @@
 name: lint-check-format
-on:
-  pull_request:
-    paths:
-      - .github/workflows/lint-check-format.yml
-      - '**/*.ts'
-      - '**/*.js'
-      - '**/*.tsx'
-      - '**/*.jsx'
-      - '**/*.scss'
-      - '**/*.css'
-      - '**/*.html'
+on: pull_request
 
 jobs:
   lint:

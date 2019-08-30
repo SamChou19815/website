@@ -7,8 +7,11 @@ on:
       - .github/workflows/generated-ci-samlang-docs.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
-      - 'samlang-docs/**'
+      - 'sam-react-common/*'
+      - 'samlang-docs/*'
+      - 'samlang-docs/*/*'
+      - 'samlang-docs/*/*/*'
+      - 'samlang-docs/*/*/*/*'
 
 jobs:
   build:

@@ -1,9 +1,33 @@
+import itertools
+import os
 from typing import List, Sequence, Tuple
 from .workspace import get_dependency_chain
 
 
+def _get_depth(path: str, depth: int = 0) -> int:
+    if not os.path.isdir(path):
+        return depth
+    max_depth = depth
+    for entry in os.listdir(path):
+        full_path = os.path.join(path, entry)
+        max_depth = max(max_depth, _get_depth(full_path, depth + 1))
+    return max_depth
+
+
+def _get_path_filters(path: str) -> Sequence[str]:
+    depth = _get_depth(path=path)
+    filters: List[str] = []
+    for i in range(depth):
+        nested_wildcard = "/*" * (i + 1)
+        filters.append(f"      - '{path}{nested_wildcard}'")
+    return filters
+
+
 def _get_paths(dependency_chain: Sequence[str]) -> str:
-    return "\n".join([f"      - '{dependency}/**'" for dependency in dependency_chain])
+    all_paths: List[str] = []
+    for dependency in dependency_chain:
+        all_paths.extend(_get_path_filters(path=dependency))
+    return "\n".join(all_paths)
 
 
 def _get_build_commands(workspace: str) -> str:
