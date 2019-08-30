@@ -7,8 +7,10 @@ on:
       - .github/workflows/generated-ci-samlang-demo-frontend.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
-      - 'samlang-demo-frontend/**'
+      - 'sam-react-common/*'
+      - 'samlang-demo-frontend/*'
+      - 'samlang-demo-frontend/*/*'
+      - 'samlang-demo-frontend/*/*/*'
 
 jobs:
   build:

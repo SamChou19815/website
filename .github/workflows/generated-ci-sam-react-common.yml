@@ -7,7 +7,7 @@ on:
       - .github/workflows/generated-ci-sam-react-common.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
+      - 'sam-react-common/*'
 
 jobs:
   build:

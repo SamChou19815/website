@@ -1,12 +1,5 @@
 name: lint-js-ts
-on:
-  pull_request:
-    paths:
-      - .github/workflows/lint-js-ts.yml
-      - '**/*.ts'
-      - '**/*.js'
-      - '**/*.tsx'
-      - '**/*.jsx'
+on: pull_request
 
 jobs:
   lint:

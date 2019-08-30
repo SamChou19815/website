@@ -9,8 +9,11 @@ on:
       - .github/workflows/generated-cd-blog.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
-      - 'blog/**'
+      - 'sam-react-common/*'
+      - 'blog/*'
+      - 'blog/*/*'
+      - 'blog/*/*/*'
+      - 'blog/*/*/*/*'
 
 jobs:
   deploy:

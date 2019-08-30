@@ -9,8 +9,11 @@ on:
       - .github/workflows/generated-cd-main-site-frontend.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
-      - 'main-site-frontend/**'
+      - 'sam-react-common/*'
+      - 'main-site-frontend/*'
+      - 'main-site-frontend/*/*'
+      - 'main-site-frontend/*/*/*'
+      - 'main-site-frontend/*/*/*/*'
 
 jobs:
   deploy:

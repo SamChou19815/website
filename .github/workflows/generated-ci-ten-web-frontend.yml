@@ -7,8 +7,10 @@ on:
       - .github/workflows/generated-ci-ten-web-frontend.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
-      - 'ten-web-frontend/**'
+      - 'sam-react-common/*'
+      - 'ten-web-frontend/*'
+      - 'ten-web-frontend/*/*'
+      - 'ten-web-frontend/*/*/*'
 
 jobs:
   build:

@@ -9,8 +9,10 @@ on:
       - .github/workflows/generated-cd-ten-web-frontend.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
-      - 'ten-web-frontend/**'
+      - 'sam-react-common/*'
+      - 'ten-web-frontend/*'
+      - 'ten-web-frontend/*/*'
+      - 'ten-web-frontend/*/*/*'
 
 jobs:
   deploy:

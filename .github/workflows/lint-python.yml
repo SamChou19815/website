@@ -1,10 +1,5 @@
 name: lint-python
-on:
-  pull_request:
-    paths:
-      - .github/workflows/lint-python.yml
-      - '**/*.py'
-      - '**/*.pyi'
+on: pull_request
 
 jobs:
   lint:

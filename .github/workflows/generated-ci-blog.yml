@@ -7,8 +7,11 @@ on:
       - .github/workflows/generated-ci-blog.yml
       - package.json
       - 'configuration/**'
-      - 'sam-react-common/**'
-      - 'blog/**'
+      - 'sam-react-common/*'
+      - 'blog/*'
+      - 'blog/*/*'
+      - 'blog/*/*/*'
+      - 'blog/*/*/*/*'
 
 jobs:
   build:
