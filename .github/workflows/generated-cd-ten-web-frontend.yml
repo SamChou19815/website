@@ -13,7 +13,6 @@ on:
       - 'ten-web-frontend/*'
       - 'ten-web-frontend/*/*'
       - 'ten-web-frontend/*/*/*'
-      - 'ten-web-frontend/*/*/*/*'
 
 jobs:
   deploy:

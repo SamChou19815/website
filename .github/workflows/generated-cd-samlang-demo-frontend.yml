@@ -13,7 +13,6 @@ on:
       - 'samlang-demo-frontend/*'
       - 'samlang-demo-frontend/*/*'
       - 'samlang-demo-frontend/*/*/*'
-      - 'samlang-demo-frontend/*/*/*/*'
 
 jobs:
   deploy:

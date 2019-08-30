@@ -1,11 +1,19 @@
 import itertools
 import os
+import subprocess
 from typing import List, Sequence, Tuple
 from .workspace import get_dependency_chain
 
 
 def _get_depth(path: str, depth: int = 0) -> int:
     if not os.path.isdir(path):
+        return depth
+    try:
+        subprocess.check_output(
+            ["git", "ls-files", "--error-unmatch", path], stderr=subprocess.DEVNULL
+        )
+    except Exception:
+        # Do not consider gitignored files.
         return depth
     max_depth = depth
     for entry in os.listdir(path):
