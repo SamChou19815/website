@@ -33,7 +33,7 @@ class Main {
 }
 ```
 
-A module contains a list of classes, and a class can either by a normal class or utility class,
+A module contains a list of classes, and a class can either be a normal class or utility class,
 which will be explained later. If there is a module named `Main` and the module contains a no-arg
 function `main`, then the entire program will be evaluated to the evaluation result of the function
 call `Main.main()`. If there is no such module, then the evaluation result will be `unit`.
