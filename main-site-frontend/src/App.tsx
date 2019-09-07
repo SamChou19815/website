@@ -9,7 +9,15 @@ import TechTalkSection from './components/TechTalkSection';
 
 const buttons: ReactElement = (
   <>
-    <MaterialButtonLink href="/resume.pdf" color="inherit" openInNewTab className={styles.Resume}>
+    <MaterialButtonLink
+      href="/transcript.pdf"
+      color="inherit"
+      openInNewTab
+      className={styles.Hideable}
+    >
+      Transcript
+    </MaterialButtonLink>
+    <MaterialButtonLink href="/resume.pdf" color="inherit" openInNewTab className={styles.Hideable}>
       Resume
     </MaterialButtonLink>
     <MaterialButtonLink href="https://blog.developersam.com" color="inherit" openInNewTab>

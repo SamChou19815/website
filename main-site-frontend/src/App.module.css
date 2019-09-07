@@ -6,8 +6,8 @@
   flex: 1 1 auto;
 }
 
-@media screen and (max-width: 400px) {
-  .Resume {
+@media screen and (max-width: 600px) {
+  .Hideable {
     display: none !important;
   }
 }
