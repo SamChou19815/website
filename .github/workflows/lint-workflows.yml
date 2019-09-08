@@ -54,7 +54,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
       - name: Upload Install Cache
-        uses: actions/download-artifact@master
+        uses: actions/upload-artifact@master
         with:
           name: yarn-install-node-modules
           path: node_modules
