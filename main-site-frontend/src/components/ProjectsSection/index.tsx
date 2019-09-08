@@ -3,7 +3,6 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Icon from '@material-ui/core/Icon';
 import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
 import ConsoleSection from '../Common/ConsoleSection';
@@ -11,12 +10,13 @@ import styles from './index.module.css';
 import TEN from '../../assets/projects/ten.png';
 import SAMLANG from '../../assets/projects/samlang.png';
 import Samwise from '../../assets/projects/samwise.png';
+import LazyMaterialMedia from '../Common/LazyMaterialMedia';
 
 export default (): ReactElement => (
   <ConsoleSection id="projects" title="./active-projects --pretty-print">
     <div className={styles.ProjectContainer}>
       <Card className={styles.ProjectCard}>
-        <CardMedia image={SAMLANG} title="SAMLANG" component="img" />
+        <LazyMaterialMedia image={SAMLANG} title="SAMLANG" />
         <CardHeader avatar={<Icon>code</Icon>} title="SAMLANG" subheader="Programming Language" />
         <CardContent>
           A statically-typed functional programming language with full type inference. A research
@@ -35,7 +35,7 @@ export default (): ReactElement => (
         </CardActions>
       </Card>
       <Card className={styles.ProjectCard}>
-        <CardMedia image={Samwise} title="Samwise" component="img" />
+        <LazyMaterialMedia image={Samwise} title="Samwise" />
         <CardHeader avatar={<Icon>code</Icon>} title="Samwise" subheader="Web App" />
         <CardContent>
           {'A Student Planner for Everyone. Designed, developed and maintained by '}
@@ -54,7 +54,7 @@ export default (): ReactElement => (
         </CardActions>
       </Card>
       <Card className={styles.ProjectCard}>
-        <CardMedia image={TEN} title="TEN" component="img" />
+        <LazyMaterialMedia image={TEN} title="TEN" />
         <CardHeader avatar={<Icon>code</Icon>} title="TEN" subheader="Game AI" />
         <CardContent>Interesting board game with simple rules. Powered by an MCTS AI.</CardContent>
         <CardActions>
