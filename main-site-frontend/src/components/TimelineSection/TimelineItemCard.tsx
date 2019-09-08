@@ -38,7 +38,11 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
         <div className={styles.Timestamp}>{time}</div>
         <span className={styles.ConnectorDot} />
         <Card className={styles.Card}>
-          {image != null && <CardMedia image={image} title={title} component="img" />}
+          {image != null && (
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
+            <CardMedia image={image} title={title} component="img" loading="lazy" />
+          )}
           <CardHeader avatar={<Icon>{iconId}</Icon>} title={title} subheader={subheader} />
           {detail != null && <CardContent>{detail}</CardContent>}
           {links != null && (
