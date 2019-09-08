@@ -1,9 +1,14 @@
 # website
 
-[![Build Status](https://action-badges.now.sh/SamChou19815/website)](https://github.com/SamChou19815/website)
 ![GitHub](https://img.shields.io/github/license/SamChou19815/website.svg)
 ![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 ![code style: black](https://img.shields.io/badge/code_style-black-000000.svg)
+
+![cd blog](https://github.com/SamChou19815/website/workflows/cd-blog/badge.svg)
+![cd main-site-frontend](https://github.com/SamChou19815/website/workflows/cd-main-site-frontend/badge.svg)
+![cd samlang-demo-frontend](https://github.com/SamChou19815/website/workflows/cd-samlang-demo-frontend/badge.svg)
+![cd samlang-docs](https://github.com/SamChou19815/website/workflows/cd-samlang-docs/badge.svg)
+![cd ten-web-frontend](https://github.com/SamChou19815/website/workflows/cd-ten-web-frontend/badge.svg)
 
 This is a monorepo of Sam's [website](https://developersam.com).
 
