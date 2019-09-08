@@ -1,14 +1,8 @@
 name: lint-workflows
-on:
-  pull_request:
-    paths:
-      - '.github/workflows/*'
-      - package.json
-      - 'configuration/*'
-      - 'builder/*'
+on: pull_request
 
 jobs:
-  lint:
+  lint-generated:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -28,3 +22,44 @@ jobs:
           else
             echo "Workflow files are in sync. Good to go!"
           fi
+  lint-markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-ruby@v1
+      - name: Setup Markdown Lint
+        run: gem install mdl
+      - name: Run Markdown Lint
+        run: mdl .
+  lint-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Install linters
+        run: python3 -m pip install -U black flake8
+      - name: Lint with black
+        run: black --check .
+      - name: Lint with flake8
+        run: flake8 .
+  lint-js-ts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      - name: Run Prettier
+        run: 'yarn prettier:check'
+      - name: Run ESLint
+        run: yarn lint
+  lint:
+    runs-on: ubuntu-latest
+    needs: [lint-generated, lint-markdown, lint-python, lint-js-ts]
+    steps:
+      - name: All passing
+        run: echo "All passing!"
