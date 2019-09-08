@@ -55,7 +55,7 @@ jobs:
         run: yarn install
       - name: Run Prettier
         run: 'yarn prettier:check'
-      - name: Lint
+      - name: Run ESLint
         run: yarn lint
   lint:
     runs-on: ubuntu-latest
