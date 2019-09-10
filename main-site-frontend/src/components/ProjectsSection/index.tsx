@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Icon from '@material-ui/core/Icon';
+import Code from '@material-ui/icons/Code';
 import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
 import ConsoleSection from '../Common/ConsoleSection';
 import styles from './index.module.css';
@@ -17,7 +17,7 @@ export default (): ReactElement => (
     <div className={styles.ProjectContainer}>
       <Card className={styles.ProjectCard}>
         <LazyMaterialMedia image={SAMLANG} title="SAMLANG" />
-        <CardHeader avatar={<Icon>code</Icon>} title="SAMLANG" subheader="Programming Language" />
+        <CardHeader avatar={<Code />} title="SAMLANG" subheader="Programming Language" />
         <CardContent>
           A statically-typed functional programming language with full type inference. A research
           programming language developed by Sam.
@@ -36,7 +36,7 @@ export default (): ReactElement => (
       </Card>
       <Card className={styles.ProjectCard}>
         <LazyMaterialMedia image={Samwise} title="Samwise" />
-        <CardHeader avatar={<Icon>code</Icon>} title="Samwise" subheader="Web App" />
+        <CardHeader avatar={<Code />} title="Samwise" subheader="Web App" />
         <CardContent>
           {'A Student Planner for Everyone. Designed, developed and maintained by '}
           <a href="https://cornelldti.org" target="_blank" rel="noopener noreferrer">
@@ -55,7 +55,7 @@ export default (): ReactElement => (
       </Card>
       <Card className={styles.ProjectCard}>
         <LazyMaterialMedia image={TEN} title="TEN" />
-        <CardHeader avatar={<Icon>code</Icon>} title="TEN" subheader="Game AI" />
+        <CardHeader avatar={<Code />} title="TEN" subheader="Game AI" />
         <CardContent>Interesting board game with simple rules. Powered by an MCTS AI.</CardContent>
         <CardActions>
           <MaterialButtonLink href="https://ten.developersam.com" openInNewTab>
