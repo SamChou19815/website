@@ -14,7 +14,6 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "postbuild": "react-snap",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "tsc": "tsc -p tsconfig.json"

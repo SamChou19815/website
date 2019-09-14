@@ -27,6 +27,10 @@ jobs:
 
       - name: Build main-site-frontend
         run: yarn workspace main-site-frontend build
+      - name: Install react-snap
+        run: yarn add react-snap --dev -W
+      - name: Run react-snap
+        run: yarn workspace main-site-frontend ci-postbuild
 
       - name: Deploy main-site-frontend
         env:

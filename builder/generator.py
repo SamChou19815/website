@@ -39,8 +39,13 @@ def _get_paths(dependency_chain: Sequence[str]) -> str:
 
 def _get_build_commands(workspace: str) -> str:
     commands: List[str] = []
-    commands.append(f"      - name: Build {workspace}".ljust(6))
-    commands.append(f"        run: yarn workspace {workspace} build".ljust(6))
+    commands.append(f"      - name: Build {workspace}")
+    commands.append(f"        run: yarn workspace {workspace} build")
+    if workspace == "main-site-frontend":
+        commands.append(f"      - name: Install react-snap")
+        commands.append(f"        run: yarn add react-snap --dev -W")
+        commands.append(f"      - name: Run react-snap")
+        commands.append(f"        run: yarn workspace main-site-frontend ci-postbuild")
     return "\n".join(commands)
 
 
