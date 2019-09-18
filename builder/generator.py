@@ -104,14 +104,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Set up Node
         uses: actions/setup-node@v1
-
-      - name: Report Deployment Pending
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'pending'
-          token: '${{{{ secrets.GITHUB_TOKEN }}}}'
-          description: {workspace} deployment
-
       - name: Yarn Install
         run: yarn install
 
@@ -123,21 +115,6 @@ jobs:
         run: |
           ./node_modules/.bin/firebase deploy \\
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:{workspace}
-
-      - name: Report Deployment Failure
-        if: failure()
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'failure'
-          token: '${{{{ secrets.GITHUB_TOKEN }}}}'
-          description: {workspace} deployment
-      - name: Report Deployment Success
-        if: success()
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'success'
-          token: '${{{{ secrets.GITHUB_TOKEN }}}}'
-          description: {workspace} deployment
 """
 
     return yml_filename, yml_content
