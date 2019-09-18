@@ -49,6 +49,21 @@ def _get_build_commands(workspace: str) -> str:
     return "\n".join(commands)
 
 
+_CREATE_STATUS_STEP: str = """
+      - name: Create Success Status
+        uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{{{ github.token }}}}
+          script: |
+            github.repos.createStatus({{
+              owner: 'SamChou19815',
+              repo: 'website',
+              sha: github.sha,
+              state: 'success',
+            }});
+"""
+
+
 def _generate_frontend_ci_workflow(workspace: str) -> Tuple[str, str]:
     dependency_chain = get_dependency_chain(workspace=workspace)
     job_name = f"ci-{workspace}"
@@ -75,6 +90,7 @@ jobs:
         run: yarn install
 
 {_get_build_commands(workspace=workspace)}
+{_CREATE_STATUS_STEP}
 """
 
     return yml_filename, yml_content
@@ -115,6 +131,7 @@ jobs:
         run: |
           ./node_modules/.bin/firebase deploy \\
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:{workspace}
+{_CREATE_STATUS_STEP}
 """
 
     return yml_filename, yml_content
