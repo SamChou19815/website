@@ -109,34 +109,12 @@ jobs:
 
 {_get_build_commands(workspace=workspace)}
 
-      - name: Report Deployment Pending
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'pending'
-          token: '${{{{ github.token }}}}'
-          description: {workspace} deployment
-
       - name: Deploy {workspace}
         env:
           FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
         run: |
           ./node_modules/.bin/firebase deploy \\
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:{workspace}
-
-      - name: Report Deployment Failure
-        if: failure()
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'failure'
-          token: '${{{{ github.token }}}}'
-          description: {workspace} deployment
-      - name: Report Deployment Success
-        if: success()
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'success'
-          token: '${{{{ github.token }}}}'
-          description: {workspace} deployment
 """
 
     return yml_filename, yml_content

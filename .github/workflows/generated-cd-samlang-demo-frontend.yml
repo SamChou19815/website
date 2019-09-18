@@ -27,31 +27,9 @@ jobs:
       - name: Build samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend build
 
-      - name: Report Deployment Pending
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'pending'
-          token: '${{ github.token }}'
-          description: samlang-demo-frontend deployment
-
       - name: Deploy samlang-demo-frontend
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           ./node_modules/.bin/firebase deploy \
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang-demo-frontend
-
-      - name: Report Deployment Failure
-        if: failure()
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'failure'
-          token: '${{ github.token }}'
-          description: samlang-demo-frontend deployment
-      - name: Report Deployment Success
-        if: success()
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'success'
-          token: '${{ github.token }}'
-          description: samlang-demo-frontend deployment
