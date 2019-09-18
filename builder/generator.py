@@ -104,17 +104,18 @@ jobs:
       - uses: actions/checkout@master
       - name: Set up Node
         uses: actions/setup-node@v1
-      - name: Yarn Install
-        run: yarn install
-
-{_get_build_commands(workspace=workspace)}
 
       - name: Report Deployment Pending
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'pending'
-          token: '${{{{ github.token }}}}'
+          token: '${{{{ secrets.GITHUB_TOKEN }}}}'
           description: {workspace} deployment
+
+      - name: Yarn Install
+        run: yarn install
+
+{_get_build_commands(workspace=workspace)}
 
       - name: Deploy {workspace}
         env:
@@ -128,14 +129,14 @@ jobs:
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'failure'
-          token: '${{{{ github.token }}}}'
+          token: '${{{{ secrets.GITHUB_TOKEN }}}}'
           description: {workspace} deployment
       - name: Report Deployment Success
         if: success()
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'success'
-          token: '${{{{ github.token }}}}'
+          token: '${{{{ secrets.GITHUB_TOKEN }}}}'
           description: {workspace} deployment
 """
 
