@@ -1,17 +1,15 @@
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { useState, ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import MonacoEditor from 'react-monaco-editor';
-import * as monacoEditor from 'monaco-editor/esm/vs/editor/editor.api';
+import CodeBlock from 'sam-react-common/CodeBlock';
 import styles from './LanguageDemo.module.css';
-import { theme, languageConfiguration, languageDefinition, editorOptions } from './editor';
 
 type Props = { readonly onSubmit: (code: string) => void };
 
 const initialText = `/* Start to type your program */
-// Add your comments */
+// Add your comments!
 // Press enter to add a new line.
 
 class Main {
@@ -19,55 +17,29 @@ class Main {
 }
 `;
 
-const editorWillMount = (monaco: typeof monacoEditor): void => {
-  const { editor, languages } = monaco;
-  editor.defineTheme('sam-theme', theme);
-  languages.register({ id: 'samlang' });
-  languages.setLanguageConfiguration('samlang', languageConfiguration);
-  languages.setMonarchTokensProvider('samlang', languageDefinition);
-};
-
-const editorDidMount = (editor: monacoEditor.editor.IStandaloneCodeEditor): void => {
-  editor.focus();
-};
-
-const useEditorHeight = (): number => {
-  const [height, setHeight] = useState(window.innerHeight - 200);
-  const listener = (): void => setHeight(window.innerHeight - 200);
-  useEffect((): (() => void) => {
-    listener();
-    window.addEventListener('resize', listener);
-    return (): void => window.removeEventListener('resize', listener);
-  }, []);
-  return height;
-};
-
-const className = [styles.ParallelCard, styles.EditorCard].join(' ');
+const rootClassName = [styles.ParallelCard, styles.EditorCard].join(' ');
+const inputClassName = [styles.EditorCardLayer, styles.EditorCardInputLayer].join(' ');
+const previewClassName = [styles.EditorCardLayer, styles.EditorCardPreviewLayer].join(' ');
 
 /**
  * The component of the language demo.
  */
 export default function InputCard({ onSubmit }: Props): ReactElement {
-  const [text, setText] = React.useState<string>(initialText);
-  const editorHeight = useEditorHeight();
-  const onEditorChange = (newValue: string): void => setText(newValue);
-  const onSubmitClicked = (): void => onSubmit(text);
+  const [text, setText] = useState<string>(initialText);
   return (
-    <Card className={className}>
-      <CardContent>
-        <MonacoEditor
-          height={editorHeight}
-          language="samlang"
-          theme="sam-theme"
+    <Card className={rootClassName}>
+      <CardContent className={styles.EditorCardContainer}>
+        <textarea
+          className={inputClassName}
+          onChange={e => setText(e.currentTarget.value)}
           value={text}
-          options={editorOptions}
-          onChange={onEditorChange}
-          editorWillMount={editorWillMount}
-          editorDidMount={editorDidMount}
         />
+        <CodeBlock language="samlang" className={previewClassName}>
+          {text}
+        </CodeBlock>
       </CardContent>
-      <CardActions className={styles.GameCardControls}>
-        <Button size="medium" color="primary" onClick={onSubmitClicked}>
+      <CardActions>
+        <Button size="medium" color="primary" onClick={() => onSubmit(text)}>
           Submit Your Program
         </Button>
       </CardActions>

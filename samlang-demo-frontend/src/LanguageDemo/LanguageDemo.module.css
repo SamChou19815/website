@@ -7,10 +7,52 @@
 
 .ParallelCard {
   max-height: 100%;
+  height: calc(100vh - 120px);
+  overflow-y: scroll !important;
 }
 
 .EditorCard {
   min-width: 660px;
+}
+
+.EditorCardContainer {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 60px);
+  padding: 0 !important;
+}
+
+.EditorCardLayer {
+  position: absolute;
+  min-width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.EditorCardInputLayer {
+  z-index: 4;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 1em;
+  font-size: 16px;
+  line-height: 1.35;
+  font-family: 'Roboto Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  color: transparent;
+  caret-color: black;
+}
+
+.EditorCardPreviewLayer {
+  margin: 0;
+  z-index: 1;
+}
+
+.EditorCardPreviewLayer > code {
+  margin: 0;
+  padding: 1em;
+  height: calc(100% - 30px);
 }
 
 @media only screen and (min-width: 800px) {
