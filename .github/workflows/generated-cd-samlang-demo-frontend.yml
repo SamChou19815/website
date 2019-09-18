@@ -27,6 +27,8 @@ jobs:
       - name: Build samlang-demo-frontend
         run: yarn workspace samlang-demo-frontend build
 
+      - name: Install Firebase Tools
+        run: yarn add --dev firebase-tools -W
       - name: Deploy samlang-demo-frontend
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

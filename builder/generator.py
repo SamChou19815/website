@@ -125,6 +125,8 @@ jobs:
 
 {_get_build_commands(workspace=workspace)}
 
+      - name: Install Firebase Tools
+        run: yarn add --dev firebase-tools -W
       - name: Deploy {workspace}
         env:
           FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}

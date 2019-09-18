@@ -27,6 +27,8 @@ jobs:
       - name: Build ten-web-frontend
         run: yarn workspace ten-web-frontend build
 
+      - name: Install Firebase Tools
+        run: yarn add --dev firebase-tools -W
       - name: Deploy ten-web-frontend
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
