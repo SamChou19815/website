@@ -40,18 +40,18 @@ export default function LocalGameCard(): ReactElement {
     });
   };
 
+  const aiResponder = (b: Board): void => {
+    worker.postMessage(b); // lgtm [js/property-access-on-non-object]
+  };
+
   React.useEffect((): void => {
     if (!isWorkerListenerSet) {
-      worker.addEventListener('message', aiResponseListener);
+      worker.addEventListener('message', aiResponseListener); // lgtm [js/property-access-on-non-object]
       setIsWorkerListenerSet(true);
     }
   }, [isWorkerListenerSet]);
 
   return (
-    <StatefulGameCard
-      gameState={gameState}
-      setGameState={setGameState}
-      aiResponder={(b): void => worker.postMessage(b)}
-    />
+    <StatefulGameCard gameState={gameState} setGameState={setGameState} aiResponder={aiResponder} />
   );
 }
