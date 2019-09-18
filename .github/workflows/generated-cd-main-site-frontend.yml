@@ -22,14 +22,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Set up Node
         uses: actions/setup-node@v1
-
-      - name: Report Deployment Pending
-        uses: 'deliverybot/deployment-status@master'
-        with:
-          state: 'pending'
-          token: '${{ secrets.GITHUB_TOKEN }}'
-          description: main-site-frontend deployment
-
       - name: Yarn Install
         run: yarn install
 
@@ -39,6 +31,13 @@ jobs:
         run: yarn add react-snap --dev -W
       - name: Run react-snap
         run: yarn workspace main-site-frontend ci-postbuild
+
+      - name: Report Deployment Pending
+        uses: 'deliverybot/deployment-status@master'
+        with:
+          state: 'pending'
+          token: '${{ github.token }}'
+          description: main-site-frontend deployment
 
       - name: Deploy main-site-frontend
         env:
@@ -52,12 +51,12 @@ jobs:
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'failure'
-          token: '${{ secrets.GITHUB_TOKEN }}'
+          token: '${{ github.token }}'
           description: main-site-frontend deployment
       - name: Report Deployment Success
         if: success()
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'success'
-          token: '${{ secrets.GITHUB_TOKEN }}'
+          token: '${{ github.token }}'
           description: main-site-frontend deployment
