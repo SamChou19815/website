@@ -42,6 +42,7 @@ jobs:
             github.repos.createStatus({
               owner: 'SamChou19815',
               repo: 'website',
-              sha: github.sha,
+              sha: context.sha,
               state: 'success',
             });
+
