@@ -53,14 +53,14 @@ _CREATE_STATUS_STEP: str = """
       - name: Create Success Status
         uses: actions/github-script@0.2.0
         with:
-          github-token: ${{{{ github.token }}}}
+          github-token: ${{ github.token }}
           script: |
-            github.repos.createStatus({{
+            github.repos.createStatus({
               owner: 'SamChou19815',
               repo: 'website',
               sha: github.sha,
               state: 'success',
-            }});
+            });
 """
 
 
