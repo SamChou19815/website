@@ -46,4 +46,3 @@ jobs:
               sha: github.sha,
               state: 'success',
             });
-
