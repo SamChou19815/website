@@ -4,20 +4,15 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.1",
-    "monaco-editor": "^0.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-monaco-editor": "^0.29.0",
     "sam-react-common": "0.1.0"
   },
-  "devDependencies": {
-    "monaco-editor-webpack-plugin": "^1.7.0"
-  },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "tsc": "tsc -p tsconfig.json"
   },
   "browserslist": [
