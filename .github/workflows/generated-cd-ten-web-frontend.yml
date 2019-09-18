@@ -27,9 +27,31 @@ jobs:
       - name: Build ten-web-frontend
         run: yarn workspace ten-web-frontend build
 
+      - name: Report Deployment Pending
+        uses: 'deliverybot/deployment-status@master'
+        with:
+          state: 'pending'
+          token: '${{ github.token }}'
+          description: ten-web-frontend deployment
+
       - name: Deploy ten-web-frontend
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
           ./node_modules/.bin/firebase deploy \
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten-web-frontend
+
+      - name: Report Deployment Failure
+        if: failure()
+        uses: 'deliverybot/deployment-status@master'
+        with:
+          state: 'failure'
+          token: '${{ github.token }}'
+          description: ten-web-frontend deployment
+      - name: Report Deployment Success
+        if: success()
+        uses: 'deliverybot/deployment-status@master'
+        with:
+          state: 'success'
+          token: '${{ github.token }}'
+          description: ten-web-frontend deployment
