@@ -21,18 +21,19 @@ jobs:
       - uses: actions/checkout@master
       - name: Set up Node
         uses: actions/setup-node@v1
-      - name: Yarn Install
-        run: yarn install
-
-      - name: Build samlang-demo-frontend
-        run: yarn workspace samlang-demo-frontend build
 
       - name: Report Deployment Pending
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'pending'
-          token: '${{ github.token }}'
+          token: '${{ secrets.GITHUB_TOKEN }}'
           description: samlang-demo-frontend deployment
+
+      - name: Yarn Install
+        run: yarn install
+
+      - name: Build samlang-demo-frontend
+        run: yarn workspace samlang-demo-frontend build
 
       - name: Deploy samlang-demo-frontend
         env:
@@ -46,12 +47,12 @@ jobs:
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'failure'
-          token: '${{ github.token }}'
+          token: '${{ secrets.GITHUB_TOKEN }}'
           description: samlang-demo-frontend deployment
       - name: Report Deployment Success
         if: success()
         uses: 'deliverybot/deployment-status@master'
         with:
           state: 'success'
-          token: '${{ github.token }}'
+          token: '${{ secrets.GITHUB_TOKEN }}'
           description: samlang-demo-frontend deployment
