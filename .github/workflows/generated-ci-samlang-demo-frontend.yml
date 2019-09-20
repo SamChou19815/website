@@ -34,12 +34,14 @@ jobs:
       - name: Create Success Status
         uses: actions/github-script@0.2.0
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.DEPLOY_GH_PAGE_TOKEN }}
           script: |
             github.repos.createStatus({
               owner: 'SamChou19815',
               repo: 'website',
-              sha: context.sha,
+              sha: '${{github.sha}}',
               state: 'success',
+              context: 'github-actions: ci-samlang-demo-frontend',
+              description: 'Passed CI Tests!',
             });
 
