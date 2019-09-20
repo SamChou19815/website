@@ -49,19 +49,21 @@ def _get_build_commands(workspace: str) -> str:
     return "\n".join(commands)
 
 
-_CREATE_STATUS_STEP: str = """
+def _get_create_status_commands(workflow_name: str) -> str:
+    return f"""
       - name: Create Success Status
         uses: actions/github-script@0.2.0
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{{{ secrets.DEPLOY_GH_PAGE_TOKEN }}}}
           script: |
-            github.repos.createStatus({
+            github.repos.createStatus({{
               owner: 'SamChou19815',
               repo: 'website',
-              sha: '${{github.sha}}',
+              sha: '${{{{github.sha}}}}',
               state: 'success',
-              context: 'GitHub Actions Status',
-            });
+              context: 'github-actions: {workflow_name}',
+              description: 'Passed CI Tests!',
+            }});
 """
 
 
@@ -97,7 +99,7 @@ jobs:
         with:
           name: built-{workspace}-assets
           path: {workspace}/build
-{_CREATE_STATUS_STEP}
+{_get_create_status_commands(job_name)}
 """
 
     return yml_filename, yml_content
@@ -140,7 +142,7 @@ jobs:
         run: |
           ./node_modules/.bin/firebase deploy \\
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:{workspace}
-{_CREATE_STATUS_STEP}
+{_get_create_status_commands(job_name)}
 """
 
     return yml_filename, yml_content
