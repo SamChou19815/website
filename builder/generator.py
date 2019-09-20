@@ -58,8 +58,9 @@ _CREATE_STATUS_STEP: str = """
             github.repos.createStatus({
               owner: 'SamChou19815',
               repo: 'website',
-              sha: context.sha,
+              sha: '${{github.sha}}',
               state: 'success',
+              context: 'GitHub Actions Status',
             });
 """
 
