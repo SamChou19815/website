@@ -25,6 +25,12 @@ jobs:
       - name: Build ten-web-frontend
         run: yarn workspace ten-web-frontend build
 
+      - name: Upload Built Static Assets
+        uses: actions/upload-artifact@master
+        with:
+          name: built-ten-web-frontend-assets
+          path: ten-web-frontend/build
+
       - name: Create Success Status
         uses: actions/github-script@0.2.0
         with:

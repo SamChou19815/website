@@ -90,6 +90,12 @@ jobs:
         run: yarn install
 
 {_get_build_commands(workspace=workspace)}
+
+      - name: Upload Built Static Assets
+        uses: actions/upload-artifact@master
+        with:
+          name: built-{workspace}-assets
+          path: {workspace}/build
 {_CREATE_STATUS_STEP}
 """
 
@@ -144,7 +150,6 @@ def generate_workflows() -> Sequence[Tuple[str, str]]:
         # CI
         _generate_frontend_ci_workflow(workspace="blog"),
         _generate_frontend_ci_workflow(workspace="main-site-frontend"),
-        _generate_frontend_ci_workflow(workspace="sam-react-common"),
         _generate_frontend_ci_workflow(workspace="samlang-demo-frontend"),
         _generate_frontend_ci_workflow(workspace="samlang-docs"),
         _generate_frontend_ci_workflow(workspace="ten-web-frontend"),
