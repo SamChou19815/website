@@ -22,6 +22,12 @@ jobs:
       - name: Build sam-react-common
         run: yarn workspace sam-react-common build
 
+      - name: Upload Built Static Assets
+        uses: actions/upload-artifact@master
+        with:
+          name: built-sam-react-common-assets
+          path: sam-react-common/build
+
       - name: Create Success Status
         uses: actions/github-script@0.2.0
         with:

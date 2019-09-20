@@ -90,6 +90,12 @@ jobs:
         run: yarn install
 
 {_get_build_commands(workspace=workspace)}
+
+      - name: Upload Built Static Assets
+        uses: actions/upload-artifact@master
+        with:
+          name: built-{workspace}-assets
+          path: {workspace}/build
 {_CREATE_STATUS_STEP}
 """
 

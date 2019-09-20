@@ -30,6 +30,12 @@ jobs:
       - name: Run react-snap
         run: yarn workspace main-site-frontend ci-postbuild
 
+      - name: Upload Built Static Assets
+        uses: actions/upload-artifact@master
+        with:
+          name: built-main-site-frontend-assets
+          path: main-site-frontend/build
+
       - name: Create Success Status
         uses: actions/github-script@0.2.0
         with:
