@@ -10,8 +10,8 @@ def get_changed_paths(base_ref: str, head_ref: str) -> Sequence[str]:
                 "git",
                 "diff",
                 "--name-only",
-                f"refs/heads/{base_ref}",
-                f"refs/heads/{head_ref}",
+                f"remotes/origin/{base_ref}",
+                f"remotes/origin/{head_ref}",
             ]
         )
         .decode()
