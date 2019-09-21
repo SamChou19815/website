@@ -1,22 +1,12 @@
 from typing import List, Sequence, Tuple
-from .git import get_depth
 from .workspace import get_dependency_chain
 from .configuration import Project, get_projects
-
-
-def _get_path_filters(path: str) -> Sequence[str]:
-    depth = get_depth(path=path)
-    filters: List[str] = []
-    for i in range(depth):
-        nested_wildcard = "/*" * (i + 1)
-        filters.append(f"      - '{path}{nested_wildcard}'")
-    return filters
 
 
 def _get_paths(dependency_chain: Sequence[str]) -> str:
     all_paths: List[str] = []
     for dependency in dependency_chain:
-        all_paths.extend(_get_path_filters(path=dependency))
+        all_paths.append(f"      - '{dependency}/**'")
     return "\n".join(all_paths)
 
 
