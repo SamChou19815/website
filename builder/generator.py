@@ -1,5 +1,3 @@
-import os
-import subprocess
 from typing import List, Sequence, Tuple
 from .git import get_depth
 from .workspace import get_dependency_chain
