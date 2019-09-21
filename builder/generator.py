@@ -1,28 +1,11 @@
-import os
-import subprocess
 from typing import List, Sequence, Tuple
+from .git import get_depth
 from .workspace import get_dependency_chain
-
-
-def _get_depth(path: str, depth: int = 0) -> int:
-    if not os.path.isdir(path):
-        return depth
-    try:
-        subprocess.check_output(
-            ["git", "ls-files", "--error-unmatch", path], stderr=subprocess.DEVNULL
-        )
-    except Exception:
-        # Do not consider gitignored files.
-        return depth
-    max_depth = depth
-    for entry in os.listdir(path):
-        full_path = os.path.join(path, entry)
-        max_depth = max(max_depth, _get_depth(full_path, depth + 1))
-    return max_depth
+from .configuration import Project, get_projects
 
 
 def _get_path_filters(path: str) -> Sequence[str]:
-    depth = _get_depth(path=path)
+    depth = get_depth(path=path)
     filters: List[str] = []
     for i in range(depth):
         nested_wildcard = "/*" * (i + 1)
@@ -67,39 +50,55 @@ def _get_create_status_commands(workflow_name: str) -> str:
 """
 
 
-def _generate_frontend_ci_workflow(workspace: str) -> Tuple[str, str]:
-    dependency_chain = get_dependency_chain(workspace=workspace)
-    job_name = f"ci-{workspace}"
-    yml_filename = f"generated-{job_name}.yml"
+def _get_ci_workspace_build_upload_step(project: Project) -> str:
+    workspace = project.workspace
+    return f"""
+      - name: Build {workspace}
+        if: always()
+        run: |
+          python -m builder.builder build-if-affected \\
+            --base-ref ${{{{ github.base_ref }}}} \\
+            --head-ref ${{{{ github.head_ref }}}} \\
+            --workspace {workspace}
+      - name: Collect {workspace} Built Static Assets
+        run: cp -R {project.build_output} build/{workspace}
+"""
+
+
+def _generate_frontend_ci_workflow() -> Tuple[str, str]:
+    yml_filename = f"generated-ci.yml"
     yml_content = f"""# @generated
 
-name: {job_name}
-on:
-  pull_request:
-    paths:
-      - .github/workflows/{yml_filename}
-      - package.json
-      - 'configuration/**'
-{_get_paths(dependency_chain=dependency_chain)}
+name: CI
+on: pull_request
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-
-{_get_build_commands(workspace=workspace)}
-
-      - name: Upload Built Static Assets
+      - name: Prepare Built Assets Collector
+        run: mkdir build
+{"".join(
+        [
+            _get_ci_workspace_build_upload_step(project=project)
+            for project in get_projects()
+        ]
+    )}
+      - name: Upload Built Static Asserts
         uses: actions/upload-artifact@master
         with:
-          name: built-{workspace}-assets
-          path: {workspace}/build
-{_get_create_status_commands(job_name)}
+          name: built-assets
+          path: build
+{_get_create_status_commands("CI")}
 """
 
     return yml_filename, yml_content
@@ -151,11 +150,7 @@ jobs:
 def generate_workflows() -> Sequence[Tuple[str, str]]:
     return [
         # CI
-        _generate_frontend_ci_workflow(workspace="blog"),
-        _generate_frontend_ci_workflow(workspace="main-site-frontend"),
-        _generate_frontend_ci_workflow(workspace="samlang-demo-frontend"),
-        _generate_frontend_ci_workflow(workspace="samlang-docs"),
-        _generate_frontend_ci_workflow(workspace="ten-web-frontend"),
+        _generate_frontend_ci_workflow(),
         # CD
         _generate_frontend_cd_workflow(workspace="blog"),
         _generate_frontend_cd_workflow(workspace="main-site-frontend"),

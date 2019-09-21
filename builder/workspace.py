@@ -3,7 +3,7 @@ import json
 import subprocess
 
 from dataclasses import dataclass
-from typing import Dict, List, Sequence, Set
+from typing import Mapping, List, Sequence, Set
 
 
 @dataclass
@@ -13,7 +13,7 @@ class WorkspaceInformation:
 
 
 @functools.lru_cache(maxsize=1)
-def _get_workspaces_information_from_yarn() -> Dict[str, WorkspaceInformation]:
+def _get_workspaces_information_from_yarn() -> Mapping[str, WorkspaceInformation]:
     workspaces_json = json.loads(
         subprocess.check_output(
             ["yarn", "workspaces", "info", "--silent"], stderr=subprocess.DEVNULL
@@ -29,7 +29,7 @@ def _get_workspaces_information_from_yarn() -> Dict[str, WorkspaceInformation]:
 
 
 def _get_workspace_information(
-    workspaces: Dict[str, WorkspaceInformation], workspace: str
+    workspaces: Mapping[str, WorkspaceInformation], workspace: str
 ) -> WorkspaceInformation:
     information = workspaces.get(workspace)
     if information is None:
@@ -38,7 +38,7 @@ def _get_workspace_information(
 
 
 def _construct_dependency_chain(
-    workspaces: Dict[str, WorkspaceInformation],
+    workspaces: Mapping[str, WorkspaceInformation],
     workspace: str,
     dependency_chain: List[str],
     parent_chain: List[str],
