@@ -57,7 +57,7 @@ def _get_ci_workspace_build_upload_step(project: Project) -> str:
     return f"""
       - name: Build {workspace}
         if: always()
-        runs: |
+        run: |
           python -m builder.builder build-if-affected \\
             --base-ref ${{{{ github.base_ref }}}} \\
             --head-ref ${{{{ github.head_ref }}}} \\

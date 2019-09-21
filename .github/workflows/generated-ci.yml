@@ -21,7 +21,7 @@ jobs:
 
       - name: Build blog
         if: always()
-        runs: |
+        run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
@@ -31,7 +31,7 @@ jobs:
 
       - name: Build main-site-frontend
         if: always()
-        runs: |
+        run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
@@ -41,7 +41,7 @@ jobs:
 
       - name: Build samlang-demo-frontend
         if: always()
-        runs: |
+        run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
@@ -51,7 +51,7 @@ jobs:
 
       - name: Build samlang-docs
         if: always()
-        runs: |
+        run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
@@ -61,7 +61,7 @@ jobs:
 
       - name: Build ten-web-frontend
         if: always()
-        runs: |
+        run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
