@@ -4,6 +4,7 @@ import sys
 
 from .workspace import validate_dependency_chain
 from .generator import generate_workflows
+from .diff import build_workspace_if_affected
 
 
 def _validate_dependencies(arguments: argparse.Namespace) -> None:
@@ -17,12 +18,20 @@ def _generate_workflows(arguments: argparse.Namespace) -> None:
             output_file.write(yml_file_content)
 
 
+def _build_if_affected(arguments: argparse.Namespace) -> None:
+    build_workspace_if_affected(
+        base_ref=arguments.base_ref,
+        head_ref=arguments.head_ref,
+        workspace=arguments.workspace,
+    )
+
+
 def main() -> bool:
     parser = argparse.ArgumentParser(
         description="website packages builder", allow_abbrev=False
     )
     parsed_commands = parser.add_subparsers(
-        metavar="{validate-dependencies, generate-workflows}"
+        metavar="{validate-dependencies, generate-workflows, build-if-affected}"
     )
 
     parsed_commands.add_parser(name="validate-dependencies").set_defaults(
@@ -33,6 +42,12 @@ def main() -> bool:
     generate_workflows_parser.add_argument(
         "--output-directory", default=".github/workflows"
     )
+
+    build_if_affected_parser = parsed_commands.add_parser(name="build-if-affected")
+    build_if_affected_parser.set_defaults(command=_build_if_affected)
+    build_if_affected_parser.add_argument("--base-ref", required=True)
+    build_if_affected_parser.add_argument("--head-ref", required=True)
+    build_if_affected_parser.add_argument("--workspace", required=True)
 
     arguments = parser.parse_args()
 
