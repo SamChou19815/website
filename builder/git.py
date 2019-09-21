@@ -5,7 +5,15 @@ from typing import Sequence
 
 def get_changed_paths(base_ref: str, head_ref: str) -> Sequence[str]:
     return (
-        subprocess.check_output(["git", "diff", "--name-only", base_ref, head_ref])
+        subprocess.check_output(
+            [
+                "git",
+                "diff",
+                "--name-only",
+                f"refs/heads/{base_ref}",
+                f"refs/heads/{head_ref}",
+            ]
+        )
         .decode()
         .strip()
         .split("\n")
