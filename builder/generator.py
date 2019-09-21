@@ -98,6 +98,7 @@ jobs:
         with:
           name: built-assets
           path: build
+{_get_create_status_commands("CI")}
 """
 
     return yml_filename, yml_content
