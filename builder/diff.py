@@ -23,7 +23,8 @@ def build_workspace_if_affected(base_ref: str, head_ref: str, workspace: str) ->
 
     # Create dummy file if it's not affected.
     build_output = project.build_output
-    shutil.rmtree(path=build_output)
+    if os.path.exists(path=build_output):
+        shutil.rmtree(path=build_output)
     os.mkdir(path=build_output)
     message = f"{workspace} is not affected by this change."
     with open(os.path.join(build_output, "README.txt"), "w") as no_change_file:
