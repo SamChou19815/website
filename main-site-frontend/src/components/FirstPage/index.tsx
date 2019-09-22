@@ -30,8 +30,8 @@ export default (): ReactElement => (
     <FirstPageCodeBlock />
     <Card className={styles.InfoCard}>
       <CardHeader avatar={<AccountCirlce />} title="Sam Zhou" subheader="About Myself" />
-      <IconLine Icon={Work}>Facebook SWE Intern</IconLine>
       <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
+      <IconLine Icon={Work}>Facebook SWE Intern</IconLine>
       <IconLine Icon={School}>Cornell University</IconLine>
       <IconLine Icon={Domain}>Computer Science</IconLine>
       <IconLine Icon={Code}>Coding since 13</IconLine>
