@@ -4,7 +4,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import AccountCirlce from '@material-ui/icons/AccountCircle';
-import BarChart from '@material-ui/icons/BarChart';
 import Code from '@material-ui/icons/Code';
 import Domain from '@material-ui/icons/Domain';
 import School from '@material-ui/icons/School';
@@ -31,11 +30,10 @@ export default (): ReactElement => (
     <FirstPageCodeBlock />
     <Card className={styles.InfoCard}>
       <CardHeader avatar={<AccountCirlce />} title="Sam Zhou" subheader="About Myself" />
-      <IconLine Icon={Work}>Facebook SWE Intern</IconLine>
       <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
+      <IconLine Icon={Work}>Facebook SWE Intern</IconLine>
       <IconLine Icon={School}>Cornell University</IconLine>
       <IconLine Icon={Domain}>Computer Science</IconLine>
-      <IconLine Icon={BarChart}>GPA: 4.18/4.3</IconLine>
       <IconLine Icon={Code}>Coding since 13</IconLine>
       <CardActions>
         <MaterialButtonLink href="#projects">Projects</MaterialButtonLink>
