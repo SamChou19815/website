@@ -79,6 +79,10 @@ module.exports = {
               to: 'blog'
             },
             {
+              label: 'Demo',
+              href: 'https://samlang-demo.developersam.com'
+            },
+            {
               label: 'Developer Sam',
               href: 'https://developersam.com'
             },
