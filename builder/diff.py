@@ -31,3 +31,16 @@ def build_workspace_if_affected(base_ref: str, head_ref: str, workspace: str) ->
         no_change_file.write(message)
     print(message)
     return 0
+
+
+def deploy_workspace_if_affected(base_ref: str, head_ref: str, workspace: str) -> int:
+    project = create_yarn_workspace_project(workspace=workspace)
+
+    if not _project_is_affected(base_ref=base_ref, head_ref=head_ref, project=project):
+        print(f"{workspace} is not updated.")
+        return 0
+
+    subprocess.call(project.build_command.split())
+    for one_deploy_command in project.deploy_command:
+        subprocess.call(one_deploy_command.split())
+    return 0
