@@ -1,6 +1,6 @@
 # @generated
 
-name: CI
+name: CD
 on: pull_request
 
 jobs:
@@ -16,64 +16,48 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      - name: Prepare Built Assets Collector
-        run: mkdir build
+      - name: Install Deployment Tools
+        run: yarn add --dev firebase-tools react-snap -W
 
-      - name: Build blog
+      - name: Deploy blog
         if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace blog
-      - name: Collect blog Built Static Assets
-        run: cp -R blog/build build/blog
 
-      - name: Build main-site-frontend
+      - name: Deploy main-site-frontend
         if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace main-site-frontend
-      - name: Collect main-site-frontend Built Static Assets
-        run: cp -R main-site-frontend/build build/main-site-frontend
 
-      - name: Build samlang-demo-frontend
+      - name: Deploy samlang-demo-frontend
         if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace samlang-demo-frontend
-      - name: Collect samlang-demo-frontend Built Static Assets
-        run: cp -R samlang-demo-frontend/build build/samlang-demo-frontend
 
-      - name: Build samlang-docs
+      - name: Deploy samlang-docs
         if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace samlang-docs
-      - name: Collect samlang-docs Built Static Assets
-        run: cp -R samlang-docs/build build/samlang-docs
 
-      - name: Build ten-web-frontend
+      - name: Deploy ten-web-frontend
         if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace ten-web-frontend
-      - name: Collect ten-web-frontend Built Static Assets
-        run: cp -R ten-web-frontend/build build/ten-web-frontend
-
-      - name: Upload Built Static Asserts
-        uses: actions/upload-artifact@master
-        with:
-          name: built-assets
-          path: build
 
       - name: Create Success Status
         uses: actions/github-script@0.2.0
@@ -85,7 +69,7 @@ jobs:
               repo: 'website',
               sha: '${{github.sha}}',
               state: 'success',
-              context: 'github-actions: CI',
-              description: 'Passed CI!',
+              context: 'github-actions: CD',
+              description: 'Passed CD!',
             });
 
