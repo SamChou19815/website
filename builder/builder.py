@@ -27,11 +27,7 @@ def _build_if_affected(arguments: argparse.Namespace) -> None:
 
 
 def _deploy_if_affected(arguments: argparse.Namespace) -> None:
-    deploy_workspace_if_affected(
-        base_ref=arguments.base_ref,
-        head_ref=arguments.head_ref,
-        workspace=arguments.workspace,
-    )
+    deploy_workspace_if_affected(workspace=arguments.workspace)
 
 
 def main() -> bool:
@@ -59,8 +55,6 @@ def main() -> bool:
 
     deploy_if_affected_parser = parsed_commands.add_parser(name="deploy-if-affected")
     deploy_if_affected_parser.set_defaults(command=_deploy_if_affected)
-    deploy_if_affected_parser.add_argument("--base-ref", required=True)
-    deploy_if_affected_parser.add_argument("--head-ref", required=True)
     deploy_if_affected_parser.add_argument("--workspace", required=True)
 
     arguments = parser.parse_args()

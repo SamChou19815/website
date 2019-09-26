@@ -4,11 +4,7 @@
 ![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 ![code style: black](https://img.shields.io/badge/code_style-black-000000.svg)
 
-![cd blog](https://github.com/SamChou19815/website/workflows/cd-blog/badge.svg)
-![cd main-site-frontend](https://github.com/SamChou19815/website/workflows/cd-main-site-frontend/badge.svg)
-![cd samlang-demo-frontend](https://github.com/SamChou19815/website/workflows/cd-samlang-demo-frontend/badge.svg)
-![cd samlang-docs](https://github.com/SamChou19815/website/workflows/cd-samlang-docs/badge.svg)
-![cd ten-web-frontend](https://github.com/SamChou19815/website/workflows/cd-ten-web-frontend/badge.svg)
+![Deployment](https://github.com/SamChou19815/website/workflows/CD/badge.svg)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/SamChou19815/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/SamChou19815/website/alerts/)
 
 This is a monorepo of Sam's [website](https://developersam.com).
