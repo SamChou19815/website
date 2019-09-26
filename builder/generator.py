@@ -1,5 +1,4 @@
-from typing import List, Sequence, Tuple
-from .workspace import get_dependency_chain
+from typing import Sequence, Tuple
 from .configuration import Project, get_projects
 
 
@@ -93,7 +92,10 @@ def _generate_frontend_cd_workflow() -> Tuple[str, str]:
     yml_content = f"""# @generated
 
 name: CD
-on: pull_request
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:

@@ -1,7 +1,10 @@
 # @generated
 
 name: CD
-on: pull_request
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
