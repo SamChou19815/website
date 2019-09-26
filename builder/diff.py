@@ -3,11 +3,19 @@ import subprocess
 import shutil
 from fnmatch import fnmatch
 from .configuration import Project, create_yarn_workspace_project
-from .git import get_changed_paths
+from .git import get_changed_paths, get_changed_paths_last_commit
 
 
 def _project_is_affected(base_ref: str, head_ref: str, project: Project) -> bool:
     for changed_path in get_changed_paths(base_ref=base_ref, head_ref=head_ref):
+        for path_pattern in project.relevant_paths:
+            if fnmatch(changed_path, path_pattern):
+                return True
+    return False
+
+
+def _project_is_affected_last_commit(project: Project) -> bool:
+    for changed_path in get_changed_paths_last_commit():
         for path_pattern in project.relevant_paths:
             if fnmatch(changed_path, path_pattern):
                 return True
@@ -33,10 +41,10 @@ def build_workspace_if_affected(base_ref: str, head_ref: str, workspace: str) ->
     return 0
 
 
-def deploy_workspace_if_affected(base_ref: str, head_ref: str, workspace: str) -> int:
+def deploy_workspace_if_affected(workspace: str) -> int:
     project = create_yarn_workspace_project(workspace=workspace)
 
-    if not _project_is_affected(base_ref=base_ref, head_ref=head_ref, project=project):
+    if not _project_is_affected_last_commit(project=project):
         print(f"{workspace} is not updated.")
         return 0
 

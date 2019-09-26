@@ -24,43 +24,23 @@ jobs:
 
       - name: Deploy blog
         if: always()
-        run: |
-          python -m builder.builder build-if-affected \
-            --base-ref ${{ github.base_ref }} \
-            --head-ref ${{ github.head_ref }} \
-            --workspace blog
+        run: python -m builder.builder deploy-if-affected --workspace blog
 
       - name: Deploy main-site-frontend
         if: always()
-        run: |
-          python -m builder.builder build-if-affected \
-            --base-ref ${{ github.base_ref }} \
-            --head-ref ${{ github.head_ref }} \
-            --workspace main-site-frontend
+        run: python -m builder.builder deploy-if-affected --workspace main-site-frontend
 
       - name: Deploy samlang-demo-frontend
         if: always()
-        run: |
-          python -m builder.builder build-if-affected \
-            --base-ref ${{ github.base_ref }} \
-            --head-ref ${{ github.head_ref }} \
-            --workspace samlang-demo-frontend
+        run: python -m builder.builder deploy-if-affected --workspace samlang-demo-frontend
 
       - name: Deploy samlang-docs
         if: always()
-        run: |
-          python -m builder.builder build-if-affected \
-            --base-ref ${{ github.base_ref }} \
-            --head-ref ${{ github.head_ref }} \
-            --workspace samlang-docs
+        run: python -m builder.builder deploy-if-affected --workspace samlang-docs
 
       - name: Deploy ten-web-frontend
         if: always()
-        run: |
-          python -m builder.builder build-if-affected \
-            --base-ref ${{ github.base_ref }} \
-            --head-ref ${{ github.head_ref }} \
-            --workspace ten-web-frontend
+        run: python -m builder.builder deploy-if-affected --workspace ten-web-frontend
 
       - name: Create Success Status
         uses: actions/github-script@0.2.0

@@ -79,11 +79,7 @@ def _get_cd_workspace_build_deploy_step(project: Project) -> str:
     return f"""
       - name: Deploy {workspace}
         if: always()
-        run: |
-          python -m builder.builder build-if-affected \\
-            --base-ref ${{{{ github.base_ref }}}} \\
-            --head-ref ${{{{ github.head_ref }}}} \\
-            --workspace {workspace}
+        run: python -m builder.builder deploy-if-affected --workspace {workspace}
 """
 
 
