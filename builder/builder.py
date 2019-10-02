@@ -6,8 +6,8 @@ from .workspace import validate_dependency_chain
 from .configuration import create_yarn_workspace_project
 from .generator import generate_workflows
 from .git import get_changed_paths, get_changed_paths_last_commit
-from .diff import is_affected
-from .runner import build_workspace, deploy_workspace
+from .diff import is_affected, is_any_project_affected
+from .runner import install_workspace, build_workspace, deploy_workspace
 
 
 def _validate_dependencies(arguments: argparse.Namespace) -> None:
@@ -19,6 +19,22 @@ def _generate_workflows(arguments: argparse.Namespace) -> None:
     for yml_file, yml_file_content in generate_workflows():
         with open(os.path.join(output_directory, yml_file), "w") as output_file:
             output_file.write(yml_file_content)
+
+
+def _install_for_build_if_affected(arguments: argparse.Namespace) -> None:
+    changed_paths = get_changed_paths(
+        base_ref=arguments.base_ref, head_ref=arguments.head_ref
+    )
+    install_workspace(
+        affected=is_any_project_affected(changed_paths=changed_paths), deploy=False
+    )
+
+
+def _install_for_deploy_if_affected(arguments: argparse.Namespace) -> None:
+    install_workspace(
+        affected=is_any_project_affected(changed_paths=get_changed_paths_last_commit()),
+        deploy=True,
+    )
 
 
 def _build_if_affected(arguments: argparse.Namespace) -> None:
@@ -55,6 +71,23 @@ def main() -> bool:
     generate_workflows_parser.set_defaults(command=_generate_workflows)
     generate_workflows_parser.add_argument(
         "--output-directory", default=".github/workflows"
+    )
+
+    install_for_install_if_affected_parser = parsed_commands.add_parser(
+        name="install-for-build-if-affected"
+    )
+    install_for_install_if_affected_parser.set_defaults(
+        command=_install_for_build_if_affected
+    )
+    install_for_install_if_affected_parser.add_argument("--deploy", action="store_true")
+    install_for_install_if_affected_parser.add_argument("--base-ref", required=False)
+    install_for_install_if_affected_parser.add_argument("--head-ref", required=False)
+
+    install_for_deploy_if_affected_parser = parsed_commands.add_parser(
+        name="install-for-deploy-if-affected"
+    )
+    install_for_deploy_if_affected_parser.set_defaults(
+        command=_install_for_deploy_if_affected
     )
 
     build_if_affected_parser = parsed_commands.add_parser(name="build-if-affected")
