@@ -1,0 +1,22 @@
+name: lint-js-ts
+on:
+  push:
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.jsx'
+      - '**.tsx'
+
+jobs:
+  lint-js-ts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Yarn Install
+        run: yarn install
+      - name: Run Prettier
+        run: 'yarn prettier:check'
+      - name: Run ESLint
+        run: yarn lint
