@@ -19,10 +19,8 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-      - name: Yarn Install
-        run: yarn install
-      - name: Install Deployment Tools
-        run: yarn add --dev firebase-tools react-snap -W
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
 
       - name: Deploy blog
         if: always()

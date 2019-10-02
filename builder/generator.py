@@ -53,8 +53,11 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-      - name: Yarn Install
-        run: yarn install
+      - name: Install
+        run: |
+          python -m builder.builder install-for-build-if-affected \\
+              --base-ref ${{{{ github.base_ref }}}} \\
+              --head-ref ${{{{ github.head_ref }}}}
       - name: Prepare Built Assets Collector
         run: mkdir build
 {"".join(
@@ -106,10 +109,8 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-      - name: Yarn Install
-        run: yarn install
-      - name: Install Deployment Tools
-        run: yarn add --dev firebase-tools react-snap -W
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
 {"".join(
         [
             _get_cd_workspace_build_deploy_step(project=project)
