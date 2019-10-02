@@ -2,13 +2,14 @@ name: lint-js-ts
 on:
   push:
     paths:
+      - '.github/workflows/lint-js-ts.yml'
       - '**.js'
       - '**.ts'
       - '**.jsx'
       - '**.tsx'
 
 jobs:
-  lint-js-ts:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master

@@ -1,8 +1,8 @@
-name: ci-builder
+name: lint-builder
 on:
-  pull_request:
+  push:
     paths:
-      - .github/workflows/ci-builder.yml
+      - '.github/workflows/lint-builder.yml'
       - 'builder/**'
 
 jobs:
