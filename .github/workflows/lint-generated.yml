@@ -1,0 +1,28 @@
+name: lint-generated
+on:
+  push:
+    paths:
+      - '.github/workflows/generated-ci.yml'
+      - '.github/workflows/generated-cd.yml'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Validate Dependencies
+        run: python -m builder.builder validate-dependencies
+      - name: Generate Workflows
+        run: python -m builder.builder generate-workflows
+      - name: Check changed
+        run: |
+          if [[ `git status --porcelain` ]]; then
+            echo "Workflow files are not in sync!"
+            exit 1
+          else
+            echo "Workflow files are in sync. Good to go!"
+          fi
