@@ -38,7 +38,7 @@ export default (): ReactElement => (
         <LazyMaterialMedia image={Samwise} title="Samwise" />
         <CardHeader avatar={<Code />} title="Samwise" subheader="Web App" />
         <CardContent>
-          {'A Student Planner for Everyone. Designed, developed and maintained by '}
+          A Student Planner for Everyone. Designed, developed and maintained by&nbsp;
           <a href="https://cornelldti.org" target="_blank" rel="noopener noreferrer">
             Cornell DTI
           </a>

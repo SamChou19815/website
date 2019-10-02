@@ -93,7 +93,7 @@ export default function GameCard(props: Props): ReactElement {
       <Card className={styles.GameCard}>
         <CardHeader title="Note" />
         <CardContent>
-          {'The rules are mostly the same with the original '}
+          The rules are mostly the same with the original&nbsp;
           <a
             href="https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe"
             target="_blank"
