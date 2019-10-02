@@ -7,6 +7,7 @@ Builder for website repository.
 - Dependency analysis
 - Cyclic dependency detection
 - GitHub workflow files generation
+- GitHub workflow build and deployment support
 
 ## Tech Specification
 

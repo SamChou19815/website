@@ -3,8 +3,11 @@ import os
 import sys
 
 from .workspace import validate_dependency_chain
+from .configuration import create_yarn_workspace_project
 from .generator import generate_workflows
-from .diff import build_workspace_if_affected, deploy_workspace_if_affected
+from .git import get_changed_paths, get_changed_paths_last_commit
+from .diff import is_affected
+from .runner import build_workspace, deploy_workspace
 
 
 def _validate_dependencies(arguments: argparse.Namespace) -> None:
@@ -19,15 +22,22 @@ def _generate_workflows(arguments: argparse.Namespace) -> None:
 
 
 def _build_if_affected(arguments: argparse.Namespace) -> None:
-    build_workspace_if_affected(
-        base_ref=arguments.base_ref,
-        head_ref=arguments.head_ref,
-        workspace=arguments.workspace,
+    project = create_yarn_workspace_project(workspace=arguments.workspace)
+    changed_paths = get_changed_paths(
+        base_ref=arguments.base_ref, head_ref=arguments.head_ref
     )
+    affected = is_affected(changed_paths=changed_paths, project=project)
+
+    build_workspace(project=project, affected=affected)
 
 
 def _deploy_if_affected(arguments: argparse.Namespace) -> None:
-    deploy_workspace_if_affected(workspace=arguments.workspace)
+    project = create_yarn_workspace_project(workspace=arguments.workspace)
+    affected = is_affected(
+        changed_paths=get_changed_paths_last_commit(), project=project
+    )
+
+    deploy_workspace(project=project, affected=affected)
 
 
 def main() -> bool:
