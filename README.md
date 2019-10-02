@@ -5,7 +5,6 @@
 ![code style: black](https://img.shields.io/badge/code_style-black-000000.svg)
 
 ![Deployment](https://github.com/SamChou19815/website/workflows/CD/badge.svg)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/SamChou19815/website.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/SamChou19815/website/alerts/)
 
 This is a monorepo of Sam's [website](https://developersam.com).
 
