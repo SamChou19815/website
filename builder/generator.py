@@ -94,8 +94,10 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
     steps:
       - uses: actions/checkout@master
       - name: Set up Python
