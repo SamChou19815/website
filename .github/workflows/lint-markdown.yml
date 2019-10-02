@@ -2,6 +2,7 @@ name: lint-markdown
 on:
   push:
     paths:
+      - '.github/workflows/lint-markdown.yml'
       - '**.md'
 
 jobs:

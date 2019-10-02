@@ -2,6 +2,7 @@ name: lint-python
 on:
   push:
     paths:
+      - '.github/workflows/lint-python.yml'
       - '**.py'
 
 jobs:
