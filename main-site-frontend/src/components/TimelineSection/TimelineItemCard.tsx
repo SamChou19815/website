@@ -48,7 +48,7 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
             <CardActions>
               {links.map(
                 ({ name, url }, index): ReactElement => (
-                  <MaterialButtonLink key={index} href={url} openInNewTab>
+                  <MaterialButtonLink key={index} href={url}>
                     {name}
                   </MaterialButtonLink>
                 )
