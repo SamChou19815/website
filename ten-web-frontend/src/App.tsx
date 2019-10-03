@@ -19,7 +19,7 @@ export default function App(): ReactElement {
       <Button color="inherit" onClick={(): void => setMode('Distributed')}>
         Distributed
       </Button>
-      <MaterialButtonLink href="https://developersam.com" color="inherit" openInNewTab>
+      <MaterialButtonLink href="https://developersam.com" color="inherit">
         Home
       </MaterialButtonLink>
     </>

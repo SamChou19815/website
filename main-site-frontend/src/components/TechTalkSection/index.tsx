@@ -20,9 +20,7 @@ export default (): ReactElement => (
           codebase.
         </CardContent>
         <CardActions>
-          <MaterialButtonLink href="/how-to-scale.pdf" openInNewTab>
-            Slides
-          </MaterialButtonLink>
+          <MaterialButtonLink href="/how-to-scale.pdf">Slides</MaterialButtonLink>
         </CardActions>
       </Card>
       <Card className={styles.TechTalkCard}>
@@ -31,10 +29,8 @@ export default (): ReactElement => (
           Tech stack discussion on Firebase, and why Samwise switched to Firebase.
         </CardContent>
         <CardActions>
-          <MaterialButtonLink href="/intro-to-firebase.pdf" openInNewTab>
-            Slides
-          </MaterialButtonLink>
-          <MaterialButtonLink href="https://jessicahong9.github.io/" openInNewTab>
+          <MaterialButtonLink href="/intro-to-firebase.pdf">Slides</MaterialButtonLink>
+          <MaterialButtonLink href="https://jessicahong9.github.io/">
             Co-speaker Jessica&apos;s website
           </MaterialButtonLink>
         </CardActions>

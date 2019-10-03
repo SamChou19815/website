@@ -23,13 +23,11 @@ export default (): ReactElement => (
           programming language developed by Sam.
         </CardContent>
         <CardActions>
-          <MaterialButtonLink href="https://samlang.developersam.com" openInNewTab>
+          <MaterialButtonLink href="https://samlang.developersam.com">
             Official Site
           </MaterialButtonLink>
-          <MaterialButtonLink href="https://samlang-demo.developersam.com" openInNewTab>
-            Demo
-          </MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/SamChou19815/samlang" openInNewTab>
+          <MaterialButtonLink href="https://samlang-demo.developersam.com">Demo</MaterialButtonLink>
+          <MaterialButtonLink href="https://github.com/SamChou19815/samlang">
             GitHub Repo
           </MaterialButtonLink>
         </CardActions>
@@ -39,16 +37,11 @@ export default (): ReactElement => (
         <CardHeader avatar={<Code />} title="Samwise" subheader="Web App" />
         <CardContent>
           A Student Planner for Everyone. Designed, developed and maintained by&nbsp;
-          <a href="https://cornelldti.org" target="_blank" rel="noopener noreferrer">
-            Cornell DTI
-          </a>
-          .
+          <a href="https://cornelldti.org">Cornell DTI</a>.
         </CardContent>
         <CardActions>
-          <MaterialButtonLink href="https://samwise.today" openInNewTab>
-            App
-          </MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/cornell-dti/samwise" openInNewTab>
+          <MaterialButtonLink href="https://samwise.today">App</MaterialButtonLink>
+          <MaterialButtonLink href="https://github.com/cornell-dti/samwise">
             GitHub Repo
           </MaterialButtonLink>
         </CardActions>
@@ -58,10 +51,8 @@ export default (): ReactElement => (
         <CardHeader avatar={<Code />} title="TEN" subheader="Game AI" />
         <CardContent>Interesting board game with simple rules. Powered by an MCTS AI.</CardContent>
         <CardActions>
-          <MaterialButtonLink href="https://ten.developersam.com" openInNewTab>
-            Demo
-          </MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/SamChou19815/ten-golang" openInNewTab>
+          <MaterialButtonLink href="https://ten.developersam.com">Demo</MaterialButtonLink>
+          <MaterialButtonLink href="https://github.com/SamChou19815/ten-golang">
             GitHub Repo
           </MaterialButtonLink>
         </CardActions>

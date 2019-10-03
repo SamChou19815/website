@@ -6,10 +6,10 @@ import LanguageDemo from './LanguageDemo';
 
 const buttons: ReactElement = (
   <>
-    <MaterialButtonLink href="https://samlang.developersam.com" color="inherit" openInNewTab>
+    <MaterialButtonLink href="https://samlang.developersam.com" color="inherit">
       Docs
     </MaterialButtonLink>
-    <MaterialButtonLink href="https://developersam.com" color="inherit" openInNewTab>
+    <MaterialButtonLink href="https://developersam.com" color="inherit">
       Home
     </MaterialButtonLink>
   </>

@@ -55,7 +55,8 @@
       }
     ],
     "react/jsx-filename-extension": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "settings": {
     "import/resolver": {
