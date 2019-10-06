@@ -1,9 +1,9 @@
-import highlight, { HLJSStatic, IModeBase } from 'highlight.js';
+import highlight, { HLJSStatic, IMode } from 'highlight.js';
 
 export default (): void =>
   highlight.registerLanguage(
     'samlang',
-    (hljs: HLJSStatic | undefined): IModeBase => {
+    (hljs: HLJSStatic | undefined): IMode => {
       if (hljs === undefined) {
         throw new Error('highlight is not defined.');
       }
@@ -37,6 +37,6 @@ export default (): void =>
             end: ''
           }
         ]
-      } as IModeBase;
+      };
     }
   );
