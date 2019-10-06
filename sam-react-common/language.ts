@@ -32,13 +32,6 @@ export default (): void =>
             excludeEnd: true
           },
           {
-            className: 'type-params',
-            begin: /<(?!(int|string|bool))/,
-            end: />/,
-            excludeBegin: true,
-            excludeEnd: true
-          },
-          {
             className: 'punctuations',
             begin: /,|\[|]|::|=| |:/,
             end: ''
