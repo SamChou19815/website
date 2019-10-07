@@ -12,24 +12,6 @@ _BOILERPLATE_SETUP_STEPS: str = """
         uses: actions/setup-node@v1"""
 
 
-def _get_create_status_commands(workflow_name: str) -> str:
-    return f"""
-      - name: Create Success Status
-        uses: actions/github-script@0.2.0
-        with:
-          github-token: ${{{{ secrets.DEPLOY_GH_PAGE_TOKEN }}}}
-          script: |
-            github.repos.createStatus({{
-              owner: 'SamChou19815',
-              repo: 'website',
-              sha: '${{{{github.sha}}}}',
-              state: 'success',
-              context: 'github-actions: {workflow_name}',
-              description: 'Passed {workflow_name}!',
-            }});
-"""
-
-
 def _get_ci_workspace_build_upload_step(project: Project) -> str:
     workspace = project.workspace
     return f"""
@@ -74,7 +56,6 @@ jobs:
         with:
           name: built-assets
           path: build
-{_get_create_status_commands("CI")}
 """
 
     return yml_filename, yml_content
@@ -113,7 +94,7 @@ jobs:
             for project in get_projects()
         ]
     )
-}{_get_create_status_commands("CD")}
+}
 """
 
     return yml_filename, yml_content
