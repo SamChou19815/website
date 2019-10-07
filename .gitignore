@@ -51,6 +51,7 @@
 ### sam-react-common
 sam-react-common/**/*.js
 sam-react-common/**/*.d.ts
+sam-react-common/tsconfig.tsbuildinfo
 
 # Backend
 
