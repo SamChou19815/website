@@ -2,6 +2,16 @@ from typing import Sequence, Tuple
 from .configuration import Project, get_projects
 
 
+_BOILERPLATE_SETUP_STEPS: str = """
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1"""
+
+
 def _get_create_status_commands(workflow_name: str) -> str:
     return f"""
       - name: Create Success Status
@@ -45,14 +55,7 @@ on: pull_request
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.7'
-      - name: Set up Node
-        uses: actions/setup-node@v1
+    steps:{_BOILERPLATE_SETUP_STEPS}
       - name: Install
         run: |
           python -m builder.builder install-for-build-if-affected \\
@@ -101,14 +104,7 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.7'
-      - name: Set up Node
-        uses: actions/setup-node@v1
+    steps:{_BOILERPLATE_SETUP_STEPS}
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
 {"".join(
