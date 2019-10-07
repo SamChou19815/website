@@ -47,6 +47,8 @@ jobs:{"".join(
     runs-on: ubuntu-latest
     needs: [{", ".join(needs_jobs)}]
     steps:
+      - name: Success
+        runs: exit 0
 """
 
     return yml_filename, yml_content
@@ -88,6 +90,8 @@ jobs:{"".join(
     runs-on: ubuntu-latest
     needs: [{", ".join(needs_jobs)}]
     steps:
+      - name: Success
+        runs: exit 0
 """
 
     return yml_filename, yml_content
