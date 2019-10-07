@@ -82,3 +82,4 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [deploy-blog, deploy-main-site-frontend, deploy-samlang-demo-frontend, deploy-samlang-docs, deploy-ten-web-frontend]
+    steps:
