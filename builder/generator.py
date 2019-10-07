@@ -19,7 +19,10 @@ def _get_ci_workspace_build_job(project: Project) -> str:
     runs-on: ubuntu-latest
     steps:{_BOILERPLATE_SETUP_STEPS}
       - name: Install
-        run: python -m builder.builder install-for-build-if-affected
+        run: |
+          python -m builder.builder install-for-build-if-affected \\
+              --base-ref ${{ github.base_ref }} \\
+              --head-ref ${{ github.head_ref }}
       - name: Build {workspace}
         run: |
           python -m builder.builder build-if-affected \\

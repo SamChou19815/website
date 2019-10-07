@@ -15,7 +15,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Install
-        run: python -m builder.builder install-for-build-if-affected
+        run: |
+          python -m builder.builder install-for-build-if-affected \
+              --base-ref ${ github.base_ref } \
+              --head-ref ${ github.head_ref }
       - name: Build blog
         run: |
           python -m builder.builder build-if-affected \
@@ -33,7 +36,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Install
-        run: python -m builder.builder install-for-build-if-affected
+        run: |
+          python -m builder.builder install-for-build-if-affected \
+              --base-ref ${ github.base_ref } \
+              --head-ref ${ github.head_ref }
       - name: Build main-site-frontend
         run: |
           python -m builder.builder build-if-affected \
@@ -51,7 +57,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Install
-        run: python -m builder.builder install-for-build-if-affected
+        run: |
+          python -m builder.builder install-for-build-if-affected \
+              --base-ref ${ github.base_ref } \
+              --head-ref ${ github.head_ref }
       - name: Build samlang-demo-frontend
         run: |
           python -m builder.builder build-if-affected \
@@ -69,7 +78,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Install
-        run: python -m builder.builder install-for-build-if-affected
+        run: |
+          python -m builder.builder install-for-build-if-affected \
+              --base-ref ${ github.base_ref } \
+              --head-ref ${ github.head_ref }
       - name: Build samlang-docs
         run: |
           python -m builder.builder build-if-affected \
@@ -87,7 +99,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Install
-        run: python -m builder.builder install-for-build-if-affected
+        run: |
+          python -m builder.builder install-for-build-if-affected \
+              --base-ref ${ github.base_ref } \
+              --head-ref ${ github.head_ref }
       - name: Build ten-web-frontend
         run: |
           python -m builder.builder build-if-affected \
