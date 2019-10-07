@@ -2,92 +2,76 @@ from typing import Sequence, Tuple
 from .configuration import Project, get_projects
 
 
-def _get_create_status_commands(workflow_name: str) -> str:
-    return f"""
-      - name: Create Success Status
-        uses: actions/github-script@0.2.0
-        with:
-          github-token: ${{{{ secrets.DEPLOY_GH_PAGE_TOKEN }}}}
-          script: |
-            github.repos.createStatus({{
-              owner: 'SamChou19815',
-              repo: 'website',
-              sha: '${{{{github.sha}}}}',
-              state: 'success',
-              context: 'github-actions: {workflow_name}',
-              description: 'Passed {workflow_name}!',
-            }});
-"""
-
-
-def _get_ci_workspace_build_upload_step(project: Project) -> str:
-    workspace = project.workspace
-    return f"""
-      - name: Build {workspace}
-        if: always()
-        run: |
-          python -m builder.builder build-if-affected \\
-            --base-ref ${{{{ github.base_ref }}}} \\
-            --head-ref ${{{{ github.head_ref }}}} \\
-            --workspace {workspace}
-      - name: Collect {workspace} Built Static Assets
-        run: cp -R {project.build_output} build/{workspace}
-"""
-
-
-def _generate_frontend_ci_workflow() -> Tuple[str, str]:
-    yml_filename = f"generated-ci.yml"
-    yml_content = f"""# @generated
-
-name: CI
-on: pull_request
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
+_BOILERPLATE_SETUP_STEPS: str = """
       - uses: actions/checkout@master
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
           python-version: '3.7'
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1"""
+
+
+def _get_ci_workspace_build_job(project: Project) -> str:
+    workspace = project.workspace
+    return f"""
+  build-{workspace}:
+    runs-on: ubuntu-latest
+    steps:{_BOILERPLATE_SETUP_STEPS}
       - name: Install
         run: |
           python -m builder.builder install-for-build-if-affected \\
               --base-ref ${{{{ github.base_ref }}}} \\
               --head-ref ${{{{ github.head_ref }}}}
-      - name: Prepare Built Assets Collector
-        run: mkdir build
-{"".join(
+      - name: Build {workspace}
+        run: |
+          python -m builder.builder build-if-affected \\
+            --base-ref ${{{{ github.base_ref }}}} \\
+            --head-ref ${{{{ github.head_ref }}}} \\
+            --workspace {workspace}"""
+
+
+def _generate_frontend_ci_workflow() -> Tuple[str, str]:
+    yml_filename = f"generated-ci.yml"
+    needs_jobs = [f"build-{project.workspace}" for project in get_projects()]
+    yml_content = f"""# @generated
+
+name: CI
+on: pull_request
+
+jobs:{"".join(
         [
-            _get_ci_workspace_build_upload_step(project=project)
+            _get_ci_workspace_build_job(project=project)
             for project in get_projects()
         ]
-    )}
-      - name: Upload Built Static Asserts
-        uses: actions/upload-artifact@master
-        with:
-          name: built-assets
-          path: build
-{_get_create_status_commands("CI")}
+    )
+}
+  build:
+    runs-on: ubuntu-latest
+    needs: [{", ".join(needs_jobs)}]
+    steps:
+      - name: Success
+        run: exit 0
 """
 
     return yml_filename, yml_content
 
 
-def _get_cd_workspace_build_deploy_step(project: Project) -> str:
+def _get_cd_workspace_build_deploy_job(project: Project) -> str:
     workspace = project.workspace
     return f"""
+  deploy-{workspace}:
+    runs-on: ubuntu-latest
+    steps:{_BOILERPLATE_SETUP_STEPS}
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy {workspace}
-        if: always()
-        run: python -m builder.builder deploy-if-affected --workspace {workspace}
-"""
+        run: python -m builder.builder deploy-if-affected --workspace {workspace}"""
 
 
 def _generate_frontend_cd_workflow() -> Tuple[str, str]:
     yml_filename = f"generated-cd.yml"
+    needs_jobs = [f"deploy-{project.workspace}" for project in get_projects()]
     yml_content = f"""# @generated
 
 name: CD
@@ -95,29 +79,22 @@ on:
   push:
     branches:
       - master
+env:
+  FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    env:
-      FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
-    steps:
-      - uses: actions/checkout@master
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.7'
-      - name: Set up Node
-        uses: actions/setup-node@v1
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
-{"".join(
+jobs:{"".join(
         [
-            _get_cd_workspace_build_deploy_step(project=project)
+            _get_cd_workspace_build_deploy_job(project=project)
             for project in get_projects()
         ]
     )
-}{_get_create_status_commands("CD")}
+}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [{", ".join(needs_jobs)}]
+    steps:
+      - name: Success
+        run: exit 0
 """
 
     return yml_filename, yml_content
