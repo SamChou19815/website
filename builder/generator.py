@@ -12,66 +12,60 @@ _BOILERPLATE_SETUP_STEPS: str = """
         uses: actions/setup-node@v1"""
 
 
-def _get_ci_workspace_build_upload_step(project: Project) -> str:
+def _get_ci_workspace_build_job(project: Project) -> str:
     workspace = project.workspace
     return f"""
+  build-{workspace}:
+    runs-on: ubuntu-latest
+    steps:{_BOILERPLATE_SETUP_STEPS}
+      - name: Install
+        run: python -m builder.builder install-for-build-if-affected
       - name: Build {workspace}
-        if: always()
         run: |
           python -m builder.builder build-if-affected \\
             --base-ref ${{{{ github.base_ref }}}} \\
             --head-ref ${{{{ github.head_ref }}}} \\
-            --workspace {workspace}
-      - name: Collect {workspace} Built Static Assets
-        run: cp -R {project.build_output} build/{workspace}
-"""
+            --workspace {workspace}"""
 
 
 def _generate_frontend_ci_workflow() -> Tuple[str, str]:
     yml_filename = f"generated-ci.yml"
+    needs_jobs = [f"build-{project.workspace}" for project in get_projects()]
     yml_content = f"""# @generated
 
 name: CI
 on: pull_request
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:{_BOILERPLATE_SETUP_STEPS}
-      - name: Install
-        run: |
-          python -m builder.builder install-for-build-if-affected \\
-              --base-ref ${{{{ github.base_ref }}}} \\
-              --head-ref ${{{{ github.head_ref }}}}
-      - name: Prepare Built Assets Collector
-        run: mkdir build
-{"".join(
+jobs:{"".join(
         [
-            _get_ci_workspace_build_upload_step(project=project)
+            _get_ci_workspace_build_job(project=project)
             for project in get_projects()
         ]
-    )}
-      - name: Upload Built Static Asserts
-        uses: actions/upload-artifact@master
-        with:
-          name: built-assets
-          path: build
+    )
+}
+  build:
+    runs-on: ubuntu-latest
+    needs: [{", ".join(needs_jobs)}]
 """
 
     return yml_filename, yml_content
 
 
-def _get_cd_workspace_build_deploy_step(project: Project) -> str:
+def _get_cd_workspace_build_deploy_job(project: Project) -> str:
     workspace = project.workspace
     return f"""
+  deploy-{workspace}:
+    runs-on: ubuntu-latest
+    steps:{_BOILERPLATE_SETUP_STEPS}
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy {workspace}
-        if: always()
-        run: python -m builder.builder deploy-if-affected --workspace {workspace}
-"""
+        run: python -m builder.builder deploy-if-affected --workspace {workspace}"""
 
 
 def _generate_frontend_cd_workflow() -> Tuple[str, str]:
     yml_filename = f"generated-cd.yml"
+    needs_jobs = [f"deploy-{project.workspace}" for project in get_projects()]
     yml_content = f"""# @generated
 
 name: CD
@@ -82,19 +76,16 @@ on:
 env:
   FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:{_BOILERPLATE_SETUP_STEPS}
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
-{"".join(
+jobs:{"".join(
         [
-            _get_cd_workspace_build_deploy_step(project=project)
+            _get_cd_workspace_build_deploy_job(project=project)
             for project in get_projects()
         ]
     )
 }
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [{", ".join(needs_jobs)}]
 """
 
     return yml_filename, yml_content

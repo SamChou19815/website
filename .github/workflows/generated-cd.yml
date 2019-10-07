@@ -9,7 +9,7 @@ env:
   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
 jobs:
-  deploy:
+  deploy-blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -21,24 +21,64 @@ jobs:
         uses: actions/setup-node@v1
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
-
       - name: Deploy blog
-        if: always()
         run: python -m builder.builder deploy-if-affected --workspace blog
-
+  deploy-main-site-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy main-site-frontend
-        if: always()
         run: python -m builder.builder deploy-if-affected --workspace main-site-frontend
-
+  deploy-samlang-demo-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy samlang-demo-frontend
-        if: always()
         run: python -m builder.builder deploy-if-affected --workspace samlang-demo-frontend
-
+  deploy-samlang-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy samlang-docs
-        if: always()
         run: python -m builder.builder deploy-if-affected --workspace samlang-docs
-
+  deploy-ten-web-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy ten-web-frontend
-        if: always()
         run: python -m builder.builder deploy-if-affected --workspace ten-web-frontend
-
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [deploy-blog, deploy-main-site-frontend, deploy-samlang-demo-frontend, deploy-samlang-docs, deploy-ten-web-frontend]

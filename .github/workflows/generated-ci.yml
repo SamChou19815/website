@@ -4,7 +4,7 @@ name: CI
 on: pull_request
 
 jobs:
-  build:
+  build-blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -15,65 +15,85 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Install
-        run: |
-          python -m builder.builder install-for-build-if-affected \
-              --base-ref ${{ github.base_ref }} \
-              --head-ref ${{ github.head_ref }}
-      - name: Prepare Built Assets Collector
-        run: mkdir build
-
+        run: python -m builder.builder install-for-build-if-affected
       - name: Build blog
-        if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace blog
-      - name: Collect blog Built Static Assets
-        run: cp -R blog/build build/blog
-
+  build-main-site-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-build-if-affected
       - name: Build main-site-frontend
-        if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace main-site-frontend
-      - name: Collect main-site-frontend Built Static Assets
-        run: cp -R main-site-frontend/build build/main-site-frontend
-
+  build-samlang-demo-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-build-if-affected
       - name: Build samlang-demo-frontend
-        if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace samlang-demo-frontend
-      - name: Collect samlang-demo-frontend Built Static Assets
-        run: cp -R samlang-demo-frontend/build build/samlang-demo-frontend
-
+  build-samlang-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-build-if-affected
       - name: Build samlang-docs
-        if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace samlang-docs
-      - name: Collect samlang-docs Built Static Assets
-        run: cp -R samlang-docs/build build/samlang-docs
-
+  build-ten-web-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Install
+        run: python -m builder.builder install-for-build-if-affected
       - name: Build ten-web-frontend
-        if: always()
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace ten-web-frontend
-      - name: Collect ten-web-frontend Built Static Assets
-        run: cp -R ten-web-frontend/build build/ten-web-frontend
-
-      - name: Upload Built Static Asserts
-        uses: actions/upload-artifact@master
-        with:
-          name: built-assets
-          path: build
+  build:
+    runs-on: ubuntu-latest
+    needs: [build-blog, build-main-site-frontend, build-samlang-demo-frontend, build-samlang-docs, build-ten-web-frontend]
