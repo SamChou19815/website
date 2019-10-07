@@ -6,7 +6,6 @@
     "highligher",
     "samlang"
   ],
-  "main": "dist/index.js",
   "author": "Developer Sam",
   "repository": {
     "type": "git",

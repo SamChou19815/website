@@ -41,7 +41,8 @@ call `Main.main()`. If there is no such module, then the evaluation result will 
 Each `.sam` source file defines a module. You can use a different module's classes by `import`
 
 ```samlang
-import { ClassA, ClassB as ClassC } from Foo.Bar.Module
+import { ClassA, ClassB } from Foo.Bar.Module
+import { ClassC, ClassD } from Baz.Foo.Module
 
 class ClassD {
     function main(): int = ClassA::value() + ClassC::value()

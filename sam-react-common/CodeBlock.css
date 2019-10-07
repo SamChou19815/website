@@ -28,12 +28,8 @@
   color: #9a30ad;
 }
 
-.hljs-method {
+.hljs-function-call {
   color: #d52262;
-}
-
-.hljs-type-params {
-  color: #20999d;
 }
 
 .hljs-section,
