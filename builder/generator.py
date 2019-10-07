@@ -95,12 +95,12 @@ on:
   push:
     branches:
       - master
+env:
+  FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
     steps:
       - uses: actions/checkout@master
       - name: Set up Python
