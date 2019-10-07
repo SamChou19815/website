@@ -84,4 +84,4 @@ jobs:
     needs: [deploy-blog, deploy-main-site-frontend, deploy-samlang-demo-frontend, deploy-samlang-docs, deploy-ten-web-frontend]
     steps:
       - name: Success
-        runs: exit 0
+        run: exit 0

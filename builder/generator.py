@@ -48,7 +48,7 @@ jobs:{"".join(
     needs: [{", ".join(needs_jobs)}]
     steps:
       - name: Success
-        runs: exit 0
+        run: exit 0
 """
 
     return yml_filename, yml_content
@@ -91,7 +91,7 @@ jobs:{"".join(
     needs: [{", ".join(needs_jobs)}]
     steps:
       - name: Success
-        runs: exit 0
+        run: exit 0
 """
 
     return yml_filename, yml_content

@@ -99,4 +99,4 @@ jobs:
     needs: [build-blog, build-main-site-frontend, build-samlang-demo-frontend, build-samlang-docs, build-ten-web-frontend]
     steps:
       - name: Success
-        runs: exit 0
+        run: exit 0
