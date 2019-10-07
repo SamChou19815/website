@@ -13,6 +13,7 @@
   },
   "private": true,
   "scripts": {
+    "dev": "tsc --incremental --watch",
     "build": "tsc --incremental",
     "postinstall": "yarn build"
   },
