@@ -20,12 +20,18 @@ const keywords = {
 };
 
 const createModeWithNested = (className: string, regex: RegExp, nested: IMode): IMode => ({
-  className, begin: regex, returnBegin: true, end: '', contains: [nested],
+  className,
+  begin: regex,
+  returnBegin: true,
+  end: '',
+  contains: [nested]
 });
 
-const createModeWithType = (className: string, regex: RegExp): IMode => createModeWithNested(className, regex, simpleTypeMode);
+const createModeWithType = (className: string, regex: RegExp): IMode =>
+  createModeWithNested(className, regex, simpleTypeMode);
 
-const createModeWithFunctionCall = (className: string, regex: RegExp): IMode => createModeWithNested(className, regex, simpleIdentifierAsFunctionCallMode);
+const createModeWithFunctionCall = (className: string, regex: RegExp): IMode =>
+  createModeWithNested(className, regex, simpleIdentifierAsFunctionCallMode);
 
 export default (): void =>
   highlight.registerLanguage(
@@ -84,7 +90,7 @@ export default (): void =>
           {
             className: 'type',
             begin: /\s+[A-Z][A-Za-z0-9]*/,
-            end: '',
+            end: ''
           }
         ]
       };
