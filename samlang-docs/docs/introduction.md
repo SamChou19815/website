@@ -42,6 +42,7 @@ Each `.sam` source file defines a module. You can use a different module's class
 
 ```samlang
 import { ClassA, ClassB } from Foo.Bar.Module
+import { ClassC, ClassD } from Baz.Foo.Module
 
 class ClassD {
     function main(): int = ClassA::value() + ClassC::value()
