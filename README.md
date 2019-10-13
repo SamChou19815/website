@@ -5,12 +5,6 @@
 ![code style: black](https://img.shields.io/badge/code_style-black-000000.svg)
 
 ![Deployment](https://github.com/SamChou19815/website/workflows/CD/badge.svg)
-[![workspace dev dependencies](https://david-dm.org/SamChou19815/website/dev-status.svg)](https://david-dm.org/SamChou19815/website?type=dev)
-[![blog dependencies](https://david-dm.org/SamChou19815/website/status.svg?path=blog)](https://david-dm.org/SamChou19815/website?path=blog)
-[![main-site-frontend dependencies](https://david-dm.org/SamChou19815/website/status.svg?path=main-site-frontend)](https://david-dm.org/SamChou19815/website?path=main-site-frontend)
-[![samlang-demo-frontend dependencies](https://david-dm.org/SamChou19815/website/status.svg?path=samlang-demo-frontend)](https://david-dm.org/SamChou19815/website?path=samlang-demo-frontend)
-[![samlang-docs dependencies](https://david-dm.org/SamChou19815/website/status.svg?path=samlang-docs)](https://david-dm.org/SamChou19815/website?path=samlang-docs)
-[![ten-web-frontend dependencies](https://david-dm.org/SamChou19815/website/status.svg?path=ten-web-frontend)](https://david-dm.org/SamChou19815/website?path=ten-web-frontend)
 
 This is a monorepo of Sam's [website](https://developersam.com).
 
