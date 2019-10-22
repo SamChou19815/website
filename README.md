@@ -6,6 +6,8 @@
 ![code style: black](https://img.shields.io/badge/code_style-black-000000.svg)
 
 This is a monorepo of Sam's [website](https://developersam.com).
+You have to sign the [CLA](https://gist.github.com/SamChou19815/634b7f8e15825f07ae4a78fc1679ec12) in
+order to contribute.
 
 ## Included Sites
 
