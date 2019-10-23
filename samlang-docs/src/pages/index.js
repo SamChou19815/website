@@ -10,7 +10,7 @@ import classnames from 'classnames';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import withBaseUrl from '@docusaurus/withBaseUrl';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from 'sam-react-common/CodeBlock';
 import initialize from 'sam-react-common/language';
 import styles from './styles.module.css';
@@ -88,7 +88,7 @@ function Home() {
           <div className={styles.buttons}>
             <Link
               className={classnames('button button--secondary button--lg', styles.getStarted)}
-              to={withBaseUrl('docs/introduction')}
+              to={useBaseUrl('docs/introduction')}
             >
               Get Started
             </Link>
