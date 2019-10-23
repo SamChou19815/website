@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.5.1",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "sam-react-common": "0.1.0"
   },
   "devDependencies": {
