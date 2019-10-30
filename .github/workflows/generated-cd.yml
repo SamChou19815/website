@@ -19,8 +19,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy blog
@@ -35,8 +33,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy main-site-frontend
@@ -51,8 +47,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy samlang-demo-frontend
@@ -67,8 +61,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy samlang-docs
@@ -83,8 +75,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy ten-web-frontend
