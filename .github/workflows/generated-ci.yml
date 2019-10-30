@@ -14,8 +14,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: |
           python -m builder.builder install-for-build-if-affected \
@@ -37,8 +35,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: |
           python -m builder.builder install-for-build-if-affected \
@@ -60,8 +56,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: |
           python -m builder.builder install-for-build-if-affected \
@@ -83,8 +77,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: |
           python -m builder.builder install-for-build-if-affected \
@@ -106,8 +98,6 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
       - name: Install
         run: |
           python -m builder.builder install-for-build-if-affected \

@@ -9,9 +9,7 @@ _BOILERPLATE_SETUP_STEPS: str = """
         with:
           python-version: '3.7'
       - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'"""
+        uses: actions/setup-node@v1"""
 
 
 def _get_ci_workspace_build_job(project: Project) -> str:
