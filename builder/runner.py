@@ -4,16 +4,12 @@ import shutil
 from .configuration import Project
 
 
-def install_workspace(affected: bool, deploy: bool) -> None:
+def install_workspace(affected: bool) -> None:
     if not affected:
         print("Website related workspaces are not updated.")
         return
 
     subprocess.check_call(["yarn", "install"])
-    if deploy:
-        subprocess.check_call(
-            ["yarn", "add", "--dev", "firebase-tools", "react-snap", "-W"]
-        )
 
 
 def build_workspace(project: Project, affected: bool) -> int:

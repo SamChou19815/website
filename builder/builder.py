@@ -25,15 +25,12 @@ def _install_for_build_if_affected(arguments: argparse.Namespace) -> None:
     changed_paths = get_changed_paths(
         base_ref=arguments.base_ref, head_ref=arguments.head_ref
     )
-    install_workspace(
-        affected=is_any_project_affected(changed_paths=changed_paths), deploy=False
-    )
+    install_workspace(affected=is_any_project_affected(changed_paths=changed_paths))
 
 
 def _install_for_deploy_if_affected(arguments: argparse.Namespace) -> None:
     install_workspace(
-        affected=is_any_project_affected(changed_paths=get_changed_paths_last_commit()),
-        deploy=True,
+        affected=is_any_project_affected(changed_paths=get_changed_paths_last_commit())
     )
 
 
