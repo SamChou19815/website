@@ -19,6 +19,12 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
+      - name: Use Yarn Cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy blog
@@ -33,6 +39,12 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
+      - name: Use Yarn Cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy main-site-frontend
@@ -47,6 +59,12 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
+      - name: Use Yarn Cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy samlang-demo-frontend
@@ -61,6 +79,12 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
+      - name: Use Yarn Cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy samlang-docs
@@ -75,6 +99,12 @@ jobs:
           python-version: '3.7'
       - name: Set up Node
         uses: actions/setup-node@v1
+      - name: Use Yarn Cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
       - name: Install
         run: python -m builder.builder install-for-deploy-if-affected
       - name: Deploy ten-web-frontend
