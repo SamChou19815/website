@@ -7,7 +7,7 @@
     "lint:fix": "yarn lint --fix"
   },
   "engines": {
-    "yarn": ">=1.19.0"
+    "yarn": ">=1.19.1"
   },
   "workspaces": [
     "blog",
@@ -19,7 +19,7 @@
   ],
   "devDependencies": {
     "@types/jest": "^24.0.21",
-    "@types/node": "^12.12.3",
+    "@types/node": "^12.12.5",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.3",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
