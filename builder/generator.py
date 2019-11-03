@@ -9,7 +9,13 @@ _BOILERPLATE_SETUP_STEPS: str = """
         with:
           python-version: '3.7'
       - name: Set up Node
-        uses: actions/setup-node@v1"""
+        uses: actions/setup-node@v1
+      - name: Use Yarn Cache
+        uses: actions/cache@preview
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-"""
 
 
 def _get_ci_workspace_build_job(project: Project) -> str:
