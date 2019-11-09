@@ -11,7 +11,7 @@ _BOILERPLATE_SETUP_STEPS: str = """
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Use Yarn Cache
-        uses: actions/cache@preview
+        uses: actions/cache@v1
         with:
           path: ~/.cache/yarn
           key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
