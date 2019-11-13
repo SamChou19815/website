@@ -42,7 +42,8 @@ const items: TimelineItem[] = [
     title: 'Xi++ Compiler',
     type: 'project',
     time: '2019-05',
-    detail: 'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly'
+    detail:
+      'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly and Cornell CS 2112 critter language.'
   },
   {
     title: 'Website Redesign v3',
