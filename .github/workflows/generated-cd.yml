@@ -25,10 +25,12 @@ jobs:
           path: ~/.cache/yarn
           key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
           restore-keys: yarn-
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
+      - name: Yarn Install
+        run: yarn install
+      - name: Build blog
+        run: yarn workspace blog build
       - name: Deploy blog
-        run: python -m builder.builder deploy-if-affected --workspace blog
+        run: yarn workspace blog deploy
   deploy-samlang:
     runs-on: ubuntu-latest
     steps:
@@ -45,10 +47,12 @@ jobs:
           path: ~/.cache/yarn
           key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
           restore-keys: yarn-
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
+      - name: Yarn Install
+        run: yarn install
+      - name: Build samlang
+        run: yarn workspace samlang build
       - name: Deploy samlang
-        run: python -m builder.builder deploy-if-affected --workspace samlang
+        run: yarn workspace samlang deploy
   deploy-samlang-demo:
     runs-on: ubuntu-latest
     steps:
@@ -65,10 +69,12 @@ jobs:
           path: ~/.cache/yarn
           key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
           restore-keys: yarn-
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
+      - name: Yarn Install
+        run: yarn install
+      - name: Build samlang-demo
+        run: yarn workspace samlang-demo build
       - name: Deploy samlang-demo
-        run: python -m builder.builder deploy-if-affected --workspace samlang-demo
+        run: yarn workspace samlang-demo deploy
   deploy-ten:
     runs-on: ubuntu-latest
     steps:
@@ -85,10 +91,12 @@ jobs:
           path: ~/.cache/yarn
           key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
           restore-keys: yarn-
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
+      - name: Yarn Install
+        run: yarn install
+      - name: Build ten
+        run: yarn workspace ten build
       - name: Deploy ten
-        run: python -m builder.builder deploy-if-affected --workspace ten
+        run: yarn workspace ten deploy
   deploy-www:
     runs-on: ubuntu-latest
     steps:
@@ -105,10 +113,12 @@ jobs:
           path: ~/.cache/yarn
           key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
           restore-keys: yarn-
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
+      - name: Yarn Install
+        run: yarn install
+      - name: Build www
+        run: yarn workspace www build
       - name: Deploy www
-        run: python -m builder.builder deploy-if-affected --workspace www
+        run: yarn workspace www deploy
   deploy:
     runs-on: ubuntu-latest
     needs: [deploy-blog, deploy-samlang, deploy-samlang-demo, deploy-ten, deploy-www]

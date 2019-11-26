@@ -15,7 +15,9 @@ _BOILERPLATE_SETUP_STEPS: str = """
         with:
           path: ~/.cache/yarn
           key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
-          restore-keys: yarn-"""
+          restore-keys: yarn-
+      - name: Yarn Install
+        run: yarn install"""
 
 
 def _get_ci_workspace_build_job(project: Project) -> str:
@@ -24,17 +26,8 @@ def _get_ci_workspace_build_job(project: Project) -> str:
   build-{workspace}:
     runs-on: ubuntu-latest
     steps:{_BOILERPLATE_SETUP_STEPS}
-      - name: Install
-        run: |
-          python -m builder.builder install-for-build-if-affected \\
-              --base-ref ${{{{ github.base_ref }}}} \\
-              --head-ref ${{{{ github.head_ref }}}}
       - name: Build {workspace}
-        run: |
-          python -m builder.builder build-if-affected \\
-            --base-ref ${{{{ github.base_ref }}}} \\
-            --head-ref ${{{{ github.head_ref }}}} \\
-            --workspace {workspace}"""
+        run: yarn workspace {workspace} build"""
 
 
 def _generate_frontend_ci_workflow() -> Tuple[str, str]:
@@ -69,10 +62,10 @@ def _get_cd_workspace_build_deploy_job(project: Project) -> str:
   deploy-{workspace}:
     runs-on: ubuntu-latest
     steps:{_BOILERPLATE_SETUP_STEPS}
-      - name: Install
-        run: python -m builder.builder install-for-deploy-if-affected
+      - name: Build {workspace}
+        run: yarn workspace {workspace} build
       - name: Deploy {workspace}
-        run: python -m builder.builder deploy-if-affected --workspace {workspace}"""
+        run: yarn workspace {workspace} deploy"""
 
 
 def _generate_frontend_cd_workflow() -> Tuple[str, str]:
