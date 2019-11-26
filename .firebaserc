@@ -8,17 +8,17 @@
         "blog": [
           "developer-sam-blog"
         ],
-        "main-site-frontend": [
-          "developer-sam"
-        ],
-        "samlang-demo-frontend": [
-          "developer-sam-samlang-demo"
-        ],
-        "samlang-docs": [
+        "samlang": [
           "developer-sam-samlang-docs"
         ],
-        "ten-web-frontend": [
+        "samlang-demo": [
+          "developer-sam-samlang-demo"
+        ],
+        "ten": [
           "developer-sam-ten-web"
+        ],
+        "www": [
+          "developer-sam"
         ]
       }
     }

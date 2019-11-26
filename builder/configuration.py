@@ -54,11 +54,10 @@ def create_yarn_workspace_project(
 def get_projects() -> Sequence[Project]:
     return [
         create_yarn_workspace_project(workspace="blog"),
+        create_yarn_workspace_project(workspace="samlang"),
+        create_yarn_workspace_project(workspace="samlang-demo"),
+        create_yarn_workspace_project(workspace="ten"),
         create_yarn_workspace_project(
-            workspace="main-site-frontend",
-            pre_deploy_command=["yarn workspace main-site-frontend ci-postbuild"],
+            workspace="www", pre_deploy_command=["yarn workspace www ci-postbuild"]
         ),
-        create_yarn_workspace_project(workspace="samlang-demo-frontend"),
-        create_yarn_workspace_project(workspace="samlang-docs"),
-        create_yarn_workspace_project(workspace="ten-web-frontend"),
     ]
