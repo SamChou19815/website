@@ -1,19 +1,20 @@
 {
-  "name": "main-site-frontend",
+  "name": "ten",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.7.0",
-    "@material-ui/icons": "^4.5.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "sam-react-common": "0.1.0"
   },
+  "devDependencies": {
+    "worker-loader": "^2.0.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "ci-postbuild": "react-snap",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "tsc": "tsc -p tsconfig.json"
   },
@@ -23,10 +24,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ]
-  }
+  "proxy": "https://us-central1-dev-sam.cloudfunctions.net/HandleTenAIMoveRequest"
 }

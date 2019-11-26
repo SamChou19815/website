@@ -31,7 +31,7 @@ jobs:
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
             --workspace blog
-  build-main-site-frontend:
+  build-samlang:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -52,13 +52,13 @@ jobs:
           python -m builder.builder install-for-build-if-affected \
               --base-ref ${{ github.base_ref }} \
               --head-ref ${{ github.head_ref }}
-      - name: Build main-site-frontend
+      - name: Build samlang
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
-            --workspace main-site-frontend
-  build-samlang-demo-frontend:
+            --workspace samlang
+  build-samlang-demo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -79,13 +79,13 @@ jobs:
           python -m builder.builder install-for-build-if-affected \
               --base-ref ${{ github.base_ref }} \
               --head-ref ${{ github.head_ref }}
-      - name: Build samlang-demo-frontend
+      - name: Build samlang-demo
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
-            --workspace samlang-demo-frontend
-  build-samlang-docs:
+            --workspace samlang-demo
+  build-ten:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -106,13 +106,13 @@ jobs:
           python -m builder.builder install-for-build-if-affected \
               --base-ref ${{ github.base_ref }} \
               --head-ref ${{ github.head_ref }}
-      - name: Build samlang-docs
+      - name: Build ten
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
-            --workspace samlang-docs
-  build-ten-web-frontend:
+            --workspace ten
+  build-www:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -133,15 +133,15 @@ jobs:
           python -m builder.builder install-for-build-if-affected \
               --base-ref ${{ github.base_ref }} \
               --head-ref ${{ github.head_ref }}
-      - name: Build ten-web-frontend
+      - name: Build www
         run: |
           python -m builder.builder build-if-affected \
             --base-ref ${{ github.base_ref }} \
             --head-ref ${{ github.head_ref }} \
-            --workspace ten-web-frontend
+            --workspace www
   build:
     runs-on: ubuntu-latest
-    needs: [build-blog, build-main-site-frontend, build-samlang-demo-frontend, build-samlang-docs, build-ten-web-frontend]
+    needs: [build-blog, build-samlang, build-samlang-demo, build-ten, build-www]
     steps:
       - name: Success
         run: exit 0

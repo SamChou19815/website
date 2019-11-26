@@ -6,8 +6,8 @@
       "ignore": ["**/.*"]
     },
     {
-      "target": "main-site-frontend",
-      "public": "main-site-frontend/build",
+      "target": "www",
+      "public": "www/build",
       "ignore": ["**/.*"],
       "rewrites": [
         {
@@ -17,8 +17,13 @@
       ]
     },
     {
-      "target": "samlang-demo-frontend",
-      "public": "samlang-demo-frontend/build",
+      "target": "samlang",
+      "public": "samlang/build",
+      "ignore": ["**/.*"]
+    },
+    {
+      "target": "samlang-demo",
+      "public": "samlang-demo/build",
       "ignore": ["**/.*"],
       "rewrites": [
         {
@@ -35,13 +40,8 @@
       ]
     },
     {
-      "target": "samlang-docs",
-      "public": "samlang-docs/build",
-      "ignore": ["**/.*"]
-    },
-    {
-      "target": "ten-web-frontend",
-      "public": "ten-web-frontend/build",
+      "target": "ten",
+      "public": "ten/build",
       "ignore": ["**/.*"],
       "rewrites": [
         {

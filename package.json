@@ -11,11 +11,11 @@
   },
   "workspaces": [
     "blog",
-    "main-site-frontend",
     "sam-react-common",
-    "samlang-demo-frontend",
-    "samlang-docs",
-    "ten-web-frontend"
+    "samlang",
+    "samlang-demo",
+    "ten",
+    "www"
   ],
   "devDependencies": {
     "@types/jest": "^24.0.23",
