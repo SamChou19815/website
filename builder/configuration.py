@@ -1,4 +1,3 @@
-import os
 from dataclasses import dataclass
 from typing import Sequence
 from .workspace import get_dependency_chain
@@ -33,19 +32,11 @@ def _create_project(
     )
 
 
-def create_yarn_workspace_project(
-    workspace: str, pre_deploy_command: Sequence[str] = []
-) -> Project:
-    deploy_command = [
-        *pre_deploy_command,
-        "./node_modules/.bin/firebase deploy"
-        + f" --token={os.environ.get('FIREBASE_TOKEN')}"
-        + f" --non-interactive --only hosting:{workspace}",
-    ]
+def create_yarn_workspace_project(workspace: str) -> Project:
     return _create_project(
         workspace=workspace,
         build_command=f"yarn workspace {workspace} build",
-        deploy_command=deploy_command,
+        deploy_command=f"yarn workspace {workspace} deploy",
         build_output=f"{workspace}/build",
         additional_dependency_paths=["package.json", "yarn.lock", "configuration/**"],
     )
@@ -57,7 +48,5 @@ def get_projects() -> Sequence[Project]:
         create_yarn_workspace_project(workspace="samlang"),
         create_yarn_workspace_project(workspace="samlang-demo"),
         create_yarn_workspace_project(workspace="ten"),
-        create_yarn_workspace_project(
-            workspace="www", pre_deploy_command=["yarn workspace www ci-postbuild"]
-        ),
+        create_yarn_workspace_project(workspace="www"),
     ]

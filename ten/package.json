@@ -16,7 +16,8 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "tsc": "tsc -p tsconfig.json"
+    "tsc": "tsc -p tsconfig.json",
+    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "browserslist": [
     ">0.2%",
