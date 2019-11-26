@@ -7,7 +7,7 @@ from .workspace import get_dependency_chain
 class Project:
     workspace: str
     build_command: str
-    deploy_command: Sequence[str]
+    deploy_command: str
     build_output: str
     relevant_paths: Sequence[str]
 
@@ -15,7 +15,7 @@ class Project:
 def _create_project(
     workspace: str,
     build_command: str,
-    deploy_command: Sequence[str],
+    deploy_command: str,
     build_output: str,
     additional_dependency_paths: Sequence[str],
 ) -> Project:
