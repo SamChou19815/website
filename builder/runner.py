@@ -39,5 +39,4 @@ def deploy_workspace(project: Project, affected: bool) -> None:
         return
 
     subprocess.check_call(project.build_command.split())
-    for one_deploy_command in project.deploy_command:
-        subprocess.check_call(one_deploy_command.split())
+    subprocess.check_call(project.deploy_command.split())
