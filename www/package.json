@@ -15,8 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "tsc": "tsc -p tsconfig.json",
-    "predeploy": "react-snap",
-    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
+    "deploy": "react-snap && firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
   },
   "browserslist": [
     ">0.2%",
