@@ -9,6 +9,7 @@ on:
       - package.json
       - yarn.lock
       - configuration/**
+      - ten/package.json
       - .github/workflows/generated-*-ten.yml
 
 jobs:

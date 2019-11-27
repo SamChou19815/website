@@ -11,6 +11,7 @@ on:
       - package.json
       - yarn.lock
       - configuration/**
+      - www/package.json
       - .github/workflows/generated-*-www.yml
 env:
   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

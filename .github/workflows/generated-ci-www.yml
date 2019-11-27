@@ -9,6 +9,7 @@ on:
       - package.json
       - yarn.lock
       - configuration/**
+      - www/package.json
       - .github/workflows/generated-*-www.yml
 
 jobs:
