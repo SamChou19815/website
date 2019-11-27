@@ -1,5 +1,6 @@
 from typing import List, Sequence, Tuple
-from .configuration import Project, get_projects
+from .configuration import get_projects
+from .workspace import get_dependency_chain
 
 
 def _get_boilerplate_setup_steps(job_name: str) -> str:
@@ -26,12 +27,19 @@ def _get_boilerplate_setup_steps(job_name: str) -> str:
     )
 
 
-def _get_paths_string(project: Project) -> str:
-    return "\n".join([f"      - {path}" for path in project.relevant_paths])
+def _get_paths_string(workspace: str) -> str:
+    all_paths = [
+        *[f"{dependency}/**" for dependency in get_dependency_chain(workspace)],
+        "package.json",
+        "yarn.lock",
+        "configuration/**",
+        f"{workspace}/package.json",
+        f".github/workflows/generated-*-{workspace}.yml",
+    ]
+    return "\n".join([f"      - {path}" for path in all_paths])
 
 
-def _generate_frontend_ci_workflow(project: Project) -> Tuple[str, str]:
-    workspace = project.workspace
+def _generate_frontend_ci_workflow(workspace: str) -> Tuple[str, str]:
     yml_filename = f"generated-ci-{workspace}.yml"
     yml_content = f"""# @generated
 
@@ -39,7 +47,7 @@ name: CI {workspace}
 on:
   pull_request:
     paths:
-{_get_paths_string(project=project)}
+{_get_paths_string(workspace=workspace)}
 
 {_get_boilerplate_setup_steps(job_name="build")}
       - name: Build
@@ -49,8 +57,7 @@ on:
     return yml_filename, yml_content
 
 
-def _generate_frontend_cd_workflow(project: Project) -> Tuple[str, str]:
-    workspace = project.workspace
+def _generate_frontend_cd_workflow(workspace: str) -> Tuple[str, str]:
     yml_filename = f"generated-cd-{workspace}.yml"
     yml_content = f"""# @generated
 
@@ -60,7 +67,7 @@ on:
     branches:
       - master
     paths:
-{_get_paths_string(project=project)}
+{_get_paths_string(workspace=workspace)}
 env:
   FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
 
@@ -78,6 +85,7 @@ def generate_workflows() -> Sequence[Tuple[str, str]]:
     projects = get_projects()
     workflows: List[Tuple[str, str]] = []
     for project in projects:
-        workflows.append(_generate_frontend_ci_workflow(project=project))
-        workflows.append(_generate_frontend_cd_workflow(project=project))
+        workspace = project.workspace
+        workflows.append(_generate_frontend_ci_workflow(workspace=workspace))
+        workflows.append(_generate_frontend_cd_workflow(workspace=workspace))
     return workflows

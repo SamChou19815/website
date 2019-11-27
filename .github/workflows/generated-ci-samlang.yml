@@ -9,6 +9,7 @@ on:
       - package.json
       - yarn.lock
       - configuration/**
+      - samlang/package.json
       - .github/workflows/generated-*-samlang.yml
 
 jobs:
