@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultCard(BAD_SYNTAX) matches snapshot. 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+>
+  <div
+    className="MuiCardHeader-root"
+  >
+    <div
+      className="MuiCardHeader-content"
+    >
+      <span
+        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      >
+        Interpretation Result
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root"
+  >
+    <div
+      className="ColoredResult"
+      style={
+        Object {
+          "borderLeftColor": "red",
+        }
+      }
+    >
+      <code>
+        foo
+      </code>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResultCard(BAD_TYPE) matches snapshot. 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+>
+  <div
+    className="MuiCardHeader-root"
+  >
+    <div
+      className="MuiCardHeader-content"
+    >
+      <span
+        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      >
+        Interpretation Result
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root"
+  >
+    <div
+      className="ColoredResult"
+      style={
+        Object {
+          "borderLeftColor": "red",
+        }
+      }
+    >
+      <code>
+        bar
+      </code>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResultCard(GOOD_PROGRAM) matches snapshot. 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+>
+  <div
+    className="MuiCardHeader-root"
+  >
+    <div
+      className="MuiCardHeader-content"
+    >
+      <span
+        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      >
+        Interpretation Result
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root"
+  >
+    <div>
+      <div
+        className="ColoredResult"
+        style={
+          Object {
+            "borderLeftColor": "orange",
+          }
+        }
+      >
+        <h3>
+          Program Running Result
+        </h3>
+        <code>
+          haha
+        </code>
+      </div>
+      <div>
+        <div
+          className="ColoredResult"
+          style={
+            Object {
+              "borderLeftColor": "green",
+            }
+          }
+        >
+          <h3>
+            Pretty Printed Program:
+          </h3>
+          <pre>
+            <code
+              className="samlang"
+            >
+              class HelloWorld {}
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResultCard(null) matches snapshot. 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+>
+  <div
+    className="MuiCardHeader-root"
+  >
+    <div
+      className="MuiCardHeader-content"
+    >
+      <span
+        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      >
+        Interpretation Result
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root"
+  >
+    Submit a program to see the interpretation result.
+  </div>
+</div>
+`;
+
+exports[`ResultCard(server-error) matches snapshot. 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+>
+  <div
+    className="MuiCardHeader-root"
+  >
+    <div
+      className="MuiCardHeader-content"
+    >
+      <span
+        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      >
+        Interpretation Result
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root"
+  >
+    Server Error. Please try again.
+  </div>
+</div>
+`;
+
+exports[`ResultCard(waiting) matches snapshot. 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+>
+  <div
+    className="MuiCardHeader-root"
+  >
+    <div
+      className="MuiCardHeader-content"
+    >
+      <span
+        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      >
+        Interpretation Result
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root"
+  >
+    Waiting for server response...
+  </div>
+</div>
+`;
