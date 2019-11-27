@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "tsc --incremental --watch",
     "build": "tsc --incremental",
-    "postinstall": "yarn build"
+    "postinstall": "yarn build",
+    "test": "echo 'Tests are in lib-react-test.'"
   },
   "files": [
     "*.js",

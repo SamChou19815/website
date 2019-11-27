@@ -7,15 +7,6 @@ type Props = {
   readonly onClick: () => void;
 };
 
-/**
- * The board cell to display.
- *
- * @param {number} tileStatus the status of the tile.
- * @param {boolean} doesNeedHighlight whether the tile needs highlight.
- * @param {function(): void} onClick handle on click.
- * @return {Node} the rendered node.
- * @constructor
- */
 export default function BoardCell({ tileStatus, doesNeedHighlight, onClick }: Props): ReactElement {
   let backgroundColor: string;
   if (tileStatus === 1) {

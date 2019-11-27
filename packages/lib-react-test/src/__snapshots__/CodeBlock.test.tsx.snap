@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeBlock rendering "42" matches snapshot. 1`] = `
+<pre>
+  <code
+    className="samlang"
+  >
+    
+class Main {
+  function main(): int = 2 * 21
+}
+
+  </code>
+</pre>
+`;
+
+exports[`CodeBlock rendering "Hello World" matches snapshot. 1`] = `
+<pre>
+  <code
+    className="samlang"
+  >
+    
+class Main {
+  function main(): string = "Hello World"
+}
+
+  </code>
+</pre>
+`;
+
+exports[`CodeBlock rendering "Pattern Matching" matches snapshot. 1`] = `
+<pre>
+  <code
+    className="samlang"
+  >
+    
+class Option&lt;T&gt;(None(unit), Some(T)) {
+
+  public function &lt;T&gt; getNone(): Option&lt;T&gt; = None(unit)
+
+  public function &lt;T&gt; getSome(d: T): Option&lt;T&gt; = Some(d)
+
+  public method &lt;R&gt; map(f: (T) -&gt; R): Option&lt;R&gt; =
+      match (this) {
+          | None _ -&gt; None(unit)
+          | Some d -&gt; Some(f(d))
+      }
+
+}
+
+  </code>
+</pre>
+`;
+
+exports[`CodeBlock rendering "Type Inference" matches snapshot. 1`] = `
+<pre>
+  <code
+    className="samlang"
+  >
+    
+class TypeInference {
+
+  function notAnnotated(): unit =
+      val _ = (a, b, c) -&gt; if a(b + 1) then b else c;
+
+  // Read the docs to see how we do the type inference.
+  function annotated(): unit =
+      val _: ((int) -&gt; bool, int, int) -&gt; int =
+          (a: (int) -&gt; bool, b: int, c: int) -&gt; (
+              if a(b + 1) then b else c
+          );
+
+}
+
+  </code>
+</pre>
+`;
