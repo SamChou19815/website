@@ -49,20 +49,14 @@
 ## Project Specific
 
 ### lib-react
-lib-react/**/*.js
-lib-react/**/*.d.ts
-lib-react/tsconfig.tsbuildinfo
+packages/lib-react/**/*.js
+packages/lib-react/**/*.d.ts
+tsconfig.tsbuildinfo
 
 # Backend
 
 ## Compiled class file
 *.class
-
-## BlueJ files
-*.ctxt
-
-## Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
 ## Package Files
 *.war
@@ -71,9 +65,6 @@ lib-react/tsconfig.tsbuildinfo
 *.zip
 *.tar.gz
 *.rar
-
-## Generated static files
-**/webapp/static/**
 
 # Script
 

@@ -28,11 +28,13 @@ def _get_boilerplate_setup_steps(job_name: str) -> str:
 
 def _get_paths_string(workspace: str) -> str:
     all_paths = [
-        *[f"{dependency}/**" for dependency in get_dependency_chain(workspace)],
+        *[
+            f"packages/{dependency}/**"
+            for dependency in get_dependency_chain(workspace)
+        ],
         "package.json",
         "yarn.lock",
         "configuration/**",
-        f"{workspace}/package.json",
         f".github/workflows/generated-*-{workspace}.yml",
     ]
     return "\n".join([f"      - {path}" for path in all_paths])

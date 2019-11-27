@@ -10,12 +10,7 @@
     "yarn": ">=1.19.1"
   },
   "workspaces": [
-    "blog",
-    "lib-react",
-    "samlang",
-    "samlang-demo",
-    "ten",
-    "www"
+    "packages/*"
   ],
   "devDependencies": {
     "@types/jest": "^24.0.23",
