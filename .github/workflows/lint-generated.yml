@@ -11,14 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
       - name: Validate Dependencies
-        run: python -m builder.builder validate-dependencies
+        run: ./tools/check
       - name: Generate Workflows
-        run: python -m builder.builder generate-workflows
+        run: ./tools/generate
       - name: Check changed
         run: |
           if [[ `git status --porcelain` ]]; then
