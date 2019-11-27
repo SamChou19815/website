@@ -1,6 +1,5 @@
 # website
 
-![Deployment](https://github.com/SamChou19815/website/workflows/CD/badge.svg)
 ![CLA assistant](https://cla-assistant.io/readme/badge/SamChou19815/website)
 ![GitHub](https://img.shields.io/github/license/SamChou19815/website.svg)
 ![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
@@ -11,10 +10,10 @@ This is a monorepo of Sam's [website](https://developersam.com).
 ## Included Sites
 
 - [blog](https://blog.developersam.com)
-- [main-site](https://developersam.com)
+- [samlang](https://samlang.developersam.com)
 - [samlang-demo](https://samlang-demo.developersam.com)
-- [samlang-docs](https://samlang.developersam.com)
-- [ten-web](https://ten.developersam.com)
+- [ten](https://ten.developersam.com)
+- [www](https://developersam.com)
 
 ## Technology Stack
 
