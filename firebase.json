@@ -2,12 +2,12 @@
   "hosting": [
     {
       "target": "blog",
-      "public": "blog/build",
+      "public": "packages/blog/build",
       "ignore": ["**/.*"]
     },
     {
       "target": "www",
-      "public": "www/build",
+      "public": "packages/www/build",
       "ignore": ["**/.*"],
       "rewrites": [
         {
@@ -18,12 +18,12 @@
     },
     {
       "target": "samlang",
-      "public": "samlang/build",
+      "public": "packages/samlang/build",
       "ignore": ["**/.*"]
     },
     {
       "target": "samlang-demo",
-      "public": "samlang-demo/build",
+      "public": "packages/samlang-demo/build",
       "ignore": ["**/.*"],
       "rewrites": [
         {
@@ -41,7 +41,7 @@
     },
     {
       "target": "ten",
-      "public": "ten/build",
+      "public": "packages/ten/build",
       "ignore": ["**/.*"],
       "rewrites": [
         {
