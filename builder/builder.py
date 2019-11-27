@@ -6,14 +6,9 @@ from .workspace import validate_dependency_chain
 from .generator import generate_workflows
 
 
-def _validate_dependencies(arguments: argparse.Namespace) -> None:
-    validate_dependency_chain()
-
-
-def _generate_workflows(arguments: argparse.Namespace) -> None:
-    output_directory = arguments.output_directory
+def _generate_workflows() -> None:
     for yml_file, yml_file_content in generate_workflows():
-        with open(os.path.join(output_directory, yml_file), "w") as output_file:
+        with open(os.path.join(".github/workflows", yml_file), "w") as output_file:
             output_file.write(yml_file_content)
 
 
@@ -22,16 +17,14 @@ def main() -> bool:
         description="website packages builder", allow_abbrev=False
     )
     parsed_commands = parser.add_subparsers(
-        metavar="{validate-dependencies, generate-workflows, build-if-affected}"
+        metavar="{validate-dependencies, generate-workflows}"
     )
 
     parsed_commands.add_parser(name="validate-dependencies").set_defaults(
-        command=_validate_dependencies
+        command=validate_dependency_chain
     )
-    generate_workflows_parser = parsed_commands.add_parser(name="generate-workflows")
-    generate_workflows_parser.set_defaults(command=_generate_workflows)
-    generate_workflows_parser.add_argument(
-        "--output-directory", default=".github/workflows"
+    parsed_commands.add_parser(name="generate-workflows").set_defaults(
+        command=_generate_workflows
     )
 
     arguments = parser.parse_args()
@@ -41,7 +34,7 @@ def main() -> bool:
         return False
 
     try:
-        arguments.command(arguments=arguments)
+        arguments.command()
         return True
     except Exception as exception:
         print(f"ERROR: {str(exception)}")
