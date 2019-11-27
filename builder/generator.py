@@ -1,8 +1,13 @@
-from typing import Sequence, Tuple
+from typing import List, Sequence, Tuple
 from .configuration import Project, get_projects
 
 
-_BOILERPLATE_SETUP_STEPS: str = """
+def _get_boilerplate_setup_steps(job_name: str) -> str:
+    return (
+        f"jobs:\n  {job_name}"
+        + """:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@master
       - name: Set up Python
         uses: actions/setup-python@v1
@@ -18,59 +23,35 @@ _BOILERPLATE_SETUP_STEPS: str = """
           restore-keys: yarn-
       - name: Yarn Install
         run: yarn install"""
+    )
 
 
-def _get_ci_workspace_build_job(project: Project) -> str:
+def _get_paths_string(project: Project) -> str:
+    return "\n".join([f"      - {path}" for path in project.relevant_paths])
+
+
+def _generate_frontend_ci_workflow(project: Project) -> Tuple[str, str]:
     workspace = project.workspace
-    return f"""
-  build-{workspace}:
-    runs-on: ubuntu-latest
-    steps:{_BOILERPLATE_SETUP_STEPS}
-      - name: Build {workspace}
-        run: yarn workspace {workspace} build"""
-
-
-def _generate_frontend_ci_workflow() -> Tuple[str, str]:
-    yml_filename = f"generated-ci.yml"
-    needs_jobs = [f"build-{project.workspace}" for project in get_projects()]
+    yml_filename = f"generated-ci-{workspace}.yml"
     yml_content = f"""# @generated
 
-name: CI
-on: pull_request
+name: CI {workspace}
+on:
+  pull_request:
+    paths:
+{_get_paths_string(project=project)}
 
-jobs:{"".join(
-        [
-            _get_ci_workspace_build_job(project=project)
-            for project in get_projects()
-        ]
-    )
-}
-  build:
-    runs-on: ubuntu-latest
-    needs: [{", ".join(needs_jobs)}]
-    steps:
-      - name: Success
-        run: exit 0
+{_get_boilerplate_setup_steps(job_name="build")}
+      - name: Build
+        run: yarn workspace {workspace} build
 """
 
     return yml_filename, yml_content
 
 
-def _get_cd_workspace_build_deploy_job(project: Project) -> str:
+def _generate_frontend_cd_workflow(project: Project) -> Tuple[str, str]:
     workspace = project.workspace
-    return f"""
-  deploy-{workspace}:
-    runs-on: ubuntu-latest
-    steps:{_BOILERPLATE_SETUP_STEPS}
-      - name: Build {workspace}
-        run: yarn workspace {workspace} build
-      - name: Deploy {workspace}
-        run: yarn workspace {workspace} deploy"""
-
-
-def _generate_frontend_cd_workflow() -> Tuple[str, str]:
-    yml_filename = f"generated-cd.yml"
-    needs_jobs = [f"deploy-{project.workspace}" for project in get_projects()]
+    yml_filename = f"generated-cd-{workspace}.yml"
     yml_content = f"""# @generated
 
 name: CD
@@ -78,31 +59,25 @@ on:
   push:
     branches:
       - master
+    paths:
+{_get_paths_string(project=project)}
 env:
   FIREBASE_TOKEN: ${{{{ secrets.FIREBASE_TOKEN }}}}
 
-jobs:{"".join(
-        [
-            _get_cd_workspace_build_deploy_job(project=project)
-            for project in get_projects()
-        ]
-    )
-}
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [{", ".join(needs_jobs)}]
-    steps:
-      - name: Success
-        run: exit 0
+{_get_boilerplate_setup_steps(job_name="deploy")}
+      - name: Build
+        run: yarn workspace {workspace} build
+      - name: Deploy
+        run: yarn workspace {workspace} deploy
 """
 
     return yml_filename, yml_content
 
 
 def generate_workflows() -> Sequence[Tuple[str, str]]:
-    return [
-        # CI
-        _generate_frontend_ci_workflow(),
-        # CD
-        _generate_frontend_cd_workflow(),
-    ]
+    projects = get_projects()
+    workflows: List[Tuple[str, str]] = []
+    for project in projects:
+        workflows.append(_generate_frontend_ci_workflow(project=project))
+        workflows.append(_generate_frontend_cd_workflow(project=project))
+    return workflows

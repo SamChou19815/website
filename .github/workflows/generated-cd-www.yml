@@ -1,0 +1,40 @@
+# @generated
+
+name: CD
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - sam-react-common/**
+      - www/**
+      - package.json
+      - yarn.lock
+      - configuration/**
+      - .github/workflows/generated-*-www.yml
+env:
+  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+      - name: Set up Node
+        uses: actions/setup-node@v1
+      - name: Use Yarn Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: yarn-
+      - name: Yarn Install
+        run: yarn install
+      - name: Build
+        run: yarn workspace www build
+      - name: Deploy
+        run: yarn workspace www deploy

@@ -22,7 +22,12 @@ def _create_project(
 def create_yarn_workspace_project(workspace: str) -> Project:
     return _create_project(
         workspace=workspace,
-        additional_dependency_paths=["package.json", "yarn.lock", "configuration/**"],
+        additional_dependency_paths=[
+            "package.json",
+            "yarn.lock",
+            "configuration/**",
+            f".github/workflows/generated-*-{workspace}.yml",
+        ],
     )
 
 
