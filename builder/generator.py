@@ -1,6 +1,5 @@
 from typing import List, Sequence, Tuple
-from .configuration import get_projects
-from .workspace import get_dependency_chain
+from .workspace import get_project_workspaces, get_dependency_chain
 
 
 def _get_boilerplate_setup_steps(job_name: str) -> str:
@@ -82,10 +81,8 @@ env:
 
 
 def generate_workflows() -> Sequence[Tuple[str, str]]:
-    projects = get_projects()
     workflows: List[Tuple[str, str]] = []
-    for project in projects:
-        workspace = project.workspace
+    for workspace in get_project_workspaces():
         workflows.append(_generate_frontend_ci_workflow(workspace=workspace))
         workflows.append(_generate_frontend_cd_workflow(workspace=workspace))
     return workflows
