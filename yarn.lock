@@ -991,6 +991,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
+"@dev-sam/eslint-config-common@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@dev-sam/eslint-config-common/-/eslint-config-common-0.5.0.tgz#9902e815e1804eafb3c881b0bc7dede9df895a3a"
+  integrity sha512-yn6FZId7rOg8luojUqazrXR8Beu1XMWDQNx8L8Lxoveh10zUVNtMxSkZLTzQS4VU5fOK2HZNEXdWKI21XcvMVg==
+
 "@docusaurus/core@^2.0.0-alpha.35":
   version "2.0.0-alpha.35"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.0.0-alpha.35.tgz#5b569af8563c200c68e8db0c0724eb79c22f541c"
