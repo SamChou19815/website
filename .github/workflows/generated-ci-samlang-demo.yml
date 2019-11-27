@@ -4,7 +4,6 @@ name: CI samlang-demo
 on:
   pull_request:
     paths:
-      - sam-react-common/**
       - samlang-demo/**
       - package.json
       - yarn.lock

@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import Code from '@material-ui/icons/Code';
 import Event from '@material-ui/icons/Event';
 import Work from '@material-ui/icons/Work';

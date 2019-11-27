@@ -11,8 +11,8 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import CodeBlock from 'sam-react-common/CodeBlock';
-import initialize from 'sam-react-common/language';
+import CodeBlock from 'lib-react/CodeBlock';
+import initialize from 'lib-react/language';
 import styles from './styles.module.css';
 
 initialize();

@@ -6,7 +6,6 @@ on:
     branches:
       - master
     paths:
-      - sam-react-common/**
       - ten/**
       - package.json
       - yarn.lock

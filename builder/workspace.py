@@ -80,7 +80,7 @@ def _construct_dependency_chain(
 
 def get_project_workspaces() -> Sequence[str]:
     workspaces = _get_workspaces_information_from_yarn()
-    return [workspace for workspace in workspaces.keys() if "common" not in workspace]
+    return [workspace for workspace in workspaces.keys() if "lib-" not in workspace]
 
 
 def validate_dependency_chain() -> None:

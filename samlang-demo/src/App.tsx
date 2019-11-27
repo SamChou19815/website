@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import MaterialThemedApp from 'sam-react-common/MaterialThemedApp';
-import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
+import MaterialThemedApp from 'lib-react/MaterialThemedApp';
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import styles from './App.module.css';
 import LanguageDemo from './LanguageDemo';
 
