@@ -11,7 +11,7 @@
   },
   "workspaces": [
     "blog",
-    "sam-react-common",
+    "lib-react",
     "samlang",
     "samlang-demo",
     "ten",

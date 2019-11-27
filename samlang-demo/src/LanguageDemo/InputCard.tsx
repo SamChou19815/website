@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import CodeBlock from 'sam-react-common/CodeBlock';
+import CodeBlock from 'lib-react/CodeBlock';
 import styles from './LanguageDemo.module.css';
 
 type Props = { readonly onSubmit: (code: string) => void };

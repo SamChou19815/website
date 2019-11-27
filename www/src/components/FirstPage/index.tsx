@@ -8,7 +8,7 @@ import Code from '@material-ui/icons/Code';
 import Domain from '@material-ui/icons/Domain';
 import School from '@material-ui/icons/School';
 import Work from '@material-ui/icons/Work';
-import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import styles from './index.module.css';
 import FirstPageCodeBlock from './FirstPageCodeBlock';

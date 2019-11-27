@@ -4,7 +4,6 @@ name: CI blog
 on:
   pull_request:
     paths:
-      - sam-react-common/**
       - blog/**
       - package.json
       - yarn.lock

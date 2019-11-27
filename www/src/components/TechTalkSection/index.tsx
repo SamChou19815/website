@@ -4,7 +4,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import School from '@material-ui/icons/School';
-import MaterialButtonLink from 'sam-react-common/MaterialButtonLink';
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import styles from './index.module.css';
 import ConsoleSection from '../Common/ConsoleSection';
 

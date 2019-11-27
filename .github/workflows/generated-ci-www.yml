@@ -4,7 +4,6 @@ name: CI www
 on:
   pull_request:
     paths:
-      - sam-react-common/**
       - www/**
       - package.json
       - yarn.lock

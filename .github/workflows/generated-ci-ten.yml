@@ -4,7 +4,6 @@ name: CI ten
 on:
   pull_request:
     paths:
-      - sam-react-common/**
       - ten/**
       - package.json
       - yarn.lock
