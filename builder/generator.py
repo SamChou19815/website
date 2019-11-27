@@ -54,7 +54,7 @@ def _generate_frontend_cd_workflow(project: Project) -> Tuple[str, str]:
     yml_filename = f"generated-cd-{workspace}.yml"
     yml_content = f"""# @generated
 
-name: CD
+name: CD {workspace}
 on:
   push:
     branches:

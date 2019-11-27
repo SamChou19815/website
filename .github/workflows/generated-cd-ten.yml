@@ -1,6 +1,6 @@
 # @generated
 
-name: CD
+name: CD ten
 on:
   push:
     branches:
