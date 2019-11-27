@@ -4,11 +4,11 @@ name: CI blog
 on:
   pull_request:
     paths:
-      - blog/**
+      - packages/lib-react/**
+      - packages/blog/**
       - package.json
       - yarn.lock
       - configuration/**
-      - blog/package.json
       - .github/workflows/generated-*-blog.yml
 
 jobs:

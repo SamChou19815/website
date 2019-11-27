@@ -6,11 +6,11 @@ on:
     branches:
       - master
     paths:
-      - ten/**
+      - packages/lib-react/**
+      - packages/ten/**
       - package.json
       - yarn.lock
       - configuration/**
-      - ten/package.json
       - .github/workflows/generated-*-ten.yml
 env:
   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

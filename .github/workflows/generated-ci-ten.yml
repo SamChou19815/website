@@ -4,11 +4,11 @@ name: CI ten
 on:
   pull_request:
     paths:
-      - ten/**
+      - packages/lib-react/**
+      - packages/ten/**
       - package.json
       - yarn.lock
       - configuration/**
-      - ten/package.json
       - .github/workflows/generated-*-ten.yml
 
 jobs:

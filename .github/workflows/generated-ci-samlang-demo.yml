@@ -4,11 +4,11 @@ name: CI samlang-demo
 on:
   pull_request:
     paths:
-      - samlang-demo/**
+      - packages/lib-react/**
+      - packages/samlang-demo/**
       - package.json
       - yarn.lock
       - configuration/**
-      - samlang-demo/package.json
       - .github/workflows/generated-*-samlang-demo.yml
 
 jobs:

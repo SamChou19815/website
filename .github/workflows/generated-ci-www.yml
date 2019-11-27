@@ -4,11 +4,11 @@ name: CI www
 on:
   pull_request:
     paths:
-      - www/**
+      - packages/lib-react/**
+      - packages/www/**
       - package.json
       - yarn.lock
       - configuration/**
-      - www/package.json
       - .github/workflows/generated-*-www.yml
 
 jobs:

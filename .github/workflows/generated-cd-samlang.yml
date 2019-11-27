@@ -6,11 +6,11 @@ on:
     branches:
       - master
     paths:
-      - samlang/**
+      - packages/lib-react/**
+      - packages/samlang/**
       - package.json
       - yarn.lock
       - configuration/**
-      - samlang/package.json
       - .github/workflows/generated-*-samlang.yml
 env:
   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
