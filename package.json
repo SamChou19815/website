@@ -13,6 +13,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@dev-sam/eslint-config-common": "^0.5.0",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.14",
     "@types/react": "^16.9.13",
@@ -32,9 +33,9 @@
     "firebase-tools": "^7.8.1",
     "prettier": "1.19.1",
     "react-app-rewired": "^2.1.5",
-    "react-test-renderer": "^16.12.0",
     "react-scripts": "3.2.0",
     "react-snap": "^1.23.0",
+    "react-test-renderer": "^16.12.0",
     "typescript": "^3.7.2"
   }
 }
