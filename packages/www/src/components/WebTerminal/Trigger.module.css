@@ -13,6 +13,12 @@
   background-color: white;
 }
 
+@media screen and (max-width: 800px) {
+  .TriggerButton {
+    display: none;
+  }
+}
+
 .TriggerButton:hover {
   background-color: #f7f7f7;
 }
