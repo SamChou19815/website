@@ -46,5 +46,5 @@ const directoryRoot: Directory = {
 /**
  * The initial state of the file system.
  */
-const initialState: FileSystemState = { root: directoryRoot, stack: [['', directoryRoot]] };
+const initialState: FileSystemState = [['', directoryRoot]];
 export default initialState;
