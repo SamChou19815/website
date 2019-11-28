@@ -7,11 +7,11 @@ export default (): ReactElement => (
   <Terminal
     commands={commands}
     welcomeMessage="A terminal for Developer Sam Web OS."
-    promptLabel="you@developersam.com:~$"
+    promptLabel="u@developersam.com:~$"
     className={styles.Terminal}
     contentClassName={styles.TextColor}
     inputAreaClassName={styles.TextColor}
-    promptLabelClassName={styles.TextColor}
+    promptLabelClassName={styles.KeywordColor}
     inputClassName={styles.TextColor}
   />
 );
