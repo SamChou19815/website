@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import Terminal from 'react-console-emulator';
 import commands from './commands';
-import styles from './TerminalEmulator.module.css';
+import styles from './index.module.css';
 
 export default (): ReactElement => (
   <Terminal
