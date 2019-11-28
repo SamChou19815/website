@@ -3,11 +3,8 @@
 import { Commands } from 'react-console-emulator';
 
 const commands: Commands = {
-  haha: {
-    fn: () => {
-      console.log('haha');
-    }
-  }
+  echo: { fn: (...inputs: string[]) => inputs.join(' ') },
+  haha: { fn: () => 'haha' }
 };
 
 export default commands;
