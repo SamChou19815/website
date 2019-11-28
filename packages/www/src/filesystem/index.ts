@@ -1,4 +1,4 @@
+import initialState from './initial-state';
 import { changeDirectory } from './stack';
 
-// eslint-disable-next-line import/prefer-default-export
-export { changeDirectory };
+export { initialState, changeDirectory };
