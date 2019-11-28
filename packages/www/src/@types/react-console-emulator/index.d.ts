@@ -1,6 +1,3 @@
-// eslint-disable-next-line spaced-comment
-/// <reference types="node" />
-
 declare module 'react-console-emulator' {
   import { ReactElement, CSSProperties } from 'react';
 
@@ -39,8 +36,7 @@ declare module 'react-console-emulator' {
   type CommandSpecification = {
     readonly description?: string;
     readonly usage?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    readonly fn: (...args: any[]) => any;
+    readonly fn: (...args: string[]) => string | null | undefined;
     readonly explicitExec?: boolean;
   };
 
