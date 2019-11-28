@@ -1,5 +1,7 @@
-import initialState from './initial-state';
-import { changeDirectoryOneLevel, changeDirectory } from './stack';
+import initialState, { root } from './initial-state';
+import { peek, changeDirectoryOneLevel, changeDirectory } from './stack';
+
+it('peek works', () => expect(peek(initialState)).toStrictEqual(['', root]));
 
 it('changeDirectoryOneLevel works forward and backward', () => {
   expect(changeDirectoryOneLevel(initialState, '..')).toStrictEqual(initialState);

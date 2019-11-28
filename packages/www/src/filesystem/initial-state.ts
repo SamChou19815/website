@@ -1,6 +1,6 @@
 import { Directory, FileSystemState } from './types';
 
-const directoryRoot: Directory = {
+export const root: Directory = {
   type: 'DIRECTORY',
   children: [
     [
@@ -46,5 +46,5 @@ const directoryRoot: Directory = {
 /**
  * The initial state of the file system.
  */
-const initialState: FileSystemState = [['', directoryRoot]];
+const initialState: FileSystemState = [['', root]];
 export default initialState;

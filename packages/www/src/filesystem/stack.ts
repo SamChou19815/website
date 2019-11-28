@@ -1,5 +1,11 @@
-import { FileSystemState } from './types';
+import { Directory, FileSystemState } from './types';
 import { normalize, join, currentDirectoryPath } from './path';
+
+/**
+ * @param state the current filesystem state of the terminal.
+ * @returns current directory object.
+ */
+export const peek = (state: FileSystemState): [string, Directory] => state[state.length - 1];
 
 /**
  * Change the directory stack for one level.
@@ -19,7 +25,7 @@ export const changeDirectoryOneLevel = (
   if (filename === '..') {
     return state.length <= 1 ? state : state.slice(0, state.length - 1);
   }
-  const currentDirectory = state[state.length - 1][1];
+  const currentDirectory = peek(state)[1];
   const foundFileWithName = currentDirectory.children.find(
     ([localFilename]) => localFilename === filename
   );
