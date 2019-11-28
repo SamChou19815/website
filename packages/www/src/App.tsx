@@ -6,6 +6,7 @@ import FirstPage from './components/FirstPage';
 import ProjectsSection from './components/ProjectsSection';
 import TimelineSection from './components/TimelineSection';
 import TechTalkSection from './components/TechTalkSection';
+import WebTerminal from './components/WebTerminal';
 
 const buttons: ReactElement = (
   <>
@@ -40,5 +41,6 @@ export default (): ReactElement => (
     <ProjectsSection />
     <TechTalkSection />
     <TimelineSection />
+    <WebTerminal />
   </MaterialThemedApp>
 );

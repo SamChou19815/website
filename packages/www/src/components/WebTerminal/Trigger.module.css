@@ -1,0 +1,34 @@
+.TriggerButton {
+  position: fixed;
+  z-index: 10;
+  bottom: 1em;
+  right: 1em;
+  outline: 0;
+  cursor: pointer;
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border: 1px solid #383a42;
+  background-color: white;
+}
+
+.TriggerButton:hover {
+  background-color: #f7f7f7;
+}
+
+.FirstEdge {
+  display: block;
+  width: 2px;
+  height: 6px;
+  transform: skew(45deg);
+  background: #383a42;
+}
+
+.SecondEdge {
+  display: block;
+  width: 2px;
+  height: 6px;
+  transform: skew(-45deg);
+  background: #383a42;
+}
