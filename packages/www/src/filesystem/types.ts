@@ -4,8 +4,5 @@ export type Directory = {
   readonly type: 'DIRECTORY';
   readonly children: readonly [string, File][];
 };
-export type DirectoryStack = readonly [string, Directory][];
-export type FileSystemState = {
-  readonly root: Directory;
-  readonly stack: DirectoryStack;
-};
+
+export type FileSystemState = readonly [string, Directory][];

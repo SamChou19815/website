@@ -1,4 +1,4 @@
-import { stripRoot, normalize, join, currentStackDirectoryPath } from './path';
+import { stripRoot, normalize, join, currentDirectoryPath } from './path';
 import initialState from './initial-state';
 import { changeDirectoryOneLevel } from './stack';
 
@@ -26,11 +26,11 @@ it('join works', () => {
 });
 
 it('currentDirectoryPath works', () => {
-  expect(currentStackDirectoryPath(initialState.stack)).toBe('/');
-  const topSecretStack = changeDirectoryOneLevel(initialState.stack, 'top-secret');
-  expect(currentStackDirectoryPath(topSecretStack)).toBe('/top-secret');
-  const realSecretStack = changeDirectoryOneLevel(topSecretStack, 'real-secret');
-  expect(currentStackDirectoryPath(realSecretStack)).toBe('/top-secret/real-secret');
-  const randomStack = changeDirectoryOneLevel(realSecretStack, 'random');
-  expect(currentStackDirectoryPath(randomStack)).toBe('/top-secret/real-secret/random');
+  expect(currentDirectoryPath(initialState)).toBe('/');
+  const topSecretState = changeDirectoryOneLevel(initialState, 'top-secret');
+  expect(currentDirectoryPath(topSecretState)).toBe('/top-secret');
+  const realSecretState = changeDirectoryOneLevel(topSecretState, 'real-secret');
+  expect(currentDirectoryPath(realSecretState)).toBe('/top-secret/real-secret');
+  const randomState = changeDirectoryOneLevel(realSecretState, 'random');
+  expect(currentDirectoryPath(randomState)).toBe('/top-secret/real-secret/random');
 });

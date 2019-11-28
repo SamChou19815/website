@@ -2,9 +2,9 @@ import initialState from './initial-state';
 import { changeDirectoryOneLevel, changeDirectory } from './stack';
 
 it('changeDirectoryOneLevel works forward and backward', () => {
-  expect(changeDirectoryOneLevel(initialState.stack, '..')).toStrictEqual(initialState.stack);
-  const topSecretState = changeDirectoryOneLevel(initialState.stack, 'top-secret');
-  expect(changeDirectoryOneLevel(topSecretState, '..')).toStrictEqual(initialState.stack);
+  expect(changeDirectoryOneLevel(initialState, '..')).toStrictEqual(initialState);
+  const topSecretState = changeDirectoryOneLevel(initialState, 'top-secret');
+  expect(changeDirectoryOneLevel(topSecretState, '..')).toStrictEqual(initialState);
   const realSecretState = changeDirectoryOneLevel(topSecretState, 'real-secret');
   expect(changeDirectoryOneLevel(realSecretState, '..')).toStrictEqual(topSecretState);
   const randomState = changeDirectoryOneLevel(realSecretState, 'random');
@@ -12,10 +12,10 @@ it('changeDirectoryOneLevel works forward and backward', () => {
 });
 
 it('changeDirectoryOneLevel should crash when given bad filename', () => {
-  expect(() => changeDirectoryOneLevel(initialState.stack, 'garbage')).toThrow(
+  expect(() => changeDirectoryOneLevel(initialState, 'garbage')).toThrow(
     'garbage is not found in directory: `/`.'
   );
-  expect(() => changeDirectoryOneLevel(initialState.stack, 'README.md')).toThrow(
+  expect(() => changeDirectoryOneLevel(initialState, 'README.md')).toThrow(
     '`/README.md` is not a directory.'
   );
 });
@@ -25,7 +25,7 @@ it('changeDirectory integration test can pass', () => {
     changeDirectory(
       changeDirectory(
         changeDirectory(
-          changeDirectory(changeDirectory(initialState.stack, 'top-secret/real-secret/'), '../../'),
+          changeDirectory(changeDirectory(initialState, 'top-secret/real-secret/'), '../../'),
           '/top-secret/real-secret/'
         ),
         '../'
@@ -34,6 +34,6 @@ it('changeDirectory integration test can pass', () => {
     ),
     '../../.././top-secret/../top-secret/../top-secret/real-secret/../'
   );
-  const stateAfterSimpleOperation = changeDirectory(initialState.stack, '/top-secret/');
+  const stateAfterSimpleOperation = changeDirectory(initialState, '/top-secret/');
   expect(stateAfterComplexOperations).toStrictEqual(stateAfterSimpleOperation);
 });
