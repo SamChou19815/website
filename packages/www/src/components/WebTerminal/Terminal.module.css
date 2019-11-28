@@ -11,8 +11,9 @@
 }
 
 .Title {
-  margin: 8px;
+  padding: 8px;
   text-align: center;
+  border-bottom: 1px solid #ccc;
 }
 
 .Terminal {
