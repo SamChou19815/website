@@ -1,17 +1,17 @@
-import React, { ReactElement } from 'react';
-import Terminal from 'react-console-emulator';
-import commands from './commands';
-import styles from './index.module.css';
+import React, { ReactElement, useState, useMemo } from 'react';
+import WebTerminal from './Terminal';
+import Trigger from './Trigger';
 
-export default (): ReactElement => (
-  <Terminal
-    commands={commands}
-    welcomeMessage="A terminal for Developer Sam Web OS."
-    promptLabel="u@developersam.com:~$"
-    className={styles.Terminal}
-    contentClassName={styles.TextColor}
-    inputAreaClassName={styles.TextColor}
-    promptLabelClassName={styles.KeywordColor}
-    inputClassName={styles.TextColor}
-  />
-);
+export default (): ReactElement => {
+  const [isTerminalShown, setIsTerminalShown] = useState(false);
+  const toggle = (): void => setIsTerminalShown(isShown => !isShown);
+
+  const memoizedTerminal = useMemo(WebTerminal, []);
+
+  return (
+    <>
+      <Trigger onClick={toggle} />
+      {isTerminalShown && memoizedTerminal}
+    </>
+  );
+};
