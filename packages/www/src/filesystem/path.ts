@@ -1,4 +1,4 @@
-import { Directory, DirectoryStack, FileSystemState } from './types';
+import { DirectoryStack, FileSystemState } from './types';
 
 export const stripRoot = (path: string): string =>
   path.startsWith('/') ? path.substring(1) : path;
