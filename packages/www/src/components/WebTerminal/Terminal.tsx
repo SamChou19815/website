@@ -8,7 +8,7 @@ export default (): ReactElement => (
     <div className={styles.Title}>Terminal</div>
     <Terminal
       commands={commands}
-      welcomeMessage="A terminal for Developer Sam Web OS."
+      welcomeMessage="Developer Sam Web Terminal. Type `help` for a list of available commands."
       promptLabel="guest@developersam:~$"
       className={styles.Terminal}
       contentClassName={styles.TextColor}

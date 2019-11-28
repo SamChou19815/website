@@ -18,6 +18,7 @@
 .Terminal {
   background-color: #f7f7f7 !important;
   border-radius: 0 !important;
+  min-width: 100% !important;
   min-height: 200px !important;
   max-height: 200px !important;
 }
