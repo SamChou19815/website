@@ -24,16 +24,6 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
   const terminalRoot = useRef<HTMLDivElement>(null);
   const terminalInput = useRef<HTMLInputElement>(null);
 
-  const pushToStdout = (messages: readonly string[], rawInput: string): void =>
-    setState(
-      (oldState: State): State => {
-        const { stdout, history } = oldState;
-        const newStdout = [...stdout, ...messages];
-        const newHistory = [...history, rawInput];
-        return { ...state, stdout: newStdout, history: newHistory, historyPosition: null };
-      }
-    );
-
   const processCommand = (): void => {
     const inputNode = terminalInput.current;
     if (inputNode == null) {
@@ -59,8 +49,15 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
       }
     }
 
-    pushToStdout(newMessages, rawInput);
-    clearInput();
+    setState(
+      (oldState: State): State => {
+        const { stdout, history } = oldState;
+        const newStdout = [...stdout, ...newMessages];
+        const newHistory = [...history, rawInput];
+        return { ...state, stdout: newStdout, history: newHistory, historyPosition: null };
+      }
+    );
+    inputNode.value = '';
     scrollToBottom();
     focusTerminal();
   };
@@ -92,15 +89,6 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
       default:
         break;
     }
-  };
-
-  const clearInput = (): void => {
-    setState(oldState => ({ ...oldState, historyPosition: null }));
-    const inputNode = terminalInput.current;
-    if (inputNode == null) {
-      return;
-    }
-    inputNode.value = '';
   };
 
   const scrollToBottom = (): void => {
