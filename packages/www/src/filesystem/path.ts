@@ -8,6 +8,9 @@ export const normalize = (path: string): string =>
 
 export const getParent = (path: string): string => {
   const normalizedPath = normalize(path);
+  if (normalizedPath.indexOf('/') === -1) {
+    return '.';
+  }
   const index = normalizedPath.lastIndexOf('/');
   const result = normalize(index === -1 ? '/' : normalizedPath.substring(0, index));
   return result === '' ? '/' : result;
