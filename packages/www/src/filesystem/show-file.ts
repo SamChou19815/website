@@ -17,7 +17,7 @@ export const showFileInDirectory = (directory: Directory, filename: string): str
 const showFiles = (state: FileSystemState, pathList: readonly string[]): string => {
   return pathList
     .map(path => {
-      const parent = path.indexOf('/') === -1 ? '.' : getParent(path);
+      const parent = getParent(path);
       const stack = parent === '/' ? initialState : changeDirectory(state, parent);
       const directory = peek(stack)[1];
       const filename = getLast(path);

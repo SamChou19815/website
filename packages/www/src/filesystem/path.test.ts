@@ -17,9 +17,11 @@ it('normalize works', () => {
 });
 
 it('getParent works', () => {
-  expect(getParent('foo')).toBe('/');
+  expect(getParent('foo')).toBe('.');
+  expect(getParent('/foo')).toBe('/');
   expect(getParent('foo/bar')).toBe('foo');
-  expect(getParent('foo/')).toBe('/');
+  expect(getParent('foo/')).toBe('.');
+  expect(getParent('/foo/')).toBe('/');
   expect(getParent('foo/bar/')).toBe('foo');
 });
 
