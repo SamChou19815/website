@@ -1,6 +1,6 @@
 export type TerminalHistory = { readonly isCommand: boolean; readonly line: string };
 
-export type CommandSpecification = {
+type CommandSpecification = {
   readonly description: string;
   readonly usage?: string;
   readonly fn: (...args: string[]) => string | void;
