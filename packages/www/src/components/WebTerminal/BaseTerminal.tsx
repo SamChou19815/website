@@ -5,9 +5,7 @@ import { TerminalHistory, Commands } from './types';
 import scrollHistory from './history';
 import styles from './Terminal.module.css';
 
-const TerminalHistoryLine = (
-  { history: { isCommand, line } }: { readonly history: TerminalHistory }
-): ReactElement => {
+const TerminalHistoryLine = ({ isCommand, line }: TerminalHistory): ReactElement => {
   if (!isCommand) {
     return <p className={styles.TerminalMessage}>{line}</p>;
   }
@@ -129,9 +127,9 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
   return (
     <div role="presentation" ref={terminalRoot} className={styles.Terminal} onClick={focusTerminal}>
       <div className={styles.TerminalContent}>
-        {state.history.map((history, index) => (
+        {state.history.map(({ isCommand, line }, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <TerminalHistoryLine key={index} history={history} />
+          <TerminalHistoryLine key={index} isCommand={isCommand} line={line} />
         ))}
         <div className={styles.TerminalInputArea}>
           <span className={styles.TerminalPromptLabel}>$</span>
