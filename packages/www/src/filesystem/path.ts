@@ -6,6 +6,20 @@ export const stripRoot = (path: string): string =>
 export const normalize = (path: string): string =>
   path.endsWith('/') ? path.substring(0, path.length - 1) : path;
 
+export const getParent = (path: string): string => {
+  const normalizedPath = normalize(path);
+  const index = normalizedPath.lastIndexOf('/');
+  const result = normalize(index === -1 ? '/' : normalizedPath.substring(0, index));
+  return result === '' ? '/' : result;
+};
+
+export const getLast = (path: string): string => {
+  const normalizedPath = normalize(path);
+  const index = normalizedPath.lastIndexOf('/');
+  const result = normalize(index === -1 ? normalizedPath : normalizedPath.substring(index + 1));
+  return result === '' ? '/' : result;
+};
+
 /**
  * @param segment1 first segment of path.
  * @param segment2 second segment of path.

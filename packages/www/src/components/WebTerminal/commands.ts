@@ -1,7 +1,21 @@
 import { Commands } from 'react-console-emulator';
-import { initialState, currentDirectoryPath, changeDirectory, listFiles } from '../../filesystem';
+import {
+  initialState,
+  currentDirectoryPath,
+  changeDirectory,
+  listFiles,
+  showFiles
+} from '../../filesystem';
 
 let fileSystemState = initialState;
+
+const cat = (...paths: string[]): string => {
+  try {
+    return showFiles(fileSystemState, paths);
+  } catch (exception) {
+    return exception.message;
+  }
+};
 
 const cd = (path: string): string | null => {
   try {
@@ -28,6 +42,7 @@ const ls = (...paths: string[]): string => {
 const pwd = (): string => currentDirectoryPath(fileSystemState);
 
 const commands: Commands = {
+  cat: { fn: cat, description: 'Concatenate and print files', usage: 'cat [path1] [path2] ...' },
   cd: { fn: cd, description: 'Change current directory.', usage: 'cd [path]' },
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
   echo: { fn: echo, description: 'Print back the arguments.', usage: 'echo [foo] [bar] ...' },
