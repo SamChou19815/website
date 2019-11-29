@@ -1,14 +1,13 @@
-// Based on https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
+// Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
-/* eslint-disable react/destructuring-assignment */
-import React, { Component, ReactElement, KeyboardEvent, RefObject } from 'react';
+import React, { ReactElement, KeyboardEvent, useRef, useState } from 'react';
 import { Commands } from './types';
 import scrollHistory from './history';
 import styles from './Terminal.module.css';
 
 type State = {
   readonly history: readonly string[];
-  readonly stdout: string[];
+  readonly stdout: readonly string[];
   readonly historyPosition: number | null;
   readonly previousHistoryPosition: number | null;
 };
@@ -20,30 +19,92 @@ const initialState: State = {
   previousHistoryPosition: null
 };
 
-export default class Terminal extends Component<{ readonly commands: Commands }, State> {
-  // eslint-disable-next-line react/state-in-constructor
-  public state: State = initialState;
+export default ({ commands }: { readonly commands: Commands }): ReactElement => {
+  const [state, setState] = useState<State>(initialState);
+  const terminalRoot = useRef<HTMLDivElement>(null);
+  const terminalInput = useRef<HTMLInputElement>(null);
 
-  // Used for auto-scrolling.
-  terminalRoot: RefObject<HTMLDivElement> = React.createRef();
+  const pushToStdout = (messages: readonly string[], rawInput: string): void =>
+    setState(
+      (oldState: State): State => {
+        const { stdout, history } = oldState;
+        const newStdout = [...stdout, ...messages];
+        const newHistory = [...history, rawInput];
+        return { ...state, stdout: newStdout, history: newHistory, historyPosition: null };
+      }
+    );
 
-  // Used for getting input of uncontrolled input element.
-  terminalInput: RefObject<HTMLInputElement> = React.createRef();
-
-  private focusTerminal = (): void => {
-    // Only focus the terminal if text isn't being copied
-    const selection = window.getSelection();
-    const node = this.terminalInput.current;
-    if (selection === null) {
-      return;
+  const processCommand = (): void => {
+    const inputNode = terminalInput.current;
+    if (inputNode == null) {
+      throw new Error();
     }
-    if (selection.type !== 'Range' && node !== null) {
-      node.focus();
+    const rawInput = inputNode.value.trim();
+    const newMessages: string[] = [];
+    newMessages.push(`$ ${rawInput}`);
+
+    if (rawInput) {
+      const input = rawInput.split(' ');
+      const commandName = input[0];
+      const args = input.slice(1);
+
+      const command = commands[commandName];
+      if (command == null) {
+        newMessages.push(`Command '${command}' not found!`);
+      } else {
+        const result = command.fn(...args);
+        if (result != null) {
+          result.split('\n').forEach(line => newMessages.push(line));
+        }
+      }
+    }
+
+    pushToStdout(newMessages, rawInput);
+    clearInput();
+    scrollToBottom();
+    focusTerminal();
+  };
+
+  const historyUpDown = (direction: 'up' | 'down'): void =>
+    setState(oldState => {
+      const { history, historyPosition, previousHistoryPosition } = oldState;
+      const update = scrollHistory(
+        direction,
+        history,
+        historyPosition,
+        previousHistoryPosition,
+        terminalInput
+      );
+      return { ...oldState, ...update };
+    });
+
+  const handleInput = (event: KeyboardEvent<HTMLInputElement>) => {
+    switch (event.key) {
+      case 'Enter':
+        processCommand();
+        break;
+      case 'ArrowUp':
+        historyUpDown('up');
+        break;
+      case 'ArrowDown':
+        historyUpDown('down');
+        break;
+      default:
+        break;
     }
   };
 
-  private scrollToBottom = (): void => {
-    const rootNode = this.terminalRoot.current;
+  const clearInput = (): void => {
+    setState(oldState => ({ ...oldState, historyPosition: null }));
+    const inputNode = terminalInput.current;
+    if (inputNode == null) {
+      return;
+    }
+    inputNode.value = '';
+  };
+
+  const scrollToBottom = (): void => {
+    const rootNode = terminalRoot.current;
     if (rootNode == null) {
       return;
     }
@@ -54,121 +115,43 @@ export default class Terminal extends Component<{ readonly commands: Commands },
     }, 1);
   };
 
-  private pushToStdout = (message: string, rawInput?: string | undefined): void =>
-    this.setState(
-      (state: State): State => {
-        const { stdout, history } = state;
-        stdout.push(message);
-        if (!rawInput) {
-          return { ...state, stdout };
-        }
-        const newHistory = [...history, rawInput];
-        return { ...state, stdout, history: newHistory, historyPosition: null };
-      }
-    );
-
-  private getStdout = (): ReactElement[] =>
-    this.state.stdout.map((line: string, index: number) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <p key={index} className={styles.TerminalMessage}>
-        {line}
-      </p>
-    ));
-
-  private clearInput = (): void => {
-    this.setState({ historyPosition: null });
-    const inputNode = this.terminalInput.current;
-    if (inputNode == null) {
+  const focusTerminal = (): void => {
+    // Only focus the terminal if text isn't being copied.
+    const selection = window.getSelection();
+    const node = terminalInput.current;
+    if (selection === null) {
       return;
     }
-    inputNode.value = '';
-  };
-
-  private processCommand = (): void => {
-    const terminalInput = this.terminalInput.current;
-    if (terminalInput == null) {
-      throw new Error();
-    }
-    const rawInput = terminalInput.value.trim();
-
-    this.pushToStdout(`$ ${rawInput}`, rawInput);
-
-    if (rawInput) {
-      const input = rawInput.split(' ');
-      const command = input[0];
-      const args = input.slice(1);
-
-      const cmdObj = this.props.commands[command];
-
-      if (cmdObj == null) {
-        this.pushToStdout(`Command '${command}' not found!`);
-      } else {
-        const result = cmdObj.fn(...args);
-        if (result != null) {
-          result.split('\n').forEach(line => this.pushToStdout(line));
-        }
-      }
-    }
-
-    this.clearInput();
-    this.scrollToBottom();
-    this.focusTerminal();
-  };
-
-  private scrollHistory = (direction: 'up' | 'down'): void => {
-    const toUpdate = scrollHistory(
-      direction,
-      this.state.history,
-      this.state.historyPosition,
-      this.state.previousHistoryPosition,
-      this.terminalInput
-    );
-    this.setState(toUpdate);
-  };
-
-  private handleInput = (event: KeyboardEvent<HTMLInputElement>) => {
-    switch (event.key) {
-      case 'Enter':
-        this.processCommand();
-        break;
-      case 'ArrowUp':
-        this.scrollHistory('up');
-        break;
-      case 'ArrowDown':
-        this.scrollHistory('down');
-        break;
-      default:
-        break;
+    if (selection.type !== 'Range' && node !== null) {
+      node.focus();
     }
   };
 
-  render() {
-    return (
-      <div
-        role="presentation"
-        ref={this.terminalRoot}
-        className={styles.Terminal}
-        onClick={this.focusTerminal}
-      >
-        {/* Content */}
-        <div className={styles.TerminalContent}>
-          {/* Stdout */}
-          {this.getStdout()}
-          {/* Input area */}
-          <div className={styles.TerminalInputArea}>
-            {/* Prompt label */}
-            <span className={styles.TerminalPromptLabel}>$</span>
-            {/* Input */}
-            <input
-              ref={this.terminalInput}
-              className={styles.TerminalInput}
-              onKeyDown={this.handleInput}
-              type="text"
-              autoComplete="off"
-            />
-          </div>
+  return (
+    <div role="presentation" ref={terminalRoot} className={styles.Terminal} onClick={focusTerminal}>
+      {/* Content */}
+      <div className={styles.TerminalContent}>
+        {/* Stdout */}
+        {state.stdout.map((line: string, index: number) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <p key={index} className={styles.TerminalMessage}>
+            {line}
+          </p>
+        ))}
+        {/* Input area */}
+        <div className={styles.TerminalInputArea}>
+          {/* Prompt label */}
+          <span className={styles.TerminalPromptLabel}>$</span>
+          {/* Input */}
+          <input
+            ref={terminalInput}
+            className={styles.TerminalInput}
+            onKeyDown={handleInput}
+            type="text"
+            autoComplete="off"
+          />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
