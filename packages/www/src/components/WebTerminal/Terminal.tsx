@@ -2,6 +2,7 @@
 
 import React, { ReactElement, KeyboardEvent, useRef, useState } from 'react';
 import { TerminalHistory } from './types';
+import autoComplete from './auto-complete';
 import commands from './commands';
 import scrollHistory from './history';
 import styles from './Terminal.module.css';
@@ -85,6 +86,13 @@ export default (): ReactElement => {
       return { ...oldState, ...update };
     });
 
+  const autoCompleteCommand = (): void => {
+    const inputNode = terminalInput.current;
+    if (inputNode != null) {
+      inputNode.value = autoComplete(Object.keys(commands), inputNode.value);
+    }
+  };
+
   const handleInput = (event: KeyboardEvent<HTMLInputElement>) => {
     switch (event.key) {
       case 'Enter':
@@ -95,6 +103,10 @@ export default (): ReactElement => {
         break;
       case 'ArrowDown':
         historyUpDown('down');
+        break;
+      case 'Tab':
+        event.preventDefault();
+        autoCompleteCommand();
         break;
       default:
         break;
