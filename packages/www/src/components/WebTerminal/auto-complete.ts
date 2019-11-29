@@ -1,3 +1,7 @@
+import { FileSystemState } from '../../filesystem/types';
+import { normalize, getParent, getLast, join } from '../../filesystem/path';
+import { changeDirectory, listFiles } from '../../filesystem';
+
 /**
  * @param sources a list of strings that can be used to expand the prefix.
  * @param prefix the prefix to expand. No whitespace should be in the string.
@@ -30,6 +34,30 @@ export const autoCompleteCommand = (sources: readonly string[], prefix: string):
     }
     bestPrefix += Array.from(characterSet.entries())[0][0];
   }
+};
+
+/**
+ * @param state the current file system state as context for autocompletion.
+ * @param prefix the prefix to expand. No whitespace should be in the string.
+ * @returns expanded prefix string, or `null` if autocompletion failed.
+ */
+export const autoCompleteFilename = (state: FileSystemState, prefix: string): string | null => {
+  const parent = getParent(prefix);
+  const files = (() => {
+    try {
+      return listFiles(changeDirectory(state, parent), []).split('\n');
+    } catch {
+      return null;
+    }
+  })();
+  if (files === null) {
+    return null;
+  }
+  const lastExpanded = autoCompleteCommand(files, getLast(prefix));
+  if (lastExpanded === null) {
+    return null;
+  }
+  return parent === '.' ? normalize(lastExpanded) : join(parent, lastExpanded);
 };
 
 /**
