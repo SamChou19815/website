@@ -1,4 +1,5 @@
-import autoComplete, { autoCompleteCommand } from './auto-complete';
+import autoComplete, { autoCompleteCommand, autoCompleteFilename } from './auto-complete';
+import { initialState } from '../../filesystem';
 
 it('autoCompleteCommand works', () => {
   // One choice cases
@@ -14,6 +15,29 @@ it('autoCompleteCommand works', () => {
   expect(autoCompleteCommand(['foo', 'bar', 'idea', 'ideology'], 'random')).toBe(null);
   // Empty string cases
   expect(autoCompleteCommand(['foo', 'bar'], '')).toBe('');
+});
+
+it('autoCompleteFilename works', () => {
+  expect(autoCompleteFilename(initialState, 'R')).toBe('README.md');
+  expect(autoCompleteFilename(initialState, './R')).toBe('README.md');
+  expect(autoCompleteFilename(initialState, 'b')).toBe('blog.txt');
+  expect(autoCompleteFilename(initialState, './b')).toBe('blog.txt');
+  expect(autoCompleteFilename(initialState, 'g')).toBe('github.txt');
+  expect(autoCompleteFilename(initialState, './g')).toBe('github.txt');
+  expect(autoCompleteFilename(initialState, 't')).toBe('top-secret');
+  expect(autoCompleteFilename(initialState, './t')).toBe('top-secret');
+  expect(autoCompleteFilename(initialState, 'top-secret/f')).toBe('top-secret/fact.txt');
+  expect(autoCompleteFilename(initialState, 'top-secret/r')).toBe('top-secret/real-secret');
+  expect(autoCompleteFilename(initialState, 'top-secret/a')).toBe(null);
+  expect(autoCompleteFilename(initialState, 'top-secret/real-secret/ra')).toBe(
+    'top-secret/real-secret/random'
+  );
+  expect(autoCompleteFilename(initialState, 'top-secret/real-secret/re')).toBe(
+    'top-secret/real-secret/real-fact.txt'
+  );
+  expect(autoCompleteFilename(initialState, 'top-secret/real-secret/random/a')).toBe(
+    'top-secret/real-secret/random/actual-fact.txt'
+  );
 });
 
 it('autoComplete works', () => {
