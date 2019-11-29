@@ -1,5 +1,6 @@
 /* eslint-disable prefer-destructuring */
 import { RefObject } from 'react';
+import { TerminalHistory } from './types';
 
 type Result = {
   readonly historyPosition: number | null;
@@ -8,13 +9,15 @@ type Result = {
 
 export default (
   direction: 'up' | 'down',
-  commandHistory: readonly string[],
+  commandHistory: readonly TerminalHistory[],
   historyPosition: number | null,
   previousHistoryPosition: number | null,
   terminalInput: RefObject<HTMLInputElement>
 ): Result => {
   // Clean empty items and reverse order to ease position tracking.
-  const history = Array.from(commandHistory).reverse();
+  const history = Array.from(commandHistory)
+    .filter(({ isCommand }) => isCommand)
+    .reverse();
   const position = historyPosition;
   const previousPosition = previousHistoryPosition;
   const termNode = terminalInput.current;
@@ -30,20 +33,20 @@ export default (
     case 'up':
       if (position == null) {
         // If at no position, get most recent entry
-        termNode.value = history[0];
+        termNode.value = history[0].line;
         return { historyPosition: 0, previousHistoryPosition: null };
       }
       if (position + 1 === history.length) {
         // If the first entry will be reached on this press,
         // get it and decrement position by 1 to avoid confusing downscroll.
-        termNode.value = history[history.length - 1];
+        termNode.value = history[history.length - 1].line;
         return {
           historyPosition: history.length - 1,
           previousHistoryPosition: history.length - 2
         };
       }
       // Normal increment by one
-      termNode.value = history[position + 1];
+      termNode.value = history[position + 1].line;
       return { historyPosition: position + 1, previousHistoryPosition: position };
     case 'down':
       if (position == null || !history[position]) {
@@ -56,12 +59,12 @@ export default (
         if (previousPosition === null || (position === 0 && previousPosition === 1)) {
           termNode.value = '';
         } else {
-          termNode.value = history[0];
+          termNode.value = history[0].line;
         }
         return { historyPosition: null, previousHistoryPosition: null };
       }
       // Normal decrement by one
-      termNode.value = history[position - 1];
+      termNode.value = history[position - 1].line;
       return { historyPosition: position - 1, previousHistoryPosition: position };
     default:
       throw new Error();

@@ -1,20 +1,18 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
 import React, { ReactElement, KeyboardEvent, useRef, useState } from 'react';
-import { Commands } from './types';
+import { TerminalHistory, Commands } from './types';
 import scrollHistory from './history';
 import styles from './Terminal.module.css';
 
 type State = {
-  readonly history: readonly string[];
-  readonly stdout: readonly string[];
+  readonly history: readonly TerminalHistory[];
   readonly historyPosition: number | null;
   readonly previousHistoryPosition: number | null;
 };
 
 const initialState: State = {
-  stdout: ['Type `help` to show a list of available commands.'],
-  history: [],
+  history: [{ isCommand: false, line: 'Type `help` to show a list of available commands.' }],
   historyPosition: null,
   previousHistoryPosition: null
 };
@@ -29,32 +27,30 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
     if (inputNode == null) {
       throw new Error();
     }
-    const rawInput = inputNode.value.trim();
-    const newMessages: string[] = [];
-    newMessages.push(`$ ${rawInput}`);
+    const rawCommandLineInput = inputNode.value.trim();
+    const newHistoryItems: TerminalHistory[] = [];
+    newHistoryItems.push({ isCommand: true, line: rawCommandLineInput });
 
-    if (rawInput) {
-      const input = rawInput.split(' ');
+    if (rawCommandLineInput) {
+      const input = rawCommandLineInput.split(' ');
       const commandName = input[0];
       const args = input.slice(1);
 
       const command = commands[commandName];
       if (command == null) {
-        newMessages.push(`Command '${command}' not found!`);
+        newHistoryItems.push({ isCommand: false, line: `Command '${command}' not found!` });
       } else {
         const result = command.fn(...args);
         if (result != null) {
-          result.split('\n').forEach(line => newMessages.push(line));
+          result.split('\n').forEach(line => newHistoryItems.push({ isCommand: false, line }));
         }
       }
     }
 
     setState(
       (oldState: State): State => {
-        const { stdout, history } = oldState;
-        const newStdout = [...stdout, ...newMessages];
-        const newHistory = [...history, rawInput];
-        return { ...state, stdout: newStdout, history: newHistory, historyPosition: null };
+        const newHistory = [...oldState.history, ...newHistoryItems];
+        return { ...state, history: newHistory, historyPosition: null };
       }
     );
     inputNode.value = '';
@@ -118,10 +114,10 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
   return (
     <div role="presentation" ref={terminalRoot} className={styles.Terminal} onClick={focusTerminal}>
       <div className={styles.TerminalContent}>
-        {state.stdout.map((line: string, index: number) => (
+        {state.history.map(({ isCommand, line }, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <p key={index} className={styles.TerminalMessage}>
-            {line}
+            {isCommand ? `$ ${line}` : line}
           </p>
         ))}
         <div className={styles.TerminalInputArea}>
