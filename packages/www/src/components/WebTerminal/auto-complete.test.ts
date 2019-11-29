@@ -41,26 +41,34 @@ it('autoCompleteFilename works', () => {
 });
 
 it('autoComplete works', () => {
-  // One choice cases
-  expect(autoComplete(['foo', 'bar'], 'f')).toBe('foo');
-  expect(autoComplete(['foo', 'bar'], 'fo')).toBe('foo');
-  expect(autoComplete(['foo', 'bar'], 'foo')).toBe('foo');
-  expect(autoComplete(['foo', 'bar'], 'b')).toBe('bar');
-  expect(autoComplete(['foo', 'bar'], 'ba')).toBe('bar');
-  expect(autoComplete(['foo', 'bar'], 'bar')).toBe('bar');
-  expect(autoComplete(['foo', 'bar'], 'command f')).toBe('command foo');
-  expect(autoComplete(['foo', 'bar'], 'command fo')).toBe('command foo');
-  expect(autoComplete(['foo', 'bar'], 'command foo')).toBe('command foo');
-  expect(autoComplete(['foo', 'bar'], 'command b')).toBe('command bar');
-  expect(autoComplete(['foo', 'bar'], 'command ba')).toBe('command bar');
-  expect(autoComplete(['foo', 'bar'], 'command bar')).toBe('command bar');
-  // Multuple choices cases
-  expect(autoComplete(['idea', 'ideology'], 'id')).toBe('ide');
-  expect(autoComplete(['idea', 'ideology'], 'command id')).toBe('command ide');
-  // No choices cases
-  expect(autoComplete(['foo', 'bar', 'idea', 'ideology'], 'random')).toBe('random');
-  expect(autoComplete(['foo', 'bar', 'idea', 'ideology'], 'foo random')).toBe('foo random');
-  expect(autoComplete(['foo', 'bar', 'idea', 'ideology'], ' foo random ')).toBe('foo random');
   // Empty string cases
-  expect(autoComplete(['foo', 'bar'], '')).toBe('');
+  expect(autoComplete('')).toBe('');
+  // No choices cases
+  expect(autoComplete('random')).toBe('random');
+  expect(autoComplete('foo random')).toBe('foo random');
+  expect(autoComplete(' foo random ')).toBe('foo random');
+  // Command autocompletion.
+  expect(autoComplete('l')).toBe('ls');
+  expect(autoComplete('ca')).toBe('cat');
+  expect(autoComplete('cd')).toBe('cd');
+  expect(autoComplete('h')).toBe('help');
+  // Filename autocompletion
+  expect(autoComplete('cat R')).toBe('cat README.md');
+  expect(autoComplete('cat ./R')).toBe('cat README.md');
+  expect(autoComplete('cat b')).toBe('cat blog.txt');
+  expect(autoComplete('cat ./b')).toBe('cat blog.txt');
+  expect(autoComplete('cat g')).toBe('cat github.txt');
+  expect(autoComplete('cat ./g')).toBe('cat github.txt');
+  expect(autoComplete('cat t')).toBe('cat top-secret');
+  expect(autoComplete('cat ./t')).toBe('cat top-secret');
+  expect(autoComplete('cat top-secret/f')).toBe('cat top-secret/fact.txt');
+  expect(autoComplete('cat top-secret/r')).toBe('cat top-secret/real-secret');
+  expect(autoComplete('cat top-secret/a')).toBe('cat top-secret/a');
+  expect(autoComplete('cat top-secret/real-secret/ra')).toBe('cat top-secret/real-secret/random');
+  expect(autoComplete('cat top-secret/real-secret/re')).toBe(
+    'cat top-secret/real-secret/real-fact.txt'
+  );
+  expect(autoComplete('cat top-secret/real-secret/random/a')).toBe(
+    'cat top-secret/real-secret/random/actual-fact.txt'
+  );
 });

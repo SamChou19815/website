@@ -1,6 +1,7 @@
 import { FileSystemState } from '../../filesystem/types';
 import { normalize, getParent, getLast, join } from '../../filesystem/path';
 import { changeDirectory, listFiles } from '../../filesystem';
+import commands, { getFileSystemState } from './commands';
 
 /**
  * @param sources a list of strings that can be used to expand the prefix.
@@ -65,14 +66,19 @@ export const autoCompleteFilename = (state: FileSystemState, prefix: string): st
  * @param prefix the line to expand.
  * @returns expanded line.
  */
-const autoCompleteCommandLine = (sources: readonly string[], line: string): string => {
+const autoCompleteCommandLine = (line: string): string => {
   const parts = line.trim().split(' ');
   if (parts.length === 0) {
     return '';
   }
-  const result = autoCompleteCommand(sources, parts[parts.length - 1]);
-  const finalPart = result === null ? parts[parts.length - 1] : result;
-  return [...parts.slice(0, parts.length - 1), finalPart].join(' ').trim();
+  if (parts.length === 1) {
+    const result = autoCompleteCommand(Object.keys(commands), parts[parts.length - 1]);
+    return result === null ? parts[0] : result;
+  }
+  const finalPart = parts[parts.length - 1];
+  const expandedFilename = autoCompleteFilename(getFileSystemState(), finalPart);
+  const expandedFinalPart = expandedFilename === null ? finalPart : expandedFilename;
+  return [...parts.slice(0, parts.length - 1), expandedFinalPart].join(' ').trim();
 };
 
 export default autoCompleteCommandLine;

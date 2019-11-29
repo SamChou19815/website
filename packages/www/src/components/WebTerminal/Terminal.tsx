@@ -89,7 +89,7 @@ export default (): ReactElement => {
   const autoCompleteCommand = (): void => {
     const inputNode = terminalInput.current;
     if (inputNode != null) {
-      inputNode.value = autoComplete(Object.keys(commands), inputNode.value);
+      inputNode.value = autoComplete(inputNode.value);
     }
   };
 

@@ -1,4 +1,5 @@
 import { Commands } from './types';
+import { FileSystemState } from '../../filesystem/types';
 import {
   initialState,
   currentDirectoryPath,
@@ -8,6 +9,8 @@ import {
 } from '../../filesystem';
 
 let fileSystemState = initialState;
+
+export const getFileSystemState = (): FileSystemState => fileSystemState;
 
 const help = (): string =>
   Object.keys(commands)
