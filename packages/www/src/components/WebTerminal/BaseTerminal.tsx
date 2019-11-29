@@ -117,20 +117,15 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
 
   return (
     <div role="presentation" ref={terminalRoot} className={styles.Terminal} onClick={focusTerminal}>
-      {/* Content */}
       <div className={styles.TerminalContent}>
-        {/* Stdout */}
         {state.stdout.map((line: string, index: number) => (
           // eslint-disable-next-line react/no-array-index-key
           <p key={index} className={styles.TerminalMessage}>
             {line}
           </p>
         ))}
-        {/* Input area */}
         <div className={styles.TerminalInputArea}>
-          {/* Prompt label */}
           <span className={styles.TerminalPromptLabel}>$</span>
-          {/* Input */}
           <input
             ref={terminalInput}
             className={styles.TerminalInput}
