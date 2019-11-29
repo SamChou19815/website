@@ -3,7 +3,7 @@
  * @param prefix the prefix to expand. No whitespace should be in the string.
  * @returns expanded prefix string, or `null` if autocompletion failed.
  */
-export const autoCompleteOnePart = (sources: readonly string[], prefix: string): string | null => {
+export const autoCompleteCommand = (sources: readonly string[], prefix: string): string | null => {
   const matchedPrefix = sources.filter(source => source.startsWith(prefix));
   if (matchedPrefix.length === 0) {
     return null;
@@ -42,7 +42,7 @@ const autoCompleteCommandLine = (sources: readonly string[], line: string): stri
   if (parts.length === 0) {
     return '';
   }
-  const result = autoCompleteOnePart(sources, parts[parts.length - 1]);
+  const result = autoCompleteCommand(sources, parts[parts.length - 1]);
   const finalPart = result === null ? parts[parts.length - 1] : result;
   return [...parts.slice(0, parts.length - 1), finalPart].join(' ').trim();
 };

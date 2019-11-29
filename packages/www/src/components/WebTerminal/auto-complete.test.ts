@@ -1,19 +1,19 @@
-import autoComplete, { autoCompleteOnePart } from './auto-complete';
+import autoComplete, { autoCompleteCommand } from './auto-complete';
 
-it('autoCompleteOnePart works', () => {
+it('autoCompleteCommand works', () => {
   // One choice cases
-  expect(autoCompleteOnePart(['foo', 'bar'], 'f')).toBe('foo');
-  expect(autoCompleteOnePart(['foo', 'bar'], 'fo')).toBe('foo');
-  expect(autoCompleteOnePart(['foo', 'bar'], 'foo')).toBe('foo');
-  expect(autoCompleteOnePart(['foo', 'bar'], 'b')).toBe('bar');
-  expect(autoCompleteOnePart(['foo', 'bar'], 'ba')).toBe('bar');
-  expect(autoCompleteOnePart(['foo', 'bar'], 'bar')).toBe('bar');
+  expect(autoCompleteCommand(['foo', 'bar'], 'f')).toBe('foo');
+  expect(autoCompleteCommand(['foo', 'bar'], 'fo')).toBe('foo');
+  expect(autoCompleteCommand(['foo', 'bar'], 'foo')).toBe('foo');
+  expect(autoCompleteCommand(['foo', 'bar'], 'b')).toBe('bar');
+  expect(autoCompleteCommand(['foo', 'bar'], 'ba')).toBe('bar');
+  expect(autoCompleteCommand(['foo', 'bar'], 'bar')).toBe('bar');
   // Multuple choices cases
-  expect(autoCompleteOnePart(['idea', 'ideology'], 'id')).toBe('ide');
+  expect(autoCompleteCommand(['idea', 'ideology'], 'id')).toBe('ide');
   // No choices cases
-  expect(autoCompleteOnePart(['foo', 'bar', 'idea', 'ideology'], 'random')).toBe(null);
+  expect(autoCompleteCommand(['foo', 'bar', 'idea', 'ideology'], 'random')).toBe(null);
   // Empty string cases
-  expect(autoCompleteOnePart(['foo', 'bar'], '')).toBe('');
+  expect(autoCompleteCommand(['foo', 'bar'], '')).toBe('');
 });
 
 it('autoComplete works', () => {
