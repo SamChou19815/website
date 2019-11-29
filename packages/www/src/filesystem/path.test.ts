@@ -1,4 +1,4 @@
-import { stripRoot, normalize, join, currentDirectoryPath } from './path';
+import { stripRoot, normalize, getParent, getLast, join, currentDirectoryPath } from './path';
 import initialState from './initial-state';
 import { changeDirectoryOneLevel } from './stack';
 
@@ -14,6 +14,20 @@ it('normalize works', () => {
   expect(normalize('foo/bar')).toBe('foo/bar');
   expect(normalize('foo/')).toBe('foo');
   expect(normalize('foo/bar/')).toBe('foo/bar');
+});
+
+it('getParent works', () => {
+  expect(getParent('foo')).toBe('/');
+  expect(getParent('foo/bar')).toBe('foo');
+  expect(getParent('foo/')).toBe('/');
+  expect(getParent('foo/bar/')).toBe('foo');
+});
+
+it('getLast works', () => {
+  expect(getLast('foo')).toBe('foo');
+  expect(getLast('foo/bar')).toBe('bar');
+  expect(getLast('foo/')).toBe('foo');
+  expect(getLast('foo/bar/')).toBe('bar');
 });
 
 it('join works', () => {
