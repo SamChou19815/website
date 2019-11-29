@@ -1,4 +1,4 @@
-import { Commands } from 'react-console-emulator';
+import { Commands } from './types';
 import {
   initialState,
   currentDirectoryPath,
@@ -9,6 +9,15 @@ import {
 
 let fileSystemState = initialState;
 
+const help = (): string =>
+  Object.keys(commands)
+    .map(key => {
+      const cmdObj = commands[key];
+      const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
+      return `${key} - ${cmdObj.description}${usage}`;
+    })
+    .join('\n');
+
 const cat = (...paths: string[]): string => {
   try {
     return showFiles(fileSystemState, paths);
@@ -17,10 +26,10 @@ const cat = (...paths: string[]): string => {
   }
 };
 
-const cd = (path: string): string | null => {
+const cd = (path: string): string | void => {
   try {
     fileSystemState = changeDirectory(fileSystemState, path);
-    return null;
+    return undefined;
   } catch (exception) {
     return exception.message;
   }
@@ -42,6 +51,7 @@ const ls = (...paths: string[]): string => {
 const pwd = (): string => currentDirectoryPath(fileSystemState);
 
 const commands: Commands = {
+  help: { fn: help, description: 'Show a list of available commands.' },
   cat: { fn: cat, description: 'Concatenate and print files', usage: 'cat [path1] [path2] ...' },
   cd: { fn: cd, description: 'Change current directory.', usage: 'cd [path]' },
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
