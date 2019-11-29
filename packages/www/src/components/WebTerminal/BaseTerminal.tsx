@@ -5,6 +5,18 @@ import { TerminalHistory, Commands } from './types';
 import scrollHistory from './history';
 import styles from './Terminal.module.css';
 
+const TerminalHistoryLine = ({ isCommand, line }: TerminalHistory): ReactElement => {
+  if (!isCommand) {
+    return <p className={styles.TerminalMessage}>{line}</p>;
+  }
+  return (
+    <p className={styles.TerminalMessage}>
+      <span className={styles.TerminalPromptLabel}>$</span>
+      {line}
+    </p>
+  );
+};
+
 type State = {
   readonly history: readonly TerminalHistory[];
   readonly historyPosition: number | null;
@@ -48,10 +60,11 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
     }
 
     setState(
-      (oldState: State): State => {
-        const newHistory = [...oldState.history, ...newHistoryItems];
-        return { ...state, history: newHistory, historyPosition: null };
-      }
+      (oldState: State): State => ({
+        ...state,
+        history: [...oldState.history, ...newHistoryItems],
+        historyPosition: null
+      })
     );
     inputNode.value = '';
     scrollToBottom();
@@ -116,9 +129,7 @@ export default ({ commands }: { readonly commands: Commands }): ReactElement => 
       <div className={styles.TerminalContent}>
         {state.history.map(({ isCommand, line }, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <p key={index} className={styles.TerminalMessage}>
-            {isCommand ? `$ ${line}` : line}
-          </p>
+          <TerminalHistoryLine key={index} isCommand={isCommand} line={line} />
         ))}
         <div className={styles.TerminalInputArea}>
           <span className={styles.TerminalPromptLabel}>$</span>
