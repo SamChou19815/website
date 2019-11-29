@@ -52,7 +52,7 @@ export default (): ReactElement => {
 
       const command = commands[commandName];
       if (command == null) {
-        newHistoryItems.push({ isCommand: false, line: `Command '${command}' not found!` });
+        newHistoryItems.push({ isCommand: false, line: `Command '${commandName}' not found!` });
       } else {
         const result = command.fn(...args);
         if (result != null) {
