@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConsoleSection matches snapshot. 1`] = `
+<section
+  className="Section"
+  id="test"
+>
+  <h3
+    className="Title"
+  >
+    <code>
+      &gt; 
+      title
+    </code>
+  </h3>
+  A
+</section>
+`;
