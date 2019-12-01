@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TechTalkSection matches snapshot. 1`] = `
+<section
+  className="Section"
+  id="tech-talks"
+>
+  <h3
+    className="Title"
+  >
+    <code>
+      &gt; 
+      ./tech-talks -all
+    </code>
+  </h3>
+  <div
+    className="TechTalkContainer"
+  >
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root TechTalkCard MuiPaper-rounded"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            How to scale
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            Learning Series
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardContent-root"
+      >
+        Tips on scaling your codebase and your workload, with lessons learned from Samwise's codebase.
+      </div>
+      <div
+        className="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="/how-to-scale.pdf"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              Slides
+            </a>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root TechTalkCard MuiPaper-rounded"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            Intro to Firebase
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            DevSesh
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardContent-root"
+      >
+        Tech stack discussion on Firebase, and why Samwise switched to Firebase.
+      </div>
+      <div
+        className="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="/intro-to-firebase.pdf"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              Slides
+            </a>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://jessicahong9.github.io/"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              Co-speaker Jessica's website
+            </a>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;
