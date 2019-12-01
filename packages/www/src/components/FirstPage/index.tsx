@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, Suspense, lazy } from 'react';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
@@ -11,7 +11,8 @@ import Work from '@material-ui/icons/Work';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import styles from './index.module.css';
-import FirstPageCodeBlock from './FirstPageCodeBlock';
+
+const FirstPageCodeBlock = lazy(() => import('./FirstPageCodeBlock'));
 
 type IconLineProps = {
   readonly Icon: (props: SvgIconProps) => ReactElement;
@@ -27,7 +28,9 @@ const IconLine = ({ Icon, children }: IconLineProps): ReactElement => (
 
 export default (): ReactElement => (
   <div id="about" className={styles.FirstPage}>
-    <FirstPageCodeBlock />
+    <Suspense fallback={<div style={{ width: '430px', height: '660px' }}>Loading...</div>}>
+      <FirstPageCodeBlock />
+    </Suspense>
     <Card className={styles.InfoCard}>
       <CardHeader avatar={<AccountCirlce />} title="Sam Zhou" subheader="About Myself" />
       <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>

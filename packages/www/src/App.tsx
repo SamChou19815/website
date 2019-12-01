@@ -1,12 +1,13 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, Suspense, lazy } from 'react';
 import MaterialThemedApp from 'lib-react/MaterialThemedApp';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import styles from './App.module.css';
 import FirstPage from './components/FirstPage';
-import ProjectsSection from './components/ProjectsSection';
-import TimelineSection from './components/TimelineSection';
-import TechTalkSection from './components/TechTalkSection';
-import WebTerminal from './components/WebTerminal';
+
+const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
+const TimelineSection = lazy(() => import('./components/TimelineSection'));
+const TechTalkSection = lazy(() => import('./components/TechTalkSection'));
+const WebTerminal = lazy(() => import('./components/WebTerminal'));
 
 const buttons: ReactElement = (
   <>
@@ -38,9 +39,17 @@ export default (): ReactElement => (
     buttons={buttons}
   >
     <FirstPage />
-    <ProjectsSection />
-    <TechTalkSection />
-    <TimelineSection />
-    <WebTerminal />
+    <Suspense fallback={null}>
+      <ProjectsSection />
+    </Suspense>
+    <Suspense fallback={null}>
+      <TechTalkSection />
+    </Suspense>
+    <Suspense fallback={null}>
+      <TimelineSection />
+    </Suspense>
+    <Suspense fallback={null}>
+      <WebTerminal />
+    </Suspense>
   </MaterialThemedApp>
 );
