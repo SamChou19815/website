@@ -1,7 +1,8 @@
 import { FileSystemState } from '../../filesystem/types';
 import { normalize, getParent, getLast, join } from '../../filesystem/path';
 import { changeDirectory, listFiles } from '../../filesystem';
-import commands, { getFileSystemState } from './commands';
+import { store } from '../../store';
+import commands from './commands';
 
 /**
  * @param sources a list of strings that can be used to expand the prefix.
@@ -76,7 +77,7 @@ const autoCompleteCommandLine = (line: string): string => {
     return result === null ? parts[0] : result;
   }
   const finalPart = parts[parts.length - 1];
-  const expandedFilename = autoCompleteFilename(getFileSystemState(), finalPart);
+  const expandedFilename = autoCompleteFilename(store.getState().fileSystem, finalPart);
   const expandedFinalPart = expandedFilename === null ? finalPart : expandedFilename;
   return [...parts.slice(0, parts.length - 1), expandedFinalPart].join(' ').trim();
 };
