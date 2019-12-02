@@ -9,7 +9,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline --none
     </code>
   </h3>
@@ -188,7 +188,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline --only events
     </code>
   </h3>
@@ -1290,7 +1290,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline --only projects
     </code>
   </h3>
@@ -2329,7 +2329,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline --only projects events
     </code>
   </h3>
@@ -4321,7 +4321,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline --only work
     </code>
   </h3>
@@ -5001,7 +5001,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline --only work events
     </code>
   </h3>
@@ -6613,7 +6613,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline --only work projects
     </code>
   </h3>
@@ -8153,7 +8153,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       timeline
     </code>
   </h3>

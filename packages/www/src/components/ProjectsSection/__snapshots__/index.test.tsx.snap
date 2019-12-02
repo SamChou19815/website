@@ -9,8 +9,8 @@ exports[`ProjectsSection matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
-      ./active-projects --pretty-print
+      $ 
+      projects --active
     </code>
   </h3>
   <div

@@ -9,8 +9,8 @@ exports[`TechTalkSection matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
-      ./tech-talks -all
+      $ 
+      tech-talks --all
     </code>
   </h3>
   <div

@@ -9,7 +9,7 @@ exports[`ConsoleSection matches snapshot. 1`] = `
     className="Title"
   >
     <code>
-      &gt; 
+      $ 
       title
     </code>
   </h3>
