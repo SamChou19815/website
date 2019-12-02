@@ -12,8 +12,3 @@ jobs:
     steps:
       - name: Success
         run: echo "Build nothing."
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Success
-        run: echo "Test nothing."
