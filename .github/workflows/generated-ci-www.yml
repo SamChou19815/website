@@ -2,7 +2,7 @@
 
 name: CI www
 on:
-  pull_request:
+  push:
     paths:
       - packages/lib-react/**
       - packages/www/**
