@@ -13,7 +13,7 @@ import Samwise from '../../assets/projects/samwise.png';
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
 
 export default (): ReactElement => (
-  <ConsoleSection id="projects" title="./active-projects --pretty-print">
+  <ConsoleSection id="projects" title="projects --active">
     <div className={styles.ProjectContainer}>
       <Card className={styles.ProjectCard}>
         <LazyMaterialMedia image={SAMLANG} title="SAMLANG" />

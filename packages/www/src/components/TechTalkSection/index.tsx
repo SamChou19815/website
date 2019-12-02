@@ -11,7 +11,7 @@ import ConsoleSection from '../Common/ConsoleSection';
 const schoolIcon = <School />;
 
 export default (): ReactElement => (
-  <ConsoleSection id="tech-talks" title="./tech-talks -all">
+  <ConsoleSection id="tech-talks" title="tech-talks --all">
     <div className={styles.TechTalkContainer}>
       <Card className={styles.TechTalkCard}>
         <CardHeader avatar={schoolIcon} title="How to scale" subheader="Learning Series" />

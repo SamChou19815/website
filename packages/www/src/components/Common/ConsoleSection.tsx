@@ -11,7 +11,7 @@ export default ({ id, title, children }: Props): ReactElement => (
   <section id={id} className={styles.Section}>
     <h3 className={styles.Title}>
       <code>
-        {'> '}
+        $&nbsp;
         {title}
       </code>
     </h3>
