@@ -19,9 +19,9 @@ const cat = (...paths: string[]): string => {
   }
 };
 
-const cd = (path: string): string | void => {
+const cd = (path: string | undefined): string | void => {
   try {
-    patchFileSystem(changeDirectory(store.getState().fileSystem, path));
+    patchFileSystem(changeDirectory(store.getState().fileSystem, path || '/'));
     return undefined;
   } catch (exception) {
     return exception.message;
