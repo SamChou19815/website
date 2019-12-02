@@ -11,8 +11,8 @@
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.35",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.35",
+    "@docusaurus/core": "^2.0.0-alpha.37",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.37",
     "classnames": "^2.2.6",
     "lib-react": "0.1.0",
     "react": "^16.12.0",
