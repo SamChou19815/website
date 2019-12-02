@@ -7,6 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
+    "compile": "yarn build",
     "test": "echo 'No tests yet.'",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
   },
