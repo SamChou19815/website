@@ -1,8 +1,10 @@
 import React, { ReactElement, Suspense, lazy } from 'react';
+import { Provider as ReactReduxProvider } from 'react-redux';
 import MaterialThemedApp from 'lib-react/MaterialThemedApp';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import styles from './App.module.css';
 import FirstPage from './components/FirstPage';
+import { store } from './store';
 
 const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
 const TimelineSection = lazy(() => import('./components/TimelineSection'));
@@ -32,24 +34,26 @@ const appStyles = {
 };
 
 export default (): ReactElement => (
-  <MaterialThemedApp
-    title="Developer Sam"
-    appBarPosition="fixed"
-    styles={appStyles}
-    buttons={buttons}
-  >
-    <FirstPage />
-    <Suspense fallback={null}>
-      <ProjectsSection />
-    </Suspense>
-    <Suspense fallback={null}>
-      <TechTalkSection />
-    </Suspense>
-    <Suspense fallback={null}>
-      <TimelineSection />
-    </Suspense>
-    <Suspense fallback={null}>
-      <WebTerminal />
-    </Suspense>
-  </MaterialThemedApp>
+  <ReactReduxProvider store={store}>
+    <MaterialThemedApp
+      title="Developer Sam"
+      appBarPosition="fixed"
+      styles={appStyles}
+      buttons={buttons}
+    >
+      <FirstPage />
+      <Suspense fallback={null}>
+        <ProjectsSection />
+      </Suspense>
+      <Suspense fallback={null}>
+        <TechTalkSection />
+      </Suspense>
+      <Suspense fallback={null}>
+        <TimelineSection />
+      </Suspense>
+      <Suspense fallback={null}>
+        <WebTerminal />
+      </Suspense>
+    </MaterialThemedApp>
+  </ReactReduxProvider>
 );

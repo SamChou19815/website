@@ -1,16 +1,6 @@
 import { Commands } from './types';
-import { FileSystemState } from '../../filesystem/types';
-import {
-  initialState,
-  currentDirectoryPath,
-  changeDirectory,
-  listFiles,
-  showFiles
-} from '../../filesystem';
-
-let fileSystemState = initialState;
-
-export const getFileSystemState = (): FileSystemState => fileSystemState;
+import { store, patchFileSystem } from '../../store';
+import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 
 const help = (): string =>
   Object.keys(commands)
@@ -23,7 +13,7 @@ const help = (): string =>
 
 const cat = (...paths: string[]): string => {
   try {
-    return showFiles(fileSystemState, paths);
+    return showFiles(store.getState().fileSystem, paths);
   } catch (exception) {
     return exception.message;
   }
@@ -31,7 +21,7 @@ const cat = (...paths: string[]): string => {
 
 const cd = (path: string): string | void => {
   try {
-    fileSystemState = changeDirectory(fileSystemState, path);
+    patchFileSystem(changeDirectory(store.getState().fileSystem, path));
     return undefined;
   } catch (exception) {
     return exception.message;
@@ -45,13 +35,13 @@ const echo = (...inputs: string[]): string => inputs.join(' ');
 
 const ls = (...paths: string[]): string => {
   try {
-    return listFiles(fileSystemState, paths);
+    return listFiles(store.getState().fileSystem, paths);
   } catch (exception) {
     return exception.message;
   }
 };
 
-const pwd = (): string => currentDirectoryPath(fileSystemState);
+const pwd = (): string => currentDirectoryPath(store.getState().fileSystem);
 
 const commands: Commands = {
   help: { fn: help, description: 'Show a list of available commands.' },

@@ -4,9 +4,11 @@ import React, { ReactElement } from 'react';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { connect } from 'react-redux';
 import ConsoleSection from '../Common/ConsoleSection';
 import items, { TimelineItem } from './items';
 import TimelineItemCard from './TimelineItemCard';
+import { State, TimelineState, patchTimeline } from '../../store';
 import styles from './index.module.css';
 
 type CheckboxProps = {
@@ -22,15 +24,20 @@ const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactE
   />
 );
 
-export default (): ReactElement => {
-  const [workChecked, setWorkChecked] = React.useState(true);
-  const [projectsChecked, setProjectsChecked] = React.useState(true);
-  const [eventsChecked, setEventsChecked] = React.useState(true);
-
-  const inverter = (prev: boolean): boolean => !prev;
-  const workOnChange = (): void => setWorkChecked(inverter);
-  const projectsOnChange = (): void => setProjectsChecked(inverter);
-  const eventsOnChange = (): void => setEventsChecked(inverter);
+export const TimelineSection = ({
+  workChecked,
+  projectsChecked,
+  eventsChecked
+}: TimelineState): ReactElement => {
+  const workOnChange = (): void => {
+    patchTimeline({ workChecked: !workChecked, projectsChecked, eventsChecked });
+  };
+  const projectsOnChange = (): void => {
+    patchTimeline({ workChecked, projectsChecked: !projectsChecked, eventsChecked });
+  };
+  const eventsOnChange = (): void => {
+    patchTimeline({ workChecked, projectsChecked, eventsChecked: !eventsChecked });
+  };
 
   let title = './timeline --fancy-display';
   if (!(workChecked && projectsChecked && eventsChecked)) {
@@ -83,3 +90,6 @@ export default (): ReactElement => {
     </ConsoleSection>
   );
 };
+
+const Connected = connect(({ timeline }: State) => ({ ...timeline }))(TimelineSection);
+export default Connected;
