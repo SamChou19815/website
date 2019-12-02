@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import BoardCell from './BoardCell';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const dummyOnClick = () => {};
 
 it('BoardCell(1, true) matches snapshot.', () => {
