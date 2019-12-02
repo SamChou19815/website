@@ -49,7 +49,7 @@ const generateFrontendCIWorkflow = workspace => {
 
 name: CI ${workspace}
 on:
-  pull_request:
+  push:
     paths:
 ${getPathsString(workspace)}
 

@@ -2,7 +2,7 @@
 
 name: CI samlang
 on:
-  pull_request:
+  push:
     paths:
       - packages/lib-react/**
       - packages/samlang/**
