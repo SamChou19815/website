@@ -28,7 +28,7 @@ const IconLine = ({ Icon, children }: IconLineProps): ReactElement => (
 
 export default (): ReactElement => (
   <div id="about" className={styles.FirstPage}>
-    <Suspense fallback={<div style={{ width: '430px', height: '660px' }}>Loading...</div>}>
+    <Suspense fallback={<div style={{ width: '450px', height: '670px' }}>Loading...</div>}>
       <FirstPageCodeBlock />
     </Suspense>
     <Card className={styles.InfoCard}>
