@@ -8,8 +8,8 @@ exports[`FirstPage matches snapshot. 1`] = `
   <div
     style={
       Object {
-        "height": "660px",
-        "width": "430px",
+        "height": "670px",
+        "width": "450px",
       }
     }
   >
