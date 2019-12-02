@@ -10,7 +10,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display --none
+      timeline --none
     </code>
   </h3>
   <div
@@ -189,7 +189,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display --only events
+      timeline --only events
     </code>
   </h3>
   <div
@@ -1291,7 +1291,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display --only projects
+      timeline --only projects
     </code>
   </h3>
   <div
@@ -2330,7 +2330,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display --only projects events
+      timeline --only projects events
     </code>
   </h3>
   <div
@@ -4322,7 +4322,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display --only work
+      timeline --only work
     </code>
   </h3>
   <div
@@ -5002,7 +5002,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display --only work events
+      timeline --only work events
     </code>
   </h3>
   <div
@@ -6614,7 +6614,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display --only work projects
+      timeline --only work projects
     </code>
   </h3>
   <div
@@ -8154,7 +8154,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
   >
     <code>
       &gt; 
-      ./timeline --fancy-display
+      timeline
     </code>
   </h3>
   <div

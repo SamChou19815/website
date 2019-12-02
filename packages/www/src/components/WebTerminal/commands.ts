@@ -1,5 +1,5 @@
 import { Commands } from './types';
-import { store, patchFileSystem } from '../../store';
+import { store, patchTimeline, patchFileSystem } from '../../store';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 
 const help = (): string =>
@@ -43,6 +43,45 @@ const ls = (...paths: string[]): string => {
 
 const pwd = (): string => currentDirectoryPath(store.getState().fileSystem);
 
+const timeline = (...args: string[]): string | void => {
+  if (args.length === 0) {
+    patchTimeline({ workChecked: true, projectsChecked: true, eventsChecked: true });
+    return undefined;
+  }
+  if (args.length === 1 && args[0] === '--none') {
+    patchTimeline({ workChecked: false, projectsChecked: false, eventsChecked: false });
+    return undefined;
+  }
+  if (args[0] !== '--only') {
+    return 'Invalid command.';
+  }
+  const invalidArguments: string[] = [];
+  let workChecked = false;
+  let projectsChecked = false;
+  let eventsChecked = false;
+  for (let i = 1; i < args.length; i += 1) {
+    const argument = args[i];
+    switch (argument) {
+      case 'work':
+        workChecked = true;
+        break;
+      case 'projects':
+        projectsChecked = true;
+        break;
+      case 'events':
+        eventsChecked = true;
+        break;
+      default:
+        invalidArguments.push(argument);
+    }
+  }
+  if (invalidArguments.length > 0) {
+    return `Bad argument(s) for --only: ${invalidArguments.join(', ')}`;
+  }
+  patchTimeline({ workChecked, projectsChecked, eventsChecked });
+  return undefined;
+};
+
 const commands: Commands = {
   help: { fn: help, description: 'Show a list of available commands.' },
   cat: { fn: cat, description: 'Concatenate and print files', usage: 'cat [path1] [path2] ...' },
@@ -50,7 +89,8 @@ const commands: Commands = {
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
   echo: { fn: echo, description: 'Print back the arguments.', usage: 'echo [foo] [bar] ...' },
   ls: { fn: ls, description: 'List directory contents.', usage: 'ls [path1] [path2] ...' },
-  pwd: { fn: pwd, description: 'Print currrent absolute directory.' }
+  pwd: { fn: pwd, description: 'Print currrent absolute directory.' },
+  timeline: { fn: timeline, description: 'Toggle timeline display' }
 };
 
 export default commands;
