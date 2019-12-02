@@ -1,5 +1,6 @@
 import { Directory, FileSystemState } from './types';
 import { normalize, join, currentDirectoryPath } from './path';
+import initialState from './initial-state';
 
 /**
  * @param state the current filesystem state of the terminal.
@@ -51,7 +52,11 @@ export const changeDirectory = (state: FileSystemState, path: string): FileSyste
   if (path.startsWith('/')) {
     // The case for absolute directory.
     // We start from root, and then use the same relative algorithm.
-    return changeDirectory(state, path.substring(1));
+    const rest = path.substring(1).trim();
+    if (rest === '') {
+      return initialState;
+    }
+    return changeDirectory(initialState, rest);
   }
   return normalize(path)
     .split('/')
