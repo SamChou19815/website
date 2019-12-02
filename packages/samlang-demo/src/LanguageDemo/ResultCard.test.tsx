@@ -1,9 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { Response } from './interpret';
 import ResultCard from './ResultCard';
 
 it('ResultCard(GOOD_PROGRAM) matches snapshot.', () => {
-  const response = {
+  const response: Response = {
     type: 'GOOD_PROGRAM',
     detail: { result: 'haha', prettyPrintedProgram: 'class HelloWorld {}' }
   };

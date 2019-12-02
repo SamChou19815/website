@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
-    "tsc": "tsc -p tsconfig.json",
+    "compile": "tsc -p tsconfig.json",
     "deploy": "react-snap && firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
   },
   "browserslist": [

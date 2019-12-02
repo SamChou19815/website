@@ -26,5 +26,5 @@ jobs:
           restore-keys: yarn-
       - name: Yarn Install
         run: yarn install
-      - name: Build
-        run: yarn workspace www build
+      - name: Compile
+        run: yarn workspace www compile

@@ -2,7 +2,7 @@ name: test-js-ts
 on:
   push:
     paths:
-      - '.github/workflows/lint-js-ts.yml'
+      - '.github/workflows/test-js-ts.yml'
       - '**.js'
       - '**.ts'
       - '**.jsx'
