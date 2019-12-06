@@ -94,11 +94,7 @@ export default function GameCard(props: Props): ReactElement {
         <CardHeader title="Note" />
         <CardContent>
           The rules are mostly the same with the original&nbsp;
-          <a
-            href="https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe">
             TEN game (Ultimate tic-tac-toe)
           </a>
           , except that a draw is a win for white in this game. AI thinking time is 1.5s.

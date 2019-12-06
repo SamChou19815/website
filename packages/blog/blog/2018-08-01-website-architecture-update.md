@@ -5,7 +5,7 @@ tags: [design-choices]
 
 ### Background
 
-I bought the domain [developersam.com](https://developersam.com){:target="\_blank"} in February 2015
+I bought the domain [developersam.com](https://developersam.com) in February 2015
 and officially started my own website. Before that, I hosted my website on the free tk domain, but I
 decided to remove that kind of sketchiness when I received my first scholarship. The website is
 poorly maintained, received no update for almost a year since it's published. After I was admitted
@@ -95,7 +95,7 @@ Spring, I got a taste of what a web framework should be like.
 
 In the final assignment of
 [CS 2112](http://www.cs.cornell.edu/courses/cs2112/2017fa/), we were recommended to use
-[SparkJava](http://sparkjava.com/){:target:"blank"} as our backend framework. This framework enabled
+[SparkJava](http://sparkjava.com/) as our backend framework. This framework enabled
 a declarative style of backend code with Java 8's newly added support for functional programming.
 I believed I knew what _should_ be like for my website's architecture.
 
