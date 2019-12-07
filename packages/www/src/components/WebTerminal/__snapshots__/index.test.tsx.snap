@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebTerminal(hidden) matches snapshot. 1`] = `
+<button
+  className="TriggerButton"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="FirstEdge"
+  />
+  <span
+    className="SecondEdge"
+  />
+</button>
+`;
+
+exports[`WebTerminal(shown) matches snapshot. 1`] = `
+Array [
+  <button
+    className="TriggerButton"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="FirstEdge"
+    />
+    <span
+      className="SecondEdge"
+    />
+  </button>,
+  <div
+    className="TerminalContainer"
+  >
+    <div
+      className="TerminalTitle"
+    >
+      Terminal
+    </div>
+    <div
+      className="Terminal"
+      onClick={[Function]}
+      role="presentation"
+    >
+      <div
+        className="TerminalContent"
+      >
+        <p
+          className="TerminalMessage"
+        >
+          Type \`help\` to show a list of available commands.
+        </p>
+        <div
+          className="TerminalInputArea"
+        >
+          <span
+            className="TerminalPromptLabel"
+          >
+            $
+          </span>
+          <input
+            autoComplete="off"
+            className="TerminalInput"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
