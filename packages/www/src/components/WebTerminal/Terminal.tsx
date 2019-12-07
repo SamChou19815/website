@@ -1,8 +1,8 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
-import React, { ReactElement, KeyboardEvent, useRef, useState } from 'react';
+import React, { ReactElement, useRef, useState } from 'react';
+import TerminalInput from './TerminalInput';
 import { TerminalHistory } from './types';
-import autoComplete from './auto-complete';
 import commands from './commands';
 import scrollHistory from './history';
 import styles from './Terminal.module.css';
@@ -36,12 +36,8 @@ export default (): ReactElement => {
   const terminalRoot = useRef<HTMLDivElement>(null);
   const terminalInput = useRef<HTMLInputElement>(null);
 
-  const processCommand = (): void => {
-    const inputNode = terminalInput.current;
-    if (inputNode == null) {
-      throw new Error();
-    }
-    const rawCommandLineInput = inputNode.value.trim();
+  const processCommand = (inputLine: string): void => {
+    const rawCommandLineInput = inputLine.trim();
     const newHistoryItems: TerminalHistory[] = [];
     newHistoryItems.push({ isCommand: true, line: rawCommandLineInput });
 
@@ -68,49 +64,20 @@ export default (): ReactElement => {
         historyPosition: null
       })
     );
-    inputNode.value = '';
     scrollToBottom();
     focusTerminal();
   };
 
-  const historyUpDown = (direction: 'up' | 'down'): void =>
-    setState(oldState => {
-      const { history, historyPosition, previousHistoryPosition } = oldState;
-      const update = scrollHistory(
-        direction,
-        history,
-        historyPosition,
-        previousHistoryPosition,
-        terminalInput
-      );
-      return { ...oldState, ...update };
-    });
-
-  const autoCompleteCommand = (): void => {
-    const inputNode = terminalInput.current;
-    if (inputNode != null) {
-      inputNode.value = autoComplete(inputNode.value);
-    }
-  };
-
-  const handleInput = (event: KeyboardEvent<HTMLInputElement>) => {
-    switch (event.key) {
-      case 'Enter':
-        processCommand();
-        break;
-      case 'ArrowUp':
-        historyUpDown('up');
-        break;
-      case 'ArrowDown':
-        historyUpDown('down');
-        break;
-      case 'Tab':
-        event.preventDefault();
-        autoCompleteCommand();
-        break;
-      default:
-        break;
-    }
+  const historyUpDown = (direction: 'up' | 'down'): string | null => {
+    const { history, historyPosition, previousHistoryPosition } = state;
+    const { value, ...update } = scrollHistory(
+      direction,
+      history,
+      historyPosition,
+      previousHistoryPosition
+    );
+    setState({ ...state, ...update });
+    return value;
   };
 
   const scrollToBottom = (): void => {
@@ -151,16 +118,11 @@ export default (): ReactElement => {
             // eslint-disable-next-line react/no-array-index-key
             <TerminalHistoryLine key={index} isCommand={isCommand} line={line} />
           ))}
-          <div className={styles.TerminalInputArea}>
-            <span className={styles.TerminalPromptLabel}>$</span>
-            <input
-              ref={terminalInput}
-              className={styles.TerminalInput}
-              onKeyDown={handleInput}
-              type="text"
-              autoComplete="off"
-            />
-          </div>
+          <TerminalInput
+            terminalInput={terminalInput}
+            onArrow={historyUpDown}
+            onSubmit={processCommand}
+          />
         </div>
       </div>
     </div>
