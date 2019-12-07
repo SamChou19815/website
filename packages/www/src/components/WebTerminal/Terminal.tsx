@@ -31,36 +31,39 @@ const initialState: State = {
   previousHistoryPosition: null
 };
 
+const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
+  const rawCommandLineInput = inputLine.trim();
+  const newHistoryItems: TerminalHistory[] = [];
+  newHistoryItems.push({ isCommand: true, line: rawCommandLineInput });
+
+  if (rawCommandLineInput) {
+    const input = rawCommandLineInput.split(' ');
+    const commandName = input[0];
+    const args = input.slice(1);
+
+    const command = commands[commandName];
+    if (command == null) {
+      newHistoryItems.push({ isCommand: false, line: `Command '${commandName}' not found!` });
+    } else {
+      const result = command.fn(...args);
+      if (result != null) {
+        result.split('\n').forEach(line => newHistoryItems.push({ isCommand: false, line }));
+      }
+    }
+  }
+  return newHistoryItems;
+};
+
 export default (): ReactElement => {
   const [state, setState] = useState<State>(initialState);
   const terminalRoot = useRef<HTMLDivElement>(null);
   const terminalInput = useRef<HTMLInputElement>(null);
 
   const processCommand = (inputLine: string): void => {
-    const rawCommandLineInput = inputLine.trim();
-    const newHistoryItems: TerminalHistory[] = [];
-    newHistoryItems.push({ isCommand: true, line: rawCommandLineInput });
-
-    if (rawCommandLineInput) {
-      const input = rawCommandLineInput.split(' ');
-      const commandName = input[0];
-      const args = input.slice(1);
-
-      const command = commands[commandName];
-      if (command == null) {
-        newHistoryItems.push({ isCommand: false, line: `Command '${commandName}' not found!` });
-      } else {
-        const result = command.fn(...args);
-        if (result != null) {
-          result.split('\n').forEach(line => newHistoryItems.push({ isCommand: false, line }));
-        }
-      }
-    }
-
     setState(
       (oldState: State): State => ({
         ...state,
-        history: [...oldState.history, ...newHistoryItems],
+        history: [...oldState.history, ...getNewHistory(inputLine)],
         historyPosition: null
       })
     );
