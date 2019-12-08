@@ -22,13 +22,11 @@ const TerminalHistoryLine = ({ isCommand, line }: TerminalHistory): ReactElement
 type State = {
   readonly history: readonly TerminalHistory[];
   readonly historyPosition: number | null;
-  readonly previousHistoryPosition: number | null;
 };
 
 const initialState: State = {
   history: [{ isCommand: false, line: 'Type `help` to show a list of available commands.' }],
-  historyPosition: null,
-  previousHistoryPosition: null
+  historyPosition: null
 };
 
 const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
@@ -62,7 +60,6 @@ export default (): ReactElement => {
   const processCommand = (inputLine: string): void => {
     setState(
       (oldState: State): State => ({
-        ...state,
         history: [...oldState.history, ...getNewHistory(inputLine)],
         historyPosition: null
       })
@@ -72,13 +69,17 @@ export default (): ReactElement => {
   };
 
   const historyUpDown = (direction: 'up' | 'down'): string | null => {
-    const { history, historyPosition, previousHistoryPosition } = state;
-    const result = scrollHistory(direction, history, historyPosition, previousHistoryPosition);
+    const { history, historyPosition } = state;
+    const simplifiedHistory = Array.from(history)
+      .filter(({ isCommand }) => isCommand)
+      .map(item => item.line)
+      .reverse();
+    const result = scrollHistory(direction, simplifiedHistory, historyPosition);
     if (result === null) {
       return null;
     }
-    const { value, ...update } = result;
-    setState({ ...state, ...update });
+    const { value, historyPosition: newHistoryPosition } = result;
+    setState({ ...state, historyPosition: newHistoryPosition });
     return value;
   };
 

@@ -4,6 +4,7 @@
 *.project
 *.classpath
 *.iml
+.vscode
 
 # Build
 **/.gradle/
