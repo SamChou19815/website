@@ -73,12 +73,11 @@ export default (): ReactElement => {
 
   const historyUpDown = (direction: 'up' | 'down'): string | null => {
     const { history, historyPosition, previousHistoryPosition } = state;
-    const { value, ...update } = scrollHistory(
-      direction,
-      history,
-      historyPosition,
-      previousHistoryPosition
-    );
+    const result = scrollHistory(direction, history, historyPosition, previousHistoryPosition);
+    if (result === null) {
+      return null;
+    }
+    const { value, ...update } = result;
     setState({ ...state, ...update });
     return value;
   };
