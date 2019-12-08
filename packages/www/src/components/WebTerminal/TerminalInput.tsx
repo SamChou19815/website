@@ -38,6 +38,7 @@ export default ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
     <div className={styles.TerminalInputArea}>
       <span className={styles.TerminalPromptLabel}>$</span>
       <input
+        name="terminal-input"
         ref={terminalInput}
         className={styles.TerminalInput}
         value={line}

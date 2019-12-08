@@ -61,6 +61,7 @@ Array [
           <input
             autoComplete="off"
             className="TerminalInput"
+            name="terminal-input"
             onChange={[Function]}
             onKeyDown={[Function]}
             type="text"

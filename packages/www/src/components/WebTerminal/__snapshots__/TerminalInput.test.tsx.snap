@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TerminalInput matches snapshot. 1`] = `
+<div
+  className="TerminalInputArea"
+>
+  <span
+    className="TerminalPromptLabel"
+  >
+    $
+  </span>
+  <input
+    autoComplete="off"
+    className="TerminalInput"
+    name="terminal-input"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+    value=""
+  />
+</div>
+`;
