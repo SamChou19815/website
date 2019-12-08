@@ -1,33 +1,14 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
 import React, { ReactElement, useRef, useState } from 'react';
-import TerminalInput from './TerminalInput';
 import { TerminalHistory } from './types';
 import commands from './commands';
 import scrollHistory from './history';
-import styles from './Terminal.module.css';
+import StatelessTerminal from './StatelessTerminal';
 
-const TerminalHistoryLine = ({ isCommand, line }: TerminalHistory): ReactElement => {
-  if (!isCommand) {
-    return <p className={styles.TerminalMessage}>{line}</p>;
-  }
-  return (
-    <p className={styles.TerminalMessage}>
-      <span className={styles.TerminalPromptLabel}>$</span>
-      {line}
-    </p>
-  );
-};
-
-type State = {
-  readonly history: readonly TerminalHistory[];
-  readonly historyPosition: number | null;
-};
-
-const initialState: State = {
-  history: [{ isCommand: false, line: 'Type `help` to show a list of available commands.' }],
-  historyPosition: null
-};
+const initialHistory: readonly TerminalHistory[] = [
+  { isCommand: false, line: 'Type `help` to show a list of available commands.' }
+];
 
 const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
   const rawCommandLineInput = inputLine.trim();
@@ -53,33 +34,29 @@ const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
 };
 
 export default (): ReactElement => {
-  const [state, setState] = useState<State>(initialState);
+  const [history, setHistory] = useState(initialHistory);
   const terminalRoot = useRef<HTMLDivElement>(null);
   const terminalInput = useRef<HTMLInputElement>(null);
+  const historyPositionRef = useRef<number | null>(null);
 
   const processCommand = (inputLine: string): void => {
-    setState(
-      (oldState: State): State => ({
-        history: [...oldState.history, ...getNewHistory(inputLine)],
-        historyPosition: null
-      })
-    );
+    historyPositionRef.current = null;
+    setHistory(oldHistory => [...oldHistory, ...getNewHistory(inputLine)]);
     scrollToBottom();
     focusTerminal();
   };
 
   const historyUpDown = (direction: 'up' | 'down'): string | null => {
-    const { history, historyPosition } = state;
     const simplifiedHistory = Array.from(history)
       .filter(({ isCommand }) => isCommand)
       .map(item => item.line)
       .reverse();
-    const result = scrollHistory(direction, simplifiedHistory, historyPosition);
+    const result = scrollHistory(direction, simplifiedHistory, historyPositionRef.current);
     if (result === null) {
       return null;
     }
     const { value, historyPosition: newHistoryPosition } = result;
-    setState({ ...state, historyPosition: newHistoryPosition });
+    historyPositionRef.current = newHistoryPosition;
     return value;
   };
 
@@ -108,26 +85,13 @@ export default (): ReactElement => {
   };
 
   return (
-    <div className={styles.TerminalContainer}>
-      <div className={styles.TerminalTitle}>Terminal</div>
-      <div
-        role="presentation"
-        ref={terminalRoot}
-        className={styles.Terminal}
-        onClick={focusTerminal}
-      >
-        <div className={styles.TerminalContent}>
-          {state.history.map(({ isCommand, line }, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TerminalHistoryLine key={index} isCommand={isCommand} line={line} />
-          ))}
-          <TerminalInput
-            terminalInput={terminalInput}
-            onArrow={historyUpDown}
-            onSubmit={processCommand}
-          />
-        </div>
-      </div>
-    </div>
+    <StatelessTerminal
+      history={history}
+      terminalRoot={terminalRoot}
+      terminalInput={terminalInput}
+      focusTerminal={focusTerminal}
+      onArrow={historyUpDown}
+      processCommand={processCommand}
+    />
   );
 };
