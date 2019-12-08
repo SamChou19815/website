@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Default matches snapshot. 1`] = `
+<button
+  className="TriggerButton"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="FirstEdge"
+  />
+  <span
+    className="SecondEdge"
+  />
+</button>
+`;
+
 exports[`WebTerminal(hidden) matches snapshot. 1`] = `
 <button
   className="TriggerButton"
