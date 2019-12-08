@@ -4,14 +4,17 @@ import './index.css';
 import initializeHighlighter from 'lib-react/language';
 import App from './App';
 
-initializeHighlighter();
+export default function initialize() {
+  initializeHighlighter();
 
-const rootElement = document.getElementById('root');
-if (rootElement == null) {
-  throw new Error('We messed up the DOM tree!');
+  const rootElement = document.getElementById('root');
+  if (rootElement != null) {
+    if (rootElement.hasChildNodes()) {
+      hydrate(<App />, rootElement);
+    } else {
+      render(<App />, rootElement);
+    }
+  }
 }
-if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
-} else {
-  render(<App />, rootElement);
-}
+
+initialize();
