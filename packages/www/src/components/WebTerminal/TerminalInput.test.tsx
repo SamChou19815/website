@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 import TerminalInput from './TerminalInput';
+import { dispatchOnInputChange } from '../../testing/test-utils';
 
 it(`TerminalInput matches snapshot.`, () => {
   const Wrapper = (): ReactElement => {
@@ -70,9 +71,8 @@ it('TerminalInput can respond to inputs.', () => {
     inputNode.dispatchEvent(new KeyboardEvent('keydown', { key: 'Shift', bubbles: true }));
   });
 
-  act(() => {
-    inputNode.dispatchEvent(new Event('change', { bubbles: true }));
-  });
+  act(() => dispatchOnInputChange(inputNode, 'ahhhhh'));
+  expect(inputNode.value).toBe('ahhhhh');
 
   document.body.removeChild(container);
 });
