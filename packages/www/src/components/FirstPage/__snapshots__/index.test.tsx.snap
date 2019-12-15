@@ -5,16 +5,46 @@ exports[`FirstPage matches snapshot. 1`] = `
   className="FirstPage"
   id="about"
 >
-  <div
-    style={
-      Object {
-        "height": "670px",
-        "width": "450px",
-      }
-    }
+  <pre
+    className="Block"
   >
-    Loading...
-  </div>
+    <code
+      className="samlang"
+    >
+      
+
+/**
+ * Copyright (C) 2015–2019 Developer Sam.
+ *
+ * @author sam
+ */
+
+// Basic information of sam, written in SAMLANG.
+// The code below is a well-typed SAMLANG program.
+// Try it by yourself at
+// https://samlang-demo.developersam.com
+
+class List&lt;T&gt;(Nil(unit), Cons([T * List&lt;T&gt;])) {
+  public function &lt;T&gt; of(t: T): List&lt;T&gt; =
+    Cons([t, Nil(unit)])
+  public method cons(t: T): List&lt;T&gt; =
+    Cons([t, this])
+}
+class Developer(
+  name: string, github: string,
+  projects: List&lt;string&gt;,
+) {
+  public function sam(): Developer =
+    val l = List::of("SAMLANG")::cons("...");
+    val github = "SamChou19815";
+    { name: "Sam Zhou", github, projects: l }
+}
+class Main {
+  function main(): Developer = Developer::sam()
+}
+
+    </code>
+  </pre>
   <div
     className="MuiPaper-root MuiPaper-elevation1 MuiCard-root InfoCard MuiPaper-rounded"
   >
