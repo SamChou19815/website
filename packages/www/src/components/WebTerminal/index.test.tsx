@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import Default, { WebTerminal } from '.';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 const ignore = () => {};
 
 it(`WebTerminal(shown) matches snapshot.`, () => {
