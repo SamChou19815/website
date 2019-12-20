@@ -8,7 +8,6 @@ import { dispatchOnInputChange } from '../../testing/test-utils';
 it(`TerminalInput matches snapshot.`, () => {
   const Wrapper = (): ReactElement => {
     const terminalInput = useRef<HTMLInputElement>(null);
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     return <TerminalInput terminalInput={terminalInput} onArrow={() => null} onSubmit={() => {}} />;
   };
   const tree = renderer.create(<Wrapper />).toJSON();
@@ -37,7 +36,6 @@ it('TerminalInput can respond to inputs.', () => {
 
   const Wrapper = (): ReactElement => {
     const terminalInput = useRef<HTMLInputElement>(null);
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     return <TerminalInput terminalInput={terminalInput} onArrow={onArrow} onSubmit={onSubmit} />;
   };
 

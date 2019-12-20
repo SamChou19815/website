@@ -6,7 +6,6 @@ import { TerminalHistory } from './types';
 const Wrapper = ({ history }: { readonly history: readonly TerminalHistory[] }): ReactElement => {
   const terminalRoot = useRef<HTMLDivElement>(null);
   const terminalInput = useRef<HTMLInputElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   const ignore = () => {};
   return (
     <StatelessTerminal
