@@ -33,9 +33,9 @@ function random(): int =
     a
 ```
 
-## Module Function
+## Class Function
 
-You can refer to a module function by `ModuleName::functionName`.
+You can refer to a module function by `ModuleName.functionName`.
 
 For example, you can write:
 
@@ -46,7 +46,7 @@ class Foo(a: int) {
 
 class Main {
     function oof(): int = 14
-    function main(): int = Foo::bar() * Main::oof()
+    function main(): int = Foo.bar() * Main.oof()
 }
 ```
 
@@ -71,7 +71,7 @@ and `field` refer to different things.
 
 ## Method Access
 
-You can access a method simply by using the `::` syntax: `expr::map`.
+You can access a method by using the `.` syntax: `expr.map`.
 
 ## Unary Expressions
 

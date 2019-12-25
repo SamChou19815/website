@@ -49,14 +49,14 @@ export default (): void =>
           highlight.QUOTE_STRING_MODE,
           {
             className: 'function-call',
-            begin: /::/,
+            begin: /\./,
             end: /\(/,
             excludeBegin: true,
             excludeEnd: true
           },
           {
             className: 'punctuations',
-            begin: /,|\[|]|::|=|->|:/,
+            begin: /,|\[|]|\.|=|->|:/,
             end: ''
           },
           {
@@ -84,7 +84,7 @@ export default (): void =>
           },
           createModeWithFunctionCall('simple-function-call', /[a-z][A-Za-z0-9]*\s*\(/),
           createModeWithType('variant-constructor', /[A-Z][A-Za-z0-9]*\s*\(/),
-          createModeWithType('class-function', /[A-Z][A-Za-z0-9]*\s*::/),
+          createModeWithType('class-function', /[A-Z][A-Za-z0-9]*\s*./),
           createModeWithType('class-name-with-type-parameter', /[A-Z][A-Za-z0-9]*\s*</),
           createModeWithType('utility-class-name', /[A-Z][A-Za-z0-9]*\s*\{/),
           {
