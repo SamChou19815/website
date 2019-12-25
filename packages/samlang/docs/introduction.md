@@ -22,13 +22,13 @@ class HelloWorld(message: string) {
 
     public function getGlobalMessage(): string =
         val hw = { message: "Hello World" };
-        hw::getMessage()
+        hw.getMessage()
 
 }
 
 class Main {
 
-    function main(): string = HelloWorld::getGlobalMessage()
+    function main(): string = HelloWorld.getGlobalMessage()
 
 }
 ```
@@ -45,7 +45,7 @@ import { ClassA, ClassB } from Foo.Bar.Module
 import { ClassC, ClassD } from Baz.Foo.Module
 
 class ClassD {
-    function main(): int = ClassA::value() + ClassC::value()
+    function main(): int = ClassA.value() + ClassC.value()
 }
 ```
 

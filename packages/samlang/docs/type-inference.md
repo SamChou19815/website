@@ -28,5 +28,5 @@ class NotEnoughTypeInfo {
 ```
 
 The type of `randomFunction()` cannot be decided. We decide not to make it generic because we want
-every expression to have a concrete type. Therefore, the type-checker will reject this program and
-complain that there is not enough context to decide the type of each expression.
+every expression to have a concrete type. In this case, the type checker will instantiate the
+generic type `T` as `int`.
