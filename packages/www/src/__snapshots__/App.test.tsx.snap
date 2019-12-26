@@ -3,7 +3,7 @@
 exports[`App matches snapshot. 1`] = `
 <div>
   <header
-    className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed AppBar MuiAppBar-colorPrimary mui-fixed"
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed AppBar MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"
   >
     <div
       className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
@@ -180,7 +180,7 @@ class Main {
       </code>
     </pre>
     <div
-      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root InfoCard MuiPaper-rounded"
+      className="MuiPaper-root MuiCard-root InfoCard MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         className="MuiCardHeader-root"

@@ -17,7 +17,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
     className="ProjectContainer"
   >
     <div
-      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ProjectCard MuiPaper-rounded"
+      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
     >
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
@@ -159,7 +159,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ProjectCard MuiPaper-rounded"
+      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
     >
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
@@ -277,7 +277,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ProjectCard MuiPaper-rounded"
+      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
     >
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
