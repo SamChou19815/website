@@ -18,11 +18,11 @@ export default ({ metadata, items }) => (
     <div className={styles.Container}>
       <div className="row">
         <div className="col col--6 col--offset-3">
-          {items.map(({ content: BlogPostContent, metadata: blogPostMetadata }) => (
-            <div className={styles.BlogPostItem} key={blogPostMetadata.permalink}>
+          {items.map(({ content: BlogPostContent }) => (
+            <div className={styles.BlogPostItem} key={BlogPostContent.metadata.permalink}>
               <BlogPostItem
                 frontMatter={BlogPostContent.frontMatter}
-                metadata={blogPostMetadata}
+                metadata={BlogPostContent.metadata}
                 truncated
               >
                 <BlogPostContent />

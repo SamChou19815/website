@@ -2,7 +2,7 @@
 
 exports[`ResultCard(BAD_SYNTAX) matches snapshot. 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <div
     className="MuiCardHeader-root"
@@ -38,7 +38,7 @@ exports[`ResultCard(BAD_SYNTAX) matches snapshot. 1`] = `
 
 exports[`ResultCard(BAD_TYPE) matches snapshot. 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <div
     className="MuiCardHeader-root"
@@ -74,7 +74,7 @@ exports[`ResultCard(BAD_TYPE) matches snapshot. 1`] = `
 
 exports[`ResultCard(GOOD_PROGRAM) matches snapshot. 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <div
     className="MuiCardHeader-root"
@@ -136,7 +136,7 @@ exports[`ResultCard(GOOD_PROGRAM) matches snapshot. 1`] = `
 
 exports[`ResultCard(null) matches snapshot. 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <div
     className="MuiCardHeader-root"
@@ -161,7 +161,7 @@ exports[`ResultCard(null) matches snapshot. 1`] = `
 
 exports[`ResultCard(server-error) matches snapshot. 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <div
     className="MuiCardHeader-root"
@@ -186,7 +186,7 @@ exports[`ResultCard(server-error) matches snapshot. 1`] = `
 
 exports[`ResultCard(waiting) matches snapshot. 1`] = `
 <div
-  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root ParallelCard MuiPaper-rounded"
+  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
 >
   <div
     className="MuiCardHeader-root"

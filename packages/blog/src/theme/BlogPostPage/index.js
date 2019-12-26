@@ -13,23 +13,28 @@ import BlogPostPaginator from '@theme/BlogPostPaginator';
 
 import styles from '../common.module.css';
 
-export default ({ content: BlogPostContents, metadata, nextItem, prevItem }) => (
-  <Layout title={metadata.title} description={metadata.description}>
-    {BlogPostContents && (
-      <div className={styles.Container}>
-        <div className="row">
-          <div className="col col--6 col--offset-3">
-            <div className={styles.BlogPostItem}>
-              <BlogPostItem frontMatter={BlogPostContents.frontMatter} metadata={metadata}>
-                <BlogPostContents />
-              </BlogPostItem>
-            </div>
-            <div className="margin-vert--xl">
-              <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+export default ({ content: BlogPostContents }) => {
+  const { frontMatter, metadata } = BlogPostContents;
+  return (
+    <Layout title={metadata.title} description={metadata.description}>
+      {BlogPostContents && (
+        <div className={styles.Container}>
+          <div className="row">
+            <div className="col col--6 col--offset-3">
+              <div className={styles.BlogPostItem}>
+                <BlogPostItem frontMatter={frontMatter} metadata={metadata}>
+                  <BlogPostContents />
+                </BlogPostItem>
+              </div>
+              {(metadata.nextItem || metadata.prevItem) && (
+                <div className="margin-vert--xl">
+                  <BlogPostPaginator nextItem={metadata.nextItem} prevItem={metadata.prevItem} />
+                </div>
+              )}
             </div>
           </div>
         </div>
-      </div>
-    )}
-  </Layout>
-);
+      )}
+    </Layout>
+  );
+};
