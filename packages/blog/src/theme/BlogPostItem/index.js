@@ -49,12 +49,7 @@ export default ({ children, frontMatter, metadata, truncated }) => {
         </div>
         <div className="avatar margin-bottom--md">
           {authorImageURL && (
-            <a
-              className="avatar__photo-link"
-              href={authorURL}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
+            <a className="avatar__photo-link" href={authorURL}>
               <img className="avatar__photo" src={authorImageURL} alt={author} />
             </a>
           )}
@@ -62,9 +57,7 @@ export default ({ children, frontMatter, metadata, truncated }) => {
             {author && (
               <>
                 <h4 className="avatar__name">
-                  <a href={authorURL} target="_blank" rel="noreferrer noopener">
-                    {author}
-                  </a>
+                  <a href={authorURL}>{author}</a>
                 </h4>
                 <small className="avatar__subtitle">{authorTitle}</small>
               </>
