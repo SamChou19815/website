@@ -117,3 +117,7 @@ pre {
   border-radius: 0;
   box-shadow: none;
 }
+
+article {
+  font-family: 'Roboto Slab', Georgia, 'Times New Roman', Times, serif;
+}
