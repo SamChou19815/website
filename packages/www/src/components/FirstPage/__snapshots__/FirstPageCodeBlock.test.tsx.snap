@@ -30,10 +30,11 @@ class Developer(
   name: string, github: string,
   projects: List&lt;string&gt;,
 ) {
-  public function sam(): Developer =
-    val l = List.of("SAMLANG").cons("...");
-    val github = "SamChou19815";
+  public function sam(): Developer = {
+    val l = List.of("SAMLANG").cons("...")
+    val github = "SamChou19815"
     { name: "Sam Zhou", github, projects: l }
+  }
 }
 class Main {
   function main(): Developer = Developer.sam()

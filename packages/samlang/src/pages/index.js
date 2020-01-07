@@ -43,17 +43,17 @@ const PATTERN_MATCHING_CODE = `class Option<T>(None(unit), Some(T)) {
 `;
 
 const TYPE_INFERENCE_CODE = `class TypeInference {
-
-    function notAnnotated(): unit =
+    function notAnnotated(): unit = {
         val _ = (a, b, c) -> if a(b + 1) then b else c;
+    }
 
     // Read the docs to see how we do the type inference.
-    function annotated(): unit =
+    function annotated(): unit = {
         val _: ((int) -> bool, int, int) -> int =
             (a: (int) -> bool, b: int, c: int) -> (
                 if a(b + 1) then b else c
             );
-
+    }
 }
 `;
 

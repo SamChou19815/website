@@ -120,8 +120,9 @@ class Box<T>(content: T) {
 
     public function <T> init(content: T): Box<T> = { content } // object short hand syntax
 
-    public method getContent(): T = val { content } = this; content
-
+    public method getContent(): T = {
+        val { content } = this; content
+    }
 }
 
 class Option<T>(None(unit), Some(T)) {

@@ -23,10 +23,10 @@ is not enough information.
 ```samlang
 class NotEnoughTypeInfo {
     function <T> randomFunction(): T = panic("I can be any type!")
-    function main(): unit = val _ = randomFunction();
+    function main(): unit = { val _ = randomFunction(); }
 }
 ```
 
 The type of `randomFunction()` cannot be decided. We decide not to make it generic because we want
 every expression to have a concrete type. In this case, the type checker will instantiate the
-generic type `T` as `int`.
+generic type `T` as `unit`.
