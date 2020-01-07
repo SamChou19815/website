@@ -20,10 +20,10 @@ class HelloWorld(message: string) {
         val { message } = this;
         message
 
-    public function getGlobalMessage(): string =
+    public function getGlobalMessage(): string = {
         val hw = { message: "Hello World" };
         hw.getMessage()
-
+    }
 }
 
 class Main {

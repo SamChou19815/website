@@ -149,40 +149,43 @@ surrounded by parenthesis.
 
 You can optionally type-annotate some parameters: `(x: int, y) -> x + y`.
 
-## Val Expression
+## Sttatement Block Expression
 
-You can define new local variables by using the val expression:
+You can define new local variables by using the val statement within a block of statements:
 
 ```samlang
 class Obj(d: int, e: int) {
-    function valExample(): int =
+    function valExample(): int = {
         val a: int = 1;
         val b = 2;
         val [_, c] = ["dd", 3];
-        val { e as d } = { d: 5, e: 4 };
+        val { e as d } = { d: 5, e: 4 }
         val _ = 42;
         a + b * c / d
+    }
 }
 ```
 
-The above example shows various usages of val expression. You can choose to type-annotate the
+The above example shows various usages of val statement. You can choose to type-annotate the
 pattern (variable, tuple, object, or wildcard), destruct on tuples or object, and ignore the output
-by using wildcard (supported in tuple pattern and wildcard pattern).
+by using wildcard (supported in tuple pattern and wildcard pattern). Note that the semicolon is
+optional.
 
-Val expression can be nested:
+Statement blocks can be nested:
 
 ```samlang
-function nestedVal(): int =
-    val a = (
+function nestedBlocks(): int = {
+    val a = {
         val b = 4;
-        val c = (
+        val c = {
             val d = b;
             b
-        );
+        };
         b
-    );
+    };
     a + 1
+}
 ```
 
-You may write `function a(): unit = val _ = 3; unit`. There is a syntactic sugar for this use-case:
-`function a(): unit = val _ = 3;`.
+You may write `function a(): unit = { val _ = 3; unit }`. There is a syntactic sugar for this
+use-case: `function a(): unit = { val _ = 3; }`.
