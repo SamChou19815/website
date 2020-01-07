@@ -13,8 +13,13 @@ import BlogPostPaginator from '@theme/BlogPostPaginator';
 
 import styles from '../common.module.css';
 
+const githubRepositoryUrlPrefix = 'https://github.com/SamChou19815/website';
+const githubBlogPostUrlPrefix = `${githubRepositoryUrlPrefix}/blob/master/packages/blog/blog`;
+
 export default ({ content: BlogPostContents }) => {
   const { frontMatter, metadata } = BlogPostContents;
+  const markdownFilename = `${metadata.permalink.substring(1).replace(/\//g, '-')}.md`;
+  const markdownURL = `${githubBlogPostUrlPrefix}/${markdownFilename}`;
   return (
     <Layout title={metadata.title} description={metadata.description}>
       {BlogPostContents && (
@@ -25,6 +30,7 @@ export default ({ content: BlogPostContents }) => {
                 <BlogPostItem frontMatter={frontMatter} metadata={metadata}>
                   <BlogPostContents />
                 </BlogPostItem>
+                <a href={markdownURL}>Source on GitHub</a>
               </div>
               {(metadata.nextItem || metadata.prevItem) && (
                 <div className="margin-vert--xl">
