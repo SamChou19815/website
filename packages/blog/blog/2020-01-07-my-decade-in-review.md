@@ -63,7 +63,7 @@ had none. But there was a platform called UUEasy in China that allowed non-techn
 easily create their BBS for free. The actual UUEasy site was dead a lot time ago, the following
 screenshot came from a design company that once designed its homepage:
 
-![Already dead UUEasy](/static/img/2020-01-07-my-decade-in-review/already-dead-uueasy.png)
+![Already dead UUEasy](/img/2020-01-07-my-decade-in-review/already-dead-uueasy.png)
 
 The major difference between my class teacher and me is that I wanted to dig deeper. The official
 class BBS almost used all default settings, while I spent a lot of time finding and applying all
@@ -89,7 +89,7 @@ experience. The code was terrible and thankfully forever lost, but it was a nece
 DEFCON 1 could be the status I used to describe that period, but it was a system developed by me at
 the time, in response to events that I would classify as DEFCON 1.
 
-![Steam Game DEFCON](/static/img/2020-01-07-my-decade-in-review/defcon.png)
+![Steam Game DEFCON](/img/2020-01-07-my-decade-in-review/defcon.png)
 Source: Steam Game DEFCON
 
 The system was a _2FA-like_ login system. The first login was a normal one, which was implemented
@@ -105,7 +105,7 @@ with the self-destruction password that is unknown and untestable by the interro
 would be automatically wiped. Of course, to satisfy the safety property, the system administrator
 must be trustworthy and could never be interrogated by potential attackers.
 
-![Example Flow of DEFCON 1](/static/img/2020-01-07-my-decade-in-review/defcon-1-flow.png)
+![Example Flow of DEFCON 1](/img/2020-01-07-my-decade-in-review/defcon-1-flow.png)
 
 The origin of my intention to create such a system could be traced back to 2012. Our class teacher
 was replaced in October 2012, but the impact only began to reveal itself during this period. My
@@ -171,7 +171,7 @@ organization of the students, by the students, for the students. It would also h
 to help me achieve things. The only small problem is that none of the above is true, at least from
 my perspective.
 
-![None is True](/static/img/2020-01-07-my-decade-in-review/none-is-true.png)
+![None is True](/img/2020-01-07-my-decade-in-review/none-is-true.png)
 None is True.
 Source: CS 5414 Lecture [Slides](http://www.cs.cornell.edu/courses/cs5414/2019fa/notes/Week5.pdf)
 
@@ -273,7 +273,7 @@ project to greater success. I’m **glad** that I missed it.
 When I stepped down in 12th grade, the platform looks like the following screenshot. As you can see
 technical improvements and change of user interface did not move things to much.
 
-![SAM Screenshot 2016](/static/img/2020-01-07-my-decade-in-review/sam-later.png)
+![SAM Screenshot 2016](/img/2020-01-07-my-decade-in-review/sam-later.png)
 
 Another big ongoing struggle in that year was my fight with the student union. Although never
 succeeded, I designed our platform to be a drop-in replacement for student unions’ publicity
@@ -289,7 +289,7 @@ scholarships to fund it instead of asking for the school’s assistance. I am no
 good leadership characteristics. Some of them are not. For example, being the master hacker resulted
 in a period of chaos when I entered the 12th grade and no longer had time to do the hacker work.
 
-![Master hacker to fail](/static/img/2020-01-07-my-decade-in-review/bad-master-hacker.png)
+![Master hacker to fail](/img/2020-01-07-my-decade-in-review/bad-master-hacker.png)
 
 These efforts to challenge the big brother were eventually proved useless. _The distributed system
 reached eventual consistency_, where the student union was still the big brother and Computerization
@@ -397,7 +397,7 @@ month later, a functional programming language that can be compiled to Kotlin wa
 summer, I also contributed to open source and developed some frameworks for the upcoming hackathon
 in fall.
 
-![The final FB interview](/static/img/2020-01-07-my-decade-in-review/timeline-fb.png)
+![The final FB interview](/img/2020-01-07-my-decade-in-review/timeline-fb.png)
 Screenshoted from my [website](https://developersam.com)'s timeline section
 
 Probably due to these projects, especially the compiler one, I secured interviews from Google and
@@ -433,7 +433,7 @@ day one rather than some afterthought. Recently, I was working on adding IDE sup
 language SAMLANG and hope it can bootstrap in the future years._ This is the reason why this blog
 post was delayed for so long.
 
-![Autocompletion for SAMLANG](/static/img/2020-01-07-my-decade-in-review/samlang-autocompletion.png)
+![Autocompletion for SAMLANG](/img/2020-01-07-my-decade-in-review/samlang-autocompletion.png)
 Autocompletion for SAMLANG
 
 I will not add any reflection for the past two years. It is too close to the present to derive any
