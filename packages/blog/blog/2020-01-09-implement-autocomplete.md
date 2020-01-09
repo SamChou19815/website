@@ -64,7 +64,17 @@ These kind of trees are called abstract syntax trees (AST). Compilers and any ot
 services produce ASTs in two or three stages. They first turn a string like
 `"console.log('Hello World!');"` into a stream of tokens, where each token represents an indivisible
 unit. For example, the above program might be turned into
-`[Identifier("console"), DOT, Identifier("log"), LEFT_PARENTHESIS, STRING("Hello World!"), RIGHT_PARENTHESIS, SEMICOLON]`.
+
+```text
+Identifier("console")
+DOT
+Identifier("log")
+LEFT_PARENTHESIS
+STRING("Hello World!")
+RIGHT_PARENTHESIS
+SEMICOLON
+```
+
 This stage is called _lexing_. Then the compiler will organize this stream into a tree structure in
 a _parsing_ stage.
 
