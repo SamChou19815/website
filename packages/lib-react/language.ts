@@ -13,7 +13,7 @@ const simpleIdentifierAsFunctionCallMode: IMode = {
 };
 
 const keywords = {
-  keyword: 'class val function method as public if then else match from',
+  keyword: 'class val function method import private if then else match from',
   literal: 'false true _',
   // eslint-disable-next-line @typescript-eslint/camelcase
   built_in: 'unit int bool string this'
