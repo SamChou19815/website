@@ -47,10 +47,9 @@ Here we introduce the first kind of class module: _object class module_. You can
 this:
 
 ```samlang
-class Student(name: string, age: int) {
+class Student(val name: string, val age: int) {
   method getName(): string = this.name
   private method getAge(): int = this.age
-
   function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
 }
 ```
@@ -111,9 +110,8 @@ class FunctionExample {
   function <T> getIdentityFunction(): (T) -> T = (x) -> x
 }
 
-class Box<T>(content: T) {
+class Box<T>(val content: T) {
   function <T> init(content: T): Box<T> = { content } // object short hand syntax
-
   method getContent(): T = {
     val { content } = this; content
   }

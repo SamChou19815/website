@@ -18,42 +18,42 @@ import styles from './styles.module.css';
 initialize();
 
 const HELLO_WORLD_CODE = `class Main {
-    function main(): string = "Hello World"
+  function main(): string = "Hello World"
 }
 `;
 
 const FOURTY_TWO_CODE = `class Main {
-    function main(): int = 2 * 21
+  function main(): int = 2 * 21
 }
 `;
 
 const PATTERN_MATCHING_CODE = `class Option<T>(None(unit), Some(T)) {
 
-  public function <T> getNone(): Option<T> = None(unit)
+  function <T> getNone(): Option<T> = None(unit)
 
-  public function <T> getSome(d: T): Option<T> = Some(d)
+  function <T> getSome(d: T): Option<T> = Some(d)
 
-  public method <R> map(f: (T) -> R): Option<R> =
-      match (this) {
-          | None _ -> None(unit)
-          | Some d -> Some(f(d))
-      }
+  method <R> map(f: (T) -> R): Option<R> =
+    match (this) {
+      | None _ -> None(unit)
+      | Some d -> Some(f(d))
+    }
 
 }
 `;
 
 const TYPE_INFERENCE_CODE = `class TypeInference {
-    function notAnnotated(): unit = {
-        val _ = (a, b, c) -> if a(b + 1) then b else c;
-    }
+  function notAnnotated(): unit = {
+    val _ = (a, b, c) -> if a(b + 1) then b else c;
+  }
 
-    // Read the docs to see how we do the type inference.
-    function annotated(): unit = {
-        val _: ((int) -> bool, int, int) -> int =
-            (a: (int) -> bool, b: int, c: int) -> (
-                if a(b + 1) then b else c
-            );
-    }
+  // Read the docs to see how we do the type inference.
+  function annotated(): unit = {
+    val _: ((int) -> bool, int, int) -> int =
+      (a: (int) -> bool, b: int, c: int) -> (
+        if a(b + 1) then b else c
+      );
+  }
 }
 `;
 
