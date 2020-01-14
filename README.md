@@ -3,7 +3,6 @@
 ![CLA assistant](https://cla-assistant.io/readme/badge/SamChou19815/website)
 ![GitHub](https://img.shields.io/github/license/SamChou19815/website.svg)
 ![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-![code style: black](https://img.shields.io/badge/code_style-black-000000.svg)
 
 This is a monorepo of Sam's [website](https://developersam.com).
 
