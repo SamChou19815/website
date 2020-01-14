@@ -159,16 +159,16 @@ exports[`App matches snapshot. 1`] = `
 // https://samlang-demo.developersam.com
 
 class List&lt;T&gt;(Nil(unit), Cons([T * List&lt;T&gt;])) {
-  public function &lt;T&gt; of(t: T): List&lt;T&gt; =
+  function &lt;T&gt; of(t: T): List&lt;T&gt; =
     Cons([t, Nil(unit)])
-  public method cons(t: T): List&lt;T&gt; =
+  method cons(t: T): List&lt;T&gt; =
     Cons([t, this])
 }
 class Developer(
   val name: string, val github: string,
   val projects: List&lt;string&gt;,
 ) {
-  public function sam(): Developer = {
+  function sam(): Developer = {
     val l = List.of("SAMLANG").cons("...")
     val github = "SamChou19815"
     { name: "Sam Zhou", github, projects: l }

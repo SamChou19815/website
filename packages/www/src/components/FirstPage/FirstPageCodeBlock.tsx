@@ -16,16 +16,16 @@ const code = `
 // https://samlang-demo.developersam.com
 
 class List<T>(Nil(unit), Cons([T * List<T>])) {
-  public function <T> of(t: T): List<T> =
+  function <T> of(t: T): List<T> =
     Cons([t, Nil(unit)])
-  public method cons(t: T): List<T> =
+  method cons(t: T): List<T> =
     Cons([t, this])
 }
 class Developer(
   val name: string, val github: string,
   val projects: List<string>,
 ) {
-  public function sam(): Developer = {
+  function sam(): Developer = {
     val l = List.of("SAMLANG").cons("...")
     val github = "SamChou19815"
     { name: "Sam Zhou", github, projects: l }
