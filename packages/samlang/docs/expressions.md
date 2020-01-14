@@ -155,7 +155,7 @@ You can optionally type-annotate some parameters: `(x: int, y) -> x + y`.
 You can define new local variables by using the val statement within a block of statements:
 
 ```samlang
-class Obj(d: int, e: int) {
+class Obj(val d: int, val e: int) {
   function valExample(): int = {
     val a: int = 1;
     val b = 2;

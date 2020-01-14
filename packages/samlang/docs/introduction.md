@@ -13,7 +13,7 @@ The language can be compiled down to X86 assembly and machine code.
 Here is an example program:
 
 ```samlang
-class HelloWorld(message: string) {
+class HelloWorld(val message: string) {
   method getMessage(): string = {
     val { message } = this;
     message

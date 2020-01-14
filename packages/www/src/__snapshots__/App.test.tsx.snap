@@ -165,8 +165,8 @@ class List&lt;T&gt;(Nil(unit), Cons([T * List&lt;T&gt;])) {
     Cons([t, this])
 }
 class Developer(
-  name: string, github: string,
-  projects: List&lt;string&gt;,
+  val name: string, val github: string,
+  val projects: List&lt;string&gt;,
 ) {
   public function sam(): Developer = {
     val l = List.of("SAMLANG").cons("...")
