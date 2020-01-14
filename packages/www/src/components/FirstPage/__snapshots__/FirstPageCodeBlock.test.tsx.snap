@@ -22,7 +22,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
 
 class List&lt;T&gt;(Nil(unit), Cons([T * List&lt;T&gt;])) {
   function &lt;T&gt; of(t: T): List&lt;T&gt; =
-    Cons([t, Nil(unit)])
+    Cons([t, Nil({})])
   method cons(t: T): List&lt;T&gt; =
     Cons([t, this])
 }

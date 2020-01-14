@@ -17,7 +17,7 @@ const code = `
 
 class List<T>(Nil(unit), Cons([T * List<T>])) {
   function <T> of(t: T): List<T> =
-    Cons([t, Nil(unit)])
+    Cons([t, Nil({})])
   method cons(t: T): List<T> =
     Cons([t, this])
 }
