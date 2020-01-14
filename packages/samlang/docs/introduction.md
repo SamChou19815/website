@@ -6,8 +6,7 @@ title: Introduction
 SAMLANG is a statically-typed functional programming language designed and implemented by Sam Zhou.
 The language is still under development so the syntax and semantics may be changed at any time.
 
-The language is designed to be compiled down to TypeScript/JavaScript and Java. However, the Java
-compiler has not been implemented yet.
+The language can be compiled down to X86 assembly and machine code.
 
 ## Program Layout
 
@@ -15,21 +14,19 @@ Here is an example program:
 
 ```samlang
 class HelloWorld(message: string) {
+  method getMessage(): string = {
+    val { message } = this;
+    message
+  }
 
-    method getMessage(): string =
-        val { message } = this;
-        message
-
-    public function getGlobalMessage(): string = {
-        val hw = { message: "Hello World" };
-        hw.getMessage()
-    }
+  public function getGlobalMessage(): string = {
+    val hw = { message: "Hello World" };
+    hw.getMessage()
+  }
 }
 
 class Main {
-
-    function main(): string = HelloWorld.getGlobalMessage()
-
+  function main(): string = HelloWorld.getGlobalMessage()
 }
 ```
 
@@ -50,4 +47,4 @@ class ClassD {
 ```
 
 Cyclic dependencies and mutual recursion between different classes are allowed. However, cyclic
-dependencies between modules are strictly prohibited.
+dependencies between modules are strongly discouraged.

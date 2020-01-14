@@ -10,11 +10,8 @@ For example, we should put some math functions inside a `Math` utility module. i
 
 ```samlang
 class Math {
-
-    function plus(a: int, b: int): int = a + b
-
-    function cosine(angleInDegree: int): int = panic("Not supported!")
-
+  function plus(a: int, b: int): int = a + b
+  function cosine(angleInDegree: int): int = panic("Not supported!")
 }
 ```
 
@@ -33,7 +30,7 @@ although they are not very useful.
 You already see two several _primitive_ types: `string` and `int`. There are 4 kinds of primitive
 types: `unit`, `int`, `string`, `bool`.
 
-The `unit` type has only one possible value, which is `unit`. It's usually an indication of some
+The `unit` type has only one possible value, which is `{}`. It's usually an indication of some
 side effects. The `int` type includes all 64-bit integers. The string type includes all the strings
 quoted by double-quotes, like `"Hello World!"`. The `bool` types has two possible values: `true` and
 `false`.
@@ -51,12 +48,10 @@ this:
 
 ```samlang
 class Student(name: string, age: int) {
+  method getName(): string = this.name
+  private method getAge(): int = this.age
 
-    public method getName(): string = this.name
-    method getAge(): int = this.age
-
-    function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
-
+  function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
 }
 ```
 
@@ -69,8 +64,8 @@ You can also see methods defined here. You can think of method as a special kind
 has an implicit `this` passes as the first parameter. (You cannot name `this` as a parameter name
 because it's a keyword.)
 
-The `public` keyword tells the type-checker that this function or method can be used outside of the
-module that defines it.
+The `private` keyword tells the type-checker that this function or method cannot be used outside of
+the class that defines it.
 
 ## Variant Class Module
 
@@ -84,20 +79,20 @@ class PrimitiveType(
     S(string),
     B(bool),
 ) {
-    // some random functions
-    public function getUnit(): PrimitiveType = U(unit)
-    public function getInteger(): PrimitiveType = I(42)
-    public function getString(): PrimitiveType = S("Answer to life, universe, and everything.")
-    public function getBool(): PrimitiveType = B(false)
+  // some random functions
+  function getUnit(): PrimitiveType = U({})
+  function getInteger(): PrimitiveType = I(42)
+  function getString(): PrimitiveType = S("Answer to life, universe, and everything.")
+  function getBool(): PrimitiveType = B(false)
 
-    // pattern matching!
-    public method isTruthy(): bool =
-        match this {
-            | U _ -> false
-            | I i -> i != 0
-            | S s -> s != ""
-            | B b -> b
-        }
+  // pattern matching!
+  method isTruthy(): bool =
+    match this {
+      | U _ -> false
+      | I i -> i != 0
+      | S s -> s != ""
+      | B b -> b
+    }
 }
 ```
 
@@ -113,28 +108,25 @@ Generics is supported in all kinds of modules. Here are some examples.
 
 ```samlang
 class FunctionExample {
-    public function <T> getIdentityFunction(): (T) -> T = (x) -> x
+  function <T> getIdentityFunction(): (T) -> T = (x) -> x
 }
 
 class Box<T>(content: T) {
+  function <T> init(content: T): Box<T> = { content } // object short hand syntax
 
-    public function <T> init(content: T): Box<T> = { content } // object short hand syntax
-
-    public method getContent(): T = {
-        val { content } = this; content
-    }
+  method getContent(): T = {
+    val { content } = this; content
+  }
 }
 
 class Option<T>(None(unit), Some(T)) {
+  function <T> getNone(): Option<T> = None(unit)
+  function <T> getSome(d: T): Option<T> = Some(d)
 
-    public function <T> getNone(): Option<T> = None(unit)
-    public function <T> getSome(d: T): Option<T> = Some(d)
-
-    public method <R> map(f: (T) -> R): Option<R> =
-        match (this) {
-            | None _ -> None(unit)
-            | Some d -> Some(f(d))
-        }
-
+  method <R> map(f: (T) -> R): Option<R> =
+    match (this) {
+      | None _ -> None(unit)
+      | Some d -> Some(f(d))
+    }
 }
 ```
