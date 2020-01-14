@@ -20,6 +20,7 @@
   width: 100%;
   height: calc(100% - 60px);
   padding: 0 !important;
+  background: #f7f7f7;
 }
 
 .EditorCardLayer {
@@ -46,6 +47,7 @@
 
 .EditorCardPreviewLayer {
   margin: 0;
+  overflow-y: visible;
   z-index: 1;
 }
 
