@@ -30,7 +30,7 @@ export default function InputCard({ onSubmit }: Props): ReactElement {
   const codeBlockStyle: CSSProperties = {
     transform: `translate(0, -${scrollTop}px)`,
     bottom: `-${scrollTop}px`
-  }
+  };
   return (
     <Card className={rootClassName}>
       <CardContent className={styles.EditorCardContainer}>
