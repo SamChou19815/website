@@ -8,7 +8,7 @@ to add parenthesis.
 
 ## Literal
 
-These are all valid literals: `42`, `true`, `false`, `"aaa"`, `unit`.
+These are all valid literals: `42`, `true`, `false`, `"aaa"`.
 
 These are not: `3.14`, `'c'`.
 
@@ -28,9 +28,10 @@ function identity(a: int): int = a
 or
 
 ```samlang
-function random(): int =
-    val a = 42; // very random
-    a
+function random(): int = {
+  val a = 42; // very random
+  a
+}
 ```
 
 ## Class Function
@@ -41,12 +42,12 @@ For example, you can write:
 
 ```samlang
 class Foo(a: int) {
-    public function bar(): int = 3
+  public function bar(): int = 3
 }
 
 class Main {
-    function oof(): int = 14
-    function main(): int = Foo.bar() * Main.oof()
+  function oof(): int = 14
+  function main(): int = Foo.bar() * Main.oof()
 }
 ```
 
@@ -85,11 +86,11 @@ is to throw an _unchecked_ exception with a specified message. For example, you 
 
 ```samlang
 function div(a: int, b: int): int =
-    if b == 0 then (
-        panic("Division by zero is illegal!")
-    ) else (
-        a / b
-    )
+  if b == 0 then (
+    panic("Division by zero is illegal!")
+  ) else (
+    a / b
+  )
 ```
 
 When you do something illegal (e.g. division by zero), the interpreter may decide to panic.
@@ -120,25 +121,25 @@ the same type as `c` and `d`.
 
 ## Match Expressions (Pattern Matching!)
 
-Suppose you have a variant type like `class Option<T>(None of unit | Some of T) {}`. You can match
+Suppose you have a variant type like `class Option<T>(None(unit), Some(T)) {}`. You can match
 on it like:
 
 ```samlang
 function matchExample(opt: Option<int>): int =
-    match (opt) {
-        | None _ -> 42
-        | Some a -> a
-    }
+  match (opt) {
+    | None _ -> 42
+    | Some a -> a
+  }
 ```
 
 Pattern matching must be exhaustive. For example, the following code will have a compile-time error:
 
 ```samlang
 function badMatchExample(opt: Option<int>): int =
-    match (opt) {
-        | None _ -> 42
-        // missing the Some case, bad code
-    }
+  match (opt) {
+    | None _ -> 42
+    // missing the Some case, bad code
+  }
 ```
 
 ## Lambda
@@ -155,14 +156,14 @@ You can define new local variables by using the val statement within a block of 
 
 ```samlang
 class Obj(d: int, e: int) {
-    function valExample(): int = {
-        val a: int = 1;
-        val b = 2;
-        val [_, c] = ["dd", 3];
-        val { e as d } = { d: 5, e: 4 }
-        val _ = 42;
-        a + b * c / d
-    }
+  function valExample(): int = {
+    val a: int = 1;
+    val b = 2;
+    val [_, c] = ["dd", 3];
+    val { e as d } = { d: 5, e: 4 }
+    val _ = 42;
+    a + b * c / d
+  }
 }
 ```
 
@@ -175,15 +176,15 @@ Statement blocks can be nested:
 
 ```samlang
 function nestedBlocks(): int = {
-    val a = {
-        val b = 4;
-        val c = {
-            val d = b;
-            b
-        };
-        b
+  val a = {
+    val b = 4;
+    val c = {
+      val d = b;
+      b
     };
-    a + 1
+    b
+  };
+  a + 1
 }
 ```
 
