@@ -47,7 +47,7 @@ Here we introduce the first kind of class module: _object class module_. You can
 this:
 
 ```samlang
-class Student(val name: string, val age: int) {
+class Student(private val name: string, val age: int) {
   method getName(): string = this.name
   private method getAge(): int = this.age
   function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
@@ -63,8 +63,8 @@ You can also see methods defined here. You can think of method as a special kind
 has an implicit `this` passes as the first parameter. (You cannot name `this` as a parameter name
 because it's a keyword.)
 
-The `private` keyword tells the type-checker that this function or method cannot be used outside of
-the class that defines it.
+The `private` keyword tells the type-checker that this function, field or method cannot be used
+outside of the class that defines it.
 
 ## Variant Class Module
 

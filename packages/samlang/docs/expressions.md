@@ -111,6 +111,8 @@ Here are the supported ones:
 - `a < b`, `a <= b`, `a > b`, `a >= b`: `a` and `b` must be `int`, and the result is `bool`;
 - `a == b`, `a != b`: `a` and `b` must have the same type, and the result is `bool.`;
 - `a && b`, `a || b`: `a` and `b` must be `bool`, and the result is `bool`;
+- `a::b` (string concatenation of `a` and `b`): `a` and `b` must be `string`, and the result is
+  `string`
 
 ## If-Else Expressions
 
@@ -150,7 +152,7 @@ surrounded by parenthesis.
 
 You can optionally type-annotate some parameters: `(x: int, y) -> x + y`.
 
-## Sttatement Block Expression
+## Statement Block Expression
 
 You can define new local variables by using the val statement within a block of statements:
 
@@ -189,4 +191,5 @@ function nestedBlocks(): int = {
 ```
 
 You may write `function a(): unit = { val _ = 3; unit }`. There is a syntactic sugar for this
-use-case: `function a(): unit = { val _ = 3; }`.
+use-case: `function a(): unit = { val _ = 3; }`. Therefore, you can also create a `unit` value by
+`{}`.

@@ -14,12 +14,12 @@ Here is an example program:
 
 ```samlang
 class HelloWorld(val message: string) {
-  method getMessage(): string = {
+  private method getMessage(): string = {
     val { message } = this;
     message
   }
 
-  public function getGlobalMessage(): string = {
+  function getGlobalMessage(): string = {
     val hw = { message: "Hello World" };
     hw.getMessage()
   }
@@ -42,7 +42,7 @@ import { ClassA, ClassB } from Foo.Bar.Module
 import { ClassC, ClassD } from Baz.Foo.Module
 
 class ClassD {
-    function main(): int = ClassA.value() + ClassC.value()
+  function main(): int = ClassA.value() + ClassC.value()
 }
 ```
 
