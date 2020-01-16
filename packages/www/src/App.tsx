@@ -13,12 +13,6 @@ const WebTerminal = lazy(() => import('./components/WebTerminal'));
 
 const buttons: ReactElement = (
   <>
-    <MaterialButtonLink href="/transcript.pdf" color="inherit" className={styles.Hideable}>
-      Transcript
-    </MaterialButtonLink>
-    <MaterialButtonLink href="/resume.pdf" color="inherit" className={styles.Hideable}>
-      Resume
-    </MaterialButtonLink>
     <MaterialButtonLink href="https://blog.developersam.com" color="inherit">
       Blog
     </MaterialButtonLink>
