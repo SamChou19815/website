@@ -36,9 +36,8 @@ export default (): ReactElement => (
       <IconLine Icon={Domain}>Computer Science</IconLine>
       <IconLine Icon={Code}>Coding since 13</IconLine>
       <CardActions>
-        <MaterialButtonLink href="#projects">Projects</MaterialButtonLink>
-        <MaterialButtonLink href="#tech-talks">Talks</MaterialButtonLink>
-        <MaterialButtonLink href="#timeline">Timeline</MaterialButtonLink>
+        <MaterialButtonLink href="/resume.pdf">Resume</MaterialButtonLink>
+        <MaterialButtonLink href="/transcript.pdf">Transcript</MaterialButtonLink>
       </CardActions>
     </Card>
   </div>

@@ -14,66 +14,6 @@ exports[`App matches snapshot. 1`] = `
         Developer Sam
       </h6>
       <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text Hideable MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-            href="/transcript.pdf"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            Transcript
-          </a>
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text Hideable MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-            href="/resume.pdf"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            Resume
-          </a>
-        </span>
-      </button>
-      <button
         className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
         disabled={false}
         onBlur={[Function]}
@@ -347,11 +287,11 @@ class Main {
           >
             <a
               className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="#projects"
+              href="/resume.pdf"
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              Projects
+              Resume
             </a>
           </span>
         </button>
@@ -377,41 +317,11 @@ class Main {
           >
             <a
               className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="#tech-talks"
+              href="/transcript.pdf"
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              Talks
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
-          >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="#timeline"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Timeline
+              Transcript
             </a>
           </span>
         </button>
