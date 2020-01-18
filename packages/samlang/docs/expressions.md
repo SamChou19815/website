@@ -95,6 +95,16 @@ function div(a: int, b: int): int =
 
 When you do something illegal (e.g. division by zero), the interpreter may decide to panic.
 
+## Built-in Function Call
+
+There are three built-in functions:
+
+- `stringToInt: (string) -> int`. It will panic if the given string cannot be converted to int.
+- `intToString: (int) -> string`
+- `println: (string) -> unit`
+
+You can directly call them in SAMLANG code.
+
 ## Function Call
 
 You can call a function as you would expect: `functionName(arg1, arg2)`.
@@ -112,7 +122,7 @@ Here are the supported ones:
 - `a == b`, `a != b`: `a` and `b` must have the same type, and the result is `bool.`;
 - `a && b`, `a || b`: `a` and `b` must be `bool`, and the result is `bool`;
 - `a::b` (string concatenation of `a` and `b`): `a` and `b` must be `string`, and the result is
-  `string`
+  `string`.
 
 ## If-Else Expressions
 
