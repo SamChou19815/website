@@ -8,6 +8,21 @@ The language is still under development so the syntax and semantics may be chang
 
 The language can be compiled down to X86 assembly and machine code.
 
+## Getting Started
+
+```bash
+git clone https://github.com/SamChou19815/samlang # Clone repo
+cd samlang
+./scripts/release # Build the project
+
+# Add samlang built project directory to path, or copy the files to another location.
+PATH="$PATH:./build/release"
+# Start using samlang
+samlang
+samlang -h
+samlang compile
+```
+
 ## Program Layout
 
 Here is an example program:
