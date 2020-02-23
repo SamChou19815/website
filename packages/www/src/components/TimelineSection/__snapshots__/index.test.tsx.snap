@@ -47,7 +47,6 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -96,7 +95,6 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -145,7 +143,6 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -226,7 +223,6 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -278,7 +274,6 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -330,7 +325,6 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -1328,7 +1322,6 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -1377,7 +1370,6 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -1426,7 +1418,6 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -2367,7 +2358,6 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -2419,7 +2409,6 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -2471,7 +2460,6 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -4359,7 +4347,6 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -4408,7 +4395,6 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -4457,7 +4443,6 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -5039,7 +5024,6 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -5091,7 +5075,6 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -5143,7 +5126,6 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -6651,7 +6633,6 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -6700,7 +6681,6 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -6749,7 +6729,6 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
             checked={false}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -8191,7 +8170,6 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -8243,7 +8221,6 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
@@ -8295,7 +8272,6 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
             checked={true}
             className="PrivateSwitchBase-input-18"
             data-indeterminate={false}
-            disabled={false}
             onChange={[Function]}
             type="checkbox"
           />
