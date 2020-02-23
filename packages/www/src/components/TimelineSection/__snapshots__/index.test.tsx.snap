@@ -2077,6 +2077,70 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
         <div
           className="Timestamp"
         >
+          2017-12
+        </div>
+        <span
+          className="ConnectorDot"
+        />
+        <div
+          className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <img
+            className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+            loading="lazy"
+            src="critter-world.png"
+            title="CS 2112 Critter World"
+          />
+          <div
+            className="MuiCardHeader-root"
+          >
+            <div
+              className="MuiCardHeader-avatar"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                />
+              </svg>
+            </div>
+            <div
+              className="MuiCardHeader-content"
+            >
+              <span
+                className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+              >
+                CS 2112 Critter World
+              </span>
+              <span
+                className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+              >
+                Project
+              </span>
+            </div>
+          </div>
+          <div
+            className="MuiCardContent-root"
+          >
+            Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="Container"
+    >
+      <div
+        className="ContentWrapper"
+      >
+        <div
+          className="Timestamp"
+        >
           2017-07
         </div>
         <span
@@ -3405,6 +3469,70 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
                 className="MuiTouchRipple-root"
               />
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="Container"
+    >
+      <div
+        className="ContentWrapper"
+      >
+        <div
+          className="Timestamp"
+        >
+          2017-12
+        </div>
+        <span
+          className="ConnectorDot"
+        />
+        <div
+          className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <img
+            className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+            loading="lazy"
+            src="critter-world.png"
+            title="CS 2112 Critter World"
+          />
+          <div
+            className="MuiCardHeader-root"
+          >
+            <div
+              className="MuiCardHeader-avatar"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                />
+              </svg>
+            </div>
+            <div
+              className="MuiCardHeader-content"
+            >
+              <span
+                className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+              >
+                CS 2112 Critter World
+              </span>
+              <span
+                className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+              >
+                Project
+              </span>
+            </div>
+          </div>
+          <div
+            className="MuiCardContent-root"
+          >
+            Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.
           </div>
         </div>
       </div>
@@ -7777,6 +7905,70 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
         <div
           className="Timestamp"
         >
+          2017-12
+        </div>
+        <span
+          className="ConnectorDot"
+        />
+        <div
+          className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <img
+            className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+            loading="lazy"
+            src="critter-world.png"
+            title="CS 2112 Critter World"
+          />
+          <div
+            className="MuiCardHeader-root"
+          >
+            <div
+              className="MuiCardHeader-avatar"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                />
+              </svg>
+            </div>
+            <div
+              className="MuiCardHeader-content"
+            >
+              <span
+                className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+              >
+                CS 2112 Critter World
+              </span>
+              <span
+                className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+              >
+                Project
+              </span>
+            </div>
+          </div>
+          <div
+            className="MuiCardContent-root"
+          >
+            Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="Container"
+    >
+      <div
+        className="ContentWrapper"
+      >
+        <div
+          className="Timestamp"
+        >
           2017-07
         </div>
         <span
@@ -9615,6 +9807,70 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
                 Work & Internship
               </span>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="Container"
+    >
+      <div
+        className="ContentWrapper"
+      >
+        <div
+          className="Timestamp"
+        >
+          2017-12
+        </div>
+        <span
+          className="ConnectorDot"
+        />
+        <div
+          className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <img
+            className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+            loading="lazy"
+            src="critter-world.png"
+            title="CS 2112 Critter World"
+          />
+          <div
+            className="MuiCardHeader-root"
+          >
+            <div
+              className="MuiCardHeader-avatar"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                />
+              </svg>
+            </div>
+            <div
+              className="MuiCardHeader-content"
+            >
+              <span
+                className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+              >
+                CS 2112 Critter World
+              </span>
+              <span
+                className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+              >
+                Project
+              </span>
+            </div>
+          </div>
+          <div
+            className="MuiCardContent-root"
+          >
+            Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.
           </div>
         </div>
       </div>
