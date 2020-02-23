@@ -1,5 +1,6 @@
 import ChunkReader from '../../assets/timeline/chunk-reader.jpg';
 import CritterCompiler from '../../assets/timeline/critter-compiler.png';
+import CritterWorld from '../../assets/timeline/critter-world.png';
 import FacebookHackerWay from '../../assets/timeline/fb-hacker-way.jpg';
 import FacebookStickerAndPen from '../../assets/timeline/fb-sticker-pen.jpg';
 import TEN from '../../assets/projects/ten.png';
@@ -180,6 +181,14 @@ const items: TimelineItem[] = [
     title: 'ULearn Educational Group SWE Intern',
     type: 'work',
     time: '2018-05'
+  },
+  {
+    title: 'CS 2112 Critter World',
+    type: 'project',
+    image: CritterWorld,
+    time: '2017-12',
+    detail:
+      "Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019."
   },
   {
     title: 'First winning hackathon',

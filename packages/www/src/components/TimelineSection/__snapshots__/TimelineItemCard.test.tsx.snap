@@ -1343,6 +1343,73 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
     <div
       className="Timestamp"
     >
+      2017-12
+    </div>
+    <span
+      className="ConnectorDot"
+    />
+    <div
+      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <img
+        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+        loading="lazy"
+        src="critter-world.png"
+        title="CS 2112 Critter World"
+      />
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            CS 2112 Critter World
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            Project
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardContent-root"
+      >
+        Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
+<div
+  className="Container"
+>
+  <div
+    className="ContentWrapper"
+  >
+    <div
+      className="Timestamp"
+    >
       2017-09
     </div>
     <span
@@ -1464,7 +1531,7 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 16 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -1520,7 +1587,7 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 16 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -1616,7 +1683,7 @@ exports[`TimelineItemCard with item 16 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -1709,7 +1776,7 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -1771,7 +1838,7 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -1867,7 +1934,7 @@ exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 21 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -1923,7 +1990,7 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 21 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -2018,7 +2085,7 @@ exports[`TimelineItemCard with item 21 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 23 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -2074,7 +2141,7 @@ exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 23 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 24 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -2130,7 +2197,7 @@ exports[`TimelineItemCard with item 23 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 24 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 25 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -2186,7 +2253,7 @@ exports[`TimelineItemCard with item 24 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 25 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -2247,7 +2314,7 @@ exports[`TimelineItemCard with item 25 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 27 matches snapshot. 1`] = `
 <div
   className="Container"
 >
@@ -2303,7 +2370,7 @@ exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
 </div>
 `;
 
-exports[`TimelineItemCard with item 27 matches snapshot. 1`] = `
+exports[`TimelineItemCard with item 28 matches snapshot. 1`] = `
 <div
   className="Container"
 >
