@@ -7,8 +7,8 @@
     "@material-ui/icons": "^4.9.1",
     "@types/react-redux": "^7.1.7",
     "lib-react": "0.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.4"
   },
