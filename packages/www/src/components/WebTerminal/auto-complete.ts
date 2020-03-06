@@ -45,13 +45,12 @@ export const autoCompleteCommand = (sources: readonly string[], prefix: string):
  */
 export const autoCompleteFilename = (state: FileSystemState, prefix: string): string | null => {
   const parent = getParent(prefix);
-  const files = (() => {
-    try {
-      return listFiles(changeDirectory(state, parent), []).split('\n');
-    } catch {
-      return null;
-    }
-  })();
+  let files: string[] | null;
+  try {
+    files = listFiles(changeDirectory(state, parent), []).split('\n');
+  } catch {
+    files = null;
+  }
   if (files === null) {
     return null;
   }
