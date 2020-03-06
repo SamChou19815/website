@@ -37,6 +37,6 @@
     "react-scripts": "3.4.0",
     "react-snap": "^1.23.0",
     "react-test-renderer": "^16.13.0",
-    "typescript": "3.7.5"
+    "typescript": "3.8.3"
   }
 }
