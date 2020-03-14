@@ -14,6 +14,17 @@ type Props = {
 
 initialize();
 
+const ErrorDetail = ({ children }: { readonly children: string }): ReactElement => (
+  <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'red' }}>
+    <code>
+      {children.split('\n').map((line, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <p key={index}>{line}</p>
+      ))}
+    </code>
+  </div>
+);
+
 /**
  * The component of the language demo.
  */
@@ -49,18 +60,10 @@ export default function ResultCard({ response }: Props): ReactElement {
         break;
       }
       case 'BAD_SYNTAX':
-        children = (
-          <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'red' }}>
-            <code>{response.detail}</code>
-          </div>
-        );
+        children = <ErrorDetail>{response.detail}</ErrorDetail>;
         break;
       case 'BAD_TYPE':
-        children = (
-          <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'red' }}>
-            <code>{response.detail}</code>
-          </div>
-        );
+        children = <ErrorDetail>{response.detail}</ErrorDetail>;
         break;
       default:
         throw new Error('Bad Response');

@@ -29,7 +29,9 @@ exports[`ResultCard(BAD_SYNTAX) matches snapshot. 1`] = `
       }
     >
       <code>
-        foo
+        <p>
+          foo
+        </p>
       </code>
     </div>
   </div>
@@ -65,7 +67,9 @@ exports[`ResultCard(BAD_TYPE) matches snapshot. 1`] = `
       }
     >
       <code>
-        bar
+        <p>
+          bar
+        </p>
       </code>
     </div>
   </div>
