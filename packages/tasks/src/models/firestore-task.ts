@@ -30,10 +30,14 @@ export const fromPartialReduxStoreTask = ({
   dependencies
 });
 
-export const toReduxStoreTask = (
-  taskId: string,
-  { projectId, name, content, completed, dependencies }: FirestoreTask
-): ReduxStoreTask => ({
+export const toReduxStoreTask = ({
+  taskId,
+  projectId,
+  name,
+  content,
+  completed,
+  dependencies
+}: FirestoreTask & { readonly taskId: string }): ReduxStoreTask => ({
   taskId: createTaskId(taskId),
   projectId,
   name,

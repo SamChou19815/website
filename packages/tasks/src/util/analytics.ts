@@ -1,6 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/analytics';
-import { AppUser } from '../firebase/authentication';
+import { AppUser } from './authentication';
 import { Page } from './constants';
 
 const viewPage = (page: Page): void =>

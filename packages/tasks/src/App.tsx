@@ -6,6 +6,7 @@ import LoadingPage from './components/pages/LoadingPage';
 import MainAppBarrier from './components/util/MainAppBarrier';
 import { APP_NAME } from './util/constants';
 import styles from './App.module.css';
+import { getRootObservable } from './util/firestore';
 
 const buttons: ReactElement = (
   <MaterialButtonLink href="https://developersam.com" color="inherit">
@@ -25,15 +26,25 @@ const Development = (): ReactElement => (
 const Main = (): ReactElement =>
   process.env.NODE_ENV === 'production' ? <Production /> : <Development />;
 
-const mockDataLoader = (): Promise<void> =>
-  new Promise(resolve => {
-    setTimeout(() => resolve(), 1000);
+const dataLoader = (): Promise<void> => {
+  const rootObservable = getRootObservable();
+  let resolved = false;
+  return new Promise(resolve => {
+    rootObservable.subscribe(allFirestoreUserData => {
+      // eslint-disable-next-line no-console
+      console.log(allFirestoreUserData);
+      if (!resolved) {
+        resolved = true;
+        resolve();
+      }
+    });
   });
+};
 
 export default (): ReactElement => (
   <MaterialThemedApp styles={appStyles} title={APP_NAME} buttons={buttons}>
     <MainAppBarrier
-      dataLoader={mockDataLoader}
+      dataLoader={dataLoader}
       landingPageComponent={LandingPage}
       loadingPageComponent={LoadingPage}
       appComponent={Main}
