@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
-    "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
+    "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,json}'",
+    "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,json}'",
     "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx",
     "lint:fix": "yarn lint --fix"
   },
@@ -32,11 +32,23 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "firebase-tools": "^7.15.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "prettier": "1.19.1",
     "react-app-rewired": "^2.1.5",
     "react-scripts": "3.4.0",
     "react-snap": "^1.23.0",
     "react-test-renderer": "^16.13.0",
     "typescript": "3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,js,tsx,jsx,scss,css,html}": [
+      "prettier --write"
+    ]
   }
 }
