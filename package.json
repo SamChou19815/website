@@ -39,8 +39,7 @@
     "react-scripts": "3.4.0",
     "react-snap": "^1.23.0",
     "react-test-renderer": "^16.13.0",
-    "typescript": "3.8.3",
-    "yarn": "^1.22.4"
+    "typescript": "3.8.3"
   },
   "husky": {
     "hooks": {
