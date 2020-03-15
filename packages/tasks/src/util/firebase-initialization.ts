@@ -1,3 +1,5 @@
+/** Import this module to initialize everything for firebase. */
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';

@@ -26,10 +26,13 @@ export const fromPartialReduxStoreProject = ({
   name
 });
 
-export const toReduxStoreProject = (
-  projectId: string,
-  { owners, isPublic, isArchived, name }: FirestoreProject
-): ReduxStoreProject => ({
+export const toReduxStoreProject = ({
+  projectId,
+  owners,
+  isPublic,
+  isArchived,
+  name
+}: FirestoreProject & { readonly projectId: string }): ReduxStoreProject => ({
   projectId: createProjectId(projectId),
   owners,
   isPublic,

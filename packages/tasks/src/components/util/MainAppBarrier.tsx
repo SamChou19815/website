@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect } from 'react';
 import firebase from 'firebase/app';
 import { setGAUser } from '../../util/analytics';
-import { cacheAppUser, toAppUser } from '../../firebase/authentication';
+import { cacheAppUser, toAppUser } from '../../util/authentication';
 
 type Props = {
   /**
