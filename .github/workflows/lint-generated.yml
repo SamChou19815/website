@@ -1,10 +1,5 @@
 name: lint-generated
-on:
-  push:
-    paths:
-      - '.github/workflows/lint-generated.yml'
-      - '.github/workflows/generated-ci.yml'
-      - '.github/workflows/generated-cd.yml'
+on: push
 
 jobs:
   lint:
