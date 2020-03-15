@@ -1,14 +1,11 @@
 import React from 'react';
-import { hydrate, render } from 'react-dom';
-import './index.css';
+import { render } from 'react-dom';
+import './firebase';
 import App from './App';
+import './index.css';
 
 const rootElement = document.getElementById('root');
 if (rootElement == null) {
   throw new Error('We messed up the DOM tree!');
 }
-if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
-} else {
-  render(<App />, rootElement);
-}
+render(<App />, rootElement);
