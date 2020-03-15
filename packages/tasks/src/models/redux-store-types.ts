@@ -17,3 +17,8 @@ export type ReduxStoreTask = {
   readonly completed: boolean;
   readonly dependencies: readonly TaskId[];
 };
+
+export type ReduxStoreState = {
+  readonly projects: readonly ReduxStoreProject[];
+  readonly tasks: readonly ReduxStoreTask[];
+};

@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Provider as ReactReduxProvider } from 'react-redux';
 import MaterialThemedApp from 'lib-react/MaterialThemedApp';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import LandingPage from './components/pages/LandingPage';
@@ -7,6 +8,7 @@ import MainAppBarrier from './components/util/MainAppBarrier';
 import { APP_NAME } from './util/constants';
 import styles from './App.module.css';
 import { getRootObservable } from './util/firestore';
+import { patchAction, store } from './models/redux-store';
 
 const buttons: ReactElement = (
   <MaterialButtonLink href="https://developersam.com" color="inherit">
@@ -14,17 +16,12 @@ const buttons: ReactElement = (
   </MaterialButtonLink>
 );
 
-const Main = (): ReactElement => (
-  <div style={{ textAlign: 'center' }}>All data have been loaded.</div>
-);
-
 const dataLoader = (): Promise<void> => {
   const rootObservable = getRootObservable();
   let resolved = false;
   return new Promise(resolve => {
     rootObservable.subscribe(allFirestoreUserData => {
-      // eslint-disable-next-line no-console
-      console.log(allFirestoreUserData);
+      store.dispatch(patchAction(allFirestoreUserData));
       if (!resolved) {
         resolved = true;
         resolve();
@@ -32,6 +29,12 @@ const dataLoader = (): Promise<void> => {
     });
   });
 };
+
+const Main = (): ReactElement => (
+  <ReactReduxProvider store={store}>
+    <div style={{ textAlign: 'center' }}>All data have been loaded.</div>
+  </ReactReduxProvider>
+);
 
 export default (): ReactElement => (
   <MaterialThemedApp

@@ -7,6 +7,7 @@ export type FirestoreProject = {
   readonly isArchived: boolean;
   readonly name: string;
 };
+export type FirestoreProjectWithId = FirestoreProject & { readonly projectId: string };
 
 export type FirestoreTask = {
   readonly projectId: ProjectId;
@@ -14,4 +15,10 @@ export type FirestoreTask = {
   readonly content: string;
   readonly completed: boolean;
   readonly dependencies: readonly TaskId[];
+};
+export type FirestoreTaskWithId = FirestoreTask & { readonly taskId: string };
+
+export type AllFirestoreUserData = {
+  readonly projects: readonly FirestoreProjectWithId[];
+  readonly tasks: readonly FirestoreTaskWithId[];
 };
