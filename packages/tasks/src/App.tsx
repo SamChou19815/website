@@ -13,18 +13,10 @@ const buttons: ReactElement = (
     Home
   </MaterialButtonLink>
 );
-const appStyles = { app: styles.App, title: styles.Title };
 
-const Production = (): ReactElement => (
-  <h1 style={{ textAlign: 'center' }}>Under active development...</h1>
-);
-
-const Development = (): ReactElement => (
+const Main = (): ReactElement => (
   <div style={{ textAlign: 'center' }}>All data have been loaded.</div>
 );
-
-const Main = (): ReactElement =>
-  process.env.NODE_ENV === 'production' ? <Production /> : <Development />;
 
 const dataLoader = (): Promise<void> => {
   const rootObservable = getRootObservable();
@@ -42,7 +34,11 @@ const dataLoader = (): Promise<void> => {
 };
 
 export default (): ReactElement => (
-  <MaterialThemedApp styles={appStyles} title={APP_NAME} buttons={buttons}>
+  <MaterialThemedApp
+    title={APP_NAME}
+    buttons={buttons}
+    styles={{ app: styles.App, title: styles.Title }}
+  >
     <MainAppBarrier
       dataLoader={dataLoader}
       landingPageComponent={LandingPage}

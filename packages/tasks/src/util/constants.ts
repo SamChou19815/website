@@ -1,4 +1,4 @@
-export const APP_NAME = 'Tasks';
+export const APP_NAME = 'Tasks (Alpha)';
 
 export type Page = 'Landing Page' | 'Tasks View' | 'Graph View';
 
