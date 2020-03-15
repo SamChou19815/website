@@ -1,7 +1,13 @@
 import { firestore } from 'firebase/app';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { FirestoreProject, FirestoreTask } from '../models/firestore-types';
+import {
+  FirestoreProject,
+  FirestoreProjectWithId,
+  FirestoreTask,
+  FirestoreTaskWithId,
+  AllFirestoreUserData
+} from '../models/firestore-types';
 import { getAppUser } from './authentication';
 
 const store = firestore();
@@ -13,13 +19,6 @@ export const transaction = <T>(
 
 export const projectsCollection = store.collection('tasks-app-projects');
 export const tasksCollection = store.collection('tasks-app-tasks');
-
-type FirestoreProjectWithId = FirestoreProject & { readonly projectId: string };
-type FirestoreTaskWithId = FirestoreTask & { readonly taskId: string };
-type AllUserFirestoreData = {
-  readonly projects: readonly FirestoreProjectWithId[];
-  readonly tasks: readonly FirestoreTaskWithId[];
-};
 
 const getProjectsObservable = (): Observable<readonly FirestoreProjectWithId[]> =>
   new Observable(subscriber => {
@@ -51,12 +50,12 @@ const getTasksObservable = (
     return { unsubscribe };
   });
 
-export const getRootObservable = (): Observable<AllUserFirestoreData> =>
+export const getRootObservable = (): Observable<AllFirestoreUserData> =>
   getProjectsObservable().pipe(
     switchMap(projects => {
       const projectIds = projects.map(project => project.projectId);
       if (projectIds.length === 0) {
-        return new Observable<AllUserFirestoreData>(subscriber =>
+        return new Observable<AllFirestoreUserData>(subscriber =>
           subscriber.next({ projects, tasks: [] })
         );
       }
