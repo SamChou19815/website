@@ -10,7 +10,14 @@ const workspaceInformation = (() => {
    * @type {Map<string, readonly string[]>}
    */
   const map = new Map();
-  const workspacesJson = JSON.parse(execSync('yarn workspaces info --silent').toString());
+  let output = execSync('yarn workspaces info --silent')
+    .toString()
+    .trim();
+  if (output.startsWith('yarn workspaces')) {
+    const lines = output.split('\n');
+    output = lines.slice(1, lines.length - 1).join('\n');
+  }
+  const workspacesJson = JSON.parse(output);
   Object.entries(workspacesJson).forEach(([workspaceName, object]) => {
     map.set(workspaceName, object.workspaceDependencies);
   });

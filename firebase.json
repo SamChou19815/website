@@ -40,6 +40,17 @@
       ]
     },
     {
+      "target": "tasks",
+      "public": "packages/tasks/build",
+      "ignore": ["**/.*"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "ten",
       "public": "packages/ten/build",
       "ignore": ["**/.*"],
