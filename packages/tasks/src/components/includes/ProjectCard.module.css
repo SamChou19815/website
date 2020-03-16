@@ -21,6 +21,13 @@
   color: white;
 }
 
+.ProjectCardHeaderText {
+  text-overflow: ellipsis;
+  width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .ProjectCardColorRed {
   background-color: #f44336;
 }

@@ -63,7 +63,7 @@ export default ({
   <Card variant="outlined" className={styles.ProjectCard}>
     <CardHeader
       avatar={<PublicOrPrivateIcon isPublic={isPublic} />}
-      classes={{ root: getHeaderClassname(color) }}
+      classes={{ root: getHeaderClassname(color), title: styles.ProjectCardHeaderText }}
       title={name}
       titleTypographyProps={{ variant: 'h4' }}
     />
