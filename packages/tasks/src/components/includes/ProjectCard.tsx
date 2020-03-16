@@ -9,6 +9,9 @@ import PublicIcon from '@material-ui/icons/Public';
 import AccountIcon from '@material-ui/icons/AccountCircle';
 import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreProject } from '../../models/redux-store-types';
+import ProjectCardEditForm from './ProjectCardEditForm';
+import MaterialAlertDialog from '../util/MaterialAlertDialog';
+import MaterialFormDialog from '../util/MaterialFormDialog';
 import styles from './ProjectCard.module.css';
 
 const PublicOrPrivateIcon = ({ isPublic }: { readonly isPublic: boolean }): ReactElement => (
@@ -23,8 +26,6 @@ const PublicOrPrivateIcon = ({ isPublic }: { readonly isPublic: boolean }): Reac
 
 type Props = {
   readonly project: ReduxStoreProject;
-  readonly onEditClicked?: () => void;
-  readonly onDeleteClicked?: () => void;
 };
 
 const getHeaderClassname = (color: SanctionedColor): string => {
@@ -53,12 +54,18 @@ const getHeaderClassname = (color: SanctionedColor): string => {
       throw new Error(`Unknown sanctioned color: ${color}`);
   }
 };
-export default ({
-  project: { projectId, isPublic, name, color },
-  onEditClicked,
-  onDeleteClicked
-}: Props): ReactElement => {
+export default ({ project: { projectId, isPublic, name, color } }: Props): ReactElement => {
   const routerHistory = useHistory();
+
+  const onEdit = (): void => {
+    // eslint-disable-next-line no-alert
+    alert('Project editing backend support has not been implemented yet...');
+  };
+  const onDelete = (): void => {
+    // eslint-disable-next-line no-alert
+    alert('Data removal backend support has not been implemented yet...');
+  };
+
   return (
     <Card variant="outlined" className={styles.ProjectCard}>
       <CardHeader
@@ -69,12 +76,30 @@ export default ({
         onClick={() => routerHistory.push(`/project/${projectId}`)}
       />
       <CardActions>
-        <Button size="small" color="primary" onClick={onEditClicked}>
-          Edit
-        </Button>
-        <Button size="small" color="primary" onClick={onDeleteClicked}>
-          Delete
-        </Button>
+        <MaterialFormDialog
+          formTitle="Editing Project"
+          initialFormValues={{ isPublic, name, color }}
+          onFormSubmit={onEdit}
+          formValidator={() => true}
+        >
+          {trigger => (
+            <Button size="small" color="primary" onClick={trigger}>
+              Edit
+            </Button>
+          )}
+          {ProjectCardEditForm}
+        </MaterialFormDialog>
+        <MaterialAlertDialog
+          alertTitle="Deleting a project?"
+          alertDescription="This means that all tasks associated with this project will also be deleted. Data cannot be recovered."
+          onConfirm={onDelete}
+        >
+          {trigger => (
+            <Button size="small" color="primary" onClick={trigger}>
+              Delete
+            </Button>
+          )}
+        </MaterialAlertDialog>
       </CardActions>
     </Card>
   );
