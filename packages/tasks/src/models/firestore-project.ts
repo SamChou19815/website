@@ -3,24 +3,24 @@ import { ReduxStoreProject } from './redux-store-types';
 import { createProjectId } from './ids';
 
 export const fromNewReduxStoreProject = ({
-  owners,
+  owner,
   isPublic,
   name,
   color
 }: ReduxStoreProject): FirestoreProject => ({
-  owners,
+  owner,
   isPublic,
   name,
   color
 });
 
 export const fromPartialReduxStoreProject = ({
-  owners,
+  owner,
   isPublic,
   name,
   color
 }: Partial<ReduxStoreProject>): Partial<FirestoreProject> => ({
-  owners,
+  owner,
   isPublic,
   name,
   color
@@ -28,13 +28,13 @@ export const fromPartialReduxStoreProject = ({
 
 export const toReduxStoreProject = ({
   projectId,
-  owners,
+  owner,
   isPublic,
   name,
   color
 }: FirestoreProject & { readonly projectId: string }): ReduxStoreProject => ({
   projectId: createProjectId(projectId),
-  owners,
+  owner,
   isPublic,
   name,
   color
