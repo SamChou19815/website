@@ -6,6 +6,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Tooltip from '@material-ui/core/Tooltip';
 import PublicIcon from '@material-ui/icons/Public';
 import AccountIcon from '@material-ui/icons/AccountCircle';
+import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreProject } from '../../models/redux-store-types';
 import styles from './ProjectCard.module.css';
 
@@ -26,8 +27,35 @@ type Props = {
   readonly onDeleteClicked?: () => void;
 };
 
+const getHeaderClassname = (color: SanctionedColor): string => {
+  switch (color) {
+    case 'Red':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorRed}`;
+    case 'Pink':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorPink}`;
+    case 'Purple':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorPurple}`;
+    case 'Indigo':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorIndigo}`;
+    case 'Blue':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorBlue}`;
+    case 'Teal':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorTeal}`;
+    case 'Green':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorGreen}`;
+    case 'Light Green':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorLightGreen}`;
+    case 'Orange':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorOrange}`;
+    case 'Gray':
+      return `${styles.ProjectCardHeader} ${styles.ProjectCardColorGray}`;
+    default:
+      throw new Error(`Unknown sanctioned color: ${color}`);
+  }
+};
+
 export default ({
-  project: { isPublic, name },
+  project: { isPublic, name, color },
   onEnterClicked,
   onEditClicked,
   onDeleteClicked
@@ -35,11 +63,7 @@ export default ({
   <Card variant="outlined" className={styles.ProjectCard}>
     <CardHeader
       avatar={<PublicOrPrivateIcon isPublic={isPublic} />}
-      classes={{
-        root: isPublic
-          ? `${styles.ProjectCardHeader} ${styles.ProjectCardColorPublic}`
-          : `${styles.ProjectCardHeader} ${styles.ProjectCardColorPrivate}`
-      }}
+      classes={{ root: getHeaderClassname(color) }}
       title={name}
       titleTypographyProps={{ variant: 'h4' }}
     />

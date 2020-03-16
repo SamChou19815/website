@@ -5,31 +5,37 @@ import { createProjectId } from './ids';
 export const fromNewReduxStoreProject = ({
   owners,
   isPublic,
-  name
+  name,
+  color
 }: ReduxStoreProject): FirestoreProject => ({
   owners,
   isPublic,
-  name
+  name,
+  color
 });
 
 export const fromPartialReduxStoreProject = ({
   owners,
   isPublic,
-  name
+  name,
+  color
 }: Partial<ReduxStoreProject>): Partial<FirestoreProject> => ({
   owners,
   isPublic,
-  name
+  name,
+  color
 });
 
 export const toReduxStoreProject = ({
   projectId,
   owners,
   isPublic,
-  name
+  name,
+  color
 }: FirestoreProject & { readonly projectId: string }): ReduxStoreProject => ({
   projectId: createProjectId(projectId),
   owners,
   isPublic,
-  name
+  name,
+  color
 });

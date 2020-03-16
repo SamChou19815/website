@@ -21,10 +21,42 @@
   color: white;
 }
 
-.ProjectCardColorPublic {
+.ProjectCardColorRed {
+  background-color: #f44336;
+}
+
+.ProjectCardColorPink {
+  background-color: #e91e63;
+}
+
+.ProjectCardColorPurple {
+  background-color: #9c27b0;
+}
+
+.ProjectCardColorIndigo {
+  background-color: #3f51b5;
+}
+
+.ProjectCardColorBlue {
+  background-color: #2196f3;
+}
+
+.ProjectCardColorTeal {
+  background-color: #009688;
+}
+
+.ProjectCardColorGreen {
+  background-color: #4caf50;
+}
+
+.ProjectCardColorLightGreen {
   background-color: #8bc34a;
 }
 
-.ProjectCardColorPrivate {
-  background-color: #2196f3;
+.ProjectCardColorOrange {
+  background-color: #ff9800;
+}
+
+.ProjectCardColorGray {
+  background-color: #607d8b;
 }

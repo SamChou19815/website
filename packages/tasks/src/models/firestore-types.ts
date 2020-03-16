@@ -1,10 +1,11 @@
-import { UserEmail } from './common-types';
+import { UserEmail, SanctionedColor } from './common-types';
 import { ProjectId, TaskId } from './ids';
 
 export type FirestoreProject = {
   readonly owners: readonly UserEmail[];
   readonly isPublic: boolean;
   readonly name: string;
+  readonly color: SanctionedColor;
 };
 export type FirestoreProjectWithId = FirestoreProject & { readonly projectId: string };
 
