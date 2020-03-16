@@ -4,7 +4,6 @@ import { ProjectId, TaskId } from './ids';
 export type FirestoreProject = {
   readonly owners: readonly UserEmail[];
   readonly isPublic: boolean;
-  readonly isArchived: boolean;
   readonly name: string;
 };
 export type FirestoreProjectWithId = FirestoreProject & { readonly projectId: string };

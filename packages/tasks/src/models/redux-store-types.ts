@@ -5,7 +5,6 @@ export type ReduxStoreProject = {
   readonly projectId: ProjectId;
   readonly owners: readonly UserEmail[];
   readonly isPublic: boolean;
-  readonly isArchived: boolean;
   readonly name: string;
 };
 
