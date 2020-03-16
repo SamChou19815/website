@@ -23,7 +23,7 @@ export const tasksCollection = store.collection('tasks-app-tasks');
 const getProjectsObservable = (): Observable<readonly FirestoreProjectWithId[]> =>
   new Observable(subscriber => {
     const unsubscribe = projectsCollection
-      .where('owners', 'array-contains', getAppUser().email)
+      .where('owner', '==', getAppUser().email)
       .onSnapshot(snapshot => {
         const projects: FirestoreProjectWithId[] = snapshot.docs.map(projectDocument => ({
           projectId: projectDocument.id,
