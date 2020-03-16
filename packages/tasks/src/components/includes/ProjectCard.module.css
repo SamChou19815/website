@@ -1,0 +1,30 @@
+.ProjectCard {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+  .ProjectCard {
+    margin: 1em auto;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .ProjectCard {
+    margin: 1em;
+    width: 400px;
+  }
+}
+
+.ProjectCardHeader {
+  padding: 4em 1em 1em 1em !important;
+  color: white;
+}
+
+.ProjectCardColorPublic {
+  background-color: #8bc34a;
+}
+
+.ProjectCardColorPrivate {
+  background-color: #2196f3;
+}
