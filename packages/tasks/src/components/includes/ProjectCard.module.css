@@ -1,7 +1,3 @@
-.ProjectCard {
-  cursor: pointer;
-}
-
 @media screen and (max-width: 720px) {
   .ProjectCard {
     margin: 1em auto;
@@ -17,6 +13,7 @@
 }
 
 .ProjectCardHeader {
+  cursor: pointer;
   padding: 4em 1em 1em 1em !important;
   color: white;
 }
