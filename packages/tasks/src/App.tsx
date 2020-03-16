@@ -9,6 +9,7 @@ import { APP_NAME } from './util/constants';
 import styles from './App.module.css';
 import { getRootObservable } from './util/firestore';
 import { patchAction, store } from './models/redux-store';
+import RootRouter from './components/pages/RootRouter';
 
 const buttons: ReactElement = (
   <MaterialButtonLink href="https://developersam.com" color="inherit">
@@ -32,7 +33,7 @@ const dataLoader = (): Promise<void> => {
 
 const Main = (): ReactElement => (
   <ReactReduxProvider store={store}>
-    <div style={{ textAlign: 'center' }}>All data have been loaded.</div>
+    <RootRouter />
   </ReactReduxProvider>
 );
 
