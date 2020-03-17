@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
-import TaskCard from '../includes/TaskCard';
-import styles from './TasksPage.module.css';
+import TaskCard from './TaskCard';
 
 export default (): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>(state =>
@@ -11,7 +10,7 @@ export default (): ReactElement => {
 
   return (
     <div>
-      <section className={styles.CardContainer}>
+      <section>
         {tasks.map(task => (
           <TaskCard key={task.taskId} task={task} />
         ))}

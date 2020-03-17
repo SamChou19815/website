@@ -6,7 +6,7 @@ import { RouteComponentsWithProjectIdParameter } from './router-types';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import TaskCard from '../includes/TaskCard';
 import TaskCardCreator from '../includes/TaskCardCreator';
-import styles from './TasksPage.module.css';
+import styles from './ProjectDashboardPage.module.css';
 import { createProjectId } from '../../models/ids';
 
 export default ({
@@ -28,7 +28,7 @@ export default ({
 
   return (
     <div>
-      <section className={styles.CardContainer}>
+      <section>
         {inCreationMode && (
           <TaskCardCreator
             projectId={createProjectId(projectId)}
