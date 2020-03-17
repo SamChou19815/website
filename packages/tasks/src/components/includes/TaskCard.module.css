@@ -1,0 +1,13 @@
+@media screen and (max-width: 720px) {
+  .TaskCard {
+    margin: 1em auto;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .TaskCard {
+    margin: 1em;
+    width: 400px;
+  }
+}
