@@ -7,8 +7,8 @@ import LoadingPage from './components/pages/LoadingPage';
 import MainAppBarrier from './components/util/MainAppBarrier';
 import { APP_NAME } from './util/constants';
 import styles from './App.module.css';
-import { getRootObservable } from './util/firestore';
-import { patchAction, store } from './models/redux-store';
+import { getProjectsObservable, getTasksObservable } from './util/firestore';
+import { patchProjects, patchTasks, store } from './models/redux-store';
 import RootRouter from './components/pages/RootRouter';
 
 const buttons: ReactElement = (
@@ -18,14 +18,27 @@ const buttons: ReactElement = (
 );
 
 const dataLoader = (): Promise<void> => {
-  const rootObservable = getRootObservable();
-  let resolved = false;
+  const projectsObservable = getProjectsObservable();
+  const tasksObservable = getTasksObservable();
+  let resolvedProjects = false;
+  let resolvedTasks = false;
   return new Promise(resolve => {
-    rootObservable.subscribe(allFirestoreUserData => {
-      store.dispatch(patchAction(allFirestoreUserData));
-      if (!resolved) {
-        resolved = true;
-        resolve();
+    projectsObservable.subscribe(projects => {
+      store.dispatch(patchProjects(projects));
+      if (!resolvedProjects) {
+        resolvedProjects = true;
+        if (resolvedTasks) {
+          resolve();
+        }
+      }
+    });
+    tasksObservable.subscribe(tasks => {
+      store.dispatch(patchTasks(tasks));
+      if (!resolvedTasks) {
+        resolvedTasks = true;
+        if (resolvedProjects) {
+          resolve();
+        }
       }
     });
   });

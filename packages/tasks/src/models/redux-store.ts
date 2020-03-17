@@ -1,14 +1,20 @@
 import { createStore, Store } from 'redux';
-import { AllFirestoreUserData } from './firestore-types';
+import { FirestoreProjectWithId, FirestoreTaskWithId } from './firestore-types';
 import { ReduxStoreState } from './redux-store-types';
 import { toReduxStoreProject } from './firestore-project';
 import { toReduxStoreTask } from './firestore-task';
 
-type ReduxStoreAction = { readonly type: 'PATCH_USER_DATA' } & AllFirestoreUserData;
+type ReduxStoreAction =
+  | { readonly type: 'PATCH_PROJECTS'; readonly projects: readonly FirestoreProjectWithId[] }
+  | { readonly type: 'PATCH_TASKS'; readonly tasks: readonly FirestoreTaskWithId[] };
 
-export const patchAction = ({ projects, tasks }: AllFirestoreUserData): ReduxStoreAction => ({
-  type: 'PATCH_USER_DATA',
-  projects,
+export const patchProjects = (projects: readonly FirestoreProjectWithId[]): ReduxStoreAction => ({
+  type: 'PATCH_PROJECTS',
+  projects
+});
+
+export const patchTasks = (tasks: readonly FirestoreTaskWithId[]): ReduxStoreAction => ({
+  type: 'PATCH_TASKS',
   tasks
 });
 
@@ -17,10 +23,14 @@ const rootReducer = (
   action: ReduxStoreAction
 ): ReduxStoreState => {
   switch (action.type) {
-    case 'PATCH_USER_DATA':
+    case 'PATCH_PROJECTS':
       return {
         ...state,
-        projects: action.projects.map(toReduxStoreProject),
+        projects: action.projects.map(toReduxStoreProject)
+      };
+    case 'PATCH_TASKS':
+      return {
+        ...state,
         tasks: action.tasks.map(toReduxStoreTask)
       };
     default:

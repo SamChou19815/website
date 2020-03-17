@@ -7,7 +7,7 @@ export const fromNewReduxStoreProject = ({
   isPublic,
   name,
   color
-}: ReduxStoreProject): FirestoreProject => ({
+}: Omit<ReduxStoreProject, 'projectId'>): FirestoreProject => ({
   owner,
   isPublic,
   name,

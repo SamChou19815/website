@@ -11,6 +11,7 @@ export type ReduxStoreProject = {
 
 export type ReduxStoreTask = {
   readonly taskId: TaskId;
+  readonly owner: UserEmail;
   readonly projectId: ProjectId;
   readonly name: string;
   readonly content: string;
