@@ -4,6 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import useFormManager from './useFormManager';
 
 export type FormProps<T extends {}> = {
   readonly values: T;
@@ -27,17 +28,9 @@ export default <T extends {}>({
   children: [dialogTrigger, FormComponent]
 }: Props<T>): ReactElement => {
   const [open, setOpen] = useState(false);
-  const [cachedInitialFormValues, setCachedInitialFormValues] = useState(initialFormValues);
-  const [formValues, setFormValues] = useState(initialFormValues);
-
-  if (cachedInitialFormValues !== initialFormValues) {
-    setCachedInitialFormValues(initialFormValues);
-    setFormValues(initialFormValues);
-  }
+  const [formValues, setPartialFormValues] = useFormManager(initialFormValues);
 
   const onClose = () => setOpen(false);
-  const formValuesOnChange = (change: Partial<T>): void =>
-    setFormValues(previousFormValues => ({ ...previousFormValues, ...change }));
 
   return (
     <>
@@ -45,7 +38,7 @@ export default <T extends {}>({
       <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">{formTitle}</DialogTitle>
         <DialogContent>
-          <FormComponent values={formValues} onChange={formValuesOnChange} />
+          <FormComponent values={formValues} onChange={setPartialFormValues} />
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose} color="primary">

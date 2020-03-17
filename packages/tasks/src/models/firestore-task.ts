@@ -9,7 +9,7 @@ export const fromNewReduxStoreTask = ({
   content,
   completed,
   dependencies
-}: ReduxStoreTask): FirestoreTask => ({
+}: Omit<ReduxStoreTask, 'taskId'>): FirestoreTask => ({
   projectId,
   owner,
   name,
