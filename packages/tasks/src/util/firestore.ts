@@ -18,30 +18,57 @@ export const runTransaction = <T>(
 export const projectsCollection = store.collection('tasks-app-projects');
 export const tasksCollection = store.collection('tasks-app-tasks');
 
-export const getProjectsObservable = (): Observable<readonly FirestoreProjectWithId[]> =>
+type Update<T> = { readonly createdAndEdited: readonly T[]; readonly deleted: readonly string[] };
+
+const createUpdate = <T>(
+  snapshot: firestore.QuerySnapshot<firestore.DocumentData>,
+  transformer: (document: firestore.QueryDocumentSnapshot<firestore.DocumentData>) => T
+): Update<T> => {
+  const createdAndEdited: T[] = [];
+  const deleted: string[] = [];
+  const changes = snapshot.docChanges();
+  changes.forEach(change => {
+    switch (change.type) {
+      case 'added':
+      case 'modified':
+        createdAndEdited.push(transformer(change.doc));
+        break;
+      case 'removed':
+        deleted.push(change.doc.id);
+        break;
+      default:
+        throw new Error();
+    }
+  });
+  return { createdAndEdited, deleted };
+};
+
+export const getProjectsObservable = (): Observable<Update<FirestoreProjectWithId>> =>
   new Observable(subscriber => {
     const unsubscribe = projectsCollection
       .where('owner', '==', getAppUser().email)
       .onSnapshot(snapshot => {
-        const projects: FirestoreProjectWithId[] = snapshot.docs.map(projectDocument => ({
-          projectId: projectDocument.id,
-          ...(projectDocument.data() as FirestoreProject)
-        }));
-        subscriber.next(projects);
+        subscriber.next(
+          createUpdate(snapshot, projectDocument => ({
+            projectId: projectDocument.id,
+            ...(projectDocument.data() as FirestoreProject)
+          }))
+        );
       });
     return { unsubscribe };
   });
 
-export const getTasksObservable = (): Observable<readonly FirestoreTaskWithId[]> =>
+export const getTasksObservable = (): Observable<Update<FirestoreTaskWithId>> =>
   new Observable(subscriber => {
     const unsubscribe = tasksCollection
       .where('owner', '==', getAppUser().email)
       .onSnapshot(snapshot => {
-        const tasks: FirestoreTaskWithId[] = snapshot.docs.map(taskDocument => ({
-          taskId: taskDocument.id,
-          ...(taskDocument.data() as FirestoreTask)
-        }));
-        subscriber.next(tasks);
+        subscriber.next(
+          createUpdate(snapshot, taskDocument => ({
+            taskId: taskDocument.id,
+            ...(taskDocument.data() as FirestoreTask)
+          }))
+        );
       });
     return { unsubscribe };
   });

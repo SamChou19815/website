@@ -8,7 +8,7 @@ import MainAppBarrier from './components/util/MainAppBarrier';
 import { APP_NAME } from './util/constants';
 import styles from './App.module.css';
 import { getProjectsObservable, getTasksObservable } from './util/firestore';
-import { patchProjects, patchTasks, store } from './models/redux-store';
+import { getPatchProjectsAction, getPatchTasksAction, store } from './models/redux-store';
 import RootRouter from './components/pages/RootRouter';
 
 const buttons: ReactElement = (
@@ -23,8 +23,8 @@ const dataLoader = (): Promise<void> => {
   let resolvedProjects = false;
   let resolvedTasks = false;
   return new Promise(resolve => {
-    projectsObservable.subscribe(projects => {
-      store.dispatch(patchProjects(projects));
+    projectsObservable.subscribe(({ createdAndEdited, deleted }) => {
+      store.dispatch(getPatchProjectsAction(createdAndEdited, deleted));
       if (!resolvedProjects) {
         resolvedProjects = true;
         if (resolvedTasks) {
@@ -32,8 +32,8 @@ const dataLoader = (): Promise<void> => {
         }
       }
     });
-    tasksObservable.subscribe(tasks => {
-      store.dispatch(patchTasks(tasks));
+    tasksObservable.subscribe(({ createdAndEdited, deleted }) => {
+      store.dispatch(getPatchTasksAction(createdAndEdited, deleted));
       if (!resolvedTasks) {
         resolvedTasks = true;
         if (resolvedProjects) {
