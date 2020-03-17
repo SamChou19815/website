@@ -19,8 +19,8 @@ const initialProjectTemplate: {
 
 export default (): ReactElement => {
   const [formCreationKey, setFormCreationKey] = useState(0);
-  const projects = useSelector<ReduxStoreState, readonly ReduxStoreProject[]>(
-    state => state.projects
+  const projects = useSelector<ReduxStoreState, readonly ReduxStoreProject[]>(state =>
+    Object.values(state.projects)
   );
 
   return (

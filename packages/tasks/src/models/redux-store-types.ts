@@ -19,7 +19,9 @@ export type ReduxStoreTask = {
   readonly dependencies: readonly TaskId[];
 };
 
+export type ReduxStoreProjectsMap = { readonly [projectId: string]: ReduxStoreProject };
+export type ReduxStoreTasksMap = { readonly [taskId: string]: ReduxStoreTask };
 export type ReduxStoreState = {
-  readonly projects: readonly ReduxStoreProject[];
-  readonly tasks: readonly ReduxStoreTask[];
+  readonly projects: ReduxStoreProjectsMap;
+  readonly tasks: ReduxStoreTasksMap;
 };

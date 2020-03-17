@@ -1,38 +1,69 @@
 import { createStore, Store } from 'redux';
 import { FirestoreProjectWithId, FirestoreTaskWithId } from './firestore-types';
-import { ReduxStoreState } from './redux-store-types';
+import { ReduxStoreProjectsMap, ReduxStoreTasksMap, ReduxStoreState } from './redux-store-types';
 import { toReduxStoreProject } from './firestore-project';
 import { toReduxStoreTask } from './firestore-task';
 
-type ReduxStoreAction =
-  | { readonly type: 'PATCH_PROJECTS'; readonly projects: readonly FirestoreProjectWithId[] }
-  | { readonly type: 'PATCH_TASKS'; readonly tasks: readonly FirestoreTaskWithId[] };
+type PatchProjectsAction = {
+  readonly type: 'PATCH_PROJECTS';
+  readonly createdAndEdited: readonly FirestoreProjectWithId[];
+  readonly deleted: readonly string[];
+};
+type PatchTasksAction = {
+  readonly type: 'PATCH_TASKS';
+  readonly createdAndEdited: readonly FirestoreTaskWithId[];
+  readonly deleted: readonly string[];
+};
+type ReduxStoreAction = PatchProjectsAction | PatchTasksAction;
 
-export const patchProjects = (projects: readonly FirestoreProjectWithId[]): ReduxStoreAction => ({
+export const getPatchProjectsAction = (
+  createdAndEdited: readonly FirestoreProjectWithId[],
+  deleted: readonly string[]
+): ReduxStoreAction => ({
   type: 'PATCH_PROJECTS',
-  projects
+  createdAndEdited,
+  deleted
 });
 
-export const patchTasks = (tasks: readonly FirestoreTaskWithId[]): ReduxStoreAction => ({
+export const getPatchTasksAction = (
+  createdAndEdited: readonly FirestoreTaskWithId[],
+  deleted: readonly string[]
+): ReduxStoreAction => ({
   type: 'PATCH_TASKS',
-  tasks
+  createdAndEdited,
+  deleted
 });
+
+const patchProjects = (
+  projects: ReduxStoreProjectsMap,
+  action: PatchProjectsAction
+): ReduxStoreProjectsMap => {
+  const projectsMutableCopy = { ...projects };
+  action.createdAndEdited.forEach(firestoreProject => {
+    projectsMutableCopy[firestoreProject.projectId] = toReduxStoreProject(firestoreProject);
+  });
+  action.deleted.forEach(projectId => delete projectsMutableCopy[projectId]);
+  return projectsMutableCopy;
+};
+
+const patchTasks = (tasks: ReduxStoreTasksMap, action: PatchTasksAction): ReduxStoreTasksMap => {
+  const tasksMutableCopy = { ...tasks };
+  action.createdAndEdited.forEach(firestoreTask => {
+    tasksMutableCopy[firestoreTask.taskId] = toReduxStoreTask(firestoreTask);
+  });
+  action.deleted.forEach(taskId => delete tasksMutableCopy[taskId]);
+  return tasksMutableCopy;
+};
 
 const rootReducer = (
-  state: ReduxStoreState = { projects: [], tasks: [] },
+  state: ReduxStoreState = { projects: {}, tasks: {} },
   action: ReduxStoreAction
 ): ReduxStoreState => {
   switch (action.type) {
     case 'PATCH_PROJECTS':
-      return {
-        ...state,
-        projects: action.projects.map(toReduxStoreProject)
-      };
+      return { ...state, projects: patchProjects(state.projects, action) };
     case 'PATCH_TASKS':
-      return {
-        ...state,
-        tasks: action.tasks.map(toReduxStoreTask)
-      };
+      return { ...state, tasks: patchTasks(state.tasks, action) };
     default:
       return state;
   }
