@@ -1,0 +1,52 @@
+.CardHeader {
+  cursor: pointer;
+  padding: 4em 1em 1em 1em !important;
+  color: white;
+}
+
+.CardHeaderText {
+  text-overflow: ellipsis;
+  width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.CardColorRed {
+  background-color: #f44336;
+}
+
+.CardColorPink {
+  background-color: #e91e63;
+}
+
+.CardColorPurple {
+  background-color: #9c27b0;
+}
+
+.CardColorIndigo {
+  background-color: #3f51b5;
+}
+
+.CardColorBlue {
+  background-color: #2196f3;
+}
+
+.CardColorTeal {
+  background-color: #009688;
+}
+
+.CardColorGreen {
+  background-color: #4caf50;
+}
+
+.CardColorLightGreen {
+  background-color: #8bc34a;
+}
+
+.CardColorOrange {
+  background-color: #ff9800;
+}
+
+.CardColorGray {
+  background-color: #607d8b;
+}
