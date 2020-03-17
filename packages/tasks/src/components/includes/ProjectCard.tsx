@@ -12,6 +12,7 @@ import { ReduxStoreProject } from '../../models/redux-store-types';
 import ProjectCardEditForm from './ProjectCardEditForm';
 import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialFormDialog from '../util/MaterialFormDialog';
+import { editProject, deleteProject } from '../../util/firestore-actions';
 import styles from './ProjectCard.module.css';
 
 const PublicOrPrivateIcon = ({ isPublic }: { readonly isPublic: boolean }): ReactElement => (
@@ -54,17 +55,8 @@ const getHeaderClassname = (color: SanctionedColor): string => {
       throw new Error(`Unknown sanctioned color: ${color}`);
   }
 };
-export default ({ project: { projectId, isPublic, name, color } }: Props): ReactElement => {
+export default ({ project: { projectId, owner, isPublic, name, color } }: Props): ReactElement => {
   const routerHistory = useHistory();
-
-  const onEdit = (): void => {
-    // eslint-disable-next-line no-alert
-    alert('Project editing backend support has not been implemented yet...');
-  };
-  const onDelete = (): void => {
-    // eslint-disable-next-line no-alert
-    alert('Data removal backend support has not been implemented yet...');
-  };
 
   return (
     <Card variant="outlined" className={styles.ProjectCard}>
@@ -79,8 +71,8 @@ export default ({ project: { projectId, isPublic, name, color } }: Props): React
         <MaterialFormDialog
           formTitle="Editing Project"
           initialFormValues={{ isPublic, name, color }}
-          onFormSubmit={onEdit}
-          formValidator={() => true}
+          onFormSubmit={change => editProject({ projectId, owner, ...change })}
+          formValidator={({ name: unvalidatedName }) => unvalidatedName.trim().length > 0}
         >
           {trigger => (
             <Button size="small" color="primary" onClick={trigger}>
@@ -92,7 +84,7 @@ export default ({ project: { projectId, isPublic, name, color } }: Props): React
         <MaterialAlertDialog
           alertTitle="Deleting a project?"
           alertDescription="This means that all tasks associated with this project will also be deleted. Data cannot be recovered."
-          onConfirm={onDelete}
+          onConfirm={() => deleteProject(projectId)}
         >
           {trigger => (
             <Button size="small" color="primary" onClick={trigger}>

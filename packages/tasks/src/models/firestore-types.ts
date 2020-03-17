@@ -10,6 +10,7 @@ export type FirestoreProject = {
 export type FirestoreProjectWithId = FirestoreProject & { readonly projectId: string };
 
 export type FirestoreTask = {
+  readonly owner: UserEmail;
   readonly projectId: ProjectId;
   readonly name: string;
   readonly content: string;
@@ -17,8 +18,3 @@ export type FirestoreTask = {
   readonly dependencies: readonly TaskId[];
 };
 export type FirestoreTaskWithId = FirestoreTask & { readonly taskId: string };
-
-export type AllFirestoreUserData = {
-  readonly projects: readonly FirestoreProjectWithId[];
-  readonly tasks: readonly FirestoreTaskWithId[];
-};

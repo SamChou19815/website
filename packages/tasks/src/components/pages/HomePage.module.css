@@ -6,3 +6,9 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.AddProjectFab {
+  position: fixed !important;
+  bottom: 1em;
+  right: 1em;
+}

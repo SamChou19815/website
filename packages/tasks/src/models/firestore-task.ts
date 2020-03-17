@@ -4,12 +4,14 @@ import { createTaskId } from './ids';
 
 export const fromNewReduxStoreTask = ({
   projectId,
+  owner,
   name,
   content,
   completed,
   dependencies
 }: ReduxStoreTask): FirestoreTask => ({
   projectId,
+  owner,
   name,
   content,
   completed,
@@ -18,12 +20,14 @@ export const fromNewReduxStoreTask = ({
 
 export const fromPartialReduxStoreTask = ({
   projectId,
+  owner,
   name,
   content,
   completed,
   dependencies
 }: Partial<ReduxStoreTask>): Partial<FirestoreTask> => ({
   projectId,
+  owner,
   name,
   content,
   completed,
@@ -32,6 +36,7 @@ export const fromPartialReduxStoreTask = ({
 
 export const toReduxStoreTask = ({
   taskId,
+  owner,
   projectId,
   name,
   content,
@@ -39,6 +44,7 @@ export const toReduxStoreTask = ({
   dependencies
 }: FirestoreTask & { readonly taskId: string }): ReduxStoreTask => ({
   taskId: createTaskId(taskId),
+  owner,
   projectId,
   name,
   content,
