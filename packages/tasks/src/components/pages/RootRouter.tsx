@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import HomePage from './HomePage';
+import HomePage from '../includes/ProjectsPanel';
 import ProjectDashboardPage from './ProjectDashboardPage';
 import ProjectGraphPage from './ProjectGraphPage';
-import TasksPage from './TasksPage';
+import TasksPage from '../includes/TasksPanel';
 
 export default (): ReactElement => (
   <BrowserRouter>

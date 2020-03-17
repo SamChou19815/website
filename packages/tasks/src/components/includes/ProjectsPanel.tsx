@@ -4,12 +4,12 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreState, ReduxStoreProject } from '../../models/redux-store-types';
-import ProjectCard from '../includes/ProjectCard';
-import ProjectCardEditForm from '../includes/ProjectCardEditForm';
+import ProjectCard from './ProjectCard';
+import ProjectCardEditForm from './ProjectCardEditForm';
 import MaterialFormDialog from '../util/MaterialFormDialog';
 import { createProject } from '../../util/firestore-actions';
 import { getAppUser } from '../../util/authentication';
-import styles from './HomePage.module.css';
+import styles from './ProjectsPanel.module.css';
 
 const initialProjectTemplate: {
   readonly isPublic: boolean;
