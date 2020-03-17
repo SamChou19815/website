@@ -22,8 +22,10 @@
   ],
   "dependencies": {
     "@material-ui/core": "^4.9.4",
+    "@types/remarkable": "^1.7.4",
+    "highlight.js": "^9.18.1",
     "react": "^16.13.0",
-    "highlight.js": "^9.18.1"
+    "remarkable": "^2.0.0"
   },
   "devDependencies": {
     "@types/highlight.js": "^9.12.3"
