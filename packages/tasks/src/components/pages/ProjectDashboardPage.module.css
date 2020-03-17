@@ -1,12 +1,3 @@
-.CardContainer {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .AddTaskFab {
   position: fixed !important;
   bottom: 1em;

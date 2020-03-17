@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -10,52 +10,67 @@ import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreTask, ReduxStoreState } from '../../models/redux-store-types';
+import { editTask, deleteTask } from '../../util/firestore-actions';
 import styles from './TaskCard.module.css';
+import TaskCardInlineEditor from './TaskCardInlineEditor';
 
 type Props = { readonly task: ReduxStoreTask };
 
 export default ({
-  task: { taskId, projectId, name, content, dependencies, completed }
+  task: { taskId, owner, projectId, name, content, dependencies, completed }
 }: Props): ReactElement => {
   const color = useSelector<ReduxStoreState, SanctionedColor>(
     state => state.projects[projectId].color
   );
+  const [inEditingMode, setInEditingMode] = useState(false);
 
   return (
     <Card variant="outlined" className={styles.TaskCard}>
       <MaterialColoredCardHeader
-        title={name}
+        title={inEditingMode ? `Editing Task ${name}` : name}
         color={color}
         avatar={<AssessmentIcon titleAccess="Task" fontSize="large" />}
       />
-      <CardContent>
-        <MarkdownBlock>{content}</MarkdownBlock>
-      </CardContent>
-      <CardActions>
-        <Button size="small" color="primary">
-          {completed ? 'Uncomplete' : 'Complete'}
-        </Button>
-        <Button size="small" color="primary">
-          Edit
-        </Button>
-        <MaterialAlertDialog
-          alertTitle="Deleting a task?"
-          alertDescription="Once deleted, the task cannot be recovered."
-          // eslint-disable-next-line no-console
-          onConfirm={() => console.log(`Delete Task ${taskId}`)}
-        >
-          {trigger => (
-            <Button
-              size="small"
-              color="primary"
-              disabled={dependencies.length > 0}
-              onClick={trigger}
-            >
-              Delete
+      {inEditingMode ? (
+        <TaskCardInlineEditor
+          initialEditableTask={{ name, content, dependencies }}
+          onDiscard={() => setInEditingMode(false)}
+          onSave={change => {
+            setInEditingMode(false);
+            editTask({ taskId, owner, projectId, completed, ...change });
+          }}
+        />
+      ) : (
+        <>
+          <CardContent>
+            <MarkdownBlock>{content}</MarkdownBlock>
+          </CardContent>
+          <CardActions>
+            <Button size="small" color="primary">
+              {completed ? 'Uncomplete' : 'Complete'}
             </Button>
-          )}
-        </MaterialAlertDialog>
-      </CardActions>
+            <Button size="small" color="primary" onClick={() => setInEditingMode(true)}>
+              Edit
+            </Button>
+            <MaterialAlertDialog
+              alertTitle="Deleting a task?"
+              alertDescription="Once deleted, the task cannot be recovered."
+              onConfirm={() => deleteTask(taskId)}
+            >
+              {trigger => (
+                <Button
+                  size="small"
+                  color="primary"
+                  disabled={dependencies.length > 0}
+                  onClick={trigger}
+                >
+                  Delete
+                </Button>
+              )}
+            </MaterialAlertDialog>
+          </CardActions>
+        </>
+      )}
     </Card>
   );
 };
