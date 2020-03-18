@@ -5,7 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import TextField from '@material-ui/core/TextField';
 import { TaskId } from '../../models/ids';
-import useFormManager from '../util/useFormManager';
+import useFormManager from '../hooks/useFormManager';
 import styles from './TaskCardInlineEditor.module.css';
 
 type EditableTask = {

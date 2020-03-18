@@ -3,7 +3,7 @@
   "scripts": {
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,json}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,json}'",
-    "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx",
+    "lint": "eslint . --cache --ext .js --ext .ts --ext .jsx --ext .tsx",
     "lint:fix": "yarn lint --fix"
   },
   "engines": {

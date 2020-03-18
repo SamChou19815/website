@@ -1,7 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
 import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreState, ReduxStoreProject } from '../../models/redux-store-types';
 import ProjectCard from './ProjectCard';
@@ -17,19 +16,14 @@ const initialProjectTemplate: {
   readonly color: SanctionedColor;
 } = { isPublic: false, name: '', color: 'Blue' };
 
-export default (): ReactElement => {
+export default ({ className }: { readonly className?: string }): ReactElement => {
   const [formCreationKey, setFormCreationKey] = useState(0);
   const projects = useSelector<ReduxStoreState, readonly ReduxStoreProject[]>(state =>
     Object.values(state.projects)
   );
 
   return (
-    <div>
-      <section className={styles.CardContainer}>
-        {projects.map(project => (
-          <ProjectCard key={project.projectId} project={project} />
-        ))}
-      </section>
+    <div className={className}>
       <MaterialFormDialog
         key={formCreationKey}
         formTitle="Creating Project"
@@ -41,12 +35,23 @@ export default (): ReactElement => {
         formValidator={({ name: unvalidatedName }) => unvalidatedName.trim().length > 0}
       >
         {trigger => (
-          <Fab color="primary" className={styles.AddProjectFab} onClick={trigger}>
-            <AddIcon />
-          </Fab>
+          <Button
+            variant="outlined"
+            color="primary"
+            className={styles.AddProjectButton}
+            onClick={trigger}
+            disableElevation
+          >
+            Create New Project
+          </Button>
         )}
         {ProjectCardEditForm}
       </MaterialFormDialog>
+      <section className={styles.CardContainer}>
+        {projects.map(project => (
+          <ProjectCard key={project.projectId} project={project} />
+        ))}
+      </section>
     </div>
   );
 };

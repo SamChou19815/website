@@ -1,0 +1,17 @@
+.RootContainer {
+  position: relative;
+}
+
+.DesktopAllPanels {
+  display: flex;
+  flex-direction: row;
+}
+
+.ProjectsPanel {
+  flex: 0 0 450px;
+}
+
+.TasksPanel {
+  flex: 1 1 auto;
+  border-left: 1px solid #ccc;
+}

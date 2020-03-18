@@ -7,8 +7,7 @@
   flex-wrap: wrap;
 }
 
-.AddProjectFab {
-  position: fixed !important;
-  bottom: 1em;
-  right: 1em;
+.AddProjectButton {
+  display: block !important;
+  margin: 1em auto !important;
 }
