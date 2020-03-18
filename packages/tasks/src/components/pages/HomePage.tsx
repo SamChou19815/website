@@ -1,10 +1,12 @@
 import React, { ReactElement, useState } from 'react';
+
 import Button from '@material-ui/core/Button';
+
 import useWindowSize from '../hooks/useWindowSize';
 import ProjectsPanel from '../includes/ProjectsPanel';
 import TasksPanel from '../includes/TasksPanel';
-import styles from './HomePage.module.css';
 import MaterialThemedAppContainer from '../util/MaterialThemedAppContainer';
+import styles from './HomePage.module.css';
 
 export default (): ReactElement => {
   const isDesktop = useWindowSize(size => size.width >= 968);

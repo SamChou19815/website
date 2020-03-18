@@ -1,15 +1,17 @@
 import React, { ReactElement } from 'react';
+
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import AccountCirlce from '@material-ui/icons/AccountCircle';
 import Code from '@material-ui/icons/Code';
 import Domain from '@material-ui/icons/Domain';
 import School from '@material-ui/icons/School';
 import Work from '@material-ui/icons/Work';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
-import { SvgIconProps } from '@material-ui/core/SvgIcon';
+
 import FirstPageCodeBlock from './FirstPageCodeBlock';
 import styles from './index.module.css';
 

@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+
 import Terminal from './Terminal';
 import Trigger from './Trigger';
 

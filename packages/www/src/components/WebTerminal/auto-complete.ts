@@ -1,6 +1,6 @@
-import { FileSystemState } from '../../filesystem/types';
-import { normalize, getParent, getLast, join } from '../../filesystem/path';
 import { changeDirectory, listFiles } from '../../filesystem';
+import { normalize, getParent, getLast, join } from '../../filesystem/path';
+import { FileSystemState } from '../../filesystem/types';
 import { store } from '../../store';
 import commands from './commands';
 

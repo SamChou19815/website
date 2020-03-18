@@ -1,9 +1,9 @@
-import { Directory } from './types';
 import initialState, { root } from './initial-state';
 import listFiles, {
   listFilesInDirectoryWithRelativePath,
   listFilesInDirectory
 } from './list-files';
+import { Directory } from './types';
 
 it('listFilesInDirectory works', () => {
   expect(listFilesInDirectory(root)).toBe('top-secret/\nblog.txt\ngithub.txt\nREADME.md\nwww.txt');

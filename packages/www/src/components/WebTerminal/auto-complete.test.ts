@@ -1,5 +1,5 @@
-import autoComplete, { autoCompleteCommand, autoCompleteFilename } from './auto-complete';
 import { initialState } from '../../filesystem';
+import autoComplete, { autoCompleteCommand, autoCompleteFilename } from './auto-complete';
 
 it('autoCompleteCommand works', () => {
   // One choice cases

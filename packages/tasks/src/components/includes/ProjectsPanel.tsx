@@ -1,13 +1,15 @@
 import React, { ReactElement, useState } from 'react';
-import { useSelector } from 'react-redux';
+
 import Button from '@material-ui/core/Button';
+import { useSelector } from 'react-redux';
+
 import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreState, ReduxStoreProject } from '../../models/redux-store-types';
+import { getAppUser } from '../../util/authentication';
+import { createProject } from '../../util/firestore-actions';
+import MaterialFormDialog from '../util/MaterialFormDialog';
 import ProjectCard from './ProjectCard';
 import ProjectCardEditForm from './ProjectCardEditForm';
-import MaterialFormDialog from '../util/MaterialFormDialog';
-import { createProject } from '../../util/firestore-actions';
-import { getAppUser } from '../../util/authentication';
 import styles from './ProjectsPanel.module.css';
 
 const initialProjectTemplate: {

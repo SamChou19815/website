@@ -1,6 +1,6 @@
-import { Commands } from './types';
-import { store, patchTimeline, patchFileSystem } from '../../store';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
+import { store, patchTimeline, patchFileSystem } from '../../store';
+import { Commands } from './types';
 
 const help = (): string =>
   Object.keys(commands)

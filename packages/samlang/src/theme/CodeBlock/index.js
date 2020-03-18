@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+
 import CodeBlock from 'lib-react/CodeBlock';
 import initialize from 'lib-react/language';
 

@@ -1,8 +1,10 @@
 import React, { ReactElement } from 'react';
+
 import firebase from 'firebase/app';
 import { FirebaseAuth } from 'react-firebaseui';
-import styles from './LandingPage.module.css';
+
 import MaterialThemedAppContainer from '../util/MaterialThemedAppContainer';
+import styles from './LandingPage.module.css';
 
 const uiConfig = {
   signInFlow: 'popup',

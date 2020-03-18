@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
+
 import MaterialThemedApp from 'lib-react/MaterialThemedApp';
+
 import { APP_NAME } from '../../util/constants';
 import styles from './MaterialThemedAppContainer.module.css';
 

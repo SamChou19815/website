@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+
 import styles from './BoardCell.module.css';
 
 type Props = {

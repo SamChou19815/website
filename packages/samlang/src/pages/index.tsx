@@ -6,13 +6,15 @@
  */
 
 import React from 'react';
-import classnames from 'classnames';
-import Layout from '@theme/Layout';
+
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import classnames from 'classnames';
 import CodeBlock from 'lib-react/CodeBlock';
 import initialize from 'lib-react/language';
+
 import styles from './styles.module.css';
 
 initialize();

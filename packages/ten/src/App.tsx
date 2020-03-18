@@ -1,10 +1,12 @@
 import React, { ReactElement } from 'react';
+
 import Button from '@material-ui/core/Button';
-import MaterialThemedApp from 'lib-react/MaterialThemedApp';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
+import MaterialThemedApp from 'lib-react/MaterialThemedApp';
+
+import styles from './App.module.css';
 import DistributedGameCard from './components/DistributedGameCard';
 import LocalGameCard from './components/LocalGameCard';
-import styles from './App.module.css';
 
 type Mode = 'Local' | 'Distributed';
 

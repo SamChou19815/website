@@ -1,15 +1,17 @@
 /* eslint-disable react/no-array-index-key */
 
 import React, { ReactElement } from 'react';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 import { connect } from 'react-redux';
-import ConsoleSection from '../Common/ConsoleSection';
-import items, { TimelineItem } from './items';
-import TimelineItemCard from './TimelineItemCard';
+
 import { State, TimelineState, patchTimeline } from '../../store';
+import ConsoleSection from '../Common/ConsoleSection';
+import TimelineItemCard from './TimelineItemCard';
 import styles from './index.module.css';
+import items, { TimelineItem } from './items';
 
 type CheckboxProps = {
   readonly label: string;

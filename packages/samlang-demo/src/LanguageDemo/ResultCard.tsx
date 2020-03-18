@@ -1,12 +1,14 @@
 import React, { ReactNode, ReactElement } from 'react';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CodeBlock from 'lib-react/CodeBlock';
 import initialize from 'lib-react/language';
-import { Response } from './interpret';
+
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
+import { Response } from './interpret';
 
 type Props = {
   readonly response: Response | 'waiting' | 'server-error' | null;

@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react';
+
 import { Provider as ReactReduxProvider } from 'react-redux';
+
 import LandingPage from './components/pages/LandingPage';
 import LoadingPage from './components/pages/LoadingPage';
-import MainAppBarrier from './components/util/MainAppBarrier';
-import { getProjectsObservable, getTasksObservable } from './util/firestore';
-import { getPatchProjectsAction, getPatchTasksAction, store } from './models/redux-store';
 import RootRouter from './components/pages/RootRouter';
+import MainAppBarrier from './components/util/MainAppBarrier';
+import { getPatchProjectsAction, getPatchTasksAction, store } from './models/redux-store';
+import { getProjectsObservable, getTasksObservable } from './util/firestore';
 
 const dataLoader = (): Promise<void> => {
   const projectsObservable = getProjectsObservable();

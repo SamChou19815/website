@@ -1,8 +1,9 @@
 import React, { ReactElement } from 'react';
-import StatefulGameCard, { initialGameState } from './StatefulGameCard';
+
 import { Board, boardToJson, getGameStatus, makeMoveWithoutCheck } from '../game/board';
-import { Status } from './GameCard';
 import { MctsResponse } from '../game/mcts';
+import { Status } from './GameCard';
+import StatefulGameCard, { initialGameState } from './StatefulGameCard';
 
 /**
  * The game card in local mode.

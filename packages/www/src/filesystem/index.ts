@@ -1,7 +1,7 @@
 import initialState from './initial-state';
-import { currentDirectoryPath } from './path';
-import { changeDirectory } from './stack';
 import listFiles from './list-files';
+import { currentDirectoryPath } from './path';
 import showFiles from './show-file';
+import { changeDirectory } from './stack';
 
 export { initialState, currentDirectoryPath, changeDirectory, listFiles, showFiles };

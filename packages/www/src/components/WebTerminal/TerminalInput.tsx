@@ -1,6 +1,7 @@
 import React, { ReactElement, KeyboardEvent, RefObject, useState } from 'react';
-import autoComplete from './auto-complete';
+
 import styles from './Terminal.module.css';
+import autoComplete from './auto-complete';
 
 type Props = {
   readonly terminalInput: RefObject<HTMLInputElement>;

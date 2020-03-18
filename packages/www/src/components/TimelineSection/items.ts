@@ -1,13 +1,13 @@
+import SAMLANG from '../../assets/projects/samlang.png';
+import Samwise from '../../assets/projects/samwise.png';
+import TEN from '../../assets/projects/ten.png';
 import ChunkReader from '../../assets/timeline/chunk-reader.jpg';
 import CritterCompiler from '../../assets/timeline/critter-compiler.png';
 import CritterWorld from '../../assets/timeline/critter-world.png';
 import FacebookHackerWay from '../../assets/timeline/fb-hacker-way.jpg';
 import FacebookStickerAndPen from '../../assets/timeline/fb-sticker-pen.jpg';
-import TEN from '../../assets/projects/ten.png';
 import SAMFirst from '../../assets/timeline/sam-first.png';
 import SAMLater from '../../assets/timeline/sam-later.png';
-import SAMLANG from '../../assets/projects/samlang.png';
-import Samwise from '../../assets/projects/samwise.png';
 import SAMPL from '../../assets/timeline/sampl.png';
 
 type NamedLink = { readonly name: string; readonly url: string };

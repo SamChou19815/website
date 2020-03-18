@@ -1,5 +1,7 @@
 import React from 'react';
+
 import renderer from 'react-test-renderer';
+
 import FirstPage from '.';
 
 it('FirstPage matches snapshot.', () => {

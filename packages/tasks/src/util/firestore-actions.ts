@@ -1,8 +1,8 @@
-import { ReduxStoreProject, ReduxStoreTask } from '../models/redux-store-types';
-import { store } from '../models/redux-store';
-import { projectsCollection, tasksCollection, createBatch } from './firestore';
 import { fromNewReduxStoreProject } from '../models/firestore-project';
 import { fromNewReduxStoreTask } from '../models/firestore-task';
+import { store } from '../models/redux-store';
+import { ReduxStoreProject, ReduxStoreTask } from '../models/redux-store-types';
+import { projectsCollection, tasksCollection, createBatch } from './firestore';
 
 export const createProject = (project: Omit<ReduxStoreProject, 'projectId'>): void => {
   projectsCollection.add(fromNewReduxStoreProject(project));

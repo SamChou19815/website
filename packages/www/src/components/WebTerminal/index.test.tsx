@@ -1,7 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import ReactDOM from 'react-dom';
+
 import { act } from 'react-dom/test-utils';
+import renderer from 'react-test-renderer';
+
 import Default, { WebTerminal } from '.';
 
 const ignore = () => {};

@@ -1,10 +1,12 @@
 import React, { useState, ReactElement } from 'react';
+
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import styles from './LanguageDemo.module.css';
+import CardContent from '@material-ui/core/CardContent';
+
 import Editor from './Editor';
+import styles from './LanguageDemo.module.css';
 
 type Props = { readonly onSubmit: (code: string) => void };
 

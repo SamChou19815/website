@@ -1,18 +1,20 @@
 /* eslint-disable react/no-array-index-key */
 
 import React, { ReactElement } from 'react';
+
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
+import CardHeader from '@material-ui/core/CardHeader';
+import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import Code from '@material-ui/icons/Code';
 import Event from '@material-ui/icons/Event';
 import Work from '@material-ui/icons/Work';
-import { SvgIconProps } from '@material-ui/core/SvgIcon';
-import { TimelineItem } from './items';
-import styles from './TimelineItemCard.module.css';
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
+
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
+import styles from './TimelineItemCard.module.css';
+import { TimelineItem } from './items';
 
 type Props = { readonly item: TimelineItem };
 

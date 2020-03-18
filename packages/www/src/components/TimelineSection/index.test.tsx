@@ -1,5 +1,7 @@
 import React from 'react';
+
 import renderer from 'react-test-renderer';
+
 import { TimelineSection } from '.';
 
 it('TimelineSection(000) matches snapshot.', () => {

@@ -1,5 +1,5 @@
-import { Directory, FileSystemState } from './types';
 import { changeDirectory, peek } from './stack';
+import { Directory, FileSystemState } from './types';
 
 export const listFilesInDirectory = (directory: Directory): string =>
   directory.children

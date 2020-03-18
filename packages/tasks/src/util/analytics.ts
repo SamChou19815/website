@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+
 import 'firebase/analytics';
 import { AppUser } from './authentication';
 import { Page } from './constants';

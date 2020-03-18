@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react';
+
+import InputCard from './InputCard';
 import styles from './LanguageDemo.module.css';
 import ResultCard from './ResultCard';
-import InputCard from './InputCard';
 import interpret, { Response } from './interpret';
 
 type Resp = Response | 'waiting' | 'server-error' | null;

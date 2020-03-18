@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+
 import styles from './Trigger.module.css';
 
 type Props = { readonly onClick: () => void };

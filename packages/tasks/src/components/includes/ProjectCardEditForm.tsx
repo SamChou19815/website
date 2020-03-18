@@ -1,15 +1,17 @@
 import React, { ReactElement } from 'react';
+
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import Switch from '@material-ui/core/Switch';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
+
 import { SanctionedColor } from '../../models/common-types';
-import { FormProps } from '../util/MaterialFormDialog';
 import { sanctionedColors, sanctionedColorMapping } from '../../util/constants';
+import { FormProps } from '../util/MaterialFormDialog';
 import styles from './ProjectCardEditForm.module.css';
 
 type EditableProject = {

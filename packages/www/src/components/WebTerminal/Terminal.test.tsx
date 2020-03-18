@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { act } from 'react-dom/test-utils';
-import Terminal from './Terminal';
+
 import { dispatchOnInputChange } from '../../testing/test-utils';
+import Terminal from './Terminal';
 
 it('Terminal can respond to inputs.', () => {
   const container = document.createElement('div');
