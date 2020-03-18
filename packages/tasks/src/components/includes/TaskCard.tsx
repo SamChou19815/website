@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreTask, ReduxStoreState } from '../../models/redux-store-types';
 import { editTask, deleteTask } from '../../util/firestore-actions';
+import { useTransitiveReverseDependencies } from '../hooks/useTasks';
 import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import styles from './TaskCard.module.css';
@@ -25,6 +26,7 @@ export default ({
     state => state.projects[projectId].color
   );
   const [inEditingMode, setInEditingMode] = useState(false);
+  const hasReverseDependenciesExcludingSelf = useTransitiveReverseDependencies(taskId).length > 1;
 
   return (
     <Card variant="outlined" className={styles.TaskCard}>
@@ -65,7 +67,7 @@ export default ({
                 <Button
                   size="small"
                   color="primary"
-                  disabled={dependencies.length > 0}
+                  disabled={hasReverseDependenciesExcludingSelf}
                   onClick={trigger}
                 >
                   Delete
