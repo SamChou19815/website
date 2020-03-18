@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import firebase from 'firebase/app';
 import { FirebaseAuth } from 'react-firebaseui';
 import styles from './LandingPage.module.css';
+import MaterialThemedAppContainer from '../util/MaterialThemedAppContainer';
 
 const uiConfig = {
   signInFlow: 'popup',
@@ -14,7 +15,9 @@ const uiConfig = {
 };
 
 export default (): ReactElement => (
-  <div className={styles.LoginContainer}>
-    <FirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-  </div>
+  <MaterialThemedAppContainer title="Login" buttons={null}>
+    <div className={styles.LoginContainer}>
+      <FirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+    </div>
+  </MaterialThemedAppContainer>
 );
