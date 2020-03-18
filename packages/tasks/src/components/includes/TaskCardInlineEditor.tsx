@@ -5,9 +5,15 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import FormGroup from '@material-ui/core/FormGroup';
 import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { useSelector } from 'react-redux';
 
-import { TaskId } from '../../models/ids';
+import { TaskId, ProjectId } from '../../models/ids';
+import { ReduxStoreTask, ReduxStoreState } from '../../models/redux-store-types';
+import { sanctionedColorMapping } from '../../util/constants';
+import { error } from '../../util/general';
 import useFormManager from '../hooks/useFormManager';
+import { useNonCycleFormingDependencies } from '../hooks/useTasks';
 import styles from './TaskCardInlineEditor.module.css';
 
 type EditableTask = {
@@ -17,14 +23,27 @@ type EditableTask = {
 };
 
 type Props = {
+  readonly taskId: TaskId | null;
+  readonly projectId: ProjectId;
   readonly initialEditableTask: EditableTask;
   readonly onDiscard: () => void;
   readonly onSave: (change: EditableTask) => void;
 };
 
-export default ({ initialEditableTask, onDiscard, onSave }: Props): ReactElement => {
+export default ({
+  taskId,
+  projectId,
+  initialEditableTask,
+  onDiscard,
+  onSave
+}: Props): ReactElement => {
   const [editableTask, setPartialEditableTask] = useFormManager(initialEditableTask);
-  const { name, content } = editableTask;
+  const { name, content, dependencies } = editableTask;
+  const projects = useSelector((state: ReduxStoreState) => state.projects);
+  const dependenciesTaskOptions = useNonCycleFormingDependencies(
+    taskId,
+    projectId
+  ) as ReduxStoreTask[];
 
   return (
     <>
@@ -44,6 +63,32 @@ export default ({ initialEditableTask, onDiscard, onSave }: Props): ReactElement
             value={content}
             onChange={event => setPartialEditableTask({ content: event.currentTarget.value })}
             multiline
+          />
+          <Autocomplete
+            multiple
+            className={styles.FormElement}
+            options={dependenciesTaskOptions}
+            autoHighlight
+            getOptionLabel={option => option.name}
+            renderOption={option => {
+              const color = sanctionedColorMapping[projects[option.projectId].color];
+              return (
+                <>
+                  <span className={styles.ColorDot} style={{ backgroundColor: color }} />
+                  <span>{option.name}</span>
+                </>
+              );
+            }}
+            value={dependencies.map(
+              id => dependenciesTaskOptions.find(task => task.taskId === id) ?? error()
+            )}
+            onChange={(_, values) => {
+              setPartialEditableTask({ dependencies: values.map(task => task.taskId) });
+            }}
+            renderInput={params => (
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              <TextField label="Dependencies" type="text" {...params} />
+            )}
           />
         </FormGroup>
       </CardContent>
