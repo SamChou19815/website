@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
+
 import { useSelector } from 'react-redux';
+
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import TaskCard from './TaskCard';
 

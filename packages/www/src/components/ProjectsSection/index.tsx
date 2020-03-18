@@ -1,16 +1,18 @@
 import React, { ReactElement } from 'react';
+
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 import Code from '@material-ui/icons/Code';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
-import ConsoleSection from '../Common/ConsoleSection';
-import styles from './index.module.css';
-import TEN from '../../assets/projects/ten.png';
+
 import SAMLANG from '../../assets/projects/samlang.png';
 import Samwise from '../../assets/projects/samwise.png';
+import TEN from '../../assets/projects/ten.png';
+import ConsoleSection from '../Common/ConsoleSection';
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
+import styles from './index.module.css';
 
 export default (): ReactElement => (
   <ConsoleSection id="projects" title="projects --active">

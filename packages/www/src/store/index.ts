@@ -1,6 +1,7 @@
 import { createStore, Store } from 'redux';
-import { FileSystemState } from '../filesystem/types';
+
 import { initialState as initialFileSystem } from '../filesystem';
+import { FileSystemState } from '../filesystem/types';
 
 export type TimelineState = {
   readonly workChecked: boolean;

@@ -1,8 +1,10 @@
 // Credit: Adapted from https://github.com/satya164/react-simple-code-editor/blob/master/src/index.js
 
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
+
 import autosize from 'autosize';
 import CodeBlock from 'lib-react/CodeBlock';
+
 import styles from './Editor.module.css';
 
 type Record = {

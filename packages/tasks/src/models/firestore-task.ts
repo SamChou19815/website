@@ -1,6 +1,6 @@
 import { FirestoreTask } from './firestore-types';
-import { ReduxStoreTask } from './redux-store-types';
 import { createTaskId } from './ids';
+import { ReduxStoreTask } from './redux-store-types';
 
 export const fromNewReduxStoreTask = ({
   projectId,

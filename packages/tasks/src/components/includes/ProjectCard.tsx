@@ -1,18 +1,20 @@
 import React, { ReactElement } from 'react';
-import { useHistory } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import Tooltip from '@material-ui/core/Tooltip';
-import PublicIcon from '@material-ui/icons/Public';
 import AccountIcon from '@material-ui/icons/AccountCircle';
+import PublicIcon from '@material-ui/icons/Public';
+import { useHistory } from 'react-router-dom';
+
 import { ReduxStoreProject } from '../../models/redux-store-types';
-import ProjectCardEditForm from './ProjectCardEditForm';
+import { editProject, deleteProject } from '../../util/firestore-actions';
 import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import MaterialFormDialog from '../util/MaterialFormDialog';
-import { editProject, deleteProject } from '../../util/firestore-actions';
 import styles from './ProjectCard.module.css';
+import ProjectCardEditForm from './ProjectCardEditForm';
 
 const PublicOrPrivateIcon = ({ isPublic }: { readonly isPublic: boolean }): ReactElement => (
   <Tooltip title={isPublic ? 'public' : 'private'}>

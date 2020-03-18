@@ -1,9 +1,11 @@
 import React, { ReactElement } from 'react';
+
 import Button from '@material-ui/core/Button';
-import FormGroup from '@material-ui/core/FormGroup';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import FormGroup from '@material-ui/core/FormGroup';
 import TextField from '@material-ui/core/TextField';
+
 import { TaskId } from '../../models/ids';
 import useFormManager from '../hooks/useFormManager';
 import styles from './TaskCardInlineEditor.module.css';

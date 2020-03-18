@@ -1,6 +1,6 @@
 import { FirestoreProject } from './firestore-types';
-import { ReduxStoreProject } from './redux-store-types';
 import { createProjectId } from './ids';
+import { ReduxStoreProject } from './redux-store-types';
 
 export const fromNewReduxStoreProject = ({
   owner,

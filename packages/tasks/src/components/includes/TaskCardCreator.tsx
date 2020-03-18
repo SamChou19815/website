@@ -1,15 +1,17 @@
 import React, { ReactElement } from 'react';
-import { useSelector } from 'react-redux';
+
 import Card from '@material-ui/core/Card';
 import AssessmentIcon from '@material-ui/icons/Assessment';
-import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
+import { useSelector } from 'react-redux';
+
 import { SanctionedColor } from '../../models/common-types';
 import { ProjectId } from '../../models/ids';
 import { ReduxStoreState } from '../../models/redux-store-types';
+import { getAppUser } from '../../util/authentication';
 import { createTask } from '../../util/firestore-actions';
+import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import styles from './TaskCard.module.css';
 import TaskCardInlineEditor from './TaskCardInlineEditor';
-import { getAppUser } from '../../util/authentication';
 
 type Props = {
   readonly projectId: ProjectId;

@@ -7,9 +7,9 @@
 
 import React from 'react';
 
-import Layout from '@theme/Layout';
 import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
+import Layout from '@theme/Layout';
 
 import styles from '../common.module.css';
 

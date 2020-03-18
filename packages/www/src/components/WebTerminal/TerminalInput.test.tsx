@@ -1,9 +1,11 @@
 import React, { ReactElement, useRef } from 'react';
 import ReactDOM from 'react-dom';
+
 import { act } from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
-import TerminalInput from './TerminalInput';
+
 import { dispatchOnInputChange } from '../../testing/test-utils';
+import TerminalInput from './TerminalInput';
 
 it(`TerminalInput matches snapshot.`, () => {
   const Wrapper = (): ReactElement => {

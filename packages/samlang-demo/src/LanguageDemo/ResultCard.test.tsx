@@ -1,7 +1,9 @@
 import React from 'react';
+
 import renderer from 'react-test-renderer';
-import { Response } from './interpret';
+
 import ResultCard from './ResultCard';
+import { Response } from './interpret';
 
 it('ResultCard(GOOD_PROGRAM) matches snapshot.', () => {
   const response: Response = {

@@ -1,9 +1,11 @@
 import React, { ReactElement } from 'react';
+
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+
 import { Board } from '../game/board';
 import BoardGrid from './BoardGrid';
 import styles from './GameCard.module.css';

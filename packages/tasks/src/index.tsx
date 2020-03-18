@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+
 import './util/firebase-initialization';
 import App from './App';
 import './index.css';

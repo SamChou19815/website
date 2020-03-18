@@ -1,9 +1,10 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
 import React, { ReactElement, RefObject } from 'react';
+
+import styles from './Terminal.module.css';
 import TerminalInput from './TerminalInput';
 import { TerminalHistory } from './types';
-import styles from './Terminal.module.css';
 
 const TerminalHistoryLine = ({ isCommand, line }: TerminalHistory): ReactElement => {
   if (!isCommand) {

@@ -1,9 +1,11 @@
 import React, { ReactElement } from 'react';
+
 import highlight from 'highlight.js';
 import * as remarkable from 'remarkable';
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import { linkify } from 'remarkable/linkify';
+
 import registerLanguage from './language';
 import './CodeBlock.css';
 

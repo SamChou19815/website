@@ -1,7 +1,9 @@
 import React, { ReactElement, Suspense, lazy } from 'react';
-import { Provider as ReactReduxProvider } from 'react-redux';
-import MaterialThemedApp from 'lib-react/MaterialThemedApp';
+
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
+import MaterialThemedApp from 'lib-react/MaterialThemedApp';
+import { Provider as ReactReduxProvider } from 'react-redux';
+
 import styles from './App.module.css';
 import FirstPage from './components/FirstPage';
 import { store } from './store';

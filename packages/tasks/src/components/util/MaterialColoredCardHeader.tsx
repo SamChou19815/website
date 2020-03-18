@@ -1,5 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
+
 import CardHeader from '@material-ui/core/CardHeader';
+
 import { SanctionedColor } from '../../models/common-types';
 import styles from './MaterialColoredCardHeader.module.css';
 

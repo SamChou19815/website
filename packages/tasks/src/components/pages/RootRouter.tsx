@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import HomePage from './HomePage';
 import ProjectDashboardPage from './ProjectDashboardPage';
 import ProjectGraphPage from './ProjectGraphPage';

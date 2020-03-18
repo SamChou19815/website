@@ -1,8 +1,9 @@
 import { createStore, Store } from 'redux';
-import { FirestoreProjectWithId, FirestoreTaskWithId } from './firestore-types';
-import { ReduxStoreProjectsMap, ReduxStoreTasksMap, ReduxStoreState } from './redux-store-types';
+
 import { toReduxStoreProject } from './firestore-project';
 import { toReduxStoreTask } from './firestore-task';
+import { FirestoreProjectWithId, FirestoreTaskWithId } from './firestore-types';
+import { ReduxStoreProjectsMap, ReduxStoreTasksMap, ReduxStoreState } from './redux-store-types';
 
 type PatchProjectsAction = {
   readonly type: 'PATCH_PROJECTS';

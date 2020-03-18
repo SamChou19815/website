@@ -1,5 +1,7 @@
 import React, { ReactElement, useRef } from 'react';
+
 import renderer from 'react-test-renderer';
+
 import StatelessTerminal from './StatelessTerminal';
 import { TerminalHistory } from './types';
 

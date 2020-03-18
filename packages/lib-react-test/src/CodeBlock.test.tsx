@@ -1,6 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+
 import CodeBlock from 'lib-react/CodeBlock';
+import renderer from 'react-test-renderer';
 
 const createSamLangTest = (name: string, code: string) => {
   it(`CodeBlock rendering "${name}" matches snapshot.`, () => {

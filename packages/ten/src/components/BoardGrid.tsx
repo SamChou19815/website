@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+
 import BoardCell from './BoardCell';
 import styles from './BoardGrid.module.css';
 

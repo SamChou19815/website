@@ -1,16 +1,12 @@
 import React, { ReactElement } from 'react';
-import { getGameStatus, makeMoveWithoutCheck, Board } from '../game/board';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
+
 import AIEngineWorker from '../game/ai-engine.worker';
-import StatefulGameCard, { initialGameState } from './StatefulGameCard';
-import { Status } from './GameCard';
+import { getGameStatus, makeMoveWithoutCheck, Board } from '../game/board';
 import { MctsResponse } from '../game/mcts';
+import { Status } from './GameCard';
+import StatefulGameCard, { initialGameState } from './StatefulGameCard';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const worker: any = new AIEngineWorker();
-
-type EventType = { data: { aiResponse: MctsResponse; board: Board } };
+const worker = new AIEngineWorker();
 
 /**
  * The game card in local mode.
@@ -19,7 +15,9 @@ export default function LocalGameCard(): ReactElement {
   const [gameState, setGameState] = React.useState(initialGameState);
   const [isWorkerListenerSet, setIsWorkerListenerSet] = React.useState(false);
 
-  const aiResponseListener = (event: EventType): void => {
+  const aiResponseListener = (event: {
+    data: { aiResponse: MctsResponse; board: Board };
+  }): void => {
     const { aiResponse, board } = event.data;
     const { move, winningPercentage, simulationCounter } = aiResponse;
     const newBoardAfterAI = makeMoveWithoutCheck(board, move);

@@ -1,7 +1,9 @@
 import React from 'react';
 import { hydrate, render } from 'react-dom';
+
 import './index.css';
 import initializeHighlighter from 'lib-react/language';
+
 import App from './App';
 
 export default function initialize() {

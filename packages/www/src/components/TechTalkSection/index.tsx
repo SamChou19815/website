@@ -1,12 +1,14 @@
 import React, { ReactElement } from 'react';
+
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 import School from '@material-ui/icons/School';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
-import styles from './index.module.css';
+
 import ConsoleSection from '../Common/ConsoleSection';
+import styles from './index.module.css';
 
 const schoolIcon = <School />;
 

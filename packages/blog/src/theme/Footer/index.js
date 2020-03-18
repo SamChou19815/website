@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import classnames from 'classnames';
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import classnames from 'classnames';
 
 export default () => {
   const context = useDocusaurusContext();

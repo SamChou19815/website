@@ -1,4 +1,5 @@
 import React, { CSSProperties, ReactElement } from 'react';
+
 import highlight from 'highlight.js';
 import './CodeBlock.css';
 
