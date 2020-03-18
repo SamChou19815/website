@@ -18,7 +18,7 @@ type Props = {
   readonly title: string;
   readonly appBarPosition: AppBarPosition;
   readonly styles: StyleProps;
-  readonly buttons: ReactElement;
+  readonly buttons: ReactElement | null;
   readonly children: ReactNode;
 };
 
