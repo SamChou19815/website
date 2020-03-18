@@ -32,6 +32,8 @@ export default ({ projectId, onDiscard, onSave }: Props): ReactElement => {
         avatar={<AssessmentIcon titleAccess="Task" fontSize="large" />}
       />
       <TaskCardInlineEditor
+        taskId={null}
+        projectId={projectId}
         initialEditableTask={{ name: '', content: '', dependencies: [] }}
         onDiscard={onDiscard ?? onSave}
         onSave={change => {

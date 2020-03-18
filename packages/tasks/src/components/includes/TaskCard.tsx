@@ -35,6 +35,8 @@ export default ({
       />
       {inEditingMode ? (
         <TaskCardInlineEditor
+          taskId={taskId}
+          projectId={projectId}
           initialEditableTask={{ name, content, dependencies }}
           onDiscard={() => setInEditingMode(false)}
           onSave={change => {
