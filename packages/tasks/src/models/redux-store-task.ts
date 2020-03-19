@@ -21,6 +21,7 @@ const dfs = (
       dfsStack.push(dependency);
     });
   }
+  visitedSet.delete(startId);
   return visitedSet;
 };
 
