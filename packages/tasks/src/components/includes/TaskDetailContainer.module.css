@@ -1,0 +1,11 @@
+.TaskDetailTitle {
+  padding: 1em;
+}
+
+.TaskDetailActions {
+  padding: 1em;
+}
+
+.TaskDetailActionElement {
+  margin: 0 0.5em !important;
+}
