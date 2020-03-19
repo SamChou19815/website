@@ -25,10 +25,11 @@ const AssignmentIcon = ({ completed }: { readonly completed: boolean }): ReactEl
     <Assignment titleAccess="Task" fontSize="large" />
   );
 
-type Props = { readonly task: ReduxStoreTask };
+type Props = { readonly task: ReduxStoreTask; readonly onHeaderClick?: () => void };
 
 export default ({
-  task: { taskId, projectId, name, content, dependencies, completed }
+  task: { taskId, projectId, name, content, dependencies, completed },
+  onHeaderClick
 }: Props): ReactElement => {
   const color = useSelector<ReduxStoreState, SanctionedColor>(
     state => state.projects[projectId].color
@@ -42,6 +43,7 @@ export default ({
         title={inEditingMode ? `Editing Task ${name}` : name}
         color={color}
         avatar={<AssignmentIcon completed={completed} />}
+        onClick={onHeaderClick}
       />
       {inEditingMode ? (
         <TaskCardInlineEditor

@@ -1,22 +1,35 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 
+import { TaskId } from '../../models/ids';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import TaskCard from './TaskCard';
+import TaskDetailPanel from './TaskDetailPanel';
 
 export default ({ className }: { readonly className?: string }): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>(state =>
     Object.values(state.tasks)
   );
+  const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
 
   return (
     <div className={className}>
       <section>
         {tasks.map(task => (
-          <TaskCard key={task.taskId} task={task} />
+          <TaskCard
+            key={task.taskId}
+            task={task}
+            onHeaderClick={() => setTaskDetailPanelTaskId(task.taskId)}
+          />
         ))}
       </section>
+      {taskDetailPanelTaskId && (
+        <TaskDetailPanel
+          taskId={taskDetailPanelTaskId}
+          onClose={() => setTaskDetailPanelTaskId(null)}
+        />
+      )}
     </div>
   );
 };
