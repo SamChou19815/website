@@ -1,5 +1,7 @@
 import { fromNewReduxStoreProject } from '../models/firestore-project';
-import { fromNewReduxStoreTask } from '../models/firestore-task';
+import { fromNewReduxStoreTask, fromPartialReduxStoreTask } from '../models/firestore-task';
+import { FirestoreTask } from '../models/firestore-types';
+import { TaskId } from '../models/ids';
 import { store } from '../models/redux-store';
 import { ReduxStoreProject, ReduxStoreTask } from '../models/redux-store-types';
 import { projectsCollection, tasksCollection, createBatch } from './firestore';
@@ -25,8 +27,8 @@ export const createTask = (task: Omit<ReduxStoreTask, 'taskId'>): void => {
   tasksCollection.add(fromNewReduxStoreTask(task));
 };
 
-export const editTask = (task: ReduxStoreTask): void => {
-  tasksCollection.doc(task.taskId).update(fromNewReduxStoreTask(task));
+export const editTask = (task: Partial<FirestoreTask> & { readonly taskId: TaskId }): void => {
+  tasksCollection.doc(task.taskId).update(fromPartialReduxStoreTask(task));
 };
 
 export const deleteTask = (taskId: string): void => {

@@ -28,7 +28,7 @@ const AssignmentIcon = ({ completed }: { readonly completed: boolean }): ReactEl
 type Props = { readonly task: ReduxStoreTask };
 
 export default ({
-  task: { taskId, owner, projectId, name, content, dependencies, completed }
+  task: { taskId, projectId, name, content, dependencies, completed }
 }: Props): ReactElement => {
   const color = useSelector<ReduxStoreState, SanctionedColor>(
     state => state.projects[projectId].color
@@ -51,7 +51,7 @@ export default ({
           onDiscard={() => setInEditingMode(false)}
           onSave={change => {
             setInEditingMode(false);
-            editTask({ taskId, owner, projectId, completed, ...change });
+            editTask({ taskId, ...change });
           }}
         />
       ) : (
@@ -60,7 +60,11 @@ export default ({
             <MarkdownBlock>{content}</MarkdownBlock>
           </CardContent>
           <CardActions>
-            <Button size="small" color="primary">
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => editTask({ taskId, completed: !completed })}
+            >
               {completed ? 'Uncomplete' : 'Complete'}
             </Button>
             <Button size="small" color="primary" onClick={() => setInEditingMode(true)}>
