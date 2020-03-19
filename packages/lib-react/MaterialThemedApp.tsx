@@ -4,14 +4,13 @@ import Typography from '@material-ui/core/Typography';
 
 import MaterialPreConfiguredThemedApp from './MaterialPreConfiguredThemedApp';
 
-type MaterialPreConfiguredThemedAppPassedThroughProps = Pick<
+type MaterialPreConfiguredThemedAppPassedThroughProps = Omit<
   ComponentProps<typeof MaterialPreConfiguredThemedApp>,
-  'appBarPosition' | 'styles' | 'children'
+  'toolBarChildren'
 >;
 
 type Props = MaterialPreConfiguredThemedAppPassedThroughProps & {
   readonly title: string;
-  readonly buttons: ReactElement | null;
 };
 
 const App = ({
@@ -22,18 +21,16 @@ const App = ({
   children
 }: Props): ReactElement => {
   const toolBarChildren = (
-    <>
-      <Typography variant="h6" color="inherit" className={styles.title}>
-        {title}
-      </Typography>
-      {buttons}
-    </>
+    <Typography variant="h6" color="inherit" className={styles.title}>
+      {title}
+    </Typography>
   );
   return (
     <MaterialPreConfiguredThemedApp
       appBarPosition={appBarPosition}
       styles={styles}
       toolBarChildren={toolBarChildren}
+      buttons={buttons}
     >
       {children}
     </MaterialPreConfiguredThemedApp>

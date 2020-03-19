@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import useWindowSize from '../hooks/useWindowSize';
 import ProjectsPanel from '../includes/ProjectsPanel';
 import TasksPanel from '../includes/TasksPanel';
-import MaterialThemedAppContainer from '../util/MaterialThemedAppContainer';
+import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
 import styles from './HomePage.module.css';
 
 export default (): ReactElement => {
@@ -19,23 +19,26 @@ export default (): ReactElement => {
       </Button>
     );
     return (
-      <MaterialThemedAppContainer
-        title={isTasksPanel ? 'All Tasks' : 'All Projects'}
+      <MaterialThemedNavigableAppContainer
+        nestedNavigationLevels={[{ title: isTasksPanel ? 'All Tasks' : 'All Projects', link: '/' }]}
         buttons={buttons}
       >
         <div className={styles.RootContainer}>
           {isTasksPanel ? <TasksPanel /> : <ProjectsPanel />}
         </div>
-      </MaterialThemedAppContainer>
+      </MaterialThemedNavigableAppContainer>
     );
   }
 
   return (
-    <MaterialThemedAppContainer title="" buttons={null}>
+    <MaterialThemedNavigableAppContainer
+      nestedNavigationLevels={[{ title: 'Dashboard', link: '/' }]}
+      buttons={null}
+    >
       <div className={`${styles.DesktopAllPanels} ${styles.RootContainer}`}>
         <ProjectsPanel className={styles.ProjectsPanel} />
         <TasksPanel className={styles.TasksPanel} />
       </div>
-    </MaterialThemedAppContainer>
+    </MaterialThemedNavigableAppContainer>
   );
 };

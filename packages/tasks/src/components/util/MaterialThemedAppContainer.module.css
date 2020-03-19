@@ -5,3 +5,12 @@
 .Title {
   flex: 1 1 auto;
 }
+
+.TitleLink {
+  color: white !important;
+  cursor: pointer;
+}
+
+.TitleLink:hover {
+  color: white !important;
+}

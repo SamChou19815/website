@@ -8,8 +8,7 @@ import { createProjectId } from '../../models/ids';
 import { ReduxStoreState } from '../../models/redux-store-types';
 import TaskCard from '../includes/TaskCard';
 import TaskCardCreator from '../includes/TaskCardCreator';
-import MaterialHomeButton from '../util/MaterialHomeButton';
-import MaterialThemedAppContainer from '../util/MaterialThemedAppContainer';
+import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
 import styles from './ProjectDashboardPage.module.css';
 import { RouteComponentsWithProjectIdParameter } from './router-types';
 
@@ -37,7 +36,10 @@ export default ({
   const [project, tasks] = projectsAndTasks;
 
   return (
-    <MaterialThemedAppContainer title={`Project ${project.name}`} buttons={<MaterialHomeButton />}>
+    <MaterialThemedNavigableAppContainer
+      nestedNavigationLevels={[{ title: `Project ${project.name}`, link: `/project/${projectId}` }]}
+      buttons={null}
+    >
       <div>
         <section>
           {inCreationMode && (
@@ -54,6 +56,6 @@ export default ({
           <AddIcon />
         </Fab>
       </div>
-    </MaterialThemedAppContainer>
+    </MaterialThemedNavigableAppContainer>
   );
 };

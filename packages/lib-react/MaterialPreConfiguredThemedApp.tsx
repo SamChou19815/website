@@ -18,14 +18,24 @@ type Props = {
   readonly appBarPosition: AppBarPosition;
   readonly styles: StyleProps;
   readonly toolBarChildren: ReactElement;
+  readonly buttons: ReactElement | null;
   readonly children: ReactNode;
 };
 
-export default ({ styles, appBarPosition, toolBarChildren, children }: Props): ReactElement => (
+export default ({
+  styles,
+  appBarPosition,
+  toolBarChildren,
+  buttons,
+  children
+}: Props): ReactElement => (
   <MuiThemeProvider theme={theme}>
     <div className={styles.app}>
       <AppBar position={appBarPosition} className={styles.appBar}>
-        <Toolbar>{toolBarChildren}</Toolbar>
+        <Toolbar>
+          {toolBarChildren}
+          {buttons}
+        </Toolbar>
       </AppBar>
       {children}
     </div>
