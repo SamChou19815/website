@@ -9,7 +9,7 @@ import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigable
 import styles from './HomePage.module.css';
 
 export default (): ReactElement => {
-  const isDesktop = useWindowSize(size => size.width >= 968);
+  const isDesktop = useWindowSize(size => size.width >= 1024);
   const [isTasksPanel, setIsTasksPanel] = useState(false);
 
   if (!isDesktop) {

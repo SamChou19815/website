@@ -44,7 +44,7 @@ export default ({ title, color, avatar, onClick }: Props): ReactElement => (
     avatar={avatar}
     classes={{ root: getHeaderClassname(color), title: styles.CardHeaderText }}
     title={title}
-    titleTypographyProps={{ variant: 'h5' }}
+    titleTypographyProps={{ variant: 'h6' }}
     onClick={onClick}
   />
 );
