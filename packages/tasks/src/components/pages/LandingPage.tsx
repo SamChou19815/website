@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import firebase from 'firebase/app';
 import { FirebaseAuth } from 'react-firebaseui';
 
-import MaterialThemedAppContainer from '../util/MaterialThemedAppContainer';
+import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
 import styles from './LandingPage.module.css';
 
 const uiConfig = {
@@ -17,9 +17,9 @@ const uiConfig = {
 };
 
 export default (): ReactElement => (
-  <MaterialThemedAppContainer title="Login" buttons={null}>
+  <MaterialThemedNavigableAppContainer nestedNavigationLevels={[{ title: 'Login' }]}>
     <div className={styles.LoginContainer}>
       <FirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
-  </MaterialThemedAppContainer>
+  </MaterialThemedNavigableAppContainer>
 );

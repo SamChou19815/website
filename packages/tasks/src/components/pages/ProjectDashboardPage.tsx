@@ -38,7 +38,6 @@ export default ({
   return (
     <MaterialThemedNavigableAppContainer
       nestedNavigationLevels={[{ title: `Project ${project.name}`, link: `/project/${projectId}` }]}
-      buttons={null}
     >
       <div>
         <section>

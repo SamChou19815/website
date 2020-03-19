@@ -18,7 +18,7 @@ type Props = {
   readonly appBarPosition: AppBarPosition;
   readonly styles: StyleProps;
   readonly toolBarChildren: ReactElement;
-  readonly buttons: ReactElement | null;
+  readonly buttons?: ReactElement;
   readonly children: ReactNode;
 };
 
