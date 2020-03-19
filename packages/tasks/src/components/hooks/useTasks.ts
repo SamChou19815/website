@@ -31,6 +31,11 @@ export const useNonCycleFormingDependencies = (
     }
     const reverseDependencySet = getTransitiveReverseDependencyTaskIds(tasks, taskId);
     return Object.values(tasks)
-      .filter(task => !reverseDependencySet.has(task.taskId) && task.projectId === projectId)
+      .filter(
+        task =>
+          !reverseDependencySet.has(task.taskId) &&
+          task.projectId === projectId &&
+          taskId !== task.taskId
+      )
       .sort(comparator);
   });
