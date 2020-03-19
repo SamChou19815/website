@@ -22,6 +22,10 @@ pre {
   border-radius: 4px;
 }
 
+pre > code {
+  background-color: transparent;
+}
+
 a:link {
   color: #1e88e5 !important;
   text-decoration: none !important;
