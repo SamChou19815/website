@@ -32,13 +32,15 @@ export default ({ taskId, className }: Props): ReactElement => {
   return (
     <div className={className}>
       <Paper elevation={0}>
-        <Typography variant="h6" className={styles.TaskDetailTitle}>
+        <Typography variant="h6" className={styles.TaskDetailContent}>
           {task.completed ? 'Completed' : 'Uncompleted'} Task: {task.name}
         </Typography>
         <Divider />
-        <MarkdownBlock>{task.content}</MarkdownBlock>
+        <MarkdownBlock className={styles.TaskDetailContent}>
+          {task.content || '`Content not provided`'}
+        </MarkdownBlock>
         <Divider />
-        <Box className={styles.TaskDetailActions}>
+        <Box className={styles.TaskDetailContent}>
           <Button
             size="small"
             color="primary"

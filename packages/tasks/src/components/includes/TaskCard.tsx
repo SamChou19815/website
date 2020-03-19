@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
+import { Divider } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -59,8 +60,9 @@ export default ({
       ) : (
         <>
           <CardContent>
-            <MarkdownBlock>{content}</MarkdownBlock>
+            <MarkdownBlock>{content || '`Content not provided`'}</MarkdownBlock>
           </CardContent>
+          <Divider />
           <CardActions>
             <Button
               size="small"

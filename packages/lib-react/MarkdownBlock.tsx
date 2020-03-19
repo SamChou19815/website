@@ -32,7 +32,14 @@ const markdownRenderer: Remarkable = new remarkable.Remarkable({
   }
 }).use(linkify);
 
-export default ({ children }: { readonly children: string }): ReactElement => {
-  // eslint-disable-next-line react/no-danger
-  return <span dangerouslySetInnerHTML={{ __html: markdownRenderer.render(children) }} />;
+type Props = { readonly className?: string; readonly children: string };
+
+export default ({ className, children }: Props): ReactElement => {
+  return (
+    <div
+      className={className}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: markdownRenderer.render(children) }}
+    />
+  );
 };
