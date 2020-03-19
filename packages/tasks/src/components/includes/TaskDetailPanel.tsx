@@ -10,11 +10,16 @@ import { TaskId } from '../../models/ids';
 import TaskDetailContainer from './TaskDetailContainer';
 import styles from './TaskDetailPanel.module.css';
 
-type Props = { readonly taskId: TaskId; readonly onClose: () => void };
+type Props = { readonly taskId: TaskId; readonly className?: string; readonly onClose: () => void };
 
-export default ({ taskId, onClose }: Props): ReactElement => {
+export default ({ taskId, className: additionalClassName, onClose }: Props): ReactElement => {
+  const className =
+    additionalClassName === undefined
+      ? styles.TaskDetailFloatingContainer
+      : `${styles.TaskDetailFloatingContainer} ${additionalClassName}`;
+
   return (
-    <div className={styles.TaskDetailFloatingContainer}>
+    <div className={className}>
       <AppBar position="fixed" className={styles.TaskDetailAppBar} color="secondary">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="close" onClick={onClose}>
@@ -23,7 +28,10 @@ export default ({ taskId, onClose }: Props): ReactElement => {
           <Typography variant="h6">Task Detail</Typography>
         </Toolbar>
       </AppBar>
-      <TaskDetailContainer taskId={taskId} className="content-below-appbar" />
+      <TaskDetailContainer
+        taskId={taskId}
+        className={`content-below-appbar ${styles.TaskDetailContent}`}
+      />
     </div>
   );
 };
