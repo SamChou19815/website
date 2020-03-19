@@ -5,6 +5,7 @@
   top: 0;
   bottom: 0;
   right: 0;
+  overflow: scroll;
 }
 
 @media screen and (max-width: 720px) {
@@ -34,8 +35,4 @@
 
 .TaskDetailActionElement {
   margin: 0 0.5em !important;
-}
-
-.TaskDetailContent {
-  padding-top: 64px;
 }
