@@ -58,7 +58,7 @@ export default ({ taskId, className }: Props): ReactElement => {
                 onChange={() => setShowTransitive(previous => !previous)}
               />
             }
-            label={`${showTransitive ? 'Hide' : 'Show'} transitive dependencies`}
+            label="Transitive Dependencies"
             labelPlacement="end"
           />
         </Box>
