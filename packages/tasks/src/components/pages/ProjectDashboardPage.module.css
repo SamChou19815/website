@@ -1,5 +1,4 @@
-.AddTaskFab {
-  position: fixed !important;
-  bottom: 1em;
-  right: 1em;
+.AddTaskButton {
+  display: block !important;
+  margin: 2em auto !important;
 }

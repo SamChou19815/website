@@ -1,7 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
 import { useSelector } from 'react-redux';
 
 import { createProjectId, TaskId } from '../../models/ids';
@@ -43,11 +42,21 @@ export default ({
     >
       <div className="content-below-appbar">
         <section>
-          {inCreationMode && (
+          {inCreationMode ? (
             <TaskCardCreator
               projectId={createProjectId(projectId)}
               onSave={() => setInCreationMode(false)}
             />
+          ) : (
+            <Button
+              variant="outlined"
+              color="primary"
+              className={styles.AddTaskButton}
+              onClick={() => setInCreationMode(true)}
+              disableElevation
+            >
+              Create New Task
+            </Button>
           )}
           {tasks.map(task => (
             <TaskCard
@@ -57,9 +66,6 @@ export default ({
             />
           ))}
         </section>
-        <Fab color="primary" className={styles.AddTaskFab} onClick={() => setInCreationMode(true)}>
-          <AddIcon />
-        </Fab>
         {taskDetailPanelTaskId && (
           <TaskDetailPanel
             taskId={taskDetailPanelTaskId}
