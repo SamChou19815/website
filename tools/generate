@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { writeFileSync } = require('fs');
+
 const { projectWorkspaces, getDependencyChain } = require('./workspace');
 
 /**
@@ -13,8 +14,6 @@ const getBoilterPlateSetupSteps = jobName => `jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Set up Node
-        uses: actions/setup-node@v1
       - name: Use Yarn Cache
         uses: actions/cache@v1
         with:
