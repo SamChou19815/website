@@ -11,6 +11,7 @@ This is a monorepo of Sam's [website](https://developersam.com).
 - [blog](https://blog.developersam.com)
 - [samlang](https://samlang.developersam.com)
 - [samlang-demo](https://samlang-demo.developersam.com)
+- [tasks](https://tasks.developersam.com)
 - [ten](https://ten.developersam.com)
 - [www](https://developersam.com)
 
@@ -27,6 +28,7 @@ This is a monorepo of Sam's [website](https://developersam.com).
     - Go
     - Kotlin
   - Hosting
+    - Firebase
     - Google Cloud Functions
     - Google Cloud Run
 - CI/CD
