@@ -13,6 +13,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
 
 import { ReduxStoreTask } from '../../models/redux-store-types';
+import { editTask } from '../../util/firestore-actions';
 import { useTransitiveDependencies } from '../hooks/useTasks';
 import TaskCard from './TaskCard';
 import styles from './TaskDetailPanel.module.css';
@@ -53,7 +54,11 @@ export default ({ task }: { readonly task: ReduxStoreTask }): ReactElement => {
             label={`${showTransitive ? 'Show' : 'Hide'} transitive dependencies`}
             labelPlacement="start"
           />
-          <Button size="small" color="primary">
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => editTask({ taskId: task.taskId, completed: !task.completed })}
+          >
             {task.completed ? 'Uncomplete' : 'Complete'}
           </Button>
         </Paper>

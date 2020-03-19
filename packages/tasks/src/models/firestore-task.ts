@@ -25,14 +25,28 @@ export const fromPartialReduxStoreTask = ({
   content,
   completed,
   dependencies
-}: Partial<ReduxStoreTask>): Partial<FirestoreTask> => ({
-  projectId,
-  owner,
-  name,
-  content,
-  completed,
-  dependencies
-});
+}: Partial<ReduxStoreTask>): Partial<FirestoreTask> => {
+  const partial: Partial<{ -readonly [P in keyof FirestoreTask]: FirestoreTask[P] }> = {};
+  if (projectId !== undefined) {
+    partial.projectId = projectId;
+  }
+  if (owner !== undefined) {
+    partial.owner = owner;
+  }
+  if (name !== undefined) {
+    partial.name = name;
+  }
+  if (content !== undefined) {
+    partial.content = content;
+  }
+  if (completed !== undefined) {
+    partial.completed = completed;
+  }
+  if (dependencies !== undefined) {
+    partial.dependencies = dependencies;
+  }
+  return partial;
+};
 
 export const toReduxStoreTask = ({
   taskId,

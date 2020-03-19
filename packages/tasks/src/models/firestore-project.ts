@@ -14,18 +14,6 @@ export const fromNewReduxStoreProject = ({
   color
 });
 
-export const fromPartialReduxStoreProject = ({
-  owner,
-  isPublic,
-  name,
-  color
-}: Partial<ReduxStoreProject>): Partial<FirestoreProject> => ({
-  owner,
-  isPublic,
-  name,
-  color
-});
-
 export const toReduxStoreProject = ({
   projectId,
   owner,
