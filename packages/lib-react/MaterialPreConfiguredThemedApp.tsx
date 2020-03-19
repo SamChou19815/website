@@ -2,9 +2,15 @@ import React, { ReactElement, ReactNode } from 'react';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import teal from '@material-ui/core/colors/teal';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({ palette: { primary: { main: '#3E7AE2' } } });
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#3E7AE2' },
+    secondary: { main: teal[500] }
+  }
+});
 
 type AppBarPosition = 'fixed' | 'absolute' | 'sticky' | 'static' | 'relative';
 
