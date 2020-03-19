@@ -45,3 +45,7 @@ a:active {
   color: #1e88e5 !important;
   text-decoration: none !important;
 }
+
+.MuiBreadcrumbs-separator {
+  color: white;
+}
