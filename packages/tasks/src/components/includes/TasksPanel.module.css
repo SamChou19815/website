@@ -1,0 +1,7 @@
+.Container {
+  display: flex;
+}
+
+.MainTasksContainer {
+  flex: 1 1 auto;
+}
