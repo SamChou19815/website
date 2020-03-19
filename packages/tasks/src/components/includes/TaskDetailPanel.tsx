@@ -43,7 +43,7 @@ export default ({ taskId, onClose }: Props): ReactElement => {
           <Typography variant="h6">Task Detail</Typography>
         </Toolbar>
       </AppBar>
-      <div className={styles.TaskDetailContent}>
+      <div className="content-below-appbar">
         <Paper elevation={0}>
           <Typography variant="h6" className={styles.TaskDetailTitle}>
             {task.completed ? 'Completed' : 'Uncompleted'} Task: {task.name}

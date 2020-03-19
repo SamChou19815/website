@@ -41,7 +41,7 @@ export default ({
     <MaterialThemedNavigableAppContainer
       nestedNavigationLevels={[{ title: `Project ${project.name}`, link: `/project/${projectId}` }]}
     >
-      <div>
+      <div className="content-below-appbar">
         <section>
           {inCreationMode && (
             <TaskCardCreator

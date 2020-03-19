@@ -45,7 +45,7 @@ export default ({ nestedNavigationLevels = [], buttons, children }: Props): Reac
 
   return (
     <MaterialPreConfiguredThemedApp
-      appBarPosition="static"
+      appBarPosition="fixed"
       toolBarChildren={toolBarChildren}
       styles={{ app: styles.App, title: styles.Title }}
       buttons={buttons}

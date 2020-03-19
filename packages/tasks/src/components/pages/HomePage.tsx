@@ -23,7 +23,7 @@ export default (): ReactElement => {
         nestedNavigationLevels={[{ title: isTasksPanel ? 'All Tasks' : 'All Projects' }]}
         buttons={buttons}
       >
-        <div className={styles.RootContainer}>
+        <div className={`${styles.RootContainer} content-below-appbar`}>
           {isTasksPanel ? <TasksPanel /> : <ProjectsPanel />}
         </div>
       </MaterialThemedNavigableAppContainer>
@@ -34,7 +34,7 @@ export default (): ReactElement => {
     <MaterialThemedNavigableAppContainer
       nestedNavigationLevels={[{ title: 'Dashboard', link: '/' }]}
     >
-      <div className={`${styles.DesktopAllPanels} ${styles.RootContainer}`}>
+      <div className={`${styles.DesktopAllPanels} ${styles.RootContainer} content-below-appbar`}>
         <ProjectsPanel className={styles.ProjectsPanel} />
         <TasksPanel className={styles.TasksPanel} />
       </div>

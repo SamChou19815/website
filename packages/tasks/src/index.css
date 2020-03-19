@@ -46,6 +46,21 @@ a:active {
   text-decoration: none !important;
 }
 
+.content-below-appbar {
+  padding-top: 56px;
+}
+
+@media (min-width: 0px) and (orientation: landscape) {
+  .content-below-appbar {
+    padding-top: 48px;
+  }
+}
+@media (min-width: 600px) {
+  .content-below-appbar {
+    padding-top: 64px;
+  }
+}
+
 .MuiBreadcrumbs-separator {
   color: white;
 }
