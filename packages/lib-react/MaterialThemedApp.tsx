@@ -1,43 +1,44 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ComponentProps } from 'react';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({ palette: { primary: { main: '#3E7AE2' } } });
+import MaterialPreConfiguredThemedApp from './MaterialPreConfiguredThemedApp';
 
-type AppBarPosition = 'fixed' | 'absolute' | 'sticky' | 'static' | 'relative';
+type MaterialPreConfiguredThemedAppPassedThroughProps = Pick<
+  ComponentProps<typeof MaterialPreConfiguredThemedApp>,
+  'appBarPosition' | 'styles' | 'children'
+>;
 
-type StyleProps = {
-  readonly app?: string;
-  readonly appBar?: string;
-  readonly title?: string;
-};
-
-type Props = {
+type Props = MaterialPreConfiguredThemedAppPassedThroughProps & {
   readonly title: string;
-  readonly appBarPosition: AppBarPosition;
-  readonly styles: StyleProps;
   readonly buttons: ReactElement | null;
-  readonly children: ReactNode;
 };
 
-const App = ({ title, styles, appBarPosition, buttons, children }: Props): ReactElement => (
-  <MuiThemeProvider theme={theme}>
-    <div className={styles.app}>
-      <AppBar position={appBarPosition} className={styles.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" className={styles.title}>
-            {title}
-          </Typography>
-          {buttons}
-        </Toolbar>
-      </AppBar>
+const App = ({
+  title,
+  styles,
+  appBarPosition = 'static',
+  buttons,
+  children
+}: Props): ReactElement => {
+  const toolBarChildren = (
+    <>
+      <Typography variant="h6" color="inherit" className={styles.title}>
+        {title}
+      </Typography>
+      {buttons}
+    </>
+  );
+  return (
+    <MaterialPreConfiguredThemedApp
+      appBarPosition={appBarPosition}
+      styles={styles}
+      toolBarChildren={toolBarChildren}
+    >
       {children}
-    </div>
-  </MuiThemeProvider>
-);
+    </MaterialPreConfiguredThemedApp>
+  );
+};
 
 App.defaultProps = { appBarPosition: 'static' };
 
