@@ -11,6 +11,7 @@ import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
 
 import { TaskId } from '../../models/ids';
+import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState } from '../../models/redux-store-types';
 import { editTask } from '../../util/firestore-actions';
 import { useTransitiveDependencies } from '../hooks/useTasks';
@@ -22,7 +23,7 @@ type Props = { readonly taskId: TaskId; readonly className?: string };
 export default ({ taskId, className }: Props): ReactElement => {
   const task = useSelector((state: ReduxStoreState) => state.tasks[taskId]);
   const [showTransitive, setShowTransitive] = useState(false);
-  const transitiveDependencies = useTransitiveDependencies(task.taskId);
+  const transitiveDependencies = flattenedTopologicalSort(useTransitiveDependencies(task.taskId));
 
   const dependenciesToRender = showTransitive
     ? transitiveDependencies
