@@ -2,8 +2,8 @@ import React, { ReactElement, MouseEvent, useRef, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { leveledTopologicalSort } from '../../models/redux-store-task';
-import { ReduxStoreState } from '../../models/redux-store-types';
+import { buildReverseDependencyGraph, leveledTopologicalSort } from '../../models/redux-store-task';
+import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
 import { TasksContainerComponentProps } from './ProjectPageLayout';
 import styles from './TaskGraphCanvas.module.css';
@@ -20,6 +20,31 @@ type TaskRectangle = {
   readonly startY: number;
   readonly width: number;
   readonly height: number;
+};
+
+type TaskGrid = readonly (readonly (ReduxStoreTask | null)[])[];
+
+const createTaskGrid = (tasks: readonly ReduxStoreTask[]): TaskGrid => {
+  const leveledTasks = leveledTopologicalSort(tasks);
+  const _reverseDependencyGraph = buildReverseDependencyGraph(
+    (() => {
+      const taskMap: { [key: string]: ReduxStoreTask } = {};
+      tasks.forEach(task => {
+        taskMap[task.taskId] = task;
+      });
+      return taskMap;
+    })()
+  );
+  const mutableReversedTaskGrid: (readonly (ReduxStoreTask | null)[])[] = [
+    leveledTasks[leveledTasks.length - 1]
+  ];
+  for (let level = leveledTasks.length - 2; level >= 0; level -= 1) {
+    const currentLevelTasks = leveledTasks[level];
+    // TODO: process the level to avoid crossing as much as we can.
+    const processedCurrentLevelTasks = currentLevelTasks;
+    mutableReversedTaskGrid.push(processedCurrentLevelTasks);
+  }
+  return mutableReversedTaskGrid.reverse();
 };
 
 const getTaskRectangle = (level: number, index: number): TaskRectangle => ({
@@ -46,7 +71,7 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
   });
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const canvasRef = useRef<HTMLCanvasElement>(undefined!);
-  const leveledTasks = leveledTopologicalSort(tasks);
+  const leveledTasks = createTaskGrid(tasks);
 
   useEffect(() => {
     const canvasContext = canvasRef.current.getContext('2d');
@@ -57,6 +82,9 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
     canvasContext.font = `${TEXT_SIZE}px sans-serif`;
     leveledTasks.forEach((tasksInLevel, level) => {
       tasksInLevel.forEach((task, index) => {
+        if (task === null) {
+          return;
+        }
         const { startX, startY, width, height } = getTaskRectangle(level, index);
         const color = colors[task.projectId];
         canvasContext.fillStyle = color;
@@ -82,6 +110,9 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
 
     leveledTasks.forEach((tasksInLevel, level) => {
       tasksInLevel.forEach((task, index) => {
+        if (task === null) {
+          return;
+        }
         const rectangle = getTaskRectangle(level, index);
         if (
           relativeX >= rectangle.startX &&
