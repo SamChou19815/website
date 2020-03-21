@@ -46,6 +46,10 @@ a:active {
   text-decoration: none !important;
 }
 
+ul {
+  padding-inline-start: 24px;
+}
+
 .content-below-appbar {
   padding-top: 56px;
 }
