@@ -3,6 +3,7 @@ import React, { ReactElement, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { TaskId } from '../../models/ids';
+import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import TaskCard from './TaskCard';
 import TaskDetailPanel from './TaskDetailPanel';
@@ -14,7 +15,7 @@ export default ({
   readonly className?: string;
 }): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>(state =>
-    Object.values(state.tasks)
+    flattenedTopologicalSort(Object.values(state.tasks))
   );
   const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
 

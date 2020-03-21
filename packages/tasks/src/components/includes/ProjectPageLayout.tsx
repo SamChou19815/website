@@ -3,6 +3,7 @@ import React, { ReactElement, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { TaskId, ProjectId } from '../../models/ids';
+import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreProject, ReduxStoreTask } from '../../models/redux-store-types';
 import MaterialThemedNavigableAppContainer, {
   NestedNavigationLevel
@@ -34,7 +35,9 @@ export default ({
     }
     return [
       state.projects[projectId],
-      Object.values(state.tasks).filter(task => task.projectId === projectId)
+      flattenedTopologicalSort(
+        Object.values(state.tasks).filter(task => task.projectId === projectId)
+      )
     ] as const;
   });
 
