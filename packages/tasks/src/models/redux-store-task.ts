@@ -32,7 +32,7 @@ export const getTransitiveDependencyTaskIds = (
 
 type DependencyGraph = { readonly [key: string]: readonly TaskId[] };
 
-const buildReverseDependencyGraph = (map: ReduxStoreTasksMap): DependencyGraph => {
+export const buildReverseDependencyGraph = (map: ReduxStoreTasksMap): DependencyGraph => {
   const reverseDependencyGraph: { [key: string]: TaskId[] } = {};
   Object.entries(map).forEach(([id, task]) => {
     const parentId = createTaskId(id);
