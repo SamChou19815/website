@@ -52,5 +52,6 @@
 
 ### lib-react
 packages/lib-react/**/*.js
+packages/lib-react/**/*.jsx
 packages/lib-react/**/*.d.ts
 tsconfig.tsbuildinfo

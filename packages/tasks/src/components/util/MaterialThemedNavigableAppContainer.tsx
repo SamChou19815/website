@@ -8,7 +8,7 @@ import { useHistory } from 'react-router';
 import { APP_NAME } from '../../util/constants';
 import styles from './MaterialThemedNavigableAppContainer.module.css';
 
-type NestedNavigationLevel = { readonly title: string; readonly link?: string };
+export type NestedNavigationLevel = { readonly title: string; readonly link?: string };
 
 type Props = {
   readonly nestedNavigationLevels?: readonly NestedNavigationLevel[];
