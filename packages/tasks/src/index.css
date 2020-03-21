@@ -50,19 +50,26 @@ ul {
   padding-inline-start: 24px;
 }
 
-.content-below-appbar {
-  padding-top: 56px;
+:root {
+  --app-bar-height: 56px;
 }
 
 @media (min-width: 0px) and (orientation: landscape) {
-  .content-below-appbar {
-    padding-top: 48px;
+  :root {
+    --app-bar-height: 48px;
   }
 }
 @media (min-width: 600px) {
-  .content-below-appbar {
-    padding-top: 64px;
+  :root {
+    --app-bar-height: 64px;
   }
+}
+
+.content-below-appbar {
+  padding-top: var(--app-bar-height);
+  min-height: calc(100% - var(--app-bar-height));
+  max-height: calc(100% - var(--app-bar-height));
+  overflow: scroll;
 }
 
 .MuiBreadcrumbs-separator {
