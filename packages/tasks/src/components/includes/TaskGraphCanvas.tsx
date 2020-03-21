@@ -107,6 +107,7 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
       onClick={onCanvasClick}
       width={`${width}px`}
       height={`${height}px`}
+      style={{ width: `${width}px` }}
     />
   );
 };
