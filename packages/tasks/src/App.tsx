@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import { Provider as ReactReduxProvider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import LandingPage from './components/pages/LandingPage';
 import LoadingPage from './components/pages/LoadingPage';
@@ -43,10 +44,12 @@ const Main = (): ReactElement => (
 );
 
 export default (): ReactElement => (
-  <MainAppBarrier
-    dataLoader={dataLoader}
-    landingPageComponent={LandingPage}
-    loadingPageComponent={LoadingPage}
-    appComponent={Main}
-  />
+  <BrowserRouter>
+    <MainAppBarrier
+      dataLoader={dataLoader}
+      landingPageComponent={LandingPage}
+      loadingPageComponent={LoadingPage}
+      appComponent={Main}
+    />
+  </BrowserRouter>
 );
