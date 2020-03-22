@@ -9466,6 +9466,11 @@ istanbul-reports@^2.2.6:
   dependencies:
     handlebars "^4.1.2"
 
+javascript-lp-solver@^0.4.24:
+  version "0.4.24"
+  resolved "https://registry.yarnpkg.com/javascript-lp-solver/-/javascript-lp-solver-0.4.24.tgz#3bb5f8aa051f0bf04747e39130133a0f738f635c"
+  integrity sha512-5edoDKnMrt/u3M6GnZKDDIPxOyFOg+WrwDv8mjNiMC2DePhy2H9/FFQgf4ggywaXT1utvkxusJcjQUER72cZmA==
+
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"

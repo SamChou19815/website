@@ -2,10 +2,10 @@ import React, { ReactElement, MouseEvent, useRef, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { buildReverseDependencyGraph, leveledTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
 import { TasksContainerComponentProps } from './ProjectPageLayout';
+import minimizeCross from './TaskGraphCanvas.graph';
 import styles from './TaskGraphCanvas.module.css';
 
 const MARGIN = 32;
@@ -24,28 +24,7 @@ type TaskRectangle = {
 
 type TaskGrid = readonly (readonly (ReduxStoreTask | null)[])[];
 
-const createTaskGrid = (tasks: readonly ReduxStoreTask[]): TaskGrid => {
-  const leveledTasks = leveledTopologicalSort(tasks);
-  const _reverseDependencyGraph = buildReverseDependencyGraph(
-    (() => {
-      const taskMap: { [key: string]: ReduxStoreTask } = {};
-      tasks.forEach(task => {
-        taskMap[task.taskId] = task;
-      });
-      return taskMap;
-    })()
-  );
-  const mutableReversedTaskGrid: (readonly (ReduxStoreTask | null)[])[] = [
-    leveledTasks[leveledTasks.length - 1]
-  ];
-  for (let level = leveledTasks.length - 2; level >= 0; level -= 1) {
-    const currentLevelTasks = leveledTasks[level];
-    // TODO: process the level to avoid crossing as much as we can.
-    const processedCurrentLevelTasks = currentLevelTasks;
-    mutableReversedTaskGrid.push(processedCurrentLevelTasks);
-  }
-  return mutableReversedTaskGrid.reverse();
-};
+const createTaskGrid = (tasks: readonly ReduxStoreTask[]): TaskGrid => minimizeCross(tasks);
 
 const getTaskRectangle = (level: number, index: number): TaskRectangle => ({
   startX: index * (MARGIN + WIDTH) + MARGIN / 2,
