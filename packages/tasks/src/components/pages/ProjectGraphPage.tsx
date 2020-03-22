@@ -13,6 +13,7 @@ export default ({
   return (
     <ProjectPageLayout
       projectId={createProjectId(projectId)}
+      mode="graph"
       getNavigationLevel={(project) => ({
         title: `Project ${project.name} Graph`,
         link: `/project/${projectId}/graph`,
