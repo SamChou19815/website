@@ -19,7 +19,7 @@ export default function minimizeCross(
 ): readonly ReduxStoreTask[][] {
   const taskGraph: { readonly [key: string]: ReduxStoreTask } = (() => {
     const mutableTaskMap: { [key: string]: ReduxStoreTask } = {};
-    tasks.forEach(task => {
+    tasks.forEach((task) => {
       mutableTaskMap[task.taskId] = task;
     });
     return mutableTaskMap;
@@ -29,7 +29,7 @@ export default function minimizeCross(
 
   const key = (...nodes: readonly ReduxStoreTask[]): string =>
     nodes
-      .map(n => n.taskId)
+      .map((n) => n.taskId)
       .sort()
       .join('\0\0');
 
@@ -37,7 +37,7 @@ export default function minimizeCross(
     layer.sort((n1, n2) => n1.taskId.localeCompare(n2.taskId));
 
     layer.slice(0, layer.length - 1).forEach((n1, i) =>
-      layer.slice(i + 1).forEach(n2 => {
+      layer.slice(i + 1).forEach((n2) => {
         const pair = key(n1, n2);
         model.ints[pair] = 1;
         model.constraints[pair] = { max: 1 };
@@ -48,7 +48,7 @@ export default function minimizeCross(
     layer.slice(0, layer.length - 1).forEach((n1, i) =>
       layer.slice(i + 1).forEach((n2, j) => {
         const pair1 = key(n1, n2);
-        layer.slice(i + j + 2).forEach(n3 => {
+        layer.slice(i + j + 2).forEach((n3) => {
           const pair2 = key(n1, n3);
           const pair3 = key(n2, n3);
           const triangle = key(n1, n2, n3);
@@ -71,16 +71,16 @@ export default function minimizeCross(
 
   function cross(model: FullModel, layer: readonly ReduxStoreTask[]) {
     layer.slice(0, layer.length - 1).forEach((p1, i) =>
-      layer.slice(i + 1).forEach(p2 => {
+      layer.slice(i + 1).forEach((p2) => {
         const pairp = key(p1, p2);
-        p1.dependencies.forEach(c1Id => {
+        p1.dependencies.forEach((c1Id) => {
           const c1 = taskGraph[c1Id];
           if (c1 == null) {
             return;
           }
           p2.dependencies
-            .filter(c => c !== c1Id)
-            .forEach(c2Id => {
+            .filter((c) => c !== c1Id)
+            .forEach((c2Id) => {
               const c2 = taskGraph[c2Id];
               if (c2 == null) {
                 return;
@@ -92,7 +92,7 @@ export default function minimizeCross(
               model.variables[slack] = {
                 [slackUp]: 1,
                 [slackDown]: 1,
-                crossings: 1
+                crossings: 1,
               };
 
               const flip = +(c1.taskId > c2.taskId);
@@ -118,20 +118,20 @@ export default function minimizeCross(
       opType: 'min',
       constraints: {},
       variables: {},
-      ints: {}
+      ints: {},
     };
 
     // Add variables and permutation invariants
-    layers.forEach(layer => permutations(model, layer));
+    layers.forEach((layer) => permutations(model, layer));
 
     // Add crossing minimization
-    layers.slice(0, layers.length - 1).forEach(layer => cross(model, layer));
+    layers.slice(0, layers.length - 1).forEach((layer) => cross(model, layer));
 
     // Solve objective
     const ordering = solver.Solve(model);
 
     // Sort layers
-    layers.forEach(layer =>
+    layers.forEach((layer) =>
       layer.sort((n1, n2) => n1.taskId.localeCompare(n2.taskId) * (ordering[key(n1, n2)] || -1))
     );
 

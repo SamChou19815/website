@@ -13,7 +13,7 @@ export default <T>(tranformer: (windowSize: WindowSize) => T): T => {
   const [mappedValue, setMappedValue] = useState(() => tranformer(getWindowSize()));
 
   useEffect(() => {
-    const unsubscribe = windowSizeObservable.subscribe(windowSize => {
+    const unsubscribe = windowSizeObservable.subscribe((windowSize) => {
       setMappedValue(tranformer(windowSize));
     });
     return () => unsubscribe.unsubscribe();

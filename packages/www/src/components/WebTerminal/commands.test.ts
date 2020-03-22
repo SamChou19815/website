@@ -1,7 +1,7 @@
 import commands from './commands';
 
 it('All commands have description', () => {
-  Array.from(Object.values(commands)).forEach(command => {
+  Array.from(Object.values(commands)).forEach((command) => {
     expect(command.description).toBeTruthy();
   });
 });

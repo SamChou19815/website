@@ -20,7 +20,7 @@ const initialProjectTemplate: {
 
 export default ({ className }: { readonly className?: string }): ReactElement => {
   const [formCreationKey, setFormCreationKey] = useState(0);
-  const projects = useSelector<ReduxStoreState, readonly ReduxStoreProject[]>(state =>
+  const projects = useSelector<ReduxStoreState, readonly ReduxStoreProject[]>((state) =>
     Object.values(state.projects)
   );
 
@@ -30,13 +30,13 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
         key={formCreationKey}
         formTitle="Creating Project"
         initialFormValues={initialProjectTemplate}
-        onFormSubmit={change => {
+        onFormSubmit={(change) => {
           createProject({ owner: getAppUser().email, ...change });
-          setFormCreationKey(key => key + 1);
+          setFormCreationKey((key) => key + 1);
         }}
         formValidator={({ name: unvalidatedName }) => unvalidatedName.trim().length > 0}
       >
-        {trigger => (
+        {(trigger) => (
           <Button
             variant="outlined"
             color="primary"
@@ -50,7 +50,7 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
         {ProjectCardEditForm}
       </MaterialFormDialog>
       <section className={styles.CardContainer}>
-        {projects.map(project => (
+        {projects.map((project) => (
           <ProjectCard key={project.projectId} project={project} />
         ))}
       </section>

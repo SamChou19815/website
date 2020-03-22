@@ -8,7 +8,7 @@ import { Response } from './interpret';
 it('ResultCard(GOOD_PROGRAM) matches snapshot.', () => {
   const response: Response = {
     type: 'GOOD_PROGRAM',
-    detail: { result: 'haha', prettyPrintedProgram: 'class HelloWorld {}' }
+    detail: { result: 'haha', prettyPrintedProgram: 'class HelloWorld {}' },
   };
   const tree = renderer.create(<ResultCard response={response} />).toJSON();
   expect(tree).toMatchSnapshot();

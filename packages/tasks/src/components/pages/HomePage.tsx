@@ -9,12 +9,12 @@ import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigable
 import styles from './HomePage.module.css';
 
 export default (): ReactElement => {
-  const isDesktop = useWindowSize(size => size.width >= 1024);
+  const isDesktop = useWindowSize((size) => size.width >= 1024);
   const [isTasksPanel, setIsTasksPanel] = useState(false);
 
   if (!isDesktop) {
     const buttons = (
-      <Button color="inherit" onClick={() => setIsTasksPanel(previous => !previous)}>
+      <Button color="inherit" onClick={() => setIsTasksPanel((previous) => !previous)}>
         {isTasksPanel ? 'To Projects Mode' : 'To Tasks Mode'}
       </Button>
     );

@@ -24,7 +24,7 @@ const createTaskGrid = (tasks: readonly ReduxStoreTask[]): TaskGrid => minimizeC
 
 const getTaskRectangle = (level: number, index: number): TaskRectangle => ({
   startX: index * (MARGIN + WIDTH) + MARGIN / 2,
-  startY: level * (MARGIN + HEIGHT) + MARGIN / 2
+  startY: level * (MARGIN + HEIGHT) + MARGIN / 2,
 });
 
 const autoTrimText = (text: string): string => {
@@ -99,7 +99,7 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
           return;
         }
         const { startX: endX, startY: endY } = getTaskRectangle(level, index);
-        task.dependencies.forEach(dependentTaskId => {
+        task.dependencies.forEach((dependentTaskId) => {
           const dependentTaskWithPosition = taskWithPositionMap[dependentTaskId];
           if (dependentTaskWithPosition == null) {
             return;

@@ -8,14 +8,14 @@ export const fromNewReduxStoreTask = ({
   name,
   content,
   completed,
-  dependencies
+  dependencies,
 }: Omit<ReduxStoreTask, 'taskId'>): FirestoreTask => ({
   projectId,
   owner,
   name,
   content,
   completed,
-  dependencies
+  dependencies,
 });
 
 export const fromPartialReduxStoreTask = ({
@@ -24,7 +24,7 @@ export const fromPartialReduxStoreTask = ({
   name,
   content,
   completed,
-  dependencies
+  dependencies,
 }: Partial<ReduxStoreTask>): Partial<FirestoreTask> => {
   const partial: Partial<{ -readonly [P in keyof FirestoreTask]: FirestoreTask[P] }> = {};
   if (projectId !== undefined) {
@@ -55,7 +55,7 @@ export const toReduxStoreTask = ({
   name,
   content,
   completed,
-  dependencies
+  dependencies,
 }: FirestoreTask & { readonly taskId: string }): ReduxStoreTask => ({
   taskId: createTaskId(taskId),
   owner,
@@ -63,5 +63,5 @@ export const toReduxStoreTask = ({
   name,
   content,
   completed,
-  dependencies
+  dependencies,
 });

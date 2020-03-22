@@ -16,7 +16,7 @@ export const sanctionedColors: readonly SanctionedColor[] = [
   'Green',
   'Light Green',
   'Orange',
-  'Gray'
+  'Gray',
 ];
 
 export const sanctionedColorMapping = {
@@ -29,5 +29,5 @@ export const sanctionedColorMapping = {
   Green: '#4caf50',
   'Light Green': '#8bc34a',
   Orange: '#ff9800',
-  Gray: '#607d8b'
+  Gray: '#607d8b',
 } as const;

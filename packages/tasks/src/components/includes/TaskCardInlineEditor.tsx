@@ -35,7 +35,7 @@ export default ({
   projectId,
   initialEditableTask,
   onDiscard,
-  onSave
+  onSave,
 }: Props): ReactElement => {
   const [editableTask, setPartialEditableTask] = useFormManager(initialEditableTask);
   const { name, content, dependencies } = editableTask;
@@ -54,14 +54,14 @@ export default ({
             label="Name"
             type="text"
             value={name}
-            onChange={event => setPartialEditableTask({ name: event.currentTarget.value })}
+            onChange={(event) => setPartialEditableTask({ name: event.currentTarget.value })}
           />
           <TextField
             className={styles.FormElement}
             label="Content"
             type="text"
             value={content}
-            onChange={event => setPartialEditableTask({ content: event.currentTarget.value })}
+            onChange={(event) => setPartialEditableTask({ content: event.currentTarget.value })}
             multiline
           />
           <Autocomplete
@@ -69,8 +69,8 @@ export default ({
             className={styles.FormElement}
             options={dependenciesTaskOptions}
             autoHighlight
-            getOptionLabel={option => option.name}
-            renderOption={option => {
+            getOptionLabel={(option) => option.name}
+            renderOption={(option) => {
               const color = sanctionedColorMapping[projects[option.projectId].color];
               return (
                 <>
@@ -80,12 +80,12 @@ export default ({
               );
             }}
             value={dependencies.map(
-              id => dependenciesTaskOptions.find(task => task.taskId === id) ?? error()
+              (id) => dependenciesTaskOptions.find((task) => task.taskId === id) ?? error()
             )}
             onChange={(_, values) => {
-              setPartialEditableTask({ dependencies: values.map(task => task.taskId) });
+              setPartialEditableTask({ dependencies: values.map((task) => task.taskId) });
             }}
-            renderInput={params => (
+            renderInput={(params) => (
               // eslint-disable-next-line react/jsx-props-no-spreading
               <TextField label="Dependencies" type="text" {...params} />
             )}

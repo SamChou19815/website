@@ -22,25 +22,25 @@ export const root: Directory = {
                         'actual-fact.txt',
                         {
                           type: 'TEXT_FILE',
-                          text: 'Just to show you this system can support nested directories.'
-                        }
-                      ]
-                    ]
-                  }
+                          text: 'Just to show you this system can support nested directories.',
+                        },
+                      ],
+                    ],
+                  },
                 ],
-                ['real-fact.txt', { type: 'TEXT_FILE', text: 'Really, nothing here.' }]
-              ]
-            }
+                ['real-fact.txt', { type: 'TEXT_FILE', text: 'Really, nothing here.' }],
+              ],
+            },
           ],
-          ['fact.txt', { type: 'TEXT_FILE', text: 'Nothing here.' }]
-        ]
-      }
+          ['fact.txt', { type: 'TEXT_FILE', text: 'Nothing here.' }],
+        ],
+      },
     ],
     ['blog.txt', { type: 'TEXT_FILE', text: 'https://blog.developersam.com/' }],
     ['github.txt', { type: 'TEXT_FILE', text: 'https://github.com/SamChou19815' }],
     ['README.md', { type: 'TEXT_FILE', text: '# Developer Sam' }],
-    ['www.txt', { type: 'TEXT_FILE', text: 'https://developersam.com/' }]
-  ]
+    ['www.txt', { type: 'TEXT_FILE', text: 'https://developersam.com/' }],
+  ],
 };
 
 /**

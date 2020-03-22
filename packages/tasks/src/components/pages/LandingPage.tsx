@@ -12,8 +12,8 @@ const uiConfig = {
   signInSuccessUrl: '/',
   callbacks: {
     // Avoid redirects after sign-in.
-    signInSuccessWithAuthResult: () => false
-  }
+    signInSuccessWithAuthResult: () => false,
+  },
 };
 
 export default (): ReactElement => (

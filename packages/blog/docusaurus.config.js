@@ -20,20 +20,20 @@ module.exports = {
         {
           href: 'https://developersam.com/',
           label: 'Main Site',
-          position: 'right'
+          position: 'right',
         },
         {
           href: 'https://github.com/SamChou19815',
           label: 'GitHub',
-          position: 'right'
-        }
-      ]
+          position: 'right',
+        },
+      ],
     },
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © 2018-${new Date().getFullYear()} Developer Sam.`
-    }
+      copyright: `Copyright © 2018-${new Date().getFullYear()} Developer Sam.`,
+    },
   },
   themes: [['@docusaurus/theme-classic', { customCss: require.resolve('./src/css/custom.css') }]],
   plugins: [
@@ -41,8 +41,8 @@ module.exports = {
       '@docusaurus/plugin-content-blog',
       {
         postsPerPage: 10,
-        routeBasePath: '/'
-      }
-    ]
-  ]
+        routeBasePath: '/',
+      },
+    ],
+  ],
 };

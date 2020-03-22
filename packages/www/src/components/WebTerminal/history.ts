@@ -24,13 +24,13 @@ export default (
         // get it and decrement position by 1 to avoid confusing downscroll.
         return {
           value: history[history.length - 1],
-          historyPosition: history.length - 1
+          historyPosition: history.length - 1,
         };
       }
       // Normal increment by one
       return {
         value: history[historyPosition + 1],
-        historyPosition: historyPosition + 1
+        historyPosition: historyPosition + 1,
       };
     case 'down':
       if (historyPosition == null || historyPosition === 0) {
@@ -40,7 +40,7 @@ export default (
       // Normal decrement by one
       return {
         value: history[historyPosition - 1],
-        historyPosition: historyPosition - 1
+        historyPosition: historyPosition - 1,
       };
     default:
       throw new Error();

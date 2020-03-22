@@ -8,7 +8,7 @@ import scrollHistory from './history';
 import { TerminalHistory } from './types';
 
 const initialHistory: readonly TerminalHistory[] = [
-  { isCommand: false, line: 'Type `help` to show a list of available commands.' }
+  { isCommand: false, line: 'Type `help` to show a list of available commands.' },
 ];
 
 const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
@@ -27,7 +27,7 @@ const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
     } else {
       const result = command.fn(...args);
       if (result != null) {
-        result.split('\n').forEach(line => newHistoryItems.push({ isCommand: false, line }));
+        result.split('\n').forEach((line) => newHistoryItems.push({ isCommand: false, line }));
       }
     }
   }
@@ -42,7 +42,7 @@ export default (): ReactElement => {
 
   const processCommand = (inputLine: string): void => {
     historyPositionRef.current = null;
-    setHistory(oldHistory => [...oldHistory, ...getNewHistory(inputLine)]);
+    setHistory((oldHistory) => [...oldHistory, ...getNewHistory(inputLine)]);
     scrollToBottom();
     focusTerminal();
   };
@@ -50,7 +50,7 @@ export default (): ReactElement => {
   const historyUpDown = (direction: 'up' | 'down'): string | null => {
     const simplifiedHistory = Array.from(history)
       .filter(({ isCommand }) => isCommand)
-      .map(item => item.line)
+      .map((item) => item.line)
       .reverse();
     const result = scrollHistory(direction, simplifiedHistory, historyPositionRef.current);
     if (result === null) {

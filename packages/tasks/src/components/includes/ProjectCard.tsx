@@ -45,10 +45,10 @@ export default ({ project: { projectId, owner, isPublic, name, color } }: Props)
         <MaterialFormDialog
           formTitle="Editing Project"
           initialFormValues={{ isPublic, name, color }}
-          onFormSubmit={change => editProject({ projectId, owner, ...change })}
+          onFormSubmit={(change) => editProject({ projectId, owner, ...change })}
           formValidator={({ name: unvalidatedName }) => unvalidatedName.trim().length > 0}
         >
-          {trigger => (
+          {(trigger) => (
             <Button size="small" color="primary" onClick={trigger}>
               Edit
             </Button>
@@ -60,7 +60,7 @@ export default ({ project: { projectId, owner, isPublic, name, color } }: Props)
           alertDescription="This means that all tasks associated with this project will also be deleted. Data cannot be recovered."
           onConfirm={() => deleteProject(projectId)}
         >
-          {trigger => (
+          {(trigger) => (
             <Button size="small" color="primary" onClick={trigger}>
               Delete
             </Button>

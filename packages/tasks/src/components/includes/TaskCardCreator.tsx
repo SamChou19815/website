@@ -21,7 +21,7 @@ type Props = {
 
 export default ({ projectId, onDiscard, onSave }: Props): ReactElement => {
   const color = useSelector<ReduxStoreState, SanctionedColor>(
-    state => state.projects[projectId].color
+    (state) => state.projects[projectId].color
   );
 
   return (
@@ -36,7 +36,7 @@ export default ({ projectId, onDiscard, onSave }: Props): ReactElement => {
         projectId={projectId}
         initialEditableTask={{ name: '', content: '', dependencies: [] }}
         onDiscard={onDiscard ?? onSave}
-        onSave={change => {
+        onSave={(change) => {
           onSave();
           createTask({ owner: getAppUser().email, projectId, completed: false, ...change });
         }}

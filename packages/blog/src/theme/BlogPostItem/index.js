@@ -30,7 +30,7 @@ export default ({ children, frontMatter, metadata, truncated }) => {
       'September',
       'October',
       'November',
-      'December'
+      'December',
     ][parseInt(match[1], 10) - 1];
     const day = parseInt(match[2], 10);
 

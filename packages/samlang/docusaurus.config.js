@@ -18,7 +18,7 @@ module.exports = {
       title: 'SAMLANG',
       logo: {
         alt: 'SAMLANG Logo',
-        src: 'img/logo.svg'
+        src: 'img/logo.svg',
       },
       links: [
         { to: 'docs/introduction', label: 'Docs', position: 'left' },
@@ -26,9 +26,9 @@ module.exports = {
         {
           href: 'https://github.com/SamChou19815/samlang',
           label: 'GitHub',
-          position: 'right'
-        }
-      ]
+          position: 'right',
+        },
+      ],
     },
     footer: {
       style: 'dark',
@@ -38,75 +38,75 @@ module.exports = {
           items: [
             {
               label: 'Introduction',
-              to: 'docs/introduction'
+              to: 'docs/introduction',
             },
             {
               label: 'Classes & Types',
-              to: 'docs/classes-types'
+              to: 'docs/classes-types',
             },
             {
               label: 'Expressions',
-              to: 'docs/expressions'
+              to: 'docs/expressions',
             },
             {
               label: 'Type Inference',
-              to: 'type-inference'
-            }
-          ]
+              to: 'type-inference',
+            },
+          ],
         },
         {
           title: 'GitHub',
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/SamChou19815/samlang'
+              href: 'https://github.com/SamChou19815/samlang',
             },
             {
               label: 'GitHub Issues',
-              href: 'https://github.com/SamChou19815/samlang/issues'
+              href: 'https://github.com/SamChou19815/samlang/issues',
             },
             {
               label: 'GitHub Pull Requests',
-              href: 'https://github.com/SamChou19815/samlang/pulls'
-            }
-          ]
+              href: 'https://github.com/SamChou19815/samlang/pulls',
+            },
+          ],
         },
         {
           title: 'Relevent Links',
           items: [
             {
               label: 'Blog',
-              to: 'blog'
+              to: 'blog',
             },
             {
               label: 'Demo',
-              href: 'https://samlang-demo.developersam.com'
+              href: 'https://samlang-demo.developersam.com',
             },
             {
               label: 'Developer Sam',
-              href: 'https://developersam.com'
+              href: 'https://developersam.com',
             },
             {
               label: 'Developer Sam Blog',
-              href: 'https://blog.developersam.com'
-            }
-          ]
-        }
+              href: 'https://blog.developersam.com',
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © 2018-${new Date().getFullYear()} Developer Sam. Built with Docusaurus.`
-    }
+      copyright: `Copyright © 2018-${new Date().getFullYear()} Developer Sam. Built with Docusaurus.`,
+    },
   },
   presets: [
     [
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js')
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
-        }
-      }
-    ]
-  ]
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
+  ],
 };

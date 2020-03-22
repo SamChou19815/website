@@ -16,7 +16,7 @@ export type State = {
 
 const initialState: State = {
   timeline: { workChecked: true, projectsChecked: true, eventsChecked: true },
-  fileSystem: initialFileSystem
+  fileSystem: initialFileSystem,
 };
 
 export type Action =

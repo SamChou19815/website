@@ -4,7 +4,7 @@ import { Commands } from './types';
 
 const help = (): string =>
   Object.keys(commands)
-    .map(key => {
+    .map((key) => {
       const cmdObj = commands[key];
       const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
       return `${key} - ${cmdObj.description}${usage}`;
@@ -90,7 +90,7 @@ const commands: Commands = {
   echo: { fn: echo, description: 'Print back the arguments.', usage: 'echo [foo] [bar] ...' },
   ls: { fn: ls, description: 'List directory contents.', usage: 'ls [path1] [path2] ...' },
   pwd: { fn: pwd, description: 'Print currrent absolute directory.' },
-  timeline: { fn: timeline, description: 'Toggle timeline display' }
+  timeline: { fn: timeline, description: 'Toggle timeline display' },
 };
 
 export default commands;

@@ -6,12 +6,12 @@ export const fromNewReduxStoreProject = ({
   owner,
   isPublic,
   name,
-  color
+  color,
 }: Omit<ReduxStoreProject, 'projectId'>): FirestoreProject => ({
   owner,
   isPublic,
   name,
-  color
+  color,
 });
 
 export const toReduxStoreProject = ({
@@ -19,11 +19,11 @@ export const toReduxStoreProject = ({
   owner,
   isPublic,
   name,
-  color
+  color,
 }: FirestoreProject & { readonly projectId: string }): ReduxStoreProject => ({
   projectId: createProjectId(projectId),
   owner,
   isPublic,
   name,
-  color
+  color,
 });

@@ -30,10 +30,10 @@ type Props = { readonly task: ReduxStoreTask; readonly onHeaderClick?: () => voi
 
 export default ({
   task: { taskId, projectId, name, content, dependencies, completed },
-  onHeaderClick
+  onHeaderClick,
 }: Props): ReactElement => {
   const color = useSelector<ReduxStoreState, SanctionedColor>(
-    state => state.projects[projectId].color
+    (state) => state.projects[projectId].color
   );
   const [inEditingMode, setInEditingMode] = useState(false);
   const hasReverseDependencies = useTransitiveReverseDependencies(taskId).length > 0;
@@ -52,7 +52,7 @@ export default ({
           projectId={projectId}
           initialEditableTask={{ name, content, dependencies }}
           onDiscard={() => setInEditingMode(false)}
-          onSave={change => {
+          onSave={(change) => {
             setInEditingMode(false);
             editTask({ taskId, ...change });
           }}
@@ -79,7 +79,7 @@ export default ({
               alertDescription="Once deleted, the task cannot be recovered."
               onConfirm={() => deleteTask(taskId)}
             >
-              {trigger => (
+              {(trigger) => (
                 <Button
                   size="small"
                   color="primary"

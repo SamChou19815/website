@@ -31,7 +31,7 @@ export default function DistributedGameCard(): ReactElement {
           board: newBoardAfterAI,
           highlightedCell: move,
           status: newStatus,
-          aiInfo
+          aiInfo,
         });
       });
   };

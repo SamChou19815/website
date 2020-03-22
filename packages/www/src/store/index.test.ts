@@ -6,7 +6,7 @@ it('patchTimeline works.', () => {
   expect(store.getState().timeline).toStrictEqual({
     workChecked: false,
     projectsChecked: false,
-    eventsChecked: false
+    eventsChecked: false,
   });
 });
 

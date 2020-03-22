@@ -29,7 +29,7 @@ const markdownRenderer: Remarkable = new remarkable.Remarkable({
     } catch {
       return '';
     }
-  }
+  },
 }).use(linkify);
 
 type Props = { readonly className?: string; readonly children: string };

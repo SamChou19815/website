@@ -14,7 +14,7 @@ const dataLoader = (): Promise<void> => {
   const tasksObservable = getTasksObservable();
   let resolvedProjects = false;
   let resolvedTasks = false;
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     projectsObservable.subscribe(({ createdAndEdited, deleted }) => {
       store.dispatch(getPatchProjectsAction(createdAndEdited, deleted));
       if (!resolvedProjects) {

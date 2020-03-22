@@ -10,7 +10,7 @@ import commands from './commands';
  * @returns expanded prefix string, or `null` if autocompletion failed.
  */
 export const autoCompleteCommand = (sources: readonly string[], prefix: string): string | null => {
-  const matchedPrefix = sources.filter(source => source.startsWith(prefix));
+  const matchedPrefix = sources.filter((source) => source.startsWith(prefix));
   if (matchedPrefix.length === 0) {
     return null;
   }

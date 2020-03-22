@@ -12,7 +12,7 @@ export default <T extends {}>(initialFormValues: T): UseFormManagerReturns<T> =>
   }
 
   const setPartialFormValues = (change: Partial<T>): void =>
-    setFormValues(previousFormValues => ({ ...previousFormValues, ...change }));
+    setFormValues((previousFormValues) => ({ ...previousFormValues, ...change }));
 
   return [formValues, setPartialFormValues];
 };
