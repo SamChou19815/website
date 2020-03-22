@@ -7,6 +7,6 @@
 
 module.exports = {
   docs: {
-    'Language Basics': ['introduction', 'classes-types', 'expressions', 'type-inference']
-  }
+    'Language Basics': ['introduction', 'classes-types', 'expressions', 'type-inference'],
+  },
 };

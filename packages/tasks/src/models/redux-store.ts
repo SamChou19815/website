@@ -23,7 +23,7 @@ export const getPatchProjectsAction = (
 ): ReduxStoreAction => ({
   type: 'PATCH_PROJECTS',
   createdAndEdited,
-  deleted
+  deleted,
 });
 
 export const getPatchTasksAction = (
@@ -32,7 +32,7 @@ export const getPatchTasksAction = (
 ): ReduxStoreAction => ({
   type: 'PATCH_TASKS',
   createdAndEdited,
-  deleted
+  deleted,
 });
 
 const patchProjects = (
@@ -40,19 +40,19 @@ const patchProjects = (
   action: PatchProjectsAction
 ): ReduxStoreProjectsMap => {
   const projectsMutableCopy = { ...projects };
-  action.createdAndEdited.forEach(firestoreProject => {
+  action.createdAndEdited.forEach((firestoreProject) => {
     projectsMutableCopy[firestoreProject.projectId] = toReduxStoreProject(firestoreProject);
   });
-  action.deleted.forEach(projectId => delete projectsMutableCopy[projectId]);
+  action.deleted.forEach((projectId) => delete projectsMutableCopy[projectId]);
   return projectsMutableCopy;
 };
 
 const patchTasks = (tasks: ReduxStoreTasksMap, action: PatchTasksAction): ReduxStoreTasksMap => {
   const tasksMutableCopy = { ...tasks };
-  action.createdAndEdited.forEach(firestoreTask => {
+  action.createdAndEdited.forEach((firestoreTask) => {
     tasksMutableCopy[firestoreTask.taskId] = toReduxStoreTask(firestoreTask);
   });
-  action.deleted.forEach(taskId => delete tasksMutableCopy[taskId]);
+  action.deleted.forEach((taskId) => delete tasksMutableCopy[taskId]);
   return tasksMutableCopy;
 };
 

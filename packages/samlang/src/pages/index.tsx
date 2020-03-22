@@ -62,20 +62,20 @@ const TYPE_INFERENCE_CODE = `class TypeInference {
 const features = [
   {
     title: 'Hello World',
-    code: HELLO_WORLD_CODE
+    code: HELLO_WORLD_CODE,
   },
   {
     title: '42',
-    code: FOURTY_TWO_CODE
+    code: FOURTY_TWO_CODE,
   },
   {
     title: 'Pattern Matching',
-    code: PATTERN_MATCHING_CODE
+    code: PATTERN_MATCHING_CODE,
   },
   {
     title: 'Type Inference',
-    code: TYPE_INFERENCE_CODE
-  }
+    code: TYPE_INFERENCE_CODE,
+  },
 ];
 
 function Home() {

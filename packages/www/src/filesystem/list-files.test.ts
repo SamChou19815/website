@@ -1,7 +1,7 @@
 import initialState, { root } from './initial-state';
 import listFiles, {
   listFilesInDirectoryWithRelativePath,
-  listFilesInDirectory
+  listFilesInDirectory,
 } from './list-files';
 import { Directory } from './types';
 

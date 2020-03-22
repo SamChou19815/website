@@ -27,7 +27,7 @@ export default <T extends {}>({
   initialFormValues,
   onFormSubmit,
   formValidator,
-  children: [dialogTrigger, FormComponent]
+  children: [dialogTrigger, FormComponent],
 }: Props<T>): ReactElement => {
   const [open, setOpen] = useState(false);
   const [formValues, setPartialFormValues] = useFormManager(initialFormValues);

@@ -43,7 +43,7 @@ export default function ResultCard({ response }: Props): ReactElement {
       case 'GOOD_PROGRAM': {
         const { result, prettyPrintedProgram } = response.detail;
         const resultNodeStyle = {
-          borderLeftColor: result.startsWith('Value') ? 'green' : 'orange'
+          borderLeftColor: result.startsWith('Value') ? 'green' : 'orange',
         };
         children = (
           <div>

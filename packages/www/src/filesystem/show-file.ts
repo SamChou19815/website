@@ -16,7 +16,7 @@ export const showFileInDirectory = (directory: Directory, filename: string): str
 
 const showFiles = (state: FileSystemState, pathList: readonly string[]): string => {
   return pathList
-    .map(path => {
+    .map((path) => {
       const parent = getParent(path);
       const stack = parent === '/' ? initialState : changeDirectory(state, parent);
       const directory = peek(stack)[1];

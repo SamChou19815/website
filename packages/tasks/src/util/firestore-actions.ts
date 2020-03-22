@@ -18,8 +18,8 @@ export const deleteProject = (projectId: string): void => {
   const batch = createBatch();
   batch.delete(projectsCollection.doc(projectId));
   Object.values(store.getState().tasks)
-    .filter(task => task.projectId === projectId)
-    .forEach(task => batch.delete(tasksCollection.doc(task.taskId)));
+    .filter((task) => task.projectId === projectId)
+    .forEach((task) => batch.delete(tasksCollection.doc(task.taskId)));
   batch.commit();
 };
 

@@ -22,7 +22,7 @@ type EditableProject = {
 
 export default ({
   values: { isPublic, name, color },
-  onChange
+  onChange,
 }: FormProps<EditableProject>): ReactElement => (
   <FormGroup row>
     <FormControlLabel
@@ -31,7 +31,7 @@ export default ({
         // eslint-disable-next-line react/jsx-wrap-multilines
         <Switch
           checked={isPublic}
-          onChange={event => onChange({ isPublic: event.target.checked })}
+          onChange={(event) => onChange({ isPublic: event.target.checked })}
         />
       }
       label={isPublic ? 'Public' : 'Private'}
@@ -42,15 +42,15 @@ export default ({
       label="Name"
       type="text"
       value={name}
-      onChange={event => onChange({ name: event.currentTarget.value })}
+      onChange={(event) => onChange({ name: event.currentTarget.value })}
     />
     <FormControl className={styles.FormElement}>
       <InputLabel>Color</InputLabel>
       <Select
         value={color}
-        onChange={event => onChange({ color: event.target.value as SanctionedColor })}
+        onChange={(event) => onChange({ color: event.target.value as SanctionedColor })}
       >
-        {sanctionedColors.map(sanctionedColor => (
+        {sanctionedColors.map((sanctionedColor) => (
           <MenuItem
             key={sanctionedColor}
             value={sanctionedColor}

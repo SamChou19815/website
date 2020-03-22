@@ -5,7 +5,7 @@ import {
   FirestoreProject,
   FirestoreProjectWithId,
   FirestoreTask,
-  FirestoreTaskWithId
+  FirestoreTaskWithId,
 } from '../models/firestore-types';
 import { getAppUser } from './authentication';
 
@@ -28,7 +28,7 @@ const createUpdate = <T>(
   const createdAndEdited: T[] = [];
   const deleted: string[] = [];
   const changes = snapshot.docChanges();
-  changes.forEach(change => {
+  changes.forEach((change) => {
     switch (change.type) {
       case 'added':
       case 'modified':
@@ -45,14 +45,14 @@ const createUpdate = <T>(
 };
 
 export const getProjectsObservable = (): Observable<Update<FirestoreProjectWithId>> =>
-  new Observable(subscriber => {
+  new Observable((subscriber) => {
     const unsubscribe = projectsCollection
       .where('owner', '==', getAppUser().email)
-      .onSnapshot(snapshot => {
+      .onSnapshot((snapshot) => {
         subscriber.next(
-          createUpdate(snapshot, projectDocument => ({
+          createUpdate(snapshot, (projectDocument) => ({
             projectId: projectDocument.id,
-            ...(projectDocument.data() as FirestoreProject)
+            ...(projectDocument.data() as FirestoreProject),
           }))
         );
       });
@@ -60,14 +60,14 @@ export const getProjectsObservable = (): Observable<Update<FirestoreProjectWithI
   });
 
 export const getTasksObservable = (): Observable<Update<FirestoreTaskWithId>> =>
-  new Observable(subscriber => {
+  new Observable((subscriber) => {
     const unsubscribe = tasksCollection
       .where('owner', '==', getAppUser().email)
-      .onSnapshot(snapshot => {
+      .onSnapshot((snapshot) => {
         subscriber.next(
-          createUpdate(snapshot, taskDocument => ({
+          createUpdate(snapshot, (taskDocument) => ({
             taskId: taskDocument.id,
-            ...(taskDocument.data() as FirestoreTask)
+            ...(taskDocument.data() as FirestoreTask),
           }))
         );
       });

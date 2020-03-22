@@ -34,7 +34,7 @@ export default function LocalGameCard(): ReactElement {
       board: newBoardAfterAI,
       highlightedCell: move,
       status: newStatus,
-      aiInfo: [winningPercentage, simulationCounter]
+      aiInfo: [winningPercentage, simulationCounter],
     });
   };
 

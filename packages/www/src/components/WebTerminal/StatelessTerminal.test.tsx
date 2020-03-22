@@ -24,7 +24,7 @@ const Wrapper = ({ history }: { readonly history: readonly TerminalHistory[] }):
 it(`StatelessTerminal matches snapshot.`, () => {
   const history = [
     { isCommand: true, line: 'foo' },
-    { isCommand: false, line: 'bar' }
+    { isCommand: false, line: 'bar' },
   ];
   const tree = renderer.create(<Wrapper history={history} />).toJSON();
   expect(tree).toMatchSnapshot();

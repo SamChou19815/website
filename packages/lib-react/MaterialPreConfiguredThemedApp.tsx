@@ -8,8 +8,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#3E7AE2' },
-    secondary: { main: teal[500] }
-  }
+    secondary: { main: teal[500] },
+  },
 });
 
 type AppBarPosition = 'fixed' | 'absolute' | 'sticky' | 'static' | 'relative';
@@ -33,7 +33,7 @@ export default ({
   appBarPosition,
   toolBarChildren,
   buttons,
-  children
+  children,
 }: Props): ReactElement => (
   <MuiThemeProvider theme={theme}>
     <div className={styles.app}>

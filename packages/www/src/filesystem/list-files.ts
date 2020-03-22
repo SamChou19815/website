@@ -19,7 +19,7 @@ const listFiles = (state: FileSystemState, pathList: readonly string[]): string 
     return listFilesInDirectoryWithRelativePath(state, pathList[0]);
   }
   return pathList
-    .map(path => `${path}:\n${listFilesInDirectoryWithRelativePath(state, path)}`)
+    .map((path) => `${path}:\n${listFilesInDirectoryWithRelativePath(state, path)}`)
     .join('\n\n');
 };
 

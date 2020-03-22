@@ -19,7 +19,7 @@ export const WebTerminal = ({ shown, onTrigger }: Props): ReactElement => (
 
 export default (): ReactElement => {
   const [isTerminalShown, setIsTerminalShown] = useState(false);
-  const toggle = (): void => setIsTerminalShown(isShown => !isShown);
+  const toggle = (): void => setIsTerminalShown((isShown) => !isShown);
 
   return <WebTerminal shown={isTerminalShown} onTrigger={toggle} />;
 };

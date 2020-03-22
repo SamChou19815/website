@@ -6,7 +6,7 @@ import { TaskId, ProjectId } from '../../models/ids';
 import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreProject, ReduxStoreTask } from '../../models/redux-store-types';
 import MaterialThemedNavigableAppContainer, {
-  NestedNavigationLevel
+  NestedNavigationLevel,
 } from '../util/MaterialThemedNavigableAppContainer';
 import styles from './ProjectPageLayout.module.css';
 import TaskDetailPanel from './TaskDetailPanel';
@@ -26,7 +26,7 @@ type Props = {
 export default ({
   projectId,
   getNavigationLevel,
-  tasksContainerComponent: TasksContainer
+  tasksContainerComponent: TasksContainer,
 }: Props): ReactElement => {
   const projectsAndTasks = useSelector((state: ReduxStoreState) => {
     const project = state.projects[projectId];
@@ -36,8 +36,8 @@ export default ({
     return [
       state.projects[projectId],
       flattenedTopologicalSort(
-        Object.values(state.tasks).filter(task => task.projectId === projectId)
-      )
+        Object.values(state.tasks).filter((task) => task.projectId === projectId)
+      ),
     ] as const;
   });
 
@@ -55,7 +55,7 @@ export default ({
           <TasksContainer
             projectId={projectId}
             tasks={tasks}
-            onTaskClicked={taskId => setTaskDetailPanelTaskId(taskId)}
+            onTaskClicked={(taskId) => setTaskDetailPanelTaskId(taskId)}
           />
         </section>
         {taskDetailPanelTaskId && (

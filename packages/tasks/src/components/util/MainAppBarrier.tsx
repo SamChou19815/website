@@ -28,13 +28,13 @@ export default ({
   dataLoader,
   loadingPageComponent: LoadingPage,
   landingPageComponent: LandingPage,
-  appComponent: App
+  appComponent: App,
 }: Props): ReactElement => {
   const [appStatus, setAppStatus] = React.useState<AppStatus>('INIT_LOADING');
 
   // Listen for auth state changes in effect hooks.
   useEffect(() => {
-    return firebase.auth().onAuthStateChanged(async user => {
+    return firebase.auth().onAuthStateChanged(async (user) => {
       const currentUserFromFirebase = await toAppUser(user);
       if (currentUserFromFirebase === null) {
         setAppStatus('LANDING');

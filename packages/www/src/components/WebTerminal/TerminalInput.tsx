@@ -28,7 +28,7 @@ export default ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
       }
       case 'Tab':
         event.preventDefault();
-        setLine(currentLine => autoComplete(currentLine));
+        setLine((currentLine) => autoComplete(currentLine));
         break;
       default:
         break;
@@ -43,7 +43,7 @@ export default ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
         ref={terminalInput}
         className={styles.TerminalInput}
         value={line}
-        onChange={event => setLine(event.currentTarget.value)}
+        onChange={(event) => setLine(event.currentTarget.value)}
         onKeyDown={onKeyDown}
         type="text"
         autoComplete="off"

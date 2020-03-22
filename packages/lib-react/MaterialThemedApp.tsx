@@ -18,7 +18,7 @@ const App = ({
   styles,
   appBarPosition = 'static',
   buttons,
-  children
+  children,
 }: Props): ReactElement => {
   const toolBarChildren = (
     <Typography variant="h6" color="inherit" className={styles.title}>

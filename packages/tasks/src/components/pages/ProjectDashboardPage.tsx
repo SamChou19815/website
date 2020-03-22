@@ -12,7 +12,7 @@ import { RouteComponentsWithProjectIdParameter } from './router-types';
 const TaskContainer = ({
   projectId,
   tasks,
-  onTaskClicked
+  onTaskClicked,
 }: TasksContainerComponentProps): ReactElement => {
   const [inCreationMode, setInCreationMode] = useState(false);
   return (
@@ -30,7 +30,7 @@ const TaskContainer = ({
           Create New Task
         </Button>
       )}
-      {tasks.map(task => (
+      {tasks.map((task) => (
         <TaskCard key={task.taskId} task={task} onHeaderClick={() => onTaskClicked(task.taskId)} />
       ))}
     </>
@@ -39,15 +39,15 @@ const TaskContainer = ({
 
 export default ({
   match: {
-    params: { projectId }
-  }
+    params: { projectId },
+  },
 }: RouteComponentsWithProjectIdParameter): ReactElement => {
   return (
     <ProjectPageLayout
       projectId={createProjectId(projectId)}
-      getNavigationLevel={project => ({
+      getNavigationLevel={(project) => ({
         title: `Project ${project.name}`,
-        link: `/project/${projectId}`
+        link: `/project/${projectId}`,
       })}
       tasksContainerComponent={TaskContainer}
     />

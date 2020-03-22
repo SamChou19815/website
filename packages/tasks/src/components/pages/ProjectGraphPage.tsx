@@ -7,15 +7,15 @@ import { RouteComponentsWithProjectIdParameter } from './router-types';
 
 export default ({
   match: {
-    params: { projectId }
-  }
+    params: { projectId },
+  },
 }: RouteComponentsWithProjectIdParameter): ReactElement => {
   return (
     <ProjectPageLayout
       projectId={createProjectId(projectId)}
-      getNavigationLevel={project => ({
+      getNavigationLevel={(project) => ({
         title: `Project ${project.name} Graph`,
-        link: `/project/${projectId}/graph`
+        link: `/project/${projectId}/graph`,
       })}
       tasksContainerComponent={TaskGraphCanvas}
     />

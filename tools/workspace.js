@@ -10,9 +10,7 @@ const workspaceInformation = (() => {
    * @type {Map<string, readonly string[]>}
    */
   const map = new Map();
-  let output = execSync('yarn workspaces info --silent')
-    .toString()
-    .trim();
+  let output = execSync('yarn workspaces info --silent').toString().trim();
   if (output.startsWith('yarn workspaces')) {
     const lines = output.split('\n');
     output = lines.slice(1, lines.length - 1).join('\n');
@@ -28,14 +26,14 @@ const workspaceInformation = (() => {
  * @type {readonly string[]}
  */
 const projectWorkspaces = Array.from(workspaceInformation.keys()).filter(
-  workspace => !workspace.startsWith('lib-')
+  (workspace) => !workspace.startsWith('lib-')
 );
 
 /**
  * @param {string} workspace
  * @returns {readonly string[]}
  */
-const getWorkspaceDependencies = workspace => {
+const getWorkspaceDependencies = (workspace) => {
   const information = workspaceInformation.get(workspace);
   if (information == null) {
     throw new Error(`Workspace ${workspace} is not found!`);
@@ -48,7 +46,7 @@ const getWorkspaceDependencies = workspace => {
  * @param {string} workspace
  * @returns {readonly string[]}
  */
-const getDependencyChain = workspace => {
+const getDependencyChain = (workspace) => {
   /**
    * @type {string[]}
    */
@@ -70,7 +68,7 @@ const getDependencyChain = workspace => {
    * @param {string} node
    * @returns {void}
    */
-  const visit = node => {
+  const visit = (node) => {
     // Check cyclic dependencies.
     if (allVisited.has(node)) {
       if (!parentSet.has(node)) {
@@ -104,7 +102,7 @@ const getDependencyChain = workspace => {
  * @throws if there is a cyclic dependency chain.
  */
 const validateDependencyChain = () =>
-  Array.from(workspaceInformation.keys()).forEach(workspace => {
+  Array.from(workspaceInformation.keys()).forEach((workspace) => {
     getDependencyChain(workspace);
     // eslint-disable-next-line no-console
     console.log(`No cyclic dependency detected with ${workspace} as root.`);

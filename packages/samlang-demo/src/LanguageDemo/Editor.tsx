@@ -85,7 +85,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
               ? selectionStart - tabCharacter.length
               : selectionStart,
             // Move the end cursor by total number of characters removed
-            selectionEnd: selectionEnd - (value.length - nextValue.length)
+            selectionEnd: selectionEnd - (value.length - nextValue.length),
           });
         }
       } else if (selectionStart !== selectionEnd) {
@@ -112,7 +112,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
             ? selectionStart + tabCharacter.length
             : selectionStart,
           // Move the end cursor by total number of characters added
-          selectionEnd: selectionEnd + tabCharacter.length * (endLine - startLine + 1)
+          selectionEnd: selectionEnd + tabCharacter.length * (endLine - startLine + 1),
         });
       } else {
         const updatedSelection = selectionStart + tabCharacter.length;
@@ -122,7 +122,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
           value: value.substring(0, selectionStart) + tabCharacter + value.substring(selectionEnd),
           // Update caret position
           selectionStart: updatedSelection,
-          selectionEnd: updatedSelection
+          selectionEnd: updatedSelection,
         });
       }
     } else if (e.key === 'Backspace') {
@@ -142,7 +142,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
             value.substring(selectionEnd),
           // Update caret position
           selectionStart: updatedSelection,
-          selectionEnd: updatedSelection
+          selectionEnd: updatedSelection,
         });
       }
     } else if (e.key === 'Enter') {
@@ -164,7 +164,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
             value: value.substring(0, selectionStart) + indent + value.substring(selectionEnd),
             // Update caret position
             selectionStart: updatedSelection,
-            selectionEnd: updatedSelection
+            selectionEnd: updatedSelection,
           });
         }
       }
@@ -202,7 +202,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
             value.substring(selectionEnd),
           // Update caret position
           selectionStart,
-          selectionEnd: selectionEnd + 2
+          selectionEnd: selectionEnd + 2,
         });
       }
     }
@@ -214,7 +214,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
         ref={inputRef}
         className={`${styles.Editor} ${styles.TextArea}`}
         value={code}
-        onChange={event => onCodeChange(event.currentTarget.value)}
+        onChange={(event) => onCodeChange(event.currentTarget.value)}
         onKeyDown={handleKeyDown}
         autoCapitalize="off"
         autoComplete="off"

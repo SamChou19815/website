@@ -39,7 +39,7 @@ export const emptyBoard: Board = {
   bigSquareStatusArray: Array(9).fill(0),
   bigSquareToPick: -1,
   winningCounter: [0, 0],
-  playerIdentity: 1
+  playerIdentity: 1,
 };
 
 /**
@@ -157,7 +157,7 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
     tiles: oldTiles,
     bigSquareStatusArray: oldBigSquareStatusArray,
     winningCounter: oldWinningCounter,
-    playerIdentity: oldPlayerIdentity
+    playerIdentity: oldPlayerIdentity,
   } = board;
   const tiles = [...oldTiles];
   const [a, b] = move;
@@ -179,7 +179,7 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
     bigSquareStatusArray,
     bigSquareToPick,
     winningCounter,
-    playerIdentity
+    playerIdentity,
   };
 }
 

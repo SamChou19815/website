@@ -29,7 +29,7 @@ const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactE
 export const TimelineSection = ({
   workChecked,
   projectsChecked,
-  eventsChecked
+  eventsChecked,
 }: TimelineState): ReactElement => {
   const workOnChange = (): void => {
     patchTimeline({ workChecked: !workChecked, projectsChecked, eventsChecked });

@@ -28,7 +28,7 @@ export default ({ taskId, className }: Props): ReactElement => {
   const dependenciesToRender = showTransitive
     ? transitiveDependencies
     : // Direct Dependencies
-      transitiveDependencies.filter(dependency => task.dependencies.includes(dependency.taskId));
+      transitiveDependencies.filter((dependency) => task.dependencies.includes(dependency.taskId));
 
   return (
     <div className={className}>
@@ -56,7 +56,7 @@ export default ({ taskId, className }: Props): ReactElement => {
               // eslint-disable-next-line react/jsx-wrap-multilines
               <Switch
                 checked={showTransitive}
-                onChange={() => setShowTransitive(previous => !previous)}
+                onChange={() => setShowTransitive((previous) => !previous)}
               />
             }
             label="Transitive Dependencies"
@@ -65,7 +65,7 @@ export default ({ taskId, className }: Props): ReactElement => {
         </Box>
       </Paper>
       <Divider />
-      {dependenciesToRender.map(dependencyTask => (
+      {dependenciesToRender.map((dependencyTask) => (
         <TaskCard key={dependencyTask.taskId} task={dependencyTask} />
       ))}
     </div>

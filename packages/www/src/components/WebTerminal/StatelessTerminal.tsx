@@ -33,7 +33,7 @@ export default ({
   terminalInput,
   focusTerminal,
   onArrow,
-  processCommand
+  processCommand,
 }: Props): ReactElement => (
   <div className={styles.TerminalContainer}>
     <div className={styles.TerminalTitle}>Terminal</div>

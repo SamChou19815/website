@@ -20,7 +20,7 @@ const MaterialButtonLink = ({ href, children, color, onClick, className }: Props
 );
 
 MaterialButtonLink.defaultProps = {
-  color: 'primary'
+  color: 'primary',
 };
 
 export default MaterialButtonLink;
