@@ -1,9 +1,10 @@
 import React, { ReactElement } from 'react';
 
+import Assignment from '@material-ui/icons/Assignment';
+import AssignmentDone from '@material-ui/icons/AssignmentTurnedIn';
 import { useSelector } from 'react-redux';
 
-import { createTaskId } from '../../models/ids';
-import { ReduxStoreState } from '../../models/redux-store-types';
+import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
 import { TasksContainerComponentProps } from './ProjectPageLayout';
 import { minimizeCross, generateGraphComponents } from './TaskGraphCanvas.graph';
@@ -30,11 +31,47 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
     });
   });
 
-  const { cards, texts, arrows, canvasWidth, canvasHeight, textSize } = generateGraphComponents(
-    taskWithPositionMap,
-    leveledTasks,
-    colors
-  );
+  const {
+    cards,
+    icons,
+    texts,
+    arrows,
+    canvasWidth,
+    canvasHeight,
+    textSize,
+    iconSize,
+  } = generateGraphComponents(taskWithPositionMap, leveledTasks, colors);
+
+  const TaskIcon = ({
+    task,
+    completed,
+    startX,
+    startY,
+  }: {
+    readonly startX: number;
+    readonly startY: number;
+    readonly task: ReduxStoreTask;
+    readonly completed: boolean;
+  }): ReactElement =>
+    completed ? (
+      <AssignmentDone
+        className={styles.CanvasIcon}
+        x={startX}
+        y={startY}
+        width={iconSize}
+        height={iconSize}
+        onClick={() => onTaskClicked(task.taskId)}
+      />
+    ) : (
+      <Assignment
+        className={styles.CanvasIcon}
+        x={startX}
+        y={startY}
+        width={iconSize}
+        height={iconSize}
+        onClick={() => onTaskClicked(task.taskId)}
+      />
+    );
 
   return (
     <svg
@@ -43,28 +80,38 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
       height={`${canvasHeight}px`}
       style={{ width: `${canvasWidth}px` }}
     >
-      {cards.map(({ id, startX, startY, width, height, color }) => (
+      {cards.map(({ task, startX, startY, width, height, color }) => (
         <rect
-          key={id}
+          key={task.taskId}
           x={startX}
           y={startY}
           width={width}
           height={height}
           fill={color}
           className={styles.CanvasClickable}
-          onClick={() => onTaskClicked(createTaskId(id))}
+          onClick={() => onTaskClicked(task.taskId)}
         />
       ))}
-      {texts.map(({ id, text, startX, startY, maxWidth }) => (
+      {icons.map(({ task, completed, startX, startY }) => (
+        <TaskIcon
+          key={task.taskId}
+          task={task}
+          completed={completed}
+          startX={startX}
+          startY={startY}
+        />
+      ))}
+      {texts.map(({ task, text, startX, startY, maxWidth }) => (
         <text
-          key={id}
+          key={task.taskId}
           fill="white"
           x={startX}
           y={startY}
           fontSize={textSize}
           max={maxWidth}
           className={styles.CanvasClickable}
-          onClick={() => onTaskClicked(createTaskId(id))}
+          style={task.completed ? { textDecoration: 'line-through' } : {}}
+          onClick={() => onTaskClicked(task.taskId)}
         >
           {text}
         </text>

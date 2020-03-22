@@ -7,3 +7,8 @@
 .CanvasClickable {
   cursor: pointer;
 }
+
+.CanvasIcon {
+  color: white;
+  cursor: pointer;
+}
