@@ -44,6 +44,7 @@ export default ({
         title={inEditingMode ? `Editing Task ${name}` : name}
         color={color}
         avatar={<AssignmentIcon completed={completed} />}
+        titleClassName={completed ? styles.TaskCardTitleStrikeThrough : undefined}
         onClick={onHeaderClick}
       />
       {inEditingMode ? (
