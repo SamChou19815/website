@@ -141,13 +141,17 @@ export const minimizeCross = (tasks: readonly ReduxStoreTask[]): readonly ReduxS
 
 type TaskRectangle = { readonly startX: number; readonly startY: number };
 type GraphCardComponent = TaskRectangle & {
-  readonly id: string;
+  readonly task: ReduxStoreTask;
   readonly width: number;
   readonly height: number;
   readonly color: string;
 };
+type GraphIconComponent = TaskRectangle & {
+  readonly task: ReduxStoreTask;
+  readonly completed: boolean;
+};
 type GraphTextComponent = TaskRectangle & {
-  readonly id: string;
+  readonly task: ReduxStoreTask;
   readonly text: string;
   readonly maxWidth: number;
 };
@@ -160,17 +164,20 @@ type GraphArrowComponent = TaskRectangle & {
 };
 type GraphComponents = {
   readonly cards: readonly GraphCardComponent[];
+  readonly icons: readonly GraphIconComponent[];
   readonly texts: readonly GraphTextComponent[];
   readonly arrows: readonly GraphArrowComponent[];
   readonly canvasWidth: number;
   readonly canvasHeight: number;
   readonly textSize: number;
+  readonly iconSize: number;
 };
 
 const MARGIN = 64;
 const PADDING = 16;
 const TEXT_SIZE = 20;
-const WIDTH = 300;
+const ICON_SIZE = 36;
+const WIDTH = 350;
 const HEIGHT = 64;
 const MAX_UNTRIMMED_TEXT_LENGTH = 27;
 
@@ -191,6 +198,7 @@ export const generateGraphComponents = (
   colors: { readonly [projectId: string]: string }
 ): GraphComponents => {
   const cards: GraphCardComponent[] = [];
+  const icons: GraphIconComponent[] = [];
   const texts: GraphTextComponent[] = [];
   const arrows: GraphArrowComponent[] = [];
   const canvasWidth =
@@ -203,7 +211,7 @@ export const generateGraphComponents = (
     tasksInLevel.forEach((task, index) => {
       const { startX, startY } = getTaskRectangle(level, index);
       cards.push({
-        id: task.taskId,
+        task,
         startX,
         startY,
         width: WIDTH,
@@ -211,12 +219,19 @@ export const generateGraphComponents = (
         color: colors[task.projectId],
       });
 
-      texts.push({
-        id: task.taskId,
-        text: autoTrimText(task.name),
+      icons.push({
+        task,
+        completed: task.completed,
         startX: startX + PADDING / 2,
+        startY: startY - ICON_SIZE / 2 + HEIGHT / 2 + 4,
+      });
+
+      texts.push({
+        task,
+        text: autoTrimText(task.name),
+        startX: startX + PADDING + ICON_SIZE,
         startY: startY + TEXT_SIZE / 2 + HEIGHT / 2,
-        maxWidth: WIDTH - PADDING,
+        maxWidth: WIDTH - (PADDING * 3) / 2 - ICON_SIZE,
       });
     });
   });
@@ -247,5 +262,14 @@ export const generateGraphComponents = (
     });
   });
 
-  return { cards, texts, arrows, canvasWidth, canvasHeight, textSize: TEXT_SIZE };
+  return {
+    cards,
+    icons,
+    texts,
+    arrows,
+    canvasWidth,
+    canvasHeight,
+    textSize: TEXT_SIZE,
+    iconSize: ICON_SIZE,
+  };
 };
