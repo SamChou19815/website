@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import solver, { IModel } from 'javascript-lp-solver';
 
+import { TaskId } from '../../models/ids';
 import { leveledTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 
@@ -14,9 +15,7 @@ import { ReduxStoreTask } from '../../models/redux-store-types';
  * @returns a list of ordered tasks, each inner list is an ordered list of tasks.
  * Task should appear in this order during rendering.
  */
-export default function minimizeCross(
-  tasks: readonly ReduxStoreTask[]
-): readonly ReduxStoreTask[][] {
+export const minimizeCross = (tasks: readonly ReduxStoreTask[]): readonly ReduxStoreTask[][] => {
   const taskGraph: { readonly [key: string]: ReduxStoreTask } = (() => {
     const mutableTaskMap: { [key: string]: ReduxStoreTask } = {};
     tasks.forEach((task) => {
@@ -139,4 +138,130 @@ export default function minimizeCross(
   }
 
   return decrossOpt(leveledTopologicalSort(tasks) as readonly ReduxStoreTask[][]);
-}
+};
+
+type TaskRectangle = { readonly startX: number; readonly startY: number };
+type GraphCardComponent = TaskRectangle & {
+  readonly width: number;
+  readonly height: number;
+  readonly color: string;
+};
+type GraphTextComponent = TaskRectangle & { readonly text: string; readonly maxWidth: number };
+type GraphArrowComponent = TaskRectangle & {
+  readonly endX: number;
+  readonly endY: number;
+  readonly controlX: number;
+  readonly controlY: number;
+};
+type GraphComponents = {
+  readonly cards: readonly GraphCardComponent[];
+  readonly texts: readonly GraphTextComponent[];
+  readonly arrows: readonly GraphArrowComponent[];
+  readonly canvasWidth: number;
+  readonly canvasHeight: number;
+  readonly textSize: number;
+};
+
+const MARGIN = 64;
+const PADDING = 16;
+const TEXT_SIZE = 20;
+const WIDTH = 300;
+const HEIGHT = 64;
+const MAX_UNTRIMMED_TEXT_LENGTH = 27;
+
+const getTaskRectangle = (level: number, index: number): TaskRectangle => ({
+  startX: index * (MARGIN + WIDTH) + MARGIN / 2,
+  startY: level * (MARGIN + HEIGHT) + MARGIN / 2,
+});
+const autoTrimText = (text: string): string => {
+  if (text.length < MAX_UNTRIMMED_TEXT_LENGTH) {
+    return text;
+  }
+  return `${text.substring(0, MAX_UNTRIMMED_TEXT_LENGTH)}...`;
+};
+
+export const generateGraphComponents = (
+  taskWithPositionMap: { readonly [taskId: string]: Readonly<{ level: number; index: number }> },
+  leveledTasks: readonly (readonly ReduxStoreTask[])[],
+  colors: { readonly [projectId: string]: string }
+): GraphComponents => {
+  const cards: GraphCardComponent[] = [];
+  const texts: GraphTextComponent[] = [];
+  const arrows: GraphArrowComponent[] = [];
+  const canvasWidth =
+    (MARGIN + WIDTH) *
+    leveledTasks.reduce((max, tasksInLevel) => Math.max(max, tasksInLevel.length), 0);
+  const canvasHeight = (MARGIN + HEIGHT) * leveledTasks.length;
+
+  // Draw Task Cards
+  leveledTasks.forEach((tasksInLevel, level) => {
+    tasksInLevel.forEach((task, index) => {
+      const { startX, startY } = getTaskRectangle(level, index);
+      cards.push({
+        startX,
+        startY,
+        width: WIDTH,
+        height: HEIGHT,
+        color: colors[task.projectId],
+      });
+
+      texts.push({
+        text: autoTrimText(task.name),
+        startX: startX + PADDING / 2,
+        startY: startY + TEXT_SIZE / 2 + HEIGHT / 2,
+        maxWidth: WIDTH - PADDING,
+      });
+    });
+  });
+
+  // Draw Dependency Arrows
+  leveledTasks.forEach((tasksInLevel, level) => {
+    tasksInLevel.forEach((task, index) => {
+      const { startX: endX, startY: endY } = getTaskRectangle(level, index);
+      task.dependencies.forEach((dependentTaskId) => {
+        const dependentTaskWithPosition = taskWithPositionMap[dependentTaskId];
+        if (dependentTaskWithPosition == null) {
+          return;
+        }
+        const { startX, startY } = getTaskRectangle(
+          dependentTaskWithPosition.level,
+          dependentTaskWithPosition.index
+        );
+        arrows.push({
+          startX: startX + WIDTH / 2,
+          startY: startY + HEIGHT,
+          endX: endX + WIDTH / 2,
+          endY,
+          controlX: endX + WIDTH / 2 - ((endX - startX) * 1) / 3,
+          controlY: endY,
+        });
+      });
+    });
+  });
+
+  return { cards, texts, arrows, canvasWidth, canvasHeight, textSize: TEXT_SIZE };
+};
+
+export const clickTask = (
+  leveledTasks: readonly (readonly ReduxStoreTask[])[],
+  relativeX: number,
+  relativeY: number,
+  onTaskClicked: (id: TaskId) => void
+): void => {
+  leveledTasks.forEach((tasksInLevel, level) => {
+    tasksInLevel.forEach((task, index) => {
+      if (task === null) {
+        return;
+      }
+      const rectangle = getTaskRectangle(level, index);
+      if (
+        relativeX >= rectangle.startX &&
+        relativeX <= rectangle.startX + WIDTH &&
+        relativeY >= rectangle.startY &&
+        relativeY <= rectangle.startY + HEIGHT
+      ) {
+        onTaskClicked(task.taskId);
+      }
+    });
+  });
+};
