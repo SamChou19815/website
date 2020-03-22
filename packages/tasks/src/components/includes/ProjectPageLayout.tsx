@@ -74,8 +74,10 @@ export default ({
       nestedNavigationLevels={[getNavigationLevel(project)]}
       buttons={<ModeSwitchButton projectId={projectId} mode={mode} />}
     >
-      <div className={`content-below-appbar ${styles.Container}`}>
-        <section className={styles.MainTasksContainer}>
+      <div className="content-below-appbar">
+        <section
+          className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
+        >
           <TasksContainer
             projectId={projectId}
             tasks={tasks}

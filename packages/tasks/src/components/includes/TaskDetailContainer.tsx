@@ -4,9 +4,11 @@ import { FormControlLabel } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@material-ui/icons/Close';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
 
@@ -18,9 +20,9 @@ import { useTransitiveDependencies } from '../hooks/useTasks';
 import TaskCard from './TaskCard';
 import styles from './TaskDetailContainer.module.css';
 
-type Props = { readonly taskId: TaskId; readonly className?: string };
+type Props = { readonly taskId: TaskId; readonly className?: string; readonly onClose: () => void };
 
-export default ({ taskId, className }: Props): ReactElement => {
+export default ({ taskId, className, onClose }: Props): ReactElement => {
   const task = useSelector((state: ReduxStoreState) => state.tasks[taskId]);
   const [showTransitive, setShowTransitive] = useState(false);
   const transitiveDependencies = flattenedTopologicalSort(useTransitiveDependencies(task.taskId));
@@ -33,8 +35,21 @@ export default ({ taskId, className }: Props): ReactElement => {
   return (
     <div className={className}>
       <Paper elevation={0}>
-        <Typography variant="h6" className={styles.TaskDetailContent}>
-          {task.completed ? 'Completed' : 'Uncompleted'} Task: {task.name}
+        <Typography
+          variant="h6"
+          className={styles.TaskDetailContent}
+          style={task.completed ? { textDecoration: 'line-through' } : undefined}
+        >
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="close"
+            onClick={onClose}
+            className={styles.TaskDetailCloseButton}
+          >
+            <CloseIcon />
+          </IconButton>
+          {task.name}
         </Typography>
         <Divider />
         <MarkdownBlock className={styles.TaskDetailContent}>

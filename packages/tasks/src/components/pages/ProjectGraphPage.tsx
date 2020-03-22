@@ -15,7 +15,7 @@ export default ({
       projectId={createProjectId(projectId)}
       mode="graph"
       getNavigationLevel={(project) => ({
-        title: `Project ${project.name} Graph`,
+        title: `Project \`${project.name}\` Graph`,
         link: `/project/${projectId}/graph`,
       })}
       tasksContainerComponent={TaskGraphCanvas}

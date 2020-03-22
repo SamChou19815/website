@@ -1,10 +1,10 @@
 .TaskDetailFloatingContainer {
+  position: fixed;
   background-color: #f7f7f7;
 }
 
 @media screen and (max-width: 720px) {
   .TaskDetailFloatingContainer {
-    position: fixed;
     z-index: 2000;
     top: 0;
     bottom: 0;
@@ -16,6 +16,9 @@
 
 @media screen and (min-width: 720px) {
   .TaskDetailFloatingContainer {
+    top: var(--app-bar-height);
+    bottom: 0;
+    right: 0;
     width: 400px;
     border-left: 1px solid #cccccc;
   }
@@ -26,5 +29,6 @@
 
   .TaskDetailContent {
     padding-top: 0 !important;
+    max-height: 100% !important;
   }
 }

@@ -47,7 +47,7 @@ export default ({
       projectId={createProjectId(projectId)}
       mode="dashboard"
       getNavigationLevel={(project) => ({
-        title: `Project ${project.name}`,
+        title: `Project \`${project.name}\``,
         link: `/project/${projectId}`,
       })}
       tasksContainerComponent={TaskContainer}

@@ -30,6 +30,7 @@ export default ({ taskId, className: additionalClassName, onClose }: Props): Rea
       </AppBar>
       <TaskDetailContainer
         taskId={taskId}
+        onClose={onClose}
         className={`content-below-appbar ${styles.TaskDetailContent}`}
       />
     </div>
