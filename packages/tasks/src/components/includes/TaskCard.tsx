@@ -38,8 +38,12 @@ export default ({
   const [inEditingMode, setInEditingMode] = useState(false);
   const hasReverseDependencies = useTransitiveReverseDependencies(taskId).length > 0;
 
+  const className = completed
+    ? `${styles.TaskCard} ${styles.TaskCardLessOpacity}`
+    : styles.TaskCard;
+
   return (
-    <Card variant="outlined" className={styles.TaskCard}>
+    <Card variant="outlined" className={className}>
       <MaterialColoredCardHeader
         title={inEditingMode ? `Editing Task ${name}` : name}
         color={color}
