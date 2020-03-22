@@ -7,7 +7,9 @@ import * as remarkable from 'remarkable';
 import { linkify } from 'remarkable/linkify';
 
 import registerLanguage from './language';
+import remarkableCheckboxPlugin from './remarkable-checkbox-plugin';
 import './CodeBlock.css';
+import './MarkdownBlock.css';
 
 registerLanguage();
 
@@ -30,7 +32,8 @@ const markdownRenderer: Remarkable = new remarkable.Remarkable({
       return '';
     }
   },
-}).use(linkify);
+});
+markdownRenderer.use(linkify).use(remarkableCheckboxPlugin);
 
 type Props = { readonly className?: string; readonly children: string };
 
