@@ -8,7 +8,8 @@ import { TasksContainerComponentProps } from './ProjectPageLayout';
 import minimizeCross from './TaskGraphCanvas.graph';
 import styles from './TaskGraphCanvas.module.css';
 
-const MARGIN = 32;
+const MARGIN = 64;
+const PADDING = 16;
 const TEXT_SIZE = 20;
 const WIDTH = 300;
 const HEIGHT = 64;
@@ -84,9 +85,9 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
         canvasContext.fillStyle = 'white';
         canvasContext.fillText(
           autoTrimText(task.name),
-          startX + MARGIN / 2,
-          startY + MARGIN / 2 + HEIGHT / 2,
-          WIDTH - MARGIN
+          startX + PADDING / 2,
+          startY + TEXT_SIZE / 2 + HEIGHT / 2,
+          WIDTH - PADDING
         );
       });
     });
@@ -109,7 +110,12 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
           );
           canvasContext.beginPath();
           canvasContext.moveTo(startX + WIDTH / 2, startY + HEIGHT);
-          canvasContext.lineTo(endX + WIDTH / 2, endY);
+          canvasContext.quadraticCurveTo(
+            endX + WIDTH / 2 - ((endX - startX) * 1) / 3,
+            endY,
+            endX + WIDTH / 2,
+            endY
+          );
           canvasContext.stroke();
         });
       });
