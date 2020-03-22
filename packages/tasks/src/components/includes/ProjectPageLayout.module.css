@@ -1,7 +1,5 @@
-.Container {
-  display: flex;
-}
-
-.MainTasksContainer {
-  flex: 1 1 auto;
+@media screen and (min-width: 720px) {
+  .MainTasksContainerSquezzed {
+    width: calc(100% - 400px);
+  }
 }

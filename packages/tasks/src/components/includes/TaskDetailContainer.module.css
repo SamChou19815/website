@@ -5,3 +5,9 @@
 .TaskDetailActionElement {
   margin: 0 0.5em !important;
 }
+
+@media screen and (max-width: 720px) {
+  .TaskDetailCloseButton {
+    display: none !important;
+  }
+}
