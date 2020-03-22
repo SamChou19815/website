@@ -1,0 +1,5 @@
+input[type='checkbox'].remarkable-task-list-item-checkbox {
+  margin: 4px;
+  font-size: 16px;
+  transform: translateY(-1px);
+}
