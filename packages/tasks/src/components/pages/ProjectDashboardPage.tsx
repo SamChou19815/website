@@ -45,6 +45,7 @@ export default ({
   return (
     <ProjectPageLayout
       projectId={createProjectId(projectId)}
+      mode="dashboard"
       getNavigationLevel={(project) => ({
         title: `Project ${project.name}`,
         link: `/project/${projectId}`,
