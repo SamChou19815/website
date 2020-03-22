@@ -51,6 +51,7 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
           width={width}
           height={height}
           fill={color}
+          className={styles.CanvasClickable}
           onClick={() => onTaskClicked(createTaskId(id))}
         />
       ))}
@@ -62,6 +63,7 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
           y={startY}
           fontSize={textSize}
           max={maxWidth}
+          className={styles.CanvasClickable}
           onClick={() => onTaskClicked(createTaskId(id))}
         >
           {text}
