@@ -36,13 +36,20 @@ type Props = {
   readonly title: string;
   readonly color: SanctionedColor;
   readonly avatar?: ReactNode;
+  readonly titleClassName?: string;
   readonly onClick?: () => void;
 };
 
-export default ({ title, color, avatar, onClick }: Props): ReactElement => (
+export default ({ title, color, avatar, titleClassName, onClick }: Props): ReactElement => (
   <CardHeader
     avatar={avatar}
-    classes={{ root: getHeaderClassname(color), title: styles.CardHeaderText }}
+    classes={{
+      root: getHeaderClassname(color),
+      title:
+        titleClassName === undefined
+          ? styles.CardHeaderText
+          : `${styles.CardHeaderText} ${titleClassName}`,
+    }}
     title={title}
     titleTypographyProps={{ variant: 'h6' }}
     onClick={onClick}

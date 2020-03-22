@@ -11,3 +11,7 @@
     width: 350px;
   }
 }
+
+.TaskCardTitleStrikeThrough {
+  text-decoration: line-through;
+}
