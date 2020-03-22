@@ -1,3 +1,19 @@
+.MasonryGrid {
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+
+.MasonryGridColumn {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.MasonryGridColumn > div {
+  /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 30px;
+}
+
 .AddTaskButton {
   display: block !important;
   margin: 2em auto !important;

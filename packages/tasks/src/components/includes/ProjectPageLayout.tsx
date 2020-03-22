@@ -33,6 +33,7 @@ const ModeSwitchButton = ({ projectId, mode }: ModeSwitchButtonProps): ReactElem
 export type TasksContainerComponentProps = {
   readonly projectId: ProjectId;
   readonly tasks: readonly ReduxStoreTask[];
+  readonly detailPanelIsOpen: boolean;
   readonly onTaskClicked: (taskId: TaskId) => void;
 };
 
@@ -81,6 +82,7 @@ export default ({
           <TasksContainer
             projectId={projectId}
             tasks={tasks}
+            detailPanelIsOpen={taskDetailPanelTaskId !== null}
             onTaskClicked={(taskId) => setTaskDetailPanelTaskId(taskId)}
           />
         </section>
