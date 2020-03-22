@@ -15,12 +15,7 @@ const HEIGHT = 64;
 
 const MAX_UNTRIMMED_TEXT_LENGTH = 27;
 
-type TaskRectangle = {
-  readonly startX: number;
-  readonly startY: number;
-  readonly width: number;
-  readonly height: number;
-};
+type TaskRectangle = { readonly startX: number; readonly startY: number };
 
 type TaskGrid = readonly (readonly (ReduxStoreTask | null)[])[];
 
@@ -28,9 +23,7 @@ const createTaskGrid = (tasks: readonly ReduxStoreTask[]): TaskGrid => minimizeC
 
 const getTaskRectangle = (level: number, index: number): TaskRectangle => ({
   startX: index * (MARGIN + WIDTH) + MARGIN / 2,
-  startY: level * (MARGIN + HEIGHT) + MARGIN / 2,
-  width: WIDTH,
-  height: HEIGHT
+  startY: level * (MARGIN + HEIGHT) + MARGIN / 2
 });
 
 const autoTrimText = (text: string): string => {
@@ -52,32 +45,76 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
   const canvasRef = useRef<HTMLCanvasElement>(undefined!);
   const leveledTasks = createTaskGrid(tasks);
 
+  const canvasWidth =
+    (MARGIN + WIDTH) *
+    leveledTasks.reduce((max, tasksInLevel) => Math.max(max, tasksInLevel.length), 0);
+  const canvasHeight = (MARGIN + HEIGHT) * leveledTasks.length;
+
   useEffect(() => {
     const canvasContext = canvasRef.current.getContext('2d');
     if (canvasContext == null) {
       throw new Error('Invalid canvas context!');
     }
-    canvasContext.imageSmoothingEnabled = true;
-    canvasContext.font = `${TEXT_SIZE}px sans-serif`;
+
+    type TaskWithPositionMap = { [taskId: string]: Readonly<{ level: number; index: number }> };
+    const taskWithPositionMap: TaskWithPositionMap = {};
     leveledTasks.forEach((tasksInLevel, level) => {
       tasksInLevel.forEach((task, index) => {
         if (task === null) {
           return;
         }
-        const { startX, startY, width, height } = getTaskRectangle(level, index);
+        taskWithPositionMap[task.taskId] = { level, index };
+      });
+    });
+
+    canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
+
+    canvasContext.font = `${TEXT_SIZE}px sans-serif`;
+
+    // Draw Task Cards
+    leveledTasks.forEach((tasksInLevel, level) => {
+      tasksInLevel.forEach((task, index) => {
+        if (task === null) {
+          return;
+        }
+        const { startX, startY } = getTaskRectangle(level, index);
         const color = colors[task.projectId];
         canvasContext.fillStyle = color;
-        canvasContext.fillRect(startX, startY, width, height);
+        canvasContext.fillRect(startX, startY, WIDTH, HEIGHT);
         canvasContext.fillStyle = 'white';
         canvasContext.fillText(
           autoTrimText(task.name),
           startX + MARGIN / 2,
           startY + MARGIN / 2 + HEIGHT / 2,
-          width - MARGIN
+          WIDTH - MARGIN
         );
       });
     });
-  }, [colors, leveledTasks]);
+
+    // Draw Dependency Arrows
+    leveledTasks.forEach((tasksInLevel, level) => {
+      tasksInLevel.forEach((task, index) => {
+        if (task === null) {
+          return;
+        }
+        const { startX: endX, startY: endY } = getTaskRectangle(level, index);
+        task.dependencies.forEach(dependentTaskId => {
+          const dependentTaskWithPosition = taskWithPositionMap[dependentTaskId];
+          if (dependentTaskWithPosition == null) {
+            return;
+          }
+          const { startX, startY } = getTaskRectangle(
+            dependentTaskWithPosition.level,
+            dependentTaskWithPosition.index
+          );
+          canvasContext.beginPath();
+          canvasContext.moveTo(startX + WIDTH / 2, startY + HEIGHT);
+          canvasContext.lineTo(endX + WIDTH / 2, endY);
+          canvasContext.stroke();
+        });
+      });
+    });
+  }, [colors, leveledTasks, canvasWidth, canvasHeight]);
 
   const onCanvasClick = (event: MouseEvent<HTMLCanvasElement>): void => {
     const { clientX, clientY } = event;
@@ -95,9 +132,9 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
         const rectangle = getTaskRectangle(level, index);
         if (
           relativeX >= rectangle.startX &&
-          relativeX <= rectangle.startX + rectangle.width &&
+          relativeX <= rectangle.startX + WIDTH &&
           relativeY >= rectangle.startY &&
-          relativeY <= rectangle.startY + rectangle.height
+          relativeY <= rectangle.startY + HEIGHT
         ) {
           onTaskClicked(task.taskId);
         }
@@ -105,19 +142,14 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
     });
   };
 
-  const width =
-    (MARGIN + WIDTH) *
-    leveledTasks.reduce((max, tasksInLevel) => Math.max(max, tasksInLevel.length), 0);
-  const height = (MARGIN + HEIGHT) * leveledTasks.length;
-
   return (
     <canvas
       ref={canvasRef}
       className={styles.Canvas}
       onClick={onCanvasClick}
-      width={`${width}px`}
-      height={`${height}px`}
-      style={{ width: `${width}px` }}
+      width={`${canvasWidth}px`}
+      height={`${canvasHeight}px`}
+      style={{ width: `${canvasWidth}px` }}
     />
   );
 };
