@@ -87,6 +87,7 @@ export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactEl
           y={startY}
           width={width}
           height={height}
+          opacity={task.completed ? 0.7 : 1}
           fill={color}
           className={styles.CanvasClickable}
           onClick={() => onTaskClicked(task.taskId)}
