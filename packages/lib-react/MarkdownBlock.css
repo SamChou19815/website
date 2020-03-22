@@ -1,5 +1,58 @@
-input[type='checkbox'].remarkable-task-list-item-checkbox {
-  margin: 4px;
-  font-size: 16px;
-  transform: translateY(-1px);
+.remarkable-task-list-item-label {
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  border: 1px solid #999999;
+  border-radius: 3px;
+  height: 14px;
+  width: 14px;
+  margin-left: -20px;
+  margin-right: 8px;
+  user-select: none;
+  transform: translateY(3px);
+}
+
+.remarkable-task-list-item-label input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.remarkable-task-list-item-span-mark {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  background-color: transparent;
+}
+
+.remarkable-task-list-item-label input:checked ~ .remarkable-task-list-item-span-mark {
+  display: block;
+  background-color: #2196f3;
+  margin: -1px;
+  border: 1px solid #2196f3;
+  border-radius: 2px;
+}
+
+.remarkable-task-list-item-span-mark:after {
+  position: absolute;
+  content: '';
+}
+
+.remarkable-task-list-item-label .remarkable-task-list-item-span-mark:after {
+  left: 4.5px;
+  top: 1px;
+  width: 3.5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}
+
+li.remarkable-li {
+  margin: 0;
 }
