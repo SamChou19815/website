@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import solver, { IModel } from 'javascript-lp-solver';
 
-import { TaskId } from '../../models/ids';
 import { leveledTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 
@@ -142,12 +141,18 @@ export const minimizeCross = (tasks: readonly ReduxStoreTask[]): readonly ReduxS
 
 type TaskRectangle = { readonly startX: number; readonly startY: number };
 type GraphCardComponent = TaskRectangle & {
+  readonly id: string;
   readonly width: number;
   readonly height: number;
   readonly color: string;
 };
-type GraphTextComponent = TaskRectangle & { readonly text: string; readonly maxWidth: number };
+type GraphTextComponent = TaskRectangle & {
+  readonly id: string;
+  readonly text: string;
+  readonly maxWidth: number;
+};
 type GraphArrowComponent = TaskRectangle & {
+  readonly id: string;
   readonly endX: number;
   readonly endY: number;
   readonly controlX: number;
@@ -198,6 +203,7 @@ export const generateGraphComponents = (
     tasksInLevel.forEach((task, index) => {
       const { startX, startY } = getTaskRectangle(level, index);
       cards.push({
+        id: task.taskId,
         startX,
         startY,
         width: WIDTH,
@@ -206,6 +212,7 @@ export const generateGraphComponents = (
       });
 
       texts.push({
+        id: task.taskId,
         text: autoTrimText(task.name),
         startX: startX + PADDING / 2,
         startY: startY + TEXT_SIZE / 2 + HEIGHT / 2,
@@ -228,6 +235,7 @@ export const generateGraphComponents = (
           dependentTaskWithPosition.index
         );
         arrows.push({
+          id: `${task.taskId}-${dependentTaskId}`,
           startX: startX + WIDTH / 2,
           startY: startY + HEIGHT,
           endX: endX + WIDTH / 2,
@@ -240,28 +248,4 @@ export const generateGraphComponents = (
   });
 
   return { cards, texts, arrows, canvasWidth, canvasHeight, textSize: TEXT_SIZE };
-};
-
-export const clickTask = (
-  leveledTasks: readonly (readonly ReduxStoreTask[])[],
-  relativeX: number,
-  relativeY: number,
-  onTaskClicked: (id: TaskId) => void
-): void => {
-  leveledTasks.forEach((tasksInLevel, level) => {
-    tasksInLevel.forEach((task, index) => {
-      if (task === null) {
-        return;
-      }
-      const rectangle = getTaskRectangle(level, index);
-      if (
-        relativeX >= rectangle.startX &&
-        relativeX <= rectangle.startX + WIDTH &&
-        relativeY >= rectangle.startY &&
-        relativeY <= rectangle.startY + HEIGHT
-      ) {
-        onTaskClicked(task.taskId);
-      }
-    });
-  });
 };
