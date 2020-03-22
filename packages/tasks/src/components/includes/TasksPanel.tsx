@@ -9,24 +9,17 @@ import TaskCard from './TaskCard';
 import TaskDetailPanel from './TaskDetailPanel';
 import styles from './TasksPanel.module.css';
 
-export default ({
-  className: additionalClassName,
-}: {
-  readonly className?: string;
-}): ReactElement => {
+export default ({ className }: { readonly className?: string }): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>((state) =>
     flattenedTopologicalSort(Object.values(state.tasks))
   );
   const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
 
-  const className =
-    additionalClassName === undefined
-      ? styles.Container
-      : `${styles.Container} ${additionalClassName}`;
-
   return (
     <div className={className}>
-      <section className={styles.MainTasksContainer}>
+      <section
+        className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
+      >
         {tasks.map((task) => (
           <TaskCard
             key={task.taskId}
