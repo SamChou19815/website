@@ -1,14 +1,13 @@
 import React, { ReactElement, useState } from 'react';
 
 import Button from '@material-ui/core/Button';
-import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
 
 import { TaskId } from '../../models/ids';
 import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import useWindowSize from '../hooks/useWindowSize';
-import TaskCard from './TaskCard';
+import MasonryTaskContainer from './MasonryTaskContainer';
 import TaskCardCreator from './TaskCardCreator';
 import TaskDetailPanel from './TaskDetailPanel';
 import TaskGraphCanvas from './TaskGraphCanvas';
@@ -32,29 +31,13 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
   let tasksContainer: ReactElement;
   if (mode === 'dashboard') {
     tasksContainer = (
-      <Masonry
-        breakpointCols={breakpointColumn}
-        className="masonry-grid"
-        columnClassName="masonry-grid-column"
-      >
-        {(() => {
-          const children: ReactElement[] = tasks
-            .filter((task) => doesShowCompletedTasks || !task.completed)
-            .map((task) => (
-              <TaskCard
-                key={task.taskId}
-                task={task}
-                onHeaderClick={() => setTaskDetailPanelTaskId(task.taskId)}
-              />
-            ));
-          if (inCreationMode) {
-            children.unshift(
-              <TaskCardCreator key="task-creator" onSave={() => setInCreationMode(false)} />
-            );
-          }
-          return children;
-        })()}
-      </Masonry>
+      <MasonryTaskContainer
+        tasks={doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed)}
+        breakpointColumn={breakpointColumn}
+        inCreationMode={inCreationMode}
+        disableCreationMode={() => setInCreationMode(false)}
+        onTaskClicked={setTaskDetailPanelTaskId}
+      />
     );
   } else {
     tasksContainer = (
