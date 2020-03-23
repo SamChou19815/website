@@ -93,7 +93,7 @@ export const minimizeCross = (tasks: readonly ReduxStoreTask[]): readonly ReduxS
                 crossings: 1,
               };
 
-              const flip = +(c1.taskId > c2.taskId);
+              const flip = c1.taskId.localeCompare(c2.taskId);
               const sign = flip || -1;
 
               model.constraints[slackUp] = { min: flip };

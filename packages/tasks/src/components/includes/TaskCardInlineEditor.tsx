@@ -42,10 +42,11 @@ export default ({
   const [editableTask, setPartialEditableTask] = useFormManager(initialEditableTask);
   const { projectId, name, content, dependencies } = editableTask;
   const projects = useSelector((state: ReduxStoreState) => state.projects);
-  const dependenciesTaskOptions = useNonCycleFormingDependencies(
+  const [allDependenciesTaskOptions, eligibleOptions] = useNonCycleFormingDependencies(
     taskId,
-    projectId
-  ) as ReduxStoreTask[];
+    projectId,
+    dependencies
+  ) as readonly [ReduxStoreTask[], ReduxStoreTask[]];
 
   const projectList = Object.values(projects);
 
@@ -97,7 +98,7 @@ export default ({
             key={projectId || 'none'}
             disabled={projectId === undefined}
             className={styles.FormElement}
-            options={dependenciesTaskOptions}
+            options={eligibleOptions}
             autoHighlight
             getOptionLabel={(option) => option.name}
             renderOption={(option) => {
@@ -113,7 +114,7 @@ export default ({
               const tasks: ReduxStoreTask[] = [];
               for (let i = 0; i < dependencies.length; i += 1) {
                 const id = dependencies[i];
-                const task = dependenciesTaskOptions.find((oneTask) => oneTask.taskId === id);
+                const task = allDependenciesTaskOptions.find((oneTask) => oneTask.taskId === id);
                 if (task == null) {
                   return [];
                 }
