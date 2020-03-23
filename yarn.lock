@@ -1799,10 +1799,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
-"@dev-sam/eslint-config-common@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@dev-sam/eslint-config-common/-/eslint-config-common-0.8.0.tgz#f867817b66d287fb6f7bce3d87f6a1c1db823f46"
-  integrity sha512-T9gbhQpb1N76oezUbArm9DFanm353n7Ou52Y1uDeZBo/YOK0T5Byl57bVR10oUfdf9E9FQyI2pDdhqiBFkTXBA==
+"@dev-sam/eslint-config-common@0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@dev-sam/eslint-config-common/-/eslint-config-common-0.9.0.tgz#524ab03256bc07a6ac7f25187d723b88f983814d"
+  integrity sha512-59uWUiPn8llu54HQiNtdIIxjvkct1N+LMhm7PTjgsLr3Q+s8ZjhmBCTXilfIYPCCN3bOGt8oEjCZhyy1LxBsVw==
 
 "@docusaurus/core@^2.0.0-alpha.48":
   version "2.0.0-alpha.48"
