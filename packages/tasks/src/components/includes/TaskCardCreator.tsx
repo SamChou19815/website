@@ -14,14 +14,14 @@ import styles from './TaskCard.module.css';
 import TaskCardInlineEditor from './TaskCardInlineEditor';
 
 type Props = {
-  readonly projectId: ProjectId;
+  readonly initialProjectId?: ProjectId;
   readonly onDiscard?: () => void;
   readonly onSave: () => void;
 };
 
-export default ({ projectId, onDiscard, onSave }: Props): ReactElement => {
-  const color = useSelector<ReduxStoreState, SanctionedColor>(
-    (state) => state.projects[projectId].color
+export default ({ initialProjectId, onDiscard, onSave }: Props): ReactElement => {
+  const color = useSelector<ReduxStoreState, SanctionedColor>((state) =>
+    initialProjectId === undefined ? 'Blue' : state.projects[initialProjectId].color
   );
 
   return (
@@ -33,12 +33,17 @@ export default ({ projectId, onDiscard, onSave }: Props): ReactElement => {
       />
       <TaskCardInlineEditor
         taskId={null}
-        projectId={projectId}
-        initialEditableTask={{ name: '', content: '', dependencies: [] }}
+        initialProjectId={initialProjectId}
+        initialEditableTask={{
+          projectId: initialProjectId,
+          name: '',
+          content: '',
+          dependencies: [],
+        }}
         onDiscard={onDiscard ?? onSave}
         onSave={(change) => {
           onSave();
-          createTask({ owner: getAppUser().email, projectId, completed: false, ...change });
+          createTask({ owner: getAppUser().email, completed: false, ...change });
         }}
       />
     </Card>

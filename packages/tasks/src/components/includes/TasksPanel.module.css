@@ -3,3 +3,15 @@
     width: calc(100% - 400px);
   }
 }
+
+.TopButtonContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.TopButton {
+  margin: 1em !important;
+}
