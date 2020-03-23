@@ -1,55 +1,40 @@
 import React, { ReactElement, useState } from 'react';
 
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
 
 import { TaskId, ProjectId } from '../../models/ids';
 import { flattenedTopologicalSort } from '../../models/redux-store-task';
-import { ReduxStoreState, ReduxStoreProject, ReduxStoreTask } from '../../models/redux-store-types';
-import MaterialThemedNavigableAppContainer, {
-  NestedNavigationLevel,
-} from '../util/MaterialThemedNavigableAppContainer';
+import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
+import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
 import styles from './ProjectPageLayout.module.css';
 import TaskDetailPanel from './TaskDetailPanel';
 
-type Mode = 'dashboard' | 'graph';
-type ModeSwitchButtonProps = { readonly projectId: ProjectId; readonly mode: Mode };
-
-const ModeSwitchButton = ({ projectId, mode }: ModeSwitchButtonProps): ReactElement => {
-  const history = useHistory();
-
-  const onModeSwitch = () => {
-    history.push(mode === 'dashboard' ? `/project/${projectId}/graph` : `/project/${projectId}`);
-  };
-
-  return (
-    <Button color="inherit" onClick={() => onModeSwitch()}>
-      To {mode === 'dashboard' ? 'Graph' : 'Dashboard'}
-    </Button>
-  );
-};
+export type Mode = 'dashboard' | 'graph';
 
 export type TasksContainerComponentProps = {
-  readonly projectId: ProjectId;
   readonly tasks: readonly ReduxStoreTask[];
-  readonly detailPanelIsOpen: boolean;
   readonly onTaskClicked: (taskId: TaskId) => void;
+  readonly detailPanelIsOpen: boolean;
 };
 
-type Props = {
+type Props<P extends {}> = {
   readonly projectId: ProjectId;
   readonly mode: Mode;
-  readonly getNavigationLevel: (project: ReduxStoreProject) => NestedNavigationLevel;
-  readonly tasksContainerComponent: (props: TasksContainerComponentProps) => ReactElement;
+  readonly onModeSwitch: (mode: Mode) => void;
+  readonly additionalProps: P;
+  readonly additionalButton?: readonly [string, () => void];
+  readonly tasksContainerComponent: (props: TasksContainerComponentProps & P) => ReactElement;
 };
 
-export default ({
+export default <P extends {} = {}>({
   projectId,
   mode,
-  getNavigationLevel,
+  onModeSwitch,
+  additionalProps,
+  additionalButton,
   tasksContainerComponent: TasksContainer,
-}: Props): ReactElement => {
+}: Props<P>): ReactElement => {
   const projectsAndTasks = useSelector((state: ReduxStoreState) => {
     const project = state.projects[projectId];
     if (project == null) {
@@ -69,23 +54,63 @@ export default ({
   }
   const [project, tasks] = projectsAndTasks;
   const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
+  const [doesShowCompletedTasks, setDoesShowCompletedTasks] = useState(false);
+
+  const filteredTasks = doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed);
 
   return (
     <MaterialThemedNavigableAppContainer
-      nestedNavigationLevels={[getNavigationLevel(project)]}
-      buttons={<ModeSwitchButton projectId={projectId} mode={mode} />}
+      nestedNavigationLevels={[
+        {
+          title: `Project \`${project.name}\``,
+          link: `/project/${projectId}`,
+        },
+      ]}
     >
       <div className="content-below-appbar">
-        <section
+        <div
           className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
         >
+          <div className={styles.TopButtonContainer}>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={styles.TopButton}
+              onClick={() => onModeSwitch(mode === 'dashboard' ? 'graph' : 'dashboard')}
+              disableElevation
+            >
+              To {mode === 'dashboard' ? 'Graph' : 'Dashboard'} View
+            </Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={styles.TopButton}
+              onClick={() => setDoesShowCompletedTasks((previous) => !previous)}
+              disableElevation
+            >
+              {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
+            </Button>
+            {additionalButton && (
+              <Button
+                variant="outlined"
+                color="primary"
+                className={styles.TopButton}
+                onClick={additionalButton[1]}
+                disableElevation
+              >
+                {additionalButton[0]}
+              </Button>
+            )}
+          </div>
           <TasksContainer
             projectId={projectId}
-            tasks={tasks}
+            tasks={filteredTasks}
             detailPanelIsOpen={taskDetailPanelTaskId !== null}
             onTaskClicked={(taskId) => setTaskDetailPanelTaskId(taskId)}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...additionalProps}
           />
-        </section>
+        </div>
         {taskDetailPanelTaskId && (
           <TaskDetailPanel
             taskId={taskDetailPanelTaskId}
