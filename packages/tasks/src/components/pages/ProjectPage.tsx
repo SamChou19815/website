@@ -86,7 +86,18 @@ export default ({
       </Masonry>
     );
   } else {
-    taskContainer = <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />;
+    taskContainer = (
+      <>
+        {inCreationMode && (
+          <TaskCardCreator
+            key="task-creator"
+            initialProjectId={projectId}
+            onSave={() => setInCreationMode(false)}
+          />
+        )}
+        <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />
+      </>
+    );
   }
 
   return (
