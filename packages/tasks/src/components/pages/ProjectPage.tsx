@@ -16,8 +16,6 @@ import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigable
 import styles from './ProjectPage.module.css';
 import { RouteComponentsWithProjectIdParameter } from './router-types';
 
-type Mode = 'dashboard' | 'graph';
-
 export default ({
   match: {
     params: { projectId: projectIdString },
@@ -25,7 +23,7 @@ export default ({
 }: RouteComponentsWithProjectIdParameter): ReactElement => {
   const projectId = createProjectId(projectIdString);
 
-  const [mode, setMode] = useState<Mode>('dashboard');
+  const [mode, setMode] = useState<'dashboard' | 'graph'>('dashboard');
   const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
   const [doesShowCompletedTasks, setDoesShowCompletedTasks] = useState(true);
   const [inCreationMode, setInCreationMode] = useState(false);
@@ -104,7 +102,7 @@ export default ({
     <MaterialThemedNavigableAppContainer
       nestedNavigationLevels={[
         {
-          title: `Project \`${project.name}\``,
+          title: project.name,
           link: `/project/${projectId}`,
         },
       ]}
