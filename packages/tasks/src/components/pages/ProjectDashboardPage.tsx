@@ -67,7 +67,11 @@ const TaskContainer = ({
             ));
           if (inCreationMode) {
             children.unshift(
-              <TaskCardCreator projectId={projectId} onSave={() => setInCreationMode(false)} />
+              <TaskCardCreator
+                key="task-creator"
+                initialProjectId={projectId}
+                onSave={() => setInCreationMode(false)}
+              />
             );
           }
           return children;

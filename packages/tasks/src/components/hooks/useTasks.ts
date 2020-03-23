@@ -19,14 +19,14 @@ export const useTransitiveReverseDependencies = (taskId: TaskId): readonly Redux
 
 export const useNonCycleFormingDependencies = (
   taskId: TaskId | null,
-  projectId: ProjectId
+  projectId?: ProjectId
 ): readonly ReduxStoreTask[] =>
   useSelector(({ tasks }: ReduxStoreState) => {
     const comparator = (task1: ReduxStoreTask, task2: ReduxStoreTask) =>
       task1.name.localeCompare(task2.name);
     if (taskId === null) {
       return Object.values(tasks)
-        .filter((task) => task.projectId === projectId)
+        .filter((task) => projectId === undefined || task.projectId === projectId)
         .sort(comparator);
     }
     const reverseDependencySet = getTransitiveReverseDependencyTaskIds(tasks, taskId);
