@@ -39,10 +39,9 @@ const TaskContainer = ({
         </Button>
       )}
       <Masonry
-        // Force rerender when detail panel is toggled
         breakpointCols={breakpointColumn}
-        className={styles.MasonryGrid}
-        columnClassName={styles.MasonryGridColumn}
+        className="masonry-grid"
+        columnClassName="masonry-grid-column"
       >
         {(() => {
           const children: ReactElement[] = tasks.map((task) => (
