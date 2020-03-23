@@ -4,13 +4,18 @@ import Assignment from '@material-ui/icons/Assignment';
 import AssignmentDone from '@material-ui/icons/AssignmentTurnedIn';
 import { useSelector } from 'react-redux';
 
+import { TaskId } from '../../models/ids';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
-import { TasksContainerComponentProps } from './ProjectPageLayout';
 import { minimizeCross, generateGraphComponents } from './TaskGraphCanvas.graph';
 import styles from './TaskGraphCanvas.module.css';
 
-export default ({ tasks, onTaskClicked }: TasksContainerComponentProps): ReactElement => {
+type Props = {
+  readonly tasks: readonly ReduxStoreTask[];
+  readonly onTaskClicked: (taskId: TaskId) => void;
+};
+
+export default ({ tasks, onTaskClicked }: Props): ReactElement => {
   const colors = useSelector((state: ReduxStoreState) => {
     const colorMap: { [projectId: string]: string } = {};
     Object.entries(state.projects).forEach(([projectId, project]) => {

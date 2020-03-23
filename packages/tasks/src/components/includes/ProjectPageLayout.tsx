@@ -1,50 +1,49 @@
 import React, { ReactElement, useState } from 'react';
 
 import Button from '@material-ui/core/Button';
+import Masonry from 'react-masonry-css';
 import { useSelector } from 'react-redux';
 
 import { TaskId, ProjectId } from '../../models/ids';
 import { flattenedTopologicalSort } from '../../models/redux-store-task';
-import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
+import { ReduxStoreState } from '../../models/redux-store-types';
+import useWindowSize from '../hooks/useWindowSize';
 import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
 import styles from './ProjectPageLayout.module.css';
+import TaskCard from './TaskCard';
+import TaskCardCreator from './TaskCardCreator';
 import TaskDetailPanel from './TaskDetailPanel';
+import TaskGraphCanvas from './TaskGraphCanvas';
 
-export type Mode = 'dashboard' | 'graph';
+type Mode = 'dashboard' | 'graph';
 
-export type TasksContainerComponentProps = {
-  readonly tasks: readonly ReduxStoreTask[];
-  readonly onTaskClicked: (taskId: TaskId) => void;
-  readonly detailPanelIsOpen: boolean;
-};
-
-type Props<P extends {}> = {
+type Props = {
   readonly projectId: ProjectId;
-  readonly mode: Mode;
-  readonly onModeSwitch: (mode: Mode) => void;
-  readonly additionalProps: P;
-  readonly additionalButton?: readonly [string, () => void];
-  readonly tasksContainerComponent: (props: TasksContainerComponentProps & P) => ReactElement;
 };
 
-export default <P extends {} = {}>({
-  projectId,
-  mode,
-  onModeSwitch,
-  additionalProps,
-  additionalButton,
-  tasksContainerComponent: TasksContainer,
-}: Props<P>): ReactElement => {
+export default ({ projectId }: Props): ReactElement => {
+  const [mode, setMode] = useState<Mode>('dashboard');
+  const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
+  const [doesShowCompletedTasks, setDoesShowCompletedTasks] = useState(true);
+  const [inCreationMode, setInCreationMode] = useState(false);
+
+  const breakpointColumn =
+    useWindowSize(({ width }) => {
+      const naiveComputedColumnCount = Math.floor(width / 400);
+      return Math.max(Math.min(naiveComputedColumnCount, 3), 1);
+    }) - (taskDetailPanelTaskId !== null ? 1 : 0);
+
   const projectsAndTasks = useSelector((state: ReduxStoreState) => {
     const project = state.projects[projectId];
     if (project == null) {
       return null;
     }
+    const tasks = flattenedTopologicalSort(
+      Object.values(state.tasks).filter((task) => task.projectId === projectId)
+    );
     return [
       state.projects[projectId],
-      flattenedTopologicalSort(
-        Object.values(state.tasks).filter((task) => task.projectId === projectId)
-      ),
+      doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed),
     ] as const;
   });
 
@@ -53,10 +52,39 @@ export default <P extends {} = {}>({
     return <div>Project {projectId} does not exist in your account.</div>;
   }
   const [project, tasks] = projectsAndTasks;
-  const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
-  const [doesShowCompletedTasks, setDoesShowCompletedTasks] = useState(false);
 
-  const filteredTasks = doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed);
+  let taskContainer: ReactElement;
+  if (mode === 'dashboard') {
+    taskContainer = (
+      <Masonry
+        breakpointCols={breakpointColumn}
+        className="masonry-grid"
+        columnClassName="masonry-grid-column"
+      >
+        {(() => {
+          const children: ReactElement[] = tasks.map((task) => (
+            <TaskCard
+              key={task.taskId}
+              task={task}
+              onHeaderClick={() => setTaskDetailPanelTaskId(task.taskId)}
+            />
+          ));
+          if (inCreationMode) {
+            children.unshift(
+              <TaskCardCreator
+                key="task-creator"
+                initialProjectId={projectId}
+                onSave={() => setInCreationMode(false)}
+              />
+            );
+          }
+          return children;
+        })()}
+      </Masonry>
+    );
+  } else {
+    taskContainer = <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />;
+  }
 
   return (
     <MaterialThemedNavigableAppContainer
@@ -76,7 +104,7 @@ export default <P extends {} = {}>({
               variant="outlined"
               color="primary"
               className={styles.TopButton}
-              onClick={() => onModeSwitch(mode === 'dashboard' ? 'graph' : 'dashboard')}
+              onClick={() => setMode(mode === 'dashboard' ? 'graph' : 'dashboard')}
               disableElevation
             >
               To {mode === 'dashboard' ? 'Graph' : 'Dashboard'} View
@@ -90,26 +118,19 @@ export default <P extends {} = {}>({
             >
               {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
             </Button>
-            {additionalButton && (
+            {!inCreationMode && (
               <Button
                 variant="outlined"
                 color="primary"
                 className={styles.TopButton}
-                onClick={additionalButton[1]}
+                onClick={() => setInCreationMode(true)}
                 disableElevation
               >
-                {additionalButton[0]}
+                Create New Task
               </Button>
             )}
           </div>
-          <TasksContainer
-            projectId={projectId}
-            tasks={filteredTasks}
-            detailPanelIsOpen={taskDetailPanelTaskId !== null}
-            onTaskClicked={(taskId) => setTaskDetailPanelTaskId(taskId)}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...additionalProps}
-          />
+          {taskContainer}
         </div>
         {taskDetailPanelTaskId && (
           <TaskDetailPanel
