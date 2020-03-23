@@ -18,6 +18,7 @@ const TaskContainer = ({
   onTaskClicked,
 }: TasksContainerComponentProps): ReactElement => {
   const [inCreationMode, setInCreationMode] = useState(false);
+  const [doesShowCompletedTasks, setDoesShowCompletedTasks] = useState(false);
 
   const breakpointColumn =
     useWindowSize(({ width }) => {
@@ -27,30 +28,43 @@ const TaskContainer = ({
 
   return (
     <>
-      {!inCreationMode && (
+      <div className={styles.TopButtonContainer}>
+        {!inCreationMode && (
+          <Button
+            variant="outlined"
+            color="primary"
+            className={styles.TopButton}
+            onClick={() => setInCreationMode(true)}
+            disableElevation
+          >
+            Create New Task
+          </Button>
+        )}
         <Button
           variant="outlined"
           color="primary"
-          className={styles.AddTaskButton}
-          onClick={() => setInCreationMode(true)}
+          className={styles.TopButton}
+          onClick={() => setDoesShowCompletedTasks((previous) => !previous)}
           disableElevation
         >
-          Create New Task
+          {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
         </Button>
-      )}
+      </div>
       <Masonry
         breakpointCols={breakpointColumn}
         className="masonry-grid"
         columnClassName="masonry-grid-column"
       >
         {(() => {
-          const children: ReactElement[] = tasks.map((task) => (
-            <TaskCard
-              key={task.taskId}
-              task={task}
-              onHeaderClick={() => onTaskClicked(task.taskId)}
-            />
-          ));
+          const children: ReactElement[] = tasks
+            .filter((task) => doesShowCompletedTasks || !task.completed)
+            .map((task) => (
+              <TaskCard
+                key={task.taskId}
+                task={task}
+                onHeaderClick={() => onTaskClicked(task.taskId)}
+              />
+            ));
           if (inCreationMode) {
             children.unshift(
               <TaskCardCreator projectId={projectId} onSave={() => setInCreationMode(false)} />
