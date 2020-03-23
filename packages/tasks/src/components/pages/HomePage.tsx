@@ -29,10 +29,7 @@ export default (): ReactElement => {
       </>
     );
     return (
-      <MaterialThemedNavigableAppContainer
-        nestedNavigationLevels={[{ title: isTasksPanel ? 'All Tasks' : 'All Projects' }]}
-        buttons={buttons}
-      >
+      <MaterialThemedNavigableAppContainer buttons={buttons}>
         <div className={`${styles.RootContainer} content-below-appbar`}>
           {isTasksPanel ? <TasksPanel /> : <ProjectsPanel />}
         </div>
@@ -41,10 +38,7 @@ export default (): ReactElement => {
   }
 
   return (
-    <MaterialThemedNavigableAppContainer
-      nestedNavigationLevels={[{ title: 'Dashboard', link: '/' }]}
-      buttons={<SignOutButton />}
-    >
+    <MaterialThemedNavigableAppContainer buttons={<SignOutButton />}>
       <div className={`${styles.DesktopAllPanels} ${styles.RootContainer} content-below-appbar`}>
         <ProjectsPanel className={styles.ProjectsPanel} />
         <TasksPanel className={styles.TasksPanel} />
