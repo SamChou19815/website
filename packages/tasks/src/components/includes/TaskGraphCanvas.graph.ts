@@ -29,7 +29,7 @@ export const minimizeCross = (tasks: readonly ReduxStoreTask[]): readonly ReduxS
     nodes
       .map((n) => n.taskId)
       .sort()
-      .join('\0\0');
+      .join(' -> ');
 
   const permutations = (model: FullModel, layer: ReduxStoreTask[]) => {
     layer.sort((n1, n2) => n1.taskId.localeCompare(n2.taskId));
@@ -84,9 +84,9 @@ export const minimizeCross = (tasks: readonly ReduxStoreTask[]): readonly ReduxS
                 return;
               }
               const pairc = key(c1, c2);
-              const slack = `${pairp}\0\0\0${pairc}`;
-              const slackUp = `${slack}'\0\0\0+`;
-              const slackDown = `${slack}'\0\0\0-`;
+              const slack = `${pairp} --> ${pairc}`;
+              const slackUp = `${slack} --> +`;
+              const slackDown = `${slack} --> -`;
               model.variables[slack] = {
                 [slackUp]: 1,
                 [slackDown]: 1,
@@ -96,13 +96,24 @@ export const minimizeCross = (tasks: readonly ReduxStoreTask[]): readonly ReduxS
               const flip = c1.taskId.localeCompare(c2.taskId);
               const sign = flip || -1;
 
+              let pairPVariables = model.variables[pairp];
+              if (pairPVariables == null) {
+                pairPVariables = {};
+                model.variables[pairp] = pairPVariables;
+              }
+              let pairCVariables = model.variables[pairc];
+              if (pairCVariables == null) {
+                pairCVariables = {};
+                model.variables[pairc] = pairCVariables;
+              }
+
               model.constraints[slackUp] = { min: flip };
-              model.variables[pairp][slackUp] = 1;
-              model.variables[pairc][slackUp] = sign;
+              pairPVariables[slackUp] = 1;
+              pairCVariables[slackUp] = sign;
 
               model.constraints[slackDown] = { min: -flip };
-              model.variables[pairp][slackDown] = -1;
-              model.variables[pairc][slackDown] = -sign;
+              pairPVariables[slackDown] = -1;
+              pairCVariables[slackDown] = -sign;
             });
         });
       })
