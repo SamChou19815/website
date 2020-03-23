@@ -19,18 +19,33 @@ export const useTransitiveReverseDependencies = (taskId: TaskId): readonly Redux
 
 export const useNonCycleFormingDependencies = (
   taskId: TaskId | null,
-  projectId?: ProjectId
-): readonly ReduxStoreTask[] =>
-  useSelector(({ tasks }: ReduxStoreState) => {
+  projectId: ProjectId | undefined,
+  dependencies: readonly TaskId[]
+): readonly [readonly ReduxStoreTask[], readonly ReduxStoreTask[]] =>
+  useSelector(({ tasks }: ReduxStoreState): readonly [
+    readonly ReduxStoreTask[],
+    readonly ReduxStoreTask[]
+  ] => {
+    const transitiveDependencySet = new Set<TaskId>();
+    dependencies.forEach((dependencyTaskId) => {
+      getTransitiveDependencyTaskIds(tasks, dependencyTaskId).forEach((id) =>
+        transitiveDependencySet.add(id)
+      );
+    });
+
     const comparator = (task1: ReduxStoreTask, task2: ReduxStoreTask) =>
       task1.name.localeCompare(task2.name);
     if (taskId === null) {
-      return Object.values(tasks)
+      const allEligible = Object.values(tasks)
         .filter((task) => projectId === undefined || task.projectId === projectId)
         .sort(comparator);
+      const allEligibleGivenDependencies = allEligible.filter(
+        (task) => !transitiveDependencySet.has(task.taskId)
+      );
+      return [allEligible, allEligibleGivenDependencies];
     }
     const reverseDependencySet = getTransitiveReverseDependencyTaskIds(tasks, taskId);
-    return Object.values(tasks)
+    const allEligible = Object.values(tasks)
       .filter(
         (task) =>
           !reverseDependencySet.has(task.taskId) &&
@@ -38,4 +53,8 @@ export const useNonCycleFormingDependencies = (
           taskId !== task.taskId
       )
       .sort(comparator);
+    const allEligibleGivenDependencies = allEligible.filter(
+      (task) => !transitiveDependencySet.has(task.taskId)
+    );
+    return [allEligible, allEligibleGivenDependencies];
   });
