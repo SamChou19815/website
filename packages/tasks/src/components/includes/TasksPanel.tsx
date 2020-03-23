@@ -50,42 +50,42 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
 
   return (
     <div className={className}>
-      <div className={styles.TopButtonContainer}>
-        <Button
-          variant="outlined"
-          color="primary"
-          className={styles.TopButton}
-          onClick={() => setMode(mode === 'dashboard' ? 'graph' : 'dashboard')}
-          disableElevation
-        >
-          To {mode === 'dashboard' ? 'Graph' : 'Dashboard'} View
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          className={styles.TopButton}
-          onClick={() => setDoesShowCompletedTasks((previous) => !previous)}
-          disableElevation
-        >
-          {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
-        </Button>
-        {!inCreationMode && (
+      <div
+        className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
+      >
+        <div className={styles.TopButtonContainer}>
           <Button
             variant="outlined"
             color="primary"
             className={styles.TopButton}
-            onClick={() => setInCreationMode(true)}
+            onClick={() => setMode(mode === 'dashboard' ? 'graph' : 'dashboard')}
             disableElevation
           >
-            Create New Task
+            To {mode === 'dashboard' ? 'Graph' : 'Dashboard'} View
           </Button>
-        )}
-      </div>
-      <section
-        className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
-      >
+          <Button
+            variant="outlined"
+            color="primary"
+            className={styles.TopButton}
+            onClick={() => setDoesShowCompletedTasks((previous) => !previous)}
+            disableElevation
+          >
+            {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
+          </Button>
+          {!inCreationMode && (
+            <Button
+              variant="outlined"
+              color="primary"
+              className={styles.TopButton}
+              onClick={() => setInCreationMode(true)}
+              disableElevation
+            >
+              Create New Task
+            </Button>
+          )}
+        </div>
         {tasksContainer}
-      </section>
+      </div>
       {taskDetailPanelTaskId && (
         <TaskDetailPanel
           taskId={taskDetailPanelTaskId}

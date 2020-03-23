@@ -8,10 +8,17 @@
 }
 
 .ProjectsPanel {
-  flex: 0 0 400px;
+  position: fixed;
+  z-index: 1;
+  top: var(--app-bar-height);
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  border-right: 1px solid #cccccc;
+  background-color: #eeeeee;
 }
 
 .TasksPanel {
-  flex: 1 1 auto;
-  border-left: 1px solid #ccc;
+  margin: 0 0 0 400px;
+  width: calc(100% - 400px);
 }
