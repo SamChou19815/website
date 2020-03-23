@@ -14,7 +14,14 @@
   margin-bottom: 30px;
 }
 
-.AddTaskButton {
-  display: block !important;
-  margin: 2em auto !important;
+.TopButtonContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.TopButton {
+  margin: 1em !important;
 }
