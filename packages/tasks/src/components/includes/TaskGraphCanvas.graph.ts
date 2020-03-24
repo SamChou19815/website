@@ -170,8 +170,10 @@ type GraphArrowComponent = TaskRectangle & {
   readonly id: string;
   readonly endX: number;
   readonly endY: number;
-  readonly controlX: number;
-  readonly controlY: number;
+  readonly control1X: number;
+  readonly control1Y: number;
+  readonly control2X: number;
+  readonly control2Y: number;
 };
 type GraphComponents = {
   readonly cards: readonly GraphCardComponent[];
@@ -266,8 +268,10 @@ export const generateGraphComponents = (
           startY: startY + HEIGHT,
           endX: endX + WIDTH / 2,
           endY,
-          controlX: endX + WIDTH / 2 - ((endX - startX) * 1) / 3,
-          controlY: endY,
+          control1X: startX + WIDTH / 2,
+          control1Y: endY,
+          control2X: endX + WIDTH / 2,
+          control2Y: startY + HEIGHT,
         });
       });
     });
