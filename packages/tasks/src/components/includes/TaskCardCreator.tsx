@@ -19,6 +19,7 @@ type Props = {
   readonly onSave: () => void;
 };
 
+// Avoid creating a new empty array each time we pass it to `useFormManager`.
 const initialDependencies: readonly TaskId[] = [];
 
 export default ({ initialProjectId, onSave }: Props): ReactElement => {
