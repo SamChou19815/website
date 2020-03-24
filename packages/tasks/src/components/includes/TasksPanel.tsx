@@ -28,11 +28,13 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
       return Math.max(Math.min(naiveComputedColumnCount, 3), 1);
     }) - (taskDetailPanelTaskId !== null ? 2 : 1);
 
+  const filteredTasks = doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed);
+
   let tasksContainer: ReactElement;
   if (mode === 'dashboard') {
     tasksContainer = (
       <MasonryTaskContainer
-        tasks={doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed)}
+        tasks={filteredTasks}
         breakpointColumn={breakpointColumn}
         inCreationMode={inCreationMode}
         disableCreationMode={() => setInCreationMode(false)}
@@ -43,7 +45,7 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
     tasksContainer = (
       <>
         {inCreationMode && <TaskCardCreator onSave={() => setInCreationMode(false)} />}
-        <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />
+        <TaskGraphCanvas tasks={filteredTasks} onTaskClicked={setTaskDetailPanelTaskId} />
       </>
     );
   }
