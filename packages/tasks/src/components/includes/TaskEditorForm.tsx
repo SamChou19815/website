@@ -1,8 +1,10 @@
 import React, { ReactElement, ChangeEvent } from 'react';
 
+import { Typography } from '@material-ui/core';
 import FormGroup from '@material-ui/core/FormGroup';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
 
 import { TaskId, ProjectId } from '../../models/ids';
@@ -81,6 +83,10 @@ export default ({ taskId, initialProjectId, editableTask, onEdit }: Props): Reac
           <TextField label="Project" type="text" {...params} />
         )}
       />
+      <div>
+        <Typography variant="h6">Preview</Typography>
+        <MarkdownBlock>{content}</MarkdownBlock>
+      </div>
       <TextField
         className={styles.FormElement}
         label="Name"
