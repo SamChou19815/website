@@ -1,15 +1,9 @@
 // @ts-check
 
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 
-/**
- * @type {Map<string, readonly string[]>}
- */
-const workspaceInformation = (() => {
-  /**
-   * @type {Map<string, readonly string[]>}
-   */
-  const map = new Map();
+const workspaceInformation: ReadonlyMap<string, readonly string[]> = (() => {
+  const map = new Map<string, readonly string[]>();
   let output = execSync('yarn workspaces info --silent').toString().trim();
   if (output.startsWith('yarn workspaces')) {
     const lines = output.split('\n');
@@ -17,23 +11,16 @@ const workspaceInformation = (() => {
   }
   const workspacesJson = JSON.parse(output);
   Object.entries(workspacesJson).forEach(([workspaceName, object]) => {
-    map.set(workspaceName, object.workspaceDependencies);
+    map.set(workspaceName, (object as { workspaceDependencies: string[] }).workspaceDependencies);
   });
   return map;
 })();
 
-/**
- * @type {readonly string[]}
- */
-const projectWorkspaces = Array.from(workspaceInformation.keys()).filter(
+const projectWorkspaces: readonly string[] = Array.from(workspaceInformation.keys()).filter(
   (workspace) => !workspace.startsWith('lib-')
 );
 
-/**
- * @param {string} workspace
- * @returns {readonly string[]}
- */
-const getWorkspaceDependencies = (workspace) => {
+const getWorkspaceDependencies = (workspace: string): readonly string[] => {
   const information = workspaceInformation.get(workspace);
   if (information == null) {
     throw new Error(`Workspace ${workspace} is not found!`);
@@ -41,34 +28,13 @@ const getWorkspaceDependencies = (workspace) => {
   return information;
 };
 
-/**
- *
- * @param {string} workspace
- * @returns {readonly string[]}
- */
-const getDependencyChain = (workspace) => {
-  /**
-   * @type {string[]}
-   */
-  const dependencyChain = [];
-  /**
-   * @type {string[]}
-   */
-  const parentChain = [];
-  /**
-   * @type {Set<string>}
-   */
-  const parentSet = new Set();
-  /**
-   * @type {Set<string>}
-   */
-  const allVisited = new Set();
+const getDependencyChain = (workspace: string): readonly string[] => {
+  const dependencyChain: string[] = [];
+  const parentChain: string[] = [];
+  const parentSet = new Set<string>();
+  const allVisited = new Set<string>();
 
-  /**
-   * @param {string} node
-   * @returns {void}
-   */
-  const visit = (node) => {
+  const visit = (node: string): void => {
     // Check cyclic dependencies.
     if (allVisited.has(node)) {
       if (!parentSet.has(node)) {
@@ -98,14 +64,12 @@ const getDependencyChain = (workspace) => {
   return dependencyChain;
 };
 
-/**
- * @throws if there is a cyclic dependency chain.
- */
-const validateDependencyChain = () =>
+/** @throws if there is a cyclic dependency chain. */
+const validateDependencyChain = (): void =>
   Array.from(workspaceInformation.keys()).forEach((workspace) => {
     getDependencyChain(workspace);
     // eslint-disable-next-line no-console
     console.log(`No cyclic dependency detected with ${workspace} as root.`);
   });
 
-module.exports = { projectWorkspaces, getDependencyChain, validateDependencyChain };
+export { projectWorkspaces, getDependencyChain, validateDependencyChain };
