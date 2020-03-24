@@ -24,7 +24,7 @@ export default ({
   values: { isPublic, name, color },
   onChange,
 }: FormProps<EditableProject>): ReactElement => (
-  <FormGroup row>
+  <FormGroup row={false}>
     <FormControlLabel
       className={styles.FormElement}
       control={
@@ -35,7 +35,7 @@ export default ({
         />
       }
       label={isPublic ? 'Public' : 'Private'}
-      labelPlacement="top"
+      labelPlacement="end"
     />
     <TextField
       className={styles.FormElement}
