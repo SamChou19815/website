@@ -1,6 +1,5 @@
-#!/usr/bin/env node
-/* eslint-disable @typescript-eslint/no-var-requires */
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
 import { writeFileSync } from 'fs';
 
 import { projectWorkspaces, getDependencyChain } from './workspace';

@@ -1,5 +1,5 @@
-// @ts-check
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
 import { execSync } from 'child_process';
 
 const workspaceInformation: ReadonlyMap<string, readonly string[]> = (() => {
