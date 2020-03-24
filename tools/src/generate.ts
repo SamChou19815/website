@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import { writeFileSync } from 'fs';
 
 import { projectWorkspaces, getDependencyChain } from './workspace';
@@ -8,7 +6,7 @@ const getBoilterPlateSetupSteps = (jobName: string): string => `jobs:
   ${jobName}:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Use Yarn Cache

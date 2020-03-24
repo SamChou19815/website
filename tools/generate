@@ -1,13 +1,21 @@
 #!/usr/bin/env node
+
+// @ts-check
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { execSync } = require('child_process');
 
-try {
-  execSync('tsc', { cwd: 'tools' });
-} catch (error) {
-  console.log(error.stdout.toString());
-  console.log(error.stderr.toString());
-}
+/** @param {string} command */
+const run = (command) => {
+  try {
+    execSync(command, { cwd: 'tools' });
+  } catch (error) {
+    console.log(error.stdout.toString());
+    console.log(error.stderr.toString());
+  }
+};
+
+run('yarn');
+run('tsc');
 require('./dist/generate').main();
