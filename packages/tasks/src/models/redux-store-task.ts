@@ -64,7 +64,7 @@ export const buildReduxStoreMap = (tasks: readonly ReduxStoreTask[]): ReduxStore
   return taskMap;
 };
 
-const reversedleveledTopologicalSort = (tasks: readonly ReduxStoreTask[]): ReduxStoreTask[][] => {
+const reversedLeveledTopologicalSort = (tasks: readonly ReduxStoreTask[]): ReduxStoreTask[][] => {
   const taskMap = buildReduxStoreMap(tasks);
   if (tasks.every((task) => task.dependencies.every((taskId) => taskMap[taskId] == null))) {
     // If every task in the level is independent from each other, directly return.
@@ -94,7 +94,7 @@ const reversedleveledTopologicalSort = (tasks: readonly ReduxStoreTask[]): Redux
       });
     });
     // This is used to avoid direction arrows in the same level.
-    reversedLevels.push(...reversedleveledTopologicalSort(deduplicatedCurrentLevelStack));
+    reversedLevels.push(...reversedLeveledTopologicalSort(deduplicatedCurrentLevelStack));
     currentLevelStack = nextLevelStack;
   }
   return reversedLevels;
@@ -103,7 +103,7 @@ const reversedleveledTopologicalSort = (tasks: readonly ReduxStoreTask[]): Redux
 export const leveledTopologicalSort = (
   tasks: readonly ReduxStoreTask[]
 ): readonly (readonly ReduxStoreTask[])[] => {
-  return reversedleveledTopologicalSort(tasks).reverse();
+  return reversedLeveledTopologicalSort(tasks).reverse();
 };
 
 export const flattenedTopologicalSort = (
