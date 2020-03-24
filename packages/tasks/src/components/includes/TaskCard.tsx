@@ -18,7 +18,7 @@ import { useTransitiveReverseDependencies } from '../hooks/useTasks';
 import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import styles from './TaskCard.module.css';
-import TaskEditorForm from './TaskEditorForm';
+import TaskEditorForm, { shouldBeDisabled, saveTask } from './TaskEditorForm';
 
 const AssignmentIcon = ({ completed }: { readonly completed: boolean }): ReactElement =>
   completed ? (
@@ -45,14 +45,15 @@ export default ({
     dependencies,
   });
 
-  const className = completed
-    ? `${styles.TaskCard} ${styles.TaskCardLessOpacity}`
-    : styles.TaskCard;
+  const className =
+    completed && !inEditingMode
+      ? `${styles.TaskCard} ${styles.TaskCardLessOpacity}`
+      : styles.TaskCard;
 
   return (
     <Card variant="outlined" className={className}>
       <MaterialColoredCardHeader
-        title={inEditingMode ? `Editing Task ${name}` : name}
+        title={inEditingMode ? editableTask.name : name}
         color={color}
         avatar={<AssignmentIcon completed={completed} />}
         titleClassName={completed ? styles.TaskCardTitleStrikeThrough : undefined}
@@ -75,16 +76,10 @@ export default ({
             <Button
               size="small"
               color="primary"
-              disabled={
-                editableTask.name.trim().length === 0 || editableTask.projectId === undefined
-              }
+              disabled={shouldBeDisabled(editableTask)}
               onClick={() => {
-                const { projectId: id, ...rest } = editableTask;
-                if (id === undefined) {
-                  throw new Error();
-                }
                 setInEditingMode(false);
-                editTask({ taskId, projectId: id, ...rest });
+                saveTask(taskId, editableTask);
               }}
             >
               Save
