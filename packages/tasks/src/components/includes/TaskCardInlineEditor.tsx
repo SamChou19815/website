@@ -12,7 +12,7 @@ import { TaskId, ProjectId } from '../../models/ids';
 import { ReduxStoreTask, ReduxStoreState, ReduxStoreProject } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
 import useFormManager from '../hooks/useFormManager';
-import { useNonCycleFormingDependencies } from '../hooks/useTasks';
+import { useEligibleDependencies } from '../hooks/useTasks';
 import styles from './TaskCardInlineEditor.module.css';
 
 type EditableTask = {
@@ -42,7 +42,7 @@ export default ({
   const [editableTask, setPartialEditableTask] = useFormManager(initialEditableTask);
   const { projectId, name, content, dependencies } = editableTask;
   const projects = useSelector((state: ReduxStoreState) => state.projects);
-  const [allDependenciesTaskOptions, eligibleOptions] = useNonCycleFormingDependencies(
+  const [allDependenciesTaskOptions, eligibleOptions] = useEligibleDependencies(
     taskId,
     projectId,
     dependencies
