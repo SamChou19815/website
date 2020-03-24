@@ -9,7 +9,7 @@ import { TaskId, ProjectId } from '../../models/ids';
 import { ReduxStoreTask, ReduxStoreState, ReduxStoreProject } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
 import { useEligibleDependencies } from '../hooks/useTasks';
-import styles from './TaskCardInlineEditor.module.css';
+import styles from './TaskEditorForm.module.css';
 
 export type EditableTask = {
   readonly projectId: ProjectId | undefined;

@@ -13,11 +13,12 @@ import { useSelector } from 'react-redux';
 import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreTask, ReduxStoreState } from '../../models/redux-store-types';
 import { editTask, deleteTask } from '../../util/firestore-actions';
+import useFormManager from '../hooks/useFormManager';
 import { useTransitiveReverseDependencies } from '../hooks/useTasks';
 import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import styles from './TaskCard.module.css';
-import TaskCardInlineEditor from './TaskCardInlineEditor';
+import TaskEditorForm from './TaskEditorForm';
 
 const AssignmentIcon = ({ completed }: { readonly completed: boolean }): ReactElement =>
   completed ? (
@@ -37,6 +38,12 @@ export default ({
   );
   const [inEditingMode, setInEditingMode] = useState(false);
   const hasReverseDependencies = useTransitiveReverseDependencies(taskId).length > 0;
+  const [editableTask, setPartialEditableTask] = useFormManager({
+    projectId,
+    name,
+    content,
+    dependencies,
+  });
 
   const className = completed
     ? `${styles.TaskCard} ${styles.TaskCardLessOpacity}`
@@ -52,16 +59,38 @@ export default ({
         onClick={onHeaderClick}
       />
       {inEditingMode ? (
-        <TaskCardInlineEditor
-          taskId={taskId}
-          initialProjectId={projectId}
-          initialEditableTask={{ projectId, name, content, dependencies }}
-          onDiscard={() => setInEditingMode(false)}
-          onSave={(change) => {
-            setInEditingMode(false);
-            editTask({ taskId, ...change });
-          }}
-        />
+        <>
+          <CardContent>
+            <TaskEditorForm
+              taskId={taskId}
+              initialProjectId={projectId}
+              editableTask={editableTask}
+              onEdit={setPartialEditableTask}
+            />
+          </CardContent>
+          <CardActions>
+            <Button size="small" color="primary" onClick={() => setInEditingMode(false)}>
+              Discard
+            </Button>
+            <Button
+              size="small"
+              color="primary"
+              disabled={
+                editableTask.name.trim().length === 0 || editableTask.projectId === undefined
+              }
+              onClick={() => {
+                const { projectId: id, ...rest } = editableTask;
+                if (id === undefined) {
+                  throw new Error();
+                }
+                setInEditingMode(false);
+                editTask({ taskId, projectId: id, ...rest });
+              }}
+            >
+              Save
+            </Button>
+          </CardActions>
+        </>
       ) : (
         <>
           {content && (
