@@ -1,7 +1,13 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { execSync } = require('child_process');
 
-execSync('tsc', { cwd: 'tools' });
+try {
+  execSync('tsc', { cwd: 'tools' });
+} catch (error) {
+  console.log(error.stdout.toString());
+  console.log(error.stderr.toString());
+}
 require('./dist/generate').main();
