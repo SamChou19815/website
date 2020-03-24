@@ -10,7 +10,6 @@ Tools for website repository.
 
 ## Tech Specification
 
-- Built with Node.JS with zero additional dependencies
-- Type checked by TypeScript
+- Built with TypeScript with zero additional dependencies (assuming `tsc` is installed globally)
 - Formatted by Prettier
 - Linted by ESLint

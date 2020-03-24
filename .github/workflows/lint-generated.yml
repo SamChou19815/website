@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Validate Dependencies
-        run: ./tools/check
       - name: Generate Workflows
         run: ./tools/generate
       - name: Check changed
