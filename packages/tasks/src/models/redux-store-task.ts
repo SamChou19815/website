@@ -56,11 +56,16 @@ export const getTransitiveReverseDependencyTaskIds = (
   return dfs(taskId, (id) => reverseDependencyGraph[id] ?? []);
 };
 
-const reversedleveledTopologicalSort = (tasks: readonly ReduxStoreTask[]): ReduxStoreTask[][] => {
+export const buildReduxStoreMap = (tasks: readonly ReduxStoreTask[]): ReduxStoreTasksMap => {
   const taskMap: { [key: string]: ReduxStoreTask } = {};
   tasks.forEach((task) => {
     taskMap[task.taskId] = task;
   });
+  return taskMap;
+};
+
+const reversedleveledTopologicalSort = (tasks: readonly ReduxStoreTask[]): ReduxStoreTask[][] => {
+  const taskMap = buildReduxStoreMap(tasks);
   if (tasks.every((task) => task.dependencies.every((taskId) => taskMap[taskId] == null))) {
     // If every task in the level is independent from each other, directly return.
     return [[...tasks]];
@@ -104,3 +109,23 @@ export const leveledTopologicalSort = (
 export const flattenedTopologicalSort = (
   tasks: readonly ReduxStoreTask[]
 ): readonly ReduxStoreTask[] => leveledTopologicalSort(tasks).flat(1);
+
+/**
+ * @param map a map of all potentially relevant tasks
+ * @param taskIds a list of task ids to test.
+ * @returns whether exists (t1, t2) in `taskIds` such that t2 is reachable from t1.
+ */
+export const hasInternallyReachableTask = (
+  map: ReduxStoreTasksMap,
+  taskIds: readonly TaskId[]
+): boolean => {
+  for (let i = 0; i < taskIds.length; i += 1) {
+    const allReachableFromI = dfs(taskIds[i], (id) => map[id].dependencies);
+    for (let j = 0; j < taskIds.length; j += 1) {
+      if (allReachableFromI.has(taskIds[j])) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
