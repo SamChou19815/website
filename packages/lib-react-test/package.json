@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "lib-react": "0.1.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "scripts": {
     "compile": "tsc -p tsconfig.json",
