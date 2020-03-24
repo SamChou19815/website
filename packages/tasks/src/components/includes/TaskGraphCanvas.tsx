@@ -122,14 +122,17 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
           {text}
         </text>
       ))}
-      {arrows.map(({ id, startX, startY, endX, endY, controlX, controlY }) => (
-        <path
-          key={id}
-          stroke="black"
-          fill="none"
-          d={`M${startX},${startY} Q${controlX},${controlY} ${endX},${endY}`}
-        />
-      ))}
+      {arrows.map(
+        ({ id, startX, startY, endX, endY, control1X, control1Y, control2X, control2Y }) => (
+          <path
+            key={id}
+            stroke="#3E7AE2"
+            strokeWidth="2px"
+            fill="none"
+            d={`M${startX},${startY} C${control1X},${control1Y} ${control2X},${control2Y} ${endX},${endY}`}
+          />
+        )
+      )}
     </svg>
   );
 };
