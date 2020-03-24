@@ -7,7 +7,9 @@ import { useSelector } from 'react-redux';
 
 import { TaskId, ProjectId } from '../../models/ids';
 import { ReduxStoreTask, ReduxStoreState, ReduxStoreProject } from '../../models/redux-store-types';
+import { getAppUser } from '../../util/authentication';
 import { sanctionedColorMapping } from '../../util/constants';
+import { createTask, editTask } from '../../util/firestore-actions';
 import { useEligibleDependencies } from '../hooks/useTasks';
 import styles from './TaskEditorForm.module.css';
 
@@ -23,6 +25,23 @@ type Props = {
   readonly initialProjectId?: ProjectId;
   readonly editableTask: EditableTask;
   readonly onEdit: (change: Partial<EditableTask>) => void;
+};
+
+export const shouldBeDisabled = ({ projectId, name }: EditableTask): boolean =>
+  projectId === undefined || name.trim().length === 0;
+
+export const saveTask = (taskId: TaskId, { projectId, ...rest }: EditableTask): void => {
+  if (projectId === undefined) {
+    throw new Error();
+  }
+  editTask({ taskId, projectId, ...rest });
+};
+
+export const createNewTask = ({ projectId, ...rest }: EditableTask): void => {
+  if (projectId === undefined) {
+    throw new Error();
+  }
+  createTask({ projectId, owner: getAppUser().email, completed: false, ...rest });
 };
 
 export default ({ taskId, initialProjectId, editableTask, onEdit }: Props): ReactElement => {
