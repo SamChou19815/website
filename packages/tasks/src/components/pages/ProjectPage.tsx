@@ -1,39 +1,18 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 
-import Button from '@material-ui/core/Button';
 import { useSelector } from 'react-redux';
 
-import { TaskId, createProjectId } from '../../models/ids';
 import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState } from '../../models/redux-store-types';
-import useWindowSize from '../hooks/useWindowSize';
-import MasonryTaskContainer from '../includes/MasonryTaskContainer';
-import TaskCardCreator from '../includes/TaskCardCreator';
-import TaskDetailPanel from '../includes/TaskDetailPanel';
-import TaskGraphCanvas from '../includes/TaskGraphCanvas';
-import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
-import styles from './ProjectPage.module.css';
+import ProjectPageWithContent from '../includes/ProjectPageWithContent';
 import { RouteComponentsWithProjectIdParameter } from './router-types';
 
 export default ({
   match: {
-    params: { projectId: projectIdString },
+    params: { projectId },
   },
 }: RouteComponentsWithProjectIdParameter): ReactElement => {
-  const projectId = createProjectId(projectIdString);
-
-  const [mode, setMode] = useState<'dashboard' | 'graph'>('dashboard');
-  const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
-  const [doesShowCompletedTasks, setDoesShowCompletedTasks] = useState(true);
-  const [inCreationMode, setInCreationMode] = useState(false);
-
-  const breakpointColumn =
-    useWindowSize(({ width }) => {
-      const naiveComputedColumnCount = Math.floor(width / 400);
-      return Math.max(Math.min(naiveComputedColumnCount, 3), 1);
-    }) - (taskDetailPanelTaskId !== null ? 1 : 0);
-
-  const projectsAndTasks = useSelector((state: ReduxStoreState) => {
+  const userProjectAndTasks = useSelector((state: ReduxStoreState) => {
     const project = state.projects[projectId];
     if (project == null) {
       return null;
@@ -41,98 +20,14 @@ export default ({
     const tasks = flattenedTopologicalSort(
       Object.values(state.tasks).filter((task) => task.projectId === projectId)
     );
-    return [
-      state.projects[projectId],
-      doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed),
-    ] as const;
+    return [state.projects[projectId], tasks] as const;
   });
 
-  if (projectsAndTasks === null) {
+  if (userProjectAndTasks === null) {
     // TODO: consider the case of public project.
     return <div>Project {projectId} does not exist in your account.</div>;
   }
-  const [project, tasks] = projectsAndTasks;
+  const [project, tasks] = userProjectAndTasks;
 
-  let taskContainer: ReactElement;
-  if (mode === 'dashboard') {
-    taskContainer = (
-      <MasonryTaskContainer
-        projectId={projectId}
-        tasks={tasks}
-        breakpointColumn={breakpointColumn}
-        inCreationMode={inCreationMode}
-        disableCreationMode={() => setInCreationMode(false)}
-        onTaskClicked={setTaskDetailPanelTaskId}
-      />
-    );
-  } else {
-    taskContainer = (
-      <>
-        {inCreationMode && (
-          <TaskCardCreator
-            key="task-creator"
-            initialProjectId={projectId}
-            onSave={() => setInCreationMode(false)}
-          />
-        )}
-        <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />
-      </>
-    );
-  }
-
-  return (
-    <MaterialThemedNavigableAppContainer
-      nestedNavigationLevels={[
-        {
-          title: project.name,
-          link: `/project/${projectId}`,
-        },
-      ]}
-    >
-      <div className="content-below-appbar">
-        <div
-          className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
-        >
-          <div className={styles.TopButtonContainer}>
-            <Button
-              variant="outlined"
-              color="primary"
-              className={styles.TopButton}
-              onClick={() => setMode(mode === 'dashboard' ? 'graph' : 'dashboard')}
-              disableElevation
-            >
-              To {mode === 'dashboard' ? 'Graph' : 'Dashboard'} View
-            </Button>
-            <Button
-              variant="outlined"
-              color="primary"
-              className={styles.TopButton}
-              onClick={() => setDoesShowCompletedTasks((previous) => !previous)}
-              disableElevation
-            >
-              {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
-            </Button>
-            {!inCreationMode && (
-              <Button
-                variant="outlined"
-                color="primary"
-                className={styles.TopButton}
-                onClick={() => setInCreationMode(true)}
-                disableElevation
-              >
-                Create New Task
-              </Button>
-            )}
-          </div>
-          {taskContainer}
-        </div>
-        {taskDetailPanelTaskId && (
-          <TaskDetailPanel
-            taskId={taskDetailPanelTaskId}
-            onClose={() => setTaskDetailPanelTaskId(null)}
-          />
-        )}
-      </div>
-    </MaterialThemedNavigableAppContainer>
-  );
+  return <ProjectPageWithContent project={project} tasks={tasks} />;
 };
