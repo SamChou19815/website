@@ -64,10 +64,14 @@ export default ({
         />
       ) : (
         <>
-          <CardContent>
-            <MarkdownBlock>{content || '`Content not provided`'}</MarkdownBlock>
-          </CardContent>
-          <Divider />
+          {content && (
+            <>
+              <CardContent>
+                <MarkdownBlock>{content}</MarkdownBlock>
+              </CardContent>
+              <Divider />
+            </>
+          )}
           <CardActions>
             <Button
               size="small"

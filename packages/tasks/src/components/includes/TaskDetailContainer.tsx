@@ -52,10 +52,14 @@ export default ({ taskId, className, onClose }: Props): ReactElement => {
           {task.name}
         </Typography>
         <Divider />
-        <MarkdownBlock className={styles.TaskDetailContent}>
-          {task.content || '`Content not provided`'}
-        </MarkdownBlock>
-        <Divider />
+        {task.content && (
+          <>
+            <MarkdownBlock className={styles.TaskDetailContent}>
+              {task.content || '`Content not provided`'}
+            </MarkdownBlock>
+            <Divider />
+          </>
+        )}
         <Box className={styles.TaskDetailContent}>
           <Button
             size="small"
