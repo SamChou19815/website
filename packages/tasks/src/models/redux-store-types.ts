@@ -22,6 +22,7 @@ export type ReduxStoreTask = {
 export type ReduxStoreProjectsMap = { readonly [projectId: string]: ReduxStoreProject };
 export type ReduxStoreTasksMap = { readonly [taskId: string]: ReduxStoreTask };
 export type ReduxStoreState = {
+  readonly dataLoaded: boolean;
   readonly projects: ReduxStoreProjectsMap;
   readonly tasks: ReduxStoreTasksMap;
 };
