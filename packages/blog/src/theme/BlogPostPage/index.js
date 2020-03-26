@@ -11,8 +11,6 @@ import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
 import Layout from '@theme/Layout';
 
-import styles from '../common.module.css';
-
 const githubRepositoryUrlPrefix = 'https://github.com/SamChou19815/website';
 const githubBlogPostUrlPrefix = `${githubRepositoryUrlPrefix}/blob/master/packages/blog/blog`;
 
@@ -23,10 +21,10 @@ export default ({ content: BlogPostContents }) => {
   return (
     <Layout title={metadata.title} description={metadata.description}>
       {BlogPostContents && (
-        <div className={styles.Container}>
+        <div className="container margin-vert--xl">
           <div className="row">
-            <div className="col col--6 col--offset-3">
-              <div className={styles.BlogPostItem}>
+            <div className="col col--8 col--offset-2">
+              <div>
                 <BlogPostItem frontMatter={frontMatter} metadata={metadata}>
                   <BlogPostContents />
                 </BlogPostItem>
