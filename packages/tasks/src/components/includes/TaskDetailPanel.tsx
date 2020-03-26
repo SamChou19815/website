@@ -10,7 +10,11 @@ import { TaskId } from '../../models/ids';
 import TaskDetailContainer from './TaskDetailContainer';
 import styles from './TaskDetailPanel.module.css';
 
-type Props = { readonly taskId: TaskId; readonly className?: string; readonly onClose: () => void };
+type Props = {
+  readonly taskId: TaskId;
+  readonly className?: string;
+  readonly onClose: () => void;
+};
 
 export default ({ taskId, className: additionalClassName, onClose }: Props): ReactElement => {
   const className =

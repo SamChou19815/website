@@ -93,7 +93,7 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
           width={width}
           height={height}
           opacity={task.completed ? 0.7 : 1}
-          fill={color}
+          fill={color ?? sanctionedColorMapping.Blue}
           className={styles.CanvasClickable}
           onClick={() => onTaskClicked(task.taskId)}
         />
