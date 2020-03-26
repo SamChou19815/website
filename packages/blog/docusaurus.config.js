@@ -32,7 +32,7 @@ module.exports = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © 2018-${new Date().getFullYear()} Developer Sam.`,
+      copyright: `Copyright © 2016-${new Date().getFullYear()} Developer Sam.`,
     },
   },
   themes: [['@docusaurus/theme-classic', { customCss: require.resolve('./src/css/custom.css') }]],
