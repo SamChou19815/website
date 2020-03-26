@@ -8,6 +8,6 @@ import ProjectPage from './ProjectPage';
 export default (): ReactElement => (
   <Switch>
     <Route path="/project/:projectId" exact component={ProjectPage} />
-    <Route path="/" exact component={HomePage} />
+    <Route path="/" component={HomePage} />
   </Switch>
 );
