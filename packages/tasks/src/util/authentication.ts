@@ -1,7 +1,8 @@
 import firebase from 'firebase/app';
+import { Observable } from 'rxjs';
 
-import 'firebase/auth';
 import { UserEmail } from '../models/common-types';
+import { setGAUser } from './analytics';
 import { error } from './general';
 
 export type AppUser = {
@@ -32,9 +33,11 @@ export const toAppUser = async (firebaseUser: firebase.User | null): Promise<App
 let appUser: AppUser | null = null;
 
 /** Cache the given user in the memory. */
-export const cacheAppUser = (user: AppUser): void => {
+const cacheAppUser = (user: AppUser): void => {
   appUser = user;
 };
+
+export const hasAppUser = (): boolean => appUser !== null;
 
 /**
  * Returns the global app user.
@@ -43,6 +46,26 @@ export const cacheAppUser = (user: AppUser): void => {
  * Instead, it will throw an error.
  */
 export const getAppUser = (): AppUser => appUser ?? error('App is not initialized.');
+
+const firebaseAuth = firebase.auth();
+
+const appUserAsyncProcessor = async (user: firebase.User | null) => {
+  const appUserOptional = await toAppUser(user);
+  if (appUserOptional != null) {
+    cacheAppUser(appUserOptional);
+    setGAUser(appUserOptional);
+  }
+  return appUserOptional;
+};
+
+/** @returns a globally cached app user obserable, directly from firebase auth. */
+export const appUser$: Observable<AppUser | null> = new Observable((subscriber) => {
+  const unsubscribe = firebaseAuth.onAuthStateChanged(async (user) => {
+    const appUserOptional = await appUserAsyncProcessor(user);
+    subscriber.next(appUserOptional);
+  });
+  return { unsubscribe };
+});
 
 /** Sign out from firebase auth. */
 export const firebaseSignOut = (): void => {

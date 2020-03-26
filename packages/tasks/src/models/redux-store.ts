@@ -15,7 +15,8 @@ type PatchTasksAction = {
   readonly createdAndEdited: readonly FirestoreTaskWithId[];
   readonly deleted: readonly string[];
 };
-type ReduxStoreAction = PatchProjectsAction | PatchTasksAction;
+type SignalDataLoadedAction = { readonly type: 'DATA_LOADED' };
+type ReduxStoreAction = PatchProjectsAction | PatchTasksAction | SignalDataLoadedAction;
 
 export const getPatchProjectsAction = (
   createdAndEdited: readonly FirestoreProjectWithId[],
@@ -34,6 +35,8 @@ export const getPatchTasksAction = (
   createdAndEdited,
   deleted,
 });
+
+export const signalDataLoadedAction: SignalDataLoadedAction = { type: 'DATA_LOADED' };
 
 const patchProjects = (
   projects: ReduxStoreProjectsMap,
@@ -56,8 +59,10 @@ const patchTasks = (tasks: ReduxStoreTasksMap, action: PatchTasksAction): ReduxS
   return tasksMutableCopy;
 };
 
+const initialState: ReduxStoreState = { dataLoaded: false, projects: {}, tasks: {} };
+
 const rootReducer = (
-  state: ReduxStoreState = { projects: {}, tasks: {} },
+  state: ReduxStoreState = initialState,
   action: ReduxStoreAction
 ): ReduxStoreState => {
   switch (action.type) {
@@ -65,6 +70,8 @@ const rootReducer = (
       return { ...state, projects: patchProjects(state.projects, action) };
     case 'PATCH_TASKS':
       return { ...state, tasks: patchTasks(state.tasks, action) };
+    case 'DATA_LOADED':
+      return { ...state, dataLoaded: true };
     default:
       return state;
   }

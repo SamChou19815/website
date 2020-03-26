@@ -1,6 +1,11 @@
 import React, { ReactElement } from 'react';
 
-import { getPatchProjectsAction, getPatchTasksAction, store } from '../../models/redux-store';
+import {
+  getPatchProjectsAction,
+  getPatchTasksAction,
+  store,
+  signalDataLoadedAction,
+} from '../../models/redux-store';
 import { getProjectsObservable, getTasksObservable } from '../../util/firestore';
 import LandingPage from '../pages/LandingPage';
 import LoadingPage from '../pages/LoadingPage';
@@ -17,6 +22,7 @@ const dataLoader = (): Promise<void> => {
       if (!resolvedProjects) {
         resolvedProjects = true;
         if (resolvedTasks) {
+          store.dispatch(signalDataLoadedAction);
           resolve();
         }
       }
@@ -26,6 +32,7 @@ const dataLoader = (): Promise<void> => {
       if (!resolvedTasks) {
         resolvedTasks = true;
         if (resolvedProjects) {
+          store.dispatch(signalDataLoadedAction);
           resolve();
         }
       }

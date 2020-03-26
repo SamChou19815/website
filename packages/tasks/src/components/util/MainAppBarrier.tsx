@@ -1,9 +1,9 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 
-import firebase from 'firebase/app';
+import { useSelector } from 'react-redux';
 
-import { setGAUser } from '../../util/analytics';
-import { cacheAppUser, toAppUser } from '../../util/authentication';
+import { ReduxStoreState } from '../../models/redux-store-types';
+import { appUser$, hasAppUser } from '../../util/authentication';
 
 type Props = {
   /**
@@ -18,7 +18,7 @@ type Props = {
   /** The component to render when the login flow finishes. */
   readonly appComponent: () => ReactElement;
 };
-type AppStatus = 'INIT_LOADING' | 'LANDING' | 'DATA_LOADING' | 'APP';
+type AppStatus = 'INIT_LOADING' | 'LANDING' | 'DATA_LOADING_OR_APP';
 
 /**
  * The barrier to enter the main app.
@@ -30,36 +30,36 @@ export default ({
   landingPageComponent: LandingPage,
   appComponent: App,
 }: Props): ReactElement => {
-  const [appStatus, setAppStatus] = React.useState<AppStatus>('INIT_LOADING');
+  const isDataLoaded = useSelector(({ dataLoaded }: ReduxStoreState) => dataLoaded);
+  const [appStatus, setAppStatus] = useState<AppStatus>(
+    hasAppUser() ? 'DATA_LOADING_OR_APP' : 'INIT_LOADING'
+  );
 
   // Listen for auth state changes in effect hooks.
   useEffect(() => {
-    return firebase.auth().onAuthStateChanged(async (user) => {
-      const currentUserFromFirebase = await toAppUser(user);
+    const subscription = appUser$.subscribe((currentUserFromFirebase) => {
       if (currentUserFromFirebase === null) {
         setAppStatus('LANDING');
         return;
       }
-      setGAUser(currentUserFromFirebase);
-      cacheAppUser(currentUserFromFirebase);
-      setAppStatus('DATA_LOADING');
+      setAppStatus('DATA_LOADING_OR_APP');
     });
+    return () => subscription.unsubscribe();
   }, []);
 
   useEffect(() => {
-    if (appStatus === 'DATA_LOADING') {
-      dataLoader().then(() => setAppStatus('APP'));
+    if (appStatus === 'DATA_LOADING_OR_APP' && !isDataLoaded) {
+      dataLoader();
     }
-  }, [appStatus, dataLoader]);
+  }, [appStatus, dataLoader, isDataLoaded]);
 
   switch (appStatus) {
     case 'LANDING':
       return <LandingPage />;
     case 'INIT_LOADING':
-    case 'DATA_LOADING':
       return <LoadingPage />;
-    case 'APP':
-      return <App />;
+    case 'DATA_LOADING_OR_APP':
+      return isDataLoaded ? <App /> : <LoadingPage />;
     default:
       throw new Error(`Unknown state: ${appStatus}`);
   }
