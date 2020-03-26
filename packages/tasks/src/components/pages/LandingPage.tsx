@@ -4,7 +4,6 @@ import firebase from 'firebase/app';
 import { FirebaseAuth } from 'react-firebaseui';
 
 import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
-import styles from './LandingPage.module.css';
 
 const uiConfig = {
   signInFlow: 'popup',
@@ -18,7 +17,7 @@ const uiConfig = {
 
 export default (): ReactElement => (
   <MaterialThemedNavigableAppContainer nestedNavigationLevels={[{ title: 'Login' }]}>
-    <div className={styles.LoginContainer}>
+    <div className="simple-page-center">
       <FirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
   </MaterialThemedNavigableAppContainer>

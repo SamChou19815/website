@@ -20,7 +20,11 @@ import { useTransitiveDependencies } from '../hooks/useTasks';
 import TaskCard from './TaskCard';
 import styles from './TaskDetailContainer.module.css';
 
-type Props = { readonly taskId: TaskId; readonly className?: string; readonly onClose: () => void };
+type Props = {
+  readonly taskId: TaskId;
+  readonly className?: string;
+  readonly onClose: () => void;
+};
 
 export default ({ taskId, className, onClose }: Props): ReactElement => {
   const task = useSelector((state: ReduxStoreState) => state.tasks[taskId]);
@@ -85,7 +89,7 @@ export default ({ taskId, className, onClose }: Props): ReactElement => {
       </Paper>
       <Divider />
       {dependenciesToRender.map((dependencyTask) => (
-        <TaskCard key={dependencyTask.taskId} task={dependencyTask} />
+        <TaskCard key={dependencyTask.taskId} task={dependencyTask} writable />
       ))}
     </div>
   );

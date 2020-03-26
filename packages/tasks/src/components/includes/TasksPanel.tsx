@@ -35,6 +35,7 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
     tasksContainer = (
       <MasonryTaskContainer
         tasks={filteredTasks}
+        writable
         breakpointColumn={breakpointColumn}
         inCreationMode={inCreationMode}
         disableCreationMode={() => setInCreationMode(false)}

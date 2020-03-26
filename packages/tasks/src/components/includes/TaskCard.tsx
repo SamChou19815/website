@@ -10,7 +10,6 @@ import AssignmentDone from '@material-ui/icons/AssignmentTurnedIn';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
 
-import { SanctionedColor } from '../../models/common-types';
 import { ReduxStoreTask, ReduxStoreState } from '../../models/redux-store-types';
 import { editTask, deleteTask } from '../../util/firestore-actions';
 import useFormManager from '../hooks/useFormManager';
@@ -27,15 +26,20 @@ const AssignmentIcon = ({ completed }: { readonly completed: boolean }): ReactEl
     <Assignment titleAccess="Task" fontSize="large" />
   );
 
-type Props = { readonly task: ReduxStoreTask; readonly onHeaderClick?: () => void };
+type Props = {
+  readonly task: ReduxStoreTask;
+  readonly writable: boolean;
+  readonly onHeaderClick?: () => void;
+};
 
 export default ({
   task: { taskId, projectId, name, content, dependencies, completed },
+  writable,
   onHeaderClick,
 }: Props): ReactElement => {
-  const color = useSelector<ReduxStoreState, SanctionedColor>(
-    (state) => state.projects[projectId].color
-  );
+  const project = useSelector((state: ReduxStoreState) => state.projects[projectId]);
+  const color = project?.color ?? 'Blue';
+
   const [inEditingMode, setInEditingMode] = useState(false);
   const hasReverseDependencies = useTransitiveReverseDependencies(taskId).length > 0;
   const [editableTask, setPartialEditableTask] = useFormManager({
@@ -96,34 +100,36 @@ export default ({
               <Divider />
             </>
           )}
-          <CardActions>
-            <Button
-              size="small"
-              color="primary"
-              onClick={() => editTask({ taskId, completed: !completed })}
-            >
-              {completed ? 'Uncomplete' : 'Complete'}
-            </Button>
-            <Button size="small" color="primary" onClick={() => setInEditingMode(true)}>
-              Edit
-            </Button>
-            <MaterialAlertDialog
-              alertTitle="Deleting a task?"
-              alertDescription="Once deleted, the task cannot be recovered."
-              onConfirm={() => deleteTask(taskId)}
-            >
-              {(trigger) => (
-                <Button
-                  size="small"
-                  color="primary"
-                  disabled={hasReverseDependencies}
-                  onClick={trigger}
-                >
-                  Delete
-                </Button>
-              )}
-            </MaterialAlertDialog>
-          </CardActions>
+          {writable && (
+            <CardActions>
+              <Button
+                size="small"
+                color="primary"
+                onClick={() => editTask({ taskId, completed: !completed })}
+              >
+                {completed ? 'Uncomplete' : 'Complete'}
+              </Button>
+              <Button size="small" color="primary" onClick={() => setInEditingMode(true)}>
+                Edit
+              </Button>
+              <MaterialAlertDialog
+                alertTitle="Deleting a task?"
+                alertDescription="Once deleted, the task cannot be recovered."
+                onConfirm={() => deleteTask(taskId)}
+              >
+                {(trigger) => (
+                  <Button
+                    size="small"
+                    color="primary"
+                    disabled={hasReverseDependencies}
+                    onClick={trigger}
+                  >
+                    Delete
+                  </Button>
+                )}
+              </MaterialAlertDialog>
+            </CardActions>
+          )}
         </>
       )}
     </Card>
