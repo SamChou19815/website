@@ -15,7 +15,7 @@ const workspaceInformation: ReadonlyMap<string, readonly string[]> = (() => {
 })();
 
 const projectWorkspaces: readonly string[] = Array.from(workspaceInformation.keys()).filter(
-  (workspace) => !workspace.startsWith('lib-')
+  (workspace) => !workspace.startsWith('lib-') && !workspace.startsWith('@dev-sam')
 );
 
 const getWorkspaceDependencies = (workspace: string): readonly string[] => {
