@@ -14,6 +14,7 @@ module.exports = {
   baseUrl: '/',
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
+    disableDarkMode: true,
     navbar: {
       title: 'Developer Sam Blog',
       links: [
