@@ -28,11 +28,14 @@ export default ({ content: BlogPostContents }) => {
                 <BlogPostItem frontMatter={frontMatter} metadata={metadata}>
                   <BlogPostContents />
                 </BlogPostItem>
-                <a href={markdownURL}>Source on GitHub</a>
               </div>
               {(metadata.nextItem || metadata.prevItem) && (
                 <div className="margin-vert--xl">
-                  <BlogPostPaginator nextItem={metadata.nextItem} prevItem={metadata.prevItem} />
+                  <BlogPostPaginator
+                    githubSourceLink={markdownURL}
+                    nextItem={metadata.nextItem}
+                    prevItem={metadata.prevItem}
+                  />
                 </div>
               )}
             </div>
