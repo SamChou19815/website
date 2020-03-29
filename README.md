@@ -50,3 +50,10 @@ local building.
 
 This repository will be in 'move-fast' mode. i.e. Unstable technologies and libraries can go into
 master and be deployed on Sam's website.
+
+## License
+
+All the source code is licensed under [AGPL-v3](./LICENSE).
+
+All non-code content is excluded from the AGPL-v3 license, and they are licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).

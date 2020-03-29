@@ -29,6 +29,13 @@ export default ({ content: BlogPostContents }) => {
                   <BlogPostContents />
                 </BlogPostItem>
               </div>
+              <article className="margin-bottom--xl">
+                <h2>Copyright Notices</h2>
+                <div>
+                  You are allowed to redistribute the blog post under{' '}
+                  <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+                </div>
+              </article>
               {(metadata.nextItem || metadata.prevItem) && (
                 <div className="margin-vert--xl">
                   <BlogPostPaginator
