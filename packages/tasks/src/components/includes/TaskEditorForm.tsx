@@ -1,6 +1,6 @@
 import React, { ReactElement, ChangeEvent } from 'react';
 
-import { Typography } from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
 import FormGroup from '@material-ui/core/FormGroup';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -59,6 +59,10 @@ export default ({ taskId, initialProjectId, editableTask, onEdit }: Props): Reac
 
   return (
     <FormGroup row={false}>
+      <div>
+        <MarkdownBlock>{`### ${name}\n${content}`}</MarkdownBlock>
+        <Divider />
+      </div>
       <Autocomplete
         disabled={initialProjectId !== undefined}
         className={styles.FormElement}
@@ -83,10 +87,6 @@ export default ({ taskId, initialProjectId, editableTask, onEdit }: Props): Reac
           <TextField label="Project" type="text" {...params} />
         )}
       />
-      <div>
-        <Typography variant="h6">Preview</Typography>
-        <MarkdownBlock>{content}</MarkdownBlock>
-      </div>
       <TextField
         className={styles.FormElement}
         label="Name"
