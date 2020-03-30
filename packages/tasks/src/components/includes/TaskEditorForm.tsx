@@ -4,12 +4,12 @@ import Divider from '@material-ui/core/Divider';
 import FormGroup from '@material-ui/core/FormGroup';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { getAppUser } from 'lib-firebase/authentication';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
 
 import { TaskId, ProjectId } from '../../models/ids';
 import { ReduxStoreTask, ReduxStoreState, ReduxStoreProject } from '../../models/redux-store-types';
-import { getAppUser } from '../../util/authentication';
 import { sanctionedColorMapping } from '../../util/constants';
 import { createTask, editTask } from '../../util/firestore-actions';
 import { useEligibleDependencies } from '../hooks/useTasks';

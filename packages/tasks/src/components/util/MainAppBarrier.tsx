@@ -1,9 +1,9 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
+import { appUser$, hasAppUser } from 'lib-firebase/authentication';
 import { useSelector } from 'react-redux';
 
 import { ReduxStoreState } from '../../models/redux-store-types';
-import { appUser$, hasAppUser } from '../../util/authentication';
 
 type Props = {
   /**

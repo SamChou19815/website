@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lib-react": "0.1.0",
+    "lib-common": "0.1.0",
+    "lib-react": "0.1.0"
+  },
+  "devDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

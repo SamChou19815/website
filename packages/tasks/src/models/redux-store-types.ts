@@ -1,9 +1,9 @@
-import { UserEmail, SanctionedColor } from './common-types';
+import { SanctionedColor } from './common-types';
 import { ProjectId, TaskId } from './ids';
 
 export type ReduxStoreProject = {
   readonly projectId: ProjectId;
-  readonly owner: UserEmail;
+  readonly owner: string;
   readonly isPublic: boolean;
   readonly name: string;
   readonly color: SanctionedColor;
@@ -11,7 +11,7 @@ export type ReduxStoreProject = {
 
 export type ReduxStoreTask = {
   readonly taskId: TaskId;
-  readonly owner: UserEmail;
+  readonly owner: string;
   readonly projectId: ProjectId;
   readonly name: string;
   readonly content: string;

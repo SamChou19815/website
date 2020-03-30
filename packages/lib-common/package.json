@@ -1,7 +1,7 @@
 {
-  "name": "lib-firebase",
+  "name": "lib-common",
   "version": "0.1.0",
-  "description": "The common Firebase code used across Developer Sam's website.",
+  "description": "The common TypeScript code used across Developer Sam's website.",
   "author": "Developer Sam",
   "repository": {
     "type": "git",
@@ -17,18 +17,6 @@
   },
   "files": [
     "*.js",
-    "*.d.ts",
-    "*.css"
-  ],
-  "dependencies": {
-    "lib-common": "0.1.0"
-  },
-  "devDependencies": {
-    "firebase": "^7.11.0",
-    "rxjs": "^6.5.4"
-  },
-  "peerDependencies": {
-    "firebase": "*",
-    "rxjs": "*"
-  }
+    "*.d.ts"
+  ]
 }
