@@ -83,8 +83,10 @@ already been built since then. I had heard from some rumors that the controls we
 since I left, and I would expect the era of wild exploration had almost gone forever.
 
 That's exactly the reason why I started to sponsor the club with my personal fund, with the only
-attached-string being remaining independent. I reaffirmed my commitment last year with a public
-sponsorship agreement and strengthened it even more this year with even more generous conditions.
+attached-string being remaining independent. I reaffirmed my commitment last year with a
+[public sponsorship agreement](https://github.com/sam-foundation/computerization-sponsorship) and
+strengthened it even more this year with even
+[more generous conditions](https://github.com/sam-foundation/computerization-sponsorship/pull/7).
 
 ### The Student Union
 
