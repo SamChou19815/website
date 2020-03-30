@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es6",
+    "declaration": true,
+    "isolatedModules": false,
+    "noEmit": false,
+    "jsx": "react"
+  }
+}

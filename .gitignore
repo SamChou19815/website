@@ -51,7 +51,7 @@
 ## Project Specific
 
 ### lib-react
-packages/lib-react/**/*.js
-packages/lib-react/**/*.jsx
-packages/lib-react/**/*.d.ts
+packages/lib-*/**/*.js
+packages/lib-*/**/*.jsx
+packages/lib-*/**/*.d.ts
 tsconfig.tsbuildinfo

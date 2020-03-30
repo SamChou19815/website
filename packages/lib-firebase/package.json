@@ -1,7 +1,7 @@
 {
-  "name": "lib-react",
+  "name": "lib-firebase",
   "version": "0.1.0",
-  "description": "The common React code used across Developer Sam's website.",
+  "description": "The common Firebase code used across Developer Sam's website.",
   "author": "Developer Sam",
   "repository": {
     "type": "git",
@@ -20,17 +20,8 @@
     "*.d.ts",
     "*.css"
   ],
-  "dependencies": {
-    "@material-ui/core": "^4.9.7",
-    "@types/remarkable": "^1.7.4",
-    "highlight.js": "^9.18.1",
-    "react": "^16.13.1",
-    "remarkable": "^2.0.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "@types/highlight.js": "^9.12.3"
+    "firebase": "*"
   }
 }
