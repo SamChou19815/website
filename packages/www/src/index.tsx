@@ -1,6 +1,7 @@
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 
+import 'lib-firebase';
 import './index.css';
 import initializeHighlighter from 'lib-react/language';
 
