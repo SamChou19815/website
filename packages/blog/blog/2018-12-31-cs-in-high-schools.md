@@ -1,6 +1,6 @@
 ---
 title: Computer Science in High Schools
-tags: [tech-journey, review]
+tags: [tech-journey, review, thoughts]
 ---
 
 This year, I got an intern with a resume that did not mention my high school’s CS project with a

@@ -1,6 +1,6 @@
 ---
 title: The Road to Better Engineering
-tags: [design-choices, review]
+tags: [design-choices, review, thoughts]
 ---
 
 ### The Start
