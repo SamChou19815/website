@@ -1,6 +1,6 @@
 ---
 title: My Decade in Review
-tags: [tech-journey, review]
+tags: [tech-journey, review, thoughts]
 ---
 
 Following the lead of React and JavaScript god [Dan Abramov](https://overreacted.io/), I decided to

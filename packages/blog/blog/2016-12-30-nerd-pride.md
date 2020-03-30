@@ -1,6 +1,6 @@
 ---
 title: Nerd Pride
-tags: [tech-journey]
+tags: [tech-journey, review, thoughts]
 ---
 
 On the evening of December 8, 2016, exactly on 5:01 PM in Eastern Standard Time, the photons of
