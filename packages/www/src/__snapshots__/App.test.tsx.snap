@@ -133,7 +133,6 @@ class Main {
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -163,7 +162,6 @@ class Main {
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
@@ -183,7 +181,6 @@ class Main {
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
@@ -203,7 +200,6 @@ class Main {
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
@@ -223,7 +219,6 @@ class Main {
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
@@ -244,7 +239,6 @@ class Main {
           aria-hidden="true"
           className="MuiSvgIcon-root"
           focusable="false"
-          role="presentation"
           viewBox="0 0 24 24"
         >
           <path
