@@ -1,17 +1,14 @@
 # @generated
 
-name: CI tasks
+name: CI lib-react
 on:
   push:
     paths:
-      - packages/lib-common/**
-      - packages/lib-firebase/**
       - packages/lib-react/**
-      - packages/tasks/**
       - package.json
       - yarn.lock
       - configuration/**
-      - .github/workflows/generated-*-tasks.yml
+      - .github/workflows/generated-*-lib-react.yml
 
 jobs:
   build:
@@ -29,6 +26,6 @@ jobs:
       - name: Yarn Install
         run: yarn install
       - name: Compile
-        run: yarn workspace tasks compile
+        run: yarn workspace lib-react compile
       - name: Test
-        run: yarn workspace tasks test
+        run: yarn workspace lib-react test

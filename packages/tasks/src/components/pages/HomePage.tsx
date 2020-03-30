@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 
 import Button from '@material-ui/core/Button';
+import { firebaseSignOut } from 'lib-firebase/authentication';
 
-import { firebaseSignOut } from '../../util/authentication';
 import useWindowSize from '../hooks/useWindowSize';
 import ProjectsPanel from '../includes/ProjectsPanel';
 import TasksPanel from '../includes/TasksPanel';

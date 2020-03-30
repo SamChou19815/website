@@ -1,4 +1,4 @@
-import { identity, ignore, error } from './general';
+import { identity, ignore, error } from 'lib-common';
 
 it('identity function works', () => {
   const object = { foo: 'bar' };

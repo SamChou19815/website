@@ -1,14 +1,11 @@
 import firebase from 'firebase/app';
+import { error } from 'lib-common';
 import { Observable } from 'rxjs';
-
-import { UserEmail } from '../models/common-types';
-import { setGAUser } from './analytics';
-import { error } from './general';
 
 export type AppUser = {
   readonly uid: string;
   readonly displayName: string;
-  readonly email: UserEmail;
+  readonly email: string;
   readonly token: string;
 };
 
@@ -27,7 +24,7 @@ export const toAppUser = async (firebaseUser: firebase.User | null): Promise<App
     throw new Error('Bad user!');
   }
   const token: string = await firebaseUser.getIdToken(true);
-  return { uid, displayName, email: email as UserEmail, token };
+  return { uid, displayName, email, token };
 };
 
 let appUser: AppUser | null = null;
@@ -35,6 +32,11 @@ let appUser: AppUser | null = null;
 /** Cache the given user in the memory. */
 const cacheAppUser = (user: AppUser): void => {
   appUser = user;
+};
+
+const setGAUser = ({ uid }: AppUser): void => {
+  firebase.analytics().setUserId(uid);
+  firebase.analytics().logEvent('login', {});
 };
 
 export const hasAppUser = (): boolean => appUser !== null;

@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 
-import { projectWorkspaces, getDependencyChain } from './workspace';
+import { allPrivateWorkspaces, projectWorkspaces, getDependencyChain } from './workspace';
 
 const getBoilterPlateSetupSteps = (jobName: string): string => `jobs:
   ${jobName}:
@@ -75,8 +75,10 @@ const writeGeneratedFile = ([filename, content]: readonly [string, string]): voi
   writeFileSync(`.github/workflows/${filename}`, content);
 
 const main = (): void => {
-  projectWorkspaces.forEach((workspace) => {
+  allPrivateWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCIWorkflow(workspace));
+  });
+  projectWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCDWorkflow(workspace));
   });
 };
