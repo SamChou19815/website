@@ -35,6 +35,8 @@ module.exports = {
       links: [],
       copyright: `Copyright © 2016-${new Date().getFullYear()} Developer Sam.`,
     },
+    googleAnalytics: { trackingID: 'UA-140662756-1' },
+    gtag: { trackingID: 'UA-140662756-1' },
   },
   themes: [['@docusaurus/theme-classic', { customCss: require.resolve('./src/css/custom.css') }]],
   plugins: [
@@ -45,5 +47,7 @@ module.exports = {
         routeBasePath: '/',
       },
     ],
+    '@docusaurus/plugin-google-analytics',
+    '@docusaurus/plugin-google-gtag',
   ],
 };
