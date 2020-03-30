@@ -28,7 +28,6 @@ exports[`TimelineItemCard with item 0 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -124,7 +123,6 @@ exports[`TimelineItemCard with item 1 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -180,7 +178,6 @@ exports[`TimelineItemCard with item 2 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -241,7 +238,6 @@ exports[`TimelineItemCard with item 3 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -331,7 +327,6 @@ exports[`TimelineItemCard with item 4 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -435,7 +430,6 @@ exports[`TimelineItemCard with item 5 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -566,7 +560,6 @@ exports[`TimelineItemCard with item 6 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -628,7 +621,6 @@ exports[`TimelineItemCard with item 7 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -729,7 +721,6 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -855,7 +846,6 @@ exports[`TimelineItemCard with item 9 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -975,7 +965,6 @@ exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1073,7 +1062,6 @@ exports[`TimelineItemCard with item 11 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1174,7 +1162,6 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1305,7 +1292,6 @@ exports[`TimelineItemCard with item 13 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1367,7 +1353,6 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1434,7 +1419,6 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1559,7 +1543,6 @@ exports[`TimelineItemCard with item 16 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1621,7 +1604,6 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1711,7 +1693,6 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1810,7 +1791,6 @@ exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1872,7 +1852,6 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -1962,7 +1941,6 @@ exports[`TimelineItemCard with item 21 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -2018,7 +1996,6 @@ exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -2113,7 +2090,6 @@ exports[`TimelineItemCard with item 23 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -2169,7 +2145,6 @@ exports[`TimelineItemCard with item 24 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -2225,7 +2200,6 @@ exports[`TimelineItemCard with item 25 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -2281,7 +2255,6 @@ exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -2342,7 +2315,6 @@ exports[`TimelineItemCard with item 27 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
@@ -2398,7 +2370,6 @@ exports[`TimelineItemCard with item 28 matches snapshot. 1`] = `
             aria-hidden="true"
             className="MuiSvgIcon-root"
             focusable="false"
-            role="presentation"
             viewBox="0 0 24 24"
           >
             <path

@@ -20,7 +20,9 @@
     "*.d.ts",
     "*.css"
   ],
-  "dependencies": {},
+  "devDependencies": {
+    "firebase": "^7.11.0"
+  },
   "peerDependencies": {
     "firebase": "*"
   }
