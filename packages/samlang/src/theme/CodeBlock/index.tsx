@@ -14,7 +14,9 @@ import styles from './styles.module.css';
 
 initialize();
 
-export default ({ children, className: languageClassName }) => {
+type Props = { readonly children: string; readonly className?: string };
+
+export default ({ children, className: languageClassName }: Props) => {
   const language = languageClassName && languageClassName.replace(/language-/, '');
   return (
     <CodeBlock language={language} className={styles.CodeBlock}>
