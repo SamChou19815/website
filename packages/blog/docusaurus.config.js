@@ -39,15 +39,16 @@ module.exports = {
     gtag: { trackingID: 'UA-140662756-1' },
   },
   themes: [['@docusaurus/theme-classic', { customCss: require.resolve('./src/css/custom.css') }]],
-  plugins: [
+  presets: [
     [
-      '@docusaurus/plugin-content-blog',
+      '@docusaurus/preset-classic',
       {
-        postsPerPage: 10,
-        routeBasePath: '/',
+        blog: {
+          path: './blog',
+          routeBasePath: '/',
+        },
       },
     ],
-    '@docusaurus/plugin-google-analytics',
-    '@docusaurus/plugin-google-gtag',
   ],
+  plugins: ['@docusaurus/plugin-google-analytics', '@docusaurus/plugin-google-gtag'],
 };
