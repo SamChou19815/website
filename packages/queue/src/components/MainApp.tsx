@@ -70,6 +70,7 @@ export default (): ReactElement => {
             <Button
               size="small"
               color="primary"
+              disabled={newQueueName?.trim().length === 0 ?? true}
               onClick={() => {
                 if (newQueueName === null) {
                   throw new Error();
