@@ -47,8 +47,17 @@ module.exports = {
           path: './blog',
           routeBasePath: '/',
         },
+        sitemap: {
+          cacheTime: 600 * 1000,
+          changefreq: 'weekly',
+          priority: 0.5,
+        },
       },
     ],
   ],
-  plugins: ['@docusaurus/plugin-google-analytics', '@docusaurus/plugin-google-gtag'],
+  plugins: [
+    '@docusaurus/plugin-google-analytics',
+    '@docusaurus/plugin-google-gtag',
+    '@docusaurus/plugin-sitemap',
+  ],
 };
