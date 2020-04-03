@@ -5,6 +5,8 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { getAppUser } from 'lib-firebase/authentication';
@@ -19,19 +21,38 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
   const questions = useQuestions(queue.queueId);
   const myEmail = getAppUser().email;
   const isQueueOwner = queue.owner === myEmail;
+  const [hideAnsweredQuestions, setHideAnsweredQuestions] = useState(true);
   const [newQuestionContent, setNewQuestionContent] = useState('');
 
   if (questions === null) {
     return <LoadingPage />;
   }
 
+  const filteredQuestions = hideAnsweredQuestions
+    ? questions.filter((question) => !question.answered)
+    : questions;
+
   return (
     <div className="card-container">
       <Typography component="h2" variant="h4" className="centered-title">
-        Owned Queues
+        Questions
       </Typography>
       {questions.length === 0 && <div>No questions yet.</div>}
-      {questions.map((question) => (
+      {questions.length > 0 && (
+        <FormControlLabel
+          className="centered-title"
+          control={
+            // eslint-disable-next-line react/jsx-wrap-multilines
+            <Switch
+              checked={hideAnsweredQuestions}
+              onChange={(event) => setHideAnsweredQuestions(event.target.checked)}
+            />
+          }
+          label="Show/Hide answered questions"
+          labelPlacement="start"
+        />
+      )}
+      {filteredQuestions.map((question) => (
         <Card key={question.questionId} variant="outlined" className="common-card">
           <CardHeader title={question.content} />
           <CardContent>Answered: {String(question.answered)}</CardContent>
