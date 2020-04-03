@@ -8,6 +8,9 @@
         "blog": [
           "developer-sam-blog"
         ],
+        "queue": [
+          "developer-sam-queue"
+        ],
         "samlang": [
           "developer-sam-samlang-docs"
         ],

@@ -17,6 +17,17 @@
       ]
     },
     {
+      "target": "queue",
+      "public": "packages/queue/build",
+      "ignore": ["**/.*"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "samlang",
       "public": "packages/samlang/build",
       "ignore": ["**/.*"]
