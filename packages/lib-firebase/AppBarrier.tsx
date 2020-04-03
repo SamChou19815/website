@@ -1,16 +1,15 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
-import { appUser$, hasAppUser } from 'lib-firebase/authentication';
-import { useSelector } from 'react-redux';
-
-import { ReduxStoreState } from '../../models/redux-store-types';
+import { appUser$, hasAppUser } from './authentication';
 
 type Props = {
+  /** Whether all data has been loaded. */
+  readonly isDataLoaded: boolean;
   /**
    * The function that will be called once the login finishes.
    * The returned promise should resolve when all data has been loaded and stored.
    */
-  readonly dataLoader: () => Promise<void>;
+  readonly dataLoader: () => void;
   /** The component to render when the app's status is pending. */
   readonly loadingPageComponent: () => ReactElement;
   /** The component to render when the app first displays. */
@@ -25,12 +24,12 @@ type AppStatus = 'INIT_LOADING' | 'LANDING' | 'DATA_LOADING_OR_APP';
  * It can help to enforce that all necessary information is loaded before entering the main app.
  */
 export default ({
+  isDataLoaded,
   dataLoader,
   loadingPageComponent: LoadingPage,
   landingPageComponent: LandingPage,
   appComponent: App,
 }: Props): ReactElement => {
-  const isDataLoaded = useSelector(({ dataLoaded }: ReduxStoreState) => dataLoaded);
   const [appStatus, setAppStatus] = useState<AppStatus>(
     hasAppUser() ? 'DATA_LOADING_OR_APP' : 'INIT_LOADING'
   );
