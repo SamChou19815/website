@@ -62,3 +62,30 @@ ul {
   align-content: center;
   justify-content: center;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.common-card {
+  margin: 1em auto;
+  width: 400px;
+}
+
+.text-input {
+  width: 100%;
+}
+
+.centered-title {
+  margin: 1em auto !important;
+}
+
+.centered-button {
+  display: block !important;
+  margin: 2em auto !important;
+}

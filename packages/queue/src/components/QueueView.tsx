@@ -1,5 +1,11 @@
 import React, { ReactElement, useState } from 'react';
 
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import TextField from '@material-ui/core/TextField';
 import { getAppUser } from 'lib-firebase/authentication';
 
 import { AppQueue } from '../models/types';
@@ -19,17 +25,19 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
   }
 
   return (
-    <div>
-      <div>
-        <h2>Questions</h2>
-        {questions.map((question) => (
-          <div key={question.questionId}>
-            <div>{question.content}</div>
-            <div>Answered: {String(question.answered)}</div>
-            <div>Timestamp: {question.timestamp.toISOString()}</div>
+    <div className="card-container">
+      <h2>Questions</h2>
+      {questions.length === 0 && <div>No questions yet.</div>}
+      {questions.map((question) => (
+        <Card key={question.questionId} variant="outlined" className="common-card">
+          <CardHeader title={question.content} />
+          <CardContent>Answered: {String(question.answered)}</CardContent>
+          <CardContent>Timestamp: {question.timestamp.toISOString()}</CardContent>
+          <CardActions>
             {isQueueOwner && (
-              <button
-                type="button"
+              <Button
+                size="small"
+                color="primary"
                 onClick={() => {
                   questionsCollection
                     .doc(question.questionId)
@@ -37,40 +45,45 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
                 }}
               >
                 Mark as {question.answered ? 'unanswered' : 'answered'}
-              </button>
+              </Button>
             )}
             {question.owner === myEmail && (
-              <button
-                type="button"
+              <Button
+                size="small"
+                color="primary"
                 onClick={() => questionsCollection.doc(question.questionId).delete()}
               >
                 Delete
-              </button>
+              </Button>
             )}
-          </div>
-        ))}
-      </div>
-      <div>
-        <h2>Add new question</h2>
-        <div>
-          <input
+          </CardActions>
+        </Card>
+      ))}
+      <Card variant="outlined" className="common-card">
+        <CardHeader title="Add new question" />
+        <CardContent>
+          <TextField
+            label="Question content"
             type="text"
-            placeholder="Question content"
+            className="text-input"
             value={newQuestionContent}
             onChange={(event) => setNewQuestionContent(event.currentTarget.value)}
           />
-        </div>
-        <button
-          type="button"
-          disabled={newQuestionContent.trim().length === 0}
-          onClick={() => {
-            createNewQuestion(queue.queueId, newQuestionContent);
-            setNewQuestionContent('');
-          }}
-        >
-          Submit
-        </button>
-      </div>
+        </CardContent>
+        <CardActions>
+          <Button
+            size="small"
+            color="primary"
+            disabled={newQuestionContent.trim().length === 0}
+            onClick={() => {
+              createNewQuestion(queue.queueId, newQuestionContent);
+              setNewQuestionContent('');
+            }}
+          >
+            Submit
+          </Button>
+        </CardActions>
+      </Card>
     </div>
   );
 };
