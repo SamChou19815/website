@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import { getAppUser } from 'lib-firebase/authentication';
 
 import { AppQueue } from '../models/types';
@@ -26,7 +27,9 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
 
   return (
     <div className="card-container">
-      <h2>Questions</h2>
+      <Typography component="h2" variant="h4" className="centered-title">
+        Owned Queues
+      </Typography>
       {questions.length === 0 && <div>No questions yet.</div>}
       {questions.map((question) => (
         <Card key={question.questionId} variant="outlined" className="common-card">

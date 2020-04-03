@@ -64,6 +64,9 @@ export default (): ReactElement => {
             />
           </CardContent>
           <CardActions>
+            <Button size="small" color="primary" onClick={() => setNewQueueName(null)}>
+              Discard
+            </Button>
             <Button
               size="small"
               color="primary"
