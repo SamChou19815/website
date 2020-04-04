@@ -20,3 +20,8 @@ export type AppQuestion = Omit<FirestoreQuestion, 'timestamp'> & {
   readonly questionId: QuestionId;
   readonly timestamp: Date;
 };
+
+export type ReduxStoreState = {
+  readonly dataLoaded: boolean;
+  readonly queues: readonly AppQueue[];
+};
