@@ -81,6 +81,12 @@ ul {
   }
 }
 
+.alert-card-background {
+  background-color: #f44336;
+  padding: 2em 1em 1em 1em !important;
+  color: white;
+}
+
 .queue-card-background {
   background-color: #ff9800;
   padding: 2em 1em 1em 1em !important;
@@ -106,6 +112,8 @@ ul {
 
 .centered-title {
   margin: 1em auto !important;
+  display: flex;
+  justify-content: center;
 }
 
 .centered-button {

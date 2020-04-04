@@ -9,6 +9,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Announcement from '@material-ui/icons/Announcement';
 import { getAppUser } from 'lib-firebase/authentication';
 import { useHistory } from 'react-router';
 
@@ -30,24 +31,41 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
     return <LoadingPage />;
   }
 
-  const filteredQuestions = hideAnsweredQuestions
-    ? questions.filter((question) => !question.answered)
-    : questions;
+  const unansweredQuestions = questions.filter((question) => !question.answered);
+  const filteredQuestions = hideAnsweredQuestions ? unansweredQuestions : questions;
+
+  const answeringMyQuestion =
+    unansweredQuestions.length > 0 && unansweredQuestions[0].owner === myEmail;
 
   return (
     <div className="card-container">
-      <Button
-        variant="outlined"
-        color="primary"
-        className="centered-button"
-        onClick={() => history.push('/')}
-        disableElevation
-      >
-        Back to queues
-      </Button>
-      <Typography component="h2" variant="h4" className="centered-title">
-        Questions
-      </Typography>
+      <div className="centered-title">
+        <Typography
+          component="h2"
+          variant="h4"
+          style={{ display: 'inline-block', marginRight: '1em' }}
+        >
+          Questions
+        </Typography>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => history.push('/')}
+          disableElevation
+        >
+          Back to queues
+        </Button>
+      </div>
+      {answeringMyQuestion && (
+        <Card variant="outlined" className="common-card">
+          <CardHeader
+            avatar={<Announcement titleAccess="Question" fontSize="large" />}
+            classes={{ root: 'alert-card-background', title: 'common-card-header-text' }}
+            title="YOUR QUESTION's TIME!!!"
+            titleTypographyProps={{ variant: 'h6' }}
+          />
+        </Card>
+      )}
       {questions.length === 0 && <div>No questions yet.</div>}
       {questions.length > 0 && (
         <FormControlLabel
