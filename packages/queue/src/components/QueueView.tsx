@@ -13,9 +13,10 @@ import { getAppUser } from 'lib-firebase/authentication';
 import { useHistory } from 'react-router';
 
 import { AppQueue } from '../models/types';
-import { createNewQuestion, editQuestion, deleteQuestion } from '../util/firestore-actions';
+import { createNewQuestion } from '../util/firestore-actions';
 import { useQuestions } from '../util/use-collections';
 import LoadingPage from './LoadingPage';
+import QuestionCard from './QuestionCard';
 
 export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
   const history = useHistory();
@@ -63,48 +64,7 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
         />
       )}
       {filteredQuestions.map((question) => (
-        <Card key={question.questionId} variant="outlined" className="common-card">
-          <CardHeader title={question.content} />
-          <CardContent>Answered: {String(question.answered)}</CardContent>
-          <CardContent>Timestamp: {question.timestamp.toISOString()}</CardContent>
-          <CardActions>
-            {isQueueOwner && (
-              <Button
-                size="small"
-                color="primary"
-                onClick={() => editQuestion(question.questionId, { answered: !question.answered })}
-              >
-                Mark as {question.answered ? 'unanswered' : 'answered'}
-              </Button>
-            )}
-            {question.owner === myEmail && (
-              <Button
-                size="small"
-                color="primary"
-                onClick={
-                  () =>
-                    editQuestion(
-                      question.questionId,
-                      // eslint-disable-next-line no-alert
-                      { content: prompt('New Content') ?? '' }
-                    )
-                  // eslint-disable-next-line react/jsx-curly-newline
-                }
-              >
-                Edit
-              </Button>
-            )}
-            {question.owner === myEmail && (
-              <Button
-                size="small"
-                color="primary"
-                onClick={() => deleteQuestion(question.questionId)}
-              >
-                Delete
-              </Button>
-            )}
-          </CardActions>
-        </Card>
+        <QuestionCard key={question.questionId} isQueueOwner={isQueueOwner} question={question} />
       ))}
       <Card variant="outlined" className="common-card">
         <CardHeader title="Add new question" />
