@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import QuestionAnswer from '@material-ui/icons/QuestionAnswer';
 import { getAppUser } from 'lib-firebase/authentication';
 
 import { AppQuestion } from '../models/types';
@@ -30,7 +31,12 @@ export default ({ isQueueOwner, question }: Props): ReactElement => {
 
   return (
     <Card variant="outlined" className="common-card">
-      <CardHeader title={question.content} />
+      <CardHeader
+        avatar={<QuestionAnswer titleAccess="Question" fontSize="large" />}
+        classes={{ root: 'question-card-background', title: 'common-card-header-text' }}
+        titleTypographyProps={{ variant: 'h6' }}
+        title={question.content}
+      />
       <CardContent>Answered: {String(question.answered)}</CardContent>
       <CardContent>Timestamp: {question.timestamp.toISOString()}</CardContent>
       {(isQueueOwner || isQuestionOwner) && (
