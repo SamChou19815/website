@@ -9,6 +9,7 @@ export type FirestoreQueue = {
 };
 export type FirestoreQuestion = {
   readonly owner: string;
+  readonly ownerName: string;
   readonly queueId: QueueId;
   readonly content: string;
   readonly answered: boolean;
