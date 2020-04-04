@@ -37,6 +37,21 @@ export default (): ReactElement => (
           </MaterialButtonLink>
         </CardActions>
       </Card>
+      <Card className={styles.TechTalkCard}>
+        <CardHeader
+          avatar={schoolIcon}
+          title="How to build your own programming language"
+          subheader="DevSesh"
+        />
+        <CardContent>
+          A tutorial of making a simple programming language derived from lambda-calculus.
+        </CardContent>
+        <CardActions>
+          <MaterialButtonLink href="/build-your-own-programming-language.pdf">
+            Slides
+          </MaterialButtonLink>
+        </CardActions>
+      </Card>
     </div>
   </ConsoleSection>
 );
