@@ -68,9 +68,36 @@ ul {
   flex-wrap: wrap;
 }
 
-.common-card {
-  margin: 1em auto;
-  width: 400px;
+@media (max-width: 600px) {
+  .common-card {
+    margin: 1em auto;
+    width: 90%;
+  }
+}
+@media (min-width: 600px) {
+  .common-card {
+    margin: 1em auto;
+    width: 400px;
+  }
+}
+
+.queue-card-background {
+  background-color: #ff9800;
+  padding: 2em 1em 1em 1em !important;
+  color: white;
+}
+
+.question-card-background {
+  background-color: #4caf50;
+  padding: 2em 1em 1em 1em !important;
+  color: white;
+}
+
+.common-card-header-text {
+  text-overflow: ellipsis;
+  width: 320px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .text-input {

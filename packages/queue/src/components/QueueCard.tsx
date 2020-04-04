@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
+import Queue from '@material-ui/icons/Queue';
 import { useHistory } from 'react-router';
 
 import { AppQueue } from '../models/types';
@@ -27,7 +28,12 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
 
   return (
     <Card variant="outlined" className="common-card">
-      <CardHeader title={queue.name} />
+      <CardHeader
+        avatar={<Queue titleAccess="Queue" fontSize="large" />}
+        classes={{ root: 'queue-card-background', title: 'common-card-header-text' }}
+        titleTypographyProps={{ variant: 'h6' }}
+        title={queue.name}
+      />
       <CardActions>
         <Button size="small" color="primary" onClick={onManage}>
           Manage
