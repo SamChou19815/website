@@ -27,7 +27,7 @@ export default ({ title, children }: Props): ReactElement => (
   <MaterialThemedApp
     appBarPosition="static"
     styles={appStyles}
-    title={`${title} - Developer Sam App`}
+    title={`${title} - Queue`}
     buttons={buttons}
   >
     {children}

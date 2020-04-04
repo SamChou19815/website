@@ -30,7 +30,7 @@ export default ({
       );
     }
     return (
-      <MaterialThemedApp title={`${queue.name} - Queue`}>
+      <MaterialThemedApp title={queue.name}>
         <QueueView queue={queue} />
       </MaterialThemedApp>
     );
