@@ -15,6 +15,16 @@ import { queuesCollection, questionsCollection } from './firestore';
 
 type SnapshotDocument = firestore.QueryDocumentSnapshot<firestore.DocumentData>;
 
+export const onQuerySnapshot = <T>(
+  queryParameter: string,
+  getQuery: (parameter: string) => firestore.Query,
+  transformer: (document: SnapshotDocument) => T,
+  onSnapshot: (results: T[]) => void
+): (() => void) =>
+  getQuery(queryParameter).onSnapshot((snapshot) => {
+    onSnapshot(snapshot.docs.map(transformer));
+  });
+
 const useQueryWithLoading = <T>(
   queryParameter: string,
   getQuery: (parameter: string) => firestore.Query,
@@ -22,9 +32,7 @@ const useQueryWithLoading = <T>(
 ): T[] | null => {
   const [result, setResult] = useState<T[] | null>(null);
   useEffect(() => {
-    return getQuery(queryParameter).onSnapshot((snapshot) => {
-      setResult(snapshot.docs.map(transformer));
-    });
+    return onQuerySnapshot(queryParameter, getQuery, transformer, setResult);
   }, [queryParameter, getQuery, transformer]);
   return result;
 };
@@ -34,8 +42,9 @@ const queueTransformer = (document: SnapshotDocument): AppQueue => ({
   queueId: document.id as QueueId,
   ...(document.data() as FirestoreQueue),
 });
-export const useQueues = (): readonly AppQueue[] | null =>
-  useQueryWithLoading('', queueQuery, queueTransformer);
+export const onQueueQuerySnapshot = (onSnapshot: (results: AppQueue[]) => void): void => {
+  onQuerySnapshot('', queueQuery, queueTransformer, onSnapshot);
+};
 
 const questionsQuery = (queueId: string) => questionsCollection.where('queueId', '==', queueId);
 const questionTransformer = (document: SnapshotDocument): AppQuestion => {

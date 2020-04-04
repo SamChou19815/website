@@ -7,16 +7,16 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux';
 
-import { AppQueue } from '../models/types';
+import { AppQueue, ReduxStoreState } from '../models/types';
 import { queuesCollection } from '../util/firestore';
 import { createNewQueue } from '../util/firestore-actions';
-import { useQueues } from '../util/use-collections';
 import LoadingPage from './LoadingPage';
 import QueueView from './QueueView';
 
 export default (): ReactElement => {
-  const queues = useQueues();
+  const queues = useSelector((state: ReduxStoreState) => state.queues);
   const [newQueueName, setNewQueueName] = useState<string | null>(null);
   const [currentQueue, setCurrentQueue] = useState<AppQueue | null>(null);
 
