@@ -10,9 +10,11 @@ export const createNewQueue = (name: string): void => {
 };
 
 export const createNewQuestion = (queueId: QueueId, content: string): void => {
+  const { displayName, email } = getAppUser();
   const question: FirestoreQuestion = {
     queueId,
-    owner: getAppUser().email,
+    owner: email,
+    ownerName: displayName,
     content,
     answered: false,
     timestamp: firestore.Timestamp.fromDate(new Date()),
