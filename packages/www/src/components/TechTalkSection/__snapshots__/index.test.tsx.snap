@@ -196,6 +196,81 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         </button>
       </div>
     </div>
+    <div
+      className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            How to build your own programming language
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            DevSesh
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardContent-root"
+      >
+        A tutorial of making a simple programming language derived from lambda-calculus.
+      </div>
+      <div
+        className="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="/build-your-own-programming-language.pdf"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              Slides
+            </a>
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 `;
