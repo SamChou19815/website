@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -19,6 +19,29 @@ import { useQuestions } from '../util/use-collections';
 import LoadingPage from './LoadingPage';
 import QuestionCard from './QuestionCard';
 
+const useAlert = (isMyTurn: boolean): void => {
+  const [previousIsMyTurn, setPreviousIsMyTurn] = useState(false);
+
+  useEffect(() => {
+    if (previousIsMyTurn !== isMyTurn) {
+      setPreviousIsMyTurn(isMyTurn);
+    }
+    if (!previousIsMyTurn && isMyTurn) {
+      try {
+        Notification.requestPermission().then(() => {
+          if (Notification.permission === 'granted') {
+            // eslint-disable-next-line no-new
+            new Notification('Your turn', { body: 'The host is answering your question now' });
+          }
+        });
+      } catch {
+        // eslint-disable-next-line no-console
+        console.error('You are on mobile iOS device. iOS Safari sucks.');
+      }
+    }
+  }, [previousIsMyTurn, isMyTurn]);
+};
+
 export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
   const history = useHistory();
   const questions = useQuestions(queue.queueId);
@@ -27,15 +50,17 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
   const [hideAnsweredQuestions, setHideAnsweredQuestions] = useState(true);
   const [newQuestionContent, setNewQuestionContent] = useState('');
 
+  const unansweredQuestions = questions?.filter((question) => !question.answered) ?? [];
+  const answeringMyQuestion =
+    unansweredQuestions.length > 0 && unansweredQuestions[0].owner === myEmail;
+
+  useAlert(answeringMyQuestion);
+
   if (questions === null) {
     return <LoadingPage />;
   }
 
-  const unansweredQuestions = questions.filter((question) => !question.answered);
   const filteredQuestions = hideAnsweredQuestions ? unansweredQuestions : questions;
-
-  const answeringMyQuestion =
-    unansweredQuestions.length > 0 && unansweredQuestions[0].owner === myEmail;
 
   return (
     <div className="card-container">
