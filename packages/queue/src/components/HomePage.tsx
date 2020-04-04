@@ -8,17 +8,16 @@ import CardHeader from '@material-ui/core/CardHeader';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
 
 import { ReduxStoreState } from '../models/types';
-import { createNewQueue, editQueue, deleteQueue } from '../util/firestore-actions';
+import { createNewQueue } from '../util/firestore-actions';
 import ConfiguredMainAppBarrier from './ConfiguredMainAppBarrier';
 import MaterialThemedApp from './MaterialThemedApp';
+import QueueCard from './QueueCard';
 
 const Home = (): ReactElement => {
   const queues = useSelector((state: ReduxStoreState) => state.queues);
-  const history = useHistory();
-  const [newQueueName, setNewQueueName] = useState<string | null>(null);
+  const [newQueueName, setNewQueueName] = useState('');
 
   return (
     <div className="card-container">
@@ -29,76 +28,41 @@ const Home = (): ReactElement => {
           </Typography>
           {queues.length === 0 && <div>No owned queues yet.</div>}
           {queues.map((queue) => (
-            <Card key={queue.queueId} variant="outlined" className="common-card">
-              <CardHeader title={queue.name} />
-              <CardActions>
-                <Button
-                  size="small"
-                  color="primary"
-                  onClick={() => history.push(`/queue/${queue.queueId}`)}
-                >
-                  Manage
-                </Button>
-                <Button
-                  size="small"
-                  color="primary"
-                  // eslint-disable-next-line no-alert
-                  onClick={() => editQueue(queue.queueId, { name: prompt('New Name') ?? '' })}
-                >
-                  Edit
-                </Button>
-                <Button size="small" color="primary" onClick={() => deleteQueue(queue.queueId)}>
-                  Delete
-                </Button>
-              </CardActions>
-            </Card>
+            <QueueCard key={queue.queueId} queue={queue} />
           ))}
         </>
       )}
-      {newQueueName !== null && (
-        <Card variant="outlined" className="common-card">
-          <CardHeader title="Queue Creator" />
-          <CardContent>
-            <TextField
-              label="Queue name"
-              type="text"
-              className="text-input"
-              value={newQueueName}
-              onChange={(event) => setNewQueueName(event.currentTarget.value)}
-            />
-          </CardContent>
-          <CardActions>
-            <Button size="small" color="primary" onClick={() => setNewQueueName(null)}>
-              Discard
-            </Button>
-            <Button
-              size="small"
-              color="primary"
-              disabled={newQueueName?.trim().length === 0 ?? true}
-              onClick={() => {
-                if (newQueueName === null) {
-                  throw new Error();
-                }
-                createNewQueue(newQueueName);
-                setNewQueueName(null);
-              }}
-            >
-              Submit
-            </Button>
-          </CardActions>
-        </Card>
-      )}
-      {newQueueName === null && (
-        <Button
-          variant="outlined"
-          color="primary"
-          className="centered-button"
-          onClick={() => setNewQueueName('')}
-          disableElevation
-        >
-          Create new queue
-        </Button>
-      )}
+      <Card variant="outlined" className="common-card">
+        <CardHeader title="Queue Creator" />
+        <CardContent>
+          <TextField
+            label="Queue name"
+            type="text"
+            className="text-input"
+            value={newQueueName}
+            onChange={(event) => setNewQueueName(event.currentTarget.value)}
+          />
+        </CardContent>
+        <CardActions>
+          <Button size="small" color="primary" onClick={() => setNewQueueName('')}>
+            Discard
+          </Button>
+          <Button
+            size="small"
+            color="primary"
+            disabled={newQueueName?.trim().length === 0 ?? true}
+            onClick={() => {
+              if (newQueueName === null) {
+                throw new Error();
+              }
+              createNewQueue(newQueueName);
+              setNewQueueName('');
+            }}
+          >
+            Submit
+          </Button>
+        </CardActions>
+      </Card>
     </div>
   );
 };
