@@ -11,8 +11,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 
 import { ReduxStoreState } from '../models/types';
-import { queuesCollection } from '../util/firestore';
-import { createNewQueue } from '../util/firestore-actions';
+import { createNewQueue, editQueue, deleteQueue } from '../util/firestore-actions';
 import ConfiguredMainAppBarrier from './ConfiguredMainAppBarrier';
 import MaterialThemedApp from './MaterialThemedApp';
 
@@ -43,8 +42,12 @@ const Home = (): ReactElement => {
                 <Button
                   size="small"
                   color="primary"
-                  onClick={() => queuesCollection.doc(queue.queueId).delete()}
+                  // eslint-disable-next-line no-alert
+                  onClick={() => editQueue(queue.queueId, { name: prompt('New Name') ?? '' })}
                 >
+                  Edit
+                </Button>
+                <Button size="small" color="primary" onClick={() => deleteQueue(queue.queueId)}>
                   Delete
                 </Button>
               </CardActions>
@@ -101,7 +104,7 @@ const Home = (): ReactElement => {
 };
 
 const Wrapped = (): ReactElement => (
-  <MaterialThemedApp title="Queue">
+  <MaterialThemedApp title="Home">
     <Home />
   </MaterialThemedApp>
 );

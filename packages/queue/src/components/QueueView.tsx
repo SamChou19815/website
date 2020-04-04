@@ -13,8 +13,7 @@ import { getAppUser } from 'lib-firebase/authentication';
 import { useHistory } from 'react-router';
 
 import { AppQueue } from '../models/types';
-import { questionsCollection } from '../util/firestore';
-import { createNewQuestion } from '../util/firestore-actions';
+import { createNewQuestion, editQuestion, deleteQuestion } from '../util/firestore-actions';
 import { useQuestions } from '../util/use-collections';
 import LoadingPage from './LoadingPage';
 
@@ -73,11 +72,7 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
               <Button
                 size="small"
                 color="primary"
-                onClick={() => {
-                  questionsCollection
-                    .doc(question.questionId)
-                    .update({ answered: !question.answered });
-                }}
+                onClick={() => editQuestion(question.questionId, { answered: !question.answered })}
               >
                 Mark as {question.answered ? 'unanswered' : 'answered'}
               </Button>
@@ -86,7 +81,24 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
               <Button
                 size="small"
                 color="primary"
-                onClick={() => questionsCollection.doc(question.questionId).delete()}
+                onClick={
+                  () =>
+                    editQuestion(
+                      question.questionId,
+                      // eslint-disable-next-line no-alert
+                      { content: prompt('New Content') ?? '' }
+                    )
+                  // eslint-disable-next-line react/jsx-curly-newline
+                }
+              >
+                Edit
+              </Button>
+            )}
+            {question.owner === myEmail && (
+              <Button
+                size="small"
+                color="primary"
+                onClick={() => deleteQuestion(question.questionId)}
               >
                 Delete
               </Button>
