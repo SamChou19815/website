@@ -8,25 +8,22 @@ import CardHeader from '@material-ui/core/CardHeader';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
-import { AppQueue, ReduxStoreState } from '../models/types';
+import { ReduxStoreState } from '../models/types';
 import { queuesCollection } from '../util/firestore';
 import { createNewQueue } from '../util/firestore-actions';
-import LoadingPage from './LoadingPage';
-import QueueView from './QueueView';
+import ConfiguredMainAppBarrier from './ConfiguredMainAppBarrier';
+import MaterialThemedApp from './MaterialThemedApp';
 
-export default (): ReactElement => {
+const Home = (): ReactElement => {
   const queues = useSelector((state: ReduxStoreState) => state.queues);
+  const history = useHistory();
   const [newQueueName, setNewQueueName] = useState<string | null>(null);
-  const [currentQueue, setCurrentQueue] = useState<AppQueue | null>(null);
-
-  if (queues === null) {
-    return <LoadingPage />;
-  }
 
   return (
     <div className="card-container">
-      {currentQueue === null && (
+      {true && (
         <>
           <Typography component="h2" variant="h4" className="centered-title">
             Owned Queues
@@ -36,7 +33,11 @@ export default (): ReactElement => {
             <Card key={queue.queueId} variant="outlined" className="common-card">
               <CardHeader title={queue.name} />
               <CardActions>
-                <Button size="small" color="primary" onClick={() => setCurrentQueue(queue)}>
+                <Button
+                  size="small"
+                  color="primary"
+                  onClick={() => history.push(`/queue/${queue.queueId}`)}
+                >
                   Manage
                 </Button>
                 <Button
@@ -51,7 +52,7 @@ export default (): ReactElement => {
           ))}
         </>
       )}
-      {currentQueue === null && newQueueName !== null && (
+      {newQueueName !== null && (
         <Card variant="outlined" className="common-card">
           <CardHeader title="Queue Creator" />
           <CardContent>
@@ -84,7 +85,7 @@ export default (): ReactElement => {
           </CardActions>
         </Card>
       )}
-      {currentQueue === null && newQueueName === null && (
+      {newQueueName === null && (
         <Button
           variant="outlined"
           color="primary"
@@ -95,18 +96,14 @@ export default (): ReactElement => {
           Create new queue
         </Button>
       )}
-      {currentQueue !== null && (
-        <Button
-          variant="outlined"
-          color="primary"
-          className="centered-button"
-          onClick={() => setCurrentQueue(null)}
-          disableElevation
-        >
-          Back to queues
-        </Button>
-      )}
-      {currentQueue !== null && <QueueView queue={currentQueue} />}
     </div>
   );
 };
+
+const Wrapped = (): ReactElement => (
+  <MaterialThemedApp title="Queue">
+    <Home />
+  </MaterialThemedApp>
+);
+
+export default (): ReactElement => <ConfiguredMainAppBarrier appComponent={Wrapped} />;

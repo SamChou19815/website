@@ -10,6 +10,7 @@ import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { getAppUser } from 'lib-firebase/authentication';
+import { useHistory } from 'react-router';
 
 import { AppQueue } from '../models/types';
 import { questionsCollection } from '../util/firestore';
@@ -18,6 +19,7 @@ import { useQuestions } from '../util/use-collections';
 import LoadingPage from './LoadingPage';
 
 export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
+  const history = useHistory();
   const questions = useQuestions(queue.queueId);
   const myEmail = getAppUser().email;
   const isQueueOwner = queue.owner === myEmail;
@@ -34,6 +36,15 @@ export default ({ queue }: { readonly queue: AppQueue }): ReactElement => {
 
   return (
     <div className="card-container">
+      <Button
+        variant="outlined"
+        color="primary"
+        className="centered-button"
+        onClick={() => history.push('/')}
+        disableElevation
+      >
+        Back to queues
+      </Button>
       <Typography component="h2" variant="h4" className="centered-title">
         Questions
       </Typography>
