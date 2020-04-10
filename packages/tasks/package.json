@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.9.8",
+    "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.46",
+    "@material-ui/lab": "^4.0.0-alpha.48",
     "@types/react-redux": "^7.1.7",
-    "@types/react-router": "^5.1.4",
+    "@types/react-router": "^5.1.5",
     "@types/react-router-dom": "^5.1.3",
-    "firebase": "^7.11.0",
+    "firebase": "^7.14.0",
     "javascript-lp-solver": "^0.4.24",
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
@@ -20,7 +20,7 @@
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4",
+    "redux": "^4.0.5",
     "rxjs": "^6.5.5"
   },
   "scripts": {
