@@ -11,6 +11,7 @@ import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask, ReduxStoreProject } from '../../models/redux-store-types';
 import { projectsCollection, tasksCollection } from '../../util/firestore';
 import ProjectPageWithContent from '../includes/ProjectPageWithContent';
+import ConfiguredMainAppBarrier from '../util/ConfiguredMainAppBarrier';
 import LoadingPage from './LoadingPage';
 import UnauthorizedPage from './UnauthorizedPage';
 import { RouteComponentsWithProjectIdParameter } from './router-types';
@@ -62,11 +63,7 @@ const getLoadedDataObservable = (projectId: string): Observable<PartialLoadedDat
     map(([project, tasks]) => ({ project, tasks }))
   );
 
-export default ({
-  match: {
-    params: { projectId },
-  },
-}: RouteComponentsWithProjectIdParameter): ReactElement => {
+const ProjectPage = ({ projectId }: { readonly projectId: string }): ReactElement => {
   const userProjectAndTasks = useSelector((state: ReduxStoreState) => {
     const project = state.projects[projectId];
     if (project == null) {
@@ -106,4 +103,14 @@ export default ({
   const [project, tasks] = userProjectAndTasks;
 
   return <ProjectPageWithContent writable project={project} tasks={tasks} />;
+};
+
+export default ({
+  match: {
+    params: { projectId },
+  },
+}: RouteComponentsWithProjectIdParameter): ReactElement => {
+  const Component = (): ReactElement => <ProjectPage projectId={projectId} />;
+
+  return <ConfiguredMainAppBarrier appComponent={Component} />;
 };
