@@ -4,9 +4,10 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.9",
+    "lib-react": "0.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "lib-react": "0.1.0"
+    "react-app-rewired": "^2.1.5",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "worker-loader": "^2.0.0"

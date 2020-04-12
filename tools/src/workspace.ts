@@ -1,15 +1,28 @@
 import { execSync } from 'child_process';
 
+type WorkspaceInformationFromYarn = {
+  readonly name: string | null;
+  readonly workspaceDependencies: readonly string[];
+};
+
 const workspaceInformation: ReadonlyMap<string, readonly string[]> = (() => {
   const map = new Map<string, readonly string[]>();
-  let output = execSync('yarn workspaces info --silent').toString().trim();
-  if (output.startsWith('yarn workspaces')) {
-    const lines = output.split('\n');
-    output = lines.slice(1, lines.length - 1).join('\n');
-  }
-  const workspacesJson = JSON.parse(output);
-  Object.entries(workspacesJson).forEach(([workspaceName, object]) => {
-    map.set(workspaceName, (object as { workspaceDependencies: string[] }).workspaceDependencies);
+  const output = execSync('yarn workspaces list -v --json').toString().trim();
+  const parsableJsonString = `[${output.split('\n').join(',')}]`;
+  const workspacesJson = JSON.parse(parsableJsonString);
+  workspacesJson.forEach(({ name, workspaceDependencies }: WorkspaceInformationFromYarn) => {
+    if (name == null) {
+      return;
+    }
+    map.set(
+      name,
+      workspaceDependencies.map((dependencyString) => {
+        if (!dependencyString.startsWith('packages/')) {
+          throw new Error(`Bad dependency of ${name}: ${dependencyString}`);
+        }
+        return dependencyString.substring('packages/'.length);
+      })
+    );
   });
   return map;
 })();

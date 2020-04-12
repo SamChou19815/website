@@ -14,6 +14,7 @@
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
     "react": "^16.13.1",
+    "react-app-rewired": "^2.1.5",
     "react-dom": "^16.13.1",
     "react-firebaseui": "^4.1.0",
     "react-masonry-css": "^1.0.14",

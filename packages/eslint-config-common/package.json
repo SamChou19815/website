@@ -10,7 +10,6 @@
     "eslint-config"
   ],
   "license": "AGPL-3.0",
-  "private": false,
   "files": [
     "index.js",
     "README.md"
