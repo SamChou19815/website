@@ -4,7 +4,6 @@
 *.project
 *.classpath
 *.iml
-.vscode
 
 # Build
 **/.gradle/
@@ -22,6 +21,10 @@
 # Frontend
 
 ## dependencies
+**/.yarn/*
+!**/.yarn/cache
+!**/.yarn/releases
+!**/.yarn/plugins
 **/node_modules
 **/.pnp
 **/.pnp.js
