@@ -11,8 +11,8 @@ jobs:
       - name: Check changed
         run: |
           if [[ `git status --porcelain` ]]; then
-            echo "Workflow files are not in sync!"
+            echo "Generated files are not in sync!"
             exit 1
           else
-            echo "Workflow files are in sync. Good to go!"
+            echo "Generated files are in sync. Good to go!"
           fi

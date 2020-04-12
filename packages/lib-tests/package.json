@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "lib-common": "0.1.0",
-    "lib-react": "0.1.0"
+    "lib-react": "0.1.0",
+    "react-scripts": "3.4.1"
   },
   "devDependencies": {
     "react": "^16.13.1",
