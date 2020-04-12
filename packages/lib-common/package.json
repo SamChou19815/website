@@ -9,10 +9,7 @@
   },
   "private": true,
   "scripts": {
-    "dev": "tsc --incremental --watch",
     "compile": "tsc",
-    "build": "tsc --incremental",
-    "postinstall": "yarn build",
     "test": "echo 'Tests are in lib-tests.'"
   },
   "files": [

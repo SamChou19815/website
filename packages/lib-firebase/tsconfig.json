@@ -1,7 +1,4 @@
 {
   "extends": "../../configuration/tsconfig.lib.json",
-  "compilerOptions": {
-    "outDir": "."
-  },
   "exclude": []
 }

@@ -1,6 +1,11 @@
 import { writeFileSync } from 'fs';
 
-import { allPrivateWorkspaces, projectWorkspaces, getDependencyChain } from './workspace';
+import {
+  allPrivateWorkspaces,
+  libraryWorkspaces,
+  projectWorkspaces,
+  getDependencyChain,
+} from './workspace';
 
 const getBoilterPlateSetupSteps = (jobName: string): string => `jobs:
   ${jobName}:
@@ -81,6 +86,10 @@ const main = (): void => {
   projectWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCDWorkflow(workspace));
   });
+  writeFileSync(
+    'configuration/libraries.json',
+    `${JSON.stringify(libraryWorkspaces, undefined, 2)}\n`
+  );
 };
 
 // eslint-disable-next-line import/prefer-default-export

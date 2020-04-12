@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,json}'",
-    "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,json}'",
+    "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
+    "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx",
     "lint:fix": "yarn lint --fix"
   },
@@ -20,6 +20,7 @@
     "@types/react-test-renderer": "^16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
+    "customize-cra": "^0.9.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
@@ -46,7 +47,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,js,tsx,jsx,scss,css,html,json}": [
+    "**/*.{ts,js,tsx,jsx,scss,css,html}": [
       "prettier --write"
     ]
   }
