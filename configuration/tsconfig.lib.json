@@ -4,7 +4,7 @@
     "target": "es6",
     "declaration": true,
     "isolatedModules": false,
-    "noEmit": false,
+    "noEmit": true,
     "jsx": "react"
   }
 }

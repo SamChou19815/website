@@ -17,6 +17,9 @@ const workspaceInformation: ReadonlyMap<string, readonly string[]> = (() => {
 const allPrivateWorkspaces: readonly string[] = Array.from(workspaceInformation.keys()).filter(
   (workspace) => !workspace.startsWith('@dev-sam')
 );
+const libraryWorkspaces: readonly string[] = allPrivateWorkspaces.filter((workspace) =>
+  workspace.startsWith('lib-')
+);
 const projectWorkspaces: readonly string[] = allPrivateWorkspaces.filter(
   (workspace) => !workspace.startsWith('lib-')
 );
@@ -73,4 +76,10 @@ const validateDependencyChain = (): void =>
     console.log(`No cyclic dependency detected with ${workspace} as root.`);
   });
 
-export { allPrivateWorkspaces, projectWorkspaces, getDependencyChain, validateDependencyChain };
+export {
+  allPrivateWorkspaces,
+  libraryWorkspaces,
+  projectWorkspaces,
+  getDependencyChain,
+  validateDependencyChain,
+};
