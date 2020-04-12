@@ -17668,7 +17668,6 @@ __metadata:
     prettier: 2.0.4
     react-app-rewired: ^2.1.5
     react-scripts: 3.4.1
-    react-snap: ^1.23.0
     react-test-renderer: ^16.13.1
     typescript: 3.8.3
   languageName: unknown
@@ -21024,6 +21023,7 @@ __metadata:
     react-app-rewired: ^2.1.5
     react-dom: ^16.13.1
     react-redux: ^7.2.0
+    react-snap: ^1.23.0
     redux: ^4.0.5
   languageName: unknown
   linkType: soft
