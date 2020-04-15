@@ -3156,7 +3156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^2.10.0, @typescript-eslint/eslint-plugin@npm:^2.27.0":
+"@typescript-eslint/eslint-plugin@npm:^2.10.0":
   version: 2.27.0
   resolution: "@typescript-eslint/eslint-plugin@npm:2.27.0"
   dependencies:
@@ -3175,6 +3175,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/eslint-plugin@npm:^2.28.0":
+  version: 2.28.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:2.28.0"
+  dependencies:
+    "@typescript-eslint/experimental-utils": 2.28.0
+    functional-red-black-tree: ^1.0.1
+    regexpp: ^3.0.0
+    tsutils: ^3.17.1
+  peerDependencies:
+    "@typescript-eslint/parser": ^2.0.0
+    eslint: ^5.0.0 || ^6.0.0
+    typescript: "*"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 2/b46266768e67112b13ec0b61be2f461f5122fbc1793155ec18821052fb7b7bd9e416d14f9245b51b91703157e5f511ba6dd2f49a28e9d4c88f4974c6c245f2dd
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/experimental-utils@npm:2.27.0, @typescript-eslint/experimental-utils@npm:^2.5.0":
   version: 2.27.0
   resolution: "@typescript-eslint/experimental-utils@npm:2.27.0"
@@ -3189,7 +3208,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^2.10.0, @typescript-eslint/parser@npm:^2.27.0":
+"@typescript-eslint/experimental-utils@npm:2.28.0":
+  version: 2.28.0
+  resolution: "@typescript-eslint/experimental-utils@npm:2.28.0"
+  dependencies:
+    "@types/json-schema": ^7.0.3
+    "@typescript-eslint/typescript-estree": 2.28.0
+    eslint-scope: ^5.0.0
+    eslint-utils: ^2.0.0
+  peerDependencies:
+    eslint: "*"
+  checksum: 2/74bcb0ca1c6e30b94b3e97153c744b52e7530cac35dac21c0780d27480c880e9381e9042627f7b480c4ed909fb24e88e730c7c1f8f86d1861e956da56a7982f0
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/parser@npm:^2.10.0":
   version: 2.27.0
   resolution: "@typescript-eslint/parser@npm:2.27.0"
   dependencies:
@@ -3204,6 +3237,24 @@ __metadata:
     typescript:
       optional: true
   checksum: 2/e9b28622d498ec62467263ca95d2679b9f093ee37e5b7ccaf6930597a3f0f5bfd934d1b85aa8b6b43e48bfa126dac2fba7f094706ac4e261eb7eea8d868255f9
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/parser@npm:^2.28.0":
+  version: 2.28.0
+  resolution: "@typescript-eslint/parser@npm:2.28.0"
+  dependencies:
+    "@types/eslint-visitor-keys": ^1.0.0
+    "@typescript-eslint/experimental-utils": 2.28.0
+    "@typescript-eslint/typescript-estree": 2.28.0
+    eslint-visitor-keys: ^1.1.0
+  peerDependencies:
+    eslint: ^5.0.0 || ^6.0.0
+    typescript: "*"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 2/8a04747bc190432f7e568ee17fc36c481638a80fdf4fd7937e44e2d2b2c188d5e362b0706b52579d3d33579ea21e261473a26de74101f4fe870b17dae3a52e23
   languageName: node
   linkType: hard
 
@@ -3224,6 +3275,26 @@ __metadata:
     typescript:
       optional: true
   checksum: 2/121dd5ded4bb880db92415e33ae01a8bb92fe1eb7c30da2e36282522963e8d18dc45becb1d256e6d1b58427d52d8f5dddc618309f59341ed75fb9984d83b6fd3
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/typescript-estree@npm:2.28.0":
+  version: 2.28.0
+  resolution: "@typescript-eslint/typescript-estree@npm:2.28.0"
+  dependencies:
+    debug: ^4.1.1
+    eslint-visitor-keys: ^1.1.0
+    glob: ^7.1.6
+    is-glob: ^4.0.1
+    lodash: ^4.17.15
+    semver: ^6.3.0
+    tsutils: ^3.17.1
+  peerDependencies:
+    typescript: "*"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 2/9dc2389b89f30536f69a2baa83dd523dbf13f9ddccdf5994a54f3ba8de213b37202e3e159722ba101d5369a68546fbe90a0cc25d77a74e075311e229c304a23e
   languageName: node
   linkType: hard
 
@@ -8856,9 +8927,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase-tools@npm:^8.0.2":
-  version: 8.0.2
-  resolution: "firebase-tools@npm:8.0.2"
+"firebase-tools@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "firebase-tools@npm:8.0.3"
   dependencies:
     "@google-cloud/pubsub": ^1.7.0
     JSONStream: ^1.2.1
@@ -8911,7 +8982,7 @@ __metadata:
     ws: ^7.2.3
   bin:
     firebase: ./lib/bin/firebase.js
-  checksum: 2/4741e89c50f5b7122a065d77bb4a2c87f3a83b06a6b1d6b9d14965bb7ce125728e0eecd3a78da3769cd6709fc3751b4dd37c76ddc272a964075d2f2bd667dff7
+  checksum: 2/8724fcba0c5b9bd145da3b7f782e70a93ea68f02b735b5537eaa779b805b39865c44141d1039773bca4344ef4002dffc72f16e1e1769dafdac7ee70e68b8d75b
   languageName: node
   linkType: hard
 
@@ -17649,8 +17720,8 @@ __metadata:
     "@types/react": ^16.9.34
     "@types/react-dom": ^16.9.6
     "@types/react-test-renderer": ^16.9.2
-    "@typescript-eslint/eslint-plugin": ^2.27.0
-    "@typescript-eslint/parser": ^2.27.0
+    "@typescript-eslint/eslint-plugin": ^2.28.0
+    "@typescript-eslint/parser": ^2.28.0
     customize-cra: ^0.9.1
     eslint: ^6.8.0
     eslint-config-airbnb: ^18.1.0
@@ -17662,7 +17733,7 @@ __metadata:
     eslint-plugin-jsx-a11y: ^6.2.3
     eslint-plugin-react: ^7.19.0
     eslint-plugin-react-hooks: ^3.0.0
-    firebase-tools: ^8.0.2
+    firebase-tools: ^8.0.3
     husky: ^4.2.5
     lint-staged: ^10.1.3
     prettier: 2.0.4
