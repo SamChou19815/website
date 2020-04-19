@@ -1,1 +1,31 @@
-.gitignore
+# Build
+**/dist/
+**/build/
+**/out/
+tsconfig.tsbuildinfo
+
+# misc
+.DS_Store
+
+# Frontend
+
+## dependencies
+**/.yarn/*
+!**/.yarn/cache
+!**/.yarn/releases
+!**/.yarn/plugins
+**/node_modules
+**/.pnp
+**/.pnp.js
+
+## testing
+**/coverage
+
+## firebase
+**/.firebase
+
+## docusaurus generated files
+.docusaurus
+.cache-loader
+# styles
+.yarn

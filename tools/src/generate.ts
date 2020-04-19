@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 
 import {
   allPrivateWorkspaces,
@@ -73,6 +73,13 @@ ${getBoilterPlateSetupSteps('deploy')}
 const writeGeneratedFile = ([filename, content]: readonly [string, string]): void =>
   writeFileSync(`.github/workflows/${filename}`, content);
 
+const generateIgnoreFiles = (): void => {
+  const content = readFileSync('.gitignore');
+  const additionalStyleIgnores = '# styles\n.yarn\n';
+  writeFileSync('.eslintignore', content + additionalStyleIgnores);
+  writeFileSync('.prettierignore', content + additionalStyleIgnores);
+};
+
 const main = (): void => {
   allPrivateWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCIWorkflow(workspace));
@@ -84,6 +91,7 @@ const main = (): void => {
     'configuration/libraries.json',
     `${JSON.stringify(libraryWorkspaces, undefined, 2)}\n`
   );
+  generateIgnoreFiles();
 };
 
 // eslint-disable-next-line import/prefer-default-export
