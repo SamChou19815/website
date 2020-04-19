@@ -1,22 +1,11 @@
-# IDE
-**/.idea/
-**/.settings
-*.project
-*.classpath
-*.iml
-
 # Build
-**/.gradle/
 **/dist/
 **/build/
 **/out/
-
-# Git Files
-*.log
-*.diff
+tsconfig.tsbuildinfo
 
 # misc
-**/.DS_Store
+.DS_Store
 
 # Frontend
 
@@ -32,29 +21,9 @@
 ## testing
 **/coverage
 
-## misc
-**/.eslintcache
-**/.env.local
-**/.env.development.local
-**/.env.test.local
-**/.env.production.local
-
 ## firebase
 **/.firebase
-
-## logs
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
 
 ## docusaurus generated files
 .docusaurus
 .cache-loader
-
-## Project Specific
-
-### lib-react
-packages/lib-*/**/*.js
-packages/lib-*/**/*.jsx
-packages/lib-*/**/*.d.ts
-tsconfig.tsbuildinfo
