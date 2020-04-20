@@ -8,7 +8,8 @@
     "lib-react": "0.1.0",
     "react": "^16.13.1",
     "react-app-rewired": "^2.1.5",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-app-rewired start",

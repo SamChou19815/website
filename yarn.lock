@@ -16575,6 +16575,7 @@ fsevents@^1.2.7:
     react-redux: ^7.2.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
+    react-scripts: 3.4.1
     redux: ^4.0.5
     rxjs: ^6.5.5
   languageName: unknown
@@ -17801,8 +17802,6 @@ resolve@1.15.0:
     husky: ^4.2.5
     lint-staged: ^10.1.3
     prettier: 2.0.4
-    react-app-rewired: ^2.1.5
-    react-scripts: 3.4.1
     react-test-renderer: ^16.13.1
     typescript: 3.8.3
   languageName: unknown
@@ -17918,6 +17917,7 @@ resolve@1.15.0:
     react: ^16.13.1
     react-app-rewired: ^2.1.5
     react-dom: ^16.13.1
+    react-scripts: 3.4.1
   languageName: unknown
   linkType: soft
 
@@ -19301,6 +19301,7 @@ resolve@1.15.0:
     react-redux: ^7.2.0
     react-router: ^5.1.2
     react-router-dom: ^5.1.2
+    react-scripts: 3.4.1
     redux: ^4.0.5
     rxjs: ^6.5.5
   languageName: unknown
@@ -19325,6 +19326,7 @@ resolve@1.15.0:
     react: ^16.13.1
     react-app-rewired: ^2.1.5
     react-dom: ^16.13.1
+    react-scripts: 3.4.1
     worker-loader: ^2.0.0
   languageName: unknown
   linkType: soft
@@ -21168,6 +21170,7 @@ typescript@3.8.3:
     react-app-rewired: ^2.1.5
     react-dom: ^16.13.1
     react-redux: ^7.2.0
+    react-scripts: 3.4.1
     react-snap: ^1.23.0
     redux: ^4.0.5
   languageName: unknown
