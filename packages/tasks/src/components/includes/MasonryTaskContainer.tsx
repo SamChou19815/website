@@ -31,7 +31,7 @@ export default ({
       key={task.taskId}
       writable={writable}
       task={task}
-      onHeaderClick={() => onTaskClicked(task.taskId)}
+      onDetailClick={() => onTaskClicked(task.taskId)}
     />
   ));
   if (inCreationMode && writable) {
