@@ -3,6 +3,7 @@ import solver, { IModel } from 'javascript-lp-solver';
 
 import { leveledTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreTask } from '../../models/redux-store-types';
+import { sanctionedColorMapping } from '../../util/constants';
 
 /**
  * Minimize the crossing between tasks graph connection.
@@ -207,8 +208,7 @@ const autoTrimText = (text: string): string => {
 
 export const generateGraphComponents = (
   taskWithPositionMap: { readonly [taskId: string]: Readonly<{ level: number; index: number }> },
-  leveledTasks: readonly (readonly ReduxStoreTask[])[],
-  colors: { readonly [projectId: string]: string }
+  leveledTasks: readonly (readonly ReduxStoreTask[])[]
 ): GraphComponents => {
   const cards: GraphCardComponent[] = [];
   const icons: GraphIconComponent[] = [];
@@ -229,7 +229,7 @@ export const generateGraphComponents = (
         startY,
         width: WIDTH,
         height: HEIGHT,
-        color: colors[task.projectId],
+        color: sanctionedColorMapping[task.color],
       });
 
       icons.push({

@@ -3,7 +3,6 @@ import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
 import { firebaseSignOut } from 'lib-firebase/authentication';
 
-import ProjectsPanel from '../includes/ProjectsPanel';
 import TasksPanel from '../includes/TasksPanel';
 import ConfiguredMainAppBarrier from '../util/ConfiguredMainAppBarrier';
 import MaterialThemedNavigableAppContainer from '../util/MaterialThemedNavigableAppContainer';
@@ -17,9 +16,8 @@ const SignOutButton = (): ReactElement => (
 
 const HomePage = (): ReactElement => (
   <MaterialThemedNavigableAppContainer buttons={<SignOutButton />}>
-    <div className={`${styles.DesktopAllPanels} ${styles.RootContainer} content-below-appbar`}>
-      <ProjectsPanel className={styles.ProjectsPanel} />
-      <TasksPanel className={styles.TasksPanel} />
+    <div className={`${styles.RootContainer} content-below-appbar`}>
+      <TasksPanel />
     </div>
   </MaterialThemedNavigableAppContainer>
 );

@@ -2,10 +2,9 @@ import React, { ReactElement } from 'react';
 
 import Assignment from '@material-ui/icons/Assignment';
 import AssignmentDone from '@material-ui/icons/AssignmentTurnedIn';
-import { useSelector } from 'react-redux';
 
 import { TaskId } from '../../models/ids';
-import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
+import { ReduxStoreTask } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
 import { minimizeCross, generateGraphComponents } from './TaskGraphCanvas.graph';
 import styles from './TaskGraphCanvas.module.css';
@@ -16,13 +15,6 @@ type Props = {
 };
 
 export default ({ tasks, onTaskClicked }: Props): ReactElement => {
-  const colors = useSelector((state: ReduxStoreState) => {
-    const colorMap: { [projectId: string]: string } = {};
-    Object.entries(state.projects).forEach(([projectId, project]) => {
-      colorMap[projectId] = sanctionedColorMapping[project.color];
-    });
-    return colorMap;
-  });
   const leveledTasks = minimizeCross(tasks);
 
   type TaskWithPositionMap = { [taskId: string]: Readonly<{ level: number; index: number }> };
@@ -45,7 +37,7 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
     canvasHeight,
     textSize,
     iconSize,
-  } = generateGraphComponents(taskWithPositionMap, leveledTasks, colors);
+  } = generateGraphComponents(taskWithPositionMap, leveledTasks);
 
   const TaskIcon = ({
     task,
