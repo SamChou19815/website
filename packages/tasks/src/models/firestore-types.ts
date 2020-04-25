@@ -1,17 +1,10 @@
 import { SanctionedColor } from './common-types';
-import { ProjectId, TaskId } from './ids';
-
-export type FirestoreProject = {
-  readonly owner: string;
-  readonly name: string;
-  readonly color: SanctionedColor;
-};
-export type FirestoreProjectWithId = FirestoreProject & { readonly projectId: string };
+import { TaskId } from './ids';
 
 export type FirestoreTask = {
   readonly owner: string;
-  readonly projectId: ProjectId;
   readonly name: string;
+  readonly color: SanctionedColor;
   readonly content: string;
   readonly completed: boolean;
   readonly dependencies: readonly TaskId[];

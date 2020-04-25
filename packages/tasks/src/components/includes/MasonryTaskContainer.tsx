@@ -2,13 +2,12 @@ import React, { ReactElement } from 'react';
 
 import Masonry from 'react-masonry-css';
 
-import { TaskId, ProjectId } from '../../models/ids';
+import { TaskId } from '../../models/ids';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import TaskCard from './TaskCard';
 import TaskCardCreator from './TaskCardCreator';
 
 type Props = {
-  readonly projectId?: ProjectId;
   readonly tasks: readonly ReduxStoreTask[];
   readonly breakpointColumn: number;
   readonly inCreationMode: boolean;
@@ -17,7 +16,6 @@ type Props = {
 };
 
 export default ({
-  projectId,
   tasks,
   breakpointColumn,
   inCreationMode,
@@ -28,13 +26,7 @@ export default ({
     <TaskCard key={task.taskId} task={task} onDetailClick={() => onTaskClicked(task.taskId)} />
   ));
   if (inCreationMode) {
-    children.unshift(
-      <TaskCardCreator
-        key="task-creator"
-        initialProjectId={projectId}
-        onSave={disableCreationMode}
-      />
-    );
+    children.unshift(<TaskCardCreator key="task-creator" onSave={disableCreationMode} />);
   }
 
   return (

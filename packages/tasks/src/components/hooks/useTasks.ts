@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { TaskId, ProjectId } from '../../models/ids';
+import { TaskId } from '../../models/ids';
 import {
   getTransitiveDependencyTaskIds,
   getTransitiveReverseDependencyTaskIds,
@@ -28,30 +28,21 @@ export const useTransitiveReverseDependencies = (taskId: TaskId): readonly Redux
  *
  * @param taskId the id of the task to compute eligible dependencies.
  * If it is null, then all tasks within the project will automatically be admitted.
- * @param projectId dependencies will be restricted to those within the same project.
- *        If it's `undefined`, then two empty lists will always be returned.
  * @param dependencies a list of already added dependencies.
  * @returns a tuple of listed. See the specification above.
  */
 export const useEligibleDependencies = (
   taskId: TaskId | null,
-  projectId: ProjectId | undefined,
   dependencies: readonly TaskId[]
 ): readonly [readonly ReduxStoreTask[], readonly ReduxStoreTask[]] =>
   useSelector(({ tasks }: ReduxStoreState): readonly [
     readonly ReduxStoreTask[],
     readonly ReduxStoreTask[]
   ] => {
-    if (projectId === undefined) {
-      return [[], []];
-    }
-
     const comparator = (task1: ReduxStoreTask, task2: ReduxStoreTask) =>
       task1.name.localeCompare(task2.name);
     if (taskId === null) {
-      const allEligible = Object.values(tasks)
-        .filter((task) => task.projectId === projectId)
-        .sort(comparator);
+      const allEligible = Object.values(tasks).sort(comparator);
       const allEligibleGivenDependencies = allEligible.filter(
         (task) => !hasInternallyReachableTask(tasks, [...dependencies, task.taskId])
       );
@@ -59,12 +50,7 @@ export const useEligibleDependencies = (
     }
     const reverseDependencySet = getTransitiveReverseDependencyTaskIds(tasks, taskId);
     const allEligible = Object.values(tasks)
-      .filter(
-        (task) =>
-          !reverseDependencySet.has(task.taskId) &&
-          task.projectId === projectId &&
-          taskId !== task.taskId
-      )
+      .filter((task) => !reverseDependencySet.has(task.taskId) && taskId !== task.taskId)
       .sort(comparator);
     const allEligibleGivenDependencies = allEligible.filter(
       (task) => !hasInternallyReachableTask(tasks, [...dependencies, task.taskId])

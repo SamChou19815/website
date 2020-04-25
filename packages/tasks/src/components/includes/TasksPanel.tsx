@@ -13,7 +13,7 @@ import TaskDetailPanel from './TaskDetailPanel';
 import TaskGraphCanvas from './TaskGraphCanvas';
 import styles from './TasksPanel.module.css';
 
-export default ({ className }: { readonly className?: string }): ReactElement => {
+export default (): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>((state) =>
     flattenedTopologicalSort(Object.values(state.tasks))
   );
@@ -26,7 +26,7 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
     useWindowSize(({ width }) => {
       const naiveComputedColumnCount = Math.floor(width / 400);
       return Math.max(Math.min(naiveComputedColumnCount, 3), 1);
-    }) - (taskDetailPanelTaskId !== null ? 2 : 1);
+    }) - (taskDetailPanelTaskId !== null ? 1 : 0);
 
   const filteredTasks = doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed);
 
@@ -51,7 +51,7 @@ export default ({ className }: { readonly className?: string }): ReactElement =>
   }
 
   return (
-    <div className={className}>
+    <div>
       <div
         className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
       >

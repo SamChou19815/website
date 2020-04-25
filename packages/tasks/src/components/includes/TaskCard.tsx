@@ -8,9 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CheckBox from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlank from '@material-ui/icons/CheckBoxOutlineBlank';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
-import { useSelector } from 'react-redux';
 
-import { ReduxStoreTask, ReduxStoreState } from '../../models/redux-store-types';
+import { ReduxStoreTask } from '../../models/redux-store-types';
 import { editTask, deleteTask } from '../../util/firestore-actions';
 import useFormManager from '../hooks/useFormManager';
 import { useTransitiveReverseDependencies } from '../hooks/useTasks';
@@ -44,17 +43,14 @@ type Props = {
 };
 
 export default ({
-  task: { taskId, projectId, name, content, dependencies, completed },
+  task: { taskId, name, color, content, dependencies, completed },
   onDetailClick,
 }: Props): ReactElement => {
-  const project = useSelector((state: ReduxStoreState) => state.projects[projectId]);
-  const color = project?.color ?? 'Blue';
-
   const [inEditingMode, setInEditingMode] = useState(false);
   const hasReverseDependencies = useTransitiveReverseDependencies(taskId).length > 0;
   const [editableTask, setPartialEditableTask] = useFormManager({
-    projectId,
     name,
+    color,
     content,
     dependencies,
   });
@@ -84,7 +80,6 @@ export default ({
           <CardContent>
             <TaskEditorForm
               taskId={taskId}
-              initialProjectId={projectId}
               editableTask={editableTask}
               onEdit={setPartialEditableTask}
             />

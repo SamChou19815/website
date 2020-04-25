@@ -2,12 +2,7 @@ import { firestore } from 'firebase/app';
 import { getAppUser } from 'lib-firebase/authentication';
 import { Observable } from 'rxjs';
 
-import {
-  FirestoreProject,
-  FirestoreProjectWithId,
-  FirestoreTask,
-  FirestoreTaskWithId,
-} from '../models/firestore-types';
+import { FirestoreTask, FirestoreTaskWithId } from '../models/firestore-types';
 
 const store = firestore();
 
@@ -16,7 +11,6 @@ export const runTransaction = <T>(
   updateFunction: (transaction: firestore.Transaction) => Promise<T>
 ): Promise<T> => store.runTransaction(updateFunction);
 
-export const projectsCollection = store.collection('tasks-app-projects');
 export const tasksCollection = store.collection('tasks-app-tasks');
 
 type Update<T> = { readonly createdAndEdited: readonly T[]; readonly deleted: readonly string[] };
@@ -43,21 +37,6 @@ const createUpdate = <T>(
   });
   return { createdAndEdited, deleted };
 };
-
-export const getProjectsObservable = (): Observable<Update<FirestoreProjectWithId>> =>
-  new Observable((subscriber) => {
-    const unsubscribe = projectsCollection
-      .where('owner', '==', getAppUser().email)
-      .onSnapshot((snapshot) => {
-        subscriber.next(
-          createUpdate(snapshot, (projectDocument) => ({
-            projectId: projectDocument.id,
-            ...(projectDocument.data() as FirestoreProject),
-          }))
-        );
-      });
-    return { unsubscribe };
-  });
 
 export const getTasksObservable = (): Observable<Update<FirestoreTaskWithId>> =>
   new Observable((subscriber) => {
