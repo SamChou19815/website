@@ -11,3 +11,7 @@
     width: 350px;
   }
 }
+
+.ProjectCardIcon {
+  cursor: pointer;
+}

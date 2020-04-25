@@ -15,11 +15,23 @@ import MaterialFormDialog from '../util/MaterialFormDialog';
 import styles from './ProjectCard.module.css';
 import ProjectCardEditForm from './ProjectCardEditForm';
 
-const PublicOrPrivateIcon = ({ isPublic }: { readonly isPublic: boolean }): ReactElement =>
+type PublicOrPrivateIconProps = { readonly isPublic: boolean; readonly onClick: () => void };
+
+const PublicOrPrivateIcon = ({ isPublic, onClick }: PublicOrPrivateIconProps): ReactElement =>
   isPublic ? (
-    <PublicIcon titleAccess="public" fontSize="large" />
+    <PublicIcon
+      className={styles.ProjectCardIcon}
+      onClick={onClick}
+      titleAccess="public"
+      fontSize="large"
+    />
   ) : (
-    <AccountIcon titleAccess="private" fontSize="large" />
+    <AccountIcon
+      className={styles.ProjectCardIcon}
+      onClick={onClick}
+      titleAccess="private"
+      fontSize="large"
+    />
   );
 
 type Props = {
@@ -29,13 +41,16 @@ type Props = {
 export default ({ project: { projectId, owner, isPublic, name, color } }: Props): ReactElement => {
   const routerHistory = useHistory();
 
+  const publicOrPrivateIcon = (
+    <PublicOrPrivateIcon
+      isPublic={isPublic}
+      onClick={() => editProject({ projectId, owner, name, color, isPublic: !isPublic })}
+    />
+  );
+
   return (
     <Card variant="outlined" className={styles.ProjectCard}>
-      <MaterialColoredCardHeader
-        title={name}
-        color={color}
-        avatar={<PublicOrPrivateIcon isPublic={isPublic} />}
-      />
+      <MaterialColoredCardHeader title={name} color={color} avatar={publicOrPrivateIcon} />
       <CardActions>
         <Button
           size="small"

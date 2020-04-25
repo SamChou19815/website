@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Assignment from '@material-ui/icons/Assignment';
 import AssignmentDone from '@material-ui/icons/AssignmentTurnedIn';
+import CheckBoxOutlineBlank from '@material-ui/icons/CheckBoxOutlineBlank';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
 
@@ -19,11 +19,23 @@ import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import styles from './TaskCard.module.css';
 import TaskEditorForm, { shouldBeDisabled, saveTask } from './TaskEditorForm';
 
-const AssignmentIcon = ({ completed }: { readonly completed: boolean }): ReactElement =>
+type AssignmentIconProps = { readonly completed: boolean; readonly onClick: () => void };
+
+const AssignmentIcon = ({ completed, onClick }: AssignmentIconProps): ReactElement =>
   completed ? (
-    <AssignmentDone titleAccess="Task" fontSize="large" />
+    <AssignmentDone
+      className={styles.TaskCardHeaderIcon}
+      onClick={onClick}
+      titleAccess="Task"
+      fontSize="large"
+    />
   ) : (
-    <Assignment titleAccess="Task" fontSize="large" />
+    <CheckBoxOutlineBlank
+      className={styles.TaskCardHeaderIcon}
+      onClick={onClick}
+      titleAccess="Task"
+      fontSize="large"
+    />
   );
 
 type Props = {
@@ -54,12 +66,19 @@ export default ({
       ? `${styles.TaskCard} ${styles.TaskCardLessOpacity}`
       : styles.TaskCard;
 
+  const assignmentIcon = (
+    <AssignmentIcon
+      completed={completed}
+      onClick={() => editTask({ taskId, completed: !completed })}
+    />
+  );
+
   return (
     <Card variant="outlined" className={className}>
       <MaterialColoredCardHeader
         title={inEditingMode ? editableTask.name : name}
         color={color}
-        avatar={<AssignmentIcon completed={completed} />}
+        avatar={assignmentIcon}
         titleClassName={completed ? styles.TaskCardTitleStrikeThrough : undefined}
       />
       {inEditingMode ? (
@@ -103,13 +122,6 @@ export default ({
             <CardActions>
               <Button size="small" color="primary" onClick={onDetailClick}>
                 Details
-              </Button>
-              <Button
-                size="small"
-                color="primary"
-                onClick={() => editTask({ taskId, completed: !completed })}
-              >
-                {completed ? 'Uncomplete' : 'Complete'}
               </Button>
               <Button size="small" color="primary" onClick={() => setInEditingMode(true)}>
                 Edit
