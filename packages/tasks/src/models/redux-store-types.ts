@@ -4,7 +4,6 @@ import { ProjectId, TaskId } from './ids';
 export type ReduxStoreProject = {
   readonly projectId: ProjectId;
   readonly owner: string;
-  readonly isPublic: boolean;
   readonly name: string;
   readonly color: SanctionedColor;
 };

@@ -89,7 +89,7 @@ export default ({ taskId, className, onClose }: Props): ReactElement => {
       </Paper>
       <Divider />
       {dependenciesToRender.map((dependencyTask) => (
-        <TaskCard key={dependencyTask.taskId} task={dependencyTask} writable />
+        <TaskCard key={dependencyTask.taskId} task={dependencyTask} />
       ))}
     </div>
   );
