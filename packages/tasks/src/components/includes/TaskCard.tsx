@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import AssignmentDone from '@material-ui/icons/AssignmentTurnedIn';
+import CheckBox from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlank from '@material-ui/icons/CheckBoxOutlineBlank';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
@@ -19,11 +19,11 @@ import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import styles from './TaskCard.module.css';
 import TaskEditorForm, { shouldBeDisabled, saveTask } from './TaskEditorForm';
 
-type AssignmentIconProps = { readonly completed: boolean; readonly onClick: () => void };
+type CheckBoxIconProps = { readonly completed: boolean; readonly onClick: () => void };
 
-const AssignmentIcon = ({ completed, onClick }: AssignmentIconProps): ReactElement =>
+const CheckBoxIcon = ({ completed, onClick }: CheckBoxIconProps): ReactElement =>
   completed ? (
-    <AssignmentDone
+    <CheckBox
       className={styles.TaskCardHeaderIcon}
       onClick={onClick}
       titleAccess="Task"
@@ -66,8 +66,8 @@ export default ({
       ? `${styles.TaskCard} ${styles.TaskCardLessOpacity}`
       : styles.TaskCard;
 
-  const assignmentIcon = (
-    <AssignmentIcon
+  const checkIcon = (
+    <CheckBoxIcon
       completed={completed}
       onClick={() => editTask({ taskId, completed: !completed })}
     />
@@ -78,7 +78,7 @@ export default ({
       <MaterialColoredCardHeader
         title={inEditingMode ? editableTask.name : name}
         color={color}
-        avatar={assignmentIcon}
+        avatar={checkIcon}
         titleClassName={completed ? styles.TaskCardTitleStrikeThrough : undefined}
       />
       {inEditingMode ? (
