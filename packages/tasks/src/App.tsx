@@ -1,15 +1,12 @@
 import React, { ReactElement } from 'react';
 
 import { Provider as ReactReduxProvider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 
-import RootRouter from './components/pages/RootRouter';
+import HomePage from './components/pages/HomePage';
 import { store } from './models/redux-store';
 
 export default (): ReactElement => (
-  <BrowserRouter>
-    <ReactReduxProvider store={store}>
-      <RootRouter />
-    </ReactReduxProvider>
-  </BrowserRouter>
+  <ReactReduxProvider store={store}>
+    <HomePage />
+  </ReactReduxProvider>
 );

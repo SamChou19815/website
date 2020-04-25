@@ -16,7 +16,7 @@ const uiConfig = {
 };
 
 export default (): ReactElement => (
-  <MaterialThemedNavigableAppContainer nestedNavigationLevels={[{ title: 'Login' }]}>
+  <MaterialThemedNavigableAppContainer>
     <div className="simple-page-center">
       <FirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </div>
