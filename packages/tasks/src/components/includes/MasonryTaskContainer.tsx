@@ -9,7 +9,6 @@ import TaskCardCreator from './TaskCardCreator';
 
 type Props = {
   readonly projectId?: ProjectId;
-  readonly writable: boolean;
   readonly tasks: readonly ReduxStoreTask[];
   readonly breakpointColumn: number;
   readonly inCreationMode: boolean;
@@ -19,7 +18,6 @@ type Props = {
 
 export default ({
   projectId,
-  writable,
   tasks,
   breakpointColumn,
   inCreationMode,
@@ -27,14 +25,9 @@ export default ({
   onTaskClicked,
 }: Props): ReactElement => {
   const children: ReactElement[] = tasks.map((task) => (
-    <TaskCard
-      key={task.taskId}
-      writable={writable}
-      task={task}
-      onDetailClick={() => onTaskClicked(task.taskId)}
-    />
+    <TaskCard key={task.taskId} task={task} onDetailClick={() => onTaskClicked(task.taskId)} />
   ));
-  if (inCreationMode && writable) {
+  if (inCreationMode) {
     children.unshift(
       <TaskCardCreator
         key="task-creator"

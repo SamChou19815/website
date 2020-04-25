@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import AccountIcon from '@material-ui/icons/AccountCircle';
-import PublicIcon from '@material-ui/icons/Public';
 import { useHistory } from 'react-router-dom';
 
 import { ReduxStoreProject } from '../../models/redux-store-types';
@@ -15,42 +14,16 @@ import MaterialFormDialog from '../util/MaterialFormDialog';
 import styles from './ProjectCard.module.css';
 import ProjectCardEditForm from './ProjectCardEditForm';
 
-type PublicOrPrivateIconProps = { readonly isPublic: boolean; readonly onClick: () => void };
+type Props = { readonly project: ReduxStoreProject };
 
-const PublicOrPrivateIcon = ({ isPublic, onClick }: PublicOrPrivateIconProps): ReactElement =>
-  isPublic ? (
-    <PublicIcon
-      className={styles.ProjectCardIcon}
-      onClick={onClick}
-      titleAccess="public"
-      fontSize="large"
-    />
-  ) : (
-    <AccountIcon
-      className={styles.ProjectCardIcon}
-      onClick={onClick}
-      titleAccess="private"
-      fontSize="large"
-    />
-  );
-
-type Props = {
-  readonly project: ReduxStoreProject;
-};
-
-export default ({ project: { projectId, owner, isPublic, name, color } }: Props): ReactElement => {
+export default ({ project: { projectId, owner, name, color } }: Props): ReactElement => {
   const routerHistory = useHistory();
 
-  const publicOrPrivateIcon = (
-    <PublicOrPrivateIcon
-      isPublic={isPublic}
-      onClick={() => editProject({ projectId, owner, name, color, isPublic: !isPublic })}
-    />
-  );
+  const headerIcon = <AccountIcon titleAccess="private" fontSize="large" />;
 
   return (
     <Card variant="outlined" className={styles.ProjectCard}>
-      <MaterialColoredCardHeader title={name} color={color} avatar={publicOrPrivateIcon} />
+      <MaterialColoredCardHeader title={name} color={color} avatar={headerIcon} />
       <CardActions>
         <Button
           size="small"
@@ -61,7 +34,7 @@ export default ({ project: { projectId, owner, isPublic, name, color } }: Props)
         </Button>
         <MaterialFormDialog
           formTitle="Editing Project"
-          initialFormValues={{ isPublic, name, color }}
+          initialFormValues={{ name, color }}
           onFormSubmit={(change) => editProject({ projectId, owner, ...change })}
           formValidator={({ name: unvalidatedName }) => unvalidatedName.trim().length > 0}
         >

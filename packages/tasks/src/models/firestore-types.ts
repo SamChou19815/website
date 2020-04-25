@@ -3,7 +3,6 @@ import { ProjectId, TaskId } from './ids';
 
 export type FirestoreProject = {
   readonly owner: string;
-  readonly isPublic: boolean;
   readonly name: string;
   readonly color: SanctionedColor;
 };

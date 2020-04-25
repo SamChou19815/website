@@ -13,12 +13,11 @@ import TaskDetailPanel from './TaskDetailPanel';
 import TaskGraphCanvas from './TaskGraphCanvas';
 
 type Props = {
-  readonly writable: boolean;
   readonly project: ReduxStoreProject;
   readonly tasks: readonly ReduxStoreTask[];
 };
 
-export default ({ writable, project, tasks }: Props): ReactElement => {
+export default ({ project, tasks }: Props): ReactElement => {
   const { projectId } = project;
 
   const [mode, setMode] = useState<'dashboard' | 'graph'>('dashboard');
@@ -34,23 +33,16 @@ export default ({ writable, project, tasks }: Props): ReactElement => {
 
   const filteredTasks = doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed);
 
-  const onTaskClicked = (taskId: TaskId) => {
-    if (writable) {
-      setTaskDetailPanelTaskId(taskId);
-    }
-  };
-
   let taskContainer: ReactElement;
   if (mode === 'dashboard') {
     taskContainer = (
       <MasonryTaskContainer
         projectId={projectId}
-        writable={writable}
         tasks={filteredTasks}
         breakpointColumn={breakpointColumn}
         inCreationMode={inCreationMode}
         disableCreationMode={() => setInCreationMode(false)}
-        onTaskClicked={onTaskClicked}
+        onTaskClicked={setTaskDetailPanelTaskId}
       />
     );
   } else {
@@ -63,7 +55,7 @@ export default ({ writable, project, tasks }: Props): ReactElement => {
             onSave={() => setInCreationMode(false)}
           />
         )}
-        <TaskGraphCanvas tasks={filteredTasks} onTaskClicked={onTaskClicked} />
+        <TaskGraphCanvas tasks={filteredTasks} onTaskClicked={setTaskDetailPanelTaskId} />
       </>
     );
   }
@@ -100,7 +92,7 @@ export default ({ writable, project, tasks }: Props): ReactElement => {
             >
               {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
             </Button>
-            {!inCreationMode && writable && (
+            {!inCreationMode && (
               <Button
                 variant="outlined"
                 color="primary"
@@ -114,7 +106,7 @@ export default ({ writable, project, tasks }: Props): ReactElement => {
           </div>
           {taskContainer}
         </div>
-        {taskDetailPanelTaskId && writable && (
+        {taskDetailPanelTaskId && (
           <TaskDetailPanel
             taskId={taskDetailPanelTaskId}
             onClose={() => setTaskDetailPanelTaskId(null)}

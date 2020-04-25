@@ -40,13 +40,11 @@ const CheckBoxIcon = ({ completed, onClick }: CheckBoxIconProps): ReactElement =
 
 type Props = {
   readonly task: ReduxStoreTask;
-  readonly writable: boolean;
   readonly onDetailClick?: () => void;
 };
 
 export default ({
   task: { taskId, projectId, name, content, dependencies, completed },
-  writable,
   onDetailClick,
 }: Props): ReactElement => {
   const project = useSelector((state: ReduxStoreState) => state.projects[projectId]);
@@ -118,32 +116,30 @@ export default ({
               <Divider />
             </>
           )}
-          {writable && (
-            <CardActions>
-              <Button size="small" color="primary" onClick={onDetailClick}>
-                Details
-              </Button>
-              <Button size="small" color="primary" onClick={() => setInEditingMode(true)}>
-                Edit
-              </Button>
-              <MaterialAlertDialog
-                alertTitle="Deleting a task?"
-                alertDescription="Once deleted, the task cannot be recovered."
-                onConfirm={() => deleteTask(taskId)}
-              >
-                {(trigger) => (
-                  <Button
-                    size="small"
-                    color="primary"
-                    disabled={hasReverseDependencies}
-                    onClick={trigger}
-                  >
-                    Delete
-                  </Button>
-                )}
-              </MaterialAlertDialog>
-            </CardActions>
-          )}
+          <CardActions>
+            <Button size="small" color="primary" onClick={onDetailClick}>
+              Details
+            </Button>
+            <Button size="small" color="primary" onClick={() => setInEditingMode(true)}>
+              Edit
+            </Button>
+            <MaterialAlertDialog
+              alertTitle="Deleting a task?"
+              alertDescription="Once deleted, the task cannot be recovered."
+              onConfirm={() => deleteTask(taskId)}
+            >
+              {(trigger) => (
+                <Button
+                  size="small"
+                  color="primary"
+                  disabled={hasReverseDependencies}
+                  onClick={trigger}
+                >
+                  Delete
+                </Button>
+              )}
+            </MaterialAlertDialog>
+          </CardActions>
         </>
       )}
     </Card>
