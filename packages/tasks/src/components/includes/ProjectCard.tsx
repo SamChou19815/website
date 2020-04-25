@@ -35,9 +35,15 @@ export default ({ project: { projectId, owner, isPublic, name, color } }: Props)
         title={name}
         color={color}
         avatar={<PublicOrPrivateIcon isPublic={isPublic} />}
-        onClick={() => routerHistory.push(`/project/${projectId}`)}
       />
       <CardActions>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => routerHistory.push(`/project/${projectId}`)}
+        >
+          Enter
+        </Button>
         <MaterialFormDialog
           formTitle="Editing Project"
           initialFormValues={{ isPublic, name, color }}
