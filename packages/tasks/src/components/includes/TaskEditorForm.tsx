@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import Divider from '@material-ui/core/Divider';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -9,7 +8,6 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { getAppUser } from 'lib-firebase/authentication';
-import MarkdownBlock from 'lib-react/MarkdownBlock';
 
 import { SanctionedColor } from '../../models/common-types';
 import { TaskId } from '../../models/ids';
@@ -51,10 +49,6 @@ export default ({ taskId, values, onChange }: Props): ReactElement => {
 
   return (
     <FormGroup row={false}>
-      <div>
-        <MarkdownBlock>{`### ${name}\n${content}`}</MarkdownBlock>
-        <Divider />
-      </div>
       <TextField
         className={styles.FormElement}
         label="Name"
