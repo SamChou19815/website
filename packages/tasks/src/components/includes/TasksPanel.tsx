@@ -7,7 +7,6 @@ import { SanctionedColor } from '../../models/common-types';
 import { TaskId } from '../../models/ids';
 import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
-import useWindowSize from '../hooks/useWindowSize';
 import MaterialFormDialog from '../util/MaterialFormDialog';
 import MasonryTaskContainer from './MasonryTaskContainer';
 import TaskDetailPanel from './TaskDetailPanel';
@@ -31,20 +30,10 @@ export default (): ReactElement => {
   const [mode, setMode] = useState<'dashboard' | 'graph'>('dashboard');
   const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
 
-  const breakpointColumn =
-    useWindowSize(({ width }) => {
-      const naiveComputedColumnCount = Math.floor(width / 350);
-      return Math.max(Math.min(naiveComputedColumnCount, 4), 1);
-    }) - (taskDetailPanelTaskId !== null ? 1 : 0);
-
   let tasksContainer: ReactElement;
   if (mode === 'dashboard') {
     tasksContainer = (
-      <MasonryTaskContainer
-        tasks={tasks}
-        breakpointColumn={breakpointColumn}
-        onTaskClicked={setTaskDetailPanelTaskId}
-      />
+      <MasonryTaskContainer tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />
     );
   } else {
     tasksContainer = <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />;
