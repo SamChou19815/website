@@ -114,7 +114,9 @@ export default ({ taskId, values, onChange }: Props): ReactElement => {
           }
           return tasks;
         })()}
-        onChange={(_, values) => onChange({ dependencies: values.map((task) => task.taskId) })}
+        onChange={(_, dependencyValues) => {
+          onChange({ dependencies: dependencyValues.map((task) => task.taskId) });
+        }}
         renderInput={(params) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
           <TextField label="Dependencies" type="text" {...params} />
