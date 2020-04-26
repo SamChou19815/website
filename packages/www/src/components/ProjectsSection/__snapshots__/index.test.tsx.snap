@@ -25,6 +25,9 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         src="samlang.png"
         title="SAMLANG"
       />
+      <hr
+        className="MuiDivider-root"
+      />
       <div
         className="MuiCardHeader-root"
       >
@@ -163,8 +166,248 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
+        src="docusaurus.png"
+        title="Docusaurus"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            Docusaurus
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            Open source contributions
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardContent-root"
+      >
+        A static documentation site generator developed by Facebook open source. I am one of the top 20 contributors.
+      </div>
+      <div
+        className="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://v2.docusaurus.io"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              Official Site
+            </a>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://github.com/facebook/docusaurus"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              GitHub Repo
+            </a>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <img
+        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+        loading="lazy"
+        src="mini-react.png"
+        title="mini-react"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            mini-react
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            Framework
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardContent-root"
+      >
+        A simplified version of React runtime created from scratch. It has support for the
+         
+        <code>
+          useState
+        </code>
+         hook and 
+        <code>
+          useEffect
+        </code>
+         hook.
+      </div>
+      <div
+        className="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://mini-react.developersam.com"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              Demo Site
+            </a>
+          </span>
+        </button>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://github.com/SamChou19815/mini-react"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              GitHub Repo
+            </a>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <img
+        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+        loading="lazy"
         src="samwise.png"
         title="Samwise"
+      />
+      <hr
+        className="MuiDivider-root"
       />
       <div
         className="MuiCardHeader-root"
@@ -280,8 +523,95 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
+        src="tasks.png"
+        title="Tasks"
+      />
+      <hr
+        className="MuiDivider-root"
+      />
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            Tasks
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            Web App
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardContent-root"
+      >
+        A planner with drag and drop and dependency analysis.
+      </div>
+      <div
+        className="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://tasks.developersam.com"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              App
+            </a>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <img
+        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
+        loading="lazy"
         src="ten.png"
         title="TEN"
+      />
+      <hr
+        className="MuiDivider-root"
       />
       <div
         className="MuiCardHeader-root"
