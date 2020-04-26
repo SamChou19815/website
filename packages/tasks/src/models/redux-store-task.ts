@@ -136,6 +136,7 @@ export const hasInternallyReachableTask = (
 export const partitionTaskByStatus = (
   tasks: readonly ReduxStoreTask[]
 ): { readonly [status in TaskStatus]: readonly ReduxStoreTask[] } => ({
+  backlogged: tasks.filter((task) => task.status === 'backlogged'),
   'to-do': tasks.filter((task) => task.status === 'to-do'),
   'in-progress': tasks.filter((task) => task.status === 'in-progress'),
   done: tasks.filter((task) => task.status === 'done'),

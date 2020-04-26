@@ -70,6 +70,12 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className={styles.ColumnContainer}>
         <Column
+          title="Backlogged"
+          status="backlogged"
+          tasks={partitioned.backlogged}
+          onTaskClicked={onTaskClicked}
+        />
+        <Column
           title="To do"
           status="to-do"
           tasks={partitioned['to-do']}

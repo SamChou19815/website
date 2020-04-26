@@ -1,6 +1,6 @@
 export type NominalString<T extends string> = string & { __nominalTag__: T };
 
-export type TaskStatus = 'to-do' | 'in-progress' | 'done';
+export type TaskStatus = 'backlogged' | 'to-do' | 'in-progress' | 'done';
 
 export type SanctionedColor =
   | 'Red'
