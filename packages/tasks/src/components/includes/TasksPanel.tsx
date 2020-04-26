@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { useSelector } from 'react-redux';
 
 import { TaskId } from '../../models/ids';
-import { flattenedTopologicalSort } from '../../models/redux-store-task';
+import { flattenedTopologicalSort, reorderByCompletion } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import useWindowSize from '../hooks/useWindowSize';
 import MasonryTaskContainer from './MasonryTaskContainer';
@@ -15,26 +15,23 @@ import styles from './TasksPanel.module.css';
 
 export default (): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>((state) =>
-    flattenedTopologicalSort(Object.values(state.tasks))
+    reorderByCompletion(flattenedTopologicalSort(Object.values(state.tasks)))
   );
   const [mode, setMode] = useState<'dashboard' | 'graph'>('dashboard');
   const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
   const [inCreationMode, setInCreationMode] = useState(false);
-  const [doesShowCompletedTasks, setDoesShowCompletedTasks] = useState(false);
 
   const breakpointColumn =
     useWindowSize(({ width }) => {
-      const naiveComputedColumnCount = Math.floor(width / 400);
-      return Math.max(Math.min(naiveComputedColumnCount, 3), 1);
+      const naiveComputedColumnCount = Math.floor(width / 350);
+      return Math.max(Math.min(naiveComputedColumnCount, 4), 1);
     }) - (taskDetailPanelTaskId !== null ? 1 : 0);
-
-  const filteredTasks = doesShowCompletedTasks ? tasks : tasks.filter((task) => !task.completed);
 
   let tasksContainer: ReactElement;
   if (mode === 'dashboard') {
     tasksContainer = (
       <MasonryTaskContainer
-        tasks={filteredTasks}
+        tasks={tasks}
         breakpointColumn={breakpointColumn}
         inCreationMode={inCreationMode}
         disableCreationMode={() => setInCreationMode(false)}
@@ -45,7 +42,7 @@ export default (): ReactElement => {
     tasksContainer = (
       <>
         {inCreationMode && <TaskCardCreator onSave={() => setInCreationMode(false)} />}
-        <TaskGraphCanvas tasks={filteredTasks} onTaskClicked={setTaskDetailPanelTaskId} />
+        <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />
       </>
     );
   }
@@ -64,15 +61,6 @@ export default (): ReactElement => {
             disableElevation
           >
             To {mode === 'dashboard' ? 'Graph' : 'Dashboard'} View
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            className={styles.TopButton}
-            onClick={() => setDoesShowCompletedTasks((previous) => !previous)}
-            disableElevation
-          >
-            {doesShowCompletedTasks ? 'Hide' : 'Show'} Completed Tasks
           </Button>
           {!inCreationMode && (
             <Button
