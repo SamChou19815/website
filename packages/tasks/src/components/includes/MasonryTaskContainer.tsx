@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 import Masonry from 'react-masonry-css';
 
 import { TaskId } from '../../models/ids';
+import { reorderByCompletion } from '../../models/redux-store-task';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import TaskCard from './TaskCard';
 import TaskCardCreator from './TaskCardCreator';
@@ -22,7 +23,7 @@ export default ({
   disableCreationMode,
   onTaskClicked,
 }: Props): ReactElement => {
-  const children: ReactElement[] = tasks.map((task) => (
+  const children: ReactElement[] = reorderByCompletion(tasks).map((task) => (
     <TaskCard key={task.taskId} task={task} onDetailClick={() => onTaskClicked(task.taskId)} />
   ));
   if (inCreationMode) {
