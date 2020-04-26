@@ -8,7 +8,7 @@ import { TaskId } from '../../models/ids';
 import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import MaterialFormDialog from '../util/MaterialFormDialog';
-import MasonryTaskContainer from './MasonryTaskContainer';
+import PartitionedTaskContainer from './PartitionedTaskContainer';
 import TaskDetailPanel from './TaskDetailPanel';
 import TaskEditorForm, { shouldBeDisabled, createNewTask } from './TaskEditorForm';
 import TaskGraphCanvas from './TaskGraphCanvas';
@@ -33,7 +33,7 @@ export default (): ReactElement => {
   let tasksContainer: ReactElement;
   if (mode === 'dashboard') {
     tasksContainer = (
-      <MasonryTaskContainer tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />
+      <PartitionedTaskContainer tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />
     );
   } else {
     tasksContainer = <TaskGraphCanvas tasks={tasks} onTaskClicked={setTaskDetailPanelTaskId} />;

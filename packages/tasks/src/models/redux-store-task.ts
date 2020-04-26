@@ -103,7 +103,9 @@ const reversedLeveledTopologicalSort = (tasks: readonly ReduxStoreTask[]): Redux
 export const leveledTopologicalSort = (
   tasks: readonly ReduxStoreTask[]
 ): readonly (readonly ReduxStoreTask[])[] => {
-  return reversedLeveledTopologicalSort(tasks).reverse();
+  return reversedLeveledTopologicalSort(tasks)
+    .map((level) => level.sort((task1, task2) => task1.name.localeCompare(task2.name)))
+    .reverse();
 };
 
 export const flattenedTopologicalSort = (
@@ -136,4 +138,12 @@ export const reorderByCompletion = (
   const sorted: ReduxStoreTask[] = tasks.filter((task) => !task.completed);
   sorted.push(...tasks.filter((task) => task.completed));
   return sorted;
+};
+
+export const partitionTaskByCompletion = (
+  tasks: readonly ReduxStoreTask[]
+): { readonly uncompleted: readonly ReduxStoreTask[]; completed: readonly ReduxStoreTask[] } => {
+  const uncompleted = tasks.filter((task) => !task.completed);
+  const completed = tasks.filter((task) => task.completed);
+  return { uncompleted, completed };
 };
