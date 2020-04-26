@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import { TaskId } from '../../models/ids';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
-import { getComponent } from './CheckboxIcon';
+import getCheckboxComponent from './CheckboxIcon';
 import { minimizeCross, generateGraphComponents } from './TaskGraphCanvas.graph';
 import styles from './TaskGraphCanvas.module.css';
 
@@ -46,7 +46,7 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
     readonly startY: number;
     readonly task: ReduxStoreTask;
   }): ReactElement => {
-    const Component = getComponent(task.status);
+    const Component = getCheckboxComponent(task.status);
     return (
       <Component
         className={styles.CanvasIcon}

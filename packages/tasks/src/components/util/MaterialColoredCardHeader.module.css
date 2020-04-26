@@ -3,13 +3,6 @@
   color: white;
 }
 
-.CardHeaderText {
-  text-overflow: ellipsis;
-  width: 220px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
 .CardColorRed {
   background-color: #f44336;
 }

@@ -45,10 +45,7 @@ export default ({ title, color, avatar, titleClassName, onClick }: Props): React
     avatar={avatar}
     classes={{
       root: getHeaderClassname(color),
-      title:
-        titleClassName === undefined
-          ? styles.CardHeaderText
-          : `${styles.CardHeaderText} ${titleClassName}`,
+      title: titleClassName,
     }}
     title={title}
     titleTypographyProps={{ variant: 'h6' }}
