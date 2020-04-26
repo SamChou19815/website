@@ -7,14 +7,12 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import MarkdownBlock from 'lib-react/MarkdownBlock';
 
-import { TaskStatus } from '../../models/common-types';
 import { ReduxStoreTask } from '../../models/redux-store-types';
-import { editTask, deleteTask } from '../../util/firestore-actions';
+import { deleteTask } from '../../util/firestore-actions';
 import useFormManager from '../hooks/useFormManager';
 import { useTransitiveReverseDependencies } from '../hooks/useTasks';
 import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
-import CheckboxIcon from './CheckboxIcon';
 import styles from './TaskCard.module.css';
 import TaskEditorForm, { shouldBeDisabled, saveTask } from './TaskEditorForm';
 
@@ -24,7 +22,7 @@ type Props = {
 };
 
 export default ({
-  task: { taskId, name, color, content, dependencies, status },
+  task: { taskId, name, color, content, dependencies },
   onDetailClick,
 }: Props): ReactElement => {
   const [inEditingMode, setInEditingMode] = useState(false);
@@ -36,29 +34,9 @@ export default ({
     dependencies,
   });
 
-  const onCheckboxClick = () => {
-    let newStatus: TaskStatus;
-    switch (status) {
-      case 'to-do':
-        newStatus = 'in-progress';
-        break;
-      case 'in-progress':
-        newStatus = 'done';
-        break;
-      case 'done':
-        newStatus = 'to-do';
-        break;
-    }
-    editTask({ taskId, status: newStatus });
-  };
-
   return (
     <Card variant="outlined" className={styles.TaskCard}>
-      <MaterialColoredCardHeader
-        title={inEditingMode ? editableTask.name : name}
-        color={color}
-        avatar={<CheckboxIcon status={status} onClick={onCheckboxClick} />}
-      />
+      <MaterialColoredCardHeader title={inEditingMode ? editableTask.name : name} color={color} />
       {inEditingMode ? (
         <>
           <CardContent>
