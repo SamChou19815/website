@@ -5,7 +5,7 @@
 
 .CardHeaderText {
   text-overflow: ellipsis;
-  width: 270px;
+  width: 220px;
   overflow: hidden;
   white-space: nowrap;
 }

@@ -129,3 +129,11 @@ export const hasInternallyReachableTask = (
   }
   return false;
 };
+
+export const reorderByCompletion = (
+  tasks: readonly ReduxStoreTask[]
+): readonly ReduxStoreTask[] => {
+  const sorted: ReduxStoreTask[] = tasks.filter((task) => !task.completed);
+  sorted.push(...tasks.filter((task) => task.completed));
+  return sorted;
+};
