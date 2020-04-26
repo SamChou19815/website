@@ -33,14 +33,14 @@ export default (): ReactElement => (
         <CardActions>
           <MaterialButtonLink href="/intro-to-firebase.pdf">Slides</MaterialButtonLink>
           <MaterialButtonLink href="https://jessicahong9.github.io/">
-            Co-speaker Jessica&apos;s website
+            Co-speaker&apos;s website
           </MaterialButtonLink>
         </CardActions>
       </Card>
       <Card className={styles.TechTalkCard}>
         <CardHeader
           avatar={schoolIcon}
-          title="How to build your own programming language"
+          title="Build your programming language"
           subheader="DevSesh"
         />
         <CardContent>
@@ -50,6 +50,16 @@ export default (): ReactElement => (
           <MaterialButtonLink href="/build-your-own-programming-language.pdf">
             Slides
           </MaterialButtonLink>
+        </CardActions>
+      </Card>
+      <Card className={styles.TechTalkCard}>
+        <CardHeader avatar={schoolIcon} title="Build a (simplified) React" subheader="DevSesh" />
+        <CardContent>
+          A tutorial of making a simplified React runtime with support for useState and useEffect
+          hooks.
+        </CardContent>
+        <CardActions>
+          <MaterialButtonLink href="/build-simplified-react.pdf">Slides</MaterialButtonLink>
         </CardActions>
       </Card>
     </div>

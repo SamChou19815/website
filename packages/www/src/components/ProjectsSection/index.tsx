@@ -69,6 +69,7 @@ export default (): ReactElement => (
           <MaterialButtonLink href="https://github.com/SamChou19815/mini-react">
             GitHub Repo
           </MaterialButtonLink>
+          <MaterialButtonLink href="/build-simplified-react.pdf">Slides</MaterialButtonLink>
         </CardActions>
       </Card>
       <Card className={styles.ProjectCard}>

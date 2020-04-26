@@ -7,16 +7,23 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
   .TechTalkCard {
     margin: 1em auto;
     width: 90vw;
   }
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 800px) and (max-width: 1280px) {
   .TechTalkCard {
     margin: 1em;
-    width: 400px;
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .TechTalkCard {
+    margin: 1em;
+    width: 300px;
   }
 }
