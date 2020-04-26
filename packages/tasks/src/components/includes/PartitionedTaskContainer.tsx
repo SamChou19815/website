@@ -2,9 +2,12 @@
 import React, { ReactElement } from 'react';
 
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
+import { useDispatch } from 'react-redux';
 
 import { TaskStatus } from '../../models/common-types';
+import { fromNewReduxStoreTask } from '../../models/firestore-task';
 import { TaskId } from '../../models/ids';
+import { getPatchTasksAction } from '../../models/redux-store';
 import { partitionTaskByStatus } from '../../models/redux-store-task';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import { editTask } from '../../util/firestore-actions';
@@ -54,6 +57,7 @@ type Props = {
 };
 
 export default ({ tasks, onTaskClicked }: Props): ReactElement => {
+  const dispatch = useDispatch();
   const partitioned = partitionTaskByStatus(tasks);
 
   const onDragEnd = ({ source, destination }: DropResult) => {
@@ -63,7 +67,9 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
     const oldStatus = source.droppableId as TaskStatus;
     const newStatus = destination.droppableId as TaskStatus;
     const movedTask = partitioned[oldStatus][source.index];
-    editTask({ taskId: movedTask.taskId, status: newStatus });
+    const update = { taskId: movedTask.taskId, status: newStatus };
+    dispatch(getPatchTasksAction([{ ...fromNewReduxStoreTask(movedTask), ...update }], []));
+    editTask(update);
   };
 
   return (
