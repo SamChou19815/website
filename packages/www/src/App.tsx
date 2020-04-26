@@ -6,11 +6,11 @@ import { Provider as ReactReduxProvider } from 'react-redux';
 
 import styles from './App.module.css';
 import FirstPage from './components/FirstPage';
+import ProjectsSection from './components/ProjectsSection';
+import TechTalkSection from './components/TechTalkSection';
+import TimelineSection from './components/TimelineSection';
 import { store } from './store';
 
-const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
-const TimelineSection = lazy(() => import('./components/TimelineSection'));
-const TechTalkSection = lazy(() => import('./components/TechTalkSection'));
 const WebTerminal = lazy(() => import('./components/WebTerminal'));
 
 const buttons: ReactElement = (
@@ -38,12 +38,8 @@ export default (): ReactElement => (
       buttons={buttons}
     >
       <FirstPage />
-      <Suspense fallback={null}>
-        <ProjectsSection />
-      </Suspense>
-      <Suspense fallback={null}>
-        <TechTalkSection />
-      </Suspense>
+      <ProjectsSection />
+      <TechTalkSection />
       <Suspense fallback={null}>
         <TimelineSection />
       </Suspense>
