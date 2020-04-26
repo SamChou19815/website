@@ -80,8 +80,8 @@ export default ({
           <CardContent>
             <TaskEditorForm
               taskId={taskId}
-              editableTask={editableTask}
-              onEdit={setPartialEditableTask}
+              values={editableTask}
+              onChange={setPartialEditableTask}
             />
           </CardContent>
           <CardActions>

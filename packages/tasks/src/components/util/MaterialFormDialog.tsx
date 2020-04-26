@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import useFormManager from '../hooks/useFormManager';
+import styles from './MaterialFormDialog.module.css';
 
 export type FormProps<T extends {}> = {
   readonly values: T;
@@ -18,8 +19,8 @@ type Props<T> = {
   readonly initialFormValues: T;
   readonly onFormSubmit: (validatedValues: T) => void;
   readonly formValidator: (values: T) => boolean;
-  /** [Triggering component for dialog, form component] */
-  readonly children: [(trigger: () => void) => ReactElement, (props: FormProps<T>) => ReactElement];
+  readonly formComponent: (props: FormProps<T>) => ReactElement;
+  readonly children: (trigger: () => void) => ReactElement;
 };
 
 export default <T extends {}>({
@@ -27,7 +28,8 @@ export default <T extends {}>({
   initialFormValues,
   onFormSubmit,
   formValidator,
-  children: [dialogTrigger, FormComponent],
+  formComponent: FormComponent,
+  children: dialogTrigger,
 }: Props<T>): ReactElement => {
   const [open, setOpen] = useState(false);
   const [formValues, setPartialFormValues] = useFormManager(initialFormValues);
@@ -37,7 +39,12 @@ export default <T extends {}>({
   return (
     <>
       {dialogTrigger(() => setOpen(true))}
-      <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
+      <Dialog
+        open={open}
+        onClose={onClose}
+        aria-labelledby="form-dialog-title"
+        classes={{ paper: styles.Dialog }}
+      >
         <DialogTitle id="form-dialog-title">{formTitle}</DialogTitle>
         <DialogContent>
           <FormComponent values={formValues} onChange={setPartialFormValues} />

@@ -27,9 +27,9 @@ export type EditableTask = {
 };
 
 type Props = {
-  readonly taskId: TaskId | null;
-  readonly editableTask: EditableTask;
-  readonly onEdit: (change: Partial<EditableTask>) => void;
+  readonly taskId?: TaskId;
+  readonly values: EditableTask;
+  readonly onChange: (change: Partial<EditableTask>) => void;
 };
 
 export const shouldBeDisabled = ({ name }: EditableTask): boolean => name.trim().length === 0;
@@ -42,8 +42,8 @@ export const createNewTask = (task: EditableTask): void => {
   createTask({ owner: getAppUser().email, completed: false, ...task });
 };
 
-export default ({ taskId, editableTask, onEdit }: Props): ReactElement => {
-  const { name, color, content, dependencies } = editableTask;
+export default ({ taskId, values, onChange }: Props): ReactElement => {
+  const { name, color, content, dependencies } = values;
   const [allDependenciesTaskOptions, eligibleOptions] = useEligibleDependencies(
     taskId,
     dependencies
@@ -60,13 +60,13 @@ export default ({ taskId, editableTask, onEdit }: Props): ReactElement => {
         label="Name"
         type="text"
         value={name}
-        onChange={(event) => onEdit({ name: event.currentTarget.value })}
+        onChange={(event) => onChange({ name: event.currentTarget.value })}
       />
       <FormControl className={styles.FormElement}>
         <InputLabel>Color</InputLabel>
         <Select
           value={color}
-          onChange={(event) => onEdit({ color: event.target.value as SanctionedColor })}
+          onChange={(event) => onChange({ color: event.target.value as SanctionedColor })}
         >
           {sanctionedColors.map((sanctionedColor) => (
             <MenuItem
@@ -84,7 +84,7 @@ export default ({ taskId, editableTask, onEdit }: Props): ReactElement => {
         label="Content"
         type="text"
         value={content}
-        onChange={(event) => onEdit({ content: event.currentTarget.value })}
+        onChange={(event) => onChange({ content: event.currentTarget.value })}
         multiline
       />
       <Autocomplete
@@ -114,7 +114,7 @@ export default ({ taskId, editableTask, onEdit }: Props): ReactElement => {
           }
           return tasks;
         })()}
-        onChange={(_, values) => onEdit({ dependencies: values.map((task) => task.taskId) })}
+        onChange={(_, values) => onChange({ dependencies: values.map((task) => task.taskId) })}
         renderInput={(params) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
           <TextField label="Dependencies" type="text" {...params} />

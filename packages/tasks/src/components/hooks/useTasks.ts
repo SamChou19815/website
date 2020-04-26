@@ -32,7 +32,7 @@ export const useTransitiveReverseDependencies = (taskId: TaskId): readonly Redux
  * @returns a tuple of listed. See the specification above.
  */
 export const useEligibleDependencies = (
-  taskId: TaskId | null,
+  taskId: TaskId | undefined,
   dependencies: readonly TaskId[]
 ): readonly [readonly ReduxStoreTask[], readonly ReduxStoreTask[]] =>
   useSelector(({ tasks }: ReduxStoreState): readonly [
@@ -41,7 +41,7 @@ export const useEligibleDependencies = (
   ] => {
     const comparator = (task1: ReduxStoreTask, task2: ReduxStoreTask) =>
       task1.name.localeCompare(task2.name);
-    if (taskId === null) {
+    if (taskId === undefined) {
       const allEligible = Object.values(tasks).sort(comparator);
       const allEligibleGivenDependencies = allEligible.filter(
         (task) => !hasInternallyReachableTask(tasks, [...dependencies, task.taskId])
