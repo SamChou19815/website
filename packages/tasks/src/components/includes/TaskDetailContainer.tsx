@@ -37,11 +37,7 @@ export default ({ taskId, className, onClose }: Props): ReactElement => {
   return (
     <div className={className}>
       <Paper elevation={0}>
-        <Typography
-          variant="h6"
-          className={styles.TaskDetailContent}
-          style={task.status === 'done' ? { textDecoration: 'line-through' } : undefined}
-        >
+        <Typography variant="h6" className={styles.TaskDetailContent}>
           <IconButton
             edge="start"
             color="inherit"
