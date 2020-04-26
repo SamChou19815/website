@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { useSelector } from 'react-redux';
 
 import { TaskId } from '../../models/ids';
-import { flattenedTopologicalSort, reorderByCompletion } from '../../models/redux-store-task';
+import { flattenedTopologicalSort } from '../../models/redux-store-task';
 import { ReduxStoreState, ReduxStoreTask } from '../../models/redux-store-types';
 import useWindowSize from '../hooks/useWindowSize';
 import MasonryTaskContainer from './MasonryTaskContainer';
@@ -15,7 +15,7 @@ import styles from './TasksPanel.module.css';
 
 export default (): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>((state) =>
-    reorderByCompletion(flattenedTopologicalSort(Object.values(state.tasks)))
+    flattenedTopologicalSort(Object.values(state.tasks))
   );
   const [mode, setMode] = useState<'dashboard' | 'graph'>('dashboard');
   const [taskDetailPanelTaskId, setTaskDetailPanelTaskId] = useState<TaskId | null>(null);
