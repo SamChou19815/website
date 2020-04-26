@@ -11,15 +11,3 @@
     width: 300px;
   }
 }
-
-.TaskCardHeaderIcon {
-  cursor: pointer;
-}
-
-.TaskCardLessOpacity {
-  opacity: 0.7;
-}
-
-.TaskCardTitleStrikeThrough {
-  text-decoration: line-through;
-}

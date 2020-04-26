@@ -39,7 +39,7 @@ export const saveTask = (taskId: TaskId, task: EditableTask): void => {
 };
 
 export const createNewTask = (task: EditableTask): void => {
-  createTask({ owner: getAppUser().email, completed: false, ...task });
+  createTask({ owner: getAppUser().email, status: 'to-do', ...task });
 };
 
 export default ({ taskId, values, onChange }: Props): ReactElement => {

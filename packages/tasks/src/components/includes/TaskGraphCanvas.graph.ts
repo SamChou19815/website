@@ -160,7 +160,6 @@ type GraphCardComponent = TaskRectangle & {
 };
 type GraphIconComponent = TaskRectangle & {
   readonly task: ReduxStoreTask;
-  readonly completed: boolean;
 };
 type GraphTextComponent = TaskRectangle & {
   readonly task: ReduxStoreTask;
@@ -234,7 +233,6 @@ export const generateGraphComponents = (
 
       icons.push({
         task,
-        completed: task.completed,
         startX: startX + PADDING / 2,
         startY: startY - ICON_SIZE / 2 + HEIGHT / 2 + 4,
       });
