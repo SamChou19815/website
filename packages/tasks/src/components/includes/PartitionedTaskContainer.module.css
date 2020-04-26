@@ -1,0 +1,21 @@
+.ColumnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+}
+
+.Column {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 1em;
+  padding: 1em;
+}
+
+.Title {
+  text-align: center;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
