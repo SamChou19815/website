@@ -9,22 +9,15 @@ import TaskCard from './TaskCard';
 
 type Props = {
   readonly tasks: readonly ReduxStoreTask[];
-  readonly breakpointColumn: number;
   readonly onTaskClicked: (taskId: TaskId) => void;
 };
 
-export default ({ tasks, breakpointColumn, onTaskClicked }: Props): ReactElement => {
-  const children: ReactElement[] = reorderByCompletion(tasks).map((task) => (
-    <TaskCard key={task.taskId} task={task} onDetailClick={() => onTaskClicked(task.taskId)} />
-  ));
-
+export default ({ tasks, onTaskClicked }: Props): ReactElement => {
   return (
-    <Masonry
-      breakpointCols={breakpointColumn}
-      className="masonry-grid"
-      columnClassName="masonry-grid-column"
-    >
-      {children}
+    <Masonry breakpointCols={3} className="masonry-grid" columnClassName="masonry-grid-column">
+      {reorderByCompletion(tasks).map((task) => (
+        <TaskCard key={task.taskId} task={task} onDetailClick={() => onTaskClicked(task.taskId)} />
+      ))}
     </Masonry>
   );
 };
