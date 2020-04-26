@@ -1,11 +1,9 @@
 import React, { ReactElement } from 'react';
 
-import Assignment from '@material-ui/icons/Assignment';
-import AssignmentDone from '@material-ui/icons/AssignmentTurnedIn';
-
 import { TaskId } from '../../models/ids';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import { sanctionedColorMapping } from '../../util/constants';
+import { getComponent } from './CheckboxIcon';
 import { minimizeCross, generateGraphComponents } from './TaskGraphCanvas.graph';
 import styles from './TaskGraphCanvas.module.css';
 
@@ -41,26 +39,16 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
 
   const TaskIcon = ({
     task,
-    completed,
     startX,
     startY,
   }: {
     readonly startX: number;
     readonly startY: number;
     readonly task: ReduxStoreTask;
-    readonly completed: boolean;
-  }): ReactElement =>
-    completed ? (
-      <AssignmentDone
-        className={styles.CanvasIcon}
-        x={startX}
-        y={startY}
-        width={iconSize}
-        height={iconSize}
-        onClick={() => onTaskClicked(task.taskId)}
-      />
-    ) : (
-      <Assignment
+  }): ReactElement => {
+    const Component = getComponent(task.status);
+    return (
+      <Component
         className={styles.CanvasIcon}
         x={startX}
         y={startY}
@@ -69,6 +57,7 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
         onClick={() => onTaskClicked(task.taskId)}
       />
     );
+  };
 
   return (
     <svg
@@ -84,20 +73,14 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
           y={startY}
           width={width}
           height={height}
-          opacity={task.completed ? 0.7 : 1}
+          opacity={task.status === 'done' ? 0.7 : 1}
           fill={color ?? sanctionedColorMapping.Blue}
           className={styles.CanvasClickable}
           onClick={() => onTaskClicked(task.taskId)}
         />
       ))}
-      {icons.map(({ task, completed, startX, startY }) => (
-        <TaskIcon
-          key={task.taskId}
-          task={task}
-          completed={completed}
-          startX={startX}
-          startY={startY}
-        />
+      {icons.map(({ task, startX, startY }) => (
+        <TaskIcon key={task.taskId} task={task} startX={startX} startY={startY} />
       ))}
       {texts.map(({ task, text, startX, startY, maxWidth }) => (
         <text
@@ -108,7 +91,7 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
           fontSize={textSize}
           max={maxWidth}
           className={styles.CanvasClickable}
-          style={task.completed ? { textDecoration: 'line-through' } : {}}
+          style={task.status === 'done' ? { textDecoration: 'line-through' } : {}}
           onClick={() => onTaskClicked(task.taskId)}
         >
           {text}

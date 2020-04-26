@@ -1,4 +1,4 @@
-import { SanctionedColor } from './common-types';
+import { SanctionedColor, TaskStatus } from './common-types';
 import { TaskId } from './ids';
 
 export type FirestoreTask = {
@@ -6,7 +6,7 @@ export type FirestoreTask = {
   readonly name: string;
   readonly color: SanctionedColor;
   readonly content: string;
-  readonly completed: boolean;
+  readonly status: TaskStatus;
   readonly dependencies: readonly TaskId[];
 };
 export type FirestoreTaskWithId = FirestoreTask & { readonly taskId: string };

@@ -1,3 +1,4 @@
+import { TaskStatus } from './common-types';
 import { TaskId, createTaskId } from './ids';
 import { ReduxStoreTasksMap, ReduxStoreTask } from './redux-store-types';
 
@@ -132,18 +133,10 @@ export const hasInternallyReachableTask = (
   return false;
 };
 
-export const reorderByCompletion = (
+export const partitionTaskByStatus = (
   tasks: readonly ReduxStoreTask[]
-): readonly ReduxStoreTask[] => {
-  const sorted: ReduxStoreTask[] = tasks.filter((task) => !task.completed);
-  sorted.push(...tasks.filter((task) => task.completed));
-  return sorted;
-};
-
-export const partitionTaskByCompletion = (
-  tasks: readonly ReduxStoreTask[]
-): { readonly uncompleted: readonly ReduxStoreTask[]; completed: readonly ReduxStoreTask[] } => {
-  const uncompleted = tasks.filter((task) => !task.completed);
-  const completed = tasks.filter((task) => task.completed);
-  return { uncompleted, completed };
-};
+): { readonly [status in TaskStatus]: readonly ReduxStoreTask[] } => ({
+  'to-do': tasks.filter((task) => task.status === 'to-do'),
+  'in-progress': tasks.filter((task) => task.status === 'in-progress'),
+  done: tasks.filter((task) => task.status === 'done'),
+});

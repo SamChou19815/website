@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import { TaskId } from '../../models/ids';
-import { partitionTaskByCompletion } from '../../models/redux-store-task';
+import { partitionTaskByStatus } from '../../models/redux-store-task';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import styles from './PartitionedTaskContainer.module.css';
 import TaskCard from './TaskCard';
@@ -35,12 +35,17 @@ type Props = {
 };
 
 export default ({ tasks, onTaskClicked }: Props): ReactElement => {
-  const { uncompleted, completed } = partitionTaskByCompletion(tasks);
+  const partitioned = partitionTaskByStatus(tasks);
 
   return (
     <div className={styles.ColumnContainer}>
-      <Column title="Uncompleted" tasks={uncompleted} onTaskClicked={onTaskClicked} />
-      <Column title="Completed" tasks={completed} onTaskClicked={onTaskClicked} />
+      <Column title="To do" tasks={partitioned['to-do']} onTaskClicked={onTaskClicked} />
+      <Column
+        title="In progress"
+        tasks={partitioned['in-progress']}
+        onTaskClicked={onTaskClicked}
+      />
+      <Column title="Done" tasks={partitioned.done} onTaskClicked={onTaskClicked} />
     </div>
   );
 };
