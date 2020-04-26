@@ -16795,15 +16795,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-masonry-css@npm:^1.0.14":
-  version: 1.0.14
-  resolution: "react-masonry-css@npm:1.0.14"
-  peerDependencies:
-    react: ^16.0.0
-  checksum: 2/01facd7894d1c2e5c90e2f5a4b3aaf3de0edd1bed6171d8cec1405c3ad049cc8c90a1e40c2706ef5b8e44aaddc736a61eac33cb5fb3284d58c20cef8e7ef9332
-  languageName: node
-  linkType: hard
-
 "react-redux@npm:^7.2.0":
   version: 7.2.0
   resolution: "react-redux@npm:7.2.0"
@@ -19295,7 +19286,6 @@ resolve@1.15.0:
     react-app-rewired: ^2.1.5
     react-dom: ^16.13.1
     react-firebaseui: ^4.1.0
-    react-masonry-css: ^1.0.14
     react-redux: ^7.2.0
     react-scripts: 3.4.1
     redux: ^4.0.5
