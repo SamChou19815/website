@@ -48,13 +48,6 @@ export default (): void =>
           highlight.NUMBER_MODE,
           highlight.QUOTE_STRING_MODE,
           {
-            className: 'function-call',
-            begin: /\./,
-            end: /\(/,
-            excludeBegin: true,
-            excludeEnd: true,
-          },
-          {
             className: 'punctuations',
             begin: /,|\[|]|\.|=|->|:/,
             end: '',
