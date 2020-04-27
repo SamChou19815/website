@@ -1526,6 +1526,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@docusaurus/module-type-aliases@npm:^2.0.0-alpha.51":
+  version: 2.0.0-alpha.53
+  resolution: "@docusaurus/module-type-aliases@npm:2.0.0-alpha.53"
+  checksum: 2/c60f4e6d9072f997e116354f79a1550422862291d87f8a2f28e9627c8add4d3c758820d3f6a7cf57c0e9a0bd84b343510d924ff71d14b68bc27af128c57458f3
+  languageName: node
+  linkType: hard
+
 "@docusaurus/plugin-content-blog@npm:^2.0.0-alpha.53":
   version: 2.0.0-alpha.53
   resolution: "@docusaurus/plugin-content-blog@npm:2.0.0-alpha.53"
@@ -17928,6 +17935,7 @@ resolve@1.15.0:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@docusaurus/module-type-aliases": ^2.0.0-alpha.51
     "@types/jest": ^25.2.1
     "@types/node": ^13.13.4
     "@types/react": ^16.9.34
