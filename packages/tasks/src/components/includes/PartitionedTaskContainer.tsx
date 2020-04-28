@@ -11,6 +11,7 @@ import { getPatchTasksAction } from '../../models/redux-store';
 import { partitionTaskByStatus } from '../../models/redux-store-task';
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import { editTask } from '../../util/firestore-actions';
+import getCheckboxIconComponent from './CheckboxIcon';
 import styles from './PartitionedTaskContainer.module.css';
 import TaskCard from './TaskCard';
 
@@ -22,12 +23,17 @@ type ColumnProps = {
 };
 
 const Column = ({ title, status, tasks, onTaskClicked }: ColumnProps): ReactElement => {
+  const Icon = getCheckboxIconComponent(status);
+
   return (
     <Droppable droppableId={status}>
       {(droppableProvided) => (
         <div ref={droppableProvided.innerRef}>
           <div className={styles.Column}>
-            <div className={styles.Title}>{title}</div>
+            <div className={styles.Title}>
+              <Icon />
+              <span className={styles.TitleText}>{title}</span>
+            </div>
             <div>
               {tasks.map((task, index) => (
                 <Draggable key={task.taskId} draggableId={task.taskId} index={index}>

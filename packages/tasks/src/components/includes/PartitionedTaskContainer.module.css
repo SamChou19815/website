@@ -1,6 +1,7 @@
 .ColumnContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
@@ -16,7 +17,15 @@
 }
 
 .Title {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
   padding-bottom: 1em;
   border-bottom: 1px solid #ccc;
+}
+
+.TitleText {
+  margin-left: 8px;
+  line-height: 24px;
 }
