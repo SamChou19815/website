@@ -12,8 +12,8 @@
     "deploy": "node ../../node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.53",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.53",
+    "@docusaurus/core": "^2.0.0-alpha.54",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.54",
     "classnames": "^2.2.6",
     "lib-react": "0.1.0",
     "react": "^16.13.1",
