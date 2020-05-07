@@ -6,6 +6,7 @@ on:
     paths:
       - packages/lib-common/**
       - packages/lib-firebase/**
+      - packages/lib-prism-extended/**
       - packages/lib-react/**
       - packages/tasks/**
       - package.json

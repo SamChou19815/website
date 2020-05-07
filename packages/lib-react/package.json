@@ -12,11 +12,11 @@
     "compile": "tsc",
     "test": "echo 'Tests are in lib-tests.'"
   },
-  "files": [
-    "*.js",
-    "*.d.ts",
-    "*.css"
-  ],
+  "dependencies": {
+    "lib-prism-extended": "0.1.0",
+    "prism-react-renderer": "^1.1.0",
+    "prismjs": "^1.20.0"
+  },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@material-ui/core": "^4.9.12",
     "@types/highlight.js": "^9.12.3",
+    "@types/prismjs": "^1.16.0",
     "@types/remarkable": "^1.7.4",
     "highlight.js": "^10.0.1",
     "react": "^16.13.1",

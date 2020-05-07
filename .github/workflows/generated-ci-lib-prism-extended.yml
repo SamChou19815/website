@@ -1,16 +1,14 @@
 # @generated
 
-name: CI samlang
+name: CI lib-prism-extended
 on:
   push:
     paths:
       - packages/lib-prism-extended/**
-      - packages/lib-react/**
-      - packages/samlang/**
       - package.json
       - yarn.lock
       - configuration/**
-      - .github/workflows/generated-*-samlang.yml
+      - .github/workflows/generated-*-lib-prism-extended.yml
 
 jobs:
   build:
@@ -22,6 +20,6 @@ jobs:
       - name: Yarn Install
         run: yarn install
       - name: Compile
-        run: yarn workspace samlang compile
+        run: yarn workspace lib-prism-extended compile
       - name: Test
-        run: yarn workspace samlang test
+        run: yarn workspace lib-prism-extended test

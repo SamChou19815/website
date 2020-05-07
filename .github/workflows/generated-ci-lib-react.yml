@@ -4,6 +4,7 @@ name: CI lib-react
 on:
   push:
     paths:
+      - packages/lib-prism-extended/**
       - packages/lib-react/**
       - package.json
       - yarn.lock
