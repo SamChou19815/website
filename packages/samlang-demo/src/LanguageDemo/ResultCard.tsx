@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CodeBlock from 'lib-react/PrismCodeBlock';
-import initialize from 'lib-react/language';
 
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
@@ -13,8 +12,6 @@ import { Response } from './interpret';
 type Props = {
   readonly response: Response | 'waiting' | 'server-error' | null;
 };
-
-initialize();
 
 const ErrorDetail = ({ children }: { readonly children: string }): ReactElement => (
   <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'red' }}>
@@ -55,7 +52,7 @@ export default function ResultCard({ response }: Props): ReactElement {
               <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'green' }}>
                 <h3>Pretty Printed Program:</h3>
                 <CodeBlock language="samlang" className={ResultStyles.CodeBlock}>
-                  {prettyPrintedProgram.trim()}
+                  {prettyPrintedProgram}
                 </CodeBlock>
               </div>
             </div>

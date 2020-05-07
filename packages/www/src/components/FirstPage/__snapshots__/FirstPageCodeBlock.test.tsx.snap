@@ -18,49 +18,6 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     }
   >
     <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-    >
-      
-    </span>
-    <span
       className="token comment"
       style={
         Object {
@@ -1374,25 +1331,6 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token plain"
     >
       }
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
     </span>
   </div>
 </pre>
