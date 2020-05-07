@@ -40,9 +40,7 @@ export default (): ReactElement => (
       <FirstPage />
       <ProjectsSection />
       <TechTalkSection />
-      <Suspense fallback={null}>
-        <TimelineSection />
-      </Suspense>
+      <TimelineSection />
       <Suspense fallback={null}>
         <WebTerminal />
       </Suspense>
