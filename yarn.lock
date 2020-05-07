@@ -3066,6 +3066,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prismjs@npm:^1.16.0":
+  version: 1.16.0
+  resolution: "@types/prismjs@npm:1.16.0"
+  checksum: 2/40b9d00eff60acabea8b475a897aca590ad6d9884ed5deb6129ea8d37aa22675c3b1da74975b2756a4415db607367b9122d74523a1c59a62e80368853c34ab43
+  languageName: node
+  linkType: hard
+
 "@types/prop-types@npm:*":
   version: 15.7.3
   resolution: "@types/prop-types@npm:15.7.3"
@@ -12681,14 +12688,24 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
+"lib-prism-extended@0.1.0, lib-prism-extended@workspace:packages/lib-prism-extended":
+  version: 0.0.0-use.local
+  resolution: "lib-prism-extended@workspace:packages/lib-prism-extended"
+  languageName: unknown
+  linkType: soft
+
 "lib-react@0.1.0, lib-react@workspace:packages/lib-react":
   version: 0.0.0-use.local
   resolution: "lib-react@workspace:packages/lib-react"
   dependencies:
     "@material-ui/core": ^4.9.12
     "@types/highlight.js": ^9.12.3
+    "@types/prismjs": ^1.16.0
     "@types/remarkable": ^1.7.4
     highlight.js: ^10.0.1
+    lib-prism-extended: 0.1.0
+    prism-react-renderer: ^1.1.0
+    prismjs: ^1.20.0
     react: ^16.13.1
     react-dom: ^16.13.1
     remarkable: ^2.0.0

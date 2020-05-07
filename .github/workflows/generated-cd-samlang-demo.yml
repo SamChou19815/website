@@ -6,6 +6,7 @@ on:
     branches:
       - master
     paths:
+      - packages/lib-prism-extended/**
       - packages/lib-react/**
       - packages/samlang-demo/**
       - package.json

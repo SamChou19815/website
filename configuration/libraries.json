@@ -1,6 +1,7 @@
 [
   "lib-common",
   "lib-firebase",
+  "lib-prism-extended",
   "lib-react",
   "lib-tests"
 ]

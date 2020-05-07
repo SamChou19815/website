@@ -3,7 +3,7 @@ import React, { ReactNode, ReactElement } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import CodeBlock from 'lib-react/CodeBlock';
+import CodeBlock from 'lib-react/PrismCodeBlock';
 import initialize from 'lib-react/language';
 
 import DemoStyles from './LanguageDemo.module.css';
@@ -49,12 +49,14 @@ export default function ResultCard({ response }: Props): ReactElement {
           <div>
             <div className={ResultStyles.ColoredResult} style={resultNodeStyle}>
               <h3>Program Running Result</h3>
-              <code>{result}</code>
+              <pre>{result}</pre>
             </div>
             <div>
               <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'green' }}>
                 <h3>Pretty Printed Program:</h3>
-                <CodeBlock language="samlang">{prettyPrintedProgram}</CodeBlock>
+                <CodeBlock language="samlang" className={ResultStyles.CodeBlock}>
+                  {prettyPrintedProgram.trim()}
+                </CodeBlock>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import CodeBlock from 'lib-react/CodeBlock';
+import CodeBlock from 'lib-react/PrismCodeBlock';
 
 import styles from './FirstPageCodeBlock.module.css';
 

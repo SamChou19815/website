@@ -1,6 +1,7 @@
 .Block {
   width: 450px;
   height: 670px;
+  padding: 0.5em;
   line-height: 1.5em;
 }
 

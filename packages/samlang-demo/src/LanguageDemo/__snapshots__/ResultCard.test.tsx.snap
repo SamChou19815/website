@@ -108,9 +108,9 @@ exports[`ResultCard(GOOD_PROGRAM) matches snapshot. 1`] = `
         <h3>
           Program Running Result
         </h3>
-        <code>
+        <pre>
           haha
-        </code>
+        </pre>
       </div>
       <div>
         <div
@@ -124,12 +124,53 @@ exports[`ResultCard(GOOD_PROGRAM) matches snapshot. 1`] = `
           <h3>
             Pretty Printed Program:
           </h3>
-          <pre>
-            <code
-              className="samlang"
+          <pre
+            className="prism-code language-samlang CodeBlock"
+            style={
+              Object {
+                "backgroundColor": "#f7f7f7",
+              }
+            }
+          >
+            <div
+              className="token-line"
+              style={
+                Object {
+                  "backgroundColor": null,
+                }
+              }
             >
-              class HelloWorld {}
-            </code>
+              <span
+                className="token keyword"
+                style={
+                  Object {
+                    "color": "rgb(62, 122, 226)",
+                  }
+                }
+              >
+                class
+              </span>
+              <span
+                className="token plain"
+              >
+                 
+              </span>
+              <span
+                className="token class-name"
+                style={
+                  Object {
+                    "color": "rgb(154, 48, 173)",
+                  }
+                }
+              >
+                HelloWorld
+              </span>
+              <span
+                className="token plain"
+              >
+                 {}
+              </span>
+            </div>
           </pre>
         </div>
       </div>

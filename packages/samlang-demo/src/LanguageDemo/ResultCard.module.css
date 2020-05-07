@@ -5,3 +5,7 @@
   border-left-style: solid;
   border-left-width: 2px;
 }
+
+.CodeBlock {
+  padding: 0.5em;
+}

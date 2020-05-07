@@ -6,45 +6,1399 @@ exports[`FirstPage matches snapshot. 1`] = `
   id="about"
 >
   <pre
-    className="Block"
+    className="prism-code language-samlang Block"
+    style={
+      Object {
+        "backgroundColor": "#f7f7f7",
+      }
+    }
   >
-    <code
-      className="samlang"
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
     >
-      
-
-/**
- * Copyright (C) 2015–2020 Developer Sam.
- *
- * @author sam
- */
-
-// Basic information of sam, written in SAMLANG.
-// The code below is a well-typed SAMLANG program.
-// Try it by yourself at
-// https://samlang-demo.developersam.com
-
-class List&lt;T&gt;(Nil(unit), Cons([T * List&lt;T&gt;])) {
-  function &lt;T&gt; of(t: T): List&lt;T&gt; =
-    Cons([t, Nil({})])
-  method cons(t: T): List&lt;T&gt; =
-    Cons([t, this])
-}
-class Developer(
-  val name: string, val github: string,
-  val projects: List&lt;string&gt;,
-) {
-  function sam(): Developer = {
-    val l = List.of("SAMLANG").cons("...")
-    val github = "SamChou19815"
-    { name: "Sam Zhou", github, projects: l }
-  }
-}
-class Main {
-  function main(): Developer = Developer.sam()
-}
-
-    </code>
+      <span
+        className="token plain"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+        /**
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+         * Copyright (C) 2015–2020 Developer Sam.
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+         *
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+         * @author sam
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+         */
+      </span>
+      <span
+        className="token plain"
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+        // Basic information of sam, written in SAMLANG.
+      </span>
+      <span
+        className="token plain"
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+        // The code below is a well-typed SAMLANG program.
+      </span>
+      <span
+        className="token plain"
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+        // Try it by yourself at
+      </span>
+      <span
+        className="token plain"
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token comment"
+        style={
+          Object {
+            "color": "rgb(128, 128, 128)",
+            "fontStyle": "italic",
+          }
+        }
+      >
+        // https://samlang-demo.developersam.com
+      </span>
+      <span
+        className="token plain"
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        class
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        List
+      </span>
+      <span
+        className="token plain"
+      >
+        &lt;
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+        &gt;(
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Nil
+      </span>
+      <span
+        className="token plain"
+      >
+        (
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        unit
+      </span>
+      <span
+        className="token plain"
+      >
+        ), 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Cons
+      </span>
+      <span
+        className="token plain"
+      >
+        ([
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token operator"
+        style={
+          Object {
+            "color": "rgb(56, 72, 79)",
+          }
+        }
+      >
+        *
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        List
+      </span>
+      <span
+        className="token plain"
+      >
+        &lt;
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+        &gt;])) {
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+          
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        function
+      </span>
+      <span
+        className="token plain"
+      >
+         &lt;
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+        &gt; 
+      </span>
+      <span
+        className="token function"
+        style={
+          Object {
+            "color": "rgb(213, 34, 98)",
+          }
+        }
+      >
+        of
+      </span>
+      <span
+        className="token plain"
+      >
+        (t: 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+        ): 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        List
+      </span>
+      <span
+        className="token plain"
+      >
+        &lt;
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+        &gt; =
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+            
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Cons
+      </span>
+      <span
+        className="token plain"
+      >
+        ([t, 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Nil
+      </span>
+      <span
+        className="token plain"
+      >
+        ({})])
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+          
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        method
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token function"
+        style={
+          Object {
+            "color": "rgb(213, 34, 98)",
+          }
+        }
+      >
+        cons
+      </span>
+      <span
+        className="token plain"
+      >
+        (t: 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+        ): 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        List
+      </span>
+      <span
+        className="token plain"
+      >
+        &lt;
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        T
+      </span>
+      <span
+        className="token plain"
+      >
+        &gt; =
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+            
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Cons
+      </span>
+      <span
+        className="token plain"
+      >
+        ([t, 
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        this
+      </span>
+      <span
+        className="token plain"
+      >
+        ])
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        }
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        class
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Developer
+      </span>
+      <span
+        className="token plain"
+      >
+        (
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+          
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        val
+      </span>
+      <span
+        className="token plain"
+      >
+         name: 
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        string
+      </span>
+      <span
+        className="token plain"
+      >
+        , 
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        val
+      </span>
+      <span
+        className="token plain"
+      >
+         github: 
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        string
+      </span>
+      <span
+        className="token plain"
+      >
+        ,
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+          
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        val
+      </span>
+      <span
+        className="token plain"
+      >
+         projects: 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        List
+      </span>
+      <span
+        className="token plain"
+      >
+        &lt;
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        string
+      </span>
+      <span
+        className="token plain"
+      >
+        &gt;,
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        ) {
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+          
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        function
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token function"
+        style={
+          Object {
+            "color": "rgb(213, 34, 98)",
+          }
+        }
+      >
+        sam
+      </span>
+      <span
+        className="token plain"
+      >
+        (): 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Developer
+      </span>
+      <span
+        className="token plain"
+      >
+         = {
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+            
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        val
+      </span>
+      <span
+        className="token plain"
+      >
+         l = 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        List
+      </span>
+      <span
+        className="token plain"
+      >
+        .
+      </span>
+      <span
+        className="token function"
+        style={
+          Object {
+            "color": "rgb(213, 34, 98)",
+          }
+        }
+      >
+        of
+      </span>
+      <span
+        className="token plain"
+      >
+        (
+      </span>
+      <span
+        className="token string"
+        style={
+          Object {
+            "color": "rgb(26, 143, 82)",
+          }
+        }
+      >
+        "SAMLANG"
+      </span>
+      <span
+        className="token plain"
+      >
+        ).
+      </span>
+      <span
+        className="token function"
+        style={
+          Object {
+            "color": "rgb(213, 34, 98)",
+          }
+        }
+      >
+        cons
+      </span>
+      <span
+        className="token plain"
+      >
+        (
+      </span>
+      <span
+        className="token string"
+        style={
+          Object {
+            "color": "rgb(26, 143, 82)",
+          }
+        }
+      >
+        "..."
+      </span>
+      <span
+        className="token plain"
+      >
+        )
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+            
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        val
+      </span>
+      <span
+        className="token plain"
+      >
+         github = 
+      </span>
+      <span
+        className="token string"
+        style={
+          Object {
+            "color": "rgb(26, 143, 82)",
+          }
+        }
+      >
+        "SamChou19815"
+      </span>
+      <span
+        className="token plain"
+      >
+        
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+            { name: 
+      </span>
+      <span
+        className="token string"
+        style={
+          Object {
+            "color": "rgb(26, 143, 82)",
+          }
+        }
+      >
+        "Sam Zhou"
+      </span>
+      <span
+        className="token plain"
+      >
+        , github, projects: l }
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+          }
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        }
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        class
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Main
+      </span>
+      <span
+        className="token plain"
+      >
+         {
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+          
+      </span>
+      <span
+        className="token keyword"
+        style={
+          Object {
+            "color": "rgb(62, 122, 226)",
+          }
+        }
+      >
+        function
+      </span>
+      <span
+        className="token plain"
+      >
+         
+      </span>
+      <span
+        className="token function"
+        style={
+          Object {
+            "color": "rgb(213, 34, 98)",
+          }
+        }
+      >
+        main
+      </span>
+      <span
+        className="token plain"
+      >
+        (): 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Developer
+      </span>
+      <span
+        className="token plain"
+      >
+         = 
+      </span>
+      <span
+        className="token class-name"
+        style={
+          Object {
+            "color": "rgb(154, 48, 173)",
+          }
+        }
+      >
+        Developer
+      </span>
+      <span
+        className="token plain"
+      >
+        .
+      </span>
+      <span
+        className="token function"
+        style={
+          Object {
+            "color": "rgb(213, 34, 98)",
+          }
+        }
+      >
+        sam
+      </span>
+      <span
+        className="token plain"
+      >
+        ()
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+      >
+        }
+      </span>
+    </div>
+    <div
+      className="token-line"
+      style={
+        Object {
+          "backgroundColor": null,
+        }
+      }
+    >
+      <span
+        className="token plain"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        
+      </span>
+    </div>
   </pre>
   <div
     className="MuiPaper-root MuiCard-root InfoCard MuiPaper-elevation1 MuiPaper-rounded"

@@ -3,7 +3,7 @@
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import autosize from 'autosize';
-import CodeBlock from 'lib-react/CodeBlock';
+import CodeBlock from 'lib-react/PrismCodeBlock';
 
 import styles from './Editor.module.css';
 
