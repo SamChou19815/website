@@ -1697,7 +1697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/types@npm:^2.0.0-alpha.54":
+"@docusaurus/types@npm:2.0.0-alpha.54, @docusaurus/types@npm:^2.0.0-alpha.54":
   version: 2.0.0-alpha.54
   resolution: "@docusaurus/types@npm:2.0.0-alpha.54"
   dependencies:
@@ -4907,6 +4907,7 @@ __metadata:
     "@docusaurus/plugin-google-gtag": ^2.0.0-alpha.37
     "@docusaurus/preset-classic": ^2.0.0-alpha.54
     classnames: ^2.2.6
+    lib-docusaurus-prism-extended-plugin: 0.1.0
     lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
@@ -12673,6 +12674,14 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
+"lib-docusaurus-prism-extended-plugin@0.1.0, lib-docusaurus-prism-extended-plugin@workspace:packages/lib-docusaurus-prism-extended-plugin":
+  version: 0.0.0-use.local
+  resolution: "lib-docusaurus-prism-extended-plugin@workspace:packages/lib-docusaurus-prism-extended-plugin"
+  dependencies:
+    "@docusaurus/types": 2.0.0-alpha.54
+  languageName: unknown
+  linkType: soft
+
 "lib-firebase@0.1.0, lib-firebase@workspace:packages/lib-firebase":
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
@@ -18062,6 +18071,7 @@ resolve@1.15.0:
     "@docusaurus/core": ^2.0.0-alpha.54
     "@docusaurus/preset-classic": ^2.0.0-alpha.54
     classnames: ^2.2.6
+    lib-docusaurus-prism-extended-plugin: 0.1.0
     lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1

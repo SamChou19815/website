@@ -18,13 +18,14 @@ Prism.languages.samlang = {
   },
   keyword: [
     {
-      pattern: /(class|val|function|method|import|private|if|then|else|match|from|unit|int|bool|string|this)/,
+      pattern: /(class|val|function|method|import|private|if|then|else|match|from|unit|int|bool|string|this)\b/,
     },
   ],
   boolean: /\b(?:true|false)\b/,
   'class-name': [
     {
-      pattern: /[A-Z][A-Za-z0-9]*/,
+      pattern: /(\b)[A-Z][A-Za-z0-9]*/,
+      lookbehind: true,
     },
   ],
   operator: /-|\+|\*|\/|%|&&|\|\|/,

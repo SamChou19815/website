@@ -15,6 +15,7 @@
     "@docusaurus/core": "^2.0.0-alpha.54",
     "@docusaurus/preset-classic": "^2.0.0-alpha.54",
     "classnames": "^2.2.6",
+    "lib-docusaurus-prism-extended-plugin": "0.1.0",
     "lib-react": "0.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

@@ -8,7 +8,6 @@ import { linkify } from 'remarkable/linkify';
 
 import registerLanguage from './language';
 import remarkableCheckboxPlugin from './remarkable-checkbox-plugin';
-import './CodeBlock.css';
 import './MarkdownBlock.css';
 
 registerLanguage();

@@ -1,5 +1,6 @@
 [
   "lib-common",
+  "lib-docusaurus-prism-extended-plugin",
   "lib-firebase",
   "lib-prism-extended",
   "lib-react",
