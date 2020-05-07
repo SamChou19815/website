@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CodeBlock from 'lib-react/CodeBlock';
+import CodeBlock from 'lib-react/PrismCodeBlock';
 import renderer from 'react-test-renderer';
 
 const createSamLangTest = (name: string, code: string) => {

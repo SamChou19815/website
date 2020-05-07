@@ -5,6 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const theme = require('lib-react/prims-theme.json');
+
 module.exports = {
   title: 'SAMLANG',
   tagline: "Sam's Programming Language",
@@ -14,6 +17,9 @@ module.exports = {
   organizationName: 'SamChou19815',
   projectName: 'samlang',
   themeConfig: {
+    prism: {
+      theme,
+    },
     navbar: {
       title: 'SAMLANG',
       logo: {
@@ -109,4 +115,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: ['lib-docusaurus-prism-extended-plugin'],
 };

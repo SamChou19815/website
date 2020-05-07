@@ -135,7 +135,7 @@ jobs:
         run: yarn workspace main-site-frontend build
 ```
 
-```yml
+```yaml
 # Source: https://github.com/SamChou19815/website/blob
 # /03d8fbc6f3fbfcc7a0a3e1c40d7c32e2f21a5129
 # /.github/workflows/cd-workflow-main-site-frontend.yml
@@ -172,7 +172,6 @@ jobs:
         run: |
           ./main-site-frontend/node_modules/.bin/firebase deploy \
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:main-site
-
 ```
 
 #### Step 2: Deduplication
@@ -256,16 +255,12 @@ already gives us a JSON of all direct dependencies between packages:
 {
   "blog": {
     "location": "blog",
-    "workspaceDependencies": [
-      "sam-highlighter"
-    ],
+    "workspaceDependencies": ["sam-highlighter"],
     "mismatchedWorkspaceDependencies": []
   },
   "main-site-frontend": {
     "location": "main-site-frontend",
-    "workspaceDependencies": [
-      "sam-highlighter"
-    ],
+    "workspaceDependencies": ["sam-highlighter"],
     "mismatchedWorkspaceDependencies": []
   },
   "sam-highlighter": {
@@ -275,16 +270,12 @@ already gives us a JSON of all direct dependencies between packages:
   },
   "samlang-demo-frontend": {
     "location": "samlang-demo-frontend",
-    "workspaceDependencies": [
-      "sam-highlighter"
-    ],
+    "workspaceDependencies": ["sam-highlighter"],
     "mismatchedWorkspaceDependencies": []
   },
   "samlang-docs": {
     "location": "samlang-docs",
-    "workspaceDependencies": [
-      "sam-highlighter"
-    ],
+    "workspaceDependencies": ["sam-highlighter"],
     "mismatchedWorkspaceDependencies": []
   },
   "ten-web-frontend": {

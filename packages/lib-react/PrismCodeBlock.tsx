@@ -1,6 +1,6 @@
 import React, { ReactElement, CSSProperties } from 'react';
 
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import Prism from 'prismjs/components/prism-core';
@@ -8,7 +8,7 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-kotlin';
 import 'lib-prism-extended';
 
-import theme from './prims-theme';
+import theme from './prims-theme.json';
 
 type Props = {
   readonly language: string;
@@ -28,7 +28,7 @@ export default ({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
       Prism={Prism}
-      theme={theme}
+      theme={theme as PrismTheme}
       code={children}
       language={language as Language}
     >

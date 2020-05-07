@@ -5,6 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const theme = require('lib-react/prims-theme.json');
+
 module.exports = {
   title: 'Blog',
   tagline: 'Developer Sam Blog',
@@ -15,6 +18,10 @@ module.exports = {
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
     disableDarkMode: true,
+    prism: {
+      theme,
+      additionalLanguages: ['java'],
+    },
     navbar: {
       title: 'Developer Sam Blog',
       links: [
@@ -59,5 +66,6 @@ module.exports = {
     '@docusaurus/plugin-google-analytics',
     '@docusaurus/plugin-google-gtag',
     '@docusaurus/plugin-sitemap',
+    'lib-docusaurus-prism-extended-plugin',
   ],
 };

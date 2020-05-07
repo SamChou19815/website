@@ -10,9 +10,9 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import CodeBlock from '@theme/CodeBlock';
 import Layout from '@theme/Layout';
 import classnames from 'classnames';
-import CodeBlock from 'lib-react/CodeBlock';
 import initialize from 'lib-react/language';
 
 import styles from './styles.module.css';
@@ -108,9 +108,7 @@ function Home() {
                     className={classnames('col col--6', styles.feature, styles.CodeBlockWrapper)}
                   >
                     <h3>{title}</h3>
-                    <CodeBlock language="samlang" className={styles.CodeBlock}>
-                      {code}
-                    </CodeBlock>
+                    <CodeBlock className="samlang">{code}</CodeBlock>
                   </div>
                 ))}
               </div>
