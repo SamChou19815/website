@@ -13,11 +13,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import CodeBlock from '@theme/CodeBlock';
 import Layout from '@theme/Layout';
 import classnames from 'classnames';
-import initialize from 'lib-react/language';
 
 import styles from './styles.module.css';
-
-initialize();
 
 const HELLO_WORLD_CODE = `class Main {
   function main(): string = "Hello World"

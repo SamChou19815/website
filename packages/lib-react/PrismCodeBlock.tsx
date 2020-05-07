@@ -1,20 +1,29 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import React, { ReactElement, CSSProperties } from 'react';
 
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
-import Prism from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-kotlin';
-import 'lib-prism-extended';
+import Prism from 'prism-react-renderer/prism';
 
-import theme from './prims-theme.json';
+import theme from './prism-theme.json';
+
+window.Prism = Prism;
+
+require('lib-prism-extended');
+require('prismjs/components/prism-clike');
+require('prismjs/components/prism-java');
+require('prismjs/components/prism-kotlin');
+require('prismjs/components/prism-yaml');
+
+delete window.Prism;
 
 type Props = {
   readonly language: string;
   readonly children: string;
   readonly className?: string;
   readonly style?: CSSProperties;
+  readonly excludeWrapper?: boolean;
 };
 
 export default ({
@@ -22,14 +31,14 @@ export default ({
   children,
   className: userDefinedClassname,
   style: userDefinedStyles,
+  excludeWrapper,
 }: Props): ReactElement => {
   return (
     <Highlight
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
-      Prism={Prism}
       theme={theme as PrismTheme}
-      code={children}
+      code={children.trim()}
       language={language as Language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
@@ -37,17 +46,21 @@ export default ({
           userDefinedClassname == null ? className : `${className} ${userDefinedClassname}`;
         const combinedStyle =
           userDefinedStyles == null ? style : { ...style, ...userDefinedStyles };
+        const content = tokens.map((line, i) => (
+          // eslint-disable-next-line react/no-array-index-key, react/jsx-props-no-spreading
+          <div {...getLineProps({ line, key: i })}>
+            {line.map((token, key) => (
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              <span {...getTokenProps({ token, key })} />
+            ))}
+          </div>
+        ));
+        if (excludeWrapper) {
+          return content;
+        }
         return (
           <pre className={combinedClassname} style={combinedStyle}>
-            {tokens.map((line, i) => (
-              // eslint-disable-next-line react/no-array-index-key, react/jsx-props-no-spreading
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  // eslint-disable-next-line react/jsx-props-no-spreading
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
+            {content}
           </pre>
         );
       }}

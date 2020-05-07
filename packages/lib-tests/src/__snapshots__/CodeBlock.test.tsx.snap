@@ -18,30 +18,6 @@ exports[`CodeBlock rendering "42" matches snapshot. 1`] = `
     }
   >
     <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-    >
-      
-    </span>
-    <span
       className="token keyword"
       style={
         Object {
@@ -160,25 +136,6 @@ exports[`CodeBlock rendering "42" matches snapshot. 1`] = `
       }
     </span>
   </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
 </pre>
 `;
 
@@ -199,30 +156,6 @@ exports[`CodeBlock rendering "Hello World" matches snapshot. 1`] = `
       }
     }
   >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-    >
-      
-    </span>
     <span
       className="token keyword"
       style={
@@ -342,25 +275,6 @@ exports[`CodeBlock rendering "Hello World" matches snapshot. 1`] = `
       }
     </span>
   </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
 </pre>
 `;
 
@@ -381,30 +295,6 @@ exports[`CodeBlock rendering "Pattern Matching" matches snapshot. 1`] = `
       }
     }
   >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-    >
-      
-    </span>
     <span
       className="token keyword"
       style={
@@ -1179,25 +1069,6 @@ exports[`CodeBlock rendering "Pattern Matching" matches snapshot. 1`] = `
       }
     </span>
   </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
 </pre>
 `;
 
@@ -1218,30 +1089,6 @@ exports[`CodeBlock rendering "Type Inference" matches snapshot. 1`] = `
       }
     }
   >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-    >
-      
-    </span>
     <span
       className="token keyword"
       style={
@@ -1950,25 +1797,6 @@ exports[`CodeBlock rendering "Type Inference" matches snapshot. 1`] = `
       className="token plain"
     >
       }
-    </span>
-  </div>
-  <div
-    className="token-line"
-    style={
-      Object {
-        "backgroundColor": null,
-      }
-    }
-  >
-    <span
-      className="token plain"
-      style={
-        Object {
-          "display": "inline-block",
-        }
-      }
-    >
-      
     </span>
   </div>
 </pre>
