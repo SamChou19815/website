@@ -14,6 +14,12 @@ const getBoilterPlateSetupSteps = (jobName: string): string => `jobs:
       - uses: actions/checkout@v2
       - name: Set up Node
         uses: actions/setup-node@v1
+      - uses: actions/cache@v1
+        with:
+          path: ~/.yarn/berry/cache
+          key: yarn-berry-\${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-berry-
       - name: Yarn Install
         run: yarn install`;
 
