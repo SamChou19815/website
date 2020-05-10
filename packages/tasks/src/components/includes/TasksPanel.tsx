@@ -41,9 +41,7 @@ export default (): ReactElement => {
 
   return (
     <div>
-      <div
-        className={taskDetailPanelTaskId === null ? undefined : styles.MainTasksContainerSquezzed}
-      >
+      <div>
         <div className={styles.TopButtonContainer}>
           <Button
             variant="outlined"
