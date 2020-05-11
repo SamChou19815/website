@@ -7,6 +7,8 @@
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const theme = require('lib-react/prism-theme.json');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const darkTheme = require('prism-react-renderer/themes/dracula');
 
 module.exports = {
   title: 'SAMLANG',
@@ -19,6 +21,7 @@ module.exports = {
   themeConfig: {
     prism: {
       theme,
+      darkTheme,
     },
     navbar: {
       title: 'SAMLANG',
