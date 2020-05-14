@@ -28,28 +28,26 @@ const Column = ({ title, status, tasks, onTaskClicked }: ColumnProps): ReactElem
   return (
     <Droppable droppableId={status}>
       {(droppableProvided) => (
-        <div ref={droppableProvided.innerRef}>
-          <div className={styles.Column}>
-            <div className={styles.Title}>
-              <Icon />
-              <span className={styles.TitleText}>{title}</span>
-            </div>
-            <div>
-              {tasks.map((task, index) => (
-                <Draggable key={task.taskId} draggableId={task.taskId} index={index}>
-                  {(draggableProvided) => (
-                    <div
-                      ref={draggableProvided.innerRef}
-                      {...draggableProvided.draggableProps}
-                      {...draggableProvided.dragHandleProps}
-                    >
-                      <TaskCard task={task} onDetailClick={() => onTaskClicked(task.taskId)} />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {droppableProvided.placeholder}
-            </div>
+        <div ref={droppableProvided.innerRef} className={styles.Column}>
+          <div className={styles.Title}>
+            <Icon />
+            <span className={styles.TitleText}>{title}</span>
+          </div>
+          <div>
+            {tasks.map((task, index) => (
+              <Draggable key={task.taskId} draggableId={task.taskId} index={index}>
+                {(draggableProvided) => (
+                  <div
+                    ref={draggableProvided.innerRef}
+                    {...draggableProvided.draggableProps}
+                    {...draggableProvided.dragHandleProps}
+                  >
+                    <TaskCard task={task} onDetailClick={() => onTaskClicked(task.taskId)} />
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {droppableProvided.placeholder}
           </div>
         </div>
       )}
