@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Setup Deno
+        run: |
+          curl -fsSL https://deno.land/x/install/install.sh | sh
+          echo "::add-path::/home/runner/.deno/bin"
       - name: Generate Workflows
         run: ./tools/generate
       - name: Check changed

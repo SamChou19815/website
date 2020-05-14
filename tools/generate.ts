@@ -1,11 +1,14 @@
-import { readFileSync, writeFileSync } from 'fs';
-
 import {
   allPrivateWorkspaces,
   libraryWorkspaces,
   projectWorkspaces,
   getDependencyChain,
-} from './workspace';
+} from './workspace.ts';
+
+const readFile = (filename: string): string =>
+  new TextDecoder().decode(Deno.readFileSync(filename));
+const writeFile = (filename: string, content: string): void =>
+  Deno.writeFileSync(filename, new TextEncoder().encode(content));
 
 const getBoilterPlateSetupSteps = (jobName: string): string => `jobs:
   ${jobName}:
@@ -77,13 +80,13 @@ ${getBoilterPlateSetupSteps('deploy')}
 };
 
 const writeGeneratedFile = ([filename, content]: readonly [string, string]): void =>
-  writeFileSync(`.github/workflows/${filename}`, content);
+  writeFile(`.github/workflows/${filename}`, content);
 
 const generateIgnoreFiles = (): void => {
-  const content = readFileSync('.gitignore');
+  const content = readFile('.gitignore');
   const additionalStyleIgnores = '# styles\n.yarn\n';
-  writeFileSync('.eslintignore', content + additionalStyleIgnores);
-  writeFileSync('.prettierignore', content + additionalStyleIgnores);
+  writeFile('.eslintignore', content + additionalStyleIgnores);
+  writeFile('.prettierignore', content + additionalStyleIgnores);
 };
 
 const main = (): void => {
@@ -93,12 +96,8 @@ const main = (): void => {
   projectWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCDWorkflow(workspace));
   });
-  writeFileSync(
-    'configuration/libraries.json',
-    `${JSON.stringify(libraryWorkspaces, undefined, 2)}\n`
-  );
+  writeFile('configuration/libraries.json', `${JSON.stringify(libraryWorkspaces, undefined, 2)}\n`);
   generateIgnoreFiles();
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export { main };
+main();
