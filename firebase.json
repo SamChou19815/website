@@ -38,13 +38,6 @@
       "ignore": ["**/.*"],
       "rewrites": [
         {
-          "source": "/api/**",
-          "run": {
-            "serviceId": "samlang-demo-backend",
-            "region": "us-central1"
-          }
-        },
-        {
           "source": "**",
           "destination": "/index.html"
         }
