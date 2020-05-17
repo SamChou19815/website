@@ -9,3 +9,15 @@
 .CodeBlock {
   padding: 0.5em;
 }
+
+.GoodResult {
+  border-left-color: green;
+}
+
+.BadResult {
+  border-left-color: red;
+}
+
+.NeutralResult {
+  border-left-color: gray;
+}

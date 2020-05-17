@@ -1437,6 +1437,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@dev-sam/samlang-demo@npm:0.0.2":
+  version: 0.0.2
+  resolution: "@dev-sam/samlang-demo@npm:0.0.2"
+  checksum: 3/d46a51c20dad1dd01fdcb03b1537f9dfa31aaf6d08aac250d579df8bb8f8e391ffb1d255760a58c7d790b7321827176bc5775d990c17469e2140d92dc63473d6
+  languageName: node
+  linkType: hard
+
 "@docusaurus/core@npm:^2.0.0-alpha.54":
   version: 2.0.0-alpha.54
   resolution: "@docusaurus/core@npm:2.0.0-alpha.54"
@@ -18085,6 +18092,7 @@ resolve@1.15.0:
   version: 0.0.0-use.local
   resolution: "samlang-demo@workspace:packages/samlang-demo"
   dependencies:
+    "@dev-sam/samlang-demo": 0.0.2
     "@material-ui/core": ^4.9.12
     autosize: ^4.0.2
     lib-react: 0.1.0

@@ -1,81 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ResultCard(BAD_SYNTAX) matches snapshot. 1`] = `
-<div
-  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
->
-  <div
-    className="MuiCardHeader-root"
-  >
-    <div
-      className="MuiCardHeader-content"
-    >
-      <span
-        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
-      >
-        Interpretation Result
-      </span>
-    </div>
-  </div>
-  <div
-    className="MuiCardContent-root"
-  >
-    <div
-      className="ColoredResult"
-      style={
-        Object {
-          "borderLeftColor": "red",
-        }
-      }
-    >
-      <code>
-        <p>
-          foo
-        </p>
-      </code>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ResultCard(BAD_TYPE) matches snapshot. 1`] = `
-<div
-  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
->
-  <div
-    className="MuiCardHeader-root"
-  >
-    <div
-      className="MuiCardHeader-content"
-    >
-      <span
-        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
-      >
-        Interpretation Result
-      </span>
-    </div>
-  </div>
-  <div
-    className="MuiCardContent-root"
-  >
-    <div
-      className="ColoredResult"
-      style={
-        Object {
-          "borderLeftColor": "red",
-        }
-      }
-    >
-      <code>
-        <p>
-          bar
-        </p>
-      </code>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ResultCard(GOOD_PROGRAM) matches snapshot. 1`] = `
 <div
   className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
@@ -98,81 +22,134 @@ exports[`ResultCard(GOOD_PROGRAM) matches snapshot. 1`] = `
   >
     <div>
       <div
-        className="ColoredResult"
-        style={
-          Object {
-            "borderLeftColor": "orange",
-          }
-        }
+        className="ColoredResult GoodResult"
       >
         <h3>
           Program Running Result
         </h3>
         <pre>
-          haha
+          result
         </pre>
       </div>
-      <div>
-        <div
-          className="ColoredResult"
+      <div
+        className="ColoredResult GoodResult"
+      >
+        <h3>
+          Program Standard Out
+        </h3>
+        <pre>
+          printed
+        </pre>
+      </div>
+      <div
+        className="ColoredResult"
+        style={
+          Object {
+            "borderLeftColor": "green",
+          }
+        }
+      >
+        <h3>
+          Pretty Printed Program:
+        </h3>
+        <pre
+          className="prism-code language-samlang CodeBlock"
           style={
             Object {
-              "borderLeftColor": "green",
+              "backgroundColor": "#f7f7f7",
             }
           }
         >
-          <h3>
-            Pretty Printed Program:
-          </h3>
-          <pre
-            className="prism-code language-samlang CodeBlock"
+          <div
+            className="token-line"
             style={
               Object {
-                "backgroundColor": "#f7f7f7",
+                "backgroundColor": null,
               }
             }
           >
-            <div
-              className="token-line"
+            <span
+              className="token keyword"
               style={
                 Object {
-                  "backgroundColor": null,
+                  "color": "rgb(62, 122, 226)",
                 }
               }
             >
-              <span
-                className="token keyword"
-                style={
-                  Object {
-                    "color": "rgb(62, 122, 226)",
-                  }
+              class
+            </span>
+            <span
+              className="token plain"
+            >
+               
+            </span>
+            <span
+              className="token class-name"
+              style={
+                Object {
+                  "color": "rgb(154, 48, 173)",
                 }
-              >
-                class
-              </span>
-              <span
-                className="token plain"
-              >
-                 
-              </span>
-              <span
-                className="token class-name"
-                style={
-                  Object {
-                    "color": "rgb(154, 48, 173)",
-                  }
-                }
-              >
-                HelloWorld
-              </span>
-              <span
-                className="token plain"
-              >
-                 {}
-              </span>
-            </div>
-          </pre>
-        </div>
+              }
+            >
+              Main
+            </span>
+            <span
+              className="token plain"
+            >
+               {}
+            </span>
+          </div>
+        </pre>
+      </div>
+      <div
+        className="ColoredResult NeutralResult"
+      >
+        <h3>
+          Optimized Assembly
+        </h3>
+        <code>
+          <p>
+            assembly
+          </p>
+        </code>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ResultCard(WITH_ERROR) matches snapshot. 1`] = `
+<div
+  className="MuiPaper-root MuiCard-root ParallelCard MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    className="MuiCardHeader-root"
+  >
+    <div
+      className="MuiCardHeader-content"
+    >
+      <span
+        className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+      >
+        Interpretation Result
+      </span>
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root"
+  >
+    <div>
+      <div
+        className="ColoredResult BadResult"
+      >
+        <h3>
+          Compile Time Errors
+        </h3>
+        <code>
+          <p>
+            ahhh
+          </p>
+        </code>
       </div>
     </div>
   </div>
@@ -224,7 +201,23 @@ exports[`ResultCard(server-error) matches snapshot. 1`] = `
   <div
     className="MuiCardContent-root"
   >
-    Server Error. Please try again.
+    <div>
+      <div
+        className="ColoredResult"
+        style={
+          Object {
+            "borderLeftColor": "red",
+          }
+        }
+      >
+        <h3>
+          Interpreter Error
+        </h3>
+        <code>
+          server-error
+        </code>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -249,7 +242,23 @@ exports[`ResultCard(waiting) matches snapshot. 1`] = `
   <div
     className="MuiCardContent-root"
   >
-    Waiting for server response...
+    <div>
+      <div
+        className="ColoredResult"
+        style={
+          Object {
+            "borderLeftColor": "red",
+          }
+        }
+      >
+        <h3>
+          Interpreter Error
+        </h3>
+        <code>
+          waiting
+        </code>
+      </div>
+    </div>
   </div>
 </div>
 `;
