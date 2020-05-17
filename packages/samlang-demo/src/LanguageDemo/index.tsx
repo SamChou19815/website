@@ -5,26 +5,24 @@ import styles from './LanguageDemo.module.css';
 import ResultCard from './ResultCard';
 import interpret, { Response } from './interpret';
 
-type Resp = Response | 'waiting' | 'server-error' | null;
-
 /**
  * The component of the language demo.
  */
 export default function LanguageDemo(): ReactElement {
-  const [response, setResponse] = React.useState<Resp>(null);
+  const [response, setResponse] = React.useState<Response | 'error' | null>(null);
 
   const onSubmit = (programString: string): void => {
-    interpret(programString)
-      .then((resp): void => setResponse(resp))
-      .catch((): void => setResponse('server-error'));
-    setResponse('waiting');
+    try {
+      setResponse(interpret(programString));
+    } catch (interpreterError) {
+      setResponse(interpreterError.name ?? 'Unknown interpreter error.');
+    }
   };
 
   return (
     <div className={styles.LanguageDemo}>
       <InputCard onSubmit={onSubmit} />
       <ResultCard response={response} />
-      {response === 'waiting' && <div className={styles.Blocker} />}
     </div>
   );
 }

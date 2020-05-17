@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@dev-sam/samlang-demo": "0.0.2",
     "@material-ui/core": "^4.9.12",
     "autosize": "^4.0.2",
     "lib-react": "0.1.0",
@@ -23,6 +24,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "proxy": "https://samlang-demo.developersam.com"
+  ]
 }

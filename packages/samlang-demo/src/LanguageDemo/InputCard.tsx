@@ -21,9 +21,7 @@ class Main {
 
 const rootClassName = [styles.ParallelCard, styles.EditorCard].join(' ');
 
-/**
- * The component of the language demo.
- */
+/** The component of the language demo input. */
 export default function InputCard({ onSubmit }: Props): ReactElement {
   const [text, setText] = useState<string>(initialText);
   return (
