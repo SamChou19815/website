@@ -18,11 +18,11 @@ The reality is always harsher than the theory. It takes a significant effort of 
 this happen. In this blog post, I will explain these efforts and some of the tricky design
 decisions I made along the way.
 
+<!--truncate-->
+
 The screenshot below shows you the result of the hard work:
 
 ![new samlang demo website](/img/2020-05-17-samlang-in-browser/samlang-demo.png)
-
-<!--truncate-->
 
 ### The project rationale
 
