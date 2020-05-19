@@ -53,6 +53,7 @@ module.exports = {
         blog: {
           path: './blog',
           routeBasePath: '/',
+          editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/blog/',
           feedOptions: {
             type: 'all',
             copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
