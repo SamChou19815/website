@@ -12,8 +12,8 @@
     "deploy": "node ../../node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.54",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.54",
+    "@docusaurus/core": "^2.0.0-alpha.55",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.55",
     "classnames": "^2.2.6",
     "lib-docusaurus-prism-extended-plugin": "0.1.0",
     "lib-react": "0.1.0",

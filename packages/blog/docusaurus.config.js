@@ -53,6 +53,10 @@ module.exports = {
         blog: {
           path: './blog',
           routeBasePath: '/',
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
+          },
         },
         sitemap: {
           cacheTime: 600 * 1000,
