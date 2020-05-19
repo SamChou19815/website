@@ -111,6 +111,13 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/samlang/',
+        },
+        blog: {
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

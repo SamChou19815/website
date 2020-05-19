@@ -13,7 +13,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-alpha.54",
+    "@docusaurus/module-type-aliases": "^2.0.0-alpha.55",
     "@types/jest": "25.2.3",
     "@types/node": "14.0.1",
     "@types/react": "16.9.35",
