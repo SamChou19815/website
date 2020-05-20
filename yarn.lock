@@ -3740,13 +3740,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/history@npm:*":
-  version: 4.7.6
-  resolution: "@types/history@npm:4.7.6"
-  checksum: 3/d9364f41b40f7319b5487f912165f0cb05bd2587c3d1137af7d9f9666086158e958bd95b54552cfebbf63f42bfef9124f03e7bf18845e29a455f03f630500c21
-  languageName: node
-  linkType: hard
-
 "@types/hoist-non-react-statics@npm:^3.3.0":
   version: 3.3.1
   resolution: "@types/hoist-non-react-statics@npm:3.3.1"
@@ -3920,27 +3913,6 @@ __metadata:
     hoist-non-react-statics: ^3.3.0
     redux: ^4.0.0
   checksum: 3/bcc1e793425cd40583458140d929eb627faa6032fb0c9f9721702007784e870e9cb1496cc0c51893161b479d816b52ec32f56657a79bd2157e0d68a2d0880703
-  languageName: node
-  linkType: hard
-
-"@types/react-router-dom@npm:^5.1.5":
-  version: 5.1.5
-  resolution: "@types/react-router-dom@npm:5.1.5"
-  dependencies:
-    "@types/history": "*"
-    "@types/react": "*"
-    "@types/react-router": "*"
-  checksum: 3/0227b3bf47612722f70c3e4b2be805a5b3e97587c59a6671927ef4b28c6de2c5c2885d04ee9b9f67404c9271bd4b3c7435420be623e0def8fd3a89b1c41ff3cb
-  languageName: node
-  linkType: hard
-
-"@types/react-router@npm:*, @types/react-router@npm:^5.1.7":
-  version: 5.1.7
-  resolution: "@types/react-router@npm:5.1.7"
-  dependencies:
-    "@types/history": "*"
-    "@types/react": "*"
-  checksum: 3/e28dd131f0f1ffac52440f5711616217cb1e67614a5b03d0a43defcb6cabaf6929687339aee9b7ecccd92be4a3b94942a4ed1b3a37ab673fbc16290c0481dd60
   languageName: node
   linkType: hard
 
@@ -21210,8 +21182,6 @@ resolve@^1.17.0:
     "@material-ui/lab": ^4.0.0-alpha.51
     "@types/react-beautiful-dnd": ^12.1.2
     "@types/react-redux": ^7.1.7
-    "@types/react-router": ^5.1.7
-    "@types/react-router-dom": ^5.1.5
     firebase: ^7.14.2
     javascript-lp-solver: ^0.4.24
     lib-firebase: 0.1.0
