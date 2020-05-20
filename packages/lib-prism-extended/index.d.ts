@@ -1,1 +1,4 @@
-declare module 'lib-prism-extended';
+declare module 'lib-prism-extended' {
+  const initialize: (Prism: Prism) => void;
+  export = initialize;
+}

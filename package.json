@@ -21,6 +21,7 @@
     "@types/react-test-renderer": "16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
+    "babel-jest": "^26.0.1",
     "customize-cra": "^0.9.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -34,7 +35,9 @@
     "eslint-plugin-react-hooks": "^4.0.2",
     "firebase-tools": "^8.3.0",
     "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
     "lint-staged": "^10.2.4",
+    "next-transpile-modules": "^3.3.0",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1",
     "typescript": "3.9.2"

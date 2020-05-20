@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import React, { ReactElement, CSSProperties } from 'react';
 
+import extendLibPrism from 'lib-prism-extended';
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
@@ -8,15 +9,7 @@ import Prism from 'prism-react-renderer/prism';
 
 import theme from './prism-theme.json';
 
-window.Prism = Prism;
-
-require('lib-prism-extended');
-require('prismjs/components/prism-clike');
-require('prismjs/components/prism-java');
-require('prismjs/components/prism-kotlin');
-require('prismjs/components/prism-yaml');
-
-delete window.Prism;
+extendLibPrism(Prism);
 
 type Props = {
   readonly language: string;

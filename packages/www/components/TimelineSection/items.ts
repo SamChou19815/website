@@ -1,14 +1,14 @@
-import SAMLANG from '../../assets/projects/samlang.png';
-import Samwise from '../../assets/projects/samwise.png';
-import TEN from '../../assets/projects/ten.png';
-import ChunkReader from '../../assets/timeline/chunk-reader.jpg';
-import CritterCompiler from '../../assets/timeline/critter-compiler.png';
-import CritterWorld from '../../assets/timeline/critter-world.png';
-import FacebookHackerWay from '../../assets/timeline/fb-hacker-way.jpg';
-import FacebookStickerAndPen from '../../assets/timeline/fb-sticker-pen.jpg';
-import SAMFirst from '../../assets/timeline/sam-first.png';
-import SAMLater from '../../assets/timeline/sam-later.png';
-import SAMPL from '../../assets/timeline/sampl.png';
+const SAMLANG = '/projects/samlang.png';
+const Samwise = '/projects/samwise.png';
+const TEN = '/projects/ten.png';
+const ChunkReader = '/timeline/chunk-reader.jpg';
+const CritterCompiler = '/timeline/critter-compiler.png';
+const CritterWorld = '/timeline/critter-world.png';
+const FacebookHackerWay = '/timeline/fb-hacker-way.jpg';
+const FacebookStickerAndPen = '/timeline/fb-sticker-pen.jpg';
+const SAMFirst = '/timeline/sam-first.png';
+const SAMLater = '/timeline/sam-later.png';
+const SAMPL = '/timeline/sampl.png';
 
 type NamedLink = { readonly name: string; readonly url: string };
 

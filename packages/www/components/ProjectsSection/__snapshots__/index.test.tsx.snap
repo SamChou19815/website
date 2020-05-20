@@ -22,7 +22,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="samlang.png"
+        src="/projects/samlang.png"
         title="SAMLANG"
       />
       <hr
@@ -166,7 +166,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="docusaurus.png"
+        src="/projects/docusaurus.png"
         title="Docusaurus"
       />
       <hr
@@ -280,7 +280,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="mini-react.png"
+        src="/projects/mini-react.png"
         title="mini-react"
       />
       <hr
@@ -433,7 +433,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="samwise.png"
+        src="/projects/samwise.png"
         title="Samwise"
       />
       <hr
@@ -553,7 +553,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="tasks.png"
+        src="/projects/tasks.png"
         title="Tasks"
       />
       <hr
@@ -637,7 +637,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="ten.png"
+        src="/projects/ten.png"
         title="TEN"
       />
       <hr

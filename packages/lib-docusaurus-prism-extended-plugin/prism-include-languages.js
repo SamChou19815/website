@@ -5,14 +5,13 @@ import Prism from 'prism-react-renderer/prism';
 
 (() => {
   if (ExecutionEnvironment.canUseDOM) {
-    window.Prism = Prism;
+    require('lib-prism-extended')(Prism);
 
-    require('lib-prism-extended');
+    window.Prism = Prism;
     require('prismjs/components/prism-clike');
     require('prismjs/components/prism-java');
     require('prismjs/components/prism-kotlin');
     require('prismjs/components/prism-yaml');
-
     delete window.Prism;
   }
 })();

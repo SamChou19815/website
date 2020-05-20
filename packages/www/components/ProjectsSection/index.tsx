@@ -8,15 +8,16 @@ import Divider from '@material-ui/core/Divider';
 import Code from '@material-ui/icons/Code';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
-import Docusaurus from '../../assets/projects/docusaurus.png';
-import MiniReact from '../../assets/projects/mini-react.png';
-import SAMLANG from '../../assets/projects/samlang.png';
-import Samwise from '../../assets/projects/samwise.png';
-import Tasks from '../../assets/projects/tasks.png';
-import TEN from '../../assets/projects/ten.png';
 import ConsoleSection from '../Common/ConsoleSection';
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
 import styles from './index.module.css';
+
+const Docusaurus = '/projects/docusaurus.png';
+const MiniReact = '/projects/mini-react.png';
+const SAMLANG = '/projects/samlang.png';
+const Samwise = '/projects/samwise.png';
+const Tasks = '/projects/tasks.png';
+const TEN = '/projects/ten.png';
 
 export default (): ReactElement => (
   <ConsoleSection id="projects" title="projects --active">
