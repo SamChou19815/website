@@ -3741,9 +3741,9 @@ __metadata:
   linkType: hard
 
 "@types/history@npm:*":
-  version: 4.7.5
-  resolution: "@types/history@npm:4.7.5"
-  checksum: 3/753a5bda6831a22937b14f576f1b26c19e57c26e7c4fcd900bffb7b7e27a8d91651e4c5d1594396b94604112cb6da2c71210e7145021e4057071d730237fa741
+  version: 4.7.6
+  resolution: "@types/history@npm:4.7.6"
+  checksum: 3/d9364f41b40f7319b5487f912165f0cb05bd2587c3d1137af7d9f9666086158e958bd95b54552cfebbf63f42bfef9124f03e7bf18845e29a455f03f630500c21
   languageName: node
   linkType: hard
 
@@ -3923,24 +3923,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-router-dom@npm:^5.1.3":
-  version: 5.1.4
-  resolution: "@types/react-router-dom@npm:5.1.4"
+"@types/react-router-dom@npm:^5.1.5":
+  version: 5.1.5
+  resolution: "@types/react-router-dom@npm:5.1.5"
   dependencies:
     "@types/history": "*"
     "@types/react": "*"
     "@types/react-router": "*"
-  checksum: 3/4ff1147e96a2c107195813f4fff957b94e813f2a8945447bbf96c7e4d5f6ad02a2bbe968be39a58336874fe1fcc03999b7f342fb4df1613175cd8816e20cf2b7
+  checksum: 3/0227b3bf47612722f70c3e4b2be805a5b3e97587c59a6671927ef4b28c6de2c5c2885d04ee9b9f67404c9271bd4b3c7435420be623e0def8fd3a89b1c41ff3cb
   languageName: node
   linkType: hard
 
-"@types/react-router@npm:*, @types/react-router@npm:^5.1.5":
-  version: 5.1.5
-  resolution: "@types/react-router@npm:5.1.5"
+"@types/react-router@npm:*, @types/react-router@npm:^5.1.7":
+  version: 5.1.7
+  resolution: "@types/react-router@npm:5.1.7"
   dependencies:
     "@types/history": "*"
     "@types/react": "*"
-  checksum: 3/2508db3e60049a6e0ffeb1cdb3070bad4b016f79949aff690578558c8b499f3418d30d94e3cdb38399d408d491e223369198dcbde8e7e033132d35935c80f014
+  checksum: 3/e28dd131f0f1ffac52440f5711616217cb1e67614a5b03d0a43defcb6cabaf6929687339aee9b7ecccd92be4a3b94942a4ed1b3a37ab673fbc16290c0481dd60
   languageName: node
   linkType: hard
 
@@ -18309,31 +18309,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"queue@workspace:packages/queue":
-  version: 0.0.0-use.local
-  resolution: "queue@workspace:packages/queue"
-  dependencies:
-    "@material-ui/core": ^4.9.12
-    "@material-ui/icons": ^4.9.1
-    "@types/react-redux": ^7.1.7
-    "@types/react-router": ^5.1.5
-    "@types/react-router-dom": ^5.1.3
-    firebase: ^7.14.2
-    lib-firebase: 0.1.0
-    lib-react: 0.1.0
-    react: ^16.13.1
-    react-app-rewired: ^2.1.5
-    react-dom: ^16.13.1
-    react-firebaseui: ^4.1.0
-    react-redux: ^7.2.0
-    react-router: ^5.1.2
-    react-router-dom: ^5.1.2
-    react-scripts: 3.4.1
-    redux: ^4.0.5
-    rxjs: ^6.5.5
-  languageName: unknown
-  linkType: soft
-
 "raf-schd@npm:^4.0.2":
   version: 4.0.2
   resolution: "raf-schd@npm:4.0.2"
@@ -21235,6 +21210,8 @@ resolve@^1.17.0:
     "@material-ui/lab": ^4.0.0-alpha.51
     "@types/react-beautiful-dnd": ^12.1.2
     "@types/react-redux": ^7.1.7
+    "@types/react-router": ^5.1.7
+    "@types/react-router-dom": ^5.1.5
     firebase: ^7.14.2
     javascript-lp-solver: ^0.4.24
     lib-firebase: 0.1.0
