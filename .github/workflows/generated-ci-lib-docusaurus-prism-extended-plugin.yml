@@ -4,6 +4,7 @@ name: CI lib-docusaurus-prism-extended-plugin
 on:
   push:
     paths:
+      - packages/lib-prism-extended/**
       - packages/lib-docusaurus-prism-extended-plugin/**
       - package.json
       - yarn.lock
