@@ -1630,7 +1630,7 @@ exports[`App matches snapshot. 1`] = `
         <img
           className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
           loading="lazy"
-          src="samlang.png"
+          src="/projects/samlang.png"
           title="SAMLANG"
         />
         <hr
@@ -1774,7 +1774,7 @@ exports[`App matches snapshot. 1`] = `
         <img
           className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
           loading="lazy"
-          src="docusaurus.png"
+          src="/projects/docusaurus.png"
           title="Docusaurus"
         />
         <hr
@@ -1888,7 +1888,7 @@ exports[`App matches snapshot. 1`] = `
         <img
           className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
           loading="lazy"
-          src="mini-react.png"
+          src="/projects/mini-react.png"
           title="mini-react"
         />
         <hr
@@ -2041,7 +2041,7 @@ exports[`App matches snapshot. 1`] = `
         <img
           className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
           loading="lazy"
-          src="samwise.png"
+          src="/projects/samwise.png"
           title="Samwise"
         />
         <hr
@@ -2161,7 +2161,7 @@ exports[`App matches snapshot. 1`] = `
         <img
           className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
           loading="lazy"
-          src="tasks.png"
+          src="/projects/tasks.png"
           title="Tasks"
         />
         <hr
@@ -2245,7 +2245,7 @@ exports[`App matches snapshot. 1`] = `
         <img
           className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
           loading="lazy"
-          src="ten.png"
+          src="/projects/ten.png"
           title="TEN"
         />
         <hr
@@ -2976,7 +2976,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="fb-hacker-way.jpg"
+              src="/timeline/fb-hacker-way.jpg"
               title="Facebook SWE Intern"
             />
             <div
@@ -3268,7 +3268,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="samlang.png"
+              src="/projects/samlang.png"
               title="SAMLANG"
             />
             <div
@@ -3395,7 +3395,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="fb-sticker-pen.jpg"
+              src="/timeline/fb-sticker-pen.jpg"
               title="Facebook SWE Intern Final Interview"
             />
             <div
@@ -3453,7 +3453,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="samwise.png"
+              src="/projects/samwise.png"
               title="Cornell DTI Software Developer"
             />
             <div
@@ -3550,7 +3550,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="critter-compiler.png"
+              src="/timeline/critter-compiler.png"
               title="Critter Compiler"
             />
             <div
@@ -3970,7 +3970,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="sampl.png"
+              src="/timeline/sampl.png"
               title="SAMPL"
             />
             <div
@@ -4149,7 +4149,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="critter-world.png"
+              src="/timeline/critter-world.png"
               title="CS 2112 Critter World"
             />
             <div
@@ -4212,7 +4212,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="chunk-reader.jpg"
+              src="/timeline/chunk-reader.jpg"
               title="First winning hackathon"
             />
             <div
@@ -4391,7 +4391,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="ten.png"
+              src="/projects/ten.png"
               title="TEN"
             />
             <div
@@ -4569,7 +4569,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="sam-later.png"
+              src="/timeline/sam-later.png"
               title="Computerization Club President"
             />
             <div
@@ -4627,7 +4627,7 @@ exports[`App matches snapshot. 1`] = `
             <img
               className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
               loading="lazy"
-              src="sam-first.png"
+              src="/timeline/sam-first.png"
               title="SAM First Release"
             />
             <div
@@ -5161,5 +5161,17 @@ exports[`App matches snapshot. 1`] = `
       </div>
     </div>
   </section>
+  <button
+    className="TriggerButton"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="FirstEdge"
+    />
+    <span
+      className="SecondEdge"
+    />
+  </button>
 </div>
 `;

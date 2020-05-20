@@ -110,7 +110,7 @@ exports[`TimelineItemCard with item 1 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="fb-hacker-way.jpg"
+        src="/timeline/fb-hacker-way.jpg"
         title="Facebook SWE Intern"
       />
       <div
@@ -417,7 +417,7 @@ exports[`TimelineItemCard with item 5 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="samlang.png"
+        src="/projects/samlang.png"
         title="SAMLANG"
       />
       <div
@@ -547,7 +547,7 @@ exports[`TimelineItemCard with item 6 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="fb-sticker-pen.jpg"
+        src="/timeline/fb-sticker-pen.jpg"
         title="Facebook SWE Intern Final Interview"
       />
       <div
@@ -608,7 +608,7 @@ exports[`TimelineItemCard with item 7 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="samwise.png"
+        src="/projects/samwise.png"
         title="Cornell DTI Software Developer"
       />
       <div
@@ -708,7 +708,7 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="critter-compiler.png"
+        src="/timeline/critter-compiler.png"
         title="Critter Compiler"
       />
       <div
@@ -1149,7 +1149,7 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="sampl.png"
+        src="/timeline/sampl.png"
         title="SAMPL"
       />
       <div
@@ -1340,7 +1340,7 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="critter-world.png"
+        src="/timeline/critter-world.png"
         title="CS 2112 Critter World"
       />
       <div
@@ -1406,7 +1406,7 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="chunk-reader.jpg"
+        src="/timeline/chunk-reader.jpg"
         title="First winning hackathon"
       />
       <div
@@ -1591,7 +1591,7 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="ten.png"
+        src="/projects/ten.png"
         title="TEN"
       />
       <div
@@ -1778,7 +1778,7 @@ exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="sam-later.png"
+        src="/timeline/sam-later.png"
         title="Computerization Club President"
       />
       <div
@@ -1839,7 +1839,7 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
       <img
         className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
         loading="lazy"
-        src="sam-first.png"
+        src="/timeline/sam-first.png"
         title="SAM First Release"
       />
       <div

@@ -21,10 +21,9 @@ tsconfig.tsbuildinfo
 ## testing
 **/coverage
 
-## firebase
+## framework generated files
 **/.firebase
-
-## docusaurus generated files
+**/.next
 .docusaurus
 .cache-loader
 # styles
