@@ -5825,7 +5825,6 @@ __metadata:
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
     classnames: ^2.2.6
     lib-docusaurus-prism-extended-plugin: 0.1.0
-    lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
   languageName: unknown
@@ -14184,6 +14183,7 @@ fsevents@^1.2.7:
   resolution: "lib-docusaurus-prism-extended-plugin@workspace:packages/lib-docusaurus-prism-extended-plugin"
   dependencies:
     "@docusaurus/types": 2.0.0-alpha.54
+    lib-prism-extended: 0.1.0
   languageName: unknown
   linkType: soft
 
@@ -19705,7 +19705,6 @@ resolve@^1.17.0:
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
     classnames: ^2.2.6
     lib-docusaurus-prism-extended-plugin: 0.1.0
-    lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
   languageName: unknown

@@ -4,9 +4,8 @@ name: CI samlang
 on:
   push:
     paths:
-      - packages/lib-docusaurus-prism-extended-plugin/**
       - packages/lib-prism-extended/**
-      - packages/lib-react/**
+      - packages/lib-docusaurus-prism-extended-plugin/**
       - packages/samlang/**
       - package.json
       - yarn.lock

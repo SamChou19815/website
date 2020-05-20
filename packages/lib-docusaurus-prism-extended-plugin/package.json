@@ -12,6 +12,9 @@
     "compile": "tsc",
     "test": "echo 'Tests are in lib-tests.'"
   },
+  "dependencies": {
+    "lib-prism-extended": "0.1.0"
+  },
   "devDependencies": {
     "@docusaurus/types": "2.0.0-alpha.54"
   }
