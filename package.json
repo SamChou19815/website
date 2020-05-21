@@ -48,7 +48,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "NODE_NO_WARNINGS=1 lint-staged"
     }
   },
   "lint-staged": {

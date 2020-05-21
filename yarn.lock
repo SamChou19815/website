@@ -1387,12 +1387,6 @@ __metadata:
 "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common":
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
-  dependencies:
-    "@typescript-eslint/eslint-plugin": ^2.34.0
-    "@typescript-eslint/parser": ^2.34.0
-    eslint-config-airbnb: ^18.1.0
-    eslint-config-prettier: ^6.11.0
-    eslint-config-react-app: ^5.2.1
   languageName: unknown
   linkType: soft
 
@@ -4770,7 +4764,6 @@ __metadata:
     "@babel/preset-react": ^7.9.4
     "@babel/preset-typescript": ^7.9.0
     "@docusaurus/core": ^2.0.0-alpha.55
-    "@docusaurus/module-type-aliases": ^2.0.0-alpha.55
     "@docusaurus/plugin-google-analytics": ^2.0.0-alpha.37
     "@docusaurus/plugin-google-gtag": ^2.0.0-alpha.37
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
@@ -12300,10 +12293,8 @@ fsevents@^1.2.7:
   resolution: "lib-docusaurus-prism-extended-plugin@workspace:packages/lib-docusaurus-prism-extended-plugin"
   dependencies:
     "@docusaurus/types": 2.0.0-alpha.55
-    "@types/node": ^14.0.4
     lib-prism-extended: 0.1.0
     prism-react-renderer: ^1.1.1
-    typescript: ^3.9.3
   languageName: unknown
   linkType: soft
 
@@ -12311,12 +12302,10 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
-    "@types/react": ^16.9.35
     firebase: ^7.14.2
     lib-common: 0.1.0
     react: ^16.13.1
     rxjs: ^6.5.5
-    typescript: ^3.9.3
   peerDependencies:
     firebase: "*"
     react: "*"
@@ -12338,9 +12327,6 @@ fsevents@^1.2.7:
     "@types/highlight.js": ^9.12.3
     "@types/jest": ^25.2.3
     "@types/prismjs": ^1.16.0
-    "@types/react": ^16.9.35
-    "@types/react-dom": ^16.9.8
-    "@types/react-test-renderer": ^16.9.2
     "@types/remarkable": ^1.7.4
     highlight.js: ^10.0.1
     lib-prism-extended: 0.1.0
@@ -12351,7 +12337,6 @@ fsevents@^1.2.7:
     react-dom: ^16.13.1
     react-test-renderer: ^16.13.1
     remarkable: ^2.0.0
-    typescript: ^3.9.3
   peerDependencies:
     react: ^16.13.1
     react-dom: ^16.13.1
@@ -17403,7 +17388,6 @@ fsevents@^1.2.7:
     "@babel/preset-typescript": ^7.9.0
     "@dev-sam/samlang-demo": ^0.0.2
     "@docusaurus/core": ^2.0.0-alpha.55
-    "@docusaurus/module-type-aliases": ^2.0.0-alpha.55
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
     "@material-ui/core": ^4.9.12
     "@types/classnames": ^2.2.10
@@ -17417,7 +17401,6 @@ fsevents@^1.2.7:
     prism-react-renderer: ^1.1.1
     react: ^16.13.1
     react-dom: ^16.13.1
-    typescript: ^3.9.3
   languageName: unknown
   linkType: soft
 
