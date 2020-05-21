@@ -10,7 +10,7 @@
   "private": true,
   "scripts": {
     "compile": "tsc",
-    "test": "jest"
+    "test": "yarn common:jest"
   },
   "dependencies": {
     "lib-prism-extended": "0.1.0",
@@ -27,7 +27,6 @@
     "@types/prismjs": "^1.16.0",
     "@types/remarkable": "^1.7.4",
     "highlight.js": "^10.0.1",
-    "jest": "^26.0.1",
     "next": "9.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

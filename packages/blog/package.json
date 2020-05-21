@@ -9,7 +9,7 @@
     "swizzle": "docusaurus swizzle",
     "compile": "yarn build",
     "test": "echo 'No tests yet.'",
-    "deploy": "node ../../node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
+    "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.55",

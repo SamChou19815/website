@@ -15,15 +15,12 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5"
   },
-  "devDependencies": {
-    "jest": "^26.0.1"
-  },
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "test": "jest",
+    "test": "yarn common:jest",
     "compile": "tsc",
-    "deploy": "node ../../node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
+    "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
   },
   "browserslist": [
     ">0.2%",

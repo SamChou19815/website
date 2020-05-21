@@ -12440,7 +12440,6 @@ fsevents@^1.2.7:
     "@types/prismjs": ^1.16.0
     "@types/remarkable": ^1.7.4
     highlight.js: ^10.0.1
-    jest: ^26.0.1
     lib-prism-extended: 0.1.0
     next: 9.4.2
     prism-react-renderer: ^1.1.0
@@ -17338,7 +17337,9 @@ resolve@^1.17.0:
     firebase-tools: ^8.3.0
     husky: ^4.2.5
     identity-obj-proxy: ^3.0.0
+    jest: ^26.0.1
     lint-staged: ^10.2.4
+    next: 9.4.2
     next-transpile-modules: ^3.3.0
     prettier: 2.0.5
     react-test-renderer: ^16.13.1
@@ -18863,7 +18864,6 @@ resolve@^1.17.0:
     "@types/react-redux": ^7.1.7
     firebase: ^7.14.2
     javascript-lp-solver: ^0.4.24
-    jest: ^26.0.1
     lib-firebase: 0.1.0
     lib-react: 0.1.0
     next: 9.4.2
@@ -18891,7 +18891,6 @@ resolve@^1.17.0:
   resolution: "ten@workspace:packages/ten"
   dependencies:
     "@material-ui/core": ^4.9.12
-    jest: ^26.0.1
     lib-react: 0.1.0
     next: 9.4.2
     react: ^16.13.1
@@ -20647,7 +20646,6 @@ typescript@3.9.2:
     "@material-ui/icons": ^4.9.1
     "@types/react-redux": ^7.1.7
     firebase: ^7.14.2
-    jest: ^26.0.1
     lib-firebase: 0.1.0
     lib-react: 0.1.0
     next: 9.4.2
