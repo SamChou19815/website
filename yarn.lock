@@ -11974,6 +11974,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
+    "@types/react": ^16.9.35
     firebase: ^7.14.2
     lib-common: 0.1.0
     react: ^16.13.1
@@ -18339,6 +18340,7 @@ fsevents@^1.2.7:
     "@material-ui/core": ^4.9.12
     "@material-ui/icons": ^4.9.1
     "@material-ui/lab": ^4.0.0-alpha.51
+    "@types/jest": ^25.2.3
     "@types/node": ^14.0.4
     "@types/react": ^16.9.35
     "@types/react-beautiful-dnd": ^12.1.2
@@ -18373,8 +18375,10 @@ fsevents@^1.2.7:
   resolution: "ten@workspace:packages/ten"
   dependencies:
     "@material-ui/core": ^4.9.12
+    "@types/jest": ^25.2.3
     "@types/node": ^14.0.4
     "@types/react": ^16.9.35
+    "@types/react-test-renderer": ^16.9.2
     lib-react: 0.1.0
     next: 9.4.2
     react: ^16.13.1
@@ -20109,9 +20113,12 @@ typescript@^3.9.3:
   dependencies:
     "@material-ui/core": ^4.9.12
     "@material-ui/icons": ^4.9.1
+    "@types/jest": ^25.2.3
     "@types/node": ^14.0.4
     "@types/react": ^16.9.35
+    "@types/react-dom": ^16.9.8
     "@types/react-redux": ^7.1.7
+    "@types/react-test-renderer": ^16.9.2
     firebase: ^7.14.2
     lib-firebase: 0.1.0
     lib-react: 0.1.0

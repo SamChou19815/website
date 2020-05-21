@@ -12,14 +12,14 @@
     "compile": "tsc"
   },
   "files": [
-    "*.js",
-    "*.d.ts",
-    "*.css"
+    "*.ts",
+    "*.tsx"
   ],
   "dependencies": {
     "lib-common": "0.1.0"
   },
   "devDependencies": {
+    "@types/react": "^16.9.35",
     "firebase": "^7.14.2",
     "react": "^16.13.1",
     "rxjs": "^6.5.5"
