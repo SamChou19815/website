@@ -22,7 +22,12 @@
   --ifm-color-primary-lightest: #3e7ae2;
 }
 
+body {
+  background-color: #eee;
+}
+
 pre {
+  font-family: 'Roboto Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   margin-bottom: 0;
 }
 
@@ -30,4 +35,8 @@ pre {
   border: none;
   border-radius: 0;
   box-shadow: none;
+}
+
+.token-line {
+  line-height: 1.35;
 }

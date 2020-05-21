@@ -17,31 +17,9 @@
       ]
     },
     {
-      "target": "queue",
-      "public": "packages/queue/build",
-      "ignore": ["**/.*"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "samlang",
       "public": "packages/samlang/build",
       "ignore": ["**/.*"]
-    },
-    {
-      "target": "samlang-demo",
-      "public": "packages/samlang-demo/build",
-      "ignore": ["**/.*"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
     },
     {
       "target": "tasks",

@@ -8,14 +8,8 @@
         "blog": [
           "developer-sam-blog"
         ],
-        "queue": [
-          "developer-sam-queue"
-        ],
         "samlang": [
           "developer-sam-samlang-docs"
-        ],
-        "samlang-demo": [
-          "developer-sam-samlang-demo"
         ],
         "tasks": [
           "developer-sam-tasks"

@@ -30,8 +30,9 @@ module.exports = {
         src: 'img/logo.svg',
       },
       links: [
-        { to: 'docs/introduction', label: 'Docs', position: 'left' },
-        { to: 'blog', label: 'Blog', position: 'left' },
+        { to: 'docs/introduction', label: 'Docs', exact: true, position: 'left' },
+        { to: 'demo', label: 'Demo', exact: true, position: 'left' },
+        { to: 'blog', label: 'Blog', exact: true, position: 'left' },
         {
           href: 'https://github.com/SamChou19815/samlang',
           label: 'GitHub',
@@ -84,12 +85,12 @@ module.exports = {
           title: 'Relevent Links',
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
+              label: 'Demo',
+              to: 'demo',
             },
             {
-              label: 'Demo',
-              href: 'https://samlang-demo.developersam.com',
+              label: 'Blog',
+              to: 'blog',
             },
             {
               label: 'Developer Sam',
