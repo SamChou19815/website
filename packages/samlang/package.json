@@ -9,7 +9,7 @@
     "swizzle": "docusaurus swizzle",
     "tsc": "tsc",
     "compile": "yarn tsc && yarn build",
-    "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --onl,y hosting:samlang"
+    "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
   "dependencies": {
     "@dev-sam/samlang-demo": "^0.0.2",
