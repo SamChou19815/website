@@ -9,7 +9,7 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc"
+    "compile": "run -T tsc"
   },
   "dependencies": {
     "lib-prism-extended": "0.1.0",
@@ -26,15 +26,11 @@
     "@types/highlight.js": "^9.12.3",
     "@types/jest": "^25.2.3",
     "@types/prismjs": "^1.16.0",
-    "@types/react": "^16.9.35",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-test-renderer": "^16.9.2",
     "@types/remarkable": "^1.7.4",
     "highlight.js": "^10.0.1",
     "next": "9.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "remarkable": "^2.0.0",
-    "typescript": "^3.9.3"
+    "remarkable": "^2.0.0"
   }
 }

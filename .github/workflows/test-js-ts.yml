@@ -23,5 +23,5 @@ jobs:
             yarn-berry-
       - name: Yarn Install
         run: yarn install
-      - name: Run ESLint
+      - name: Run Tests
         run: yarn test
