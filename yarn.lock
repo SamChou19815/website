@@ -8304,13 +8304,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dialog-polyfill@npm:^0.4.7":
-  version: 0.4.10
-  resolution: "dialog-polyfill@npm:0.4.10"
-  checksum: 3/bb7be517910ed4acde06e149e5bff0ff2bf8e8074bade95e6a3097536e11ba81a10e748c6c145d6695418a34a60189d8ce22ffe3b59b9a4ef0c4c2d625ebbc47
-  languageName: node
-  linkType: hard
-
 "diff-sequences@npm:^24.9.0":
   version: 24.9.0
   resolution: "diff-sequences@npm:24.9.0"
@@ -10122,18 +10115,6 @@ __metadata:
     "@firebase/storage": 0.3.32
     "@firebase/util": 0.2.45
   checksum: 3/7b8555a8d104744ed1fa322281355e007b6518f0236e0ed73aac89ff7d1ae51cd03a378d72fede24f50e9160c5972f1f4e981b948e4f63fb471b51e1a989c4fb
-  languageName: node
-  linkType: hard
-
-"firebaseui@npm:^4.1.0":
-  version: 4.5.0
-  resolution: "firebaseui@npm:4.5.0"
-  dependencies:
-    dialog-polyfill: ^0.4.7
-    material-design-lite: ^1.2.0
-  peerDependencies:
-    firebase: ">=7.11.0"
-  checksum: 3/b7807a8d4ac1836c3cd84a58f57031436687975a363db2cefa88e286e0f4ab14885375f1b2ba075cf66d085283d4dbc17903dd5edc6efc843d691013ab2a5c40
   languageName: node
   linkType: hard
 
@@ -14995,13 +14976,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"material-design-lite@npm:^1.2.0":
-  version: 1.3.0
-  resolution: "material-design-lite@npm:1.3.0"
-  checksum: 3/95f209c77d5f10dda6cb8227efaa118714083e5758551cef8788c5abdd426867464a23cf43bc929b17c905df6c39ceb87c6af4dbb3854a514652140b1625f5f7
-  languageName: node
-  linkType: hard
-
 "md5.js@npm:^1.3.4":
   version: 1.3.5
   resolution: "md5.js@npm:1.3.5"
@@ -18461,18 +18435,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-firebaseui@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "react-firebaseui@npm:4.1.0"
-  dependencies:
-    firebaseui: ^4.1.0
-  peerDependencies:
-    firebase: ">=6.3.4 <8"
-    react: ">=15 <17"
-  checksum: 3/d30595e2d31b7e4b63a7c8a3afc695c1ad3705ae735cd9e22ede7d8b163b2241554fb4f44a992d4e63eae58ab55b73962bd807265a8077fe4953a28bd13f35d1
-  languageName: node
-  linkType: hard
-
 "react-helmet@npm:^6.0.0-beta":
   version: 6.0.0
   resolution: "react-helmet@npm:6.0.0"
@@ -21179,13 +21141,13 @@ resolve@^1.17.0:
     "@types/react-redux": ^7.1.7
     firebase: ^7.14.2
     javascript-lp-solver: ^0.4.24
+    jest: ^26.0.1
     lib-firebase: 0.1.0
     lib-react: 0.1.0
+    next: 9.4.2
     react: ^16.13.1
-    react-app-rewired: ^2.1.5
     react-beautiful-dnd: ^13.0.0
     react-dom: ^16.13.1
-    react-firebaseui: ^4.1.0
     react-redux: ^7.2.0
     react-scripts: 3.4.1
     redux: ^4.0.5
