@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
-import { error } from 'lib-common';
 import { Observable } from 'rxjs';
+
+import { error } from 'lib-common';
 
 export type AppUser = {
   readonly uid: string;

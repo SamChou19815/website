@@ -1,8 +1,9 @@
 import { firestore } from 'firebase/app';
-import { getAppUser } from 'lib-firebase/authentication';
 import { Observable } from 'rxjs';
 
 import { FirestoreTask, FirestoreTaskWithId } from '../models/firestore-types';
+
+import { getAppUser } from 'lib-firebase/authentication';
 
 const store = firestore();
 

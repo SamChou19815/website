@@ -10,9 +10,10 @@
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import autosize from 'autosize';
-import CodeBlock from 'lib-react/PrismCodeBlock';
 
 import styles from './Editor.module.css';
+
+import CodeBlock from 'lib-react/PrismCodeBlock';
 
 type Record = {
   readonly value: string;
@@ -156,7 +157,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
       // Ignore selections
       if (selectionStart === selectionEnd) {
         // Get the current line
-        const line = getLines(value, selectionStart).pop() ?? '';
+        const line = getLines(value, selectionStart).pop() || '';
         const matches = line.match(/^\s+/);
 
         if (matches && matches[0]) {

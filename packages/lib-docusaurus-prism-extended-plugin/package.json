@@ -12,9 +12,12 @@
     "compile": "tsc"
   },
   "dependencies": {
-    "lib-prism-extended": "0.1.0"
+    "@docusaurus/types": "2.0.0-alpha.55",
+    "lib-prism-extended": "0.1.0",
+    "prism-react-renderer": "^1.1.1"
   },
   "devDependencies": {
-    "@docusaurus/types": "2.0.0-alpha.54"
+    "@types/node": "^14.0.4",
+    "typescript": "^3.9.3"
   }
 }

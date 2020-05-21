@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 import React, { ReactElement, CSSProperties } from 'react';
 
-import extendLibPrism from 'lib-prism-extended';
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import Prism from 'prism-react-renderer/prism';
 
 import theme from './prism-theme.json';
+
+import extendLibPrism from 'lib-prism-extended';
 
 extendLibPrism(Prism);
 

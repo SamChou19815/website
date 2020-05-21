@@ -1348,7 +1348,7 @@ exports[`FirstPage matches snapshot. 1`] = `
         className="MuiCardHeader-avatar"
       >
         <svg
-          aria-hidden="true"
+          aria-hidden={true}
           className="MuiSvgIcon-root"
           focusable="false"
           viewBox="0 0 24 24"
@@ -1377,7 +1377,7 @@ exports[`FirstPage matches snapshot. 1`] = `
       className="MuiCardContent-root IconLine"
     >
       <svg
-        aria-hidden="true"
+        aria-hidden={true}
         className="MuiSvgIcon-root"
         focusable="false"
         viewBox="0 0 24 24"
@@ -1396,7 +1396,7 @@ exports[`FirstPage matches snapshot. 1`] = `
       className="MuiCardContent-root IconLine"
     >
       <svg
-        aria-hidden="true"
+        aria-hidden={true}
         className="MuiSvgIcon-root"
         focusable="false"
         viewBox="0 0 24 24"
@@ -1415,7 +1415,7 @@ exports[`FirstPage matches snapshot. 1`] = `
       className="MuiCardContent-root IconLine"
     >
       <svg
-        aria-hidden="true"
+        aria-hidden={true}
         className="MuiSvgIcon-root"
         focusable="false"
         viewBox="0 0 24 24"
@@ -1434,7 +1434,7 @@ exports[`FirstPage matches snapshot. 1`] = `
       className="MuiCardContent-root IconLine"
     >
       <svg
-        aria-hidden="true"
+        aria-hidden={true}
         className="MuiSvgIcon-root"
         focusable="false"
         viewBox="0 0 24 24"
@@ -1454,7 +1454,7 @@ exports[`FirstPage matches snapshot. 1`] = `
       className="MuiCardContent-root IconLine"
     >
       <svg
-        aria-hidden="true"
+        aria-hidden={true}
         className="MuiSvgIcon-root"
         focusable="false"
         viewBox="0 0 24 24"

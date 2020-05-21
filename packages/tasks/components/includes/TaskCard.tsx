@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import MarkdownBlock from 'lib-react/MarkdownBlock';
 
 import { ReduxStoreTask } from '../../models/redux-store-types';
 import { deleteTask } from '../../util/firestore-actions';
@@ -15,6 +14,8 @@ import MaterialAlertDialog from '../util/MaterialAlertDialog';
 import MaterialColoredCardHeader from '../util/MaterialColoredCardHeader';
 import styles from './TaskCard.module.css';
 import TaskEditorForm, { shouldBeDisabled, saveTask } from './TaskEditorForm';
+
+import MarkdownBlock from 'lib-react/MarkdownBlock';
 
 type Props = {
   readonly task: ReduxStoreTask;

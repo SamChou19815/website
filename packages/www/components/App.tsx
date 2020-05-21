@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
-import MaterialThemedApp from 'lib-react/MaterialThemedApp';
 import Head from 'next/head';
 import { Provider as ReactReduxProvider } from 'react-redux';
 
@@ -12,6 +10,9 @@ import ProjectsSection from './ProjectsSection';
 import TechTalkSection from './TechTalkSection';
 import TimelineSection from './TimelineSection';
 import WebTerminal from './WebTerminal';
+
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
+import MaterialThemedApp from 'lib-react/MaterialThemedApp';
 
 const buttons: ReactElement = (
   <>
