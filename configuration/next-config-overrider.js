@@ -12,6 +12,16 @@ module.exports = (additionalConfigurations = {}) =>
         // eslint-disable-next-line @typescript-eslint/camelcase
         child_process: 'empty',
       };
+      config.module.rules.push({
+        test: /\.worker\.js$/,
+        loader: require.resolve('worker-loader'),
+        options: {
+          name: 'static/[hash].worker.js',
+          publicPath: '/_next/',
+        },
+      });
+      // eslint-disable-next-line no-param-reassign
+      config.output.globalObject = 'self';
       return config;
     },
     ...additionalConfigurations,

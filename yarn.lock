@@ -18344,19 +18344,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-app-rewired@npm:^2.1.5":
-  version: 2.1.5
-  resolution: "react-app-rewired@npm:2.1.5"
-  dependencies:
-    semver: ^5.6.0
-  peerDependencies:
-    react-scripts: ">=2.1.3"
-  bin:
-    react-app-rewired: ./bin/index.js
-  checksum: 3/a65c4f47e3d444bae50a0336cb7931d70d1c72cae9ac37c997c184cd66d20e48a5dc2b151e3d17856e41ec9e587b171acee8081a844ddef5475655ace8fb21c6
-  languageName: node
-  linkType: hard
-
 "react-beautiful-dnd@npm:^13.0.0":
   version: 13.0.0
   resolution: "react-beautiful-dnd@npm:13.0.0"
@@ -19549,6 +19536,7 @@ resolve@^1.17.0:
     prettier: 2.0.5
     react-test-renderer: ^16.13.1
     typescript: 3.9.2
+    worker-loader: ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -21149,7 +21137,6 @@ resolve@^1.17.0:
     react-beautiful-dnd: ^13.0.0
     react-dom: ^16.13.1
     react-redux: ^7.2.0
-    react-scripts: 3.4.1
     redux: ^4.0.5
     rxjs: ^6.5.5
   languageName: unknown
@@ -21170,12 +21157,11 @@ resolve@^1.17.0:
   resolution: "ten@workspace:packages/ten"
   dependencies:
     "@material-ui/core": ^4.9.12
+    jest: ^26.0.1
     lib-react: 0.1.0
+    next: 9.4.2
     react: ^16.13.1
-    react-app-rewired: ^2.1.5
     react-dom: ^16.13.1
-    react-scripts: 3.4.1
-    worker-loader: ^2.0.0
   languageName: unknown
   linkType: soft
 
@@ -23287,7 +23273,6 @@ typescript@3.9.2:
     react: ^16.13.1
     react-dom: ^16.13.1
     react-redux: ^7.2.0
-    react-scripts: 3.4.1
     redux: ^4.0.5
   languageName: unknown
   linkType: soft

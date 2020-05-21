@@ -34,7 +34,7 @@
     },
     {
       "target": "ten",
-      "public": "packages/ten/build",
+      "public": "packages/ten/out",
       "ignore": ["**/.*"],
       "rewrites": [
         {

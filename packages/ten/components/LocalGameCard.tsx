@@ -6,14 +6,12 @@ import { MctsResponse } from '../game/mcts';
 import { Status } from './GameCard';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';
 
-const worker = new AIEngineWorker();
-
-/**
- * The game card in local mode.
- */
+/** The game card in local mode */
 export default function LocalGameCard(): ReactElement {
   const [gameState, setGameState] = React.useState(initialGameState);
   const [isWorkerListenerSet, setIsWorkerListenerSet] = React.useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const workerRef = React.useRef<AIEngineWorker>(undefined!);
 
   const aiResponseListener = (event: {
     data: { aiResponse: MctsResponse; board: Board };
@@ -39,12 +37,14 @@ export default function LocalGameCard(): ReactElement {
   };
 
   const aiResponder = (b: Board): void => {
-    worker.postMessage(b); // lgtm [js/property-access-on-non-object]
+    workerRef.current.postMessage(b);
   };
 
   React.useEffect((): void => {
     if (!isWorkerListenerSet) {
-      worker.addEventListener('message', aiResponseListener); // lgtm [js/property-access-on-non-object]
+      const worker = new AIEngineWorker();
+      workerRef.current = worker;
+      worker.addEventListener('message', aiResponseListener);
       setIsWorkerListenerSet(true);
     }
   }, [isWorkerListenerSet]);
