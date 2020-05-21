@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "common:firebase": "firebase",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx",
@@ -23,7 +24,6 @@
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "babel-jest": "^26.0.1",
-    "customize-cra": "^0.9.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",

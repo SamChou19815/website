@@ -3,6 +3,5 @@
   "lib-docusaurus-prism-extended-plugin",
   "lib-firebase",
   "lib-prism-extended",
-  "lib-react",
-  "lib-tests"
+  "lib-react"
 ]
