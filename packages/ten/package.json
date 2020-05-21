@@ -9,15 +9,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "devDependencies": {
-    "jest": "^26.0.1"
-  },
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "test": "jest",
+    "test": "yarn common:jest",
     "compile": "tsc",
-    "deploy": "node ../../node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
+    "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "browserslist": [
     ">0.2%",
