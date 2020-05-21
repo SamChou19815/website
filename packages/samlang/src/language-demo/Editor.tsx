@@ -157,7 +157,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
       // Ignore selections
       if (selectionStart === selectionEnd) {
         // Get the current line
-        const line = getLines(value, selectionStart).pop() ?? '';
+        const line = getLines(value, selectionStart).pop() || '';
         const matches = line.match(/^\s+/);
 
         if (matches && matches[0]) {
