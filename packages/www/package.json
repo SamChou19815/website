@@ -18,7 +18,6 @@
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "test": "yarn common:jest",
     "compile": "tsc",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
   },

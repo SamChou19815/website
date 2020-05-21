@@ -29,5 +29,3 @@ jobs:
         run: yarn install
       - name: Compile
         run: yarn workspace ten compile
-      - name: Test
-        run: yarn workspace ten test

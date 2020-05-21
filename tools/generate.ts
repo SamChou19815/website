@@ -50,8 +50,6 @@ ${getPathsString(workspace)}
 ${getBoilterPlateSetupSteps('build')}
       - name: Compile
         run: yarn workspace ${workspace} compile
-      - name: Test
-        run: yarn workspace ${workspace} test
 `;
   return [filename, content];
 };

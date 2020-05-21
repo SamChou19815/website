@@ -9,8 +9,7 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc",
-    "test": "echo 'Tests are in lib-tests.'"
+    "compile": "tsc"
   },
   "dependencies": {
     "lib-prism-extended": "0.1.0"
