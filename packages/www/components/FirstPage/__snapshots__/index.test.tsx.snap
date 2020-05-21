@@ -249,7 +249,7 @@ exports[`FirstPage matches snapshot. 1`] = `
           }
         }
       >
-        // https://samlang-demo.developersam.com
+        // https://samlang.developersam.com/demo
       </span>
       <span
         className="token plain"
