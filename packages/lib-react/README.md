@@ -10,7 +10,7 @@ A collection of React components for Developer Sam's websites.
 
 ## Tech Specification
 
-- Powered by React, Material-UI, and `highlight.js`
+- Powered by React, Material-UI, and `PrismJS`
 - Type checked and compiled by TypeScript
 - Formatted by Prettier
 - Linted by ESLint

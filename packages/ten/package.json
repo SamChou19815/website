@@ -12,8 +12,8 @@
   },
   "scripts": {
     "start": "NODE_NO_WARNINGS=1 next",
-    "build": "next build && next export",
-    "compile": "tsc",
+    "build": "NODE_NO_WARNINGS=1 next build && next export",
+    "compile": "run -T tsc",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "browserslist": [
@@ -24,10 +24,6 @@
   ],
   "proxy": "https://us-central1-dev-sam.cloudfunctions.net/HandleTenAIMoveRequest",
   "devDependencies": {
-    "@types/jest": "^25.2.3",
-    "@types/node": "^14.0.4",
-    "@types/react": "^16.9.35",
-    "@types/react-test-renderer": "^16.9.2",
-    "typescript": "^3.9.3"
+    "@types/jest": "^25.2.3"
   }
 }

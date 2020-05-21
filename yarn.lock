@@ -3002,13 +3002,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/highlight.js@npm:^9.12.3":
-  version: 9.12.4
-  resolution: "@types/highlight.js@npm:9.12.4"
-  checksum: 3/3aea09c0961ea5054be8ea4756d8936756b2c72e568b45a4a5cc8ab7aa8eaf1e9090bf9bc00f12c1b15ba71b3450a9068b6e6e768fad8ef072f2c864d75c922e
-  languageName: node
-  linkType: hard
-
 "@types/hoist-non-react-statics@npm:^3.3.0":
   version: 3.3.1
   resolution: "@types/hoist-non-react-statics@npm:3.3.1"
@@ -3059,7 +3052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:25.2.3, @types/jest@npm:^25.2.3":
+"@types/jest@npm:^25.2.3":
   version: 25.2.3
   resolution: "@types/jest@npm:25.2.3"
   dependencies:
@@ -3122,13 +3115,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.0.4":
-  version: 14.0.4
-  resolution: "@types/node@npm:14.0.4"
-  checksum: 3/ea723cbd063ab777920a624002d3caaa274482e055d29d92247bd39b4c826f0a62d3badb173f360a9d6fe03ff607ce27310a0b8a4c9835ecb91fa17d9627aecd
-  languageName: node
-  linkType: hard
-
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.0
   resolution: "@types/normalize-package-data@npm:2.4.0"
@@ -3150,7 +3136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1.16.0":
+"@types/prismjs@npm:^1.16.1":
   version: 1.16.1
   resolution: "@types/prismjs@npm:1.16.1"
   checksum: 3/f3807984ec5df53c37a83d315851e620ff5038f37e748f18e68075c0184485abcf1b5de5fde94f5640922a24e3c0eb6f4ea424c27650322a25ab0f3de73d6ec1
@@ -3180,7 +3166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:16.9.8, @types/react-dom@npm:^16.9.8":
+"@types/react-dom@npm:16.9.8":
   version: 16.9.8
   resolution: "@types/react-dom@npm:16.9.8"
   dependencies:
@@ -3201,7 +3187,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-test-renderer@npm:16.9.2, @types/react-test-renderer@npm:^16.9.2":
+"@types/react-test-renderer@npm:16.9.2":
   version: 16.9.2
   resolution: "@types/react-test-renderer@npm:16.9.2"
   dependencies:
@@ -9844,13 +9830,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^10.0.1":
-  version: 10.0.3
-  resolution: "highlight.js@npm:10.0.3"
-  checksum: 3/59d78b9dc985e896c83b2e2ef7550743757775391d1f7f0d3c61105dd368c1a9761e9958e7ed67e4bd14fc390094d143afe8a0c4966ee6b8297b3c637a14d206
-  languageName: node
-  linkType: hard
-
 "history@npm:^4.9.0":
   version: 4.10.1
   resolution: "history@npm:4.10.1"
@@ -12324,13 +12303,8 @@ fsevents@^1.2.7:
   resolution: "lib-react@workspace:packages/lib-react"
   dependencies:
     "@material-ui/core": ^4.9.12
-    "@types/highlight.js": ^9.12.3
     "@types/jest": ^25.2.3
-    "@types/prismjs": ^1.16.0
-    "@types/remarkable": ^1.7.4
-    highlight.js: ^10.0.1
     lib-prism-extended: 0.1.0
-    next: 9.4.2
     prism-react-renderer: ^1.1.0
     prismjs: ^1.20.0
     react: ^16.13.1
@@ -17247,11 +17221,13 @@ fsevents@^1.2.7:
   dependencies:
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.55
     "@types/classnames": ^2.2.10
-    "@types/jest": 25.2.3
+    "@types/jest": ^25.2.3
     "@types/node": 14.0.1
+    "@types/prismjs": ^1.16.1
     "@types/react": 16.9.35
     "@types/react-dom": 16.9.8
     "@types/react-test-renderer": 16.9.2
+    "@types/remarkable": ^1.7.4
     "@typescript-eslint/eslint-plugin": ^2.34.0
     "@typescript-eslint/parser": ^2.34.0
     babel-jest: ^26.0.1
@@ -17274,7 +17250,7 @@ fsevents@^1.2.7:
     next-transpile-modules: ^3.3.0
     prettier: 2.0.5
     react-test-renderer: ^16.13.1
-    typescript: 3.9.2
+    typescript: 3.9.3
     worker-loader: ^2.0.0
   languageName: unknown
   linkType: soft
@@ -18825,8 +18801,6 @@ fsevents@^1.2.7:
     "@material-ui/icons": ^4.9.1
     "@material-ui/lab": ^4.0.0-alpha.51
     "@types/jest": ^25.2.3
-    "@types/node": ^14.0.4
-    "@types/react": ^16.9.35
     "@types/react-beautiful-dnd": ^12.1.2
     "@types/react-redux": ^7.1.7
     firebase: ^7.14.2
@@ -18840,7 +18814,6 @@ fsevents@^1.2.7:
     react-redux: ^7.2.0
     redux: ^4.0.5
     rxjs: ^6.5.5
-    typescript: ^3.9.3
   languageName: unknown
   linkType: soft
 
@@ -18860,15 +18833,11 @@ fsevents@^1.2.7:
   dependencies:
     "@material-ui/core": ^4.9.12
     "@types/jest": ^25.2.3
-    "@types/node": ^14.0.4
-    "@types/react": ^16.9.35
-    "@types/react-test-renderer": ^16.9.2
     lib-react: 0.1.0
     next: 9.4.2
     react: ^16.13.1
     react-dom: ^16.13.1
     react-test-renderer: ^16.13.1
-    typescript: ^3.9.3
   languageName: unknown
   linkType: soft
 
@@ -19420,17 +19389,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-typescript@3.9.2:
-  version: 3.9.2
-  resolution: "typescript@npm:3.9.2"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 3/bf7cbf2f8c695aa942be60da470aaaf902c2e9b3693ed5141fa6de5632f42f471b7e83bd9d4dcff5e0fa37eff746d61cfe1e6949019ad70f0f98d1f60ccfd3ae
-  languageName: node
-  linkType: hard
-
-typescript@^3.9.3:
+typescript@3.9.3:
   version: 3.9.3
   resolution: "typescript@npm:3.9.3"
   bin:
@@ -19440,17 +19399,7 @@ typescript@^3.9.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@3.9.2#builtin<compat/typescript>":
-  version: 3.9.2
-  resolution: "typescript@patch:typescript@npm%3A3.9.2#builtin<compat/typescript>::version=3.9.2&hash=8cac75"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 3/51daca430f15c0df7aa820da2ef0a042b081327a1c2426016abbbcb35395f38d9559036a9b9e71320075197444e9b1093726a8086129a4ec367f188ba398212c
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^3.9.3#builtin<compat/typescript>":
+"typescript@patch:typescript@3.9.3#builtin<compat/typescript>":
   version: 3.9.3
   resolution: "typescript@patch:typescript@npm%3A3.9.3#builtin<compat/typescript>::version=3.9.3&hash=8cac75"
   bin:
@@ -20612,11 +20561,7 @@ typescript@^3.9.3:
     "@material-ui/core": ^4.9.12
     "@material-ui/icons": ^4.9.1
     "@types/jest": ^25.2.3
-    "@types/node": ^14.0.4
-    "@types/react": ^16.9.35
-    "@types/react-dom": ^16.9.8
     "@types/react-redux": ^7.1.7
-    "@types/react-test-renderer": ^16.9.2
     firebase: ^7.14.2
     lib-firebase: 0.1.0
     lib-react: 0.1.0
@@ -20626,7 +20571,6 @@ typescript@^3.9.3:
     react-redux: ^7.2.0
     react-test-renderer: ^16.13.1
     redux: ^4.0.5
-    typescript: ^3.9.3
   languageName: unknown
   linkType: soft
 
