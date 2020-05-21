@@ -16,12 +16,6 @@
     "compile": "run -T tsc",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "proxy": "https://us-central1-dev-sam.cloudfunctions.net/HandleTenAIMoveRequest",
   "devDependencies": {
     "@types/jest": "^25.2.3"

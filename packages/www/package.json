@@ -22,12 +22,6 @@
     "compile": "run -T tsc",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "devDependencies": {
     "@types/jest": "^25.2.3"
   }
