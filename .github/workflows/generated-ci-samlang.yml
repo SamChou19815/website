@@ -30,5 +30,3 @@ jobs:
         run: yarn install
       - name: Compile
         run: yarn workspace samlang compile
-      - name: Test
-        run: yarn workspace samlang test

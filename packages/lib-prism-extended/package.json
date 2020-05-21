@@ -9,7 +9,6 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc",
-    "test": "echo 'Tests are in lib-tests.'"
+    "compile": "tsc"
   }
 }

@@ -9,8 +9,7 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc",
-    "test": "yarn common:jest"
+    "compile": "tsc"
   },
   "dependencies": {
     "lib-prism-extended": "0.1.0",

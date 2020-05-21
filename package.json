@@ -2,11 +2,11 @@
   "private": true,
   "scripts": {
     "common:firebase": "firebase",
-    "common:jest": "jest",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "lint": "eslint . --ext .js --ext .ts --ext .jsx --ext .tsx",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "test": "jest"
   },
   "engines": {
     "yarn": ">=1.21.0"
