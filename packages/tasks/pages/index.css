@@ -100,8 +100,9 @@ ul {
   margin-bottom: 30px;
 }
 
-.MuiBreadcrumbs-separator {
-  color: white;
+.MuiAppBar-colorPrimary {
+  color: #fff !important;
+  background-color: #3e7ae2 !important;
 }
 
 /** Markdown Plugin */

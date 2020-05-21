@@ -5,10 +5,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import School from '@material-ui/icons/School';
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 import ConsoleSection from '../Common/ConsoleSection';
 import styles from './index.module.css';
+
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 const schoolIcon = <School />;
 

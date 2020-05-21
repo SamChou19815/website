@@ -10,10 +10,11 @@ import Code from '@material-ui/icons/Code';
 import Domain from '@material-ui/icons/Domain';
 import School from '@material-ui/icons/School';
 import Work from '@material-ui/icons/Work';
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 import FirstPageCodeBlock from './FirstPageCodeBlock';
 import styles from './index.module.css';
+
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 type IconLineProps = {
   readonly Icon: (props: SvgIconProps) => ReactElement;

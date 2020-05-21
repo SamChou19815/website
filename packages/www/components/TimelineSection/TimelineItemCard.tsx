@@ -10,11 +10,12 @@ import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import Code from '@material-ui/icons/Code';
 import Event from '@material-ui/icons/Event';
 import Work from '@material-ui/icons/Work';
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
 import styles from './TimelineItemCard.module.css';
 import { TimelineItem } from './items';
+
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 type Props = { readonly item: TimelineItem };
 

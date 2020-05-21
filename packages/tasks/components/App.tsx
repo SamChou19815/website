@@ -1,10 +1,36 @@
 import React, { ReactElement } from 'react';
 
+import Button from '@material-ui/core/Button';
 import Head from 'next/head';
 import { Provider as ReactReduxProvider } from 'react-redux';
 
 import { store } from '../models/redux-store';
-import HomePage from './pages/HomePage';
+import { APP_NAME } from '../util/constants';
+import styles from './App.module.css';
+import TasksPanel from './includes/TasksPanel';
+import ConfiguredMainAppBarrier from './util/ConfiguredMainAppBarrier';
+
+import { firebaseSignOut } from 'lib-firebase/authentication';
+import MaterialThemedApp from 'lib-react/MaterialThemedApp';
+
+const SignOutButton = (): ReactElement => (
+  <Button color="inherit" onClick={firebaseSignOut}>
+    Sign Out
+  </Button>
+);
+
+const HomePage = (): ReactElement => (
+  <MaterialThemedApp
+    title={APP_NAME}
+    appBarPosition="fixed"
+    styles={{ app: styles.App, title: styles.Title }}
+    buttons={<SignOutButton />}
+  >
+    <div className={`${styles.RootContainer} content-below-appbar`}>
+      <TasksPanel />
+    </div>
+  </MaterialThemedApp>
+);
 
 export default (): ReactElement => (
   <ReactReduxProvider store={store}>
@@ -16,6 +42,6 @@ export default (): ReactElement => (
       <link rel="manifest" href="/manifest.json" />
       <title>Tasks - Developer Sam Apps</title>
     </Head>
-    <HomePage />
+    <ConfiguredMainAppBarrier appComponent={HomePage} />
   </ReactReduxProvider>
 );

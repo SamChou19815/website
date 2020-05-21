@@ -1,7 +1,8 @@
 import React from 'react';
 
-import CodeBlock from 'lib-react/PrismCodeBlock';
 import renderer from 'react-test-renderer';
+
+import CodeBlock from 'lib-react/PrismCodeBlock';
 
 const createSamLangTest = (name: string, code: string) => {
   it(`CodeBlock rendering "${name}" matches snapshot.`, () => {

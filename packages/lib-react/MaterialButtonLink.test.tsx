@@ -1,7 +1,8 @@
 import React from 'react';
 
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import renderer from 'react-test-renderer';
+
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 it('Simple MaterialButtonLink matches snapshot.', () => {
   const tree = renderer

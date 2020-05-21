@@ -6,11 +6,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
 import Code from '@material-ui/icons/Code';
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 import ConsoleSection from '../Common/ConsoleSection';
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
 import styles from './index.module.css';
+
+import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 const Docusaurus = '/projects/docusaurus.png';
 const MiniReact = '/projects/mini-react.png';

@@ -12,7 +12,8 @@
     "compile": "tsc"
   },
   "dependencies": {
-    "lib-prism-extended": "0.1.0"
+    "lib-prism-extended": "0.1.0",
+    "prism-react-renderer": "^1.1.1"
   },
   "devDependencies": {
     "@docusaurus/types": "2.0.0-alpha.54"

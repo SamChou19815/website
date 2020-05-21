@@ -8,7 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-import MarkdownBlock from 'lib-react/MarkdownBlock';
 import { useSelector } from 'react-redux';
 
 import { TaskId } from '../../models/ids';
@@ -17,6 +16,8 @@ import { ReduxStoreState } from '../../models/redux-store-types';
 import { useTransitiveDependencies } from '../hooks/useTasks';
 import TaskCard from './TaskCard';
 import styles from './TaskDetailContainer.module.css';
+
+import MarkdownBlock from 'lib-react/MarkdownBlock';
 
 type Props = {
   readonly taskId: TaskId;

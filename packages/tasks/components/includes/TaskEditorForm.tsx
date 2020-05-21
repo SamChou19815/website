@@ -7,7 +7,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { getAppUser } from 'lib-firebase/authentication';
 
 import { SanctionedColor } from '../../models/common-types';
 import { TaskId } from '../../models/ids';
@@ -16,6 +15,8 @@ import { sanctionedColors, sanctionedColorMapping } from '../../util/constants';
 import { createTask, editTask } from '../../util/firestore-actions';
 import { useEligibleDependencies } from '../hooks/useTasks';
 import styles from './TaskEditorForm.module.css';
+
+import { getAppUser } from 'lib-firebase/authentication';
 
 export type EditableTask = {
   readonly name: string;

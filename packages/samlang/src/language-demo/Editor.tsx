@@ -10,9 +10,10 @@
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import autosize from 'autosize';
-import CodeBlock from 'lib-react/PrismCodeBlock';
 
 import styles from './Editor.module.css';
+
+import CodeBlock from 'lib-react/PrismCodeBlock';
 
 type Record = {
   readonly value: string;
