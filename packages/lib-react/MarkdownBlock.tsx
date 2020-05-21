@@ -8,7 +8,6 @@ import { linkify } from 'remarkable/linkify';
 
 import PrismCodeBlock from './PrismCodeBlock';
 import remarkableCheckboxPlugin from './remarkable-checkbox-plugin';
-import './MarkdownBlock.css';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore: TypeScript type definition has problems. :(

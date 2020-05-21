@@ -23,7 +23,7 @@
     },
     {
       "target": "tasks",
-      "public": "packages/tasks/build",
+      "public": "packages/tasks/out",
       "ignore": ["**/.*"],
       "rewrites": [
         {
