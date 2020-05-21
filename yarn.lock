@@ -3155,7 +3155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:16.9.8":
+"@types/react-dom@npm:16.9.8, @types/react-dom@npm:^16.9.8":
   version: 16.9.8
   resolution: "@types/react-dom@npm:16.9.8"
   dependencies:
@@ -3176,7 +3176,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-test-renderer@npm:16.9.2":
+"@types/react-test-renderer@npm:16.9.2, @types/react-test-renderer@npm:^16.9.2":
   version: 16.9.2
   resolution: "@types/react-test-renderer@npm:16.9.2"
   dependencies:
@@ -12000,6 +12000,8 @@ fsevents@^1.2.7:
     "@types/jest": ^25.2.3
     "@types/prismjs": ^1.16.0
     "@types/react": ^16.9.35
+    "@types/react-dom": ^16.9.8
+    "@types/react-test-renderer": ^16.9.2
     "@types/remarkable": ^1.7.4
     highlight.js: ^10.0.1
     lib-prism-extended: 0.1.0
@@ -12010,6 +12012,7 @@ fsevents@^1.2.7:
     react-dom: ^16.13.1
     react-test-renderer: ^16.13.1
     remarkable: ^2.0.0
+    typescript: ^3.9.3
   peerDependencies:
     react: ^16.13.1
     react-dom: ^16.13.1
@@ -16928,14 +16931,18 @@ fsevents@^1.2.7:
   dependencies:
     "@dev-sam/samlang-demo": ^0.0.2
     "@docusaurus/core": ^2.0.0-alpha.55
+    "@docusaurus/module-type-aliases": ^2.0.0-alpha.55
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
     "@material-ui/core": ^4.9.12
+    "@types/classnames": ^2.2.10
+    "@types/react": ^16.9.35
     autosize: ^4.0.2
     classnames: ^2.2.6
     lib-docusaurus-prism-extended-plugin: 0.1.0
     lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
+    typescript: ^3.9.3
   languageName: unknown
   linkType: soft
 
