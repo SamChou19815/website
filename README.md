@@ -17,7 +17,7 @@ This is a monorepo of Sam's [website](https://developersam.com).
 ## Technology Stack
 
 - Frontend
-  - Build System: Yarn
+  - Build System: Yarn V2 with pnp
   - Language: TypeScript
   - Library: React
   - UI: Material-UI
