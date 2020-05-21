@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2019-present, Developer Sam.
+ *
+ * This source code is licensed under the AGPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React, { useState, ReactElement } from 'react';
 
 import Button from '@material-ui/core/Button';
@@ -7,17 +14,9 @@ import CardContent from '@material-ui/core/CardContent';
 
 import Editor from './Editor';
 import styles from './LanguageDemo.module.css';
+import { initialText } from './demo';
 
 type Props = { readonly onSubmit: (code: string) => void };
-
-const initialText = `/* Start to type your program */
-// Add your comments!
-// Press enter to add a new line.
-
-class Main {
-  function main(): string = "Hello World!"
-}
-`;
 
 const rootClassName = [styles.ParallelCard, styles.EditorCard].join(' ');
 

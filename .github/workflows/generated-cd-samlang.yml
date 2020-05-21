@@ -8,6 +8,7 @@ on:
     paths:
       - packages/lib-prism-extended/**
       - packages/lib-docusaurus-prism-extended-plugin/**
+      - packages/lib-react/**
       - packages/samlang/**
       - package.json
       - yarn.lock

@@ -1,46 +1,41 @@
+/**
+ * Copyright (c) 2019-present, Developer Sam.
+ *
+ * This source code is licensed under the AGPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import React, { ReactNode, ReactElement } from 'react';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import CodeBlock from 'lib-react/PrismCodeBlock';
+import CodeBlock from '@theme/CodeBlock';
 
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
-import { Response } from './interpret';
+import { Response } from './demo';
 
 const ErrorDetail = ({ children }: { readonly children: readonly string[] }): ReactElement => (
   <div className={`${ResultStyles.ColoredResult} ${ResultStyles.BadResult}`}>
     <h3>Compile Time Errors</h3>
-    <code>
-      {children.map((line, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <p key={index}>{line}</p>
-      ))}
-    </code>
+    <CodeBlock>{children.join('\n')}</CodeBlock>
   </div>
 );
 
 const AssemblyBlock = ({ children }: { readonly children: string }): ReactElement => (
   <div className={`${ResultStyles.ColoredResult} ${ResultStyles.NeutralResult}`}>
     <h3>Optimized Assembly</h3>
-    <code>
-      {children.split('\n').map((line, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <p key={index}>{line}</p>
-      ))}
-    </code>
+    <CodeBlock>{children.trim()}</CodeBlock>
   </div>
 );
 
-type Props = { readonly response: Response | string | null };
+type Props = { readonly response: Response | string };
 
 /** The component of the language demo result. */
 export default function ResultCard({ response }: Props): ReactElement {
   let children: ReactNode;
-  if (response === null) {
-    children = 'Submit a program to see the interpretation result.';
-  } else if (typeof response === 'string') {
+  if (typeof response === 'string') {
     children = (
       <div>
         <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'red' }}>
@@ -74,9 +69,7 @@ export default function ResultCard({ response }: Props): ReactElement {
         {prettyPrintedProgram && (
           <div className={ResultStyles.ColoredResult} style={{ borderLeftColor: 'green' }}>
             <h3>Pretty Printed Program:</h3>
-            <CodeBlock language="samlang" className={ResultStyles.CodeBlock}>
-              {prettyPrintedProgram}
-            </CodeBlock>
+            <CodeBlock className="samlang">{prettyPrintedProgram.trim()}</CodeBlock>
           </div>
         )}
         {assemblyString && <AssemblyBlock>{assemblyString}</AssemblyBlock>}

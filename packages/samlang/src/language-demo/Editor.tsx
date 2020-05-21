@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2019-present, Developer Sam.
+ *
+ * This source code is licensed under the AGPLv3 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 // Credit: Adapted from https://github.com/satya164/react-simple-code-editor/blob/master/src/index.js
 
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
@@ -29,7 +36,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
     autosize(inputElement);
     const listener = () => {
       const heightString = inputRef.current.style.height;
-      const height = parseInt(heightString.substring(0, heightString.length - 2), 10);
+      const height = parseInt(heightString.substring(0, heightString.length - 2), 10) - 16;
       setCodeBlockHeight(height);
     };
     const interval = setInterval(listener, 50);
@@ -227,7 +234,7 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
         className={`${styles.Editor} ${styles.CodeBlock}`}
         style={{ height: codeBlockHeight + 16 }}
       >
-        {code}
+        {code.trim()}
       </CodeBlock>
     </div>
   );

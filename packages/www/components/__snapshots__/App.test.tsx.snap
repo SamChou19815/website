@@ -1728,7 +1728,7 @@ exports[`App matches snapshot. 1`] = `
             >
               <a
                 className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                href="https://samlang-demo.developersam.com"
+                href="https://samlang.developersam.com/demo"
                 onBlur={[Function]}
                 onFocus={[Function]}
               >

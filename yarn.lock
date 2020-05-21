@@ -1807,7 +1807,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dev-sam/samlang-demo@npm:0.0.2":
+"@dev-sam/samlang-demo@npm:^0.0.2":
   version: 0.0.2
   resolution: "@dev-sam/samlang-demo@npm:0.0.2"
   checksum: 3/d46a51c20dad1dd01fdcb03b1537f9dfa31aaf6d08aac250d579df8bb8f8e391ffb1d255760a58c7d790b7321827176bc5775d990c17469e2140d92dc63473d6
@@ -3671,6 +3671,13 @@ __metadata:
   dependencies:
     "@babel/types": ^7.3.0
   checksum: 3/5ae9cf8dc96c4c99502c15feb139120d0b3613c4eed847a2a017dbf905cd7fe98b6a0541a4ceab41e6eca7fb912d0ab9ad9efe7d69517618c73dadf75eb96476
+  languageName: node
+  linkType: hard
+
+"@types/classnames@npm:^2.2.10":
+  version: 2.2.10
+  resolution: "@types/classnames@npm:2.2.10"
+  checksum: 3/71941e2872cc76b3dee2ec12d7d0d730695b0617b442420b1662911a1a514ace9d9ae42536d3e7242ca7eec804d421da0201d45748fc5882c5f7325230482fd4
   languageName: node
   linkType: hard
 
@@ -19552,6 +19559,7 @@ resolve@^1.17.0:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.55
+    "@types/classnames": ^2.2.10
     "@types/jest": 25.2.3
     "@types/node": 14.0.1
     "@types/react": 16.9.35
@@ -19682,29 +19690,17 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
-"samlang-demo@workspace:packages/samlang-demo":
-  version: 0.0.0-use.local
-  resolution: "samlang-demo@workspace:packages/samlang-demo"
-  dependencies:
-    "@dev-sam/samlang-demo": 0.0.2
-    "@material-ui/core": ^4.9.12
-    autosize: ^4.0.2
-    lib-react: 0.1.0
-    react: ^16.13.1
-    react-app-rewired: ^2.1.5
-    react-dom: ^16.13.1
-    react-scripts: 3.4.1
-  languageName: unknown
-  linkType: soft
-
 "samlang@workspace:packages/samlang":
   version: 0.0.0-use.local
   resolution: "samlang@workspace:packages/samlang"
   dependencies:
+    "@dev-sam/samlang-demo": ^0.0.2
     "@docusaurus/core": ^2.0.0-alpha.55
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
+    autosize: ^4.0.2
     classnames: ^2.2.6
     lib-docusaurus-prism-extended-plugin: 0.1.0
+    lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
   languageName: unknown

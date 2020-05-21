@@ -34,7 +34,7 @@ export default (): ReactElement => (
           <MaterialButtonLink href="https://samlang.developersam.com">
             Official Site
           </MaterialButtonLink>
-          <MaterialButtonLink href="https://samlang-demo.developersam.com">Demo</MaterialButtonLink>
+          <MaterialButtonLink href="https://samlang.developersam.com/demo">Demo</MaterialButtonLink>
           <MaterialButtonLink href="https://github.com/SamChou19815/samlang">
             GitHub Repo
           </MaterialButtonLink>

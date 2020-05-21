@@ -7,15 +7,19 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "compile": "yarn build",
+    "tsc": "tsc",
+    "compile": "yarn tsc && yarn build",
     "test": "echo 'No tests yet.'",
     "deploy": "node ../../node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
   "dependencies": {
+    "@dev-sam/samlang-demo": "^0.0.2",
     "@docusaurus/core": "^2.0.0-alpha.55",
     "@docusaurus/preset-classic": "^2.0.0-alpha.55",
+    "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "lib-docusaurus-prism-extended-plugin": "0.1.0",
+    "lib-react": "0.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
