@@ -1650,18 +1650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/types@npm:2.0.0-alpha.54":
-  version: 2.0.0-alpha.54
-  resolution: "@docusaurus/types@npm:2.0.0-alpha.54"
-  dependencies:
-    "@types/webpack": ^4.41.0
-    commander: ^4.0.1
-    querystring: 0.2.0
-  checksum: 3/a43a33b322858ac499e8535922ac107123f5edbf635c53d7b98799d2f85261c4a0e925110feeee38464edb3785291a693e6df1d70a59cd54f6137f6591f607c7
-  languageName: node
-  linkType: hard
-
-"@docusaurus/types@npm:^2.0.0-alpha.55":
+"@docusaurus/types@npm:2.0.0-alpha.55, @docusaurus/types@npm:^2.0.0-alpha.55":
   version: 2.0.0-alpha.55
   resolution: "@docusaurus/types@npm:2.0.0-alpha.55"
   dependencies:
@@ -4788,6 +4777,7 @@ __metadata:
     "@types/classnames": ^2.2.10
     "@types/react": ^16.9.35
     "@yarnpkg/pnpify": ^2.0.0-rc.22
+    babel-plugin-dynamic-import-node: ^2.3.3
     classnames: ^2.2.6
     lib-docusaurus-prism-extended-plugin: 0.1.0
     lib-react: 0.1.0
@@ -12309,9 +12299,11 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-docusaurus-prism-extended-plugin@workspace:packages/lib-docusaurus-prism-extended-plugin"
   dependencies:
-    "@docusaurus/types": 2.0.0-alpha.54
+    "@docusaurus/types": 2.0.0-alpha.55
+    "@types/node": ^14.0.4
     lib-prism-extended: 0.1.0
     prism-react-renderer: ^1.1.1
+    typescript: ^3.9.3
   languageName: unknown
   linkType: soft
 
@@ -12324,6 +12316,7 @@ fsevents@^1.2.7:
     lib-common: 0.1.0
     react: ^16.13.1
     rxjs: ^6.5.5
+    typescript: ^3.9.3
   peerDependencies:
     firebase: "*"
     react: "*"
@@ -17417,6 +17410,7 @@ fsevents@^1.2.7:
     "@types/react": ^16.9.35
     "@yarnpkg/pnpify": ^2.0.0-rc.22
     autosize: ^4.0.2
+    babel-plugin-dynamic-import-node: ^2.3.3
     classnames: ^2.2.6
     lib-docusaurus-prism-extended-plugin: 0.1.0
     lib-react: 0.1.0
