@@ -5,19 +5,18 @@
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "lib-react": "0.1.0",
+    "next": "9.4.2",
     "react": "^16.13.1",
-    "react-app-rewired": "^2.1.5",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "worker-loader": "^2.0.0"
+    "jest": "^26.0.1"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --watchAll=false",
-    "compile": "tsc -p tsconfig.json",
+    "start": "next",
+    "build": "next build && next export",
+    "test": "jest",
+    "compile": "tsc",
     "deploy": "node ../../node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "browserslist": [

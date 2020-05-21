@@ -3,10 +3,11 @@ import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import MaterialThemedApp from 'lib-react/MaterialThemedApp';
+import Head from 'next/head';
 
 import styles from './App.module.css';
-import DistributedGameCard from './components/DistributedGameCard';
-import LocalGameCard from './components/LocalGameCard';
+import DistributedGameCard from './DistributedGameCard';
+import LocalGameCard from './LocalGameCard';
 
 type Mode = 'Local' | 'Distributed';
 
@@ -27,9 +28,23 @@ export default function App(): ReactElement {
     </>
   );
 
+  const head = (
+    <Head>
+      <meta charSet="utf-8" />
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="theme-color" content="#000000" />
+      <link rel="manifest" href="/manifest.json" />
+      <title>TEN Game</title>
+    </Head>
+  );
+
   return (
     <MaterialThemedApp styles={{ title: styles.Title }} title={`TEN - ${mode}`} buttons={buttons}>
-      {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
+      <>
+        {head}
+        {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
+      </>
     </MaterialThemedApp>
   );
 }
