@@ -15,7 +15,7 @@ const code = `
 // Basic information of sam, written in SAMLANG.
 // The code below is a well-typed SAMLANG program.
 // Try it by yourself at
-// https://samlang-demo.developersam.com
+// https://samlang.developersam.com/demo
 
 class List<T>(Nil(unit), Cons([T * List<T>])) {
   function <T> of(t: T): List<T> =
