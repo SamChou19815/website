@@ -52,10 +52,6 @@ module.exports = {
               to: 'docs/introduction',
             },
             {
-              label: 'Classes & Types',
-              to: 'docs/classes-types',
-            },
-            {
               label: 'Expressions',
               to: 'docs/expressions',
             },
@@ -72,10 +68,6 @@ module.exports = {
               label: 'GitHub Issues',
               href: 'https://github.com/SamChou19815/samlang/issues',
             },
-            {
-              label: 'GitHub Pull Requests',
-              href: 'https://github.com/SamChou19815/samlang/pulls',
-            },
           ],
         },
         {
@@ -84,10 +76,6 @@ module.exports = {
             {
               label: 'Demo',
               to: 'demo',
-            },
-            {
-              label: 'Blog',
-              to: 'blog',
             },
             {
               label: 'Developer Sam',
