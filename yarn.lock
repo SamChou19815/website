@@ -2929,7 +2929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/classnames@npm:^2.2.10":
+"@types/classnames@npm:2.2.10, @types/classnames@npm:^2.2.10":
   version: 2.2.10
   resolution: "@types/classnames@npm:2.2.10"
   checksum: 3/31b6380183c2123c69f5e50b9e40c7da2862ddfe634361d906a6e300dacd716656ce95e508541d0ec300f71aeed57d30a7ea46f36e881c01eb2334843700fadc
@@ -3052,7 +3052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^25.2.3":
+"@types/jest@npm:25.2.3, @types/jest@npm:^25.2.3":
   version: 25.2.3
   resolution: "@types/jest@npm:25.2.3"
   dependencies:
@@ -3101,10 +3101,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:14.0.1":
+"@types/node@npm:*":
   version: 14.0.1
   resolution: "@types/node@npm:14.0.1"
   checksum: 3/97255869f674e3324fdef235173bafb7911a0786434703738008d92f5a4ec189bab2c08a1847f80a6569a5622f0f44a190e1479b08e363368a847e84e0c00902
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:14.0.5":
+  version: 14.0.5
+  resolution: "@types/node@npm:14.0.5"
+  checksum: 3/38a9f9b66c2657b4ba520e40073369d4a33438dd45f9c001d98a7cda40e88a5ea28485c320fa00fc706b5473b549cacc9a8b9796e4d69681c032619e12f73f7d
   languageName: node
   linkType: hard
 
@@ -3136,7 +3143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1.16.1":
+"@types/prismjs@npm:1.16.1":
   version: 1.16.1
   resolution: "@types/prismjs@npm:1.16.1"
   checksum: 3/f3807984ec5df53c37a83d315851e620ff5038f37e748f18e68075c0184485abcf1b5de5fde94f5640922a24e3c0eb6f4ea424c27650322a25ab0f3de73d6ec1
@@ -3157,7 +3164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-beautiful-dnd@npm:^12.1.2":
+"@types/react-beautiful-dnd@npm:12.1.2":
   version: 12.1.2
   resolution: "@types/react-beautiful-dnd@npm:12.1.2"
   dependencies:
@@ -3175,15 +3182,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-redux@npm:^7.1.7":
-  version: 7.1.9
-  resolution: "@types/react-redux@npm:7.1.9"
+"@types/react-redux@npm:7.1.7":
+  version: 7.1.7
+  resolution: "@types/react-redux@npm:7.1.7"
   dependencies:
     "@types/hoist-non-react-statics": ^3.3.0
     "@types/react": "*"
     hoist-non-react-statics: ^3.3.0
     redux: ^4.0.0
-  checksum: 3/061c4ef6af67f05e55d4304429d689a62f98a27e6b7ddebe25bd4d90229b6ae7508cd6d87aecc4c98ac9dccd1c09c8d6bd75ab395d71692f44d0fa0152c2f703
+  checksum: 3/c0913bc318af8e3c63d30deeb4c57a9b05f8b82edfa7e62bd26f7c337464d6fc5ebf0b7477ce6b75e827a69f0a85b4eb825b1c167db48c0f8d54a86584de5124
   languageName: node
   linkType: hard
 
@@ -13682,7 +13689,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"next@npm:9.4.2":
+"next@npm:^9.4.2":
   version: 9.4.2
   resolution: "next@npm:9.4.2"
   dependencies:
@@ -17220,12 +17227,14 @@ fsevents@^1.2.7:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.55
-    "@types/classnames": ^2.2.10
-    "@types/jest": ^25.2.3
-    "@types/node": 14.0.1
-    "@types/prismjs": ^1.16.1
+    "@types/classnames": 2.2.10
+    "@types/jest": 25.2.3
+    "@types/node": 14.0.5
+    "@types/prismjs": 1.16.1
     "@types/react": 16.9.35
+    "@types/react-beautiful-dnd": 12.1.2
     "@types/react-dom": 16.9.8
+    "@types/react-redux": 7.1.7
     "@types/react-test-renderer": 16.9.2
     "@types/remarkable": ^1.7.4
     "@typescript-eslint/eslint-plugin": ^2.34.0
@@ -17246,7 +17255,7 @@ fsevents@^1.2.7:
     identity-obj-proxy: ^3.0.0
     jest: ^26.0.1
     lint-staged: ^10.2.4
-    next: 9.4.2
+    next: ^9.4.2
     next-transpile-modules: ^3.3.0
     prettier: 2.0.5
     react-test-renderer: ^16.13.1
@@ -17366,7 +17375,6 @@ fsevents@^1.2.7:
     "@docusaurus/core": ^2.0.0-alpha.55
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
     "@material-ui/core": ^4.9.12
-    "@types/classnames": ^2.2.10
     "@types/react": ^16.9.35
     "@yarnpkg/pnpify": ^2.0.0-rc.22
     autosize: ^4.0.2
@@ -18801,13 +18809,11 @@ fsevents@^1.2.7:
     "@material-ui/icons": ^4.9.1
     "@material-ui/lab": ^4.0.0-alpha.51
     "@types/jest": ^25.2.3
-    "@types/react-beautiful-dnd": ^12.1.2
-    "@types/react-redux": ^7.1.7
     firebase: ^7.14.2
     javascript-lp-solver: ^0.4.24
     lib-firebase: 0.1.0
     lib-react: 0.1.0
-    next: 9.4.2
+    next: ^9.4.2
     react: ^16.13.1
     react-beautiful-dnd: ^13.0.0
     react-dom: ^16.13.1
@@ -18834,7 +18840,7 @@ fsevents@^1.2.7:
     "@material-ui/core": ^4.9.12
     "@types/jest": ^25.2.3
     lib-react: 0.1.0
-    next: 9.4.2
+    next: ^9.4.2
     react: ^16.13.1
     react-dom: ^16.13.1
     react-test-renderer: ^16.13.1
@@ -20561,11 +20567,10 @@ typescript@3.9.3:
     "@material-ui/core": ^4.9.12
     "@material-ui/icons": ^4.9.1
     "@types/jest": ^25.2.3
-    "@types/react-redux": ^7.1.7
     firebase: ^7.14.2
     lib-firebase: 0.1.0
     lib-react: 0.1.0
-    next: 9.4.2
+    next: ^9.4.2
     react: ^16.13.1
     react-dom: ^16.13.1
     react-redux: ^7.2.0

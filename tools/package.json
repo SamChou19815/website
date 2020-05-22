@@ -1,8 +1,0 @@
-{
-  "name": "website-tools",
-  "version": "0.0.1",
-  "license": "AGPL-3.0",
-  "devDependencies": {
-    "@types/node": "13.9.3"
-  }
-}

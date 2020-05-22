@@ -7,7 +7,7 @@
     "start": "NODE_NO_WARNINGS=1 pnpify docusaurus start",
     "build": "NODE_NO_WARNINGS=1 pnpify docusaurus build",
     "swizzle": "NODE_NO_WARNINGS=1 pnpify docusaurus swizzle",
-    "tsc": "tsc",
+    "tsc": "run -T tsc",
     "compile": "run -T tsc && yarn build",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
@@ -42,7 +42,6 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
-    "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.35",
     "@yarnpkg/pnpify": "^2.0.0-rc.22",
     "babel-plugin-dynamic-import-node": "^2.3.3"
