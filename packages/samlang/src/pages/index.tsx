@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -75,7 +75,7 @@ const features = [
   },
 ];
 
-function Home() {
+function Home(): ReactElement {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (

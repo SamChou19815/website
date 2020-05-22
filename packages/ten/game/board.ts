@@ -213,7 +213,7 @@ export function getGameStatus(board: Board): 1 | -1 | 0 {
 /**
  * Convert the board to a json for server communication.
  */
-export function boardToJson(board: Board): object {
+export function boardToJson(board: Board): unknown {
   const { tiles, bigSquareToPick, playerIdentity } = board;
   return { tiles, bigSquareToPick, playerIdentity };
 }

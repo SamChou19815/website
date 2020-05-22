@@ -2,14 +2,14 @@ import React, { ReactElement } from 'react';
 
 import { renderToString } from 'react-dom/server';
 import * as remarkable from 'remarkable';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { linkify } from 'remarkable/linkify';
 
 import PrismCodeBlock from './PrismCodeBlock';
 import remarkableCheckboxPlugin from './remarkable-checkbox-plugin';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: TypeScript type definition has problems. :(
 const markdownRenderer: Remarkable = new remarkable.Remarkable({
   typeGrapher: true,

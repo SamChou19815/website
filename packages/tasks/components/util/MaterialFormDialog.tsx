@@ -9,7 +9,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useFormManager from '../hooks/useFormManager';
 import styles from './MaterialFormDialog.module.css';
 
-export type FormProps<T extends {}> = {
+export type FormProps<T extends Record<string, unknown>> = {
   readonly values: T;
   readonly onChange: (updatedValues: Partial<T>) => void;
 };
@@ -23,7 +23,7 @@ type Props<T> = {
   readonly children: (trigger: () => void) => ReactElement;
 };
 
-export default <T extends {}>({
+export default <T extends Record<string, unknown>>({
   formTitle,
   initialFormValues,
   onFormSubmit,

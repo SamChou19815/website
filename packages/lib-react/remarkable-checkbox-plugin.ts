@@ -50,7 +50,7 @@ export default (md: Remarkable): void => {
         if (!silent) {
           state.push({
             type: 'tasklist',
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             checked: false,
             level: state.level,
@@ -72,7 +72,7 @@ export default (md: Remarkable): void => {
         if (!silent) {
           state.push({
             type: 'tasklist',
-            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             checked,
             level: state.level,
@@ -88,6 +88,5 @@ export default (md: Remarkable): void => {
 
   md.renderer.rules.tasklist = (tokens, index) =>
     rendertasklist((tokens[index] as CheckboxToken).checked);
-  // eslint-disable-next-line @typescript-eslint/camelcase
   md.renderer.rules.list_item_open = () => '<li class="remarkable-li">';
 };
