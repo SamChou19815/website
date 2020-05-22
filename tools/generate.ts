@@ -88,6 +88,9 @@ const generateIgnoreFiles = (): void => {
 };
 
 const main = (): void => {
+  Array.from(Deno.readDirSync('.github/workflows'))
+    .filter((entry) => entry.name.includes('generated-'))
+    .forEach((entry) => Deno.removeSync(`.github/workflows/${entry.name}`));
   allPrivateWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCIWorkflow(workspace));
   });
