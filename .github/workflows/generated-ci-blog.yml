@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - packages/lib-prism-extended/**
-      - packages/lib-docusaurus-prism-extended-plugin/**
+      - packages/lib-docusaurus-plugin/**
       - packages/lib-react/**
       - packages/blog/**
       - package.json
