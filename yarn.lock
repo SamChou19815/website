@@ -4800,7 +4800,7 @@ __metadata:
     "@yarnpkg/pnpify": ^2.0.0-rc.22
     babel-plugin-dynamic-import-node: ^2.3.3
     classnames: ^2.2.6
-    lib-docusaurus-prism-extended-plugin: 0.1.0
+    lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
@@ -12309,9 +12309,9 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"lib-docusaurus-prism-extended-plugin@0.1.0, lib-docusaurus-prism-extended-plugin@workspace:packages/lib-docusaurus-prism-extended-plugin":
+"lib-docusaurus-plugin@0.1.0, lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin":
   version: 0.0.0-use.local
-  resolution: "lib-docusaurus-prism-extended-plugin@workspace:packages/lib-docusaurus-prism-extended-plugin"
+  resolution: "lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin"
   dependencies:
     "@docusaurus/types": 2.0.0-alpha.55
     lib-prism-extended: 0.1.0
@@ -17415,7 +17415,7 @@ fsevents@^1.2.7:
     autosize: ^4.0.2
     babel-plugin-dynamic-import-node: ^2.3.3
     classnames: ^2.2.6
-    lib-docusaurus-prism-extended-plugin: 0.1.0
+    lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
     prism-react-renderer: ^1.1.1
     react: ^16.13.1

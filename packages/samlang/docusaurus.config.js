@@ -107,5 +107,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['lib-docusaurus-prism-extended-plugin'],
+  plugins: ['lib-docusaurus-plugin'],
 };

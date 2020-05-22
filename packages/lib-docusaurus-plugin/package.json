@@ -1,7 +1,7 @@
 {
-  "name": "lib-docusaurus-prism-extended-plugin",
+  "name": "lib-docusaurus-plugin",
   "version": "0.1.0",
-  "description": "Sam's docusaurus plugin for lib-prism-extended",
+  "description": "Sam's docusaurus plugin for everything that Sam needs.",
   "author": "Developer Sam",
   "repository": {
     "type": "git",

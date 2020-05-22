@@ -71,6 +71,6 @@ module.exports = {
     '@docusaurus/plugin-google-analytics',
     '@docusaurus/plugin-google-gtag',
     '@docusaurus/plugin-sitemap',
-    'lib-docusaurus-prism-extended-plugin',
+    'lib-docusaurus-plugin',
   ],
 };
