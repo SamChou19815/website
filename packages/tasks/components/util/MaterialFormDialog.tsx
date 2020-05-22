@@ -14,7 +14,7 @@ export type FormProps<T extends Record<string, unknown>> = {
   readonly onChange: (updatedValues: Partial<T>) => void;
 };
 
-type Props<T> = {
+type Props<T extends Record<string, unknown>> = {
   readonly formTitle: string;
   readonly initialFormValues: T;
   readonly onFormSubmit: (validatedValues: T) => void;
