@@ -2727,7 +2727,7 @@ exports[`App matches snapshot. 1`] = `
       >
         <span
           aria-disabled={false}
-          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-102 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-103 Mui-checked MuiIconButton-colorPrimary"
+          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-214 Mui-checked MuiIconButton-colorPrimary"
           onBlur={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -2746,7 +2746,7 @@ exports[`App matches snapshot. 1`] = `
           >
             <input
               checked={true}
-              className="PrivateSwitchBase-input-105"
+              className="PrivateSwitchBase-input-216"
               data-indeterminate={false}
               onChange={[Function]}
               type="checkbox"
@@ -2774,7 +2774,7 @@ exports[`App matches snapshot. 1`] = `
       >
         <span
           aria-disabled={false}
-          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-102 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-103 Mui-checked MuiIconButton-colorPrimary"
+          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-214 Mui-checked MuiIconButton-colorPrimary"
           onBlur={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -2793,7 +2793,7 @@ exports[`App matches snapshot. 1`] = `
           >
             <input
               checked={true}
-              className="PrivateSwitchBase-input-105"
+              className="PrivateSwitchBase-input-216"
               data-indeterminate={false}
               onChange={[Function]}
               type="checkbox"
@@ -2821,7 +2821,7 @@ exports[`App matches snapshot. 1`] = `
       >
         <span
           aria-disabled={false}
-          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-102 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-103 Mui-checked MuiIconButton-colorPrimary"
+          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-214 Mui-checked MuiIconButton-colorPrimary"
           onBlur={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -2840,7 +2840,7 @@ exports[`App matches snapshot. 1`] = `
           >
             <input
               checked={true}
-              className="PrivateSwitchBase-input-105"
+              className="PrivateSwitchBase-input-216"
               data-indeterminate={false}
               onChange={[Function]}
               type="checkbox"
