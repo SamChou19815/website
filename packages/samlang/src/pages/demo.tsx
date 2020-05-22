@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import Layout from '@theme/Layout';
 
 import LanguageDemo from '../language-demo';
 
-function Demo() {
+function Demo(): ReactElement {
   return (
     <Layout
       title="SAMLANG Demo"

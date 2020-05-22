@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
 
-  render() {
+  render(): ReactElement {
     return (
       <Html lang="en">
         <Head />

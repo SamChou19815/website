@@ -9,7 +9,6 @@ module.exports = (additionalConfigurations = {}) =>
       // eslint-disable-next-line no-param-reassign
       config.node = {
         fs: 'empty',
-        // eslint-disable-next-line @typescript-eslint/camelcase
         child_process: 'empty',
       };
       config.module.rules.push({

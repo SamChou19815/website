@@ -2,7 +2,7 @@
 import React, { ReactElement, CSSProperties } from 'react';
 
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Prism from 'prism-react-renderer/prism';
 

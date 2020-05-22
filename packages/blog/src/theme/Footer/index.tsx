@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import classnames from 'classnames';
 
-export default () => {
+export default (): ReactElement => {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   const { themeConfig = {} } = siteConfig;
