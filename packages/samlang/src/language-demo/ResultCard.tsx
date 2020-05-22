@@ -79,7 +79,6 @@ export default function ResultCard({ response }: Props): ReactElement {
   }
   return (
     <Card className={DemoStyles.ParallelCard}>
-      <CardHeader title="Interpretation Result" />
       <CardContent>{children}</CardContent>
     </Card>
   );
