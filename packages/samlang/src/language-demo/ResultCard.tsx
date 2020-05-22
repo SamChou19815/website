@@ -9,7 +9,6 @@ import React, { ReactNode, ReactElement } from 'react';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import CodeBlock from '@theme/CodeBlock';
 
 import DemoStyles from './LanguageDemo.module.css';
