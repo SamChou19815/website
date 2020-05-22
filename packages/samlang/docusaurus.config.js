@@ -59,10 +59,6 @@ module.exports = {
               label: 'Expressions',
               to: 'docs/expressions',
             },
-            {
-              label: 'Type Inference',
-              to: 'type-inference',
-            },
           ],
         },
         {
@@ -96,10 +92,6 @@ module.exports = {
             {
               label: 'Developer Sam',
               href: 'https://developersam.com',
-            },
-            {
-              label: 'Developer Sam Blog',
-              href: 'https://blog.developersam.com',
             },
           ],
         },
