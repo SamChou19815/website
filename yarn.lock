@@ -12019,8 +12019,12 @@ fsevents@^1.2.7:
     remarkable: ^2.0.0
   peerDependencies:
     "@material-ui/core": ^4.10.0
+    next: ^9.4.2
     react: ^16.13.1
     react-dom: ^16.13.1
+  peerDependenciesMeta:
+    next:
+      optional: true
   languageName: unknown
   linkType: soft
 
