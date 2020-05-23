@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-
 import React, { ReactElement } from 'react';
 
 import Checkbox from '@material-ui/core/Checkbox';
@@ -85,6 +83,7 @@ export const TimelineSection = ({
         <div className={styles.VerticalBar} />
         {filteredItems.map(
           (item, index): ReactElement => (
+            // eslint-disable-next-line react/no-array-index-key
             <TimelineItemCard key={index} item={item} />
           )
         )}

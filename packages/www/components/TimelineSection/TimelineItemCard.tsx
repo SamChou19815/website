@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-
 import React, { ReactElement } from 'react';
 
 import Card from '@material-ui/core/Card';
@@ -51,6 +49,7 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
             <CardActions>
               {links.map(
                 ({ name, url }, index): ReactElement => (
+                  // eslint-disable-next-line react/no-array-index-key
                   <MaterialButtonLink key={index} href={url}>
                     {name}
                   </MaterialButtonLink>

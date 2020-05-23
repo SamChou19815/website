@@ -1,5 +1,4 @@
 /* eslint-disable global-require */
-/* eslint-disable @typescript-eslint/no-require-imports */
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Prism from 'prism-react-renderer/prism';
 
