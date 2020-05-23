@@ -26,7 +26,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -45,7 +45,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -73,7 +73,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -92,7 +92,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -120,7 +120,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -139,7 +139,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -199,7 +199,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -218,7 +218,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -249,7 +249,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -268,7 +268,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -299,7 +299,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -318,7 +318,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -1283,7 +1283,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -1302,7 +1302,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -1330,7 +1330,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -1349,7 +1349,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -1377,7 +1377,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -1396,7 +1396,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -2370,7 +2370,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -2389,7 +2389,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -2420,7 +2420,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -2439,7 +2439,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -2470,7 +2470,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -2489,7 +2489,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -4398,7 +4398,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -4417,7 +4417,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -4445,7 +4445,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -4464,7 +4464,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -4492,7 +4492,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -4511,7 +4511,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -5065,7 +5065,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -5084,7 +5084,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -5115,7 +5115,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -5134,7 +5134,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -5165,7 +5165,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -5184,7 +5184,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -6652,7 +6652,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -6671,7 +6671,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -6699,7 +6699,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -6718,7 +6718,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -6746,7 +6746,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -6765,7 +6765,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
         >
           <input
             checked={false}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -8233,7 +8233,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -8252,7 +8252,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -8283,7 +8283,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -8302,7 +8302,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
@@ -8333,7 +8333,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
     >
       <span
         aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-16 Mui-checked MuiIconButton-colorPrimary"
+        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
         onBlur={[Function]}
         onDragLeave={[Function]}
         onFocus={[Function]}
@@ -8352,7 +8352,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
         >
           <input
             checked={true}
-            className="PrivateSwitchBase-input-18"
+            className="PrivateSwitchBase-input-4"
             data-indeterminate={false}
             onChange={[Function]}
             type="checkbox"
