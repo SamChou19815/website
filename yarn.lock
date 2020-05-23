@@ -110,7 +110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.9.6, @babel/core@npm:^7.1.0, @babel/core@npm:^7.7.5, @babel/core@npm:^7.9.0":
+"@babel/core@npm:7.9.6, @babel/core@npm:^7.1.0, @babel/core@npm:^7.7.5, @babel/core@npm:^7.9.0, @babel/core@npm:^7.9.6":
   version: 7.9.6
   resolution: "@babel/core@npm:7.9.6"
   dependencies:
@@ -16802,7 +16802,9 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@babel/core": ^7.9.6
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.55
+    "@docusaurus/types": ^2.0.0-alpha.55
     "@types/classnames": 2.2.10
     "@types/jest": 25.2.3
     "@types/node": 14.0.5
@@ -16957,7 +16959,6 @@ fsevents@^1.2.7:
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
-    prism-react-renderer: ^1.1.1
     react: ^16.13.1
     react-dom: ^16.13.1
   languageName: unknown

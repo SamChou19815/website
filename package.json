@@ -14,7 +14,9 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@babel/core": "^7.9.6",
     "@docusaurus/module-type-aliases": "^2.0.0-alpha.55",
+    "@docusaurus/types": "^2.0.0-alpha.55",
     "@types/classnames": "2.2.10",
     "@types/jest": "25.2.3",
     "@types/node": "14.0.5",
