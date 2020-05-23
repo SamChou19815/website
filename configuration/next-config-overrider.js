@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 const withTM = require('next-transpile-modules');
 
 const libraries = require('./libraries.json');

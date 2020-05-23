@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import React, { ReactElement, CSSProperties } from 'react';
 
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';

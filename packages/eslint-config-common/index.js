@@ -8,11 +8,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'jest'],
   rules: {
-    '@typescript-eslint/explicit-function-return-type': 'off', // Too noisy
-    '@typescript-eslint/indent': 'off', // Already covered by Prettier
-    '@typescript-eslint/no-angle-bracket-type-assertion': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/no-object-literal-type-assertion': 'off',
     '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -23,7 +19,6 @@ module.exports = {
         varsIgnorePattern: '_',
       },
     ],
-    '@typescript-eslint/prefer-interface': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': [
       'error',
@@ -56,6 +51,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-indent': 'off', // Already covered by Prettier
     'react/jsx-one-expression-per-line': 'off',
+    'spaced-comment': ['error', 'always', { markers: ['/'] }],
   },
   settings: {
     'import/resolver': {
@@ -68,8 +64,8 @@ module.exports = {
     {
       files: ['*.js', '*.jsx'],
       rules: {
+        '@typescript-eslint/no-require-imports': 'off',
         '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
       },
     },
   ],
