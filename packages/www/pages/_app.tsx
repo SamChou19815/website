@@ -54,6 +54,10 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
         <meta name="author" content="Developer Sam" />
         <link rel="canonical" href="https://developersam.com/" />
         <link rel="manifest" href="/manifest.json" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+        />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" />
         <title>Developer Sam</title>
         <script
