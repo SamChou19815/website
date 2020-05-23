@@ -5,7 +5,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
-import AccountCirlce from '@material-ui/icons/AccountCircle';
 import Code from '@material-ui/icons/Code';
 import Domain from '@material-ui/icons/Domain';
 import School from '@material-ui/icons/School';
@@ -32,7 +31,7 @@ export default (): ReactElement => (
   <div id="about" className={styles.FirstPage}>
     <FirstPageCodeBlock />
     <Card className={styles.InfoCard}>
-      <CardHeader avatar={<AccountCirlce />} title="Sam Zhou" subheader="About Myself" />
+      <CardHeader title="Sam Zhou" subheader="About Myself" />
       <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
       <IconLine Icon={Work}>Facebook SWE Intern</IconLine>
       <IconLine Icon={School}>Cornell University</IconLine>
