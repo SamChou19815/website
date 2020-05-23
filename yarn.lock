@@ -2363,12 +2363,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/core@npm:^4.9.14":
-  version: 4.9.14
-  resolution: "@material-ui/core@npm:4.9.14"
+"@material-ui/core@npm:^4.10.0":
+  version: 4.10.0
+  resolution: "@material-ui/core@npm:4.10.0"
   dependencies:
     "@babel/runtime": ^7.4.4
-    "@material-ui/styles": ^4.9.14
+    "@material-ui/styles": ^4.10.0
     "@material-ui/system": ^4.9.14
     "@material-ui/types": ^5.1.0
     "@material-ui/utils": ^4.9.12
@@ -2386,7 +2386,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 3/213b6f2b19fc0f74e3b9c5ada23078f33da500ecc0c302ca9d3b5467c0af6d3387729c8ae376db289ba2d824b8b5dd56458b0f4e92216e817264c03b23efb9af
+  checksum: 3/93ce2f91e26869ca4b1c28f3556e3ef886dd43669829de5146a1d303eb91d211420726d2a657248297da5778d2e4202aa9c43f5c64fb5ebaf54d2bbedfecf913
   languageName: node
   linkType: hard
 
@@ -2428,9 +2428,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/styles@npm:^4.9.14":
-  version: 4.9.14
-  resolution: "@material-ui/styles@npm:4.9.14"
+"@material-ui/styles@npm:^4.10.0":
+  version: 4.10.0
+  resolution: "@material-ui/styles@npm:4.10.0"
   dependencies:
     "@babel/runtime": ^7.4.4
     "@emotion/hash": ^0.8.0
@@ -2455,7 +2455,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 3/08d4a0c2fd4a1b554b171b5b0da6c4f8f537e0c8d8d8169d22eebcc88822267b986b80686997cc53758eb6c6ffba4845c48864150c9e1775ff9de8f6db57314a
+  checksum: 3/928821cb46416d494703f57d1c1f4d20137679d5eb23f01695b4a1afaec80dbb0f4011be2936496b1b5092bde4fb69f9cb1e747de927d05a5a05451cd24699a0
   languageName: node
   linkType: hard
 
@@ -12009,7 +12009,6 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-react@workspace:packages/lib-react"
   dependencies:
-    "@material-ui/core": ^4.9.14
     "@types/jest": ^25.2.3
     lib-prism-extended: 0.1.0
     prism-react-renderer: ^1.1.0
@@ -16946,7 +16945,7 @@ fsevents@^1.2.7:
     "@dev-sam/samlang-demo": ^0.0.2
     "@docusaurus/core": ^2.0.0-alpha.55
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
-    "@material-ui/core": ^4.9.14
+    "@material-ui/core": ^4.10.0
     "@types/react": ^16.9.35
     autosize: ^4.0.2
     babel-plugin-dynamic-import-node: ^2.3.3
@@ -18349,7 +18348,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "tasks@workspace:packages/tasks"
   dependencies:
-    "@material-ui/core": ^4.9.14
+    "@material-ui/core": ^4.10.0
     "@material-ui/icons": ^4.9.1
     "@material-ui/lab": ^4.0.0-alpha.53
     "@types/jest": ^25.2.3
@@ -18381,7 +18380,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "ten@workspace:packages/ten"
   dependencies:
-    "@material-ui/core": ^4.9.14
+    "@material-ui/core": ^4.10.0
     "@types/jest": ^25.2.3
     lib-react: 0.1.0
     next: ^9.4.2
@@ -20094,7 +20093,7 @@ typescript@3.9.3:
   version: 0.0.0-use.local
   resolution: "www@workspace:packages/www"
   dependencies:
-    "@material-ui/core": ^4.9.14
+    "@material-ui/core": ^4.10.0
     "@material-ui/icons": ^4.9.1
     "@types/jest": ^25.2.3
     firebase: ^7.14.2

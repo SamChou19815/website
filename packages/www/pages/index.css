@@ -33,3 +33,8 @@ a:hover {
 a:active {
   text-decoration: none !important;
 }
+
+.MuiAppBar-colorPrimary {
+  color: #fff;
+  background-color: #3e7ae2;
+}

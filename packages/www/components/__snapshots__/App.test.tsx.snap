@@ -1,80 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App matches snapshot. 1`] = `
-<div>
-  <header
-    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary AppBar mui-fixed MuiPaper-elevation4"
-  >
-    <div
-      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
-    >
-      <h6
-        className="MuiTypography-root Title MuiTypography-h6 MuiTypography-colorInherit"
-      >
-        Developer Sam
-      </h6>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-            href="https://blog.developersam.com"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            Blog
-          </a>
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-colorInherit"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-            href="https://github.com/SamChou19815"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            GitHub
-          </a>
-        </span>
-      </button>
-    </div>
-  </header>
+Array [
   <div
     className="FirstPage"
     id="about"
@@ -1594,7 +1521,7 @@ exports[`App matches snapshot. 1`] = `
         </button>
       </div>
     </div>
-  </div>
+  </div>,
   <section
     className="Section"
     id="projects"
@@ -2340,7 +2267,7 @@ exports[`App matches snapshot. 1`] = `
         </div>
       </div>
     </div>
-  </section>
+  </section>,
   <section
     className="Section"
     id="tech-talks"
@@ -2687,7 +2614,7 @@ exports[`App matches snapshot. 1`] = `
         </div>
       </div>
     </div>
-  </section>
+  </section>,
   <section
     className="Section"
     id="timeline"
@@ -2713,7 +2640,7 @@ exports[`App matches snapshot. 1`] = `
       >
         <span
           aria-disabled={false}
-          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-214 Mui-checked MuiIconButton-colorPrimary"
+          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
           onBlur={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -2732,7 +2659,7 @@ exports[`App matches snapshot. 1`] = `
           >
             <input
               checked={true}
-              className="PrivateSwitchBase-input-216"
+              className="PrivateSwitchBase-input-4"
               data-indeterminate={false}
               onChange={[Function]}
               type="checkbox"
@@ -2760,7 +2687,7 @@ exports[`App matches snapshot. 1`] = `
       >
         <span
           aria-disabled={false}
-          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-214 Mui-checked MuiIconButton-colorPrimary"
+          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
           onBlur={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -2779,7 +2706,7 @@ exports[`App matches snapshot. 1`] = `
           >
             <input
               checked={true}
-              className="PrivateSwitchBase-input-216"
+              className="PrivateSwitchBase-input-4"
               data-indeterminate={false}
               onChange={[Function]}
               type="checkbox"
@@ -2807,7 +2734,7 @@ exports[`App matches snapshot. 1`] = `
       >
         <span
           aria-disabled={false}
-          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-214 Mui-checked MuiIconButton-colorPrimary"
+          className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
           onBlur={[Function]}
           onDragLeave={[Function]}
           onFocus={[Function]}
@@ -2826,7 +2753,7 @@ exports[`App matches snapshot. 1`] = `
           >
             <input
               checked={true}
-              className="PrivateSwitchBase-input-216"
+              className="PrivateSwitchBase-input-4"
               data-indeterminate={false}
               onChange={[Function]}
               type="checkbox"
@@ -5146,7 +5073,7 @@ exports[`App matches snapshot. 1`] = `
         </div>
       </div>
     </div>
-  </section>
+  </section>,
   <button
     className="TriggerButton"
     onClick={[Function]}
@@ -5158,6 +5085,6 @@ exports[`App matches snapshot. 1`] = `
     <span
       className="SecondEdge"
     />
-  </button>
-</div>
+  </button>,
+]
 `;
