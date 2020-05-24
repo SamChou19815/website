@@ -1367,7 +1367,7 @@ Array [
             title="Facebook @ 1 Hacker Way"
           />
           <div
-            className="MuiCardHeader-root"
+            className="MuiCardHeader-root Links"
           >
             <div
               className="MuiCardHeader-content"
@@ -1499,8 +1499,68 @@ Array [
             </div>
           </div>
           <div
-            className="MuiCardActions-root MuiCardActions-spacing"
+            className="MuiCardActions-root Links MuiCardActions-spacing"
           >
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label"
+              >
+                <a
+                  className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+                  href="https://blog.developersam.com"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                >
+                  Blog
+                </a>
+              </span>
+            </button>
+            <button
+              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+              disabled={false}
+              onBlur={[Function]}
+              onDragLeave={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onMouseDown={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <span
+                className="MuiButton-label"
+              >
+                <a
+                  className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+                  href="https://github.com/SamChou19815"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                >
+                  GitHub
+                </a>
+              </span>
+            </button>
             <button
               className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
               disabled={false}
@@ -1532,7 +1592,7 @@ Array [
               </span>
             </button>
             <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+              className="MuiButtonBase-root MuiButton-root MuiButton-text Transcript MuiButton-textPrimary"
               disabled={false}
               onBlur={[Function]}
               onDragLeave={[Function]}

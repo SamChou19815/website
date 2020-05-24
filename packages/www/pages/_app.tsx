@@ -6,26 +6,8 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import './index.css';
-import styles from '../components/App.module.css';
 
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
-import MaterialThemedApp from 'lib-react/MaterialThemedApp';
-
-const buttons: ReactElement = (
-  <>
-    <MaterialButtonLink href="https://blog.developersam.com" color="inherit">
-      Blog
-    </MaterialButtonLink>
-    <MaterialButtonLink href="https://github.com/SamChou19815" color="inherit">
-      GitHub
-    </MaterialButtonLink>
-  </>
-);
-
-const appStyles = {
-  appBar: styles.AppBar,
-  title: styles.Title,
-};
+import MaterialAppContainer from 'lib-react/MaterialAppContainer';
 
 const MaterialUIApp = (props: AppProps): ReactElement => {
   const { Component, pageProps } = props;
@@ -93,17 +75,12 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
           }}
         />
       </Head>
-      <MaterialThemedApp
-        title="Developer Sam"
-        appBarPosition="fixed"
-        styles={appStyles}
-        buttons={buttons}
-      >
+      <MaterialAppContainer>
         <Component
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...pageProps}
         />
-      </MaterialThemedApp>
+      </MaterialAppContainer>
     </>
   );
 };

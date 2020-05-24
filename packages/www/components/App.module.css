@@ -1,17 +1,8 @@
-.AppBar {
-  opacity: 0.95;
-}
-
-.Title {
-  flex: 1 1 auto;
-}
-
 .MainLayout {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding-top: 64px;
 }
 
 .FirstPageTitle {
@@ -36,7 +27,6 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: -64px 0 0 0 !important;
     min-height: 100vh;
   }
 }

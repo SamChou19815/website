@@ -32,7 +32,7 @@ const IconLine = ({ Icon, children }: IconLineProps): ReactElement => (
 const InformationCard = ({ className }: { readonly className?: string }): ReactElement => (
   <Card className={className}>
     <LazyMaterialMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
-    <CardHeader title="Sam Zhou" />
+    <CardHeader title="Sam Zhou" className={styles.Links} />
     <CardContent className={styles.IconLines}>
       <IconLine Icon={Facebook}>Facebook SWE Intern</IconLine>
       <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
@@ -41,9 +41,13 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
       <IconLine Icon={Domain}>Computer Science</IconLine>
       <IconLine Icon={Code}>Coding since 13</IconLine>
     </CardContent>
-    <CardActions>
+    <CardActions className={styles.Links}>
+      <MaterialButtonLink href="https://blog.developersam.com">Blog</MaterialButtonLink>
+      <MaterialButtonLink href="https://github.com/SamChou19815">GitHub</MaterialButtonLink>
       <MaterialButtonLink href="/resume.pdf">Resume</MaterialButtonLink>
-      <MaterialButtonLink href="/transcript.pdf">Transcript</MaterialButtonLink>
+      <MaterialButtonLink href="/transcript.pdf" className={styles.Transcript}>
+        Transcript
+      </MaterialButtonLink>
     </CardActions>
   </Card>
 );

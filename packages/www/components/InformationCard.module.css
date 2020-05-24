@@ -17,3 +17,19 @@
 .IconLineText {
   margin-left: 8px;
 }
+
+.Links {
+  justify-content: center;
+}
+
+@media screen and (min-width: 960px) and (max-width: 1200px) {
+  .Transcript {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Transcript {
+    display: none;
+  }
+}
