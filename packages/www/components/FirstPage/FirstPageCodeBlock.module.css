@@ -1,8 +1,18 @@
 .Block {
-  width: 450px;
+  --code-block-width: 450px;
+  width: var(--code-block-width);
   height: 670px;
   padding: 0.5em;
   line-height: 1.5em;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 960px) {
+  .Block {
+    position: fixed;
+    top: calc(50% - 700px / 2 + 32px);
+    left: calc(600px / 2 - var(--code-block-width) / 2);
+  }
 }
 
 @media screen and (max-width: 350px) {

@@ -1,26 +1,17 @@
-.InfoCard {
-  margin: 8px;
-}
-
-@media screen and (max-width: 720px) {
-  .InfoCard {
-    width: 90vw;
-  }
-}
-
-@media screen and (min-width: 720px) {
-  .InfoCard {
-    width: calc(100% - 500px);
-    margin-left: 50px;
-    max-width: 300px;
-  }
+.IconLines {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 .IconLine {
   display: flex;
   align-items: center;
   align-content: center;
-  line-height: 24px;
+  width: 240px;
+  margin: 0.5em;
 }
 
 .IconLineText {

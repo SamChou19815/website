@@ -13,6 +13,7 @@ import School from '@material-ui/icons/School';
 import Work from '@material-ui/icons/Work';
 
 import styles from './InformationCard.module.css';
+import LazyMaterialMedia from './LazyMaterialMedia';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
@@ -22,21 +23,24 @@ type IconLineProps = {
 };
 
 const IconLine = ({ Icon, children }: IconLineProps): ReactElement => (
-  <CardContent className={styles.IconLine}>
+  <div className={styles.IconLine}>
     <Icon />
     <span className={styles.IconLineText}>{children}</span>
-  </CardContent>
+  </div>
 );
 
-const InformationCard = (): ReactElement => (
-  <Card className={styles.InfoCard}>
+const InformationCard = ({ className }: { readonly className?: string }): ReactElement => (
+  <Card className={className}>
+    <LazyMaterialMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
     <CardHeader title="Sam Zhou" />
-    <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
-    <IconLine Icon={Facebook}>Facebook SWE Intern</IconLine>
-    <IconLine Icon={GitHub}>Open source contributor</IconLine>
-    <IconLine Icon={School}>Cornell University</IconLine>
-    <IconLine Icon={Domain}>Computer Science</IconLine>
-    <IconLine Icon={Code}>Coding since 13</IconLine>
+    <CardContent className={styles.IconLines}>
+      <IconLine Icon={Facebook}>Facebook SWE Intern</IconLine>
+      <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
+      <IconLine Icon={GitHub}>Open source contributor</IconLine>
+      <IconLine Icon={School}>Cornell University</IconLine>
+      <IconLine Icon={Domain}>Computer Science</IconLine>
+      <IconLine Icon={Code}>Coding since 13</IconLine>
+    </CardContent>
     <CardActions>
       <MaterialButtonLink href="/resume.pdf">Resume</MaterialButtonLink>
       <MaterialButtonLink href="/transcript.pdf">Transcript</MaterialButtonLink>
