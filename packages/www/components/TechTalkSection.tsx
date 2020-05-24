@@ -5,8 +5,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 
-import ConsoleSection from '../Common/ConsoleSection';
-import styles from './index.module.css';
+import ConsoleSection from './Common/ConsoleSection';
+import styles from './TechTalkSection.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 

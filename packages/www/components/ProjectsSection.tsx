@@ -6,9 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
 
-import ConsoleSection from '../Common/ConsoleSection';
-import LazyMaterialMedia from '../Common/LazyMaterialMedia';
-import styles from './index.module.css';
+import ConsoleSection from './Common/ConsoleSection';
+import LazyMaterialMedia from './Common/LazyMaterialMedia';
+import styles from './ProjectsSection.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
