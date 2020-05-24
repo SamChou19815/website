@@ -1,7 +1,3 @@
-.Section {
-  padding-top: 3em;
-}
-
 @media screen and (max-width: 600px) {
   .Section {
     margin: 0.5em;

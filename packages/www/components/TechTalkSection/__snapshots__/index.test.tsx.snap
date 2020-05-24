@@ -23,29 +23,15 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="MuiCardHeader-root"
       >
         <div
-          className="MuiCardHeader-avatar"
-        >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-            />
-          </svg>
-        </div>
-        <div
           className="MuiCardHeader-content"
         >
           <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
           >
             How to scale
           </span>
           <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
             Learning Series
           </span>
@@ -98,29 +84,15 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="MuiCardHeader-root"
       >
         <div
-          className="MuiCardHeader-avatar"
-        >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-            />
-          </svg>
-        </div>
-        <div
           className="MuiCardHeader-content"
         >
           <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
           >
             Intro to Firebase
           </span>
           <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
             DevSesh
           </span>
@@ -203,29 +175,15 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="MuiCardHeader-root"
       >
         <div
-          className="MuiCardHeader-avatar"
-        >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-            />
-          </svg>
-        </div>
-        <div
           className="MuiCardHeader-content"
         >
           <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
           >
             Build your programming language
           </span>
           <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
             DevSesh
           </span>
@@ -278,29 +236,15 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="MuiCardHeader-root"
       >
         <div
-          className="MuiCardHeader-avatar"
-        >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
-            />
-          </svg>
-        </div>
-        <div
           className="MuiCardHeader-content"
         >
           <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
           >
             Build a (simplified) React
           </span>
           <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
             DevSesh
           </span>

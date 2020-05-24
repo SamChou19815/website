@@ -4,20 +4,17 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import School from '@material-ui/icons/School';
 
 import ConsoleSection from '../Common/ConsoleSection';
 import styles from './index.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
-const schoolIcon = <School />;
-
 export default (): ReactElement => (
   <ConsoleSection id="tech-talks" title="tech-talks --all">
     <div className={styles.TechTalkContainer}>
       <Card className={styles.TechTalkCard}>
-        <CardHeader avatar={schoolIcon} title="How to scale" subheader="Learning Series" />
+        <CardHeader title="How to scale" subheader="Learning Series" />
         <CardContent>
           Tips on scaling your codebase and your workload, with lessons learned from Samwise&apos;s
           codebase.
@@ -27,7 +24,7 @@ export default (): ReactElement => (
         </CardActions>
       </Card>
       <Card className={styles.TechTalkCard}>
-        <CardHeader avatar={schoolIcon} title="Intro to Firebase" subheader="DevSesh" />
+        <CardHeader title="Intro to Firebase" subheader="DevSesh" />
         <CardContent>
           Tech stack discussion on Firebase, and why Samwise switched to Firebase.
         </CardContent>
@@ -39,11 +36,7 @@ export default (): ReactElement => (
         </CardActions>
       </Card>
       <Card className={styles.TechTalkCard}>
-        <CardHeader
-          avatar={schoolIcon}
-          title="Build your programming language"
-          subheader="DevSesh"
-        />
+        <CardHeader title="Build your programming language" subheader="DevSesh" />
         <CardContent>
           A tutorial of making a simple programming language derived from lambda-calculus.
         </CardContent>
@@ -54,7 +47,7 @@ export default (): ReactElement => (
         </CardActions>
       </Card>
       <Card className={styles.TechTalkCard}>
-        <CardHeader avatar={schoolIcon} title="Build a (simplified) React" subheader="DevSesh" />
+        <CardHeader title="Build a (simplified) React" subheader="DevSesh" />
         <CardContent>
           A tutorial of making a simplified React runtime with support for useState and useEffect
           hooks.
