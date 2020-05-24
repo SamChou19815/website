@@ -10,7 +10,7 @@ import Event from '@material-ui/icons/Event';
 import Work from '@material-ui/icons/Work';
 
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
-import styles from './TimelineItemCard.module.css';
+import styles from './index.module.css';
 import { TimelineItem } from './items';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
@@ -37,7 +37,7 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
       throw new Error('Unsupported item type!');
   }
   return (
-    <div className={styles.Container}>
+    <div className={styles.CardContainer}>
       <div className={styles.ContentWrapper}>
         <div className={styles.Timestamp}>{time}</div>
         <span className={styles.ConnectorDot} />
