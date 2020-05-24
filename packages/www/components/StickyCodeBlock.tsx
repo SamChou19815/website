@@ -5,7 +5,6 @@ import styles from './StickyCodeBlock.module.css';
 import CodeBlock from 'lib-react/PrismCodeBlock';
 
 const code = `
-
 /**
  * Copyright (C) 2015–2020 Developer Sam.
  *

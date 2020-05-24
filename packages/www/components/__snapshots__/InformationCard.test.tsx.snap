@@ -11,7 +11,7 @@ exports[`InformationCard matches snapshot. 1`] = `
     title="Facebook @ 1 Hacker Way"
   />
   <div
-    className="MuiCardHeader-root"
+    className="MuiCardHeader-root Links"
   >
     <div
       className="MuiCardHeader-content"
@@ -143,8 +143,68 @@ exports[`InformationCard matches snapshot. 1`] = `
     </div>
   </div>
   <div
-    className="MuiCardActions-root MuiCardActions-spacing"
+    className="MuiCardActions-root Links MuiCardActions-spacing"
   >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+          href="https://blog.developersam.com"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Blog
+        </a>
+      </span>
+    </button>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+          href="https://github.com/SamChou19815"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          GitHub
+        </a>
+      </span>
+    </button>
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
       disabled={false}
@@ -176,7 +236,7 @@ exports[`InformationCard matches snapshot. 1`] = `
       </span>
     </button>
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+      className="MuiButtonBase-root MuiButton-root MuiButton-text Transcript MuiButton-textPrimary"
       disabled={false}
       onBlur={[Function]}
       onDragLeave={[Function]}
@@ -220,7 +280,7 @@ exports[`InformationCard with classname matches snapshot. 1`] = `
     title="Facebook @ 1 Hacker Way"
   />
   <div
-    className="MuiCardHeader-root"
+    className="MuiCardHeader-root Links"
   >
     <div
       className="MuiCardHeader-content"
@@ -352,8 +412,74 @@ exports[`InformationCard with classname matches snapshot. 1`] = `
     </div>
   </div>
   <div
-    className="MuiCardActions-root MuiCardActions-spacing"
+    className="MuiCardActions-root Links MuiCardActions-spacing"
   >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+          href="https://blog.developersam.com"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          Blog
+        </a>
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        <a
+          className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+          href="https://github.com/SamChou19815"
+          onBlur={[Function]}
+          onFocus={[Function]}
+        >
+          GitHub
+        </a>
+      </span>
+      <span
+        className="MuiTouchRipple-root"
+      />
+    </button>
     <button
       className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
       disabled={false}
@@ -388,7 +514,7 @@ exports[`InformationCard with classname matches snapshot. 1`] = `
       />
     </button>
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+      className="MuiButtonBase-root MuiButton-root MuiButton-text Transcript MuiButton-textPrimary"
       disabled={false}
       onBlur={[Function]}
       onDragLeave={[Function]}

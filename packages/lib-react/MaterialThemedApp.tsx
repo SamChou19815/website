@@ -3,15 +3,8 @@ import React, { ReactElement, ReactNode } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import teal from '@material-ui/core/colors/teal';
-import { MuiThemeProvider, StylesProvider, createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#3E7AE2' },
-    secondary: { main: teal[500] },
-  },
-});
+import MaterialAppContainer from './MaterialAppContainer';
 
 type AppBarPosition = 'fixed' | 'absolute' | 'sticky' | 'static' | 'relative';
 
@@ -29,7 +22,7 @@ type Props = {
   readonly title: string;
 };
 
-const App = ({
+const MaterialThemedApp = ({
   title,
   styles,
   appBarPosition = 'static',
@@ -37,22 +30,20 @@ const App = ({
   children,
 }: Props): ReactElement => {
   return (
-    <MuiThemeProvider theme={theme}>
-      <StylesProvider injectFirst>
-        <div className={styles.app}>
-          <AppBar position={appBarPosition} className={styles.appBar}>
-            <Toolbar>
-              <Typography variant="h6" color="inherit" className={styles.title}>
-                {title}
-              </Typography>
-              {buttons}
-            </Toolbar>
-          </AppBar>
-          {children}
-        </div>
-      </StylesProvider>
-    </MuiThemeProvider>
+    <MaterialAppContainer>
+      <div className={styles.app}>
+        <AppBar position={appBarPosition} className={styles.appBar}>
+          <Toolbar>
+            <Typography variant="h6" color="inherit" className={styles.title}>
+              {title}
+            </Typography>
+            {buttons}
+          </Toolbar>
+        </AppBar>
+        {children}
+      </div>
+    </MaterialAppContainer>
   );
 };
 
-export default App;
+export default MaterialThemedApp;
