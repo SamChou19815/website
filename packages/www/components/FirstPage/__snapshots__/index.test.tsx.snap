@@ -1352,11 +1352,6 @@ exports[`FirstPage matches snapshot. 1`] = `
         >
           Sam Zhou
         </span>
-        <span
-          className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-        >
-          About Myself
-        </span>
       </div>
     </div>
     <div
