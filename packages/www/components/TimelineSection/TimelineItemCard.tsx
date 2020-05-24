@@ -19,19 +19,15 @@ type Props = { readonly item: TimelineItem };
 
 export default ({ item: { title, type, time, image, detail, links } }: Props): ReactElement => {
   let Icon: (props: SvgIconProps) => ReactElement;
-  let subheader: string;
   switch (type) {
     case 'work':
       Icon = Work;
-      subheader = 'Work & Internship';
       break;
     case 'project':
       Icon = Code;
-      subheader = 'Project';
       break;
     case 'event':
       Icon = Event;
-      subheader = 'Life Event';
       break;
     default:
       throw new Error('Unsupported item type!');
@@ -39,11 +35,10 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
   return (
     <div className={styles.CardContainer}>
       <div className={styles.ContentWrapper}>
-        <div className={styles.Timestamp}>{time}</div>
         <span className={styles.ConnectorDot} />
         <Card className={styles.Card}>
           {image != null && <LazyMaterialMedia image={image} title={title} />}
-          <CardHeader avatar={<Icon />} title={title} subheader={subheader} />
+          <CardHeader avatar={<Icon />} title={title} subheader={time} />
           {detail != null && <CardContent>{detail}</CardContent>}
           {links != null && (
             <CardActions>

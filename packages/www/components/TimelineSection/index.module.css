@@ -35,19 +35,13 @@
 
 @media screen and (max-width: 600px) {
   .VerticalBar {
-    left: 98px;
+    left: 41px;
   }
 }
 
 @media screen and (min-width: 600px) {
   .VerticalBar {
-    left: calc(50% - 202px);
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .DoubleColumn > .VerticalBar {
-    left: 50%;
+    left: calc(50% - 267px);
   }
 }
 
@@ -63,18 +57,6 @@
   align-items: flex-start;
   align-content: flex-start;
   max-width: 600px;
-}
-
-.Timestamp {
-  display: flex;
-  justify-content: center;
-  margin-top: 18px;
-  margin-right: 0;
-  padding-top: 8px;
-  width: 70px;
-  text-align: center;
-  font-size: 13px;
-  font-family: 'Roboto Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .ConnectorDot {
@@ -95,11 +77,11 @@
 @media screen and (min-width: 600px) {
   .ConnectorDot {
     margin-left: 1em;
-    margin-right: 2em;
+    margin-right: 3em;
   }
 }
 
 .Card {
   margin-left: 0;
-  width: calc(100% - 144px);
+  width: calc(100% - 100px);
 }

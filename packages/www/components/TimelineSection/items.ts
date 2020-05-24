@@ -25,7 +25,7 @@ const items: TimelineItem[] = [
   {
     title: 'Cornell DTI Developer Lead',
     type: 'work',
-    time: '2019-06',
+    time: 'June 2019',
     links: [
       {
         name: 'Cornell DTI Website',
@@ -36,20 +36,20 @@ const items: TimelineItem[] = [
   {
     title: 'Facebook SWE Intern',
     type: 'work',
-    time: '2019-05',
+    time: 'May 2019',
     image: FacebookHackerWay,
   },
   {
     title: 'Xi++ Compiler',
     type: 'project',
-    time: '2019-05',
+    time: 'May 2019',
     detail:
       'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly and Cornell CS 2112 critter language.',
   },
   {
     title: 'Website Redesign v3',
     type: 'event',
-    time: '2019-03',
+    time: 'March 2019',
     links: [
       {
         name: 'GitHub Repo',
@@ -60,7 +60,7 @@ const items: TimelineItem[] = [
   {
     title: 'Cornell DTI TPM',
     type: 'work',
-    time: '2019-01',
+    time: 'January 2019',
     detail: 'Technical product manager of the Samwise subteam.',
     links: [
       {
@@ -72,7 +72,7 @@ const items: TimelineItem[] = [
   {
     title: 'SAMLANG',
     type: 'project',
-    time: '2019-01',
+    time: 'January 2019',
     image: SAMLANG,
     detail: "Sam's new programming language with full type-inference.",
     links: [
@@ -89,13 +89,13 @@ const items: TimelineItem[] = [
   {
     title: 'Facebook SWE Intern Final Interview',
     type: 'event',
-    time: '2018-10',
+    time: 'October 2018',
     image: FacebookStickerAndPen,
   },
   {
     title: 'Cornell DTI Software Developer',
     type: 'work',
-    time: '2018-09',
+    time: 'September 2018',
     image: Samwise,
     detail: 'Frontend Developer of Samwise',
     links: [
@@ -108,7 +108,7 @@ const items: TimelineItem[] = [
   {
     title: 'Critter Compiler',
     type: 'project',
-    time: '2018-08',
+    time: 'August 2018',
     image: CritterCompiler,
     links: [
       {
@@ -117,14 +117,26 @@ const items: TimelineItem[] = [
       },
       {
         name: 'Blog Post',
-        url: 'https://blog.developersam.com/math/2018/08/27/cw-turing-complete/',
+        url: 'https://blog.developersam.com/2018/08/27/cw-turing-complete/',
+      },
+    ],
+  },
+  {
+    title: 'Badges for GCP Cloud Build',
+    type: 'project',
+    time: 'August 2018',
+    detail: 'Automatically generating badges for build status on GCP Cloud Build.',
+    links: [
+      {
+        name: 'GitHub Repo',
+        url: 'https://github.com/SamChou19815/badges-4-gcp-cloud-build',
       },
     ],
   },
   {
     title: 'Website Redesign v2',
     type: 'event',
-    time: '2018-07',
+    time: 'July 2018',
     links: [
       {
         name: 'GitHub Repo',
@@ -137,21 +149,9 @@ const items: TimelineItem[] = [
     ],
   },
   {
-    title: 'Badges for GCP Cloud Build',
-    type: 'project',
-    time: '2018-08',
-    detail: 'Automatically generating badges for build status on GCP Cloud Build.',
-    links: [
-      {
-        name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/badges-4-gcp-cloud-build',
-      },
-    ],
-  },
-  {
     title: 'typed-store',
     type: 'project',
-    time: '2018-07',
+    time: 'July 2018',
     detail: 'A type-safe wrapper for Google Cloud Datastore.',
     links: [
       {
@@ -163,7 +163,7 @@ const items: TimelineItem[] = [
   {
     title: 'SAMPL',
     type: 'project',
-    time: '2018-06',
+    time: 'June 2018',
     image: SAMPL,
     detail: "Sam's first programming language. Archived in favor of SAMLANG.",
     links: [
@@ -173,27 +173,27 @@ const items: TimelineItem[] = [
       },
       {
         name: 'Blog Post',
-        url: 'https://blog.developersam.com/design-choices/2018/06/15/sampl-alpha-design-choices/',
+        url: 'https://blog.developersam.com/2018/06/15/sampl-alpha-design-choices/',
       },
     ],
   },
   {
     title: 'ULearn Educational Group SWE Intern',
     type: 'work',
-    time: '2018-05',
+    time: 'May 2018',
   },
   {
     title: 'CS 2112 Critter World',
     type: 'project',
     image: CritterWorld,
-    time: '2017-12',
+    time: 'December 2017',
     detail:
       "Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.",
   },
   {
     title: 'First winning hackathon',
     type: 'event',
-    time: '2017-09',
+    time: 'September 2017',
     image: ChunkReader,
     detail: 'Developed a text analysis app during Cornell BigRedHack. Best use of Google Cloud.',
     links: [
@@ -210,12 +210,12 @@ const items: TimelineItem[] = [
   {
     title: 'Entered Cornell University',
     type: 'event',
-    time: '2017-08',
+    time: 'August 2017',
   },
   {
     title: 'TEN',
     type: 'project',
-    time: '2017-07',
+    time: 'July 2017',
     image: TEN,
     links: [
       {
@@ -227,24 +227,24 @@ const items: TimelineItem[] = [
   {
     title: 'Graduated from WFLA',
     type: 'event',
-    time: '2017-06',
+    time: 'June 2016',
     links: [
       {
         name: 'Blog: CS in High Schools',
-        url: 'https://blog.developersam.com/tech-journey/2018/12/31/cs-in-high-schools/',
+        url: 'https://blog.developersam.com/2018/12/31/cs-in-high-schools/',
       },
     ],
   },
   {
     title: 'Computerization Club President',
     type: 'work',
-    time: '2015-09',
+    time: 'September 2015',
     image: SAMLater,
   },
   {
     title: 'SAM First Release',
     type: 'project',
-    time: '2015-04',
+    time: 'April 2015',
     image: SAMFirst,
     links: [
       {
@@ -256,12 +256,12 @@ const items: TimelineItem[] = [
   {
     title: 'Computerization Software Developer',
     type: 'work',
-    time: '2015-02',
+    time: 'Feburary 2015',
   },
   {
     title: 'Bought developersam.com',
     type: 'event',
-    time: '2015-02',
+    time: 'Feburary 2015',
     detail: 'Check how it looks initially!',
     links: [
       {
@@ -273,33 +273,33 @@ const items: TimelineItem[] = [
   {
     title: 'Entered WFLA',
     type: 'event',
-    time: '2014-08',
+    time: 'August 2014',
   },
   {
     title: 'Graduated from Huayu Middle School',
     type: 'event',
-    time: '2014-06',
+    time: 'June 2014',
   },
   {
     title: 'First Non-trivial VB Program Written',
     type: 'project',
-    time: '2011-12',
+    time: 'December 2011',
   },
   {
     title: 'Started Coding',
     type: 'event',
-    time: '2011-07',
+    time: 'July 2011',
     detail: 'I bought a bad C++ intro book and almost gave up.',
   },
   {
     title: 'Entered Huayu Middle School',
     type: 'event',
-    time: '2010-09',
+    time: 'September 2010',
   },
   {
     title: 'Born',
     type: 'event',
-    time: '1998-11',
+    time: 'November 1998',
   },
 ];
 

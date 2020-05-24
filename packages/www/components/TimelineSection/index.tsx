@@ -81,12 +81,9 @@ export const TimelineSection = ({
       </FormGroup>
       <div className={styles.TimelineSection}>
         <div className={styles.VerticalBar} />
-        {filteredItems.map(
-          (item, index): ReactElement => (
-            // eslint-disable-next-line react/no-array-index-key
-            <TimelineItemCard key={index} item={item} />
-          )
-        )}
+        {filteredItems.map((item) => (
+          <TimelineItemCard key={`${item.title}-${item.time}`} item={item} />
+        ))}
       </div>
     </ConsoleSection>
   );
