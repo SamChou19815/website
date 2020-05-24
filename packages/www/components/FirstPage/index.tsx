@@ -7,6 +7,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import Code from '@material-ui/icons/Code';
 import Domain from '@material-ui/icons/Domain';
+import Facebook from '@material-ui/icons/Facebook';
+import GitHub from '@material-ui/icons/GitHub';
 import School from '@material-ui/icons/School';
 import Work from '@material-ui/icons/Work';
 
@@ -33,7 +35,8 @@ export default (): ReactElement => (
     <Card className={styles.InfoCard}>
       <CardHeader title="Sam Zhou" subheader="About Myself" />
       <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
-      <IconLine Icon={Work}>Facebook SWE Intern</IconLine>
+      <IconLine Icon={Facebook}>Facebook SWE Intern</IconLine>
+      <IconLine Icon={GitHub}>Open source contributor</IconLine>
       <IconLine Icon={School}>Cornell University</IconLine>
       <IconLine Icon={Domain}>Computer Science</IconLine>
       <IconLine Icon={Code}>Coding since 13</IconLine>
