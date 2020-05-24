@@ -7,11 +7,6 @@ exports[`TimelineItemCard with item 0 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2019-06
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -46,7 +41,7 @@ exports[`TimelineItemCard with item 0 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Work & Internship
+            June 2019
           </span>
         </div>
       </div>
@@ -96,11 +91,6 @@ exports[`TimelineItemCard with item 1 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2019-05
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -141,7 +131,7 @@ exports[`TimelineItemCard with item 1 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Work & Internship
+            May 2019
           </span>
         </div>
       </div>
@@ -157,11 +147,6 @@ exports[`TimelineItemCard with item 2 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2019-05
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -196,7 +181,7 @@ exports[`TimelineItemCard with item 2 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            May 2019
           </span>
         </div>
       </div>
@@ -217,11 +202,6 @@ exports[`TimelineItemCard with item 3 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2019-03
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -256,7 +236,7 @@ exports[`TimelineItemCard with item 3 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            March 2019
           </span>
         </div>
       </div>
@@ -306,11 +286,6 @@ exports[`TimelineItemCard with item 4 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2019-01
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -345,7 +320,7 @@ exports[`TimelineItemCard with item 4 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Work & Internship
+            January 2019
           </span>
         </div>
       </div>
@@ -403,11 +378,6 @@ exports[`TimelineItemCard with item 5 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2019-01
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -448,7 +418,7 @@ exports[`TimelineItemCard with item 5 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            January 2019
           </span>
         </div>
       </div>
@@ -533,11 +503,6 @@ exports[`TimelineItemCard with item 6 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2018-10
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -578,7 +543,7 @@ exports[`TimelineItemCard with item 6 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            October 2018
           </span>
         </div>
       </div>
@@ -594,11 +559,6 @@ exports[`TimelineItemCard with item 7 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2018-09
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -639,7 +599,7 @@ exports[`TimelineItemCard with item 7 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Work & Internship
+            September 2018
           </span>
         </div>
       </div>
@@ -694,11 +654,6 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2018-08
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -739,7 +694,7 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            August 2018
           </span>
         </div>
       </div>
@@ -801,7 +756,7 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
           >
             <a
               className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://blog.developersam.com/math/2018/08/27/cw-turing-complete/"
+              href="https://blog.developersam.com/2018/08/27/cw-turing-complete/"
               onBlur={[Function]}
               onFocus={[Function]}
             >
@@ -825,130 +780,6 @@ exports[`TimelineItemCard with item 9 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2018-07
-    </div>
-    <span
-      className="ConnectorDot"
-    />
-    <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
-    >
-      <div
-        className="MuiCardHeader-root"
-      >
-        <div
-          className="MuiCardHeader-avatar"
-        >
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-            />
-          </svg>
-        </div>
-        <div
-          className="MuiCardHeader-content"
-        >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-          >
-            Website Redesign v2
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Life Event
-          </span>
-        </div>
-      </div>
-      <div
-        className="MuiCardActions-root MuiCardActions-spacing"
-      >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
-          >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/SamChou19815/dev-sam-frontend"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              GitHub Repo
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
-          >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://web.archive.org/web/20190102202556/https://developersam.com/"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Archive
-            </a>
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
-<div
-  className="CardContainer"
->
-  <div
-    className="ContentWrapper"
-  >
-    <div
-      className="Timestamp"
-    >
-      2018-08
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -983,7 +814,7 @@ exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            August 2018
           </span>
         </div>
       </div>
@@ -1024,6 +855,123 @@ exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
               GitHub Repo
             </a>
           </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
+<div
+  className="CardContainer"
+>
+  <div
+    className="ContentWrapper"
+  >
+    <span
+      className="ConnectorDot"
+    />
+    <div
+      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <div
+        className="MuiCardHeader-root"
+      >
+        <div
+          className="MuiCardHeader-avatar"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiCardHeader-content"
+        >
+          <span
+            className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            Website Redesign v2
+          </span>
+          <span
+            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+          >
+            July 2018
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardActions-root MuiCardActions-spacing"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://github.com/SamChou19815/dev-sam-frontend"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              GitHub Repo
+            </a>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            <a
+              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
+              href="https://web.archive.org/web/20190102202556/https://developersam.com/"
+              onBlur={[Function]}
+              onFocus={[Function]}
+            >
+              Archive
+            </a>
+          </span>
           <span
             className="MuiTouchRipple-root"
           />
@@ -1041,11 +989,6 @@ exports[`TimelineItemCard with item 11 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2018-07
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1080,7 +1023,7 @@ exports[`TimelineItemCard with item 11 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            July 2018
           </span>
         </div>
       </div>
@@ -1135,11 +1078,6 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2018-06
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1180,7 +1118,7 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            June 2018
           </span>
         </div>
       </div>
@@ -1247,7 +1185,7 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
           >
             <a
               className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://blog.developersam.com/design-choices/2018/06/15/sampl-alpha-design-choices/"
+              href="https://blog.developersam.com/2018/06/15/sampl-alpha-design-choices/"
               onBlur={[Function]}
               onFocus={[Function]}
             >
@@ -1271,11 +1209,6 @@ exports[`TimelineItemCard with item 13 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2018-05
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1310,7 +1243,7 @@ exports[`TimelineItemCard with item 13 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Work & Internship
+            May 2018
           </span>
         </div>
       </div>
@@ -1326,11 +1259,6 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2017-12
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1371,7 +1299,7 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            December 2017
           </span>
         </div>
       </div>
@@ -1392,11 +1320,6 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2017-09
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1437,7 +1360,7 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            September 2017
           </span>
         </div>
       </div>
@@ -1522,11 +1445,6 @@ exports[`TimelineItemCard with item 16 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2017-08
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1561,7 +1479,7 @@ exports[`TimelineItemCard with item 16 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            August 2017
           </span>
         </div>
       </div>
@@ -1577,11 +1495,6 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2017-07
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1622,7 +1535,7 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            July 2017
           </span>
         </div>
       </div>
@@ -1672,11 +1585,6 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2017-06
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1711,7 +1619,7 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            June 2016
           </span>
         </div>
       </div>
@@ -1740,7 +1648,7 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
           >
             <a
               className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://blog.developersam.com/tech-journey/2018/12/31/cs-in-high-schools/"
+              href="https://blog.developersam.com/2018/12/31/cs-in-high-schools/"
               onBlur={[Function]}
               onFocus={[Function]}
             >
@@ -1764,11 +1672,6 @@ exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2015-09
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1809,7 +1712,7 @@ exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Work & Internship
+            September 2015
           </span>
         </div>
       </div>
@@ -1825,11 +1728,6 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2015-04
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1870,7 +1768,7 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            April 2015
           </span>
         </div>
       </div>
@@ -1920,11 +1818,6 @@ exports[`TimelineItemCard with item 21 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2015-02
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -1959,7 +1852,7 @@ exports[`TimelineItemCard with item 21 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Work & Internship
+            Feburary 2015
           </span>
         </div>
       </div>
@@ -1975,11 +1868,6 @@ exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2015-02
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -2014,7 +1902,7 @@ exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            Feburary 2015
           </span>
         </div>
       </div>
@@ -2069,11 +1957,6 @@ exports[`TimelineItemCard with item 23 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2014-08
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -2108,7 +1991,7 @@ exports[`TimelineItemCard with item 23 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            August 2014
           </span>
         </div>
       </div>
@@ -2124,11 +2007,6 @@ exports[`TimelineItemCard with item 24 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2014-06
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -2163,7 +2041,7 @@ exports[`TimelineItemCard with item 24 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            June 2014
           </span>
         </div>
       </div>
@@ -2179,11 +2057,6 @@ exports[`TimelineItemCard with item 25 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2011-12
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -2218,7 +2091,7 @@ exports[`TimelineItemCard with item 25 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Project
+            December 2011
           </span>
         </div>
       </div>
@@ -2234,11 +2107,6 @@ exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2011-07
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -2273,7 +2141,7 @@ exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            July 2011
           </span>
         </div>
       </div>
@@ -2294,11 +2162,6 @@ exports[`TimelineItemCard with item 27 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      2010-09
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -2333,7 +2196,7 @@ exports[`TimelineItemCard with item 27 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            September 2010
           </span>
         </div>
       </div>
@@ -2349,11 +2212,6 @@ exports[`TimelineItemCard with item 28 matches snapshot. 1`] = `
   <div
     className="ContentWrapper"
   >
-    <div
-      className="Timestamp"
-    >
-      1998-11
-    </div>
     <span
       className="ConnectorDot"
     />
@@ -2388,7 +2246,7 @@ exports[`TimelineItemCard with item 28 matches snapshot. 1`] = `
           <span
             className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
           >
-            Life Event
+            November 1998
           </span>
         </div>
       </div>
