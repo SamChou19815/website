@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import styles from './FirstPageCodeBlock.module.css';
+import styles from './StickyCodeBlock.module.css';
 
 import CodeBlock from 'lib-react/PrismCodeBlock';
 
@@ -38,8 +38,10 @@ class Main {
 }
 `;
 
-export default (): ReactElement => (
+const StickyCodeBlock = (): ReactElement => (
   <CodeBlock language="samlang" className={styles.Block}>
     {code}
   </CodeBlock>
 );
+
+export default StickyCodeBlock;

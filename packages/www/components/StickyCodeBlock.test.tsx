@@ -2,7 +2,7 @@ import React from 'react';
 
 import renderer from 'react-test-renderer';
 
-import FirstPageCodeBlock from './FirstPageCodeBlock';
+import FirstPageCodeBlock from './StickyCodeBlock';
 
 it('FirstPageCodeBlock matches snapshot.', () => {
   const tree = renderer.create(<FirstPageCodeBlock />).toJSON();

@@ -12,8 +12,8 @@ import GitHub from '@material-ui/icons/GitHub';
 import School from '@material-ui/icons/School';
 import Work from '@material-ui/icons/Work';
 
+import LazyMaterialMedia from './Common/LazyMaterialMedia';
 import styles from './InformationCard.module.css';
-import LazyMaterialMedia from './LazyMaterialMedia';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
