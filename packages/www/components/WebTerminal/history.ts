@@ -3,7 +3,7 @@ type Result = {
   readonly historyPosition: number | null;
 };
 
-export default (
+const scrollHistory = (
   direction: 'up' | 'down',
   history: readonly string[],
   historyPosition?: number | null
@@ -46,3 +46,5 @@ export default (
       throw new Error();
   }
 };
+
+export default scrollHistory;

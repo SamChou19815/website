@@ -60,7 +60,7 @@ type Props = {
   readonly onTaskClicked: (taskId: TaskId) => void;
 };
 
-export default ({ tasks, onTaskClicked }: Props): ReactElement => {
+const PartitionedTaskContainer = ({ tasks, onTaskClicked }: Props): ReactElement => {
   const dispatch = useDispatch();
   const partitioned = partitionTaskByStatus(tasks);
 
@@ -102,3 +102,5 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
     </DragDropContext>
   );
 };
+
+export default PartitionedTaskContainer;

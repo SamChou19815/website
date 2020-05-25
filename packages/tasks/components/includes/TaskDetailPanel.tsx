@@ -16,7 +16,11 @@ type Props = {
   readonly onClose: () => void;
 };
 
-export default ({ taskId, className: additionalClassName, onClose }: Props): ReactElement => {
+const TaskDetailPanel = ({
+  taskId,
+  className: additionalClassName,
+  onClose,
+}: Props): ReactElement => {
   const className =
     additionalClassName === undefined
       ? styles.TaskDetailFloatingContainer
@@ -40,3 +44,5 @@ export default ({ taskId, className: additionalClassName, onClose }: Props): Rea
     </div>
   );
 };
+
+export default TaskDetailPanel;

@@ -15,7 +15,12 @@ type Props = {
   readonly children: (trigger: () => void) => ReactElement;
 };
 
-export default ({ alertTitle, alertDescription, onConfirm, children }: Props): ReactElement => {
+const MaterialAlertDialog = ({
+  alertTitle,
+  alertDescription,
+  onConfirm,
+  children,
+}: Props): ReactElement => {
   const [open, setOpen] = useState(false);
   const onClose = () => setOpen(false);
 
@@ -51,3 +56,5 @@ export default ({ alertTitle, alertDescription, onConfirm, children }: Props): R
     </>
   );
 };
+
+export default MaterialAlertDialog;

@@ -24,7 +24,7 @@ markdownRenderer.use(linkify).use(remarkableCheckboxPlugin);
 
 type Props = { readonly className?: string; readonly children: string };
 
-export default ({ className, children }: Props): ReactElement => {
+const MarkdownBlock = ({ className, children }: Props): ReactElement => {
   return (
     <div
       className={className}
@@ -33,3 +33,5 @@ export default ({ className, children }: Props): ReactElement => {
     />
   );
 };
+
+export default MarkdownBlock;

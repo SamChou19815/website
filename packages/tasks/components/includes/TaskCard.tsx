@@ -22,7 +22,7 @@ type Props = {
   readonly onDetailClick?: () => void;
 };
 
-export default ({
+const TaskCard = ({
   task: { taskId, name, color, content, dependencies },
   onDetailClick,
 }: Props): ReactElement => {
@@ -103,3 +103,5 @@ export default ({
     </Card>
   );
 };
+
+export default TaskCard;
