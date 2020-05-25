@@ -1346,11 +1346,11 @@ Array [
       className="ContentBlock"
     >
       <section
-        className="Section FirstPage"
+        className="Section AboutSection"
         id="about"
       >
         <h3
-          className="Title FirstPageTitle"
+          className="Title Title"
         >
           <code>
             $ 
