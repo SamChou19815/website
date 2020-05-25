@@ -1,8 +1,8 @@
 import about from '../../data/about';
+import projects from '../../data/projects';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 import { store, patchTimeline, patchFileSystem } from '../../store';
 import { Commands } from './types';
-import projects from '../../data/projects';
 
 const help = (): string =>
   Object.keys(commands)
