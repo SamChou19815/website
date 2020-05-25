@@ -5,11 +5,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import { connect } from 'react-redux';
 
+import timelineItems, { TimelineItem } from '../../data/timeline';
 import { State, TimelineState, patchTimeline } from '../../store';
 import ConsoleSection from '../Common/ConsoleSection';
 import TimelineItemCard from './TimelineItemCard';
 import styles from './index.module.css';
-import items, { TimelineItem } from './items';
 
 type CheckboxProps = {
   readonly label: string;
@@ -57,7 +57,7 @@ export const TimelineSection = ({
     }
   }
 
-  const filteredItems = items.filter(({ type }: TimelineItem): boolean => {
+  const filteredItems = timelineItems.filter(({ type }: TimelineItem): boolean => {
     if (type === 'work' && workChecked) {
       return true;
     }

@@ -21,7 +21,7 @@ export type TimelineItem = {
   readonly links?: readonly NamedLink[];
 };
 
-const items: TimelineItem[] = [
+const timelineItems: readonly TimelineItem[] = [
   {
     title: 'Cornell DTI Developer Lead',
     type: 'work',
@@ -303,4 +303,4 @@ const items: TimelineItem[] = [
   },
 ];
 
-export default items;
+export default timelineItems;
