@@ -4,6 +4,9 @@ module.exports = {
     node: true,
     'jest/globals': true,
   },
+  globals: {
+    Deno: 'readonly',
+  },
   extends: ['react-app', 'plugin:@typescript-eslint/recommended', 'airbnb', 'prettier'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'jest'],
