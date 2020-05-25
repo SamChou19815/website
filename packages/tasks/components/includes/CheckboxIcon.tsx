@@ -5,7 +5,7 @@ import CheckBoxOutlineBlank from '@material-ui/icons/CheckBoxOutlineBlank';
 
 import { TaskStatus } from '../../models/common-types';
 
-export default (status: TaskStatus): typeof CheckBox => {
+const CheckboxIcon = (status: TaskStatus): typeof CheckBox => {
   switch (status) {
     case 'backlogged':
       return Archive;
@@ -19,3 +19,5 @@ export default (status: TaskStatus): typeof CheckBox => {
       throw new Error(status);
   }
 };
+
+export default CheckboxIcon;

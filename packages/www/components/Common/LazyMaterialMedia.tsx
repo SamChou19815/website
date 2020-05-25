@@ -7,6 +7,8 @@ type Props = {
   readonly title: string;
 };
 
-export default ({ image, title }: Props): ReactElement => (
+const LazyMaterialMedia = ({ image, title }: Props): ReactElement => (
   <CardMedia image={image} title={title} component="img" loading="lazy" />
 );
+
+export default LazyMaterialMedia;

@@ -32,7 +32,7 @@ const HomePage = (): ReactElement => (
   </MaterialThemedApp>
 );
 
-export default (): ReactElement => (
+const App = (): ReactElement => (
   <ReactReduxProvider store={store}>
     <Head>
       <meta charSet="utf-8" />
@@ -45,3 +45,5 @@ export default (): ReactElement => (
     <ConfiguredMainAppBarrier appComponent={HomePage} />
   </ReactReduxProvider>
 );
+
+export default App;

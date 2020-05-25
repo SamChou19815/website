@@ -27,7 +27,7 @@ type Props = {
   readonly processCommand: (line: string) => void;
 };
 
-export default ({
+const StatelessTerminal = ({
   history,
   terminalRoot,
   terminalInput,
@@ -48,3 +48,5 @@ export default ({
     </div>
   </div>
 );
+
+export default StatelessTerminal;

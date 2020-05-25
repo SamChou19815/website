@@ -34,7 +34,7 @@ const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
   return newHistoryItems;
 };
 
-export default (): ReactElement => {
+const Terminal = (): ReactElement => {
   const [history, setHistory] = useState(initialHistory);
   const terminalRoot = useRef<HTMLDivElement>(null);
   const terminalInput = useRef<HTMLInputElement>(null);
@@ -96,3 +96,5 @@ export default (): ReactElement => {
     />
   );
 };
+
+export default Terminal;

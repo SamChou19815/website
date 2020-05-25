@@ -13,7 +13,13 @@ type Props = {
 const classes = (firstClass: string, secondClass?: string): string =>
   secondClass === undefined ? firstClass : `${firstClass} ${secondClass}`;
 
-export default ({ id, title, className, titleClassName, children }: Props): ReactElement => (
+const ConsoleSection = ({
+  id,
+  title,
+  className,
+  titleClassName,
+  children,
+}: Props): ReactElement => (
   <section id={id} className={classes(styles.Section, className)}>
     <h3 className={classes(styles.Title, titleClassName)}>
       <code>
@@ -24,3 +30,5 @@ export default ({ id, title, className, titleClassName, children }: Props): Reac
     {children}
   </section>
 );
+
+export default ConsoleSection;
