@@ -17,7 +17,11 @@ const dataLoader = (): void => {
   });
 };
 
-export default ({ appComponent }: { readonly appComponent: () => ReactElement }): ReactElement => {
+const ConfiguredMainAppBarrier = ({
+  appComponent,
+}: {
+  readonly appComponent: () => ReactElement;
+}): ReactElement => {
   const isDataLoaded = useSelector(({ dataLoaded }: ReduxStoreState) => dataLoaded);
   return (
     <AppBarrier
@@ -29,3 +33,5 @@ export default ({ appComponent }: { readonly appComponent: () => ReactElement })
     />
   );
 };
+
+export default ConfiguredMainAppBarrier;

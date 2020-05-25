@@ -27,7 +27,7 @@ type Props = {
   readonly onCodeChange: (value: string) => void;
 };
 
-export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
+const Editor = ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const inputRef = useRef<HTMLTextAreaElement>(undefined!);
   const [codeBlockHeight, setCodeBlockHeight] = useState(0);
@@ -240,3 +240,5 @@ export default ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
     </div>
   );
 };
+
+export default Editor;

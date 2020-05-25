@@ -25,7 +25,7 @@ type Props = {
   readonly onClose: () => void;
 };
 
-export default ({ taskId, className, onClose }: Props): ReactElement => {
+const TaskDetailContainer = ({ taskId, className, onClose }: Props): ReactElement => {
   const task = useSelector((state: ReduxStoreState) => state.tasks[taskId]);
   const [showTransitive, setShowTransitive] = useState(false);
   const transitiveDependencies = flattenedTopologicalSort(useTransitiveDependencies(task.taskId));
@@ -81,3 +81,5 @@ export default ({ taskId, className, onClose }: Props): ReactElement => {
     </div>
   );
 };
+
+export default TaskDetailContainer;

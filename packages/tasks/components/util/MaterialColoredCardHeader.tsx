@@ -40,7 +40,13 @@ type Props = {
   readonly onClick?: () => void;
 };
 
-export default ({ title, color, avatar, titleClassName, onClick }: Props): ReactElement => (
+const MaterialColoredCardHeader = ({
+  title,
+  color,
+  avatar,
+  titleClassName,
+  onClick,
+}: Props): ReactElement => (
   <CardHeader
     avatar={avatar}
     classes={{
@@ -52,3 +58,5 @@ export default ({ title, color, avatar, titleClassName, onClick }: Props): React
     onClick={onClick}
   />
 );
+
+export default MaterialColoredCardHeader;

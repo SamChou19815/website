@@ -19,7 +19,7 @@ type Props = {
   readonly excludeWrapper?: boolean;
 };
 
-export default ({
+const PrismCodeBlock = ({
   language,
   children,
   className: userDefinedClassname,
@@ -60,3 +60,5 @@ export default ({
     </Highlight>
   );
 };
+
+export default PrismCodeBlock;

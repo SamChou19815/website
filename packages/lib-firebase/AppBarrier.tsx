@@ -23,7 +23,7 @@ type AppStatus = 'INIT_LOADING' | 'LANDING' | 'DATA_LOADING_OR_APP';
  * The barrier to enter the main app.
  * It can help to enforce that all necessary information is loaded before entering the main app.
  */
-export default ({
+const AppBarrier = ({
   isDataLoaded,
   dataLoader,
   loadingPageComponent: LoadingPage,
@@ -63,3 +63,5 @@ export default ({
       throw new Error(`Unknown state: ${appStatus}`);
   }
 };
+
+export default AppBarrier;

@@ -31,7 +31,7 @@ const rendertasklist = (checked: boolean) => {
   return labelHTML;
 };
 
-export default (md: Remarkable): void => {
+const remarkableCheckboxPlugin = (md: Remarkable): void => {
   // Adapted from https://github.com/jonschlinkert/remarkable/issues/189#issuecomment-590026524
 
   md.inline.ruler.push(
@@ -90,3 +90,5 @@ export default (md: Remarkable): void => {
     rendertasklist((tokens[index] as CheckboxToken).checked);
   md.renderer.rules.list_item_open = () => '<li class="remarkable-li">';
 };
+
+export default remarkableCheckboxPlugin;

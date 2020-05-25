@@ -41,7 +41,7 @@ export const createNewTask = (task: EditableTask): void => {
   createTask({ owner: getAppUser().email, status: 'to-do', ...task });
 };
 
-export default ({ taskId, values, onChange }: Props): ReactElement => {
+const TaskEditorForm = ({ taskId, values, onChange }: Props): ReactElement => {
   const { name, color, content, dependencies } = values;
   const [allDependenciesTaskOptions, eligibleOptions] = useEligibleDependencies(
     taskId,
@@ -120,3 +120,5 @@ export default ({ taskId, values, onChange }: Props): ReactElement => {
     </FormGroup>
   );
 };
+
+export default TaskEditorForm;

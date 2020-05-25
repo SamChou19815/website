@@ -12,7 +12,7 @@ type Props = {
   readonly onTaskClicked: (taskId: TaskId) => void;
 };
 
-export default ({ tasks, onTaskClicked }: Props): ReactElement => {
+const TaskGraphCanvas = ({ tasks, onTaskClicked }: Props): ReactElement => {
   const leveledTasks = minimizeCross(tasks);
 
   type TaskWithPositionMap = { [taskId: string]: Readonly<{ level: number; index: number }> };
@@ -110,3 +110,5 @@ export default ({ tasks, onTaskClicked }: Props): ReactElement => {
     </svg>
   );
 };
+
+export default TaskGraphCanvas;
