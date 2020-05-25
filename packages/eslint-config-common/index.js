@@ -4,7 +4,10 @@ module.exports = {
     node: true,
     'jest/globals': true,
   },
-  extends: ['airbnb', 'prettier', 'plugin:@typescript-eslint/recommended', 'react-app'],
+  globals: {
+    Deno: 'readonly',
+  },
+  extends: ['react-app', 'plugin:@typescript-eslint/recommended', 'airbnb', 'prettier'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'jest'],
   rules: {
@@ -46,12 +49,14 @@ module.exports = {
     ],
     indent: 'off', // Already covered by Prettier
     'no-underscore-dangle': 'off',
-    'object-curly-newline': 'off',
-    'react/jsx-filename-extension': 'off',
-    'react/prop-types': 'off',
+    'no-use-before-define': 'off', // Already covered by TypeScript
+    'no-unused-expressions': 'off', // Already covered by typescript-eslint
+    'object-curly-newline': 'off', // Already covered by Prettier
+    'react/jsx-filename-extension': 'off', // Already covered by TypeScript
+    'react/prop-types': 'off', // Already covered by TypeScript
     'react/jsx-indent': 'off', // Already covered by Prettier
-    'react/jsx-one-expression-per-line': 'off',
-    'spaced-comment': ['error', 'always', { markers: ['/'] }],
+    'react/jsx-one-expression-per-line': 'off', // Already covered by Prettier
+    'spaced-comment': ['error', 'always', { markers: ['/'] }], // Need for .d.ts type references
   },
   settings: {
     'import/resolver': {
@@ -62,11 +67,14 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.js', '*.jsx'],
+      files: ['*.js'],
       rules: {
         '@typescript-eslint/no-require-imports': 'off',
         '@typescript-eslint/no-var-requires': 'off',
       },
+    },
+    {
+      files: ['*.ts', '*.tsx'],
     },
   ],
 };
