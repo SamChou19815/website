@@ -10,7 +10,7 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline --none
+      dev-sam timeline --none
     </code>
   </h3>
   <div
@@ -183,7 +183,7 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline --only events
+      dev-sam timeline --only events
     </code>
   </h3>
   <div
@@ -1207,7 +1207,7 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline --only projects
+      dev-sam timeline --only projects
     </code>
   </h3>
   <div
@@ -2244,7 +2244,7 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline --only projects events
+      dev-sam timeline --only projects events
     </code>
   </h3>
   <div
@@ -4162,7 +4162,7 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline --only work
+      dev-sam timeline --only work
     </code>
   </h3>
   <div
@@ -4794,7 +4794,7 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline --only work events
+      dev-sam timeline --only work events
     </code>
   </h3>
   <div
@@ -6286,7 +6286,7 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline --only work projects
+      dev-sam timeline --only work projects
     </code>
   </h3>
   <div
@@ -7782,7 +7782,7 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
   >
     <code>
       $ 
-      timeline
+      dev-sam timeline
     </code>
   </h3>
   <div

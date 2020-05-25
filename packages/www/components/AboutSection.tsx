@@ -11,7 +11,7 @@ import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 const AboutSection = (): ReactElement => (
   <ConsoleSection
     id="about"
-    title="dev-sam --about"
+    title="dev-sam about"
     className={styles.AboutSection}
     titleClassName={styles.Title}
   >

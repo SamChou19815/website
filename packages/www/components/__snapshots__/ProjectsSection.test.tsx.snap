@@ -10,7 +10,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
   >
     <code>
       $ 
-      projects --active
+      dev-sam projects --active
     </code>
   </h3>
   <div

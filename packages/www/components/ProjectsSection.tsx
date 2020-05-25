@@ -20,7 +20,7 @@ const Tasks = '/projects/tasks.png';
 const TEN = '/projects/ten.png';
 
 export default (): ReactElement => (
-  <ConsoleSection id="projects" title="projects --active">
+  <ConsoleSection id="projects" title="dev-sam projects --active">
     <div className={styles.ProjectContainer}>
       <Card className={styles.ProjectCard}>
         <LazyMaterialMedia image={SAMLANG} title="SAMLANG" />

@@ -10,7 +10,7 @@ exports[`TechTalkSection matches snapshot. 1`] = `
   >
     <code>
       $ 
-      tech-talks --all
+      dev-sam tech-talks
     </code>
   </h3>
   <div
