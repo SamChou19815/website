@@ -11,7 +11,7 @@ import TechTalkSection from './TechTalkSection';
 import TimelineSection from './TimelineSection';
 import WebTerminal from './WebTerminal';
 
-export default (): ReactElement => (
+const App = (): ReactElement => (
   <ReactReduxProvider store={store}>
     <div className={styles.MainLayout}>
       <div className={styles.SideBar}>
@@ -27,3 +27,5 @@ export default (): ReactElement => (
     <WebTerminal />
   </ReactReduxProvider>
 );
+
+export default App;

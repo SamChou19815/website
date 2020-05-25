@@ -9,10 +9,12 @@ const onLoginClick = () => {
   firebase.auth().signInWithPopup(provider);
 };
 
-export default (): ReactElement => (
+const LandingPage = (): ReactElement => (
   <div className="simple-page-center">
     <Button variant="contained" color="primary" onClick={onLoginClick}>
       Login
     </Button>
   </div>
 );
+
+export default LandingPage;

@@ -13,7 +13,7 @@ import styles from './ProjectsSection.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
-export default (): ReactElement => (
+const ProjectsSection = (): ReactElement => (
   <ConsoleSection id="projects" title="dev-sam projects">
     <div className={styles.ProjectContainer}>
       {projects.map(({ name, type, media, description, links }) => (
@@ -34,3 +34,5 @@ export default (): ReactElement => (
     </div>
   </ConsoleSection>
 );
+
+export default ProjectsSection;

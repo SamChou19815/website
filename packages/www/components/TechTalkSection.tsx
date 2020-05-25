@@ -11,7 +11,7 @@ import styles from './TechTalkSection.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
-export default (): ReactElement => (
+const TechTalkSection = (): ReactElement => (
   <ConsoleSection id="tech-talks" title="dev-sam tech-talks">
     <div className={styles.TechTalkContainer}>
       {techTalks.map(({ title, type, description, link }) => (
@@ -26,3 +26,5 @@ export default (): ReactElement => (
     </div>
   </ConsoleSection>
 );
+
+export default TechTalkSection;

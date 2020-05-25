@@ -9,7 +9,7 @@ type Props = {
   readonly onSubmit: (line: string) => void;
 };
 
-export default ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
+const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
   const [line, setLine] = useState('');
 
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -51,3 +51,5 @@ export default ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
     </div>
   );
 };
+
+export default TerminalInput;

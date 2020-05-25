@@ -23,7 +23,7 @@ export const initialEditableTask = {
   dependencies: initialDependencies,
 };
 
-export default (): ReactElement => {
+const TasksPanel = (): ReactElement => {
   const tasks = useSelector<ReduxStoreState, readonly ReduxStoreTask[]>((state) =>
     flattenedTopologicalSort(Object.values(state.tasks))
   );
@@ -83,3 +83,5 @@ export default (): ReactElement => {
     </div>
   );
 };
+
+export default TasksPanel;

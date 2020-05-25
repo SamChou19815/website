@@ -17,7 +17,9 @@ import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 type Props = { readonly item: TimelineItem };
 
-export default ({ item: { title, type, time, image, detail, links } }: Props): ReactElement => {
+const TimelineItemCard = ({
+  item: { title, type, time, image, detail, links },
+}: Props): ReactElement => {
   let Icon: (props: SvgIconProps) => ReactElement;
   switch (type) {
     case 'work':
@@ -57,3 +59,5 @@ export default ({ item: { title, type, time, image, detail, links } }: Props): R
     </div>
   );
 };
+
+export default TimelineItemCard;
