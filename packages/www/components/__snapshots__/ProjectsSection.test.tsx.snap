@@ -10,7 +10,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
   >
     <code>
       $ 
-      dev-sam projects --active
+      dev-sam projects
     </code>
   </h3>
   <div
@@ -80,7 +80,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              Official Site
+              Docs
             </a>
           </span>
         </button>
@@ -140,7 +140,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              GitHub Repo
+              GitHub
             </a>
           </span>
         </button>
@@ -210,7 +210,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              Official Site
+              Docs
             </a>
           </span>
         </button>
@@ -240,7 +240,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              GitHub Repo
+              GitHub
             </a>
           </span>
         </button>
@@ -279,16 +279,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="MuiCardContent-root"
       >
-        A simplified version of React runtime created from scratch. It has support for the
-         
-        <code>
-          useState
-        </code>
-         hook and 
-        <code>
-          useEffect
-        </code>
-         hook.
+        A simplified version of React runtime with useState and useEffect hook, built from Scratch.
       </div>
       <div
         className="MuiCardActions-root MuiCardActions-spacing"
@@ -319,7 +310,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              Demo Site
+              Demo
             </a>
           </span>
         </button>
@@ -349,7 +340,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              GitHub Repo
+              GitHub
             </a>
           </span>
         </button>
@@ -418,13 +409,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="MuiCardContent-root"
       >
-        A Student Planner for Everyone. Designed, developed and maintained by 
-        <a
-          href="https://cornelldti.org"
-        >
-          Cornell DTI
-        </a>
-        .
+        A Student Planner for Everyone. Designed, developed and maintained by Cornell DTI.
       </div>
       <div
         className="MuiCardActions-root MuiCardActions-spacing"
@@ -485,7 +470,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              GitHub Repo
+              GitHub
             </a>
           </span>
         </button>
@@ -655,7 +640,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
               onBlur={[Function]}
               onFocus={[Function]}
             >
-              GitHub Repo
+              GitHub
             </a>
           </span>
         </button>

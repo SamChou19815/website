@@ -6,109 +6,31 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Divider from '@material-ui/core/Divider';
 
+import projects from '../data/projects';
 import ConsoleSection from './Common/ConsoleSection';
 import LazyMaterialMedia from './Common/LazyMaterialMedia';
 import styles from './ProjectsSection.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
-const Docusaurus = '/projects/docusaurus.png';
-const MiniReact = '/projects/mini-react.png';
-const SAMLANG = '/projects/samlang.png';
-const Samwise = '/projects/samwise.png';
-const Tasks = '/projects/tasks.png';
-const TEN = '/projects/ten.png';
-
 export default (): ReactElement => (
-  <ConsoleSection id="projects" title="dev-sam projects --active">
+  <ConsoleSection id="projects" title="dev-sam projects">
     <div className={styles.ProjectContainer}>
-      <Card className={styles.ProjectCard}>
-        <LazyMaterialMedia image={SAMLANG} title="SAMLANG" />
-        <Divider />
-        <CardHeader title="SAMLANG" subheader="Programming Language" />
-        <CardContent>
-          A statically-typed functional programming language with full type inference. A research
-          programming language developed by Sam.
-        </CardContent>
-        <CardActions>
-          <MaterialButtonLink href="https://samlang.developersam.com">
-            Official Site
-          </MaterialButtonLink>
-          <MaterialButtonLink href="https://samlang.developersam.com/demo">Demo</MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/SamChou19815/samlang">
-            GitHub Repo
-          </MaterialButtonLink>
-        </CardActions>
-      </Card>
-      <Card className={styles.ProjectCard}>
-        <LazyMaterialMedia image={Docusaurus} title="Docusaurus" />
-        <Divider />
-        <CardHeader title="Docusaurus" subheader="Open source contributions" />
-        <CardContent>
-          A static documentation site generator developed by Facebook open source. I am one of the
-          top 20 contributors.
-        </CardContent>
-        <CardActions>
-          <MaterialButtonLink href="https://v2.docusaurus.io">Official Site</MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/facebook/docusaurus">
-            GitHub Repo
-          </MaterialButtonLink>
-        </CardActions>
-      </Card>
-      <Card className={styles.ProjectCard}>
-        <LazyMaterialMedia image={MiniReact} title="mini-react" />
-        <Divider />
-        <CardHeader title="mini-react" subheader="Framework" />
-        <CardContent>
-          A simplified version of React runtime created from scratch. It has support for the{' '}
-          <code>useState</code> hook and <code>useEffect</code> hook.
-        </CardContent>
-        <CardActions>
-          <MaterialButtonLink href="https://mini-react.developersam.com">
-            Demo Site
-          </MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/SamChou19815/mini-react">
-            GitHub Repo
-          </MaterialButtonLink>
-          <MaterialButtonLink href="/build-simplified-react.pdf">Slides</MaterialButtonLink>
-        </CardActions>
-      </Card>
-      <Card className={styles.ProjectCard}>
-        <LazyMaterialMedia image={Samwise} title="Samwise" />
-        <Divider />
-        <CardHeader title="Samwise" subheader="Web App" />
-        <CardContent>
-          A Student Planner for Everyone. Designed, developed and maintained by&nbsp;
-          <a href="https://cornelldti.org">Cornell DTI</a>.
-        </CardContent>
-        <CardActions>
-          <MaterialButtonLink href="https://samwise.today">App</MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/cornell-dti/samwise">
-            GitHub Repo
-          </MaterialButtonLink>
-        </CardActions>
-      </Card>
-      <Card className={styles.ProjectCard}>
-        <LazyMaterialMedia image={Tasks} title="Tasks" />
-        <Divider />
-        <CardHeader title="Tasks" subheader="Web App" />
-        <CardContent>A planner with drag and drop and dependency analysis.</CardContent>
-        <CardActions>
-          <MaterialButtonLink href="https://tasks.developersam.com">App</MaterialButtonLink>
-        </CardActions>
-      </Card>
-      <Card className={styles.ProjectCard}>
-        <LazyMaterialMedia image={TEN} title="TEN" />
-        <Divider />
-        <CardHeader title="TEN" subheader="Game AI" />
-        <CardContent>Interesting board game with simple rules. Powered by an MCTS AI.</CardContent>
-        <CardActions>
-          <MaterialButtonLink href="https://ten.developersam.com">Demo</MaterialButtonLink>
-          <MaterialButtonLink href="https://github.com/SamChou19815/ten-golang">
-            GitHub Repo
-          </MaterialButtonLink>
-        </CardActions>
-      </Card>
+      {projects.map(({ name, type, media, description, links }) => (
+        <Card key={name} className={styles.ProjectCard}>
+          <LazyMaterialMedia image={media} title={name} />
+          <Divider />
+          <CardHeader title={name} subheader={type} />
+          <CardContent>{description}</CardContent>
+          <CardActions>
+            {links.map(({ text, href }) => (
+              <MaterialButtonLink key={text} href={href}>
+                {text}
+              </MaterialButtonLink>
+            ))}
+          </CardActions>
+        </Card>
+      ))}
     </div>
   </ConsoleSection>
 );
