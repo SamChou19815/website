@@ -1,0 +1,35 @@
+.Title {
+  margin: 0 auto 2em auto;
+}
+
+.InfoCard {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 960px) {
+  .AboutSection {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .InfoCard {
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1200px) {
+  .InfoCard {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .InfoCard {
+    width: 560px;
+  }
+}
