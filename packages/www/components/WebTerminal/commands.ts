@@ -1,5 +1,6 @@
 import about from '../../data/about';
 import projects from '../../data/projects';
+import techTalks from '../../data/tech-talks';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 import { store, patchTimeline, patchFileSystem } from '../../store';
 import { Commands } from './types';
@@ -42,8 +43,10 @@ const devSam = (command: string, ...commandArguments: readonly string[]): string
       return projects
         .map(({ name, type, description }) => `${name}:\n> ${type}\n> ${description}`)
         .join('\n');
-    case 'tech-talk':
-      return 'TODO tech-talk';
+    case 'tech-talks':
+      return techTalks
+        .map(({ title, type, description }) => `${title}:\n> ${type}\n> ${description}`)
+        .join('\n');
     case 'timeline':
       return timeline(...commandArguments);
     case undefined:

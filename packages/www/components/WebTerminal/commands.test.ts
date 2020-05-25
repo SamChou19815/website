@@ -24,7 +24,7 @@ it('commands does not crash', () => {
   commands.pwd.fn('ahh!!!');
   commands['dev-sam'].fn('about');
   commands['dev-sam'].fn('projects');
-  commands['dev-sam'].fn('tech-talk');
+  commands['dev-sam'].fn('tech-talks');
   commands['dev-sam'].fn('timeline');
   commands['dev-sam'].fn('timeline', '--none');
   commands['dev-sam'].fn('timeline', '--only', 'work');
