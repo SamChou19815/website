@@ -5,13 +5,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
-import Code from '@material-ui/icons/Code';
-import Domain from '@material-ui/icons/Domain';
-import Facebook from '@material-ui/icons/Facebook';
-import GitHub from '@material-ui/icons/GitHub';
-import School from '@material-ui/icons/School';
-import Work from '@material-ui/icons/Work';
 
+import about from '../data/about';
 import LazyMaterialMedia from './Common/LazyMaterialMedia';
 import styles from './InformationCard.module.css';
 
@@ -34,16 +29,18 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
     <LazyMaterialMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
     <CardHeader title="Sam Zhou" className={styles.Links} />
     <CardContent className={styles.IconLines}>
-      <IconLine Icon={Facebook}>Facebook SWE Intern</IconLine>
-      <IconLine Icon={Work}>Cornell DTI Dev Lead</IconLine>
-      <IconLine Icon={GitHub}>Open source contributor</IconLine>
-      <IconLine Icon={School}>Cornell University</IconLine>
-      <IconLine Icon={Domain}>Computer Science</IconLine>
-      <IconLine Icon={Code}>Coding since 13</IconLine>
+      {about.facts.map(({ text, icon }) => (
+        <IconLine key={text} Icon={icon}>
+          {text}
+        </IconLine>
+      ))}
     </CardContent>
     <CardActions className={styles.Links}>
-      <MaterialButtonLink href="https://blog.developersam.com">Blog</MaterialButtonLink>
-      <MaterialButtonLink href="https://github.com/SamChou19815">GitHub</MaterialButtonLink>
+      {about.links.map(({ href, text }) => (
+        <MaterialButtonLink key={text} href={href}>
+          {text}
+        </MaterialButtonLink>
+      ))}
       <MaterialButtonLink href="/resume.pdf">Resume</MaterialButtonLink>
       <MaterialButtonLink href="/transcript.pdf" className={styles.Transcript}>
         Transcript
