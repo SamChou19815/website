@@ -10,7 +10,7 @@ exports[`AboutSection matches snapshot. 1`] = `
   >
     <code>
       $ 
-      dev-sam --about
+      dev-sam about
     </code>
   </h3>
   <div

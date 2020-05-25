@@ -1354,7 +1354,7 @@ Array [
         >
           <code>
             $ 
-            dev-sam --about
+            dev-sam about
           </code>
         </h3>
         <div
@@ -1673,7 +1673,7 @@ Array [
         >
           <code>
             $ 
-            projects --active
+            dev-sam projects --active
           </code>
         </h3>
         <div
@@ -2335,7 +2335,7 @@ Array [
         >
           <code>
             $ 
-            tech-talks --all
+            dev-sam tech-talks
           </code>
         </h3>
         <div
@@ -2626,7 +2626,7 @@ Array [
         >
           <code>
             $ 
-            timeline
+            dev-sam timeline
           </code>
         </h3>
         <div

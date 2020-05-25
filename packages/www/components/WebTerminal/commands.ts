@@ -28,8 +28,23 @@ const cd = (path: string | undefined): string | void => {
   }
 };
 
-const devSam = (): string =>
-  `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
+const devSam = (command: string, ...commandArguments: readonly string[]): string | void => {
+  const information = `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
+  switch (command) {
+    case 'about':
+      return 'TODO about';
+    case 'projects':
+      return 'TODO projects';
+    case 'tech-talk':
+      return 'TODO tech-talk';
+    case 'timeline':
+      return timeline(...commandArguments);
+    case undefined:
+      return information;
+    default:
+      return `Supported commands: about, projects, tech-talk, timeline.\n${information}`;
+  }
+};
 
 const echo = (...inputs: string[]): string => inputs.join(' ');
 
@@ -90,7 +105,6 @@ const commands: Commands = {
   echo: { fn: echo, description: 'Print back the arguments.', usage: 'echo [foo] [bar] ...' },
   ls: { fn: ls, description: 'List directory contents.', usage: 'ls [path1] [path2] ...' },
   pwd: { fn: pwd, description: 'Print currrent absolute directory.' },
-  timeline: { fn: timeline, description: 'Toggle timeline display' },
 };
 
 export default commands;

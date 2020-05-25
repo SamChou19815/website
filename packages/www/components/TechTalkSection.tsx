@@ -11,7 +11,7 @@ import styles from './TechTalkSection.module.css';
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 export default (): ReactElement => (
-  <ConsoleSection id="tech-talks" title="tech-talks --all">
+  <ConsoleSection id="tech-talks" title="dev-sam tech-talks">
     <div className={styles.TechTalkContainer}>
       <Card className={styles.TechTalkCard}>
         <CardHeader title="How to scale" subheader="Learning Series" />

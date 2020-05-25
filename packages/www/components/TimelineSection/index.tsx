@@ -39,7 +39,7 @@ export const TimelineSection = ({
     patchTimeline({ workChecked, projectsChecked, eventsChecked: !eventsChecked });
   };
 
-  let title = 'timeline';
+  let title = 'dev-sam timeline';
   if (!(workChecked && projectsChecked && eventsChecked)) {
     if (!workChecked && !projectsChecked && !eventsChecked) {
       title += ' --none';
