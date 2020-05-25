@@ -3140,15 +3140,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-redux@npm:7.1.7":
-  version: 7.1.7
-  resolution: "@types/react-redux@npm:7.1.7"
+"@types/react-redux@npm:7.1.9":
+  version: 7.1.9
+  resolution: "@types/react-redux@npm:7.1.9"
   dependencies:
     "@types/hoist-non-react-statics": ^3.3.0
     "@types/react": "*"
     hoist-non-react-statics: ^3.3.0
     redux: ^4.0.0
-  checksum: 3/c0913bc318af8e3c63d30deeb4c57a9b05f8b82edfa7e62bd26f7c337464d6fc5ebf0b7477ce6b75e827a69f0a85b4eb825b1c167db48c0f8d54a86584de5124
+  checksum: 3/061c4ef6af67f05e55d4304429d689a62f98a27e6b7ddebe25bd4d90229b6ae7508cd6d87aecc4c98ac9dccd1c09c8d6bd75ab395d71692f44d0fa0152c2f703
   languageName: node
   linkType: hard
 
@@ -5510,7 +5510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-truncate@npm:^2.1.0":
+"cli-truncate@npm:2.1.0, cli-truncate@npm:^2.1.0":
   version: 2.1.0
   resolution: "cli-truncate@npm:2.1.0"
   dependencies:
@@ -8520,9 +8520,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase-tools@npm:^8.3.0":
-  version: 8.3.0
-  resolution: "firebase-tools@npm:8.3.0"
+"firebase-tools@npm:^8.4.0":
+  version: 8.4.0
+  resolution: "firebase-tools@npm:8.4.0"
   dependencies:
     "@google-cloud/pubsub": ^1.7.0
     JSONStream: ^1.2.1
@@ -8576,7 +8576,7 @@ __metadata:
     ws: ^7.2.3
   bin:
     firebase: ./lib/bin/firebase.js
-  checksum: 3/ad5bebb31a381f7e0e5661aeaa1f4efc4bf400ad972d21c5824cecaea63442578660f1f20094e2abefb31165626ae073aba0302d2190bead832a0fd6c39cef43
+  checksum: 3/6242a97f06898eeced4e574895b8051c854ae1329c600f5c6c7a753180bab396990023f8c0628f57bd72cb8986e82f6f90b2b7140b29e7c79cd0baaf4fcbec5a
   languageName: node
   linkType: hard
 
@@ -12035,11 +12035,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^10.2.4":
-  version: 10.2.4
-  resolution: "lint-staged@npm:10.2.4"
+"lint-staged@npm:^10.2.6":
+  version: 10.2.6
+  resolution: "lint-staged@npm:10.2.6"
   dependencies:
     chalk: ^4.0.0
+    cli-truncate: 2.1.0
     commander: ^5.1.0
     cosmiconfig: ^6.0.0
     debug: ^4.1.1
@@ -12054,7 +12055,7 @@ fsevents@^1.2.7:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 3/3df6ef007b2f13783d36a15bc54e69be5601346522f903ef226074f4061bd7a36758dd480fedc0589a1e5abdef6f9e025a40b8d7716b496b9022e22aa2f04760
+  checksum: 3/5d67182bb79ec19fe426871c126cfdc4d06da83f11808db0172ce84460ff58cbaed4237e05fd6c66faa7f47cfd99c381054bfb8efda78160416f60a9575ccdb5
   languageName: node
   linkType: hard
 
@@ -16812,7 +16813,7 @@ fsevents@^1.2.7:
     "@types/react": 16.9.35
     "@types/react-beautiful-dnd": 12.1.2
     "@types/react-dom": 16.9.8
-    "@types/react-redux": 7.1.7
+    "@types/react-redux": 7.1.9
     "@types/react-test-renderer": 16.9.2
     "@types/remarkable": ^1.7.4
     "@typescript-eslint/eslint-plugin": ^3.0.0
@@ -16828,11 +16829,11 @@ fsevents@^1.2.7:
     eslint-plugin-jsx-a11y: ^6.2.3
     eslint-plugin-react: ^7.20.0
     eslint-plugin-react-hooks: ^4.0.2
-    firebase-tools: ^8.3.0
+    firebase-tools: ^8.4.0
     husky: ^4.2.5
     identity-obj-proxy: ^3.0.0
     jest: ^26.0.1
-    lint-staged: ^10.2.4
+    lint-staged: ^10.2.6
     next: ^9.4.2
     next-transpile-modules: ^3.3.0
     prettier: 2.0.5
