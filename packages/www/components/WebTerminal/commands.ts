@@ -1,3 +1,4 @@
+import about from '../../data/about';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 import { store, patchTimeline, patchFileSystem } from '../../store';
 import { Commands } from './types';
@@ -31,8 +32,11 @@ const cd = (path: string | undefined): string | void => {
 const devSam = (command: string, ...commandArguments: readonly string[]): string | void => {
   const information = `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
   switch (command) {
-    case 'about':
-      return 'TODO about';
+    case 'about': {
+      const facts = about.facts.map(({ text }) => `${text}`).join('\n');
+      const links = about.links.map(({ href, text }) => `[${text}](${href})`).join('\n');
+      return `Random Facts:\n${facts}\nExternal Links:\n${links}`;
+    }
     case 'projects':
       return 'TODO projects';
     case 'tech-talk':
