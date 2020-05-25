@@ -7,10 +7,7 @@
 
 import React, { useState, ReactElement } from 'react';
 
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import classnames from 'classnames';
 
 import Editor from './Editor';
 import styles from './LanguageDemo.module.css';
@@ -24,15 +21,19 @@ const rootClassName = [styles.ParallelCard, styles.EditorCard].join(' ');
 export default function InputCard({ onSubmit }: Props): ReactElement {
   const [text, setText] = useState<string>(initialText);
   return (
-    <Card className={rootClassName}>
-      <CardContent className={styles.EditorCardContainer}>
+    <div className={classnames('card', rootClassName)}>
+      <div className={classnames('card__body', styles.EditorCardContainer)}>
         <Editor code={text} onCodeChange={setText} />
-      </CardContent>
-      <CardActions>
-        <Button size="medium" color="primary" onClick={() => onSubmit(text)}>
+      </div>
+      <div className="card__footer">
+        <button
+          type="button"
+          className="button button--secondary button--block"
+          onClick={() => onSubmit(text)}
+        >
           Submit Your Program
-        </Button>
-      </CardActions>
-    </Card>
+        </button>
+      </div>
+    </div>
   );
 }
