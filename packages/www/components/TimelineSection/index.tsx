@@ -5,7 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import { connect } from 'react-redux';
 
-import timelineItems, { TimelineItem } from '../../data/timeline';
+import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { State, TimelineState, patchTimeline } from '../../store';
 import ConsoleSection from '../Common/ConsoleSection';
 import TimelineItemCard from './TimelineItemCard';
@@ -40,32 +40,28 @@ export const TimelineSection = ({
   };
 
   let title = 'dev-sam timeline';
-  if (!(workChecked && projectsChecked && eventsChecked)) {
-    if (!workChecked && !projectsChecked && !eventsChecked) {
-      title += ' --none';
-    } else {
-      title += ' --only';
-      if (workChecked) {
-        title += ' work';
-      }
-      if (projectsChecked) {
-        title += ' projects';
-      }
-      if (eventsChecked) {
-        title += ' events';
-      }
+  const types: TimelineItemType[] = [];
+  if (workChecked && projectsChecked && eventsChecked) {
+    types.push('work', 'project', 'event');
+  } else if (!workChecked && !projectsChecked && !eventsChecked) {
+    title += ' --none';
+  } else {
+    title += ' --only';
+    if (workChecked) {
+      title += ' work';
+      types.push('work');
+    }
+    if (projectsChecked) {
+      title += ' projects';
+      types.push('project');
+    }
+    if (eventsChecked) {
+      title += ' events';
+      types.push('event');
     }
   }
 
-  const filteredItems = timelineItems.filter(({ type }: TimelineItem): boolean => {
-    if (type === 'work' && workChecked) {
-      return true;
-    }
-    if (type === 'project' && projectsChecked) {
-      return true;
-    }
-    return type === 'event' && eventsChecked;
-  });
+  const filteredItems = getFilteredTimeline(types);
 
   return (
     <ConsoleSection id="timeline" title={title}>

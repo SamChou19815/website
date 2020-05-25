@@ -11,10 +11,11 @@ const SAMLater = '/timeline/sam-later.png';
 const SAMPL = '/timeline/sampl.png';
 
 type NamedLink = { readonly name: string; readonly url: string };
+export type TimelineItemType = 'work' | 'project' | 'event';
 
 export type TimelineItem = {
   readonly title: string;
-  readonly type: 'work' | 'project' | 'event';
+  readonly type: TimelineItemType;
   readonly time: string;
   readonly image?: string;
   readonly detail?: string;
@@ -302,5 +303,8 @@ const timelineItems: readonly TimelineItem[] = [
     time: 'November 1998',
   },
 ];
+
+export const getFilteredTimeline = (types: readonly TimelineItemType[]): readonly TimelineItem[] =>
+  timelineItems.filter(({ type }: TimelineItem): boolean => types.includes(type));
 
 export default timelineItems;

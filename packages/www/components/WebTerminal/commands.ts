@@ -1,6 +1,7 @@
 import about from '../../data/about';
 import projects from '../../data/projects';
 import techTalks from '../../data/tech-talks';
+import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 import { store, patchTimeline, patchFileSystem } from '../../store';
 import { Commands } from './types';
@@ -71,7 +72,9 @@ const pwd = (): string => currentDirectoryPath(store.getState().fileSystem);
 const timeline = (...args: string[]): string | void => {
   if (args.length === 0) {
     patchTimeline({ workChecked: true, projectsChecked: true, eventsChecked: true });
-    return undefined;
+    return getFilteredTimeline(['work', 'project', 'event'])
+      .map(({ title, time }) => `${time}: ${title}`)
+      .join('\n');
   }
   if (args.length === 1 && args[0] === '--none') {
     patchTimeline({ workChecked: false, projectsChecked: false, eventsChecked: false });
@@ -84,17 +87,21 @@ const timeline = (...args: string[]): string | void => {
   let workChecked = false;
   let projectsChecked = false;
   let eventsChecked = false;
+  const types: TimelineItemType[] = [];
   for (let i = 1; i < args.length; i += 1) {
     const argument = args[i];
     switch (argument) {
       case 'work':
         workChecked = true;
+        types.push('work');
         break;
       case 'projects':
         projectsChecked = true;
+        types.push('project');
         break;
       case 'events':
         eventsChecked = true;
+        types.push('event');
         break;
       default:
         invalidArguments.push(argument);
@@ -104,7 +111,9 @@ const timeline = (...args: string[]): string | void => {
     return `Bad argument(s) for --only: ${invalidArguments.join(', ')}`;
   }
   patchTimeline({ workChecked, projectsChecked, eventsChecked });
-  return undefined;
+  return getFilteredTimeline(types)
+    .map(({ title, time }) => `${time}: ${title}`)
+    .join('\n');
 };
 
 const commands: Commands = {
