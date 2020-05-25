@@ -9,9 +9,9 @@ import Code from '@material-ui/icons/Code';
 import Event from '@material-ui/icons/Event';
 import Work from '@material-ui/icons/Work';
 
+import { TimelineItem } from '../../data/timeline';
 import LazyMaterialMedia from '../Common/LazyMaterialMedia';
 import styles from './index.module.css';
-import { TimelineItem } from './items';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
