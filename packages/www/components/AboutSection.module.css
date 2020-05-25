@@ -1,3 +1,7 @@
+.AboutSection {
+  position: relative;
+}
+
 .Title {
   margin: 0 auto 2em auto;
 }
@@ -14,11 +18,22 @@
     flex-wrap: wrap;
     min-height: 100vh;
   }
+
+  .ReadMore {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media screen and (max-width: 960px) {
   .InfoCard {
     width: 90vw;
+  }
+
+  .ReadMore {
+    display: none;
   }
 }
 
@@ -32,4 +47,9 @@
   .InfoCard {
     width: 560px;
   }
+}
+
+.ReadMoreLink {
+  display: flex;
+  align-content: center;
 }
