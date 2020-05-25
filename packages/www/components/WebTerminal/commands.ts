@@ -1,4 +1,5 @@
 import about from '../../data/about';
+import projects from '../../data/projects';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 import { store, patchTimeline, patchFileSystem } from '../../store';
 import { Commands } from './types';
@@ -38,7 +39,9 @@ const devSam = (command: string, ...commandArguments: readonly string[]): string
       return `Random Facts:\n${facts}\nExternal Links:\n${links}`;
     }
     case 'projects':
-      return 'TODO projects';
+      return projects
+        .map(({ name, type, description }) => `${name}:\n> ${type}\n> ${description}`)
+        .join('\n');
     case 'tech-talk':
       return 'TODO tech-talk';
     case 'timeline':
