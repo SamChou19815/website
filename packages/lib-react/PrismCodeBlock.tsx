@@ -16,6 +16,7 @@ type Props = {
   readonly children: string;
   readonly className?: string;
   readonly style?: CSSProperties;
+  readonly theme?: PrismTheme;
   readonly excludeWrapper?: boolean;
 };
 
@@ -24,13 +25,14 @@ const PrismCodeBlock = ({
   children,
   className: userDefinedClassname,
   style: userDefinedStyles,
+  theme: userDefinedTheme,
   excludeWrapper,
 }: Props): ReactElement => {
   return (
     <Highlight
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
-      theme={theme as PrismTheme}
+      theme={userDefinedTheme || (theme as PrismTheme)}
       code={children.trim()}
       language={language as Language}
     >

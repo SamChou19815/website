@@ -20,7 +20,6 @@
   width: 100%;
   height: calc(100% - 60px);
   padding: 0 !important;
-  background: #f7f7f7;
 }
 
 @media only screen and (min-width: 800px) {

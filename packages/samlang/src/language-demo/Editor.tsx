@@ -10,6 +10,8 @@
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import autosize from 'autosize';
+import classnames from 'classnames';
+import { PrismTheme } from 'prism-react-renderer';
 
 import styles from './Editor.module.css';
 
@@ -24,10 +26,11 @@ type Record = {
 type Props = {
   readonly code: string;
   readonly tabSize?: number;
+  readonly theme: PrismTheme;
   readonly onCodeChange: (value: string) => void;
 };
 
-const Editor = ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
+const Editor = ({ code, tabSize = 2, theme, onCodeChange }: Props): ReactElement => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const inputRef = useRef<HTMLTextAreaElement>(undefined!);
   const [codeBlockHeight, setCodeBlockHeight] = useState(0);
@@ -220,7 +223,7 @@ const Editor = ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
     <div className={styles.EditorContainer}>
       <textarea
         ref={inputRef}
-        className={`${styles.Editor} ${styles.TextArea}`}
+        className={classnames(styles.Editor, styles.TextArea)}
         value={code}
         onChange={(event) => onCodeChange(event.currentTarget.value)}
         onKeyDown={handleKeyDown}
@@ -233,6 +236,7 @@ const Editor = ({ code, tabSize = 2, onCodeChange }: Props): ReactElement => {
       <CodeBlock
         language="samlang"
         className={`${styles.Editor} ${styles.CodeBlock}`}
+        theme={theme}
         style={{ height: codeBlockHeight + 16 }}
       >
         {code.trim()}
