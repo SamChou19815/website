@@ -7,9 +7,8 @@
 
 import React, { ReactNode, ReactElement } from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import CodeBlock from '@theme/CodeBlock';
+import classnames from 'classnames';
 
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
@@ -77,8 +76,8 @@ export default function ResultCard({ response }: Props): ReactElement {
     );
   }
   return (
-    <Card className={DemoStyles.ParallelCard}>
-      <CardContent>{children}</CardContent>
-    </Card>
+    <div className={classnames('card', DemoStyles.ParallelCard)}>
+      <div className="card__body">{children}</div>
+    </div>
   );
 }

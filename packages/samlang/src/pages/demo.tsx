@@ -11,12 +11,13 @@ import Layout from '@theme/Layout';
 
 import LanguageDemo from '../language-demo';
 
+const title = 'SAMLANG Demo';
+const description =
+  'A web-based samlang demo with type checker, interpreter, and compiler running in browser';
+
 function Demo(): ReactElement {
   return (
-    <Layout
-      title="SAMLANG Demo"
-      description="A web-based samlang demo with type checker, interpreter, and compiler running in browser"
-    >
+    <Layout title={title} description={description}>
       <LanguageDemo />
     </Layout>
   );

@@ -16953,7 +16953,6 @@ fsevents@^1.2.7:
     "@dev-sam/samlang-demo": ^0.0.2
     "@docusaurus/core": ^2.0.0-alpha.55
     "@docusaurus/preset-classic": ^2.0.0-alpha.55
-    "@material-ui/core": ^4.10.0
     "@types/react": ^16.9.35
     autosize: ^4.0.2
     babel-plugin-dynamic-import-node: ^2.3.3
