@@ -6,21 +6,25 @@ import Link from '@material-ui/core/Link';
 type Props = {
   readonly href: string;
   readonly children: ReactNode;
-  readonly color: 'primary' | 'secondary' | 'inherit';
+  readonly color?: 'primary' | 'secondary' | 'inherit';
   readonly onClick?: () => void;
   readonly className?: string;
+  readonly linkClassName?: string;
 };
 
-const MaterialButtonLink = ({ href, children, color, onClick, className }: Props): ReactElement => (
+const MaterialButtonLink = ({
+  href,
+  children,
+  color = 'primary',
+  onClick,
+  className,
+  linkClassName,
+}: Props): ReactElement => (
   <Button color={color} className={className} onClick={onClick}>
-    <Link color={color} href={href === '' ? undefined : href}>
+    <Link color={color} href={href === '' ? undefined : href} className={linkClassName}>
       {children}
     </Link>
   </Button>
 );
-
-MaterialButtonLink.defaultProps = {
-  color: 'primary',
-};
 
 export default MaterialButtonLink;
