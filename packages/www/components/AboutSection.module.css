@@ -2,8 +2,10 @@
   position: relative;
 }
 
-.Title {
-  margin: 0 auto 2em auto;
+h3.Title {
+  margin: -3em auto 2em auto;
+  position: relative;
+  border-bottom: none;
 }
 
 .InfoCard {
