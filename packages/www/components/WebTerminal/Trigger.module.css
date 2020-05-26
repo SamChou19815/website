@@ -20,7 +20,7 @@
 }
 
 .TriggerButton:hover {
-  background-color: #f7f7f7;
+  background-color: var(--global-background-color);
 }
 
 .FirstEdge {
@@ -37,4 +37,8 @@
   height: 6px;
   transform: skew(-45deg);
   background: #383a42;
+}
+
+.Text {
+  color: transparent;
 }
