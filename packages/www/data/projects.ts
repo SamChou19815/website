@@ -60,7 +60,13 @@ const projects: readonly Project[] = [
     type: 'Web App',
     media: '/projects/tasks.png',
     description: 'A planner with drag and drop and dependency analysis.',
-    links: [{ text: 'App', href: 'https://tasks.developersam.com' }],
+    links: [
+      { text: 'App', href: 'https://tasks.developersam.com' },
+      {
+        text: 'GitHub',
+        href: 'https://github.com/SamChou19815/website/tree/master/packages/tasks',
+      },
+    ],
   },
   {
     name: 'TEN',
