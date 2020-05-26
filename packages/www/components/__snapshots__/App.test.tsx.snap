@@ -1358,29 +1358,27 @@ Array [
           </code>
         </h3>
         <div
-          className="MuiPaper-root MuiCard-root InfoCard MuiPaper-elevation1 MuiPaper-rounded"
+          className="card InfoCard"
         >
-          <img
-            className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-            loading="lazy"
-            src="/timeline/fb-hacker-way.jpg"
-            title="Facebook @ 1 Hacker Way"
-          />
           <div
-            className="MuiCardHeader-root Links"
+            className="card__image"
           >
-            <div
-              className="MuiCardHeader-content"
-            >
-              <span
-                className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
-              >
-                Sam Zhou
-              </span>
-            </div>
+            <img
+              alt="Facebook @ 1 Hacker Way"
+              loading="lazy"
+              src="/timeline/fb-hacker-way.jpg"
+              title="Facebook @ 1 Hacker Way"
+            />
           </div>
           <div
-            className="MuiCardContent-root IconLines"
+            className="card__header"
+          >
+            <h3>
+              Sam Zhou
+            </h3>
+          </div>
+          <div
+            className="card__body IconLines"
           >
             <div
               className="IconLine"
@@ -1499,7 +1497,7 @@ Array [
             </div>
           </div>
           <div
-            className="MuiCardActions-root Links MuiCardActions-spacing"
+            className="card__footer Links"
           >
             <button
               className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1680,14 +1678,18 @@ Array [
           className="ProjectContainer"
         >
           <div
-            className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card ProjectCard"
           >
-            <img
-              className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-              loading="lazy"
-              src="/projects/samlang.png"
-              title="SAMLANG"
-            />
+            <div
+              className="card__image"
+            >
+              <img
+                alt="SAMLANG"
+                loading="lazy"
+                src="/projects/samlang.png"
+                title="SAMLANG"
+              />
+            </div>
             <hr
               className="MuiDivider-root"
             />
@@ -1710,12 +1712,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               A statically-typed functional programming language with full type inference. A research programming language developed by Sam.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1810,14 +1812,18 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card ProjectCard"
           >
-            <img
-              className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-              loading="lazy"
-              src="/projects/docusaurus.png"
-              title="Docusaurus"
-            />
+            <div
+              className="card__image"
+            >
+              <img
+                alt="Docusaurus"
+                loading="lazy"
+                src="/projects/docusaurus.png"
+                title="Docusaurus"
+              />
+            </div>
             <hr
               className="MuiDivider-root"
             />
@@ -1840,12 +1846,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               A static documentation site generator developed by Facebook open source. I am one of the top 20 contributors.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1910,14 +1916,18 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card ProjectCard"
           >
-            <img
-              className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-              loading="lazy"
-              src="/projects/mini-react.png"
-              title="mini-react"
-            />
+            <div
+              className="card__image"
+            >
+              <img
+                alt="mini-react"
+                loading="lazy"
+                src="/projects/mini-react.png"
+                title="mini-react"
+              />
+            </div>
             <hr
               className="MuiDivider-root"
             />
@@ -1940,12 +1950,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               A simplified version of React runtime with useState and useEffect hook, built from Scratch.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2040,14 +2050,18 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card ProjectCard"
           >
-            <img
-              className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-              loading="lazy"
-              src="/projects/samwise.png"
-              title="Samwise"
-            />
+            <div
+              className="card__image"
+            >
+              <img
+                alt="Samwise"
+                loading="lazy"
+                src="/projects/samwise.png"
+                title="Samwise"
+              />
+            </div>
             <hr
               className="MuiDivider-root"
             />
@@ -2070,12 +2084,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               A Student Planner for Everyone. Designed, developed and maintained by Cornell DTI.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2140,14 +2154,18 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card ProjectCard"
           >
-            <img
-              className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-              loading="lazy"
-              src="/projects/tasks.png"
-              title="Tasks"
-            />
+            <div
+              className="card__image"
+            >
+              <img
+                alt="Tasks"
+                loading="lazy"
+                src="/projects/tasks.png"
+                title="Tasks"
+              />
+            </div>
             <hr
               className="MuiDivider-root"
             />
@@ -2170,12 +2188,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               A planner with drag and drop and dependency analysis.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2210,14 +2228,18 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card ProjectCard"
           >
-            <img
-              className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-              loading="lazy"
-              src="/projects/ten.png"
-              title="TEN"
-            />
+            <div
+              className="card__image"
+            >
+              <img
+                alt="TEN"
+                loading="lazy"
+                src="/projects/ten.png"
+                title="TEN"
+              />
+            </div>
             <hr
               className="MuiDivider-root"
             />
@@ -2240,12 +2262,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               Interesting board game with simple rules. Powered by an MCTS AI.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2327,7 +2349,7 @@ Array [
           className="TechTalkContainer"
         >
           <div
-            className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card TechTalkCard"
           >
             <div
               className="MuiCardHeader-root"
@@ -2348,12 +2370,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               Tips on scaling your codebase and your workload, with lessons learned from Samwise's codebase.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2388,7 +2410,7 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card TechTalkCard"
           >
             <div
               className="MuiCardHeader-root"
@@ -2409,12 +2431,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               Tech stack discussion on Firebase, and why Samwise switched to Firebase.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2449,7 +2471,7 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card TechTalkCard"
           >
             <div
               className="MuiCardHeader-root"
@@ -2470,12 +2492,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               A tutorial of making a simple programming language derived from lambda-calculus.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2510,7 +2532,7 @@ Array [
             </div>
           </div>
           <div
-            className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+            className="card TechTalkCard"
           >
             <div
               className="MuiCardHeader-root"
@@ -2531,12 +2553,12 @@ Array [
               </div>
             </div>
             <div
-              className="MuiCardContent-root"
+              className="card__body"
             >
               A tutorial of making a simplified React runtime with support for useState and useEffect hooks.
             </div>
             <div
-              className="MuiCardActions-root MuiCardActions-spacing"
+              className="card__footer"
             >
               <button
                 className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2750,7 +2772,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -2785,7 +2807,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2831,14 +2853,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/fb-hacker-way.jpg"
-                  title="Facebook SWE Intern"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="Facebook SWE Intern"
+                    loading="lazy"
+                    src="/timeline/fb-hacker-way.jpg"
+                    title="Facebook SWE Intern"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -2884,7 +2910,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -2919,7 +2945,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly and Cornell CS 2112 critter language.
                 </div>
@@ -2936,7 +2962,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -2971,7 +2997,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3017,7 +3043,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -3052,12 +3078,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Technical product manager of the Samwise subteam.
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3103,14 +3129,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/projects/samlang.png"
-                  title="SAMLANG"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="SAMLANG"
+                    loading="lazy"
+                    src="/projects/samlang.png"
+                    title="SAMLANG"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -3144,12 +3174,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Sam's new programming language with full type-inference.
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3225,14 +3255,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/fb-sticker-pen.jpg"
-                  title="Facebook SWE Intern Final Interview"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="Facebook SWE Intern Final Interview"
+                    loading="lazy"
+                    src="/timeline/fb-sticker-pen.jpg"
+                    title="Facebook SWE Intern Final Interview"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -3278,14 +3312,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/projects/samwise.png"
-                  title="Cornell DTI Software Developer"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="Cornell DTI Software Developer"
+                    loading="lazy"
+                    src="/projects/samwise.png"
+                    title="Cornell DTI Software Developer"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -3319,12 +3357,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Frontend Developer of Samwise
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3370,14 +3408,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/critter-compiler.png"
-                  title="Critter Compiler"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="Critter Compiler"
+                    loading="lazy"
+                    src="/timeline/critter-compiler.png"
+                    title="Critter Compiler"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -3411,7 +3453,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3487,7 +3529,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -3522,12 +3564,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Automatically generating badges for build status on GCP Cloud Build.
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3573,7 +3615,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -3608,7 +3650,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3684,7 +3726,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -3719,12 +3761,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   A type-safe wrapper for Google Cloud Datastore.
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3770,14 +3812,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/sampl.png"
-                  title="SAMPL"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="SAMPL"
+                    loading="lazy"
+                    src="/timeline/sampl.png"
+                    title="SAMPL"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -3811,12 +3857,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Sam's first programming language. Archived in favor of SAMLANG.
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3892,7 +3938,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -3939,14 +3985,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/critter-world.png"
-                  title="CS 2112 Critter World"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="CS 2112 Critter World"
+                    loading="lazy"
+                    src="/timeline/critter-world.png"
+                    title="CS 2112 Critter World"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -3980,7 +4030,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.
                 </div>
@@ -3997,14 +4047,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/chunk-reader.jpg"
-                  title="First winning hackathon"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="First winning hackathon"
+                    loading="lazy"
+                    src="/timeline/chunk-reader.jpg"
+                    title="First winning hackathon"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -4038,12 +4092,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Developed a text analysis app during Cornell BigRedHack. Best use of Google Cloud.
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -4119,7 +4173,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4166,14 +4220,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/projects/ten.png"
-                  title="TEN"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="TEN"
+                    loading="lazy"
+                    src="/projects/ten.png"
+                    title="TEN"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -4207,7 +4265,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -4253,7 +4311,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4288,7 +4346,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -4334,14 +4392,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/sam-later.png"
-                  title="Computerization Club President"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="Computerization Club President"
+                    loading="lazy"
+                    src="/timeline/sam-later.png"
+                    title="Computerization Club President"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -4387,14 +4449,18 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
-                <img
-                  className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-                  loading="lazy"
-                  src="/timeline/sam-first.png"
-                  title="SAM First Release"
-                />
+                <div
+                  className="card__image"
+                >
+                  <img
+                    alt="SAM First Release"
+                    loading="lazy"
+                    src="/timeline/sam-first.png"
+                    title="SAM First Release"
+                  />
+                </div>
                 <div
                   className="MuiCardHeader-root"
                 >
@@ -4428,7 +4494,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -4474,7 +4540,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4521,7 +4587,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4556,12 +4622,12 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   Check how it looks initially!
                 </div>
                 <div
-                  className="MuiCardActions-root MuiCardActions-spacing"
+                  className="card__footer"
                 >
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -4607,7 +4673,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4654,7 +4720,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4701,7 +4767,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4748,7 +4814,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4783,7 +4849,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="MuiCardContent-root"
+                  className="card__body"
                 >
                   I bought a bad C++ intro book and almost gave up.
                 </div>
@@ -4800,7 +4866,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"
@@ -4847,7 +4913,7 @@ Array [
                 className="ConnectorDot"
               />
               <div
-                className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+                className="card Card"
               >
                 <div
                   className="MuiCardHeader-root"

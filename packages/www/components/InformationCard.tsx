@@ -1,13 +1,10 @@
 import React, { ReactElement } from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
+import classnames from 'classnames';
 
 import about from '../data/about';
-import LazyMaterialMedia from './Common/LazyMaterialMedia';
+import LazyCardMedia from './Common/LazyCardMedia';
 import styles from './InformationCard.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
@@ -25,17 +22,19 @@ const IconLine = ({ Icon, children }: IconLineProps): ReactElement => (
 );
 
 const InformationCard = ({ className }: { readonly className?: string }): ReactElement => (
-  <Card className={className}>
-    <LazyMaterialMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
-    <CardHeader title="Sam Zhou" className={styles.Links} />
-    <CardContent className={styles.IconLines}>
+  <div className={classnames('card', className)}>
+    <LazyCardMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
+    <div className="card__header">
+      <h3>Sam Zhou</h3>
+    </div>
+    <div className={classnames('card__body', styles.IconLines)}>
       {about.facts.map(({ text, icon }) => (
         <IconLine key={text} Icon={icon}>
           {text}
         </IconLine>
       ))}
-    </CardContent>
-    <CardActions className={styles.Links}>
+    </div>
+    <div className={classnames('card__footer', styles.Links)}>
       {about.links.map(({ href, text }) => (
         <MaterialButtonLink key={text} href={href}>
           {text}
@@ -45,8 +44,8 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
       <MaterialButtonLink href="/transcript.pdf" className={styles.Transcript}>
         Transcript
       </MaterialButtonLink>
-    </CardActions>
-  </Card>
+    </div>
+  </div>
 );
 
 export default InformationCard;

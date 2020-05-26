@@ -17,14 +17,18 @@ exports[`ProjectsSection matches snapshot. 1`] = `
     className="ProjectContainer"
   >
     <div
-      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card ProjectCard"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/samlang.png"
-        title="SAMLANG"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="SAMLANG"
+          loading="lazy"
+          src="/projects/samlang.png"
+          title="SAMLANG"
+        />
+      </div>
       <hr
         className="MuiDivider-root"
       />
@@ -47,12 +51,12 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A statically-typed functional programming language with full type inference. A research programming language developed by Sam.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -147,14 +151,18 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card ProjectCard"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/docusaurus.png"
-        title="Docusaurus"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Docusaurus"
+          loading="lazy"
+          src="/projects/docusaurus.png"
+          title="Docusaurus"
+        />
+      </div>
       <hr
         className="MuiDivider-root"
       />
@@ -177,12 +185,12 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A static documentation site generator developed by Facebook open source. I am one of the top 20 contributors.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -247,14 +255,18 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card ProjectCard"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/mini-react.png"
-        title="mini-react"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="mini-react"
+          loading="lazy"
+          src="/projects/mini-react.png"
+          title="mini-react"
+        />
+      </div>
       <hr
         className="MuiDivider-root"
       />
@@ -277,12 +289,12 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A simplified version of React runtime with useState and useEffect hook, built from Scratch.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -377,14 +389,18 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card ProjectCard"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/samwise.png"
-        title="Samwise"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Samwise"
+          loading="lazy"
+          src="/projects/samwise.png"
+          title="Samwise"
+        />
+      </div>
       <hr
         className="MuiDivider-root"
       />
@@ -407,12 +423,12 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A Student Planner for Everyone. Designed, developed and maintained by Cornell DTI.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -477,14 +493,18 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card ProjectCard"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/tasks.png"
-        title="Tasks"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Tasks"
+          loading="lazy"
+          src="/projects/tasks.png"
+          title="Tasks"
+        />
+      </div>
       <hr
         className="MuiDivider-root"
       />
@@ -507,12 +527,12 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A planner with drag and drop and dependency analysis.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -547,14 +567,18 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root ProjectCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card ProjectCard"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/ten.png"
-        title="TEN"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="TEN"
+          loading="lazy"
+          src="/projects/ten.png"
+          title="TEN"
+        />
+      </div>
       <hr
         className="MuiDivider-root"
       />
@@ -577,12 +601,12 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Interesting board game with simple rules. Powered by an MCTS AI.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"

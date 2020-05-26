@@ -11,7 +11,7 @@ exports[`TimelineItemCard with item 0 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -46,7 +46,7 @@ exports[`TimelineItemCard with item 0 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -95,14 +95,18 @@ exports[`TimelineItemCard with item 1 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/fb-hacker-way.jpg"
-        title="Facebook SWE Intern"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Facebook SWE Intern"
+          loading="lazy"
+          src="/timeline/fb-hacker-way.jpg"
+          title="Facebook SWE Intern"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -151,7 +155,7 @@ exports[`TimelineItemCard with item 2 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -186,7 +190,7 @@ exports[`TimelineItemCard with item 2 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly and Cornell CS 2112 critter language.
       </div>
@@ -206,7 +210,7 @@ exports[`TimelineItemCard with item 3 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -241,7 +245,7 @@ exports[`TimelineItemCard with item 3 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -290,7 +294,7 @@ exports[`TimelineItemCard with item 4 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -325,12 +329,12 @@ exports[`TimelineItemCard with item 4 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Technical product manager of the Samwise subteam.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -382,14 +386,18 @@ exports[`TimelineItemCard with item 5 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/samlang.png"
-        title="SAMLANG"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="SAMLANG"
+          loading="lazy"
+          src="/projects/samlang.png"
+          title="SAMLANG"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -423,12 +431,12 @@ exports[`TimelineItemCard with item 5 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Sam's new programming language with full type-inference.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -507,14 +515,18 @@ exports[`TimelineItemCard with item 6 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/fb-sticker-pen.jpg"
-        title="Facebook SWE Intern Final Interview"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Facebook SWE Intern Final Interview"
+          loading="lazy"
+          src="/timeline/fb-sticker-pen.jpg"
+          title="Facebook SWE Intern Final Interview"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -563,14 +575,18 @@ exports[`TimelineItemCard with item 7 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/samwise.png"
-        title="Cornell DTI Software Developer"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Cornell DTI Software Developer"
+          loading="lazy"
+          src="/projects/samwise.png"
+          title="Cornell DTI Software Developer"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -604,12 +620,12 @@ exports[`TimelineItemCard with item 7 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Frontend Developer of Samwise
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -658,14 +674,18 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/critter-compiler.png"
-        title="Critter Compiler"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Critter Compiler"
+          loading="lazy"
+          src="/timeline/critter-compiler.png"
+          title="Critter Compiler"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -699,7 +719,7 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -784,7 +804,7 @@ exports[`TimelineItemCard with item 9 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -819,12 +839,12 @@ exports[`TimelineItemCard with item 9 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Automatically generating badges for build status on GCP Cloud Build.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -873,7 +893,7 @@ exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -908,7 +928,7 @@ exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -993,7 +1013,7 @@ exports[`TimelineItemCard with item 11 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -1028,12 +1048,12 @@ exports[`TimelineItemCard with item 11 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A type-safe wrapper for Google Cloud Datastore.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1082,14 +1102,18 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/sampl.png"
-        title="SAMPL"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="SAMPL"
+          loading="lazy"
+          src="/timeline/sampl.png"
+          title="SAMPL"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -1123,12 +1147,12 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Sam's first programming language. Archived in favor of SAMLANG.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1213,7 +1237,7 @@ exports[`TimelineItemCard with item 13 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -1263,14 +1287,18 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/critter-world.png"
-        title="CS 2112 Critter World"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="CS 2112 Critter World"
+          loading="lazy"
+          src="/timeline/critter-world.png"
+          title="CS 2112 Critter World"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -1304,7 +1332,7 @@ exports[`TimelineItemCard with item 14 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.
       </div>
@@ -1324,14 +1352,18 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/chunk-reader.jpg"
-        title="First winning hackathon"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="First winning hackathon"
+          loading="lazy"
+          src="/timeline/chunk-reader.jpg"
+          title="First winning hackathon"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -1365,12 +1397,12 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Developed a text analysis app during Cornell BigRedHack. Best use of Google Cloud.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1449,7 +1481,7 @@ exports[`TimelineItemCard with item 16 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -1499,14 +1531,18 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/projects/ten.png"
-        title="TEN"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="TEN"
+          loading="lazy"
+          src="/projects/ten.png"
+          title="TEN"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -1540,7 +1576,7 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1589,7 +1625,7 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -1624,7 +1660,7 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1676,14 +1712,18 @@ exports[`TimelineItemCard with item 19 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/sam-later.png"
-        title="Computerization Club President"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="Computerization Club President"
+          loading="lazy"
+          src="/timeline/sam-later.png"
+          title="Computerization Club President"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -1732,14 +1772,18 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
-      <img
-        className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-        loading="lazy"
-        src="/timeline/sam-first.png"
-        title="SAM First Release"
-      />
+      <div
+        className="card__image"
+      >
+        <img
+          alt="SAM First Release"
+          loading="lazy"
+          src="/timeline/sam-first.png"
+          title="SAM First Release"
+        />
+      </div>
       <div
         className="MuiCardHeader-root"
       >
@@ -1773,7 +1817,7 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1822,7 +1866,7 @@ exports[`TimelineItemCard with item 21 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -1872,7 +1916,7 @@ exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -1907,12 +1951,12 @@ exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Check how it looks initially!
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1961,7 +2005,7 @@ exports[`TimelineItemCard with item 23 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -2011,7 +2055,7 @@ exports[`TimelineItemCard with item 24 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -2061,7 +2105,7 @@ exports[`TimelineItemCard with item 25 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -2111,7 +2155,7 @@ exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -2146,7 +2190,7 @@ exports[`TimelineItemCard with item 26 matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         I bought a bad C++ intro book and almost gave up.
       </div>
@@ -2166,7 +2210,7 @@ exports[`TimelineItemCard with item 27 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"
@@ -2216,7 +2260,7 @@ exports[`TimelineItemCard with item 28 matches snapshot. 1`] = `
       className="ConnectorDot"
     />
     <div
-      className="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+      className="card Card"
     >
       <div
         className="MuiCardHeader-root"

@@ -14,29 +14,27 @@ exports[`AboutSection matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiPaper-root MuiCard-root InfoCard MuiPaper-elevation1 MuiPaper-rounded"
+    className="card InfoCard"
   >
-    <img
-      className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img"
-      loading="lazy"
-      src="/timeline/fb-hacker-way.jpg"
-      title="Facebook @ 1 Hacker Way"
-    />
     <div
-      className="MuiCardHeader-root Links"
+      className="card__image"
     >
-      <div
-        className="MuiCardHeader-content"
-      >
-        <span
-          className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
-        >
-          Sam Zhou
-        </span>
-      </div>
+      <img
+        alt="Facebook @ 1 Hacker Way"
+        loading="lazy"
+        src="/timeline/fb-hacker-way.jpg"
+        title="Facebook @ 1 Hacker Way"
+      />
     </div>
     <div
-      className="MuiCardContent-root IconLines"
+      className="card__header"
+    >
+      <h3>
+        Sam Zhou
+      </h3>
+    </div>
+    <div
+      className="card__body IconLines"
     >
       <div
         className="IconLine"
@@ -155,7 +153,7 @@ exports[`AboutSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiCardActions-root Links MuiCardActions-spacing"
+      className="card__footer Links"
     >
       <button
         className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"

@@ -10093,7 +10093,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"infima@npm:0.2.0-alpha.11":
+"infima@npm:0.2.0-alpha.11, infima@npm:^0.2.0-alpha.11":
   version: 0.2.0-alpha.11
   resolution: "infima@npm:0.2.0-alpha.11"
   checksum: 3/95a92120462b123d5a3e80a13f6fb579e6761a34fff3cae04af048afecee2bcaccaec16af6b20ce5c8fdf9a2d64b3cfe50f644ad0f1b8146a9e950961d3af1bc
@@ -20102,7 +20102,9 @@ typescript@3.9.3:
     "@material-ui/core": ^4.10.0
     "@material-ui/icons": ^4.9.1
     "@types/jest": ^25.2.3
+    classnames: ^2.2.6
     firebase: ^7.14.2
+    infima: ^0.2.0-alpha.11
     lib-firebase: 0.1.0
     lib-react: 0.1.0
     next: ^9.4.2
