@@ -3606,6 +3606,11 @@ Array [
     <span
       className="SecondEdge"
     />
+    <span
+      className="Text"
+    >
+      Terminal Toggle
+    </span>
   </button>,
 ]
 `;
