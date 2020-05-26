@@ -20,7 +20,7 @@
 }
 
 .TriggerButton:hover {
-  background-color: var(--global-background-color);
+  background-color: var(--ifm-background-color);
 }
 
 .FirstEdge {
