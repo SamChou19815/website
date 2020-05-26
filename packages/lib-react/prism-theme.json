@@ -6,7 +6,7 @@
     {
       "types": ["comment"],
       "style": {
-        "color": "rgb(128, 128, 128)",
+        "color": "rgb(111, 111, 111)",
         "fontStyle": "italic"
       }
     },
