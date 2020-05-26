@@ -9,8 +9,8 @@
   width: 24px;
   height: 24px;
   padding: 4px;
-  border: 1px solid #383a42;
-  background-color: white;
+  border: 1px solid var(--ifm-font-color-base);
+  background-color: var(--ifm-code-background-color);
 }
 
 @media screen and (max-width: 800px) {
@@ -28,7 +28,7 @@
   width: 2px;
   height: 6px;
   transform: skew(45deg);
-  background: #383a42;
+  background: var(--ifm-font-color-base);
 }
 
 .SecondEdge {
@@ -36,7 +36,7 @@
   width: 2px;
   height: 6px;
   transform: skew(-45deg);
-  background: #383a42;
+  background: var(--ifm-font-color-base);
 }
 
 .Text {
