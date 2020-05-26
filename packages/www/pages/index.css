@@ -4,6 +4,11 @@
   --ifm-pills-spacing: 0.5em;
   --ifm-color-primary: #3e7ae2;
   --ifm-background-color-transparent: rgba(62, 122, 226, 0.07);
+  --console-section-title-border-color: #ccc;
+}
+
+html[data-theme='dark'] {
+  --console-section-title-border-color: #444;
 }
 
 body {

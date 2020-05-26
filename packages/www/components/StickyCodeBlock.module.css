@@ -9,7 +9,7 @@
   .Block {
     position: fixed;
     top: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translateY(calc(-50% - 1em)) translateX(-50%);
     left: calc(600px / 2);
   }
 }
