@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - '.github/workflows/lint-js-ts.yml'
+      - 'package.json'
+      - 'yarn.lock'
       - '**.js'
       - '**.ts'
       - '**.jsx'
