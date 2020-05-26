@@ -64,6 +64,7 @@ const PrismCodeBlock = ({
   );
 };
 
-export const darkTheme = draculaDarkTheme;
+export const lightTheme: PrismTheme = theme as PrismTheme;
+export const darkTheme: PrismTheme = draculaDarkTheme;
 
 export default PrismCodeBlock;
