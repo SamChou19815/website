@@ -1,16 +1,16 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 import classnames from 'classnames';
 
 type Props = {
   readonly href: string;
   readonly className?: string;
-  readonly children: string;
+  readonly children: ReactNode;
 };
 
 const ButtonLink = ({ href, children, className }: Props): ReactElement => (
   <a className={classnames('button', 'button--link', className)} href={href}>
-    {children.toLocaleUpperCase()}
+    {typeof children === 'string' ? children.toLocaleUpperCase() : children}
   </a>
 );
 

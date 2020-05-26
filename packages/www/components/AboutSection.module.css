@@ -49,7 +49,8 @@
   }
 }
 
-.ReadMoreLink {
+.ReadMore {
   display: flex;
   align-content: center;
+  line-height: 24px;
 }

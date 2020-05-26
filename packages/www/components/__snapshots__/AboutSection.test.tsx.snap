@@ -179,45 +179,21 @@ exports[`AboutSection matches snapshot. 1`] = `
       </div>
     </div>
   </div>
-  <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-text ReadMore MuiButton-textPrimary"
-    disabled={false}
-    onBlur={[Function]}
-    onDragLeave={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    tabIndex={0}
-    type="button"
+  <a
+    className="button button--link ReadMore"
+    href="#projects"
   >
-    <span
-      className="MuiButton-label"
+    READ MORE
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      viewBox="0 0 24 24"
     >
-      <a
-        className="MuiTypography-root MuiLink-root MuiLink-underlineHover ReadMoreLink MuiTypography-colorPrimary"
-        href="#projects"
-        onBlur={[Function]}
-        onFocus={[Function]}
-      >
-        Read more
-        <svg
-          aria-hidden={true}
-          className="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-          />
-        </svg>
-      </a>
-    </span>
-  </button>
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </a>
 </section>
 `;
