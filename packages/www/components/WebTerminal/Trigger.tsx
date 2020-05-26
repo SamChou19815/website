@@ -8,6 +8,7 @@ const Trigger = ({ onClick }: Props): ReactElement => (
   <button type="button" onClick={onClick} className={styles.TriggerButton}>
     <span className={styles.FirstEdge} />
     <span className={styles.SecondEdge} />
+    <span className={styles.Text}>Terminal Toggle</span>
   </button>
 );
 
