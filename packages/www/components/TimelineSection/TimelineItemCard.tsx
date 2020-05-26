@@ -21,16 +21,14 @@ const TimelineItemCard = ({ item: { title, time, image, detail, links } }: Props
           {detail != null && <div className="card__body">{detail}</div>}
           {links != null && (
             <div className="card__footer">
-              <div className="button-group button-group--block">
-                {links.map(
-                  ({ name, url }, index): ReactElement => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <ButtonLink key={index} href={url}>
-                      {name}
-                    </ButtonLink>
-                  )
-                )}
-              </div>
+              {links.map(
+                ({ name, url }, index): ReactElement => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <ButtonLink key={index} href={url}>
+                    {name}
+                  </ButtonLink>
+                )
+              )}
             </div>
           )}
         </div>

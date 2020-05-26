@@ -15,8 +15,8 @@ const TechTalkSection = (): ReactElement => (
           <CardHeader title={title} subheader={type} />
           <div className="card__body">{description}</div>
           <div className="card__footer">
-            <a href={link} className="button button--block button--secondary">
-              Slides
+            <a href={link} className="button button--link">
+              SLIDES
             </a>
           </div>
         </div>

@@ -159,22 +159,22 @@ exports[`AboutSection matches snapshot. 1`] = `
         className="button-group button-group--block"
       >
         <a
-          className="button button--secondary Link"
+          className="button button--link Link"
           href="https://blog.developersam.com"
         >
-          Blog
+          BLOG
         </a>
         <a
-          className="button button--secondary Link"
+          className="button button--link Link"
           href="https://github.com/SamChou19815"
         >
-          GitHub
+          GITHUB
         </a>
         <a
-          className="button button--secondary Link"
+          className="button button--link Link"
           href="/resume.pdf"
         >
-          Resume
+          RESUME
         </a>
       </div>
     </div>
