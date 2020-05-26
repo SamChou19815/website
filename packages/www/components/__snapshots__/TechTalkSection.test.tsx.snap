@@ -20,21 +20,25 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       className="card TechTalkCard"
     >
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            How to scale
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Learning Series
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              How to scale
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              Learning Series
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -81,21 +85,25 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       className="card TechTalkCard"
     >
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            Intro to Firebase
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            DevSesh
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              Intro to Firebase
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              DevSesh
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -142,21 +150,25 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       className="card TechTalkCard"
     >
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            Build your programming language
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            DevSesh
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              Build your programming language
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              DevSesh
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -203,21 +215,25 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       className="card TechTalkCard"
     >
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            Build a (simplified) React
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            DevSesh
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              Build a (simplified) React
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              DevSesh
+            </small>
+          </div>
         </div>
       </div>
       <div

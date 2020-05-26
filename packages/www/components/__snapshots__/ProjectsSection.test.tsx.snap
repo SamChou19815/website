@@ -29,25 +29,26 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           title="SAMLANG"
         />
       </div>
-      <hr
-        className="MuiDivider-root"
-      />
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            SAMLANG
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Programming Language
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              SAMLANG
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              Programming Language
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -163,25 +164,26 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           title="Docusaurus"
         />
       </div>
-      <hr
-        className="MuiDivider-root"
-      />
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            Docusaurus
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Open source contributions
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              Docusaurus
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              Open source contributions
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -267,25 +269,26 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           title="mini-react"
         />
       </div>
-      <hr
-        className="MuiDivider-root"
-      />
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            mini-react
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Framework
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              mini-react
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              Framework
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -401,25 +404,26 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           title="Samwise"
         />
       </div>
-      <hr
-        className="MuiDivider-root"
-      />
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            Samwise
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Web App
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              Samwise
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              Web App
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -505,25 +509,26 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           title="Tasks"
         />
       </div>
-      <hr
-        className="MuiDivider-root"
-      />
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            Tasks
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Web App
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              Tasks
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              Web App
+            </small>
+          </div>
         </div>
       </div>
       <div
@@ -579,25 +584,26 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           title="TEN"
         />
       </div>
-      <hr
-        className="MuiDivider-root"
-      />
       <div
-        className="MuiCardHeader-root"
+        className="card__header"
       >
         <div
-          className="MuiCardHeader-content"
+          className="avatar"
         >
-          <span
-            className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <div
+            className="avatar__intro"
           >
-            TEN
-          </span>
-          <span
-            className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-          >
-            Game AI
-          </span>
+            <h4
+              className="avatar__name"
+            >
+              TEN
+            </h4>
+            <small
+              className="avatar__subtitle"
+            >
+              Game AI
+            </small>
+          </div>
         </div>
       </div>
       <div

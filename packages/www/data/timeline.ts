@@ -9,6 +9,7 @@ const FacebookStickerAndPen = '/timeline/fb-sticker-pen.jpg';
 const SAMFirst = '/timeline/sam-first.png';
 const SAMLater = '/timeline/sam-later.png';
 const SAMPL = '/timeline/sampl.png';
+const WebsiteV2 = '/timeline/website-v2.png';
 
 type NamedLink = { readonly name: string; readonly url: string };
 export type TimelineItemType = 'work' | 'project' | 'event';
@@ -51,12 +52,7 @@ const timelineItems: readonly TimelineItem[] = [
     title: 'Website Redesign v3',
     type: 'event',
     time: 'March 2019',
-    links: [
-      {
-        name: 'GitHub Repo',
-        url: 'https://github.com/SamChou19815/website',
-      },
-    ],
+    detail: 'This is the current version.',
   },
   {
     title: 'Cornell DTI TPM',
@@ -138,6 +134,7 @@ const timelineItems: readonly TimelineItem[] = [
     title: 'Website Redesign v2',
     type: 'event',
     time: 'July 2018',
+    image: WebsiteV2,
     links: [
       {
         name: 'GitHub Repo',

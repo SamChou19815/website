@@ -1,5 +1,6 @@
 :root {
   --global-background-color: #f7f7f7;
+  --ifm-card-border-radius: 0.2rem;
 }
 
 body {
