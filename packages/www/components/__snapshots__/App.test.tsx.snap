@@ -1690,25 +1690,26 @@ Array [
                 title="SAMLANG"
               />
             </div>
-            <hr
-              className="MuiDivider-root"
-            />
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  SAMLANG
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  Programming Language
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    SAMLANG
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    Programming Language
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -1824,25 +1825,26 @@ Array [
                 title="Docusaurus"
               />
             </div>
-            <hr
-              className="MuiDivider-root"
-            />
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  Docusaurus
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  Open source contributions
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    Docusaurus
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    Open source contributions
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -1928,25 +1930,26 @@ Array [
                 title="mini-react"
               />
             </div>
-            <hr
-              className="MuiDivider-root"
-            />
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  mini-react
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  Framework
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    mini-react
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    Framework
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2062,25 +2065,26 @@ Array [
                 title="Samwise"
               />
             </div>
-            <hr
-              className="MuiDivider-root"
-            />
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  Samwise
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  Web App
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    Samwise
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    Web App
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2166,25 +2170,26 @@ Array [
                 title="Tasks"
               />
             </div>
-            <hr
-              className="MuiDivider-root"
-            />
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  Tasks
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  Web App
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    Tasks
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    Web App
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2240,25 +2245,26 @@ Array [
                 title="TEN"
               />
             </div>
-            <hr
-              className="MuiDivider-root"
-            />
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  TEN
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  Game AI
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    TEN
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    Game AI
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2352,21 +2358,25 @@ Array [
             className="card TechTalkCard"
           >
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  How to scale
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  Learning Series
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    How to scale
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    Learning Series
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2413,21 +2423,25 @@ Array [
             className="card TechTalkCard"
           >
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  Intro to Firebase
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  DevSesh
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    Intro to Firebase
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    DevSesh
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2474,21 +2488,25 @@ Array [
             className="card TechTalkCard"
           >
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  Build your programming language
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  DevSesh
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    Build your programming language
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    DevSesh
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2535,21 +2553,25 @@ Array [
             className="card TechTalkCard"
           >
             <div
-              className="MuiCardHeader-root"
+              className="card__header"
             >
               <div
-                className="MuiCardHeader-content"
+                className="avatar"
               >
-                <span
-                  className="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                <div
+                  className="avatar__intro"
                 >
-                  Build a (simplified) React
-                </span>
-                <span
-                  className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                >
-                  DevSesh
-                </span>
+                  <h4
+                    className="avatar__name"
+                  >
+                    Build a (simplified) React
+                  </h4>
+                  <small
+                    className="avatar__subtitle"
+                  >
+                    DevSesh
+                  </small>
+                </div>
               </div>
             </div>
             <div
@@ -2775,35 +2797,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Cornell DTI Developer Lead
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      June 2019
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Cornell DTI Developer Lead
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        June 2019
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -2866,35 +2878,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Facebook SWE Intern
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      May 2019
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Facebook SWE Intern
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        May 2019
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2913,35 +2915,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Xi++ Compiler
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      May 2019
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Xi++ Compiler
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        May 2019
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -2965,70 +2957,31 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Website Redesign v3
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      March 2019
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Website Redesign v3
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        March 2019
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
-                  className="card__footer"
+                  className="card__body"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    <span
-                      className="MuiButton-label"
-                    >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/website"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
+                  This is the current version.
                 </div>
               </div>
             </div>
@@ -3046,35 +2999,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Cornell DTI TPM
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      January 2019
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Cornell DTI TPM
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        January 2019
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3142,35 +3085,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      SAMLANG
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      January 2019
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        SAMLANG
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        January 2019
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3268,35 +3201,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Facebook SWE Intern Final Interview
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      October 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Facebook SWE Intern Final Interview
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        October 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3325,35 +3248,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Cornell DTI Software Developer
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      September 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Cornell DTI Software Developer
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        September 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3421,35 +3334,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Critter Compiler
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      August 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Critter Compiler
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        August 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3532,35 +3435,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Badges for GCP Cloud Build
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      August 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Badges for GCP Cloud Build
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        August 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3618,35 +3511,35 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__image"
+                >
+                  <img
+                    alt="Website Redesign v2"
+                    loading="lazy"
+                    src="/timeline/website-v2.png"
+                    title="Website Redesign v2"
+                  />
+                </div>
+                <div
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Website Redesign v2
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      July 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Website Redesign v2
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        July 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3729,35 +3622,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      typed-store
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      July 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        typed-store
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        July 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3825,35 +3708,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      SAMPL
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      June 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        SAMPL
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        June 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -3941,35 +3814,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      ULearn Educational Group SWE Intern
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      May 2018
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        ULearn Educational Group SWE Intern
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        May 2018
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3998,35 +3861,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      CS 2112 Critter World
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      December 2017
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        CS 2112 Critter World
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        December 2017
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -4060,35 +3913,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      First winning hackathon
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      September 2017
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        First winning hackathon
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        September 2017
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -4176,35 +4019,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Entered Cornell University
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      August 2017
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Entered Cornell University
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        August 2017
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4233,35 +4066,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      TEN
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      July 2017
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        TEN
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        July 2017
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -4314,35 +4137,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Graduated from WFLA
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      June 2016
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Graduated from WFLA
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        June 2016
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -4405,35 +4218,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Computerization Club President
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      September 2015
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Computerization Club President
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        September 2015
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4462,35 +4265,25 @@ Array [
                   />
                 </div>
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      SAM First Release
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      April 2015
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        SAM First Release
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        April 2015
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -4543,35 +4336,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Computerization Software Developer
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      Feburary 2015
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Computerization Software Developer
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        Feburary 2015
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4590,35 +4373,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Bought developersam.com
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      Feburary 2015
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Bought developersam.com
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        Feburary 2015
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -4676,35 +4449,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Entered WFLA
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      August 2014
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Entered WFLA
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        August 2014
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4723,35 +4486,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Graduated from Huayu Middle School
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      June 2014
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Graduated from Huayu Middle School
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        June 2014
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4770,35 +4523,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      First Non-trivial VB Program Written
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      December 2011
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        First Non-trivial VB Program Written
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        December 2011
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4817,35 +4560,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Started Coding
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      July 2011
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Started Coding
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        July 2011
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -4869,35 +4602,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Entered Huayu Middle School
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      September 2010
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Entered Huayu Middle School
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        September 2010
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4916,35 +4639,25 @@ Array [
                 className="card Card"
               >
                 <div
-                  className="MuiCardHeader-root"
+                  className="card__header"
                 >
                   <div
-                    className="MuiCardHeader-avatar"
+                    className="avatar"
                   >
-                    <svg
-                      aria-hidden={true}
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <div
+                      className="avatar__intro"
                     >
-                      <path
-                        d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    className="MuiCardHeader-content"
-                  >
-                    <span
-                      className="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
-                    >
-                      Born
-                    </span>
-                    <span
-                      className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                    >
-                      November 1998
-                    </span>
+                      <h4
+                        className="avatar__name"
+                      >
+                        Born
+                      </h4>
+                      <small
+                        className="avatar__subtitle"
+                      >
+                        November 1998
+                      </small>
+                    </div>
                   </div>
                 </div>
               </div>
