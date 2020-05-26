@@ -63,22 +63,22 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           className="button-group button-group--block"
         >
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://samlang.developersam.com"
           >
-            Docs
+            DOCS
           </a>
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://samlang.developersam.com/demo"
           >
-            Demo
+            DEMO
           </a>
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://github.com/SamChou19815/samlang"
           >
-            GitHub
+            GITHUB
           </a>
         </div>
       </div>
@@ -130,16 +130,16 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           className="button-group button-group--block"
         >
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://v2.docusaurus.io"
           >
-            Docs
+            DOCS
           </a>
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://github.com/facebook/docusaurus"
           >
-            GitHub
+            GITHUB
           </a>
         </div>
       </div>
@@ -191,22 +191,22 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           className="button-group button-group--block"
         >
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://mini-react.developersam.com"
           >
-            Demo
+            DEMO
           </a>
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://github.com/SamChou19815/mini-react"
           >
-            GitHub
+            GITHUB
           </a>
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="/build-simplified-react.pdf"
           >
-            Slides
+            SLIDES
           </a>
         </div>
       </div>
@@ -258,16 +258,16 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           className="button-group button-group--block"
         >
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://samwise.today"
           >
-            App
+            APP
           </a>
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://github.com/cornell-dti/samwise"
           >
-            GitHub
+            GITHUB
           </a>
         </div>
       </div>
@@ -319,10 +319,16 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           className="button-group button-group--block"
         >
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://tasks.developersam.com"
           >
-            App
+            APP
+          </a>
+          <a
+            className="button button--link"
+            href="https://github.com/SamChou19815/website/tree/master/packages/tasks"
+          >
+            GITHUB
           </a>
         </div>
       </div>
@@ -374,16 +380,16 @@ exports[`ProjectsSection matches snapshot. 1`] = `
           className="button-group button-group--block"
         >
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://ten.developersam.com"
           >
-            Demo
+            DEMO
           </a>
           <a
-            className="button button--secondary"
+            className="button button--link"
             href="https://github.com/SamChou19815/ten-golang"
           >
-            GitHub
+            GITHUB
           </a>
         </div>
       </div>

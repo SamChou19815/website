@@ -50,10 +50,10 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="card__footer"
       >
         <a
-          className="button button--block button--secondary"
+          className="button button--link"
           href="/how-to-scale.pdf"
         >
-          Slides
+          SLIDES
         </a>
       </div>
     </div>
@@ -91,10 +91,10 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="card__footer"
       >
         <a
-          className="button button--block button--secondary"
+          className="button button--link"
           href="/intro-to-firebase.pdf"
         >
-          Slides
+          SLIDES
         </a>
       </div>
     </div>
@@ -132,10 +132,10 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="card__footer"
       >
         <a
-          className="button button--block button--secondary"
+          className="button button--link"
           href="/build-your-own-programming-language.pdf"
         >
-          Slides
+          SLIDES
         </a>
       </div>
     </div>
@@ -173,10 +173,10 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         className="card__footer"
       >
         <a
-          className="button button--block button--secondary"
+          className="button button--link"
           href="/build-simplified-react.pdf"
         >
-          Slides
+          SLIDES
         </a>
       </div>
     </div>

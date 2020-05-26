@@ -38,16 +38,12 @@ exports[`TimelineItemCard with item 0 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://www.cornelldti.org"
         >
-          <a
-            className="button button--secondary"
-            href="https://www.cornelldti.org"
-          >
-            Cornell DTI Website
-          </a>
-        </div>
+          CORNELL DTI WEBSITE
+        </a>
       </div>
     </div>
   </div>
@@ -237,16 +233,12 @@ exports[`TimelineItemCard with item 4 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://www.cornelldti.org"
         >
-          <a
-            className="button button--secondary"
-            href="https://www.cornelldti.org"
-          >
-            Cornell DTI Website
-          </a>
-        </div>
+          CORNELL DTI WEBSITE
+        </a>
       </div>
     </div>
   </div>
@@ -306,22 +298,18 @@ exports[`TimelineItemCard with item 5 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/samlang"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/samlang"
-          >
-            GitHub Repo
-          </a>
-          <a
-            className="button button--secondary"
-            href="https://samlang.developersam.com/"
-          >
-            Docs
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
+        <a
+          className="button button--link"
+          href="https://samlang.developersam.com/"
+        >
+          DOCS
+        </a>
       </div>
     </div>
   </div>
@@ -431,16 +419,12 @@ exports[`TimelineItemCard with item 7 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/cornell-dti/samwise"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/cornell-dti/samwise"
-          >
-            GitHub Repo
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
       </div>
     </div>
   </div>
@@ -495,22 +479,18 @@ exports[`TimelineItemCard with item 8 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/primitivize"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/primitivize"
-          >
-            GitHub Repo
-          </a>
-          <a
-            className="button button--secondary"
-            href="https://blog.developersam.com/2018/08/27/cw-turing-complete/"
-          >
-            Blog Post
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
+        <a
+          className="button button--link"
+          href="https://blog.developersam.com/2018/08/27/cw-turing-complete/"
+        >
+          BLOG POST
+        </a>
       </div>
     </div>
   </div>
@@ -560,16 +540,12 @@ exports[`TimelineItemCard with item 9 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/badges-4-gcp-cloud-build"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/badges-4-gcp-cloud-build"
-          >
-            GitHub Repo
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
       </div>
     </div>
   </div>
@@ -624,22 +600,18 @@ exports[`TimelineItemCard with item 10 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/dev-sam-frontend"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/dev-sam-frontend"
-          >
-            GitHub Repo
-          </a>
-          <a
-            className="button button--secondary"
-            href="https://web.archive.org/web/20190102202556/https://developersam.com/"
-          >
-            Archive
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
+        <a
+          className="button button--link"
+          href="https://web.archive.org/web/20190102202556/https://developersam.com/"
+        >
+          ARCHIVE
+        </a>
       </div>
     </div>
   </div>
@@ -689,16 +661,12 @@ exports[`TimelineItemCard with item 11 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/typed-store"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/typed-store"
-          >
-            GitHub Repo
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
       </div>
     </div>
   </div>
@@ -758,22 +726,18 @@ exports[`TimelineItemCard with item 12 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/sampl"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/sampl"
-          >
-            GitHub Repo
-          </a>
-          <a
-            className="button button--secondary"
-            href="https://blog.developersam.com/2018/06/15/sampl-alpha-design-choices/"
-          >
-            Blog Post
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
+        <a
+          className="button button--link"
+          href="https://blog.developersam.com/2018/06/15/sampl-alpha-design-choices/"
+        >
+          BLOG POST
+        </a>
       </div>
     </div>
   </div>
@@ -928,22 +892,18 @@ exports[`TimelineItemCard with item 15 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/chunk-reader"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/chunk-reader"
-          >
-            GitHub Repo
-          </a>
-          <a
-            className="button button--secondary"
-            href="https://devpost.com/software/chunk-reader"
-          >
-            DevPost Link
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
+        <a
+          className="button button--link"
+          href="https://devpost.com/software/chunk-reader"
+        >
+          DEVPOST LINK
+        </a>
       </div>
     </div>
   </div>
@@ -1038,16 +998,12 @@ exports[`TimelineItemCard with item 17 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/ten"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/ten"
-          >
-            GitHub Repo
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
       </div>
     </div>
   </div>
@@ -1092,16 +1048,12 @@ exports[`TimelineItemCard with item 18 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://blog.developersam.com/2018/12/31/cs-in-high-schools/"
         >
-          <a
-            className="button button--secondary"
-            href="https://blog.developersam.com/2018/12/31/cs-in-high-schools/"
-          >
-            Blog: CS in High Schools
-          </a>
-        </div>
+          BLOG: CS IN HIGH SCHOOLS
+        </a>
       </div>
     </div>
   </div>
@@ -1206,16 +1158,12 @@ exports[`TimelineItemCard with item 20 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://github.com/SamChou19815/SAM"
         >
-          <a
-            className="button button--secondary"
-            href="https://github.com/SamChou19815/SAM"
-          >
-            GitHub Repo
-          </a>
-        </div>
+          GITHUB REPO
+        </a>
       </div>
     </div>
   </div>
@@ -1305,16 +1253,12 @@ exports[`TimelineItemCard with item 22 matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <div
-          className="button-group button-group--block"
+        <a
+          className="button button--link"
+          href="https://web.archive.org/web/20160506203739/http://www.developersam.com/"
         >
-          <a
-            className="button button--secondary"
-            href="https://web.archive.org/web/20160506203739/http://www.developersam.com/"
-          >
-            Initial Version
-          </a>
-        </div>
+          INITIAL VERSION
+        </a>
       </div>
     </div>
   </div>

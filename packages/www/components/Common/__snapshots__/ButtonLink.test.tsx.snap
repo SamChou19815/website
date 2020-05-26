@@ -2,18 +2,18 @@
 
 exports[`Simple ButtonLink matches snapshot. 1`] = `
 <a
-  className="button button--secondary"
+  className="button button--link"
   href="haha"
 >
-  I am a button
+  I AM A BUTTON
 </a>
 `;
 
 exports[`Simple ButtonLink with class matches snapshot. 1`] = `
 <a
-  className="button button--secondary clazz"
+  className="button button--link clazz"
   href="haha"
 >
-  I am a button
+  I AM A BUTTON
 </a>
 `;
