@@ -1,8 +1,11 @@
 import React, { ReactElement } from 'react';
 
+import { useSelector } from 'react-redux';
+
+import { State } from '../store';
 import styles from './StickyCodeBlock.module.css';
 
-import CodeBlock from 'lib-react/PrismCodeBlock';
+import CodeBlock, { darkTheme } from 'lib-react/PrismCodeBlock';
 
 const code = `
 /**
@@ -37,10 +40,18 @@ class Main {
 }
 `;
 
-const StickyCodeBlock = (): ReactElement => (
-  <CodeBlock language="samlang" className={styles.Block}>
-    {code}
-  </CodeBlock>
-);
+const patchedDarkTheme = {
+  ...darkTheme,
+  plain: { ...darkTheme.plain, backgroundColor: 'var(--ifm-background-color' },
+};
+
+const StickyCodeBlock = (): ReactElement => {
+  const theme = useSelector((state: State) => state.theme) === '' ? undefined : patchedDarkTheme;
+  return (
+    <CodeBlock language="samlang" theme={theme} className={styles.Block}>
+      {code}
+    </CodeBlock>
+  );
+};
 
 export default StickyCodeBlock;

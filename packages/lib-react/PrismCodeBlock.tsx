@@ -4,6 +4,7 @@ import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-rende
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Prism from 'prism-react-renderer/prism';
+import draculaDarkTheme from 'prism-react-renderer/themes/dracula';
 
 import theme from './prism-theme.json';
 
@@ -62,5 +63,7 @@ const PrismCodeBlock = ({
     </Highlight>
   );
 };
+
+export const darkTheme = draculaDarkTheme;
 
 export default PrismCodeBlock;

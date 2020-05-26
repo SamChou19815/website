@@ -1,5 +1,5 @@
 :root {
-  --global-background-color: #f7f7f7;
+  --ifm-background-color: #f7f7f7;
   --ifm-card-border-radius: 0.2rem;
   --ifm-pills-spacing: 0.5em;
   --ifm-color-primary: #3e7ae2;
@@ -13,13 +13,13 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--global-background-color);
-  color: #38484f;
+  background: var(--ifm-background-color);
   overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
+  color: var(--ifm-font-color-base);
 }
 
 pre,
@@ -43,9 +43,12 @@ a:active {
   text-decoration: none !important;
 }
 
+* {
+  transition: background-color 0.4s ease;
+}
+
 .button--link {
   padding: 0.5em;
-  transition: background-color 0.5s ease;
   border-radius: 0.2rem !important;
 }
 
