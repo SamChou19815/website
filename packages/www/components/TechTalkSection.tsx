@@ -3,7 +3,6 @@ import React, { ReactElement } from 'react';
 import classnames from 'classnames';
 
 import techTalks from '../data/tech-talks';
-import ButtonLink from './Common/ButtonLink';
 import CardHeader from './Common/CardHeader';
 import ConsoleSection from './Common/ConsoleSection';
 import styles from './TechTalkSection.module.css';
