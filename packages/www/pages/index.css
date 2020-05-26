@@ -1,6 +1,7 @@
 :root {
   --global-background-color: #f7f7f7;
   --ifm-card-border-radius: 0.2rem;
+  --ifm-pills-spacing: 0.5em;
   --ifm-color-primary: #3e7ae2;
   --ifm-background-color-transparent: rgba(62, 122, 226, 0.07);
 }
@@ -42,11 +43,8 @@ a:active {
   text-decoration: none !important;
 }
 
-.button {
-  padding: 0.5em;
-}
-
 .button--link {
+  padding: 0.5em;
   transition: background-color 0.5s ease;
   border-radius: 0.2rem !important;
 }
@@ -58,4 +56,13 @@ a:active {
 
 .card {
   transition: 0.2s ease-in-out;
+}
+
+.pills__item {
+  margin-right: 5px;
+}
+
+.pills__item--active {
+  background: var(--ifm-pills-color-active);
+  color: white;
 }

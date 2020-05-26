@@ -1,8 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
+import classnames from 'classnames';
 import { connect } from 'react-redux';
 
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
@@ -17,12 +15,14 @@ type CheckboxProps = {
   readonly onChange: () => void;
 };
 
-const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactElement => (
-  <FormControlLabel
-    control={<Checkbox checked={checked} onChange={onChange} color="primary" />}
-    label={label}
-  />
-);
+const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactElement => {
+  const className = classnames('button', 'pills__item', checked && 'pills__item--active');
+  return (
+    <button type="button" className={className} onClick={onChange}>
+      {label}
+    </button>
+  );
+};
 
 export const TimelineSection = ({
   workChecked,
@@ -65,16 +65,22 @@ export const TimelineSection = ({
 
   return (
     <ConsoleSection id="timeline" title={title}>
-      <FormGroup row className={styles.ControlSection}>
+      <div className={styles.ControlSection}>
         <h3 className={styles.ControlSectionTitle}>Filters:</h3>
-        <ControlledCheckbox label="Work & Interns" checked={workChecked} onChange={workOnChange} />
-        <ControlledCheckbox
-          label="Projects"
-          checked={projectsChecked}
-          onChange={projectsOnChange}
-        />
-        <ControlledCheckbox label="Events" checked={eventsChecked} onChange={eventsOnChange} />
-      </FormGroup>
+        <ul className="pills">
+          <ControlledCheckbox
+            label="Work & Interns"
+            checked={workChecked}
+            onChange={workOnChange}
+          />
+          <ControlledCheckbox
+            label="Projects"
+            checked={projectsChecked}
+            onChange={projectsOnChange}
+          />
+          <ControlledCheckbox label="Events" checked={eventsChecked} onChange={eventsOnChange} />
+        </ul>
+      </div>
       <div className={styles.TimelineSection}>
         <div className={styles.VerticalBar} />
         {filteredItems.map((item) => (

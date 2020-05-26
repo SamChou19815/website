@@ -14,154 +14,38 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
@@ -187,163 +71,38 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
@@ -915,154 +674,38 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
@@ -1636,163 +1279,38 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
@@ -2912,154 +2430,38 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
@@ -3414,163 +2816,38 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
@@ -4471,154 +3748,38 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={false}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-        </span>
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
@@ -5521,163 +4682,38 @@ exports[`TimelineSection(111) matches snapshot. 1`] = `
     </code>
   </h3>
   <div
-    className="MuiFormGroup-root ControlSection MuiFormGroup-row"
+    className="ControlSection"
   >
     <h3
       className="ControlSectionTitle"
     >
       Filters:
     </h3>
-    <label
-      className="MuiFormControlLabel-root"
+    <ul
+      className="pills"
     >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Work & Interns
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Projects
-      </span>
-    </label>
-    <label
-      className="MuiFormControlLabel-root"
-    >
-      <span
-        aria-disabled={false}
-        className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-2 Mui-checked MuiIconButton-colorPrimary"
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={null}
-      >
-        <span
-          className="MuiIconButton-label"
-        >
-          <input
-            checked={true}
-            className="PrivateSwitchBase-input-4"
-            data-indeterminate={false}
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <svg
-            aria-hidden={true}
-            className="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-        </span>
-        <span
-          className="MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+      </button>
+      <button
+        className="button pills__item pills__item--active"
+        onClick={[Function]}
+        type="button"
       >
         Events
-      </span>
-    </label>
+      </button>
+    </ul>
   </div>
   <div
     className="TimelineSection"
