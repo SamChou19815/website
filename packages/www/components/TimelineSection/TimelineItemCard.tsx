@@ -1,16 +1,14 @@
 import React, { ReactElement } from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import Code from '@material-ui/icons/Code';
 import Event from '@material-ui/icons/Event';
 import Work from '@material-ui/icons/Work';
+import classnames from 'classnames';
 
 import { TimelineItem } from '../../data/timeline';
-import LazyMaterialMedia from '../Common/LazyMaterialMedia';
+import LazyCardMedia from '../Common/LazyCardMedia';
 import styles from './index.module.css';
 
 import MaterialButtonLink from 'lib-react/MaterialButtonLink';
@@ -38,12 +36,12 @@ const TimelineItemCard = ({
     <div className={styles.CardContainer}>
       <div className={styles.ContentWrapper}>
         <span className={styles.ConnectorDot} />
-        <Card className={styles.Card}>
-          {image != null && <LazyMaterialMedia image={image} title={title} />}
+        <div className={classnames('card', styles.Card)}>
+          {image != null && <LazyCardMedia image={image} title={title} />}
           <CardHeader avatar={<Icon />} title={title} subheader={time} />
-          {detail != null && <CardContent>{detail}</CardContent>}
+          {detail != null && <div className="card__body">{detail}</div>}
           {links != null && (
-            <CardActions>
+            <div className="card__footer">
               {links.map(
                 ({ name, url }, index): ReactElement => (
                   // eslint-disable-next-line react/no-array-index-key
@@ -52,9 +50,9 @@ const TimelineItemCard = ({
                   </MaterialButtonLink>
                 )
               )}
-            </CardActions>
+            </div>
           )}
-        </Card>
+        </div>
       </div>
     </div>
   );

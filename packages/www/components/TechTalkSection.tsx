@@ -1,9 +1,7 @@
 import React, { ReactElement } from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
+import classnames from 'classnames';
 
 import techTalks from '../data/tech-talks';
 import ConsoleSection from './Common/ConsoleSection';
@@ -15,13 +13,13 @@ const TechTalkSection = (): ReactElement => (
   <ConsoleSection id="tech-talks" title="dev-sam tech-talks">
     <div className={styles.TechTalkContainer}>
       {techTalks.map(({ title, type, description, link }) => (
-        <Card key={title} className={styles.TechTalkCard}>
+        <div key={title} className={classnames('card', styles.TechTalkCard)}>
           <CardHeader title={title} subheader={type} />
-          <CardContent>{description}</CardContent>
-          <CardActions>
+          <div className="card__body">{description}</div>
+          <div className="card__footer">
             <MaterialButtonLink href={link}>Slides</MaterialButtonLink>
-          </CardActions>
-        </Card>
+          </div>
+        </div>
       ))}
     </div>
   </ConsoleSection>

@@ -17,7 +17,7 @@ exports[`TechTalkSection matches snapshot. 1`] = `
     className="TechTalkContainer"
   >
     <div
-      className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card TechTalkCard"
     >
       <div
         className="MuiCardHeader-root"
@@ -38,12 +38,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Tips on scaling your codebase and your workload, with lessons learned from Samwise's codebase.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -78,7 +78,7 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card TechTalkCard"
     >
       <div
         className="MuiCardHeader-root"
@@ -99,12 +99,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         Tech stack discussion on Firebase, and why Samwise switched to Firebase.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -139,7 +139,7 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card TechTalkCard"
     >
       <div
         className="MuiCardHeader-root"
@@ -160,12 +160,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A tutorial of making a simple programming language derived from lambda-calculus.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -200,7 +200,7 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       </div>
     </div>
     <div
-      className="MuiPaper-root MuiCard-root TechTalkCard MuiPaper-elevation1 MuiPaper-rounded"
+      className="card TechTalkCard"
     >
       <div
         className="MuiCardHeader-root"
@@ -221,12 +221,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
         </div>
       </div>
       <div
-        className="MuiCardContent-root"
+        className="card__body"
       >
         A tutorial of making a simplified React runtime with support for useState and useEffect hooks.
       </div>
       <div
-        className="MuiCardActions-root MuiCardActions-spacing"
+        className="card__footer"
       >
         <button
           className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"

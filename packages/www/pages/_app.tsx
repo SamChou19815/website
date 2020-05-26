@@ -5,6 +5,7 @@ import React, { ReactElement, useEffect } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
+import 'infima/dist/css/default/default.css';
 import './index.css';
 
 import MaterialAppContainer from 'lib-react/MaterialAppContainer';
