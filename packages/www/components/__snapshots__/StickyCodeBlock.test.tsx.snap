@@ -5,7 +5,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
   className="prism-code language-samlang Block"
   style={
     Object {
-      "backgroundColor": "#f7f7f7",
+      "backgroundColor": "var(--ifm-background-color)",
     }
   }
 >
