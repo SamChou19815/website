@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react';
 
-import CardHeader from '@material-ui/core/CardHeader';
-import Divider from '@material-ui/core/Divider';
 import classnames from 'classnames';
 
 import projects from '../data/projects';
+import CardHeader from './Common/CardHeader';
 import ConsoleSection from './Common/ConsoleSection';
 import LazyCardMedia from './Common/LazyCardMedia';
 import styles from './ProjectsSection.module.css';
@@ -17,7 +16,6 @@ const ProjectsSection = (): ReactElement => (
       {projects.map(({ name, type, media, description, links }) => (
         <div key={name} className={classnames('card', styles.ProjectCard)}>
           <LazyCardMedia image={media} title={name} />
-          <Divider />
           <CardHeader title={name} subheader={type} />
           <div className="card__body">{description}</div>
           <div className="card__footer">

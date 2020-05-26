@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 
-import CardHeader from '@material-ui/core/CardHeader';
 import classnames from 'classnames';
 
 import techTalks from '../data/tech-talks';
+import CardHeader from './Common/CardHeader';
 import ConsoleSection from './Common/ConsoleSection';
 import styles from './TechTalkSection.module.css';
 
