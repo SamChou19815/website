@@ -36,17 +36,17 @@ const devSam = (command: string, ...commandArguments: readonly string[]): string
   const information = `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
   switch (command) {
     case 'about': {
-      const facts = about.facts.map(({ text }) => `${text}`).join('\n');
-      const links = about.links.map(({ href, text }) => `[${text}](${href})`).join('\n');
+      const facts = about.facts.map(({ text }) => `- ${text}`).join('\n');
+      const links = about.links.map(({ href, text }) => `- [${text}](${href})`).join('\n');
       return `Random Facts:\n${facts}\nExternal Links:\n${links}`;
     }
     case 'projects':
       return projects
-        .map(({ name, type, description }) => `${name}:\n> ${type}\n> ${description}`)
+        .map(({ name, type, description }) => `${name}:\n- ${type}\n- ${description}`)
         .join('\n');
     case 'tech-talks':
       return techTalks
-        .map(({ title, type, description }) => `${title}:\n> ${type}\n> ${description}`)
+        .map(({ title, type, description }) => `${title}:\n- ${type}\n- ${description}`)
         .join('\n');
     case 'timeline':
       return timeline(...commandArguments);

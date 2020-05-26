@@ -28,7 +28,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -48,7 +48,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -68,7 +68,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -88,7 +88,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -108,7 +108,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -157,7 +157,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -187,7 +187,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -217,7 +217,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
@@ -247,7 +247,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(128, 128, 128)",
+                "color": "rgb(111, 111, 111)",
                 "fontStyle": "italic",
               }
             }
