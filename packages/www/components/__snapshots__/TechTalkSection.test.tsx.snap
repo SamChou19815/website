@@ -49,36 +49,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <a
+          className="button button--block button--secondary"
+          href="/how-to-scale.pdf"
         >
-          <span
-            className="MuiButton-label"
-          >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="/how-to-scale.pdf"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Slides
-            </a>
-          </span>
-        </button>
+          Slides
+        </a>
       </div>
     </div>
     <div
@@ -114,36 +90,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <a
+          className="button button--block button--secondary"
+          href="/intro-to-firebase.pdf"
         >
-          <span
-            className="MuiButton-label"
-          >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="/intro-to-firebase.pdf"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Slides
-            </a>
-          </span>
-        </button>
+          Slides
+        </a>
       </div>
     </div>
     <div
@@ -179,36 +131,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <a
+          className="button button--block button--secondary"
+          href="/build-your-own-programming-language.pdf"
         >
-          <span
-            className="MuiButton-label"
-          >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="/build-your-own-programming-language.pdf"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Slides
-            </a>
-          </span>
-        </button>
+          Slides
+        </a>
       </div>
     </div>
     <div
@@ -244,36 +172,12 @@ exports[`TechTalkSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <a
+          className="button button--block button--secondary"
+          href="/build-simplified-react.pdf"
         >
-          <span
-            className="MuiButton-label"
-          >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="/build-simplified-react.pdf"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Slides
-            </a>
-          </span>
-        </button>
+          Slides
+        </a>
       </div>
     </div>
   </div>

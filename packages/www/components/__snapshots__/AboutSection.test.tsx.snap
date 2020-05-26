@@ -155,126 +155,28 @@ exports[`AboutSection matches snapshot. 1`] = `
     <div
       className="card__footer Links"
     >
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <div
+        className="button-group button-group--block"
       >
-        <span
-          className="MuiButton-label"
+        <a
+          className="button button--secondary Link"
+          href="https://blog.developersam.com"
         >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-            href="https://blog.developersam.com"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            Blog
-          </a>
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
+          Blog
+        </a>
+        <a
+          className="button button--secondary Link"
+          href="https://github.com/SamChou19815"
         >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-            href="https://github.com/SamChou19815"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            GitHub
-          </a>
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
+          GitHub
+        </a>
+        <a
+          className="button button--secondary Link"
+          href="/resume.pdf"
         >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-            href="/resume.pdf"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            Resume
-          </a>
-        </span>
-      </button>
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-text Transcript MuiButton-textPrimary"
-        disabled={false}
-        onBlur={[Function]}
-        onDragLeave={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          <a
-            className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-            href="/transcript.pdf"
-            onBlur={[Function]}
-            onFocus={[Function]}
-          >
-            Transcript
-          </a>
-        </span>
-      </button>
+          Resume
+        </a>
+      </div>
     </div>
   </div>
   <button

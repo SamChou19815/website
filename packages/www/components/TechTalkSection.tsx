@@ -7,8 +7,6 @@ import CardHeader from './Common/CardHeader';
 import ConsoleSection from './Common/ConsoleSection';
 import styles from './TechTalkSection.module.css';
 
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
-
 const TechTalkSection = (): ReactElement => (
   <ConsoleSection id="tech-talks" title="dev-sam tech-talks">
     <div className={styles.TechTalkContainer}>
@@ -17,7 +15,9 @@ const TechTalkSection = (): ReactElement => (
           <CardHeader title={title} subheader={type} />
           <div className="card__body">{description}</div>
           <div className="card__footer">
-            <MaterialButtonLink href={link}>Slides</MaterialButtonLink>
+            <a href={link} className="button button--block button--secondary">
+              Slides
+            </a>
           </div>
         </div>
       ))}

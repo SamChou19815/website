@@ -4,10 +4,9 @@ import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import classnames from 'classnames';
 
 import about from '../data/about';
+import ButtonLink from './Common/ButtonLink';
 import LazyCardMedia from './Common/LazyCardMedia';
 import styles from './InformationCard.module.css';
-
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 type IconLineProps = {
   readonly Icon: (props: SvgIconProps) => ReactElement;
@@ -35,15 +34,16 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
       ))}
     </div>
     <div className={classnames('card__footer', styles.Links)}>
-      {about.links.map(({ href, text }) => (
-        <MaterialButtonLink key={text} href={href}>
-          {text}
-        </MaterialButtonLink>
-      ))}
-      <MaterialButtonLink href="/resume.pdf">Resume</MaterialButtonLink>
-      <MaterialButtonLink href="/transcript.pdf" className={styles.Transcript}>
-        Transcript
-      </MaterialButtonLink>
+      <div className="button-group button-group--block">
+        {about.links.map(({ href, text }) => (
+          <ButtonLink key={text} href={href} className={styles.Link}>
+            {text}
+          </ButtonLink>
+        ))}
+        <ButtonLink href="/resume.pdf" className={styles.Link}>
+          Resume
+        </ButtonLink>
+      </div>
     </div>
   </div>
 );

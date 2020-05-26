@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Simple ButtonLink matches snapshot. 1`] = `
+<a
+  className="button button--secondary"
+  href="haha"
+>
+  I am a button
+</a>
+`;
+
+exports[`Simple ButtonLink with class matches snapshot. 1`] = `
+<a
+  className="button button--secondary clazz"
+  href="haha"
+>
+  I am a button
+</a>
+`;
