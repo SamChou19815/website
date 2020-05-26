@@ -1499,126 +1499,28 @@ Array [
           <div
             className="card__footer Links"
           >
-            <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              disabled={false}
-              onBlur={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
+            <div
+              className="button-group button-group--block"
             >
-              <span
-                className="MuiButton-label"
+              <a
+                className="button button--secondary Link"
+                href="https://blog.developersam.com"
               >
-                <a
-                  className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://blog.developersam.com"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  Blog
-                </a>
-              </span>
-            </button>
-            <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              disabled={false}
-              onBlur={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
-            >
-              <span
-                className="MuiButton-label"
+                Blog
+              </a>
+              <a
+                className="button button--secondary Link"
+                href="https://github.com/SamChou19815"
               >
-                <a
-                  className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="https://github.com/SamChou19815"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  GitHub
-                </a>
-              </span>
-            </button>
-            <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              disabled={false}
-              onBlur={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
-            >
-              <span
-                className="MuiButton-label"
+                GitHub
+              </a>
+              <a
+                className="button button--secondary Link"
+                href="/resume.pdf"
               >
-                <a
-                  className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="/resume.pdf"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  Resume
-                </a>
-              </span>
-            </button>
-            <button
-              className="MuiButtonBase-root MuiButton-root MuiButton-text Transcript MuiButton-textPrimary"
-              disabled={false}
-              onBlur={[Function]}
-              onDragLeave={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="button"
-            >
-              <span
-                className="MuiButton-label"
-              >
-                <a
-                  className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                  href="/transcript.pdf"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                >
-                  Transcript
-                </a>
-              </span>
-            </button>
+                Resume
+              </a>
+            </div>
           </div>
         </div>
         <button
@@ -1720,96 +1622,28 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <div
+                className="button-group button-group--block"
               >
-                <span
-                  className="MuiButton-label"
+                <a
+                  className="button button--secondary"
+                  href="https://samlang.developersam.com"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://samlang.developersam.com"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Docs
-                  </a>
-                </span>
-              </button>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
-              >
-                <span
-                  className="MuiButton-label"
+                  Docs
+                </a>
+                <a
+                  className="button button--secondary"
+                  href="https://samlang.developersam.com/demo"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://samlang.developersam.com/demo"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Demo
-                  </a>
-                </span>
-              </button>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
-              >
-                <span
-                  className="MuiButton-label"
+                  Demo
+                </a>
+                <a
+                  className="button button--secondary"
+                  href="https://github.com/SamChou19815/samlang"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://github.com/SamChou19815/samlang"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    GitHub
-                  </a>
-                </span>
-              </button>
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
           <div
@@ -1855,66 +1689,22 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <div
+                className="button-group button-group--block"
               >
-                <span
-                  className="MuiButton-label"
+                <a
+                  className="button button--secondary"
+                  href="https://v2.docusaurus.io"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://v2.docusaurus.io"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Docs
-                  </a>
-                </span>
-              </button>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
-              >
-                <span
-                  className="MuiButton-label"
+                  Docs
+                </a>
+                <a
+                  className="button button--secondary"
+                  href="https://github.com/facebook/docusaurus"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://github.com/facebook/docusaurus"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    GitHub
-                  </a>
-                </span>
-              </button>
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
           <div
@@ -1960,96 +1750,28 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <div
+                className="button-group button-group--block"
               >
-                <span
-                  className="MuiButton-label"
+                <a
+                  className="button button--secondary"
+                  href="https://mini-react.developersam.com"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://mini-react.developersam.com"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Demo
-                  </a>
-                </span>
-              </button>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
-              >
-                <span
-                  className="MuiButton-label"
+                  Demo
+                </a>
+                <a
+                  className="button button--secondary"
+                  href="https://github.com/SamChou19815/mini-react"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://github.com/SamChou19815/mini-react"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    GitHub
-                  </a>
-                </span>
-              </button>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
-              >
-                <span
-                  className="MuiButton-label"
+                  GitHub
+                </a>
+                <a
+                  className="button button--secondary"
+                  href="/build-simplified-react.pdf"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="/build-simplified-react.pdf"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Slides
-                  </a>
-                </span>
-              </button>
+                  Slides
+                </a>
+              </div>
             </div>
           </div>
           <div
@@ -2095,66 +1817,22 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <div
+                className="button-group button-group--block"
               >
-                <span
-                  className="MuiButton-label"
+                <a
+                  className="button button--secondary"
+                  href="https://samwise.today"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://samwise.today"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    App
-                  </a>
-                </span>
-              </button>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
-              >
-                <span
-                  className="MuiButton-label"
+                  App
+                </a>
+                <a
+                  className="button button--secondary"
+                  href="https://github.com/cornell-dti/samwise"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://github.com/cornell-dti/samwise"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    GitHub
-                  </a>
-                </span>
-              </button>
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
           <div
@@ -2200,36 +1878,16 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <div
+                className="button-group button-group--block"
               >
-                <span
-                  className="MuiButton-label"
+                <a
+                  className="button button--secondary"
+                  href="https://tasks.developersam.com"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://tasks.developersam.com"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    App
-                  </a>
-                </span>
-              </button>
+                  App
+                </a>
+              </div>
             </div>
           </div>
           <div
@@ -2275,66 +1933,22 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <div
+                className="button-group button-group--block"
               >
-                <span
-                  className="MuiButton-label"
+                <a
+                  className="button button--secondary"
+                  href="https://ten.developersam.com"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://ten.developersam.com"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Demo
-                  </a>
-                </span>
-              </button>
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
-              >
-                <span
-                  className="MuiButton-label"
+                  Demo
+                </a>
+                <a
+                  className="button button--secondary"
+                  href="https://github.com/SamChou19815/ten-golang"
                 >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="https://github.com/SamChou19815/ten-golang"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    GitHub
-                  </a>
-                </span>
-              </button>
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -2387,36 +2001,12 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <a
+                className="button button--block button--secondary"
+                href="/how-to-scale.pdf"
               >
-                <span
-                  className="MuiButton-label"
-                >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="/how-to-scale.pdf"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Slides
-                  </a>
-                </span>
-              </button>
+                Slides
+              </a>
             </div>
           </div>
           <div
@@ -2452,36 +2042,12 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <a
+                className="button button--block button--secondary"
+                href="/intro-to-firebase.pdf"
               >
-                <span
-                  className="MuiButton-label"
-                >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="/intro-to-firebase.pdf"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Slides
-                  </a>
-                </span>
-              </button>
+                Slides
+              </a>
             </div>
           </div>
           <div
@@ -2517,36 +2083,12 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <a
+                className="button button--block button--secondary"
+                href="/build-your-own-programming-language.pdf"
               >
-                <span
-                  className="MuiButton-label"
-                >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="/build-your-own-programming-language.pdf"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Slides
-                  </a>
-                </span>
-              </button>
+                Slides
+              </a>
             </div>
           </div>
           <div
@@ -2582,36 +2124,12 @@ Array [
             <div
               className="card__footer"
             >
-              <button
-                className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                disabled={false}
-                onBlur={[Function]}
-                onDragLeave={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="button"
+              <a
+                className="button button--block button--secondary"
+                href="/build-simplified-react.pdf"
               >
-                <span
-                  className="MuiButton-label"
-                >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                    href="/build-simplified-react.pdf"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Slides
-                  </a>
-                </span>
-              </button>
+                Slides
+              </a>
             </div>
           </div>
         </div>
@@ -2821,36 +2339,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://www.cornelldti.org"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://www.cornelldti.org"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Cornell DTI Website
-                      </a>
-                    </span>
-                  </button>
+                      Cornell DTI Website
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3028,36 +2526,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://www.cornelldti.org"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://www.cornelldti.org"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Cornell DTI Website
-                      </a>
-                    </span>
-                  </button>
+                      Cornell DTI Website
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3114,66 +2592,22 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/samlang"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/samlang"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    <span
-                      className="MuiButton-label"
+                      GitHub Repo
+                    </a>
+                    <a
+                      className="button button--secondary"
+                      href="https://samlang.developersam.com/"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://samlang.developersam.com/"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Docs
-                      </a>
-                    </span>
-                  </button>
+                      Docs
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3277,36 +2711,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/cornell-dti/samwise"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/cornell-dti/samwise"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
+                      GitHub Repo
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3358,66 +2772,22 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/primitivize"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/primitivize"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    <span
-                      className="MuiButton-label"
+                      GitHub Repo
+                    </a>
+                    <a
+                      className="button button--secondary"
+                      href="https://blog.developersam.com/2018/08/27/cw-turing-complete/"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://blog.developersam.com/2018/08/27/cw-turing-complete/"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Blog Post
-                      </a>
-                    </span>
-                  </button>
+                      Blog Post
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3464,36 +2834,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/badges-4-gcp-cloud-build"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/badges-4-gcp-cloud-build"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
+                      GitHub Repo
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3545,66 +2895,22 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/dev-sam-frontend"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/dev-sam-frontend"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    <span
-                      className="MuiButton-label"
+                      GitHub Repo
+                    </a>
+                    <a
+                      className="button button--secondary"
+                      href="https://web.archive.org/web/20190102202556/https://developersam.com/"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://web.archive.org/web/20190102202556/https://developersam.com/"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Archive
-                      </a>
-                    </span>
-                  </button>
+                      Archive
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3651,36 +2957,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/typed-store"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/typed-store"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
+                      GitHub Repo
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3737,66 +3023,22 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/sampl"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/sampl"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    <span
-                      className="MuiButton-label"
+                      GitHub Repo
+                    </a>
+                    <a
+                      className="button button--secondary"
+                      href="https://blog.developersam.com/2018/06/15/sampl-alpha-design-choices/"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://blog.developersam.com/2018/06/15/sampl-alpha-design-choices/"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Blog Post
-                      </a>
-                    </span>
-                  </button>
+                      Blog Post
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3942,66 +3184,22 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/chunk-reader"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/chunk-reader"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
-                  >
-                    <span
-                      className="MuiButton-label"
+                      GitHub Repo
+                    </a>
+                    <a
+                      className="button button--secondary"
+                      href="https://devpost.com/software/chunk-reader"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://devpost.com/software/chunk-reader"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        DevPost Link
-                      </a>
-                    </span>
-                  </button>
+                      DevPost Link
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4090,36 +3288,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/ten"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/ten"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
+                      GitHub Repo
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4161,36 +3339,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://blog.developersam.com/2018/12/31/cs-in-high-schools/"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://blog.developersam.com/2018/12/31/cs-in-high-schools/"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Blog: CS in High Schools
-                      </a>
-                    </span>
-                  </button>
+                      Blog: CS in High Schools
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4289,36 +3447,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://github.com/SamChou19815/SAM"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://github.com/SamChou19815/SAM"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        GitHub Repo
-                      </a>
-                    </span>
-                  </button>
+                      GitHub Repo
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4402,36 +3540,16 @@ Array [
                 <div
                   className="card__footer"
                 >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button-group button-group--block"
                   >
-                    <span
-                      className="MuiButton-label"
+                    <a
+                      className="button button--secondary"
+                      href="https://web.archive.org/web/20160506203739/http://www.developersam.com/"
                     >
-                      <a
-                        className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-                        href="https://web.archive.org/web/20160506203739/http://www.developersam.com/"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                      >
-                        Initial Version
-                      </a>
-                    </span>
-                  </button>
+                      Initial Version
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

@@ -59,96 +59,28 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <div
+          className="button-group button-group--block"
         >
-          <span
-            className="MuiButton-label"
+          <a
+            className="button button--secondary"
+            href="https://samlang.developersam.com"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://samlang.developersam.com"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Docs
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
+            Docs
+          </a>
+          <a
+            className="button button--secondary"
+            href="https://samlang.developersam.com/demo"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://samlang.developersam.com/demo"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Demo
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
+            Demo
+          </a>
+          <a
+            className="button button--secondary"
+            href="https://github.com/SamChou19815/samlang"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/SamChou19815/samlang"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              GitHub
-            </a>
-          </span>
-        </button>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
     <div
@@ -194,66 +126,22 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <div
+          className="button-group button-group--block"
         >
-          <span
-            className="MuiButton-label"
+          <a
+            className="button button--secondary"
+            href="https://v2.docusaurus.io"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://v2.docusaurus.io"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Docs
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
+            Docs
+          </a>
+          <a
+            className="button button--secondary"
+            href="https://github.com/facebook/docusaurus"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/facebook/docusaurus"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              GitHub
-            </a>
-          </span>
-        </button>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
     <div
@@ -299,96 +187,28 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <div
+          className="button-group button-group--block"
         >
-          <span
-            className="MuiButton-label"
+          <a
+            className="button button--secondary"
+            href="https://mini-react.developersam.com"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://mini-react.developersam.com"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Demo
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
+            Demo
+          </a>
+          <a
+            className="button button--secondary"
+            href="https://github.com/SamChou19815/mini-react"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/SamChou19815/mini-react"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              GitHub
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
+            GitHub
+          </a>
+          <a
+            className="button button--secondary"
+            href="/build-simplified-react.pdf"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="/build-simplified-react.pdf"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Slides
-            </a>
-          </span>
-        </button>
+            Slides
+          </a>
+        </div>
       </div>
     </div>
     <div
@@ -434,66 +254,22 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <div
+          className="button-group button-group--block"
         >
-          <span
-            className="MuiButton-label"
+          <a
+            className="button button--secondary"
+            href="https://samwise.today"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://samwise.today"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              App
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
+            App
+          </a>
+          <a
+            className="button button--secondary"
+            href="https://github.com/cornell-dti/samwise"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/cornell-dti/samwise"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              GitHub
-            </a>
-          </span>
-        </button>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
     <div
@@ -539,36 +315,16 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <div
+          className="button-group button-group--block"
         >
-          <span
-            className="MuiButton-label"
+          <a
+            className="button button--secondary"
+            href="https://tasks.developersam.com"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://tasks.developersam.com"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              App
-            </a>
-          </span>
-        </button>
+            App
+          </a>
+        </div>
       </div>
     </div>
     <div
@@ -614,66 +370,22 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="card__footer"
       >
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
+        <div
+          className="button-group button-group--block"
         >
-          <span
-            className="MuiButton-label"
+          <a
+            className="button button--secondary"
+            href="https://ten.developersam.com"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://ten.developersam.com"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              Demo
-            </a>
-          </span>
-        </button>
-        <button
-          className="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-          disabled={false}
-          onBlur={[Function]}
-          onDragLeave={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          tabIndex={0}
-          type="button"
-        >
-          <span
-            className="MuiButton-label"
+            Demo
+          </a>
+          <a
+            className="button button--secondary"
+            href="https://github.com/SamChou19815/ten-golang"
           >
-            <a
-              className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary"
-              href="https://github.com/SamChou19815/ten-golang"
-              onBlur={[Function]}
-              onFocus={[Function]}
-            >
-              GitHub
-            </a>
-          </span>
-        </button>
+            GitHub
+          </a>
+        </div>
       </div>
     </div>
   </div>

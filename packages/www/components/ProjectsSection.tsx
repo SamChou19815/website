@@ -3,12 +3,11 @@ import React, { ReactElement } from 'react';
 import classnames from 'classnames';
 
 import projects from '../data/projects';
+import ButtonLink from './Common/ButtonLink';
 import CardHeader from './Common/CardHeader';
 import ConsoleSection from './Common/ConsoleSection';
 import LazyCardMedia from './Common/LazyCardMedia';
 import styles from './ProjectsSection.module.css';
-
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 const ProjectsSection = (): ReactElement => (
   <ConsoleSection id="projects" title="dev-sam projects">
@@ -19,11 +18,13 @@ const ProjectsSection = (): ReactElement => (
           <CardHeader title={name} subheader={type} />
           <div className="card__body">{description}</div>
           <div className="card__footer">
-            {links.map(({ text, href }) => (
-              <MaterialButtonLink key={text} href={href}>
-                {text}
-              </MaterialButtonLink>
-            ))}
+            <div className="button-group button-group--block">
+              {links.map(({ text, href }) => (
+                <ButtonLink key={text} href={href}>
+                  {text}
+                </ButtonLink>
+              ))}
+            </div>
           </div>
         </div>
       ))}

@@ -3,11 +3,10 @@ import React, { ReactElement } from 'react';
 import classnames from 'classnames';
 
 import { TimelineItem } from '../../data/timeline';
+import ButtonLink from '../Common/ButtonLink';
 import CardHeader from '../Common/CardHeader';
 import LazyCardMedia from '../Common/LazyCardMedia';
 import styles from './index.module.css';
-
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 
 type Props = { readonly item: TimelineItem };
 
@@ -22,14 +21,16 @@ const TimelineItemCard = ({ item: { title, time, image, detail, links } }: Props
           {detail != null && <div className="card__body">{detail}</div>}
           {links != null && (
             <div className="card__footer">
-              {links.map(
-                ({ name, url }, index): ReactElement => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <MaterialButtonLink key={index} href={url}>
-                    {name}
-                  </MaterialButtonLink>
-                )
-              )}
+              <div className="button-group button-group--block">
+                {links.map(
+                  ({ name, url }, index): ReactElement => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <ButtonLink key={index} href={url}>
+                      {name}
+                    </ButtonLink>
+                  )
+                )}
+              </div>
             </div>
           )}
         </div>
