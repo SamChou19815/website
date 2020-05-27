@@ -3,11 +3,10 @@
 **/build/
 **/out/
 tsconfig.tsbuildinfo
+.eslintcache
 
 # misc
 .DS_Store
-
-# Frontend
 
 ## dependencies
 **/.yarn/*
