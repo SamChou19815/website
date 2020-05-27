@@ -8,8 +8,6 @@ import Head from 'next/head';
 import 'infima/dist/css/default/default.min.css';
 import './index.css';
 
-import MaterialAppContainer from 'lib-react/MaterialAppContainer';
-
 const MaterialUIApp = (props: AppProps): ReactElement => {
   const { Component, pageProps } = props;
 
@@ -76,12 +74,10 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
           }}
         />
       </Head>
-      <MaterialAppContainer>
-        <Component
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...pageProps}
-        />
-      </MaterialAppContainer>
+      <Component
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...pageProps}
+      />
     </>
   );
 };
