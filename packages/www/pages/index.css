@@ -68,6 +68,12 @@ a:active {
 
 .pills__item {
   margin-right: 5px;
+  color: var(--ifm-color-primary);
+}
+
+.pills__item:hover {
+  color: var(--ifm-color-primary);
+  background: var(--ifm-background-color-transparent);
 }
 
 .pills__item--active {
