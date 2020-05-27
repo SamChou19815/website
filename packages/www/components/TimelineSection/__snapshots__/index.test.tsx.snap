@@ -2,7 +2,6 @@
 
 exports[`TimelineSection(000) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3
@@ -59,7 +58,6 @@ exports[`TimelineSection(000) matches snapshot. 1`] = `
 
 exports[`TimelineSection(001) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3
@@ -662,7 +660,6 @@ exports[`TimelineSection(001) matches snapshot. 1`] = `
 
 exports[`TimelineSection(010) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3
@@ -1267,7 +1264,6 @@ exports[`TimelineSection(010) matches snapshot. 1`] = `
 
 exports[`TimelineSection(011) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3
@@ -2418,7 +2414,6 @@ exports[`TimelineSection(011) matches snapshot. 1`] = `
 
 exports[`TimelineSection(100) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3
@@ -2804,7 +2799,6 @@ exports[`TimelineSection(100) matches snapshot. 1`] = `
 
 exports[`TimelineSection(101) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3
@@ -3736,7 +3730,6 @@ exports[`TimelineSection(101) matches snapshot. 1`] = `
 
 exports[`TimelineSection(110) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3
@@ -4670,7 +4663,6 @@ exports[`TimelineSection(110) matches snapshot. 1`] = `
 
 exports[`TimelineSection(111) matches snapshot. 1`] = `
 <section
-  className="Section"
   id="timeline"
 >
   <h3

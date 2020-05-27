@@ -9,3 +9,7 @@
   font-weight: 500;
   border-bottom: 1px solid var(--console-section-title-border-color);
 }
+
+.Title code {
+  background-color: inherit;
+}

@@ -1,5 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 
+import classnames from 'classnames';
+
 import styles from './ConsoleSection.module.css';
 
 type Props = {
@@ -10,9 +12,6 @@ type Props = {
   readonly children: ReactNode;
 };
 
-const classes = (firstClass: string, secondClass?: string): string =>
-  secondClass === undefined ? firstClass : `${firstClass} ${secondClass}`;
-
 const ConsoleSection = ({
   id,
   title,
@@ -20,8 +19,8 @@ const ConsoleSection = ({
   titleClassName,
   children,
 }: Props): ReactElement => (
-  <section id={id} className={classes(styles.Section, className)}>
-    <h3 className={classes(styles.Title, titleClassName)}>
+  <section id={id} className={className}>
+    <h3 className={classnames(styles.Title, titleClassName)}>
       <code>
         $&nbsp;
         {title}
