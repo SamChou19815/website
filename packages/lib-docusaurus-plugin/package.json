@@ -9,13 +9,19 @@
   },
   "private": true,
   "scripts": {
-    "compile": "run -T tsc",
-    "postinstall": "yarn compile"
+    "compile": "run -T tsc"
   },
   "dependencies": {
     "@docusaurus/types": "2.0.0-alpha.55",
     "lib-prism-extended": "0.1.0",
-    "pnp-webpack-plugin": "^1.6.4",
-    "prism-react-renderer": "^1.1.1"
+    "pnp-webpack-plugin": "^1.6.4"
+  },
+  "peerDependencies": {
+    "prism-react-renderer": "^1.1.0"
+  },
+  "peerDependenciesMeta": {
+    "prism-react-renderer": {
+      "optional": true
+    }
   }
 }

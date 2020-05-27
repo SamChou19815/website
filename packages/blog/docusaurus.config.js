@@ -44,10 +44,15 @@ module.exports = {
     googleAnalytics: { trackingID: 'UA-140662756-1' },
     gtag: { trackingID: 'UA-140662756-1' },
   },
-  themes: [['@docusaurus/theme-classic', { customCss: require.resolve('./src/css/custom.css') }]],
+  themes: [
+    [
+      require.resolve('@docusaurus/theme-classic'),
+      { customCss: require.resolve('./src/css/custom.css') },
+    ],
+  ],
   presets: [
     [
-      '@docusaurus/preset-classic',
+      require.resolve('@docusaurus/preset-classic'),
       {
         blog: {
           path: './blog',
@@ -67,9 +72,9 @@ module.exports = {
     ],
   ],
   plugins: [
-    '@docusaurus/plugin-google-analytics',
-    '@docusaurus/plugin-google-gtag',
-    '@docusaurus/plugin-sitemap',
-    'lib-docusaurus-plugin',
+    require.resolve('@docusaurus/plugin-google-analytics'),
+    require.resolve('@docusaurus/plugin-google-gtag'),
+    require.resolve('@docusaurus/plugin-sitemap'),
+    require.resolve('lib-docusaurus-plugin'),
   ],
 };

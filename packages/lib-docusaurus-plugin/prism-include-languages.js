@@ -2,10 +2,11 @@
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Prism from 'prism-react-renderer/prism';
 
-(() => {
-  if (ExecutionEnvironment.canUseDOM) {
-    require('lib-prism-extended')(Prism);
+import extendPrism from 'lib-prism-extended';
 
+(() => {
+  extendPrism(Prism);
+  if (ExecutionEnvironment.canUseDOM) {
     window.Prism = Prism;
     require('prismjs/components/prism-clike');
     require('prismjs/components/prism-java');
