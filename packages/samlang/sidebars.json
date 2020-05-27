@@ -1,0 +1,6 @@
+{
+  "docs": {
+    "Language Basics": ["introduction", "classes-types", "expressions", "type-inference"],
+    "Implementation Notes": ["architecture"]
+  }
+}

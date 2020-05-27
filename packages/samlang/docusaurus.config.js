@@ -90,7 +90,7 @@ module.exports = {
       require.resolve('@docusaurus/preset-classic'),
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars.json'),
           editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/samlang/',
         },
         blog: {
