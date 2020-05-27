@@ -10095,10 +10095,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"infima@npm:0.2.0-alpha.11, infima@npm:^0.2.0-alpha.11":
+"infima@npm:0.2.0-alpha.11":
   version: 0.2.0-alpha.11
   resolution: "infima@npm:0.2.0-alpha.11"
   checksum: 3/95a92120462b123d5a3e80a13f6fb579e6761a34fff3cae04af048afecee2bcaccaec16af6b20ce5c8fdf9a2d64b3cfe50f644ad0f1b8146a9e950961d3af1bc
+  languageName: node
+  linkType: hard
+
+"infima@npm:0.2.0-alpha.12":
+  version: 0.2.0-alpha.12
+  resolution: "infima@npm:0.2.0-alpha.12"
+  checksum: 3/98ca8e96ae4beec11886cf704640d9c91c650fe7d245f0f0edf68f0cbba4d05ccacc626a7ddb15bce8be449e5a0b88876a49831e4fd125e6b1f86e3d3bad99a7
   languageName: node
   linkType: hard
 
@@ -20146,7 +20153,7 @@ typescript@3.9.3:
     "@types/jest": ^25.2.3
     classnames: ^2.2.6
     firebase: ^7.14.2
-    infima: ^0.2.0-alpha.11
+    infima: 0.2.0-alpha.12
     lib-firebase: 0.1.0
     lib-react: 0.1.0
     next: ^9.4.2

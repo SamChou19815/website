@@ -2,7 +2,7 @@
 
 exports[`AboutSection matches snapshot. 1`] = `
 <section
-  className="Section AboutSection"
+  className="AboutSection"
   id="about"
 >
   <h3

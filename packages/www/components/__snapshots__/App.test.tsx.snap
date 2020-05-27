@@ -1346,7 +1346,7 @@ Array [
       className="ContentBlock"
     >
       <section
-        className="Section AboutSection"
+        className="AboutSection"
         id="about"
       >
         <h3
@@ -1541,7 +1541,6 @@ Array [
         </a>
       </section>
       <section
-        className="Section"
         id="projects"
       >
         <h3
@@ -1936,7 +1935,6 @@ Array [
         </div>
       </section>
       <section
-        className="Section"
         id="tech-talks"
       >
         <h3
@@ -2117,7 +2115,6 @@ Array [
         </div>
       </section>
       <section
-        className="Section"
         id="timeline"
       >
         <h3

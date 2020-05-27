@@ -2,7 +2,6 @@
 
 exports[`ConsoleSection matches snapshot. 1`] = `
 <section
-  className="Section"
   id="test"
 >
   <h3
