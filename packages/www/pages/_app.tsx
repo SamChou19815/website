@@ -8,6 +8,8 @@ import Head from 'next/head';
 import 'infima/dist/css/default/default.min.css';
 import './index.css';
 
+const description = 'Explore the portfolio and projects created and open sourced by Developer Sam.';
+
 const MaterialUIApp = (props: AppProps): ReactElement => {
   const { Component, pageProps } = props;
 
@@ -25,17 +27,14 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
         <meta charSet="utf-8" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#F7F7F7" />
         <meta name="keywords" content="Sam, Developer Sam, developer, web apps, open source" />
-        <meta
-          name="description"
-          content="Explore the portfolio and projects created and open sourced
-    by Developer Sam."
-        />
+        <meta name="description" content={description} />
         <meta property="og:title" content="Developer Sam" />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://developersam.com/" />
-        <meta property="og:image" content="https://developersam.com/logo.png" />
+        <meta property="og:image" content="https://developersam.com/timeline/fb-hacker-way.jpg" />
+        <meta property="og:description" content={description} />
         <meta name="author" content="Developer Sam" />
         <link rel="canonical" href="https://developersam.com/" />
         <link rel="manifest" href="/manifest.json" />
