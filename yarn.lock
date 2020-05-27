@@ -16879,6 +16879,13 @@ fsevents@^1.2.7:
     react-test-renderer: ^16.13.1
     typescript: 3.9.3
     worker-loader: ^2.0.0
+  dependenciesMeta:
+    core-js:
+      built: false
+    core-js-pure:
+      built: false
+    ejs:
+      built: false
   languageName: unknown
   linkType: soft
 

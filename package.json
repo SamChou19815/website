@@ -52,6 +52,17 @@
     "typescript": "3.9.3",
     "worker-loader": "^2.0.0"
   },
+  "dependenciesMeta": {
+    "core-js": {
+      "built": false
+    },
+    "core-js-pure": {
+      "built": false
+    },
+    "ejs": {
+      "built": false
+    }
+  },
   "husky": {
     "hooks": {
       "pre-commit": "NODE_NO_WARNINGS=1 lint-staged"
