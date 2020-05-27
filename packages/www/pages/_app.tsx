@@ -32,6 +32,10 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
           content="Explore the portfolio and projects created and open sourced
     by Developer Sam."
         />
+        <meta property="og:title" content="Developer Sam" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://developersam.com/" />
+        <meta property="og:image" content="https://developersam.com/logo.png" />
         <meta name="author" content="Developer Sam" />
         <link rel="canonical" href="https://developersam.com/" />
         <link rel="manifest" href="/manifest.json" />
