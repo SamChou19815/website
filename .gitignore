@@ -26,7 +26,3 @@ tsconfig.tsbuildinfo
 .vscode/pnpify
 .docusaurus
 .cache-loader
-
-## Compiled files
-packages/lib-docusaurus-plugin/index.js
-packages/lib-docusaurus-plugin/index.d.ts

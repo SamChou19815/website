@@ -10,11 +10,12 @@ import React, { ReactElement } from 'react';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import CodeBlock from '@theme/CodeBlock';
 import Layout from '@theme/Layout';
 import classnames from 'classnames';
 
 import styles from './styles.module.css';
+
+import CodeBlock from 'lib-react/PrismCodeBlock';
 
 const HELLO_WORLD_CODE = `class Main {
   function main(): string = "Hello World"
@@ -105,7 +106,7 @@ function Home(): ReactElement {
                     className={classnames('col col--6', styles.feature, styles.CodeBlockWrapper)}
                   >
                     <h3>{title}</h3>
-                    <CodeBlock className="samlang">{code}</CodeBlock>
+                    <CodeBlock language="samlang">{code}</CodeBlock>
                   </div>
                 ))}
               </div>

@@ -24,6 +24,9 @@
     "react-dom": "^16.13.1"
   },
   "peerDependenciesMeta": {
+    "@material-ui/core": {
+      "optional": true
+    },
     "next": {
       "optional": true
     }
