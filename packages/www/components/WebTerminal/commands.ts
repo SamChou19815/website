@@ -3,7 +3,7 @@ import projects from '../../data/projects';
 import techTalks from '../../data/tech-talks';
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
-import { store, patchTimeline, patchFileSystem } from '../../store';
+import { store, toggleTheme, patchTimeline, patchFileSystem } from '../../store';
 import { Commands } from './types';
 
 const help = (): string =>
@@ -116,6 +116,10 @@ const timeline = (...args: string[]): string | void => {
     .join('\n');
 };
 
+const switchTheme = (): void => {
+  toggleTheme();
+};
+
 const commands: Commands = {
   help: { fn: help, description: 'Show a list of available commands.' },
   cat: { fn: cat, description: 'Concatenate and print files', usage: 'cat [path1] [path2] ...' },
@@ -124,6 +128,7 @@ const commands: Commands = {
   echo: { fn: echo, description: 'Print back the arguments.', usage: 'echo [foo] [bar] ...' },
   ls: { fn: ls, description: 'List directory contents.', usage: 'ls [path1] [path2] ...' },
   pwd: { fn: pwd, description: 'Print currrent absolute directory.' },
+  'switch-theme': { fn: switchTheme, description: 'Toggle website theme.' },
 };
 
 export default commands;
