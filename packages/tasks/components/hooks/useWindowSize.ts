@@ -9,7 +9,7 @@ const getWindowSize = (): WindowSize => ({ width: window.innerWidth, height: win
 
 const windowSizeObservable = fromEvent(window, 'resize').pipe(map(getWindowSize));
 
-export default <T>(tranformer: (windowSize: WindowSize) => T): T => {
+const useWindowSize = <T>(tranformer: (windowSize: WindowSize) => T): T => {
   const [mappedValue, setMappedValue] = useState(() => tranformer(getWindowSize()));
 
   useEffect(() => {
@@ -21,3 +21,5 @@ export default <T>(tranformer: (windowSize: WindowSize) => T): T => {
 
   return mappedValue;
 };
+
+export default useWindowSize;

@@ -4,7 +4,7 @@ import { shallowEqual } from 'react-redux';
 
 type UseFormManagerReturns<T extends Record<string, unknown>> = [T, (change: Partial<T>) => void];
 
-export default <T extends Record<string, unknown>>(
+const useFormManager = <T extends Record<string, unknown>>(
   initialFormValues: T
 ): UseFormManagerReturns<T> => {
   const [cachedInitialFormValues, setCachedInitialFormValues] = useState(initialFormValues);
@@ -20,3 +20,5 @@ export default <T extends Record<string, unknown>>(
 
   return [formValues, setPartialFormValues];
 };
+
+export default useFormManager;
