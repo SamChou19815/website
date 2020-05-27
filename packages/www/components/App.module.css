@@ -11,7 +11,8 @@
   }
 
   .ContentBlock {
-    width: calc(100vw - 600px);
+    width: calc(100vw);
+    padding-left: 600px;
   }
 }
 
