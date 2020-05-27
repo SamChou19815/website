@@ -2,14 +2,18 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    'jest/globals': true,
+    jest: true,
   },
   globals: {
     Deno: 'readonly',
   },
-  extends: ['react-app', 'plugin:@typescript-eslint/recommended', 'airbnb', 'prettier'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'jest'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    require.resolve('eslint-config-airbnb'),
+    require.resolve('eslint-config-prettier'),
+  ],
+  parser: require.resolve('@typescript-eslint/parser'),
+  plugins: ['@typescript-eslint', 'react-hooks'],
   rules: {
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-require-imports': 'error',
@@ -22,13 +26,18 @@ module.exports = {
         varsIgnorePattern: '_',
       },
     ],
-    'import/extensions': 'off',
+    'import/named': 'off', // Covered by TypeScript
+    'import/no-cycle': 'off', // Too slow
+    'import/no-named-as-default': 'off', // Too slow
+    'import/no-named-as-default-member': 'off', // Covered by TypeScript
+    'import/extensions': 'off', // Too noisy
     'import/no-unresolved': [
       'error',
       {
         ignore: ['^@theme', '^@docusaurus', '^@generated'],
       },
     ],
+    'import/no-anonymous-default-export': 'error',
     'import/no-extraneous-dependencies': 'off',
     'import/order': [
       'error',
@@ -56,6 +65,8 @@ module.exports = {
     'react/prop-types': 'off', // Already covered by TypeScript
     'react/jsx-indent': 'off', // Already covered by Prettier
     'react/jsx-one-expression-per-line': 'off', // Already covered by Prettier
+    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': 'error',
     'spaced-comment': ['error', 'always', { markers: ['/'] }], // Need for .d.ts type references
   },
   settings: {

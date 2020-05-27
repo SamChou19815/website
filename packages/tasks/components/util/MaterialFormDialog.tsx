@@ -23,7 +23,7 @@ type Props<T extends Record<string, unknown>> = {
   readonly children: (trigger: () => void) => ReactElement;
 };
 
-export default <T extends Record<string, unknown>>({
+const MaterialFormDialog = <T extends Record<string, unknown>>({
   formTitle,
   initialFormValues,
   onFormSubmit,
@@ -68,3 +68,5 @@ export default <T extends Record<string, unknown>>({
     </>
   );
 };
+
+export default MaterialFormDialog;
