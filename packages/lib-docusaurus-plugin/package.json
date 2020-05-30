@@ -12,7 +12,7 @@
     "compile": "run -T tsc"
   },
   "dependencies": {
-    "@docusaurus/types": "2.0.0-alpha.55",
+    "@docusaurus/types": "^2.0.0-alpha.37",
     "lib-prism-extended": "0.1.0"
   },
   "peerDependencies": {

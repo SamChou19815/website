@@ -4,51 +4,50 @@
 __metadata:
   version: 4
 
-"@ampproject/toolbox-core@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "@ampproject/toolbox-core@npm:2.3.0"
+"@ampproject/toolbox-core@npm:^2.4.0-alpha.1, @ampproject/toolbox-core@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@ampproject/toolbox-core@npm:2.5.0"
   dependencies:
     cross-fetch: 3.0.4
-  checksum: 3/a65c61f81e96f54339a2d0e7ac784caba2fb40242e44c9a2b0798f042ec81fdaf0773027e092333bc38271d6a6a4659835ff0bd79675550ed19811c79c4d81a3
+    lru-cache: 5.1.1
+  checksum: 3/01973ee52fca9bb428799ef0a60e1f6e576af3db4d76e97e7fef542662019bfc1ee4ea739d73a390bc4ba6d44058fc13f727234620e051da68c4bb9aaf2c4491
   languageName: node
   linkType: hard
 
-"@ampproject/toolbox-optimizer@npm:2.3.1":
-  version: 2.3.1
-  resolution: "@ampproject/toolbox-optimizer@npm:2.3.1"
+"@ampproject/toolbox-optimizer@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@ampproject/toolbox-optimizer@npm:2.4.0"
   dependencies:
-    "@ampproject/toolbox-core": ^2.3.0
-    "@ampproject/toolbox-runtime-version": ^2.3.1
+    "@ampproject/toolbox-core": ^2.4.0-alpha.1
+    "@ampproject/toolbox-runtime-version": ^2.4.0-alpha.1
     "@ampproject/toolbox-script-csp": ^2.3.0
     "@ampproject/toolbox-validator-rules": ^2.3.0
     cssnano: 4.1.10
     domhandler: 3.0.0
-    domutils: 2.0.0
+    domutils: 2.1.0
     htmlparser2: 4.1.0
+    lru-cache: 5.1.1
     normalize-html-whitespace: 1.0.0
     postcss-safe-parser: 4.0.2
     terser: 4.6.13
   peerDependencies:
     jimp: "*"
-    lru-cache: "*"
     probe-image-size: "*"
   peerDependenciesMeta:
     jimp:
       optional: true
-    lru-cache:
-      optional: true
     probe-image-size:
       optional: true
-  checksum: 3/5ccf6590fd70e3dc0a42e86a4ebcc20c59ab65d7563e047a73a7167a1b07379d5c61ecf32b6370e81947793f86596dbe0393296c7de51dc77b65f5ceec77ed15
+  checksum: 3/155149e3a644899f13de7e5b3b92234f1172ccbec40f6a0ec1462b23390c547a2c92faab147573beb44e0b9331990a530443ceb2c25e9dc1a3a9ba09c76f8caf
   languageName: node
   linkType: hard
 
-"@ampproject/toolbox-runtime-version@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "@ampproject/toolbox-runtime-version@npm:2.3.1"
+"@ampproject/toolbox-runtime-version@npm:^2.4.0-alpha.1":
+  version: 2.5.0
+  resolution: "@ampproject/toolbox-runtime-version@npm:2.5.0"
   dependencies:
-    "@ampproject/toolbox-core": ^2.3.0
-  checksum: 3/5d6ec2ec0d5a9047c894c2a5bfb5ebbd21f502899bdc400a79df7088cefcd181f8683f96da34f4d140fdbfc515b0fe74310a432196a693c9a9695e9bc31875c0
+    "@ampproject/toolbox-core": ^2.5.0
+  checksum: 3/8f188c44833568c35d553cc368873d24c1b2e8c00fb99ddbd398cd9fd733e116bb05974c6fe8d7a15eb7e573b2c59141f76f046bcb0734643660eb78f0e5125b
   languageName: node
   linkType: hard
 
@@ -1862,18 +1861,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/types@npm:2.0.0-alpha.55":
-  version: 2.0.0-alpha.55
-  resolution: "@docusaurus/types@npm:2.0.0-alpha.55"
-  dependencies:
-    "@types/webpack": ^4.41.0
-    commander: ^4.0.1
-    querystring: 0.2.0
-  checksum: 3/381f9fb4a7aa855a5b649da986e99d7a67f5ef92d8b4e1fbbeceb0aeb65e3db26f44341326f3e4f091c257fe535ff7e6eb1b98c25963cef147e630e9181fe806
-  languageName: node
-  linkType: hard
-
-"@docusaurus/types@npm:^2.0.0-alpha.56":
+"@docusaurus/types@npm:^2.0.0-alpha.37, @docusaurus/types@npm:^2.0.0-alpha.56":
   version: 2.0.0-alpha.56
   resolution: "@docusaurus/types@npm:2.0.0-alpha.56"
   dependencies:
@@ -2028,21 +2016,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/firestore-types@npm:1.10.2":
-  version: 1.10.2
-  resolution: "@firebase/firestore-types@npm:1.10.2"
+"@firebase/firestore-types@npm:1.10.3":
+  version: 1.10.3
+  resolution: "@firebase/firestore-types@npm:1.10.3"
   peerDependencies:
     "@firebase/app-types": 0.x
-  checksum: 3/b2017dd832cc4aca54dcf69ced103a9757efcd46aa6f10054aaf6c7b0518b0827e71a9223d736755f973367c91c7481ca24a6ca0cb5fc6d21a192160768c558b
+  checksum: 3/cae2681fff9ad0583f07edfc067c5848182e8740829dad7b9223fba8dcbb067d3b97471f02523b0b2814cb48a18993aca383d9187a5df5d774cbb0d165f5a4fd
   languageName: node
   linkType: hard
 
-"@firebase/firestore@npm:1.14.5":
-  version: 1.14.5
-  resolution: "@firebase/firestore@npm:1.14.5"
+"@firebase/firestore@npm:1.14.6":
+  version: 1.14.6
+  resolution: "@firebase/firestore@npm:1.14.6"
   dependencies:
     "@firebase/component": 0.1.12
-    "@firebase/firestore-types": 1.10.2
+    "@firebase/firestore-types": 1.10.3
     "@firebase/logger": 0.2.4
     "@firebase/util": 0.2.47
     "@firebase/webchannel-wrapper": 0.2.41
@@ -2052,7 +2040,7 @@ __metadata:
   peerDependencies:
     "@firebase/app": 0.x
     "@firebase/app-types": 0.x
-  checksum: 3/b590135fab242eca1f4caef99d36401fd03b5a9e96ef0e006774e09add200ae59241de02ccde2cb2c12c5fbc2a669f625973799e3c9abe105c6915e4559b2815
+  checksum: 3/5f389499fbacf020730f154d0a4751d3f9ebc04c558150851d832ddf2e8ede34d88f2ed539d75b18efc1e27c66b90f88aaa7c43d5ad9589fa768f8cd32c3fcf7
   languageName: node
   linkType: hard
 
@@ -2144,9 +2132,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/performance@npm:0.3.4":
-  version: 0.3.4
-  resolution: "@firebase/performance@npm:0.3.4"
+"@firebase/performance@npm:0.3.5":
+  version: 0.3.5
+  resolution: "@firebase/performance@npm:0.3.5"
   dependencies:
     "@firebase/component": 0.1.12
     "@firebase/installations": 0.4.10
@@ -2157,7 +2145,7 @@ __metadata:
   peerDependencies:
     "@firebase/app": 0.x
     "@firebase/app-types": 0.x
-  checksum: 3/adac323f224ed31ead94a26de2e341e3ea0ac7cddb6bcb8f6be262a5ccfbe5d997fed319f2370deadfce69a65637cf8d6513f8b58d2753be9a898e4de6db6204
+  checksum: 3/61c672cf642fafd88ebe53b3899ac8c3bd925ab24f5c36afe23af7eb93a60eb15c9eff6640184ae971c7d4edbf5335e85505ece61a103ac589572dee9353028f
   languageName: node
   linkType: hard
 
@@ -2636,9 +2624,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/lab@npm:^4.0.0-alpha.53":
-  version: 4.0.0-alpha.53
-  resolution: "@material-ui/lab@npm:4.0.0-alpha.53"
+"@material-ui/lab@npm:^4.0.0-alpha.54":
+  version: 4.0.0-alpha.54
+  resolution: "@material-ui/lab@npm:4.0.0-alpha.54"
   dependencies:
     "@babel/runtime": ^7.4.4
     "@material-ui/utils": ^4.9.6
@@ -2653,7 +2641,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 3/7410855aba788b482b9b8a69d0e631b2d637997c3ffbf833aa5fc1a317822b41a4e2fd0165986c4dbdcb5f039f164bca8986ec9343ce8ea7021fd941d9a57c55
+  checksum: 3/6758737d755dab1be0a18f334e7563872a28810e554637afbb2b65679256629262b59d914d753702650ae30bf3a5a07583dc0603ad3cad8f29660b3dcc6ad18f
   languageName: node
   linkType: hard
 
@@ -2786,9 +2774,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/react-dev-overlay@npm:9.4.2":
-  version: 9.4.2
-  resolution: "@next/react-dev-overlay@npm:9.4.2"
+"@next/react-dev-overlay@npm:9.4.4":
+  version: 9.4.4
+  resolution: "@next/react-dev-overlay@npm:9.4.4"
   dependencies:
     "@babel/code-frame": 7.8.3
     ally.js: 1.4.1
@@ -2803,17 +2791,17 @@ __metadata:
   peerDependencies:
     react: ^16.9.0
     react-dom: ^16.9.0
-  checksum: 3/72db3ab958b37952a9cc7fc427353925a08fc7141e335aef2748a4b83b898c64a755b4694118a644f48dd5a0eec00ec892270129cb215ff64432101fe2df2aae
+  checksum: 3/1e610b5bebd170ac233bd595169175a1e1c5a9dddf2f9506c57fc69aedfbf2db6a581839449b9f77efd64fc1520dcb2253c15ee125c2187c0b084473e66c48fa
   languageName: node
   linkType: hard
 
-"@next/react-refresh-utils@npm:9.4.2":
-  version: 9.4.2
-  resolution: "@next/react-refresh-utils@npm:9.4.2"
+"@next/react-refresh-utils@npm:9.4.4":
+  version: 9.4.4
+  resolution: "@next/react-refresh-utils@npm:9.4.4"
   peerDependencies:
-    react-refresh: 0.8.2
+    react-refresh: 0.8.3
     webpack: ^4
-  checksum: 3/7bb8fa40634799cf30781ca637cbf6d2ff232ab806c8b460eaf49e8447f516cafd0a8ba759333f2c328a44f64e44e11124efc0d7ab5dc73d1918405537d9c9d5
+  checksum: 3/6f3547c150fdfe5eb6e3cabac7e972cfc92856e59a88b508fb3d58d5ddef9a4f048d085f4bda68d04864b3c95b5445e0c3ed10fe7571f091b00ec2b7953ed1ea
   languageName: node
   linkType: hard
 
@@ -7384,14 +7372,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:2.0.0, domutils@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "domutils@npm:2.0.0"
+"domutils@npm:2.1.0":
+  version: 2.1.0
+  resolution: "domutils@npm:2.1.0"
   dependencies:
     dom-serializer: ^0.2.1
     domelementtype: ^2.0.1
     domhandler: ^3.0.0
-  checksum: 3/0570562cb984c8ae0814f2bb23efd06578bc6db9a59654535bf5aadac501cfc472fbb1057c79228992c4561ce4d8c3006b838188ac1c79a96542dc65585def5d
+  checksum: 3/0a2e5a8d9425bc95fdf91ab943024bc96c565d0b4f2023be787e7308cd98e609e461bcdf9f18c74ebb81ecebc8bcb47f8db85ef2b6d0547320ecdc43e21b227e
   languageName: node
   linkType: hard
 
@@ -7402,6 +7390,17 @@ __metadata:
     dom-serializer: 0
     domelementtype: 1
   checksum: 3/a5b2f01fb3ff626073e3c3b43fedcff34073fb059b1235ee31cd0b5690d826304f41bc3fd117f95d754a1666ac3a57d224b408d83dd4f1c4525fd5b636d8df6f
+  languageName: node
+  linkType: hard
+
+"domutils@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "domutils@npm:2.0.0"
+  dependencies:
+    dom-serializer: ^0.2.1
+    domelementtype: ^2.0.1
+    domhandler: ^3.0.0
+  checksum: 3/0570562cb984c8ae0814f2bb23efd06578bc6db9a59654535bf5aadac501cfc472fbb1057c79228992c4561ce4d8c3006b838188ac1c79a96542dc65585def5d
   languageName: node
   linkType: hard
 
@@ -8728,25 +8727,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"firebase@npm:^7.14.5":
-  version: 7.14.5
-  resolution: "firebase@npm:7.14.5"
+"firebase@npm:^7.14.6":
+  version: 7.14.6
+  resolution: "firebase@npm:7.14.6"
   dependencies:
     "@firebase/analytics": 0.3.5
     "@firebase/app": 0.6.4
     "@firebase/app-types": 0.6.1
     "@firebase/auth": 0.14.6
     "@firebase/database": 0.6.3
-    "@firebase/firestore": 1.14.5
+    "@firebase/firestore": 1.14.6
     "@firebase/functions": 0.4.44
     "@firebase/installations": 0.4.10
     "@firebase/messaging": 0.6.16
-    "@firebase/performance": 0.3.4
+    "@firebase/performance": 0.3.5
     "@firebase/polyfill": 0.3.36
     "@firebase/remote-config": 0.1.21
     "@firebase/storage": 0.3.34
     "@firebase/util": 0.2.47
-  checksum: 3/9976ff3a4fdc7126616c4753d61551cc32b05b2552c5c241fe9955f79d4e9b09de2c8cdd7d6edbfde5a9a9432f710089469ad2fc7c4eb316e1559e58cbcd9f47
+  checksum: 3/02db403c2aa5e2b499a006ffeca9ac2adbacbbca837bcad49afa14fb4442948ce04badf9127e06c19d628e08673f353c510eb33a88964d0fb3ffdca23347f131
   languageName: node
   linkType: hard
 
@@ -12135,7 +12134,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin"
   dependencies:
-    "@docusaurus/types": 2.0.0-alpha.55
+    "@docusaurus/types": ^2.0.0-alpha.37
     lib-prism-extended: 0.1.0
   peerDependencies:
     prism-react-renderer: ^1.1.0
@@ -12149,7 +12148,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
-    firebase: ^7.14.5
+    firebase: ^7.14.6
     lib-common: 0.1.0
     react: ^16.13.1
     rxjs: ^6.5.5
@@ -12774,6 +12773,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:5.1.1, lru-cache@npm:^5.0.0, lru-cache@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "lru-cache@npm:5.1.1"
+  dependencies:
+    yallist: ^3.0.2
+  checksum: 3/ffd9a280fa3400e731265db502270c2a65432f3fbfac23d480c72f675ec16dbbeddd57d4baf7aca70ab7af49949fad1bcaaf5a5e6e1cfed7316de71bb5dddf1c
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^4.0.1":
   version: 4.1.5
   resolution: "lru-cache@npm:4.1.5"
@@ -12781,15 +12789,6 @@ fsevents@^1.2.7:
     pseudomap: ^1.0.2
     yallist: ^2.1.2
   checksum: 3/6a098d23629357451d4324e1e4fefccdd6df316df29e25571c6148220ced923258381ebeafdf919f90e28c780b650427390582618c1d5fe097873e656d062511
-  languageName: node
-  linkType: hard
-
-"lru-cache@npm:^5.0.0, lru-cache@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "lru-cache@npm:5.1.1"
-  dependencies:
-    yallist: ^3.0.2
-  checksum: 3/ffd9a280fa3400e731265db502270c2a65432f3fbfac23d480c72f675ec16dbbeddd57d4baf7aca70ab7af49949fad1bcaaf5a5e6e1cfed7316de71bb5dddf1c
   languageName: node
   linkType: hard
 
@@ -13527,11 +13526,11 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"next@npm:^9.4.2":
-  version: 9.4.2
-  resolution: "next@npm:9.4.2"
+"next@npm:^9.4.4":
+  version: 9.4.4
+  resolution: "next@npm:9.4.4"
   dependencies:
-    "@ampproject/toolbox-optimizer": 2.3.1
+    "@ampproject/toolbox-optimizer": 2.4.0
     "@babel/code-frame": 7.8.3
     "@babel/core": 7.7.7
     "@babel/plugin-proposal-class-properties": 7.8.3
@@ -13549,8 +13548,8 @@ fsevents@^1.2.7:
     "@babel/preset-typescript": 7.9.0
     "@babel/runtime": 7.9.6
     "@babel/types": 7.9.6
-    "@next/react-dev-overlay": 9.4.2
-    "@next/react-refresh-utils": 9.4.2
+    "@next/react-dev-overlay": 9.4.4
+    "@next/react-refresh-utils": 9.4.4
     babel-plugin-syntax-jsx: 6.18.0
     babel-plugin-transform-define: 2.0.0
     babel-plugin-transform-react-remove-prop-types: 0.4.24
@@ -13571,7 +13570,7 @@ fsevents@^1.2.7:
     prop-types: 15.7.2
     prop-types-exact: 1.2.0
     react-is: 16.13.1
-    react-refresh: 0.8.2
+    react-refresh: 0.8.3
     resolve-url-loader: 3.1.1
     sass-loader: 8.0.2
     schema-utils: 2.6.6
@@ -13587,7 +13586,7 @@ fsevents@^1.2.7:
     react-dom: ^16.6.0
   bin:
     next: dist/bin/next
-  checksum: 3/17b910dbfe9c194e043c6f4dc03a7979cce857a8e5fa352df62fc73ee0a7a1ead202de3485d769ee18e8d5ffbd536ba0997eca5051b5ba8648e7d7916816b32c
+  checksum: 3/bcd3b7ade9db7098aa299f2085c176284f317b402750b4951cb3f93946572e06411d9da21e915c94fd3d4684df8646042e00179576d7b55aa3e60dadb3003af5
   languageName: node
   linkType: hard
 
@@ -16133,10 +16132,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-refresh@npm:0.8.2":
-  version: 0.8.2
-  resolution: "react-refresh@npm:0.8.2"
-  checksum: 3/8d9385ceaa4170bc37839f8d7c9f81ac6323c0ede1aa054113b88be96125bd57ca947d6dfe422b7f0122450c93282828d9fb9465ee2a8d4c6ae48538e6774ee3
+"react-refresh@npm:0.8.3":
+  version: 0.8.3
+  resolution: "react-refresh@npm:0.8.3"
+  checksum: 3/38f06df8e0a20701b96e5d680838a3528d66cfb53db79843d30cb9517df3262ec596607147439975267bf0634bee77101db37298ea79b5742cc28664632f3c76
   languageName: node
   linkType: hard
 
@@ -16982,7 +16981,7 @@ fsevents@^1.2.7:
   dependencies:
     "@babel/core": ^7.10.1
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.56
-    "@docusaurus/types": ^2.0.0-alpha.56
+    "@docusaurus/types": ^2.0.0-alpha.37
     "@types/classnames": 2.2.10
     "@types/jest": 25.2.3
     "@types/node": 14.0.5
@@ -18532,13 +18531,13 @@ fsevents@^1.2.7:
   dependencies:
     "@material-ui/core": ^4.10.0
     "@material-ui/icons": ^4.9.1
-    "@material-ui/lab": ^4.0.0-alpha.53
+    "@material-ui/lab": ^4.0.0-alpha.54
     "@types/jest": ^25.2.3
-    firebase: ^7.14.5
+    firebase: ^7.14.6
     javascript-lp-solver: ^0.4.24
     lib-firebase: 0.1.0
     lib-react: 0.1.0
-    next: ^9.4.2
+    next: ^9.4.4
     react: ^16.13.1
     react-beautiful-dnd: ^13.0.0
     react-dom: ^16.13.1
@@ -18565,7 +18564,7 @@ fsevents@^1.2.7:
     "@material-ui/core": ^4.10.0
     "@types/jest": ^25.2.3
     lib-react: 0.1.0
-    next: ^9.4.2
+    next: ^9.4.4
     react: ^16.13.1
     react-dom: ^16.13.1
     react-test-renderer: ^16.13.1
@@ -20288,11 +20287,11 @@ typescript@3.9.3:
     "@material-ui/icons": ^4.9.1
     "@types/jest": ^25.2.3
     classnames: ^2.2.6
-    firebase: ^7.14.5
+    firebase: ^7.14.6
     infima: 0.2.0-alpha.12
     lib-firebase: 0.1.0
     lib-react: 0.1.0
-    next: ^9.4.2
+    next: ^9.4.4
     react: ^16.13.1
     react-dom: ^16.13.1
     react-redux: ^7.2.0
