@@ -28,6 +28,7 @@ export default class NextMaterialUIDocument extends Document {
     return { ...initialProps, styles };
   }
 
+  // eslint-disable-next-line class-methods-use-this
   render(): ReactElement {
     return (
       <Html lang="en">

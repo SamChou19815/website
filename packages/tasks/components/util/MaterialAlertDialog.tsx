@@ -47,7 +47,6 @@ const MaterialAlertDialog = ({
               onConfirm();
             }}
             color="primary"
-            autoFocus
           >
             Confirm
           </Button>

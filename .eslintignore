@@ -25,6 +25,10 @@ tsconfig.tsbuildinfo
 .vscode/pnpify
 .docusaurus
 .cache-loader
+
 # styles
 .yarn
 packages/lib-docusaurus-plugin/index.js
+
+# deno
+tools
