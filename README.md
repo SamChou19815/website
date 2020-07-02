@@ -25,11 +25,9 @@ This is a monorepo of Sam's [website](https://developersam.com).
 - Backend
   - Languages
     - Go
-    - Kotlin
   - Hosting
     - Firebase
     - Google Cloud Functions
-    - Google Cloud Run
 - CI/CD
   - Provider: GitHub Actions
   - Enforcement
@@ -40,7 +38,7 @@ This is a monorepo of Sam's [website](https://developersam.com).
 
 ## Tools
 
-The [`tools/`](tools/) folder contains NodeJS code to compute dependencies between different
+The [`tools/`](tools/) folder contains Deno code to compute dependencies between different
 Yarn workspaces and use that to generate GitHub Actions workflow files to accurately decide the
 order of building steps. In the future, it's expected to handle all build related job, including
 local building.
