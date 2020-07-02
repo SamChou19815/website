@@ -83,8 +83,8 @@ const writeGeneratedFile = ([filename, content]: readonly [string, string]): voi
 
 const generateIgnoreFiles = (): void => {
   const content = readFile('.gitignore');
-  const additionalStyleIgnores = '# styles\n.yarn\npackages/lib-docusaurus-plugin/index.js\n';
-  writeFile('.eslintignore', content + additionalStyleIgnores);
+  const additionalStyleIgnores = '\n# styles\n.yarn\npackages/lib-docusaurus-plugin/index.js\n';
+  writeFile('.eslintignore', content + additionalStyleIgnores + '\n# deno\ntools\n');
   writeFile('.prettierignore', content + additionalStyleIgnores);
 };
 

@@ -4,8 +4,9 @@
     "common:firebase": "firebase",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
-    "lint": "NODE_NO_WARNINGS=1 eslint . --cache --ext .js --ext .ts --ext .jsx --ext .tsx",
-    "test": "NODE_NO_WARNINGS=1 jest"
+    "lint": "NODE_NO_WARNINGS=1 eslint . --cache",
+    "test": "NODE_NO_WARNINGS=1 jest",
+    "compile": "yarn workspaces foreach -v run compile"
   },
   "engines": {
     "yarn": ">=1.21.0"
@@ -14,38 +15,40 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@dev-sam/eslint-config-common": "workspace:^0.14.0",
     "@docusaurus/module-type-aliases": "^2.0.0-alpha.56",
     "@docusaurus/types": "^2.0.0-alpha.37",
     "@types/classnames": "2.2.10",
-    "@types/jest": "25.2.3",
-    "@types/node": "14.0.5",
+    "@types/jest": "26.0.0",
+    "@types/node": "14.0.13",
     "@types/prismjs": "1.16.1",
-    "@types/react": "16.9.35",
+    "@types/react": "16.9.38",
     "@types/react-beautiful-dnd": "13.0.0",
     "@types/react-dom": "16.9.8",
     "@types/react-redux": "7.1.9",
     "@types/react-test-renderer": "16.9.2",
-    "@types/remarkable": "^1.7.4",
-    "@typescript-eslint/eslint-plugin": "^3.0.2",
-    "@typescript-eslint/parser": "^3.0.2",
+    "@types/remarkable": "1.7.4",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
     "babel-jest": "^26.0.1",
-    "eslint": "^7.1.0",
-    "eslint-config-airbnb": "^18.1.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-import-resolver-node": "^0.3.4",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "firebase-tools": "^8.4.0",
+    "firebase-tools": "^8.4.3",
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
-    "lint-staged": "^10.2.6",
+    "lint-staged": "^10.2.9",
     "next-transpile-modules": "^3.3.0",
     "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1",
-    "typescript": "3.9.3",
+    "typescript": "3.9.5",
     "worker-loader": "^2.0.0"
   },
   "peerDependencies": {
@@ -61,6 +64,17 @@
     "ejs": {
       "built": false
     }
+  },
+  "eslintConfig": {
+    "extends": [
+      "@dev-sam/common"
+    ]
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "proseWrap": "always"
   },
   "husky": {
     "hooks": {
