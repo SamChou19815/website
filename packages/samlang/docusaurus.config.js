@@ -22,6 +22,10 @@ module.exports = {
       theme,
       darkTheme,
     },
+    algolia: {
+      apiKey: '1406f5568da6a64e7791f113bbf9148e',
+      indexName: 'developersam_samllang',
+    },
     navbar: {
       title: 'SAMLANG',
       logo: {
