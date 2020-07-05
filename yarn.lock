@@ -1650,7 +1650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/eslint-config-common@workspace:^0.13.0, @dev-sam/eslint-config-common@workspace:packages/eslint-config-common":
+"@dev-sam/eslint-config-common@workspace:^0.14.0, @dev-sam/eslint-config-common@workspace:packages/eslint-config-common":
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
   peerDependencies:
@@ -17083,7 +17083,7 @@ fsevents@^1.2.7:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@babel/core": ^7.10.2
-    "@dev-sam/eslint-config-common": "workspace:^0.13.0"
+    "@dev-sam/eslint-config-common": "workspace:^0.14.0"
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.56
     "@docusaurus/types": ^2.0.0-alpha.37
     "@types/classnames": 2.2.10
