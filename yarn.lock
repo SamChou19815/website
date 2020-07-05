@@ -19758,6 +19758,23 @@ typescript@3.9.5:
   languageName: node
   linkType: hard
 
+"vault@workspace:packages/vault":
+  version: 0.0.0-use.local
+  resolution: "vault@workspace:packages/vault"
+  dependencies:
+    "@docusaurus/core": ^2.0.0-alpha.56
+    "@docusaurus/plugin-google-analytics": ^2.0.0-alpha.56
+    "@docusaurus/plugin-google-gtag": ^2.0.0-alpha.56
+    "@docusaurus/preset-classic": ^2.0.0-alpha.56
+    "@mdx-js/react": ^1.6.4
+    classnames: ^2.2.6
+    lib-docusaurus-plugin: 0.1.0
+    lib-react: 0.1.0
+    react: ^16.13.1
+    react-dom: ^16.13.1
+  languageName: unknown
+  linkType: soft
+
 "vendors@npm:^1.0.0":
   version: 1.0.4
   resolution: "vendors@npm:1.0.4"

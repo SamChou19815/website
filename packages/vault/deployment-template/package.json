@@ -1,0 +1,12 @@
+{
+  "name": "vault-for-appengine-deployment-only",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "exit 0",
+    "deploy": "gcloud app deploy"
+  }
+}
