@@ -1,0 +1,39 @@
+# @generated
+
+name: CD vault
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - packages/lib-prism-extended/**
+      - packages/lib-docusaurus-plugin/**
+      - packages/lib-react/**
+      - packages/vault/**
+      - package.json
+      - yarn.lock
+      - configuration/**
+      - .github/workflows/generated-*-vault.yml
+env:
+  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - uses: actions/cache@v2
+        with:
+          path: |
+            .yarn/cache
+            .pnp.js
+          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-berry-
+      - name: Yarn Install
+        run: yarn install
+      - name: Build
+        run: yarn workspace vault build
+      - name: Deploy
+        run: yarn workspace vault deploy

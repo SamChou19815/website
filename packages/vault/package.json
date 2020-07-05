@@ -1,0 +1,37 @@
+{
+  "name": "vault",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_NO_WARNINGS=1 docusaurus start",
+    "build": "NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
+    "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
+    "compile": "yarn build",
+    "deploy-local": "cd deployment-template && gcloud app deploy",
+    "deploy": "echo 'Not implemented yet.'"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.56",
+    "@docusaurus/plugin-google-analytics": "^2.0.0-alpha.56",
+    "@docusaurus/plugin-google-gtag": "^2.0.0-alpha.56",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.56",
+    "@mdx-js/react": "^1.6.4",
+    "classnames": "^2.2.6",
+    "lib-docusaurus-plugin": "0.1.0",
+    "lib-react": "0.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
