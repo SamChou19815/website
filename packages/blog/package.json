@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "docusaurus": "docusaurus",
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
     "build": "NODE_NO_WARNINGS=1 docusaurus build",
     "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
