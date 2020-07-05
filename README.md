@@ -1,6 +1,5 @@
 # website
 
-![CLA assistant](https://cla-assistant.io/readme/badge/SamChou19815/website)
 ![GitHub](https://img.shields.io/github/license/SamChou19815/website.svg)
 ![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
