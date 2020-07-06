@@ -4,14 +4,14 @@ name: CI vault
 on:
   push:
     paths:
-      - packages/lib-prism-extended/**
-      - packages/lib-docusaurus-plugin/**
-      - packages/lib-react/**
-      - packages/vault/**
-      - package.json
-      - yarn.lock
-      - configuration/**
-      - .github/workflows/generated-*-vault.yml
+      - 'packages/lib-prism-extended/**'
+      - 'packages/lib-docusaurus-plugin/**'
+      - 'packages/lib-react/**'
+      - 'packages/vault/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'configuration/**'
+      - '.github/workflows/generated-*-vault.yml'
 
 jobs:
   build:
@@ -25,8 +25,7 @@ jobs:
             .yarn/cache
             .pnp.js
           key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-berry-
+          restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install
       - name: Compile

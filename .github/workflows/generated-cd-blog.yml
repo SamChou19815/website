@@ -3,17 +3,17 @@
 name: CD blog
 on:
   push:
+    paths:
+      - 'packages/lib-prism-extended/**'
+      - 'packages/lib-docusaurus-plugin/**'
+      - 'packages/lib-react/**'
+      - 'packages/blog/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'configuration/**'
+      - '.github/workflows/generated-*-blog.yml'
     branches:
       - master
-    paths:
-      - packages/lib-prism-extended/**
-      - packages/lib-docusaurus-plugin/**
-      - packages/lib-react/**
-      - packages/blog/**
-      - package.json
-      - yarn.lock
-      - configuration/**
-      - .github/workflows/generated-*-blog.yml
 env:
   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
@@ -29,8 +29,7 @@ jobs:
             .yarn/cache
             .pnp.js
           key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-berry-
+          restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install
       - name: Build
