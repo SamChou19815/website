@@ -82,7 +82,7 @@ export const githubActionWorkflowToString = ({
   workflowSecrets = [],
   workflowJobs,
 }: GitHubActionsWorkflow): string => {
-  const header = `@generated
+  const header = `# @generated
 
 name: ${workflowName}
 on:

@@ -1,77 +1,82 @@
 import { readFileSync, writeFileSync, readdirSync, unlinkSync } from 'fs';
 
 import {
+  githubActionJobActionStep,
+  githubActionJobRunStep,
+  githubActionWorkflowToString,
+} from './codegen/ast/github-actions';
+import {
   allPrivateWorkspaces,
   libraryWorkspaces,
   projectWorkspaces,
   getDependencyChain,
 } from './workspace';
 
-const getBoilterPlateSetupSteps = (jobName: string): string => `jobs:
-  ${jobName}:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - uses: actions/cache@v2
-        with:
-          path: |
-            .yarn/cache
-            .pnp.js
-          key: yarn-berry-\${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-berry-
-      - name: Yarn Install
-        run: yarn install`;
-
-const getPathsString = (workspace: string): string => {
-  const allPaths = [
-    ...getDependencyChain(workspace).map((dependency) => `packages/${dependency}/**`),
-    'package.json',
-    'yarn.lock',
-    'configuration/**',
-    `.github/workflows/generated-*-${workspace}.yml`,
-  ];
-  return allPaths.map((path) => `      - ${path}`).join('\n');
-};
+const getDependencyPaths = (workspace: string): readonly string[] => [
+  ...getDependencyChain(workspace).map((dependency) => `packages/${dependency}/**`),
+  'package.json',
+  'yarn.lock',
+  'configuration/**',
+  `.github/workflows/generated-*-${workspace}.yml`,
+];
 
 const generateFrontendCIWorkflow = (workspace: string): readonly [string, string] => {
   const filename = `generated-ci-${workspace}.yml`;
-  const content = `# @generated
-
-name: CI ${workspace}
-on:
-  push:
-    paths:
-${getPathsString(workspace)}
-
-${getBoilterPlateSetupSteps('build')}
-      - name: Compile
-        run: yarn workspace ${workspace} compile
-`;
+  const content = githubActionWorkflowToString({
+    workflowName: `CI ${workspace}`,
+    workflowtrigger: {
+      triggerPaths: getDependencyPaths(workspace),
+      masterBranchOnly: false,
+    },
+    workflowJobs: [
+      {
+        jobName: 'build',
+        jobSteps: [
+          githubActionJobActionStep('actions/checkout@v2'),
+          githubActionJobActionStep('actions/setup-node@v1'),
+          githubActionJobActionStep('actions/cache@v2', {
+            path: '.yarn/cache\n.pnp.js',
+            // eslint-disable-next-line no-template-curly-in-string
+            key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
+            'restore-keys': 'yarn-berry-',
+          }),
+          githubActionJobRunStep('Yarn Install', 'yarn install'),
+          githubActionJobRunStep('Compile', `yarn workspace ${workspace} compile`),
+        ],
+      },
+    ],
+  });
   return [filename, content];
 };
 
 const generateFrontendCDWorkflow = (workspace: string): readonly [string, string] => {
   const filename = `generated-cd-${workspace}.yml`;
-  const content = `# @generated
-
-name: CD ${workspace}
-on:
-  push:
-    branches:
-      - master
-    paths:
-${getPathsString(workspace)}
-env:
-  FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
-
-${getBoilterPlateSetupSteps('deploy')}
-      - name: Build
-        run: yarn workspace ${workspace} build
-      - name: Deploy
-        run: yarn workspace ${workspace} deploy
-`;
+  const content = githubActionWorkflowToString({
+    workflowName: `CD ${workspace}`,
+    workflowtrigger: {
+      triggerPaths: getDependencyPaths(workspace),
+      masterBranchOnly: true,
+    },
+    workflowSecrets: ['FIREBASE_TOKEN'],
+    workflowJobs: [
+      {
+        jobName: 'deploy',
+        jobSteps: [
+          githubActionJobActionStep('actions/checkout@v2'),
+          githubActionJobActionStep('actions/setup-node@v1'),
+          githubActionJobActionStep('actions/cache@v2', {
+            path: '.yarn/cache\n.pnp.js',
+            // eslint-disable-next-line no-template-curly-in-string
+            key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
+            'restore-keys': 'yarn-berry-',
+          }),
+          githubActionJobRunStep('Yarn Install', 'yarn install'),
+          githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
+          githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
+        ],
+      },
+    ],
+  });
   return [filename, content];
 };
 

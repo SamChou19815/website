@@ -12,7 +12,7 @@ it('githubActionWorkflowToString() works as expected test 1', () => {
       workflowSecrets: ['FIREBASE_TOKEN'],
       workflowJobs: [],
     })
-  ).toBe(`@generated
+  ).toBe(`# @generated
 
 name: example-workflow
 on:
@@ -36,7 +36,7 @@ it('githubActionWorkflowToString() works as expected test 2', () => {
       workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: false },
       workflowJobs: [],
     })
-  ).toBe(`@generated
+  ).toBe(`# @generated
 
 name: example-workflow
 on:
@@ -56,7 +56,7 @@ it('githubActionWorkflowToString() works as expected test 3', () => {
       workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: true },
       workflowJobs: [],
     })
-  ).toBe(`@generated
+  ).toBe(`# @generated
 
 name: example-workflow
 on:
@@ -79,7 +79,7 @@ it('githubActionWorkflowToString() works as expected test 4', () => {
       workflowSecrets: ['FIREBASE_TOKEN'],
       workflowJobs: [],
     })
-  ).toBe(`@generated
+  ).toBe(`# @generated
 
 name: example-workflow
 on:
@@ -135,7 +135,7 @@ fi`
         },
       ],
     })
-  ).toBe(`@generated
+  ).toBe(`# @generated
 
 name: lint-generated
 on:

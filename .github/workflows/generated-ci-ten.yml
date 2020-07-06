@@ -4,13 +4,13 @@ name: CI ten
 on:
   push:
     paths:
-      - packages/lib-prism-extended/**
-      - packages/lib-react/**
-      - packages/ten/**
-      - package.json
-      - yarn.lock
-      - configuration/**
-      - .github/workflows/generated-*-ten.yml
+      - 'packages/lib-prism-extended/**'
+      - 'packages/lib-react/**'
+      - 'packages/ten/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'configuration/**'
+      - '.github/workflows/generated-*-ten.yml'
 
 jobs:
   build:
@@ -24,8 +24,7 @@ jobs:
             .yarn/cache
             .pnp.js
           key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-berry-
+          restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install
       - name: Compile

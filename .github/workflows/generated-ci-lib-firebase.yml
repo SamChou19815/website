@@ -4,12 +4,12 @@ name: CI lib-firebase
 on:
   push:
     paths:
-      - packages/lib-common/**
-      - packages/lib-firebase/**
-      - package.json
-      - yarn.lock
-      - configuration/**
-      - .github/workflows/generated-*-lib-firebase.yml
+      - 'packages/lib-common/**'
+      - 'packages/lib-firebase/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'configuration/**'
+      - '.github/workflows/generated-*-lib-firebase.yml'
 
 jobs:
   build:
@@ -23,8 +23,7 @@ jobs:
             .yarn/cache
             .pnp.js
           key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            yarn-berry-
+          restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install
       - name: Compile
