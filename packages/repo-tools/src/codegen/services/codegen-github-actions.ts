@@ -14,7 +14,12 @@ import {
 import { CodegenService } from './codegen-service-types';
 
 const getDependencyPaths = (workspace: string): readonly string[] => [
-  ...getDependencyChain(workspace).map((dependency) => `packages/${dependency}/**`),
+  ...getDependencyChain(workspace).map(
+    (dependency) =>
+      `packages/${
+        dependency.startsWith('@dev-sam/') ? dependency.substring('@dev-sam/'.length) : dependency
+      }/**`
+  ),
   'package.json',
   'yarn.lock',
   'configuration/**',
