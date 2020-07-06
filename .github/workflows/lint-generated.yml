@@ -6,12 +6,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Setup Deno
-        run: |
-          curl -fsSL https://deno.land/x/install/install.sh | sh
-          echo "::add-path::/home/runner/.deno/bin"
+      - uses: actions/setup-node@v1
+      - uses: actions/cache@v2
+        with:
+          path: |
+            .yarn/cache
+            .pnp.js
+          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            yarn-berry-
+      - name: Yarn Install
+        run: yarn install
       - name: Generate Workflows
-        run: ./tools/generate
+        run: yarn workspace @dev-sam/repo-tools compile
+      - name: Generate Workflows
+        run: yarn codegen
       - name: Check changed
         run: |
           git status --porcelain

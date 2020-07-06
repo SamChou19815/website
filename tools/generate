@@ -1,4 +1,0 @@
-#!/bin/bash
-
-MY_PATH=$(dirname "$0")
-deno run --unstable --allow-run --allow-read --allow-write "$MY_PATH/generate.ts"

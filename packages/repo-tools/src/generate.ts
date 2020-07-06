@@ -1,14 +1,11 @@
+import { readFileSync, writeFileSync, readdirSync, unlinkSync } from 'fs';
+
 import {
   allPrivateWorkspaces,
   libraryWorkspaces,
   projectWorkspaces,
   getDependencyChain,
-} from './workspace.ts';
-
-const readFile = (filename: string): string =>
-  new TextDecoder().decode(Deno.readFileSync(filename));
-const writeFile = (filename: string, content: string): void =>
-  Deno.writeFileSync(filename, new TextEncoder().encode(content));
+} from './workspace';
 
 const getBoilterPlateSetupSteps = (jobName: string): string => `jobs:
   ${jobName}:
@@ -79,27 +76,36 @@ ${getBoilterPlateSetupSteps('deploy')}
 };
 
 const writeGeneratedFile = ([filename, content]: readonly [string, string]): void =>
-  writeFile(`.github/workflows/${filename}`, content);
+  writeFileSync(`.github/workflows/${filename}`, content);
 
 const generateIgnoreFiles = (): void => {
-  const content = readFile('.gitignore');
-  const additionalStyleIgnores = '\n# styles\n.yarn\npackages/lib-docusaurus-plugin/index.js\n';
-  writeFile('.eslintignore', content + additionalStyleIgnores + '\n# deno\ntools\n');
-  writeFile('.prettierignore', content + additionalStyleIgnores);
+  const content = readFileSync('.gitignore');
+  const additionalIgnores = `
+# styles
+
+.yarn
+packages/lib-docusaurus-plugin/index.js
+packages/repo-tools/bin/
+`;
+  writeFileSync('.eslintignore', content + additionalIgnores);
+  writeFileSync('.prettierignore', content + additionalIgnores);
 };
 
-const main = (): void => {
-  Array.from(Deno.readDirSync('.github/workflows'))
-    .filter((entry) => entry.name.includes('generated-'))
-    .forEach((entry) => Deno.removeSync(`.github/workflows/${entry.name}`));
+const generate = (): void => {
+  Array.from(readdirSync('.github/workflows'))
+    .filter((filename) => filename.includes('generated-'))
+    .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
   allPrivateWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCIWorkflow(workspace));
   });
   projectWorkspaces.forEach((workspace) => {
     writeGeneratedFile(generateFrontendCDWorkflow(workspace));
   });
-  writeFile('configuration/libraries.json', `${JSON.stringify(libraryWorkspaces, undefined, 2)}\n`);
+  writeFileSync(
+    'configuration/libraries.json',
+    `${JSON.stringify(libraryWorkspaces, undefined, 2)}\n`
+  );
   generateIgnoreFiles();
 };
 
-main();
+export default generate;
