@@ -1,3 +1,3 @@
-import generate from './generate';
+import executeCodegenServices from './codegen';
 
-generate();
+executeCodegenServices();
