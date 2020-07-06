@@ -175,9 +175,6 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
   }),
 ];
 
-const writeGeneratedFile = ([filename, content]: readonly [string, string]): void =>
-  writeFileSync(`.github/workflows/${filename}`, content);
-
 const githubActionsCodegenService: CodegenService = {
   serviceName: 'Generate GitHub Actions Workflow',
   serviceSteps: [
@@ -189,36 +186,22 @@ const githubActionsCodegenService: CodegenService = {
           .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
       },
     },
-    {
-      stepName: 'Generate dummy workflow',
-      stepCode: (): void => writeGeneratedFile(generateDummyWorkflow()),
-    },
-    {
-      stepName: 'Generate TS/JS workflow',
-      stepCode: (): void => writeGeneratedFile(generateTSJSWorkflow()),
-    },
-    {
-      stepName: 'Generate Lint Markdown workflow',
-      stepCode: (): void => writeGeneratedFile(generateLintMarkdownWorkflow()),
-    },
-    {
-      stepName: 'Generate codegen porcelain check workflow',
-      stepCode: (): void => writeGeneratedFile(generateCodegenPorcelainWorkflow()),
-    },
-    ...toolingWorkspaces.map((workspace) => {
-      const workspaceFolderName = workspace.substring('@dev-sam/'.length);
-      return {
-        stepName: `Generate CI workflow for ${workspaceFolderName}`,
-        stepCode: () => writeGeneratedFile(generateCIWorkflow(workspace, workspaceFolderName)),
-      };
-    }),
-    ...nonToolingWorkspaces.map((workspace) => ({
-      stepName: `Generate CI workflow for ${workspace}`,
-      stepCode: () => writeGeneratedFile(generateCIWorkflow(workspace)),
-    })),
-    ...projectWorkspaces.map((workspace) => ({
-      stepName: `Generate CD workflow for ${workspace}`,
-      stepCode: () => writeGeneratedFile(generateCDWorkflow(workspace)),
+    ...[
+      generateDummyWorkflow(),
+      generateTSJSWorkflow(),
+      generateLintMarkdownWorkflow(),
+      generateCodegenPorcelainWorkflow(),
+
+      ...toolingWorkspaces.map((workspace) =>
+        generateCIWorkflow(workspace, workspace.substring('@dev-sam/'.length))
+      ),
+
+      ...nonToolingWorkspaces.map((workspace) => generateCIWorkflow(workspace)),
+
+      ...projectWorkspaces.map((workspace) => generateCDWorkflow(workspace)),
+    ].map(([filename, content]) => ({
+      stepName: `Generate ${filename}`,
+      stepCode: (): void => writeFileSync(`.github/workflows/${filename}`, content),
     })),
   ],
 };
