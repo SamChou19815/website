@@ -1,11 +1,8 @@
 {
   "name": "@dev-sam/repo-tools",
-  "description": "Developer Sam's repository tools `r`",
+  "description": "Developer Sam's repository tools.",
   "version": "0.0.1",
   "private": true,
-  "bin": {
-    "dev-sam-repo-tools": "bin/index.js"
-  },
   "scripts": {
     "build": "run -T tsc",
     "compile": "yarn build && ncc build build/index.js -o bin -m && git status --porcelain"

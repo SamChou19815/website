@@ -6,7 +6,6 @@
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
     "lint": "NODE_NO_WARNINGS=1 eslint . --cache",
     "test": "NODE_NO_WARNINGS=1 jest",
-    "codegen": "dev-sam-repo-tools",
     "compile": "yarn workspaces foreach -v run compile"
   },
   "engines": {
