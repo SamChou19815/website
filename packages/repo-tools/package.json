@@ -1,0 +1,18 @@
+{
+  "name": "@dev-sam/repo-tools",
+  "description": "Developer Sam's repository tools `r`",
+  "version": "0.0.1",
+  "private": true,
+  "bin": {
+    "dev-sam-repo-tools": "bin/index.js"
+  },
+  "scripts": {
+    "build": "run -T tsc",
+    "compile": "yarn build && ncc build build/index.js -o bin -m"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.14",
+    "@zeit/ncc": "^0.22.3"
+  }
+}

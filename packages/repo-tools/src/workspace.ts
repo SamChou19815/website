@@ -1,16 +1,15 @@
+import { spawnSync } from 'child_process';
+
 type WorkspaceInformationFromYarn = {
   readonly name: string | null;
   readonly workspaceDependencies: readonly string[];
 };
 
-const getWorkspaceInformation = async (): Promise<ReadonlyMap<string, readonly string[]>> => {
+const getWorkspaceInformation = (): ReadonlyMap<string, readonly string[]> => {
   const map = new Map<string, readonly string[]>();
-  const process = Deno.run({
-    cmd: ['yarn', 'workspaces', 'list', '-v', '--json'],
-    stdout: 'piped',
-  });
-  const bytesOutput = await process.output();
-  const output = new TextDecoder().decode(bytesOutput).trim();
+
+  const process = spawnSync('yarn', ['workspaces', 'list', '-v', '--json'], { shell: true });
+  const output = process.stdout.toString().trim();
   const parsableJsonString = `[${output.split('\n').join(',')}]`;
   const workspacesJson = JSON.parse(parsableJsonString);
   workspacesJson.forEach(({ name, workspaceDependencies }: WorkspaceInformationFromYarn) => {
@@ -30,10 +29,7 @@ const getWorkspaceInformation = async (): Promise<ReadonlyMap<string, readonly s
   return map;
 };
 
-const workspaceInformation: ReadonlyMap<
-  string,
-  readonly string[]
-> = await getWorkspaceInformation();
+const workspaceInformation: ReadonlyMap<string, readonly string[]> = getWorkspaceInformation();
 
 const allPrivateWorkspaces: readonly string[] = Array.from(workspaceInformation.keys()).filter(
   (workspace) => !workspace.startsWith('@dev-sam')
