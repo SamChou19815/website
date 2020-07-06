@@ -1,16 +1,16 @@
-import { readFileSync, writeFileSync, readdirSync, unlinkSync } from 'fs';
+import { writeFileSync, readdirSync, unlinkSync } from 'fs';
 
+import {
+  allPrivateWorkspaces,
+  projectWorkspaces,
+  getDependencyChain,
+} from '../../infrastructure/workspace';
 import {
   githubActionJobActionStep,
   githubActionJobRunStep,
   githubActionWorkflowToString,
-} from './codegen/ast/github-actions';
-import {
-  allPrivateWorkspaces,
-  libraryWorkspaces,
-  projectWorkspaces,
-  getDependencyChain,
-} from './workspace';
+} from '../ast/github-actions';
+import { CodegenService } from './codegen-service-types';
 
 const getDependencyPaths = (workspace: string): readonly string[] => [
   ...getDependencyChain(workspace).map((dependency) => `packages/${dependency}/**`),
@@ -83,34 +83,34 @@ const generateFrontendCDWorkflow = (workspace: string): readonly [string, string
 const writeGeneratedFile = ([filename, content]: readonly [string, string]): void =>
   writeFileSync(`.github/workflows/${filename}`, content);
 
-const generateIgnoreFiles = (): void => {
-  const content = readFileSync('.gitignore');
-  const additionalIgnores = `
-# styles
-
-.yarn
-packages/lib-docusaurus-plugin/index.js
-packages/repo-tools/bin/
-`;
-  writeFileSync('.eslintignore', content + additionalIgnores);
-  writeFileSync('.prettierignore', content + additionalIgnores);
+const githubActionsCodegenService: CodegenService = {
+  serviceName: 'Generate GitHub Actions Workflow',
+  serviceSteps: [
+    {
+      stepName: 'Remove already generated workflow files.',
+      stepCode: (): void => {
+        Array.from(readdirSync('.github/workflows'))
+          .filter((filename) => filename.includes('generated-'))
+          .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
+      },
+    },
+    {
+      stepName: 'Generate CI workflows.',
+      stepCode: (): void => {
+        allPrivateWorkspaces.forEach((workspace) => {
+          writeGeneratedFile(generateFrontendCIWorkflow(workspace));
+        });
+      },
+    },
+    {
+      stepName: 'Generate CD workflows.',
+      stepCode: (): void => {
+        projectWorkspaces.forEach((workspace) => {
+          writeGeneratedFile(generateFrontendCDWorkflow(workspace));
+        });
+      },
+    },
+  ],
 };
 
-const generate = (): void => {
-  Array.from(readdirSync('.github/workflows'))
-    .filter((filename) => filename.includes('generated-'))
-    .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
-  allPrivateWorkspaces.forEach((workspace) => {
-    writeGeneratedFile(generateFrontendCIWorkflow(workspace));
-  });
-  projectWorkspaces.forEach((workspace) => {
-    writeGeneratedFile(generateFrontendCDWorkflow(workspace));
-  });
-  writeFileSync(
-    'configuration/libraries.json',
-    `${JSON.stringify(libraryWorkspaces, undefined, 2)}\n`
-  );
-  generateIgnoreFiles();
-};
-
-export default generate;
+export default githubActionsCodegenService;
