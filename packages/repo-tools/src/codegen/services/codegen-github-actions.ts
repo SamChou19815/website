@@ -85,6 +85,74 @@ const generateCDWorkflow = (workspace: string): readonly [string, string] => {
   return [filename, content];
 };
 
+const generateDummyWorkflow = (): readonly [string, string] => [
+  'generated-dummy.yml',
+  githubActionWorkflowToString({
+    workflowName: 'Dummy',
+    workflowtrigger: {
+      triggerPaths: ['**'],
+      masterBranchOnly: false,
+    },
+    workflowJobs: [
+      {
+        jobName: 'lint',
+        jobSteps: [githubActionJobRunStep('Success', 'echo "Lint nothing."')],
+      },
+      {
+        jobName: 'build',
+        jobSteps: [githubActionJobRunStep('Success', 'echo "Build nothing."')],
+      },
+      {
+        jobName: 'test',
+        jobSteps: [githubActionJobRunStep('Success', 'echo "Test nothing."')],
+      },
+    ],
+  }),
+];
+
+const generateTSJSWorkflow = (): readonly [string, string] => [
+  'generated-ts-js.yml',
+  githubActionWorkflowToString({
+    workflowName: 'Dummy',
+    workflowtrigger: {
+      triggerPaths: ['.github/workflows/generated-ts-js.yml', '**.js', '**.ts', '**.jsx', '**.tsx'],
+      masterBranchOnly: false,
+    },
+    workflowJobs: [
+      {
+        jobName: 'lint',
+        jobSteps: [...boilterplateSteps, githubActionJobRunStep('Lint', 'yarn lint')],
+      },
+      {
+        jobName: 'test',
+        jobSteps: [...boilterplateSteps, githubActionJobRunStep('Test', 'yarn test')],
+      },
+    ],
+  }),
+];
+
+const generateLintMarkdownWorkflow = (): readonly [string, string] => [
+  'generated-lint-markdown.yml',
+  githubActionWorkflowToString({
+    workflowName: 'lint-markdown',
+    workflowtrigger: {
+      triggerPaths: ['.github/workflows/generated-lint-markdown.yml'],
+      masterBranchOnly: false,
+    },
+    workflowJobs: [
+      {
+        jobName: 'lint',
+        jobSteps: [
+          githubActionJobActionStep('actions/checkout@v2'),
+          githubActionJobActionStep('actions/setup-ruby@v1'),
+          githubActionJobRunStep('Setup Markdown Lint', 'gem install mdl'),
+          githubActionJobRunStep('Run Markdown Lint', 'mdl .'),
+        ],
+      },
+    ],
+  }),
+];
+
 const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
   'generated-codegen-porcelain.yml',
   githubActionWorkflowToString({
@@ -120,6 +188,18 @@ const githubActionsCodegenService: CodegenService = {
           .filter((filename) => filename.includes('generated-'))
           .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
       },
+    },
+    {
+      stepName: 'Generate dummy workflow',
+      stepCode: (): void => writeGeneratedFile(generateDummyWorkflow()),
+    },
+    {
+      stepName: 'Generate TS/JS workflow',
+      stepCode: (): void => writeGeneratedFile(generateTSJSWorkflow()),
+    },
+    {
+      stepName: 'Generate Lint Markdown workflow',
+      stepCode: (): void => writeGeneratedFile(generateLintMarkdownWorkflow()),
     },
     {
       stepName: 'Generate codegen porcelain check workflow',

@@ -1,15 +1,16 @@
+# @generated
+
 name: lint-markdown
 on:
   push:
     paths:
-      - '.github/workflows/lint-markdown.yml'
-      - '**.md'
+      - '.github/workflows/generated-lint-markdown.yml'
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
       - name: Setup Markdown Lint
         run: gem install mdl
