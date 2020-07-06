@@ -4,7 +4,7 @@ name: CI @dev-sam/repo-tools
 on:
   push:
     paths:
-      - 'packages/@dev-sam/repo-tools/**'
+      - 'packages/repo-tools/**'
       - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'

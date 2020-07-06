@@ -4,7 +4,7 @@ name: CI @dev-sam/eslint-config-common
 on:
   push:
     paths:
-      - 'packages/@dev-sam/eslint-config-common/**'
+      - 'packages/eslint-config-common/**'
       - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'
