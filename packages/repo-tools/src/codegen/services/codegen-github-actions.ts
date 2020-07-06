@@ -99,7 +99,7 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
         jobSteps: [
           githubActionJobActionStep('actions/checkout@v2'),
           githubActionJobActionStep('actions/setup-node@v1'),
-          githubActionJobRunStep('Codegen', 'yarn codegen'),
+          githubActionJobRunStep('Codegen', './repo-tools codegen'),
           githubActionJobRunStep('Check changed', 'git status --porcelain'),
         ],
       },
