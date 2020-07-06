@@ -1,6 +1,6 @@
 # @generated
 
-name: Dummy
+name: TS and JS
 on:
   push:
     paths:
