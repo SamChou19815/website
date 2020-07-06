@@ -22,11 +22,4 @@ jobs:
       - name: Generate Workflows
         run: yarn codegen
       - name: Check changed
-        run: |
-          git status --porcelain
-          if [[ `git status --porcelain` ]]; then
-            echo "Generated files are not in sync!"
-            exit 1
-          else
-            echo "Generated files are in sync. Good to go!"
-          fi
+        run: git status --porcelain

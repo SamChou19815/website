@@ -20,6 +20,18 @@ const getDependencyPaths = (workspace: string): readonly string[] => [
   `.github/workflows/generated-*-${workspace}.yml`,
 ];
 
+const boilterplateSteps = [
+  githubActionJobActionStep('actions/checkout@v2'),
+  githubActionJobActionStep('actions/setup-node@v1'),
+  githubActionJobActionStep('actions/cache@v2', {
+    path: '.yarn/cache\n.pnp.js',
+    // eslint-disable-next-line no-template-curly-in-string
+    key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
+    'restore-keys': 'yarn-berry-',
+  }),
+  githubActionJobRunStep('Yarn Install', 'yarn install'),
+];
+
 const generateFrontendCIWorkflow = (workspace: string): readonly [string, string] => {
   const filename = `generated-ci-${workspace}.yml`;
   const content = githubActionWorkflowToString({
@@ -32,15 +44,7 @@ const generateFrontendCIWorkflow = (workspace: string): readonly [string, string
       {
         jobName: 'build',
         jobSteps: [
-          githubActionJobActionStep('actions/checkout@v2'),
-          githubActionJobActionStep('actions/setup-node@v1'),
-          githubActionJobActionStep('actions/cache@v2', {
-            path: '.yarn/cache\n.pnp.js',
-            // eslint-disable-next-line no-template-curly-in-string
-            key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
-            'restore-keys': 'yarn-berry-',
-          }),
-          githubActionJobRunStep('Yarn Install', 'yarn install'),
+          ...boilterplateSteps,
           githubActionJobRunStep('Compile', `yarn workspace ${workspace} compile`),
         ],
       },
@@ -62,15 +66,7 @@ const generateFrontendCDWorkflow = (workspace: string): readonly [string, string
       {
         jobName: 'deploy',
         jobSteps: [
-          githubActionJobActionStep('actions/checkout@v2'),
-          githubActionJobActionStep('actions/setup-node@v1'),
-          githubActionJobActionStep('actions/cache@v2', {
-            path: '.yarn/cache\n.pnp.js',
-            // eslint-disable-next-line no-template-curly-in-string
-            key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
-            'restore-keys': 'yarn-berry-',
-          }),
-          githubActionJobRunStep('Yarn Install', 'yarn install'),
+          ...boilterplateSteps,
           githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
           githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
         ],
