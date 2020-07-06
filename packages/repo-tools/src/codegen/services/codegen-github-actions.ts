@@ -85,6 +85,28 @@ const generateCDWorkflow = (workspace: string): readonly [string, string] => {
   return [filename, content];
 };
 
+const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
+  'generated-codegen-porcelain.yml',
+  githubActionWorkflowToString({
+    workflowName: 'lint-generated',
+    workflowtrigger: {
+      triggerPaths: ['**'],
+      masterBranchOnly: false,
+    },
+    workflowJobs: [
+      {
+        jobName: 'lint',
+        jobSteps: [
+          githubActionJobActionStep('actions/checkout@v2'),
+          githubActionJobActionStep('actions/setup-node@v1'),
+          githubActionJobRunStep('Codegen', 'yarn codegen'),
+          githubActionJobRunStep('Check changed', 'git status --porcelain'),
+        ],
+      },
+    ],
+  }),
+];
+
 const writeGeneratedFile = ([filename, content]: readonly [string, string]): void =>
   writeFileSync(`.github/workflows/${filename}`, content);
 
@@ -98,6 +120,10 @@ const githubActionsCodegenService: CodegenService = {
           .filter((filename) => filename.includes('generated-'))
           .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
       },
+    },
+    {
+      stepName: 'Generate codegen porcelain check workflow',
+      stepCode: (): void => writeGeneratedFile(generateCodegenPorcelainWorkflow()),
     },
     ...toolingWorkspaces.map((workspace) => {
       const workspaceFolderName = workspace.substring('@dev-sam/'.length);
