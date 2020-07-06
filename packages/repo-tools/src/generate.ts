@@ -1,4 +1,3 @@
-import { spawnSync } from 'child_process';
 import { readFileSync, writeFileSync, readdirSync, unlinkSync } from 'fs';
 
 import {
