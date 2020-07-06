@@ -1,7 +1,8 @@
 import { writeFileSync, readdirSync, unlinkSync } from 'fs';
 
 import {
-  allPrivateWorkspaces,
+  toolingWorkspaces,
+  nonToolingWorkspaces,
   projectWorkspaces,
   getDependencyChain,
 } from '../../infrastructure/workspace';
@@ -32,12 +33,15 @@ const boilterplateSteps = [
   githubActionJobRunStep('Yarn Install', 'yarn install'),
 ];
 
-const generateFrontendCIWorkflow = (workspace: string): readonly [string, string] => {
-  const filename = `generated-ci-${workspace}.yml`;
+const generateCIWorkflow = (
+  workspaceName: string,
+  shortWorkspaceName: string = workspaceName
+): readonly [string, string] => {
+  const filename = `generated-ci-${shortWorkspaceName}.yml`;
   const content = githubActionWorkflowToString({
-    workflowName: `CI ${workspace}`,
+    workflowName: `CI ${workspaceName}`,
     workflowtrigger: {
-      triggerPaths: getDependencyPaths(workspace),
+      triggerPaths: getDependencyPaths(workspaceName),
       masterBranchOnly: false,
     },
     workflowJobs: [
@@ -45,7 +49,7 @@ const generateFrontendCIWorkflow = (workspace: string): readonly [string, string
         jobName: 'build',
         jobSteps: [
           ...boilterplateSteps,
-          githubActionJobRunStep('Compile', `yarn workspace ${workspace} compile`),
+          githubActionJobRunStep('Compile', `yarn workspace ${workspaceName} compile`),
         ],
       },
     ],
@@ -53,7 +57,7 @@ const generateFrontendCIWorkflow = (workspace: string): readonly [string, string
   return [filename, content];
 };
 
-const generateFrontendCDWorkflow = (workspace: string): readonly [string, string] => {
+const generateCDWorkflow = (workspace: string): readonly [string, string] => {
   const filename = `generated-cd-${workspace}.yml`;
   const content = githubActionWorkflowToString({
     workflowName: `CD ${workspace}`,
@@ -90,22 +94,21 @@ const githubActionsCodegenService: CodegenService = {
           .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
       },
     },
-    {
-      stepName: 'Generate CI workflows.',
-      stepCode: (): void => {
-        allPrivateWorkspaces.forEach((workspace) => {
-          writeGeneratedFile(generateFrontendCIWorkflow(workspace));
-        });
-      },
-    },
-    {
-      stepName: 'Generate CD workflows.',
-      stepCode: (): void => {
-        projectWorkspaces.forEach((workspace) => {
-          writeGeneratedFile(generateFrontendCDWorkflow(workspace));
-        });
-      },
-    },
+    ...toolingWorkspaces.map((workspace) => {
+      const workspaceFolderName = workspace.substring('@dev-sam/'.length);
+      return {
+        stepName: `Generate CI workflow for ${workspaceFolderName}`,
+        stepCode: () => writeGeneratedFile(generateCIWorkflow(workspace, workspaceFolderName)),
+      };
+    }),
+    ...nonToolingWorkspaces.map((workspace) => ({
+      stepName: `Generate CI workflow for ${workspace}`,
+      stepCode: () => writeGeneratedFile(generateCIWorkflow(workspace)),
+    })),
+    ...projectWorkspaces.map((workspace) => ({
+      stepName: `Generate CD workflow for ${workspace}`,
+      stepCode: () => writeGeneratedFile(generateCDWorkflow(workspace)),
+    })),
   ],
 };
 
