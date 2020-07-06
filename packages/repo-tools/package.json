@@ -5,11 +5,15 @@
   "private": true,
   "scripts": {
     "build": "run -T tsc",
-    "compile": "yarn build && ncc build build/index.js -o bin -m && git status --porcelain"
+    "compile": "yarn build && pnpify ncc build build/index.js -o bin -m && git status --porcelain"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.14",
+    "@yarnpkg/pnpify": "^2.0.0-rc.25",
     "@zeit/ncc": "^0.22.3"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0"
   }
 }

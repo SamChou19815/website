@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 
+import chalk from 'chalk';
+
 import githubActionsCodegenService from './codegen-github-actions';
 import ignoreFileCodegenService from './codegen-ignore-files';
 import staticJsonCodegenService from './codegen-json';
@@ -11,9 +13,9 @@ const codegenServices = [
 ];
 
 const executeCodegenServices = (): void => {
-  console.log('@dev-sam/repo-tools codegen service.\n');
+  console.log(chalk.cyan('@dev-sam/repo-tools codegen service.\n'));
   codegenServices.forEach(({ serviceName, serviceSteps }) => {
-    console.group(serviceName);
+    console.group(chalk.green(serviceName));
     serviceSteps.forEach(({ stepName, stepCode }, index) => {
       console.groupCollapsed(`${index + 1}. ${stepName}`);
       stepCode();
