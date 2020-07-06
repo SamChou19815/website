@@ -113,7 +113,7 @@ const generateDummyWorkflow = (): readonly [string, string] => [
 const generateTSJSWorkflow = (): readonly [string, string] => [
   'generated-ts-js.yml',
   githubActionWorkflowToString({
-    workflowName: 'Dummy',
+    workflowName: 'TS and JS',
     workflowtrigger: {
       triggerPaths: ['.github/workflows/generated-ts-js.yml', '**.js', '**.ts', '**.jsx', '**.tsx'],
       masterBranchOnly: false,
