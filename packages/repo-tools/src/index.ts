@@ -1,3 +1,3 @@
-import executeCodegenServices from './codegen';
+import executeCodegenServices from './codegen/services';
 
 executeCodegenServices();
