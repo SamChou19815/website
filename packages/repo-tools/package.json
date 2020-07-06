@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "run -T tsc",
-    "compile": "yarn build && ncc build build/index.js -o bin -m"
+    "compile": "yarn build && ncc build build/index.js -o bin -m && git status --porcelain"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
