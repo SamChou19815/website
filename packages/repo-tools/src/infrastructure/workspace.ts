@@ -31,13 +31,16 @@ const getWorkspaceInformation = (): ReadonlyMap<string, readonly string[]> => {
 
 const workspaceInformation: ReadonlyMap<string, readonly string[]> = getWorkspaceInformation();
 
-const allPrivateWorkspaces: readonly string[] = Array.from(workspaceInformation.keys()).filter(
+const toolingWorkspaces: readonly string[] = Array.from(
+  workspaceInformation.keys()
+).filter((workspace) => workspace.startsWith('@dev-sam'));
+const nonToolingWorkspaces: readonly string[] = Array.from(workspaceInformation.keys()).filter(
   (workspace) => !workspace.startsWith('@dev-sam')
 );
-const libraryWorkspaces: readonly string[] = allPrivateWorkspaces.filter((workspace) =>
+const libraryWorkspaces: readonly string[] = nonToolingWorkspaces.filter((workspace) =>
   workspace.startsWith('lib-')
 );
-const projectWorkspaces: readonly string[] = allPrivateWorkspaces.filter(
+const projectWorkspaces: readonly string[] = nonToolingWorkspaces.filter(
   (workspace) => !workspace.startsWith('lib-')
 );
 
@@ -94,7 +97,8 @@ const validateDependencyChain = (): void =>
   });
 
 export {
-  allPrivateWorkspaces,
+  toolingWorkspaces,
+  nonToolingWorkspaces,
   libraryWorkspaces,
   projectWorkspaces,
   getDependencyChain,
