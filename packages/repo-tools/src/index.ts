@@ -1,3 +1,7 @@
 import executeCodegenServices from './codegen/services';
 
-executeCodegenServices();
+(async () => {
+  if (!(await executeCodegenServices())) {
+    process.exit(1);
+  }
+})();

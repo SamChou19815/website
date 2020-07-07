@@ -1677,11 +1677,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/repo-tools@workspace:packages/repo-tools"
   dependencies:
+    "@types/glob": ^7.1.3
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.14
     "@yarnpkg/pnpify": ^2.0.0-rc.25
     "@zeit/ncc": ^0.22.3
     chalk: ^4.1.0
+    glob: ^7.1.6
   languageName: unknown
   linkType: soft
 
@@ -3279,6 +3281,16 @@ __metadata:
     "@types/minimatch": "*"
     "@types/node": "*"
   checksum: f74ae67cb205302da0d452e925529f817a253c4dce5d59ae6077d592238b921db750da143b8a5f8427a5011e202937d8a7b264f7d14b0ddc7f8137ca5e1af1b6
+  languageName: node
+  linkType: hard
+
+"@types/glob@npm:^7.1.3":
+  version: 7.1.3
+  resolution: "@types/glob@npm:7.1.3"
+  dependencies:
+    "@types/minimatch": "*"
+    "@types/node": "*"
+  checksum: 633bf1dda9a30899b233ed6b97c75cdd59f2ee856a12240c85474ce6889e26b3b3520b62de56f6bb61824af0ef51b311a0cae305f27ba0de8ddc4898a3673d42
   languageName: node
   linkType: hard
 

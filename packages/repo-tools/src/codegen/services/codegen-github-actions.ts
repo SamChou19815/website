@@ -1,5 +1,3 @@
-import { writeFileSync, readdirSync, unlinkSync } from 'fs';
-
 import {
   githubActionJobActionStep,
   githubActionJobRunStep,
@@ -16,7 +14,7 @@ import {
 import { CodegenService } from './codegen-service-types';
 
 const generateDummyWorkflow = (): readonly [string, string] => [
-  'generated-dummy.yml',
+  '.github/workflows/generated-dummy.yml',
   githubActionWorkflowToString({
     workflowName: 'Dummy',
     workflowtrigger: {
@@ -41,7 +39,7 @@ const generateDummyWorkflow = (): readonly [string, string] => [
 ];
 
 const generateTSJSWorkflow = (): readonly [string, string] => [
-  'generated-ts-js.yml',
+  '.github/workflows/generated-ts-js.yml',
   githubActionWorkflowToString({
     workflowName: 'TS and JS',
     workflowtrigger: {
@@ -68,7 +66,7 @@ const generateTSJSWorkflow = (): readonly [string, string] => [
 ];
 
 const generateLintMarkdownWorkflow = (): readonly [string, string] => [
-  'generated-lint-markdown.yml',
+  '.github/workflows/generated-lint-markdown.yml',
   githubActionWorkflowToString({
     workflowName: 'lint-markdown',
     workflowtrigger: {
@@ -90,7 +88,7 @@ const generateLintMarkdownWorkflow = (): readonly [string, string] => [
 ];
 
 const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
-  'generated-codegen-porcelain.yml',
+  '.github/workflows/generated-codegen-porcelain.yml',
   githubActionWorkflowToString({
     workflowName: 'lint-generated',
     workflowtrigger: {
@@ -113,46 +111,34 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
 
 const githubActionsCodegenService: CodegenService = {
   serviceName: 'Generate GitHub Actions Workflow',
-  serviceSteps: [
-    {
-      stepName: 'Remove already generated workflow files.',
-      stepCode: (): void => {
-        Array.from(readdirSync('.github/workflows'))
-          .filter((filename) => filename.includes('generated-'))
-          .forEach((filename) => unlinkSync(`.github/workflows/${filename}`));
-      },
-    },
-    ...[
-      generateDummyWorkflow(),
-      generateTSJSWorkflow(),
-      generateLintMarkdownWorkflow(),
-      generateCodegenPorcelainWorkflow(),
+  generatedFilenamePattern: '.github/workflows/generated-*',
+  generatedCodeContentList: [
+    generateDummyWorkflow(),
+    generateTSJSWorkflow(),
+    generateLintMarkdownWorkflow(),
+    generateCodegenPorcelainWorkflow(),
 
-      ...(() => {
-        const { toolingCI, nonToolingCI, projectsCD } = getYarnWorkspaceWorkflowsGroupedByType();
+    ...(() => {
+      const { toolingCI, nonToolingCI, projectsCD } = getYarnWorkspaceWorkflowsGroupedByType();
 
-        return [
-          ...Object.entries(toolingCI).map(([workspace, workflow]) => [
-            `generated-ci-${workspace.substring('@dev-sam/'.length)}.yml`,
-            githubActionWorkflowToString(workflow),
-          ]),
+      return [
+        ...Object.entries(toolingCI).map(([workspace, workflow]) => [
+          `.github/workflows/generated-ci-${workspace.substring('@dev-sam/'.length)}.yml`,
+          githubActionWorkflowToString(workflow),
+        ]),
 
-          ...Object.entries(nonToolingCI).map(([workspace, workflow]) => [
-            `generated-ci-${workspace}.yml`,
-            githubActionWorkflowToString(workflow),
-          ]),
+        ...Object.entries(nonToolingCI).map(([workspace, workflow]) => [
+          `.github/workflows/generated-ci-${workspace}.yml`,
+          githubActionWorkflowToString(workflow),
+        ]),
 
-          ...Object.entries(projectsCD).map(([workspace, workflow]) => [
-            `generated-cd-${workspace}.yml`,
-            githubActionWorkflowToString(workflow),
-          ]),
-        ];
-      })(),
-    ].map(([filename, content]) => ({
-      stepName: `Generate ${filename}`,
-      stepCode: (): void => writeFileSync(`.github/workflows/${filename}`, content),
-    })),
-  ],
+        ...Object.entries(projectsCD).map(([workspace, workflow]) => [
+          `.github/workflows/generated-cd-${workspace}.yml`,
+          githubActionWorkflowToString(workflow),
+        ]),
+      ];
+    })(),
+  ].map(([pathForGeneratedCode, generatedCode]) => ({ pathForGeneratedCode, generatedCode })),
 };
 
 export default githubActionsCodegenService;
