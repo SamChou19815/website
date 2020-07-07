@@ -26,9 +26,7 @@ const resolveGlobPatterns = (pattern: string): Promise<readonly string[]> =>
     });
   });
 
-const executeCodegenServices = async (): Promise<boolean> => {
-  let successful = true;
-
+const executeCodegenServices = async (): Promise<void> => {
   console.log(chalk.cyan('@dev-sam/repo-tools codegen service.\n'));
   // eslint-disable-next-line no-restricted-syntax
   for (const codegenService of codegenServices) {
@@ -37,21 +35,9 @@ const executeCodegenServices = async (): Promise<boolean> => {
 
     if (generatedFilenamePattern != null) {
       // eslint-disable-next-line no-await-in-loop
-      const removeSet = new Set(await resolveGlobPatterns(generatedFilenamePattern));
-      // Sanity check
-      const badFilesNotInPattern = generatedCodeContentList
-        .map(({ pathForGeneratedCode }) => pathForGeneratedCode)
-        .filter((path) => !removeSet.has(path));
-      if (badFilesNotInPattern.length > 0) {
-        console.log(
-          chalk.red(
-            `Pattern: \`${generatedFilenamePattern}\`.\n` +
-              `Generated files not in pattern: ${badFilesNotInPattern.join(', ')}`
-          )
-        );
-        successful = false;
-      }
-      Array.from(removeSet).map((pathToBeRemoved) => unlinkSync(pathToBeRemoved));
+      (await resolveGlobPatterns(generatedFilenamePattern)).map((pathToBeRemoved) =>
+        unlinkSync(pathToBeRemoved)
+      );
     }
 
     generatedCodeContentList.forEach(({ pathForGeneratedCode, generatedCode }, index) => {
@@ -60,7 +46,6 @@ const executeCodegenServices = async (): Promise<boolean> => {
     });
     console.groupEnd();
   }
-  return successful;
 };
 
 export default executeCodegenServices;
