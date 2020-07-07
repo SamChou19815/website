@@ -3,7 +3,7 @@ type GitHubActionsPushTriggerCondition = {
   readonly masterBranchOnly: boolean;
 };
 
-type GitHubActionJobStep =
+export type GitHubActionJobStep =
   | {
       readonly type: 'use-action';
       readonly actionName: string;

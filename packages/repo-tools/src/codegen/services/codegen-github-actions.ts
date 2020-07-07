@@ -1,89 +1,19 @@
 import { writeFileSync, readdirSync, unlinkSync } from 'fs';
 
 import {
-  toolingWorkspaces,
-  nonToolingWorkspaces,
-  projectWorkspaces,
-  getDependencyChain,
-} from '../../infrastructure/workspace';
-import {
   githubActionJobActionStep,
   githubActionJobRunStep,
   githubActionWorkflowToString,
 } from '../ast/github-actions';
+import {
+  GITHUB_ACTIONS_CHECKOUT_STEP,
+  GITHUB_ACTIONS_SETUP_NODE_STEP,
+} from '../github-actions/github-actions-primitives';
+import {
+  yarnWorkspaceBoilterplateSetupSteps,
+  getYarnWorkspaceWorkflowsGroupedByType,
+} from '../github-actions/github-actions-yarn-workspaces';
 import { CodegenService } from './codegen-service-types';
-
-const getDependencyPaths = (workspace: string): readonly string[] => [
-  ...getDependencyChain(workspace).map(
-    (dependency) =>
-      `packages/${
-        dependency.startsWith('@dev-sam/') ? dependency.substring('@dev-sam/'.length) : dependency
-      }/**`
-  ),
-  'package.json',
-  'yarn.lock',
-  'configuration/**',
-  `.github/workflows/generated-*-${workspace}.yml`,
-];
-
-const boilterplateSteps = [
-  githubActionJobActionStep('actions/checkout@v2'),
-  githubActionJobActionStep('actions/setup-node@v1'),
-  githubActionJobActionStep('actions/cache@v2', {
-    path: '.yarn/cache\n.pnp.js',
-    // eslint-disable-next-line no-template-curly-in-string
-    key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
-    'restore-keys': 'yarn-berry-',
-  }),
-  githubActionJobRunStep('Yarn Install', 'yarn install'),
-];
-
-const generateCIWorkflow = (
-  workspaceName: string,
-  shortWorkspaceName: string = workspaceName
-): readonly [string, string] => {
-  const filename = `generated-ci-${shortWorkspaceName}.yml`;
-  const content = githubActionWorkflowToString({
-    workflowName: `CI ${workspaceName}`,
-    workflowtrigger: {
-      triggerPaths: getDependencyPaths(workspaceName),
-      masterBranchOnly: false,
-    },
-    workflowJobs: [
-      {
-        jobName: 'build',
-        jobSteps: [
-          ...boilterplateSteps,
-          githubActionJobRunStep('Compile', `yarn workspace ${workspaceName} compile`),
-        ],
-      },
-    ],
-  });
-  return [filename, content];
-};
-
-const generateCDWorkflow = (workspace: string): readonly [string, string] => {
-  const filename = `generated-cd-${workspace}.yml`;
-  const content = githubActionWorkflowToString({
-    workflowName: `CD ${workspace}`,
-    workflowtrigger: {
-      triggerPaths: getDependencyPaths(workspace),
-      masterBranchOnly: true,
-    },
-    workflowSecrets: ['FIREBASE_TOKEN'],
-    workflowJobs: [
-      {
-        jobName: 'deploy',
-        jobSteps: [
-          ...boilterplateSteps,
-          githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
-          githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
-        ],
-      },
-    ],
-  });
-  return [filename, content];
-};
 
 const generateDummyWorkflow = (): readonly [string, string] => [
   'generated-dummy.yml',
@@ -121,11 +51,17 @@ const generateTSJSWorkflow = (): readonly [string, string] => [
     workflowJobs: [
       {
         jobName: 'lint',
-        jobSteps: [...boilterplateSteps, githubActionJobRunStep('Lint', 'yarn lint')],
+        jobSteps: [
+          ...yarnWorkspaceBoilterplateSetupSteps,
+          githubActionJobRunStep('Lint', 'yarn lint'),
+        ],
       },
       {
         jobName: 'test',
-        jobSteps: [...boilterplateSteps, githubActionJobRunStep('Test', 'yarn test')],
+        jobSteps: [
+          ...yarnWorkspaceBoilterplateSetupSteps,
+          githubActionJobRunStep('Test', 'yarn test'),
+        ],
       },
     ],
   }),
@@ -165,8 +101,8 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
       {
         jobName: 'lint',
         jobSteps: [
-          githubActionJobActionStep('actions/checkout@v2'),
-          githubActionJobActionStep('actions/setup-node@v1'),
+          GITHUB_ACTIONS_CHECKOUT_STEP,
+          GITHUB_ACTIONS_SETUP_NODE_STEP,
           githubActionJobRunStep('Codegen', './repo-tools codegen'),
           githubActionJobRunStep('Check changed', 'git status --porcelain'),
         ],
@@ -192,13 +128,26 @@ const githubActionsCodegenService: CodegenService = {
       generateLintMarkdownWorkflow(),
       generateCodegenPorcelainWorkflow(),
 
-      ...toolingWorkspaces.map((workspace) =>
-        generateCIWorkflow(workspace, workspace.substring('@dev-sam/'.length))
-      ),
+      ...(() => {
+        const { toolingCI, nonToolingCI, projectsCD } = getYarnWorkspaceWorkflowsGroupedByType();
 
-      ...nonToolingWorkspaces.map((workspace) => generateCIWorkflow(workspace)),
+        return [
+          ...Object.entries(toolingCI).map(([workspace, workflow]) => [
+            `generated-ci-${workspace.substring('@dev-sam/'.length)}.yml`,
+            githubActionWorkflowToString(workflow),
+          ]),
 
-      ...projectWorkspaces.map((workspace) => generateCDWorkflow(workspace)),
+          ...Object.entries(nonToolingCI).map(([workspace, workflow]) => [
+            `generated-ci-${workspace}.yml`,
+            githubActionWorkflowToString(workflow),
+          ]),
+
+          ...Object.entries(projectsCD).map(([workspace, workflow]) => [
+            `generated-cd-${workspace}.yml`,
+            githubActionWorkflowToString(workflow),
+          ]),
+        ];
+      })(),
     ].map(([filename, content]) => ({
       stepName: `Generate ${filename}`,
       stepCode: (): void => writeFileSync(`.github/workflows/${filename}`, content),
