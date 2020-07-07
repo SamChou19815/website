@@ -12,7 +12,7 @@ jobs:
           path: private-monorepo
       - name: Move private-monorepo
         run: |
-          cp -R private-monorepo/. ../
+          cp -R private-monorepo/. ../private-monorepo
           rm -rf private-monorepo
       - uses: actions/checkout@v2
       - name: Sanity Check
