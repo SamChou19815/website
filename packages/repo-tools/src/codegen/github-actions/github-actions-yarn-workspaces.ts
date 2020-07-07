@@ -69,29 +69,18 @@ const generateYarnWorkspaceProjectCDWorkflow = (workspace: string): GitHubAction
 
 type GitHubActionsWorkflowCollection = Record<string, GitHubActionsWorkflow>;
 
-type GitHubActionsWorkflowCollectionGroupsByType = {
-  readonly toolingCI: GitHubActionsWorkflowCollection;
-  readonly nonToolingCI: GitHubActionsWorkflowCollection;
-  readonly projectsCD: GitHubActionsWorkflowCollection;
-};
-
-export const getYarnWorkspaceWorkflowsGroupedByType = (): GitHubActionsWorkflowCollectionGroupsByType => ({
-  toolingCI: Object.fromEntries(
-    toolingWorkspaces.map((workspace) => [
-      workspace,
+export const getYarnWorkspaceWorkflows = (): GitHubActionsWorkflowCollection =>
+  Object.fromEntries([
+    ...toolingWorkspaces.map((workspace) => [
+      `ci-${workspace.substring('@dev-sam/'.length)}`,
       generateYarnWorkspaceProjectCIWorkflow(workspace),
-    ])
-  ),
-  nonToolingCI: Object.fromEntries(
-    nonToolingWorkspaces.map((workspace) => [
-      workspace,
+    ]),
+    ...nonToolingWorkspaces.map((workspace) => [
+      `ci-${workspace}`,
       generateYarnWorkspaceProjectCIWorkflow(workspace),
-    ])
-  ),
-  projectsCD: Object.fromEntries(
-    projectWorkspaces.map((workspace) => [
-      workspace,
+    ]),
+    ...projectWorkspaces.map((workspace) => [
+      `cd-${workspace}`,
       generateYarnWorkspaceProjectCDWorkflow(workspace),
-    ])
-  ),
-});
+    ]),
+  ]);

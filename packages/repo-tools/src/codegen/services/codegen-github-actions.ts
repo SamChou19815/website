@@ -1,4 +1,5 @@
 import {
+  GitHubActionsWorkflow,
   githubActionJobActionStep,
   githubActionJobRunStep,
   githubActionWorkflowToString,
@@ -9,13 +10,13 @@ import {
 } from '../github-actions/github-actions-primitives';
 import {
   yarnWorkspaceBoilterplateSetupSteps,
-  getYarnWorkspaceWorkflowsGroupedByType,
+  getYarnWorkspaceWorkflows,
 } from '../github-actions/github-actions-yarn-workspaces';
 import { CodegenService } from './codegen-service-types';
 
-const generateDummyWorkflow = (): readonly [string, string] => [
-  '.github/workflows/generated-dummy.yml',
-  githubActionWorkflowToString({
+const generateDummyWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
+  'dummy',
+  {
     workflowName: 'Dummy',
     workflowtrigger: {
       triggerPaths: ['**'],
@@ -35,12 +36,12 @@ const generateDummyWorkflow = (): readonly [string, string] => [
         jobSteps: [githubActionJobRunStep('Success', 'echo "Test nothing."')],
       },
     ],
-  }),
+  },
 ];
 
-const generateTSJSWorkflow = (): readonly [string, string] => [
-  '.github/workflows/generated-ts-js.yml',
-  githubActionWorkflowToString({
+const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
+  'ts-js',
+  {
     workflowName: 'TS and JS',
     workflowtrigger: {
       triggerPaths: ['.github/workflows/generated-ts-js.yml', '**.js', '**.ts', '**.jsx', '**.tsx'],
@@ -62,12 +63,12 @@ const generateTSJSWorkflow = (): readonly [string, string] => [
         ],
       },
     ],
-  }),
+  },
 ];
 
-const generateLintMarkdownWorkflow = (): readonly [string, string] => [
-  '.github/workflows/generated-lint-markdown.yml',
-  githubActionWorkflowToString({
+const generateLintMarkdownWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
+  'lint-markdown',
+  {
     workflowName: 'lint-markdown',
     workflowtrigger: {
       triggerPaths: ['.github/workflows/generated-lint-markdown.yml'],
@@ -84,12 +85,12 @@ const generateLintMarkdownWorkflow = (): readonly [string, string] => [
         ],
       },
     ],
-  }),
+  },
 ];
 
-const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
-  '.github/workflows/generated-codegen-porcelain.yml',
-  githubActionWorkflowToString({
+const generateCodegenPorcelainWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
+  'codegen-porcelain',
+  {
     workflowName: 'lint-generated',
     workflowtrigger: {
       triggerPaths: ['**'],
@@ -106,7 +107,7 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
         ],
       },
     ],
-  }),
+  },
 ];
 
 const githubActionsCodegenService: CodegenService = {
@@ -117,28 +118,11 @@ const githubActionsCodegenService: CodegenService = {
     generateTSJSWorkflow(),
     generateLintMarkdownWorkflow(),
     generateCodegenPorcelainWorkflow(),
-
-    ...(() => {
-      const { toolingCI, nonToolingCI, projectsCD } = getYarnWorkspaceWorkflowsGroupedByType();
-
-      return [
-        ...Object.entries(toolingCI).map(([workspace, workflow]) => [
-          `.github/workflows/generated-ci-${workspace.substring('@dev-sam/'.length)}.yml`,
-          githubActionWorkflowToString(workflow),
-        ]),
-
-        ...Object.entries(nonToolingCI).map(([workspace, workflow]) => [
-          `.github/workflows/generated-ci-${workspace}.yml`,
-          githubActionWorkflowToString(workflow),
-        ]),
-
-        ...Object.entries(projectsCD).map(([workspace, workflow]) => [
-          `.github/workflows/generated-cd-${workspace}.yml`,
-          githubActionWorkflowToString(workflow),
-        ]),
-      ];
-    })(),
-  ].map(([pathForGeneratedCode, generatedCode]) => ({ pathForGeneratedCode, generatedCode })),
+    ...Object.entries(getYarnWorkspaceWorkflows()),
+  ].map(([name, workflow]) => ({
+    pathForGeneratedCode: `.github/workflows/generated-${name}.yml`,
+    generatedCode: githubActionWorkflowToString(workflow),
+  })),
 };
 
 export default githubActionsCodegenService;
