@@ -5,8 +5,7 @@ export const GITHUB_ACTIONS_CHECKOUT_STEP: GitHubActionJobStep = githubActionJob
 );
 
 export const GITHUB_ACTIONS_SETUP_NODE_STEP: GitHubActionJobStep = githubActionJobActionStep(
-  'actions/setup-node@v2-beta',
-  { 'node-version': "'12'" }
+  'actions/setup-node@v2-beta'
 );
 
 export const GITHUB_ACTIONS_USE_YARN_CACHE_STEP: GitHubActionJobStep = githubActionJobActionStep(
