@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync } from 'fs';
 
 import { CodegenService } from './codegen-service-types';
 
@@ -16,15 +16,9 @@ packages/repo-tools/bin/
 
 const ignoreFileCodegenService: CodegenService = {
   serviceName: 'Generate ignore files derived from .gitignore',
-  serviceSteps: [
-    {
-      stepName: 'Generate .eslintignore',
-      stepCode: (): void => writeFileSync('.eslintignore', styleIgnoreContent),
-    },
-    {
-      stepName: 'Generate .prettierignore',
-      stepCode: (): void => writeFileSync('.prettierignore', styleIgnoreContent),
-    },
+  generatedCodeContentList: [
+    { pathForGeneratedCode: '.eslintignore', generatedCode: styleIgnoreContent },
+    { pathForGeneratedCode: '.prettierignore', generatedCode: styleIgnoreContent },
   ],
 };
 
