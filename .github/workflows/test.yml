@@ -1,0 +1,19 @@
+name: Dummy
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: 'SamChou19815/private-monorepo'
+          token: ${{ secrets.DEPLOY_GH_PAGE_TOKEN }}
+          path: private-monorepo
+      - name: Move private-monorepo
+        run: |
+          cp -R private-monorepo/. ../private-monorepo
+          rm -rf private-monorepo
+      - uses: actions/checkout@v2
+      - name: Sanity Check
+        run: cat ../private-monorepo/README.md
