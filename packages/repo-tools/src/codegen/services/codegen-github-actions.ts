@@ -6,6 +6,10 @@ import {
   githubActionWorkflowToString,
 } from '../ast/github-actions';
 import {
+  GITHUB_ACTIONS_CHECKOUT_STEP,
+  GITHUB_ACTIONS_SETUP_NODE_STEP,
+} from '../github-actions/github-actions-primitives';
+import {
   yarnWorkspaceBoilterplateSetupSteps,
   getYarnWorkspaceWorkflowsGroupedByType,
 } from '../github-actions/github-actions-yarn-workspaces';
@@ -97,8 +101,8 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, string] => [
       {
         jobName: 'lint',
         jobSteps: [
-          githubActionJobActionStep('actions/checkout@v2'),
-          githubActionJobActionStep('actions/setup-node@v1'),
+          GITHUB_ACTIONS_CHECKOUT_STEP,
+          GITHUB_ACTIONS_SETUP_NODE_STEP,
           githubActionJobRunStep('Codegen', './repo-tools codegen'),
           githubActionJobRunStep('Check changed', 'git status --porcelain'),
         ],

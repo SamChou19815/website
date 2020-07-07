@@ -4,21 +4,17 @@ import {
   projectWorkspaces,
   getDependencyChain,
 } from '../../infrastructure/workspace';
+import { GitHubActionsWorkflow, githubActionJobRunStep } from '../ast/github-actions';
 import {
-  GitHubActionsWorkflow,
-  githubActionJobActionStep,
-  githubActionJobRunStep,
-} from '../ast/github-actions';
+  GITHUB_ACTIONS_CHECKOUT_STEP,
+  GITHUB_ACTIONS_SETUP_NODE_STEP,
+  GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
+} from './github-actions-primitives';
 
 export const yarnWorkspaceBoilterplateSetupSteps = [
-  githubActionJobActionStep('actions/checkout@v2'),
-  githubActionJobActionStep('actions/setup-node@v1'),
-  githubActionJobActionStep('actions/cache@v2', {
-    path: '.yarn/cache\n.pnp.js',
-    // eslint-disable-next-line no-template-curly-in-string
-    key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
-    'restore-keys': 'yarn-berry-',
-  }),
+  GITHUB_ACTIONS_CHECKOUT_STEP,
+  GITHUB_ACTIONS_SETUP_NODE_STEP,
+  GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
   githubActionJobRunStep('Yarn Install', 'yarn install'),
 ];
 
