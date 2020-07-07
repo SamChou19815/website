@@ -8,6 +8,7 @@ import {
   GITHUB_ACTIONS_CHECKOUT_STEP,
   GITHUB_ACTIONS_SETUP_NODE_STEP,
 } from '../github-actions/github-actions-primitives';
+import workspaceSpecificOverrides from '../github-actions/github-actions-yarn-workspace-overrides';
 import {
   yarnWorkspaceBoilterplateSetupSteps,
   getYarnWorkspaceWorkflows,
@@ -118,7 +119,7 @@ const githubActionsCodegenService: CodegenService = {
     generateTSJSWorkflow(),
     generateLintMarkdownWorkflow(),
     generateCodegenPorcelainWorkflow(),
-    ...Object.entries(getYarnWorkspaceWorkflows()),
+    ...Object.entries(getYarnWorkspaceWorkflows(workspaceSpecificOverrides)),
   ].map(([name, workflow]) => ({
     pathForGeneratedCode: `.github/workflows/generated-${name}.yml`,
     generatedCode: githubActionWorkflowToString(workflow),
