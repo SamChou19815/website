@@ -79,8 +79,13 @@ const generateYarnWorkspaceProjectCDWorkflow = (
   ],
 });
 
+export type YarnWorkspaceWorkflowsOverrides = Record<
+  string,
+  readonly GitHubActionJobStep[] | undefined
+>;
+
 export const getYarnWorkspaceWorkflows = (
-  overridePrepares: Record<string, readonly GitHubActionJobStep[] | undefined> = {}
+  overridePrepares: YarnWorkspaceWorkflowsOverrides = {}
 ): Record<string, GitHubActionsWorkflow> =>
   Object.fromEntries([
     ...toolingWorkspaces.map((workspace) => {
