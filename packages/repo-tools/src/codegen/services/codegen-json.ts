@@ -1,4 +1,4 @@
-import { libraryWorkspaces } from '../../infrastructure/workspace';
+import { libraryWorkspaces } from '../../infrastructure/yarn-workspace-dependency-analysis';
 import { CodegenService } from './codegen-service-types';
 
 const staticJsonCodegenService: CodegenService = {

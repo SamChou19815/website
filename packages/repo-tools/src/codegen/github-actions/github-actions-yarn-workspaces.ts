@@ -1,9 +1,9 @@
 import {
   toolingWorkspaces,
-  nonToolingWorkspaces,
+  libraryWorkspaces,
   projectWorkspaces,
   getDependencyChain,
-} from '../../infrastructure/workspace';
+} from '../../infrastructure/yarn-workspace-dependency-analysis';
 import {
   GitHubActionsWorkflow,
   githubActionJobRunStep,
@@ -95,7 +95,7 @@ export const getYarnWorkspaceWorkflows = (
         generateYarnWorkspaceProjectCIWorkflow(workspace, overridePrepares[name] ?? []),
       ];
     }),
-    ...nonToolingWorkspaces.map((workspace) => {
+    ...[...libraryWorkspaces, ...projectWorkspaces].map((workspace) => {
       const name = `ci-${workspace}`;
       return [
         name,
