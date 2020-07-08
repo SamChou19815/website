@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "build": "run -T tsc",
-    "compile": "yarn build && NODE_NO_WARNINGS=1 ncc build src/index.ts -o bin -m && git status --porcelain"
+    "bundle": "NODE_NO_WARNINGS=1 ncc build src/index.ts -o bin -m --no-source-map-register",
+    "compile": "yarn build && yarn bundle && git status --porcelain"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
