@@ -1,7 +1,14 @@
 import { spawnSync } from 'child_process';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
-const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, readonly string[]> => {
-  const map = new Map<string, readonly string[]>();
+export type WorkspaceInformation = {
+  readonly inRepoWorkspaceDependencies: readonly string[];
+  readonly devSamRepositoryDependencies: readonly string[];
+};
+
+const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInformation> => {
+  const map = new Map<string, WorkspaceInformation>();
 
   const process = spawnSync('yarn', ['workspaces', 'list', '-v', '--json'], { shell: true });
   const output = process.stdout.toString().trim();
@@ -10,23 +17,27 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, readonly string
 
   type WorkspaceInformationFromYarn = {
     readonly name: string | null;
+    readonly location: string;
     readonly workspaceDependencies: readonly string[];
   };
 
-  workspacesJson.forEach(({ name, workspaceDependencies }: WorkspaceInformationFromYarn) => {
-    if (name == null) {
-      return;
-    }
-    map.set(
-      name,
-      workspaceDependencies.map((dependencyString) => {
+  workspacesJson.forEach(
+    ({ name, location, workspaceDependencies }: WorkspaceInformationFromYarn) => {
+      if (name == null) {
+        return;
+      }
+      const inRepoWorkspaceDependencies = workspaceDependencies.map((dependencyString) => {
         if (!dependencyString.startsWith('packages/')) {
           throw new Error(`Bad dependency of ${name}: ${dependencyString}`);
         }
         return dependencyString.substring('packages/'.length);
-      })
-    );
-  });
+      });
+      const devSamRepositoryDependencies: readonly string[] =
+        JSON.parse(readFileSync(join(location, 'package.json')).toString())
+          .devSamRepositoryDependencies ?? [];
+      map.set(name, { inRepoWorkspaceDependencies, devSamRepositoryDependencies });
+    }
+  );
   return map;
 };
 
