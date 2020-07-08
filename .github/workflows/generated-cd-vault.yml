@@ -32,15 +32,8 @@ jobs:
           restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install
-      - uses: actions/checkout@v2
-        with:
-          repository: SamChou19815/private-monorepo
-          token: ${{ secrets.DEPLOY_GH_PAGE_TOKEN }}
-          path: private-monorepo
-      - name: Move private-monorepo to be side-by-side with website repo
-        run: |
-          cp -R private-monorepo/. ../private-monorepo
-          rm -rf private-monorepo
+      - name: Checkout SamChou19815/private-monorepo
+        run: cd ../../ && git clone https://${{ secrets.DEPLOY_GH_PAGE_TOKEN }}@github.com/SamChou19815/private-monorepo --depth 1
       - name: Sanity Check private-monorepo setup
         run: cat ../private-monorepo/README.md
       - name: Build
