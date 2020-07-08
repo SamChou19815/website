@@ -1,4 +1,4 @@
-import queryYarnForWorkspaceInformation from './yarn-query';
+import queryYarnForWorkspaceInformation, { WorkspaceInformation } from './yarn-query';
 import classifyYarnWorkspaces from './yarn-workspace-classifier';
 
 const workspaceInformation = queryYarnForWorkspaceInformation();
@@ -7,7 +7,7 @@ export const { toolingWorkspaces, libraryWorkspaces, projectWorkspaces } = class
   Array.from(workspaceInformation.keys())
 );
 
-const getWorkspaceDependencies = (workspace: string): readonly string[] => {
+const getWorkspaceInformation = (workspace: string): WorkspaceInformation => {
   const information = workspaceInformation.get(workspace);
   if (information == null) {
     throw new Error(`Workspace ${workspace} is not found!`);
@@ -15,7 +15,7 @@ const getWorkspaceDependencies = (workspace: string): readonly string[] => {
   return information;
 };
 
-export const getDependencyChain = (workspace: string): readonly string[] => {
+export const getYarnWorkspaceInRepoDependencyChain = (workspace: string): readonly string[] => {
   const dependencyChain: string[] = [];
   const parentChain: string[] = [];
   const parentSet = new Set<string>();
@@ -35,7 +35,7 @@ export const getDependencyChain = (workspace: string): readonly string[] => {
     }
 
     // Check dependencies.
-    const workspaceDependencies = getWorkspaceDependencies(node);
+    const workspaceDependencies = getWorkspaceInformation(node).inRepoWorkspaceDependencies;
 
     // Visit dependencies
     allVisited.add(node);
@@ -50,3 +50,7 @@ export const getDependencyChain = (workspace: string): readonly string[] => {
   visit(workspace);
   return dependencyChain;
 };
+
+export const getYarnWorkspaceSevSamRepositoryDependencies = (
+  workspace: string
+): readonly string[] => getWorkspaceInformation(workspace).devSamRepositoryDependencies;
