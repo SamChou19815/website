@@ -25,15 +25,9 @@ export const GITHUB_ACTIONS_USE_YARN_CACHE_STEP: GitHubActionJobStep = githubAct
 export const getDevSamRepositoryDependencySetupSteps = (
   repositoryName: string
 ): readonly GitHubActionJobStep[] => [
-  githubActionJobActionStep('actions/checkout@v2', {
-    repository: `SamChou19815/${repositoryName}`,
-    // eslint-disable-next-line no-template-curly-in-string
-    token: '${{ secrets.DEPLOY_GH_PAGE_TOKEN }}',
-    path: repositoryName,
-  }),
   githubActionJobRunStep(
-    `Move ${repositoryName} to be side-by-side with website repo`,
-    `cp -R ${repositoryName}/. ../${repositoryName}\nrm -rf ${repositoryName}`
+    `Checkout SamChou19815/${repositoryName}`,
+    `cd ../ && git clone https://\${{ secrets.DEPLOY_GH_PAGE_TOKEN }}@github.com/SamChou19815/${repositoryName} --depth 1`
   ),
   githubActionJobRunStep(
     `Sanity Check ${repositoryName} setup`,
