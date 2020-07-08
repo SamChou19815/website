@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
-    "build": "NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
+    "build:private-docs-generator": "run -T tsc private-docs-generator.ts --incremental --tsBuildInfoFile private-docs-generator.tsbuildinfo",
+    "build:private-docs": "yarn build:private-docs-generator && node private-docs-generator.js",
+    "build:public": "NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
+    "build:private": "yarn build:private-docs && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
+    "build": "yarn build:public && yarn build:private",
     "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
     "compile": "yarn build",
     "deploy-local": "cd deployment-template && gcloud app deploy",
@@ -21,6 +25,9 @@
     "lib-react": "0.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.19"
   },
   "devSamRepositoryDependencies": [
     "private-monorepo"

@@ -3447,6 +3447,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^14.0.19":
+  version: 14.0.19
+  resolution: "@types/node@npm:14.0.19"
+  checksum: a744f848984b947032acd53161bf33da3df6db60c108b0316b15b7349e14be95d80e281cedd3af4fd3a2679bcab8a77d003241aa24e6e0b745c07223fb9817fa
+  languageName: node
+  linkType: hard
+
 "@types/normalize-package-data@npm:^2.4.0":
   version: 2.4.0
   resolution: "@types/normalize-package-data@npm:2.4.0"
@@ -20334,6 +20341,7 @@ typescript@3.9.5:
     "@docusaurus/plugin-google-gtag": ^2.0.0-alpha.56
     "@docusaurus/preset-classic": ^2.0.0-alpha.56
     "@mdx-js/react": ^1.6.4
+    "@types/node": ^14.0.19
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0

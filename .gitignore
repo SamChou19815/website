@@ -2,7 +2,7 @@
 **/dist/
 **/build/
 **/out/
-tsconfig.tsbuildinfo
+*.tsbuildinfo
 .eslintcache
 
 # misc
@@ -25,3 +25,7 @@ tsconfig.tsbuildinfo
 .vscode/pnpify
 .docusaurus
 .cache-loader
+
+## project generated files
+packages/vault/private-docs-generator.js
+packages/vault/docs/private-docs

@@ -38,7 +38,9 @@ module.exports = {
       require.resolve('@docusaurus/preset-classic'),
       {
         docs: {
-          // sidebarPath: require.resolve('./sidebars.json'),
+          sidebarPath: process.env.DEV_SAM
+            ? require.resolve('./docs/private-docs/private-sidebars.json')
+            : require.resolve('./sidebars.json'),
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
