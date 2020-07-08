@@ -33,7 +33,7 @@ jobs:
       - name: Yarn Install
         run: yarn install
       - name: Checkout SamChou19815/private-monorepo
-        run: cd ../../ && git clone https://${{ secrets.DEPLOY_GH_PAGE_TOKEN }}@github.com/SamChou19815/private-monorepo --depth 1
+        run: cd ../ && git clone https://${{ secrets.DEPLOY_GH_PAGE_TOKEN }}@github.com/SamChou19815/private-monorepo --depth 1
       - name: Sanity Check private-monorepo setup
         run: cat ../private-monorepo/README.md
       - name: Build
