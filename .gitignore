@@ -27,5 +27,5 @@
 .cache-loader
 
 ## project generated files
-packages/vault/private-docs-generator.js
-packages/vault/docs/private-docs
+packages/wiki/private-docs-generator.js
+packages/wiki/docs/private-docs
