@@ -1,17 +1,17 @@
 # @generated
 
-name: CD vault
+name: CD wiki
 on:
   push:
     paths:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-docusaurus-plugin/**'
       - 'packages/lib-react/**'
-      - 'packages/vault/**'
+      - 'packages/wiki/**'
       - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'
-      - '.github/workflows/generated-*-vault.yml'
+      - '.github/workflows/generated-*-wiki.yml'
     branches:
       - master
 env:
@@ -42,6 +42,6 @@ jobs:
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
           export_default_credentials: true
       - name: Build
-        run: yarn workspace vault build
+        run: yarn workspace wiki build
       - name: Deploy
-        run: yarn workspace vault deploy
+        run: yarn workspace wiki deploy

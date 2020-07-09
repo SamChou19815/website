@@ -1,17 +1,17 @@
 # @generated
 
-name: CI vault
+name: CI wiki
 on:
   push:
     paths:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-docusaurus-plugin/**'
       - 'packages/lib-react/**'
-      - 'packages/vault/**'
+      - 'packages/wiki/**'
       - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'
-      - '.github/workflows/generated-*-vault.yml'
+      - '.github/workflows/generated-*-wiki.yml'
 
 jobs:
   build:
@@ -33,4 +33,4 @@ jobs:
       - name: Sanity Check private-monorepo setup
         run: cat ../private-monorepo/README.md
       - name: Compile
-        run: yarn workspace vault compile
+        run: yarn workspace wiki compile

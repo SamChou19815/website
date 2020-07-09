@@ -10,13 +10,13 @@ const darkTheme = require('prism-react-renderer/themes/dracula');
 const theme = require('lib-react/prism-theme.json');
 
 module.exports = {
-  title: 'Vault @ dev-sam',
-  tagline: "Sam's Vault",
+  title: 'Wiki',
+  tagline: process.env.DEV_SAM
+    ? 'Public and private documentation for dev-sam'
+    : 'Public documentation for dev-sam',
   url: 'https://vault.developersam.com',
   baseUrl: '/',
   favicon: 'https://developersam.com/favicon.ico',
-  organizationName: 'SamChou19815',
-  projectName: 'samlang',
   themeConfig: {
     disableDarkMode: true,
     prism: {
@@ -24,7 +24,7 @@ module.exports = {
       darkTheme,
     },
     navbar: {
-      title: 'Vault',
+      title: 'Wiki',
       links: [],
     },
     footer: {

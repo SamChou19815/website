@@ -1,5 +1,5 @@
 {
-  "name": "vault",
+  "name": "wiki",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -32,7 +32,9 @@
   "devSamRepositoryDependencies": [
     "private-monorepo"
   ],
-  "deploymentDependencies": ["gcloud"],
+  "deploymentDependencies": [
+    "gcloud"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
