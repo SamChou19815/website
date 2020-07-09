@@ -6,13 +6,13 @@
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
     "build:private-docs-generator": "run -T tsc private-docs-generator.ts --incremental --tsBuildInfoFile private-docs-generator.tsbuildinfo",
     "build:private-docs": "yarn build:private-docs-generator && node private-docs-generator.js",
-    "build:public": "NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
+    "build:public": "NODE_NO_WARNINGS=1 docusaurus build",
     "build:private": "yarn build:private-docs && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
     "build": "yarn build:public && yarn build:private",
     "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
     "compile": "yarn build",
-    "deploy-local": "cd deployment-template && gcloud app deploy",
-    "deploy": "echo 'Not implemented yet.'"
+    "deploy:private": "cd deployment-template && gcloud app deploy",
+    "deploy": "yarn deploy:private"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.56",
@@ -32,6 +32,7 @@
   "devSamRepositoryDependencies": [
     "private-monorepo"
   ],
+  "deploymentDependencies": ["gcloud"],
   "browserslist": {
     "production": [
       ">0.2%",
