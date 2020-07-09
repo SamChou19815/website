@@ -29,7 +29,6 @@
 .cache-loader
 
 ## project generated files
-packages/wiki/private-docs-generator.js
 packages/wiki/docs/private-docs
 
 ## styles

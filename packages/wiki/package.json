@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
-    "build:private-docs-generator": "run -T tsc private-docs-generator.ts --incremental --tsBuildInfoFile private-docs-generator.tsbuildinfo",
-    "build:private-docs": "yarn build:private-docs-generator && node private-docs-generator.js",
+    "build:private-docs": "run -T ts-node --transpile-only --compiler-options '{\"module\": \"commonjs\"}' private-docs-generator.ts",
     "build:public": "NODE_NO_WARNINGS=1 docusaurus build",
     "build:private": "yarn build:private-docs && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
     "build": "yarn build:public && yarn build:private",
