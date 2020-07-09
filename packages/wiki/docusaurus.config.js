@@ -18,7 +18,6 @@ module.exports = {
   baseUrl: '/',
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
-    disableDarkMode: true,
     prism: {
       theme,
       darkTheme,
