@@ -32,7 +32,7 @@
 packages/wiki/private-docs-generator.js
 packages/wiki/docs/private-docs
 
-# styles
+## styles
 
 .yarn
 packages/lib-docusaurus-plugin/index.js

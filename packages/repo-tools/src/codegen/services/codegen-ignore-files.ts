@@ -3,16 +3,12 @@ import { readFileSync } from 'fs';
 import { CodegenService } from './codegen-service-types';
 
 const gitignoreContent = readFileSync('.gitignore');
+const styleIgnoreAdditions = readFileSync('configuration/styleignore.additions');
 
 const styleIgnoreContent = `# @generated
 
 ${gitignoreContent}
-# styles
-
-.yarn
-packages/lib-docusaurus-plugin/index.js
-packages/repo-tools/bin/
-`;
+${styleIgnoreAdditions}`;
 
 const ignoreFileCodegenService: CodegenService = {
   serviceName: 'Generate ignore files derived from .gitignore',
