@@ -1,10 +1,9 @@
-# @generated
-
 name: lint-markdown
 on:
   push:
     paths:
-      - '.github/workflows/generated-lint-markdown.yml'
+      - '.github/workflows/lint-markdown.yml'
+      - '**.md'
 
 jobs:
   lint:

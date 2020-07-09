@@ -1,10 +1,5 @@
-# @generated
-
 name: Dummy
-on:
-  push:
-    paths:
-      - '**'
+on: push
 
 jobs:
   lint:
