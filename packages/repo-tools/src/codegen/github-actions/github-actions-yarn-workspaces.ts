@@ -3,7 +3,8 @@ import {
   libraryWorkspaces,
   projectWorkspaces,
   getYarnWorkspaceInRepoDependencyChain,
-  getYarnWorkspaceSevSamRepositoryDependencies,
+  getYarnWorkspaceDevSamRepositoryDependencies,
+  getYarnWorkspaceDeploymentDependencies,
 } from '../../infrastructure/yarn-workspace-dependency-analysis';
 import {
   GitHubActionsWorkflow,
@@ -15,6 +16,7 @@ import {
   GITHUB_ACTIONS_SETUP_NODE_STEP,
   GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
   getDevSamRepositoryDependencySetupSteps,
+  getDeploymentDependencySetupStep,
 } from './github-actions-primitives';
 
 export const yarnWorkspaceBoilterplateSetupSteps = [
@@ -52,7 +54,7 @@ const generateYarnWorkspaceProjectCIWorkflow = (
       jobSteps: [
         ...yarnWorkspaceBoilterplateSetupSteps,
         ...prepareSteps,
-        ...getYarnWorkspaceSevSamRepositoryDependencies(workspaceName)
+        ...getYarnWorkspaceDevSamRepositoryDependencies(workspaceName)
           .map(getDevSamRepositoryDependencySetupSteps)
           .flat(),
         githubActionJobRunStep('Compile', `yarn workspace ${workspaceName} compile`),
@@ -77,9 +79,10 @@ const generateYarnWorkspaceProjectCDWorkflow = (
       jobSteps: [
         ...yarnWorkspaceBoilterplateSetupSteps,
         ...prepareSteps,
-        ...getYarnWorkspaceSevSamRepositoryDependencies(workspace)
+        ...getYarnWorkspaceDevSamRepositoryDependencies(workspace)
           .map(getDevSamRepositoryDependencySetupSteps)
           .flat(),
+        ...getYarnWorkspaceDeploymentDependencies(workspace).map(getDeploymentDependencySetupStep),
         githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
         githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
       ],

@@ -5,6 +5,7 @@ import { join } from 'path';
 export type WorkspaceInformation = {
   readonly inRepoWorkspaceDependencies: readonly string[];
   readonly devSamRepositoryDependencies: readonly string[];
+  readonly deploymentDependencies: readonly string[];
 };
 
 const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInformation> => {
@@ -32,10 +33,14 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
         }
         return dependencyString.substring('packages/'.length);
       });
-      const devSamRepositoryDependencies: readonly string[] =
-        JSON.parse(readFileSync(join(location, 'package.json')).toString())
-          .devSamRepositoryDependencies ?? [];
-      map.set(name, { inRepoWorkspaceDependencies, devSamRepositoryDependencies });
+
+      const packageJson = JSON.parse(readFileSync(join(location, 'package.json')).toString());
+
+      map.set(name, {
+        inRepoWorkspaceDependencies,
+        devSamRepositoryDependencies: packageJson.devSamRepositoryDependencies ?? [],
+        deploymentDependencies: packageJson.deploymentDependencies ?? [],
+      });
     }
   );
   return map;
