@@ -46,6 +46,11 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "target": "wiki",
+      "public": "packages/wiki/build",
+      "ignore": ["**/.*"]
     }
   ]
 }
