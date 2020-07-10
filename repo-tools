@@ -1,3 +1,4 @@
 #!/bin/bash
 
-node packages/repo-tools/bin/index.js
+MY_PATH=$(dirname "$0")
+node "$MY_PATH"/packages/repo-tools/bin/index.js
