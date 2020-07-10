@@ -2,6 +2,7 @@ import { existsSync, readFileSync, lstatSync } from 'fs';
 import { join, dirname } from 'path';
 
 type RepoToolsConfiguration = {
+  readonly binary: string;
   readonly organizationName: string;
   readonly toolingNamespace: string;
 };
@@ -10,14 +11,17 @@ const parseRepoToolsConfiguration = (json: unknown): RepoToolsConfiguration => {
   if (typeof json !== 'object' || json == null) {
     throw new Error(`Unexpected configuration format. Bad object: ${JSON.stringify(json)}`);
   }
-  const { organizationName, toolingNamespace } = json as Record<string, unknown>;
+  const { binary, organizationName, toolingNamespace } = json as Record<string, unknown>;
+  if (typeof binary !== 'string') {
+    throw new Error('`binary` must be string!');
+  }
   if (typeof organizationName !== 'string') {
     throw new Error('`organizationName` must be string!');
   }
   if (typeof toolingNamespace !== 'string') {
     throw new Error('`toolingNamespace` must be string!');
   }
-  return { organizationName, toolingNamespace };
+  return { binary, organizationName, toolingNamespace };
 };
 
 const loadRepoToolsConfigurationAndFindRoot = (): readonly [string, RepoToolsConfiguration] => {

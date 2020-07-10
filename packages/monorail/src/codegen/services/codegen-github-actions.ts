@@ -1,3 +1,4 @@
+import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   GitHubActionsWorkflow,
   githubActionJobRunStep,
@@ -55,7 +56,7 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, GitHubActionsWork
         jobSteps: [
           GITHUB_ACTIONS_CHECKOUT_STEP,
           GITHUB_ACTIONS_SETUP_NODE_STEP,
-          githubActionJobRunStep('Codegen', './repo-tools codegen'),
+          githubActionJobRunStep('Codegen', `${PROJECT_CONFIGURATION.binary} codegen`),
           githubActionJobRunStep('Check changed', 'git status --porcelain'),
         ],
       },
