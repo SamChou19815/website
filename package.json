@@ -67,6 +67,10 @@
       "built": false
     }
   },
+  "repoToolsConfiguration": {
+    "organizationName": "SamChou19815",
+    "toolingNamespace": "@dev-sam"
+  },
   "eslintConfig": {
     "extends": [
       "@dev-sam/common"
