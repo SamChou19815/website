@@ -1,3 +1,4 @@
+import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   GitHubActionJobStep,
   githubActionJobActionStep,
@@ -26,8 +27,8 @@ export const getDevSamRepositoryDependencySetupSteps = (
   repositoryName: string
 ): readonly GitHubActionJobStep[] => [
   githubActionJobRunStep(
-    `Checkout SamChou19815/${repositoryName}`,
-    `cd ../ && git clone https://\${{ secrets.DEPLOY_GH_PAGE_TOKEN }}@github.com/SamChou19815/${repositoryName} --depth 1`
+    `Checkout ${PROJECT_CONFIGURATION.organizationName}/${repositoryName}`,
+    `cd ../ && git clone https://\${{ secrets.DEPLOY_GH_PAGE_TOKEN }}@github.com/${PROJECT_CONFIGURATION.organizationName}/${repositoryName} --depth 1`
   ),
   githubActionJobRunStep(
     `Sanity Check ${repositoryName} setup`,

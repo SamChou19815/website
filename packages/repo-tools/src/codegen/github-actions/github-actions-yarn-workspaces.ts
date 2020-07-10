@@ -1,3 +1,4 @@
+import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   toolingWorkspaces,
   libraryWorkspaces,
@@ -30,7 +31,9 @@ const yarnWorkspaceGetDependencyPaths = (workspace: string): readonly string[] =
   ...getYarnWorkspaceInRepoDependencyChain(workspace).map(
     (dependency) =>
       `packages/${
-        dependency.startsWith('@dev-sam/') ? dependency.substring('@dev-sam/'.length) : dependency
+        dependency.startsWith(`${PROJECT_CONFIGURATION.toolingNamespace}/`)
+          ? dependency.substring(`${PROJECT_CONFIGURATION.toolingNamespace}/`.length)
+          : dependency
       }/**`
   ),
   'package.json',
@@ -100,7 +103,7 @@ export const getYarnWorkspaceWorkflows = (
 ): Record<string, GitHubActionsWorkflow> =>
   Object.fromEntries([
     ...toolingWorkspaces.map((workspace) => {
-      const name = `ci-${workspace.substring('@dev-sam/'.length)}`;
+      const name = `ci-${workspace.substring(`${PROJECT_CONFIGURATION.toolingNamespace}/`.length)}`;
       return [
         name,
         generateYarnWorkspaceProjectCIWorkflow(workspace, overridePrepares[name] ?? []),
