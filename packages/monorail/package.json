@@ -6,7 +6,7 @@
   "bin": "./bin/index.js",
   "scripts": {
     "build": "run -T tsc",
-    "bundle": "NODE_NO_WARNINGS=1 ncc build src/index.ts -o bin -m --no-source-map-register",
+    "bundle": "NODE_NO_WARNINGS=1 node build.js",
     "compile": "yarn build && yarn bundle && git status --porcelain"
   },
   "devDependencies": {
