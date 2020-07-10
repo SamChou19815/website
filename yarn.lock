@@ -1673,15 +1673,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dev-sam/repo-tools@workspace:^0.0.1, @dev-sam/repo-tools@workspace:packages/repo-tools":
+"@dev-sam/monorail@workspace:^0.0.1, @dev-sam/monorail@workspace:packages/monorail":
   version: 0.0.0-use.local
-  resolution: "@dev-sam/repo-tools@workspace:packages/repo-tools"
+  resolution: "@dev-sam/monorail@workspace:packages/monorail"
   dependencies:
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.14
     "@zeit/ncc": ^0.22.3
   bin:
-    repo-tools: ./bin/index.js
+    monorail: ./bin/index.js
   languageName: unknown
   linkType: soft
 
@@ -17142,7 +17142,7 @@ fsevents@^1.2.7:
   dependencies:
     "@babel/core": ^7.10.2
     "@dev-sam/eslint-config-common": "workspace:^0.14.0"
-    "@dev-sam/repo-tools": "workspace:^0.0.1"
+    "@dev-sam/monorail": "workspace:^0.0.1"
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.56
     "@docusaurus/types": ^2.0.0-alpha.37
     "@types/classnames": 2.2.10
