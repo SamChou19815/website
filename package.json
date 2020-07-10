@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@dev-sam/eslint-config-common": "workspace:^0.14.0",
-    "@dev-sam/repo-tools": "workspace:^0.0.1",
+    "@dev-sam/monorail": "workspace:^0.0.1",
     "@docusaurus/module-type-aliases": "^2.0.0-alpha.56",
     "@docusaurus/types": "^2.0.0-alpha.37",
     "@types/classnames": "2.2.10",

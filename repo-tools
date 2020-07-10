@@ -1,4 +1,4 @@
 #!/bin/bash
 
 MY_PATH=$(dirname "$0")
-node "$MY_PATH"/packages/repo-tools/bin/index.js
+node "$MY_PATH"/packages/monorail/bin/index.js
