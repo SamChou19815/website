@@ -3,7 +3,7 @@
   "description": "Developer Sam's repository tools.",
   "version": "0.0.1",
   "private": true,
-  "bin": "./bin/index.js",
+  "bin": "./bin/monorail",
   "scripts": {
     "build": "run -T tsc",
     "bundle": "NODE_NO_WARNINGS=1 node build.js",
