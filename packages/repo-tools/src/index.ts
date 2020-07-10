@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* eslint-disable import/first */
 
 // Ensuring all subsequent command is run from project root, so this must be the first statement.
