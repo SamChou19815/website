@@ -1,9 +1,9 @@
+import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   GitHubActionJobStep,
   githubActionJobActionStep,
   githubActionJobRunStep,
 } from '../ast/github-actions';
-import { PROJECT_CONFIGURATION } from '../../configuration';
 
 export const GITHUB_ACTIONS_CHECKOUT_STEP: GitHubActionJobStep = githubActionJobActionStep(
   'actions/checkout@v2'
