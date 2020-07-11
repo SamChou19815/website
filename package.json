@@ -70,7 +70,10 @@
   "repoToolsConfiguration": {
     "binary": "./packages/monorail/bin/monorail",
     "organizationName": "SamChou19815",
-    "toolingNamespace": "@dev-sam"
+    "toolingPrefixes": [
+      "@dev-sam/",
+      "vscode-"
+    ]
   },
   "eslintConfig": {
     "extends": [

@@ -1,8 +1,8 @@
-import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   toolingWorkspaces,
   libraryWorkspaces,
   projectWorkspaces,
+  getYarnWorkspaceLocation,
   getYarnWorkspaceInRepoDependencyChain,
   getYarnWorkspaceDevSamRepositoryDependencies,
   getYarnWorkspaceDeploymentDependencies,
@@ -29,12 +29,7 @@ export const yarnWorkspaceBoilterplateSetupSteps = [
 
 const yarnWorkspaceGetDependencyPaths = (workspace: string): readonly string[] => [
   ...getYarnWorkspaceInRepoDependencyChain(workspace).map(
-    (dependency) =>
-      `packages/${
-        dependency.startsWith(`${PROJECT_CONFIGURATION.toolingNamespace}/`)
-          ? dependency.substring(`${PROJECT_CONFIGURATION.toolingNamespace}/`.length)
-          : dependency
-      }/**`
+    (name) => `${getYarnWorkspaceLocation(name)}/**`
   ),
   'package.json',
   'yarn.lock',
@@ -98,19 +93,15 @@ export type YarnWorkspaceWorkflowsOverrides = Record<
   readonly GitHubActionJobStep[] | undefined
 >;
 
+const normalizeDependencyName = (dependency: string) =>
+  dependency.substring(dependency.indexOf('/') + 1);
+
 export const getYarnWorkspaceWorkflows = (
   overridePrepares: YarnWorkspaceWorkflowsOverrides = {}
 ): Record<string, GitHubActionsWorkflow> =>
   Object.fromEntries([
-    ...toolingWorkspaces.map((workspace) => {
-      const name = `ci-${workspace.substring(`${PROJECT_CONFIGURATION.toolingNamespace}/`.length)}`;
-      return [
-        name,
-        generateYarnWorkspaceProjectCIWorkflow(workspace, overridePrepares[name] ?? []),
-      ];
-    }),
-    ...[...libraryWorkspaces, ...projectWorkspaces].map((workspace) => {
-      const name = `ci-${workspace}`;
+    ...[...toolingWorkspaces, ...libraryWorkspaces, ...projectWorkspaces].map((workspace) => {
+      const name = `ci-${normalizeDependencyName(workspace)}`;
       return [
         name,
         generateYarnWorkspaceProjectCIWorkflow(workspace, overridePrepares[name] ?? []),

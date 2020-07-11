@@ -3,7 +3,7 @@ import { PROJECT_CONFIGURATION } from '../configuration';
 /**
  * There are three types of workspaces in this monorepo:
  *
- * 1. Workspaces start with `<PROJECT_CONFIGURATION.toolingNamespace>`.
+ * 1. Workspaces start with any item in `<PROJECT_CONFIGURATION.toolingPrefixes>`.
  *    They are tooling workspaces. They are designed to be as general as possible, so that they can
  *    potentially be published on npm and used by other developer sam projects.
  *    Note: This particular name prefix is used because `@dev-sam/eslint-config-common` is a published
@@ -32,7 +32,7 @@ const classifyYarnWorkspaces = (workspaces: readonly string[]): YarnWorkspaceCla
   const projectWorkspaces: string[] = [];
 
   workspaces.forEach((workspace) => {
-    if (workspace.startsWith(PROJECT_CONFIGURATION.toolingNamespace)) {
+    if (PROJECT_CONFIGURATION.toolingPrefixes.some((prefix) => workspace.startsWith(prefix))) {
       toolingWorkspaces.push(workspace);
     } else if (workspace.startsWith('lib-')) {
       libraryWorkspaces.push(workspace);
