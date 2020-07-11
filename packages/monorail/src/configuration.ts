@@ -4,24 +4,28 @@ import { join, dirname } from 'path';
 type RepoToolsConfiguration = {
   readonly binary: string;
   readonly organizationName: string;
-  readonly toolingNamespace: string;
+  readonly toolingPrefixes: readonly string[];
 };
 
 const parseRepoToolsConfiguration = (json: unknown): RepoToolsConfiguration => {
   if (typeof json !== 'object' || json == null) {
     throw new Error(`Unexpected configuration format. Bad object: ${JSON.stringify(json)}`);
   }
-  const { binary, organizationName, toolingNamespace } = json as Record<string, unknown>;
+  const { binary, organizationName, toolingPrefixes } = json as Record<string, unknown>;
   if (typeof binary !== 'string') {
     throw new Error('`binary` must be string!');
   }
   if (typeof organizationName !== 'string') {
     throw new Error('`organizationName` must be string!');
   }
-  if (typeof toolingNamespace !== 'string') {
-    throw new Error('`toolingNamespace` must be string!');
+  if (!Array.isArray(toolingPrefixes)) {
+    throw new Error('`toolingPrefixes` must be string array!');
   }
-  return { binary, organizationName, toolingNamespace };
+  const legalToolingPrefixes = toolingPrefixes.filter((it): it is string => typeof it === 'string');
+  if (legalToolingPrefixes.length !== toolingPrefixes.length) {
+    throw new Error('`toolingPrefixes` must be string array!');
+  }
+  return { binary, organizationName, toolingPrefixes: legalToolingPrefixes };
 };
 
 const loadRepoToolsConfigurationAndFindRoot = (): readonly [string, RepoToolsConfiguration] => {

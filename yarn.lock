@@ -3563,6 +3563,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/vscode@npm:1.47.0":
+  version: 1.47.0
+  resolution: "@types/vscode@npm:1.47.0"
+  checksum: fe2bb70651ed49772fc04112aacecd7ba1e504be177e14d12052d401faaa414f356fbcc862f80b80eed8ab6e690890ac53c8dce991600daa4422cc5b1650bede
+  languageName: node
+  linkType: hard
+
 "@types/webpack-sources@npm:*":
   version: 0.1.7
   resolution: "@types/webpack-sources@npm:0.1.7"
@@ -19892,6 +19899,14 @@ typescript@3.9.5:
   checksum: fc571a62d2cf797ae8773ebb3cb0d2bea50ed02059e128dd9087975929fce4c80a6485ce1aaf7d44ef69db99dfdcde50b6be5d5eb73b296660d761c32fb544fe
   languageName: node
   linkType: hard
+
+"vscode-disable-generated-files-edit@workspace:packages/vscode-disable-generated-files-edit":
+  version: 0.0.0-use.local
+  resolution: "vscode-disable-generated-files-edit@workspace:packages/vscode-disable-generated-files-edit"
+  dependencies:
+    "@types/vscode": 1.47.0
+  languageName: unknown
+  linkType: soft
 
 "w3c-hr-time@npm:^1.0.2":
   version: 1.0.2
