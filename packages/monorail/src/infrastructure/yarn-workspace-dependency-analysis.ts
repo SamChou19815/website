@@ -1,7 +1,7 @@
 import queryYarnForWorkspaceInformation, { WorkspaceInformation } from './yarn-query';
 import classifyYarnWorkspaces from './yarn-workspace-classifier';
 
-const workspaceInformation = queryYarnForWorkspaceInformation();
+export const workspaceInformation = queryYarnForWorkspaceInformation();
 
 export const { toolingWorkspaces, libraryWorkspaces, projectWorkspaces } = classifyYarnWorkspaces(
   Array.from(workspaceInformation.keys())
