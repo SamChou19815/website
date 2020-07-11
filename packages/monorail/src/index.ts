@@ -15,10 +15,10 @@ import executeCodegenServices from './codegen/services';
  * - codegen: Generate code according to repository configuration and Yarn workspace setup.
  * - sync: Push changes in other known repositories if git status is not clean.
  */
-const main = (): void => {
+const main = async (): Promise<void> => {
   switch (parseCommandLineArgumentsIntoCommand()) {
     case 'CODEGEN':
-      executeCodegenServices();
+      await executeCodegenServices();
       return;
     case 'SYNC':
       return;
