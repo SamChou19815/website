@@ -5,7 +5,7 @@ import { join } from 'path';
 export type CodegenConfiguration = {
   /** Source directory or single source file. */
   readonly sources: string;
-  /** Output directory or single output file. */
+  /** Output file. */
   readonly output: string;
 };
 

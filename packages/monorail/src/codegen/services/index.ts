@@ -1,7 +1,7 @@
 import { spawnSync } from 'child_process';
 import { writeFileSync } from 'fs';
 
-import { workspaceInformation } from '../../infrastructure/yarn-workspace-dependency-analysis';
+import cachedBuild from '../cached-build';
 import githubActionsCodegenService from './codegen-github-actions';
 import ignoreFileCodegenService from './codegen-ignore-files';
 import staticJsonCodegenService from './codegen-json';
@@ -24,17 +24,9 @@ const executePredefinedCodegenServices = () => {
   });
 };
 
-const executeWorkspaceDefinedCodegenServices = () => {
-  workspaceInformation.forEach(({ codegenConfiguration }, workspaceName) => {
-    // TODO replace this when the implementation is ready.
-    // eslint-disable-next-line no-console
-    console.log(workspaceName, codegenConfiguration);
-  });
-};
-
-const executeCodegenServices = (): void => {
+const executeCodegenServices = async (): Promise<void> => {
   executePredefinedCodegenServices();
-  executeWorkspaceDefinedCodegenServices();
+  await cachedBuild();
 };
 
 export default executeCodegenServices;
