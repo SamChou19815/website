@@ -6,6 +6,7 @@
 **/out/
 *.tsbuildinfo
 .eslintcache
+*.vsix
 
 # misc
 .DS_Store
