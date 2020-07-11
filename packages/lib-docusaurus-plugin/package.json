@@ -9,7 +9,8 @@
   },
   "private": true,
   "scripts": {
-    "compile": "run -T tsc"
+    "compile": "run -T tsc",
+    "codegen": "yarn compile"
   },
   "dependencies": {
     "@docusaurus/types": "^2.0.0-alpha.37",
@@ -22,5 +23,9 @@
     "prism-react-renderer": {
       "optional": true
     }
+  },
+  "codegenConfiguration": {
+    "sources": "index.ts",
+    "output": "index.js"
   }
 }
