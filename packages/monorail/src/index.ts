@@ -9,10 +9,14 @@ process.chdir(require('./configuration').PROJECT_ROOT_DIRECTORY);
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
 
+/**
+ * Supported commands:
+ *
+ * - codegen: Generate code according to repository configuration and Yarn workspace setup.
+ * - sync: Push changes in other known repositories if git status is not clean.
+ */
 const main = (): void => {
-  const command = parseCommandLineArgumentsIntoCommand();
-
-  switch (command.type) {
+  switch (parseCommandLineArgumentsIntoCommand()) {
     case 'CODEGEN':
       executeCodegenServices();
       return;
