@@ -1,8 +1,10 @@
 {
   "name": "vscode-disable-generated-files-edit",
-  "version": "0.2.0",
+  "displayName": "Disable edits for generated files",
+  "version": "0.4.0",
   "license": "MIT",
   "main": "./build/index.js",
+  "icon": "no-edit.png",
   "publisher": "dev-sam",
   "repository": {
     "url": "https://github.com/SamChou19815/wensite/tree/master/vscode-disable-generated-files-edit"
