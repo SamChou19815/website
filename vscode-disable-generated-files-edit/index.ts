@@ -1,4 +1,4 @@
-/** eslint-disable */
+/* eslint-disable */
 
 import * as vscode from 'vscode';
 
