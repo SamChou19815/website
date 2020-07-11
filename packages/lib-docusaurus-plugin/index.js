@@ -1,9 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+// @ts-check
+
+/** @returns {import('@docusaurus/types').Plugin<void>} */
 const setupPlugin = () => ({
     name: 'lib-docusaurus-plugin',
     getClientModules() {
         return [require.resolve('./prism-include-languages')];
     },
 });
-exports.default = setupPlugin;
+
+module.exports = setupPlugin;
