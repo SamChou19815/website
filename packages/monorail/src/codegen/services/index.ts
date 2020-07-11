@@ -11,7 +11,7 @@ const codegenServices = [
   staticJsonCodegenService,
 ];
 
-const executeCodegenServices = (): void => {
+const executePredefinedCodegenServices = () => {
   codegenServices.forEach((codegenService) => {
     const { generatedFilenamePattern, generatedCodeContentList } = codegenService;
     if (generatedFilenamePattern != null) {
@@ -21,6 +21,13 @@ const executeCodegenServices = (): void => {
       writeFileSync(pathForGeneratedCode, generatedCode)
     );
   });
+};
+
+const executeWorkspaceDefinedCodegenServices = () => {};
+
+const executeCodegenServices = (): void => {
+  executePredefinedCodegenServices();
+  executeWorkspaceDefinedCodegenServices();
 };
 
 export default executeCodegenServices;
