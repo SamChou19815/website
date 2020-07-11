@@ -1,9 +1,9 @@
 {
   "extends": "../../configuration/tsconfig.lib.json",
   "compilerOptions": {
+    "allowJs": true,
     "module": "CommonJS",
-    "declaration": false,
-    "noEmit": false
+    "noEmit": true
   },
-  "include": ["index.ts", "types.d.ts"]
+  "include": ["index.js"]
 }
