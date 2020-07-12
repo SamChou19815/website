@@ -15,7 +15,10 @@
     "@zeit/ncc": "^0.22.3"
   },
   "codegenConfiguration": {
-    "sources": "src",
+    "sources": [
+      "src",
+      "build.js"
+    ],
     "output": "bin/monorail"
   }
 }
