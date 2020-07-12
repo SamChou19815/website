@@ -4,7 +4,6 @@ import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-rende
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Prism from 'prism-react-renderer/prism';
-import draculaDarkTheme from 'prism-react-renderer/themes/dracula';
 
 import theme from './prism-theme.json';
 
@@ -21,6 +20,8 @@ type Props = {
   readonly excludeWrapper?: boolean;
 };
 
+export const flexibleTheme: PrismTheme = theme as PrismTheme;
+
 const PrismCodeBlock = ({
   language,
   children,
@@ -33,7 +34,7 @@ const PrismCodeBlock = ({
     <Highlight
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
-      theme={userDefinedTheme || (theme as PrismTheme)}
+      theme={userDefinedTheme || flexibleTheme}
       code={children.trim()}
       language={language as Language}
     >
@@ -63,8 +64,5 @@ const PrismCodeBlock = ({
     </Highlight>
   );
 };
-
-export const lightTheme: PrismTheme = theme as PrismTheme;
-export const darkTheme: PrismTheme = draculaDarkTheme;
 
 export default PrismCodeBlock;

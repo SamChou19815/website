@@ -6,6 +6,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
   style={
     Object {
       "backgroundColor": "var(--ifm-background-color)",
+      "color": "var(--prism-code-block-plain-color)",
     }
   }
 >
@@ -14,6 +15,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -21,7 +23,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -34,6 +36,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -41,7 +44,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -54,6 +57,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -61,7 +65,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -74,6 +78,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -81,7 +86,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -94,6 +99,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -101,7 +107,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -119,6 +125,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -138,6 +145,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -150,7 +158,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -168,6 +176,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -180,7 +189,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -198,6 +207,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -210,7 +220,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -228,6 +238,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -240,7 +251,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token comment"
       style={
         Object {
-          "color": "rgb(111, 111, 111)",
+          "color": "var(--prism-code-block-comment-color)",
           "fontStyle": "italic",
         }
       }
@@ -258,6 +269,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -277,6 +289,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -289,7 +302,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -304,7 +317,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -319,7 +332,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -334,7 +347,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -349,7 +362,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -364,7 +377,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -379,7 +392,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -394,7 +407,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token operator"
       style={
         Object {
-          "color": "rgb(56, 72, 79)",
+          "color": "var(--prism-code-block-plain-color)",
         }
       }
     >
@@ -409,7 +422,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -424,7 +437,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -441,6 +454,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -453,7 +467,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -468,7 +482,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -483,7 +497,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token function"
       style={
         Object {
-          "color": "rgb(213, 34, 98)",
+          "color": "var(--prism-code-block-function-color)",
         }
       }
     >
@@ -498,7 +512,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -513,7 +527,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -528,7 +542,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -545,6 +559,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -557,7 +572,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -572,7 +587,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -589,6 +604,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -601,7 +617,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -616,7 +632,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token function"
       style={
         Object {
-          "color": "rgb(213, 34, 98)",
+          "color": "var(--prism-code-block-function-color)",
         }
       }
     >
@@ -631,7 +647,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -646,7 +662,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -661,7 +677,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -678,6 +694,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -690,7 +707,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -705,7 +722,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -722,6 +739,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -736,6 +754,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -748,7 +767,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -763,7 +782,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -780,6 +799,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -792,7 +812,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -807,7 +827,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -822,7 +842,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -837,7 +857,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -854,6 +874,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -866,7 +887,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -881,7 +902,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -896,7 +917,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -913,6 +934,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -927,6 +949,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -939,7 +962,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -954,7 +977,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token function"
       style={
         Object {
-          "color": "rgb(213, 34, 98)",
+          "color": "var(--prism-code-block-function-color)",
         }
       }
     >
@@ -969,7 +992,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -986,6 +1009,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -998,7 +1022,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -1013,7 +1037,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -1028,7 +1052,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token function"
       style={
         Object {
-          "color": "rgb(213, 34, 98)",
+          "color": "var(--prism-code-block-function-color)",
         }
       }
     >
@@ -1043,7 +1067,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token string"
       style={
         Object {
-          "color": "rgb(26, 143, 82)",
+          "color": "var(--prism-code-block-string-color)",
         }
       }
     >
@@ -1058,7 +1082,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token function"
       style={
         Object {
-          "color": "rgb(213, 34, 98)",
+          "color": "var(--prism-code-block-function-color)",
         }
       }
     >
@@ -1073,7 +1097,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token string"
       style={
         Object {
-          "color": "rgb(26, 143, 82)",
+          "color": "var(--prism-code-block-string-color)",
         }
       }
     >
@@ -1090,6 +1114,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -1102,7 +1127,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -1117,7 +1142,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token string"
       style={
         Object {
-          "color": "rgb(26, 143, 82)",
+          "color": "var(--prism-code-block-string-color)",
         }
       }
     >
@@ -1134,6 +1159,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -1146,7 +1172,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token string"
       style={
         Object {
-          "color": "rgb(26, 143, 82)",
+          "color": "var(--prism-code-block-string-color)",
         }
       }
     >
@@ -1163,6 +1189,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -1177,6 +1204,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -1191,6 +1219,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -1203,7 +1232,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -1218,7 +1247,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -1235,6 +1264,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >
@@ -1247,7 +1277,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token keyword"
       style={
         Object {
-          "color": "rgb(62, 122, 226)",
+          "color": "var(--prism-code-block-keyword-color)",
         }
       }
     >
@@ -1262,7 +1292,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token function"
       style={
         Object {
-          "color": "rgb(213, 34, 98)",
+          "color": "var(--prism-code-block-function-color)",
         }
       }
     >
@@ -1277,7 +1307,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -1292,7 +1322,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token class-name"
       style={
         Object {
-          "color": "rgb(154, 48, 173)",
+          "color": "var(--prism-code-block-property-color)",
         }
       }
     >
@@ -1307,7 +1337,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
       className="token function"
       style={
         Object {
-          "color": "rgb(213, 34, 98)",
+          "color": "var(--prism-code-block-function-color)",
         }
       }
     >
@@ -1324,6 +1354,7 @@ exports[`FirstPageCodeBlock matches snapshot. 1`] = `
     style={
       Object {
         "backgroundColor": null,
+        "color": "var(--prism-code-block-plain-color)",
       }
     }
   >

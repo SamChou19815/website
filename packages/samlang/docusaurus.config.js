@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const darkTheme = require('prism-react-renderer/themes/dracula');
-
 const theme = require('lib-react/prism-theme.json');
 
 module.exports = {
@@ -18,10 +16,7 @@ module.exports = {
   organizationName: 'SamChou19815',
   projectName: 'samlang',
   themeConfig: {
-    prism: {
-      theme,
-      darkTheme,
-    },
+    prism: { theme },
     algolia: {
       apiKey: '1406f5568da6a64e7791f113bbf9148e',
       indexName: 'developersam_samllang',

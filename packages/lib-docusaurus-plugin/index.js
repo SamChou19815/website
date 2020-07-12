@@ -4,7 +4,10 @@
 const setupPlugin = () => ({
   name: 'lib-docusaurus-plugin',
   getClientModules() {
-    return [require.resolve('./prism-include-languages')];
+    return [
+      require.resolve('./prism-include-languages'),
+      require.resolve('lib-react/PrismCodeBlock.css'),
+    ];
   },
 });
 

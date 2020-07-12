@@ -13,6 +13,7 @@ Array [
         style={
           Object {
             "backgroundColor": "var(--ifm-background-color)",
+            "color": "var(--prism-code-block-plain-color)",
           }
         }
       >
@@ -21,6 +22,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -28,7 +30,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -41,6 +43,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -48,7 +51,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -61,6 +64,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -68,7 +72,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -81,6 +85,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -88,7 +93,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -101,6 +106,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -108,7 +114,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -126,6 +132,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -145,6 +152,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -157,7 +165,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -175,6 +183,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -187,7 +196,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -205,6 +214,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -217,7 +227,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -235,6 +245,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -247,7 +258,7 @@ Array [
             className="token comment"
             style={
               Object {
-                "color": "rgb(111, 111, 111)",
+                "color": "var(--prism-code-block-comment-color)",
                 "fontStyle": "italic",
               }
             }
@@ -265,6 +276,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -284,6 +296,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -296,7 +309,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -311,7 +324,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -326,7 +339,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -341,7 +354,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -356,7 +369,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -371,7 +384,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -386,7 +399,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -401,7 +414,7 @@ Array [
             className="token operator"
             style={
               Object {
-                "color": "rgb(56, 72, 79)",
+                "color": "var(--prism-code-block-plain-color)",
               }
             }
           >
@@ -416,7 +429,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -431,7 +444,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -448,6 +461,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -460,7 +474,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -475,7 +489,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -490,7 +504,7 @@ Array [
             className="token function"
             style={
               Object {
-                "color": "rgb(213, 34, 98)",
+                "color": "var(--prism-code-block-function-color)",
               }
             }
           >
@@ -505,7 +519,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -520,7 +534,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -535,7 +549,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -552,6 +566,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -564,7 +579,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -579,7 +594,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -596,6 +611,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -608,7 +624,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -623,7 +639,7 @@ Array [
             className="token function"
             style={
               Object {
-                "color": "rgb(213, 34, 98)",
+                "color": "var(--prism-code-block-function-color)",
               }
             }
           >
@@ -638,7 +654,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -653,7 +669,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -668,7 +684,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -685,6 +701,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -697,7 +714,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -712,7 +729,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -729,6 +746,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -743,6 +761,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -755,7 +774,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -770,7 +789,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -787,6 +806,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -799,7 +819,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -814,7 +834,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -829,7 +849,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -844,7 +864,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -861,6 +881,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -873,7 +894,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -888,7 +909,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -903,7 +924,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -920,6 +941,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -934,6 +956,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -946,7 +969,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -961,7 +984,7 @@ Array [
             className="token function"
             style={
               Object {
-                "color": "rgb(213, 34, 98)",
+                "color": "var(--prism-code-block-function-color)",
               }
             }
           >
@@ -976,7 +999,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -993,6 +1016,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -1005,7 +1029,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -1020,7 +1044,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -1035,7 +1059,7 @@ Array [
             className="token function"
             style={
               Object {
-                "color": "rgb(213, 34, 98)",
+                "color": "var(--prism-code-block-function-color)",
               }
             }
           >
@@ -1050,7 +1074,7 @@ Array [
             className="token string"
             style={
               Object {
-                "color": "rgb(26, 143, 82)",
+                "color": "var(--prism-code-block-string-color)",
               }
             }
           >
@@ -1065,7 +1089,7 @@ Array [
             className="token function"
             style={
               Object {
-                "color": "rgb(213, 34, 98)",
+                "color": "var(--prism-code-block-function-color)",
               }
             }
           >
@@ -1080,7 +1104,7 @@ Array [
             className="token string"
             style={
               Object {
-                "color": "rgb(26, 143, 82)",
+                "color": "var(--prism-code-block-string-color)",
               }
             }
           >
@@ -1097,6 +1121,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -1109,7 +1134,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -1124,7 +1149,7 @@ Array [
             className="token string"
             style={
               Object {
-                "color": "rgb(26, 143, 82)",
+                "color": "var(--prism-code-block-string-color)",
               }
             }
           >
@@ -1141,6 +1166,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -1153,7 +1179,7 @@ Array [
             className="token string"
             style={
               Object {
-                "color": "rgb(26, 143, 82)",
+                "color": "var(--prism-code-block-string-color)",
               }
             }
           >
@@ -1170,6 +1196,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -1184,6 +1211,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -1198,6 +1226,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -1210,7 +1239,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -1225,7 +1254,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -1242,6 +1271,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >
@@ -1254,7 +1284,7 @@ Array [
             className="token keyword"
             style={
               Object {
-                "color": "rgb(62, 122, 226)",
+                "color": "var(--prism-code-block-keyword-color)",
               }
             }
           >
@@ -1269,7 +1299,7 @@ Array [
             className="token function"
             style={
               Object {
-                "color": "rgb(213, 34, 98)",
+                "color": "var(--prism-code-block-function-color)",
               }
             }
           >
@@ -1284,7 +1314,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -1299,7 +1329,7 @@ Array [
             className="token class-name"
             style={
               Object {
-                "color": "rgb(154, 48, 173)",
+                "color": "var(--prism-code-block-property-color)",
               }
             }
           >
@@ -1314,7 +1344,7 @@ Array [
             className="token function"
             style={
               Object {
-                "color": "rgb(213, 34, 98)",
+                "color": "var(--prism-code-block-function-color)",
               }
             }
           >
@@ -1331,6 +1361,7 @@ Array [
           style={
             Object {
               "backgroundColor": null,
+              "color": "var(--prism-code-block-plain-color)",
             }
           }
         >

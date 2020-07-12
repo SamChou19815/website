@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "@docusaurus/types": "^2.0.0-alpha.37",
-    "lib-prism-extended": "0.1.0"
+    "lib-prism-extended": "workspace:0.1.0",
+    "lib-react": "workspace:0.1.0"
   },
   "peerDependencies": {
     "prism-react-renderer": "^1.1.0"

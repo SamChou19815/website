@@ -1,25 +1,26 @@
 {
   "plain": {
-    "backgroundColor": "#f7f7f7"
+    "color": "var(--prism-code-block-plain-color)",
+    "backgroundColor": "var(--prism-code-block-background-color)"
   },
   "styles": [
     {
       "types": ["comment"],
       "style": {
-        "color": "rgb(111, 111, 111)",
+        "color": "var(--prism-code-block-comment-color)",
         "fontStyle": "italic"
       }
     },
     {
       "types": ["keyword", "char", "tag", "key"],
       "style": {
-        "color": "rgb(62, 122, 226)"
+        "color": "var(--prism-code-block-keyword-color)"
       }
     },
     {
-      "types": ["operator", "variable"],
+      "types": ["operator", "variable", "punctuation"],
       "style": {
-        "color": "rgb(56, 72, 79)"
+        "color": "var(--prism-code-block-plain-color)"
       }
     },
     {
@@ -34,37 +35,25 @@
         "property"
       ],
       "style": {
-        "color": "rgb(154, 48, 173)"
+        "color": "var(--prism-code-block-property-color)"
       }
     },
     {
       "types": ["number"],
       "style": {
-        "color": "rgb(195, 59, 48)"
+        "color": "var(--prism-code-block-number-color)"
       }
     },
     {
       "types": ["string"],
       "style": {
-        "color": "rgb(26, 143, 82)"
-      }
-    },
-    {
-      "types": ["punctuation"],
-      "style": {
-        "color": "rgb(160, 161, 167)"
+        "color": "var(--prism-code-block-string-color)"
       }
     },
     {
       "types": ["function"],
       "style": {
-        "color": "rgb(213, 34, 98)"
-      }
-    },
-    {
-      "types": ["inserted"],
-      "style": {
-        "color": "rgb(80, 161, 79)"
+        "color": "var(--prism-code-block-function-color)"
       }
     }
   ]

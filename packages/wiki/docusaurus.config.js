@@ -5,8 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const darkTheme = require('prism-react-renderer/themes/dracula');
-
 const theme = require('lib-react/prism-theme.json');
 
 module.exports = {
@@ -18,10 +16,7 @@ module.exports = {
   baseUrl: '/',
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
-    prism: {
-      theme,
-      darkTheme,
-    },
+    prism: { theme },
     navbar: {
       title: 'Wiki',
       links: [],
