@@ -20,6 +20,13 @@ title: Website Repository Setup
     deploy to production.
   - Each commit to master will be automatically pushed to production. No staging.
 
+## GitHub Actions secrets
+
+- `GH_TOKEN`
+- `FIREBASE_TOKEN`
+- `GCP_PROJECT_ID`
+- `GCP_SERVICE_ACCOUNT_KEY`
+
 ## `monorail` monorepo tool
 
 :::caution
@@ -66,12 +73,66 @@ Running `monorail` or `monorail codegen` will generate following files:
   to `.gitignore`.
 - `configuration/libraries.json`: a json array specifying the names of library workspaces.
 
+### Repository dependency
+
+`monorail` supports specifying another repository within the same GitHub organization as a
+dependency. To declare that dependency, add the following lines to relevant workspace's
+`package.json`:
+
+```json
+{
+  // ...
+  "githubRepositoryDependencies": ["name of the repo, excluding org name."]
+  // ...
+}
+```
+
+In addition, set `GH_TOKEN` in GitHub repository secrets to be your GitHub personal access token.
+
+In local runs of `monorail`, it will have no effect. This declaration only instructs the CI to
+pull relevant repositories before building the workspace.
+
+`monorail` assumes a specific layout when pulling this dependency:
+
+```console
+- all-repos (name is irrelevant)
+  - your-repository (same as the repo name on GitHub)
+  - dependency-repository (same as the repo name on GitHub)
+```
+
+### Deployment tooling support
+
+By default, `monorail` assumes that deployment is done by Firebase CLI tool, with `FIREBASE_TOKEN`
+already set in your GitHub repository secrets. It also assumes that Firebase tool will be available
+as a dependency, which will be automatically installed by Yarn.
+
+It also supports adding a limited set of other deployment tools per workspace.
+
+#### `gcloud` deployment
+
+To use `gcloud` CLI for deployment, add the following lines to relevant workspace's `package.json`:
+
+```json
+{
+  // ...
+  "deploymentDependencies": ["gcloud"]
+  // ...
+}
+```
+
+In addition, you need to set `GCP_PROJECT_ID` and `GCP_SERVICE_ACCOUNT_KEY` as secrets in your
+GitHub repository according to
+[Google's official guide](https://github.com/GoogleCloudPlatform/github-actions/blob/master/setup-gcloud/README.md).
+
+In local runs of deployment script, it will have no effect. It only instructs `monorail` to generate
+continuous deployment workflows that will pull `gcloud` before deployment.
+
 ### Cached rebuild
 
 Running `monorail rebuild` or `monorail r` will rebuild some generated code according to the
 following rules:
 
-If a workspace has a `codegenConfiguration` that has the format:
+If a workspace's `package.json` has `codegenConfiguration` with the format:
 
 ```json
 {
@@ -82,3 +143,21 @@ If a workspace has a `codegenConfiguration` that has the format:
 
 Then rebuild will invoke the `codegen` script in the workspace. It will only rebuild if one of
 the specified source file's modified time is newer than the generated output.
+
+### Cross-repository file syncing
+
+To enable this feature, add a configuration with the following format:
+
+```json title="configuration/sync-configuration.json"
+{
+  "name of target repo, without org name": {
+    "relpath/to/source/in/current/repo": "relpath/to/destination/in/target/repo"
+  }
+}
+```
+
+Then run `monorail sync` or `monorail s` will copy the files according to your configuration, and
+automatically make a pull request against that repo.
+
+`monorail` will not attempt to fetch the repository for you. It's your responsibility to make the
+repository there.
