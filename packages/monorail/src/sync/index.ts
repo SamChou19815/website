@@ -2,12 +2,15 @@
 
 import { spawnSync } from 'child_process';
 import { existsSync, copyFileSync, mkdirSync, readFileSync } from 'fs';
-import { dirname, join, resolve } from 'path';
+import { basename, dirname, join, resolve } from 'path';
 
 const safeCopy = (source: string, destination: string): void => {
   mkdirSync(dirname(destination), { recursive: true });
   copyFileSync(source, destination);
 };
+
+const normalizedCommandForPrint = (command: readonly string[]): string =>
+  command.map((part) => (part.includes(' ') ? `"${part}"` : part)).join(' ');
 
 type SynchronizeFileMappings = Readonly<Record<string, string>>;
 type SynchronizeConfiguration = Readonly<Record<string, SynchronizeFileMappings>>;
@@ -22,11 +25,6 @@ const synchronizeToRepository = (
   console.log(`[✓] Synced files to target repository \`${repositoryName}\`.`);
 
   const repositoryPath = resolve(join('..', repositoryName));
-  const spawnOption = {
-    cwd: repositoryPath,
-    shell: true,
-    stdio: 'inherit',
-  } as const;
 
   if (
     spawnSync('git', ['status', '--porcelain'], { cwd: repositoryPath })
@@ -37,17 +35,54 @@ const synchronizeToRepository = (
     return;
   }
 
-  console.log(`[✓] Making a pull request for synchronized files in \`${repositoryName}\`.`);
-  spawnSync(
-    'git',
-    ['checkout', '-b', `monorail/sync-service/t-${new Date().getTime()}`],
-    spawnOption
-  );
   const filesToAdd = Object.values(synchronizeFileMappings);
-  spawnSync('git', ['add', ...filesToAdd], spawnOption);
-  spawnSync('git', ['commit', '-m', '"[monorail-sync] Automatic file sync commit"'], spawnOption);
-  spawnSync('gh', ['pr', 'create', '--fill'], spawnOption);
-  console.log(`\n[✓] Made a pull request for synchronized files in \`${repositoryName}\`.`);
+  const commands = [
+    ['git', 'checkout', '-b', `monorail/sync-service/t-${new Date().getTime()}`],
+    ['git', 'add', ...filesToAdd],
+    [
+      'git',
+      'commit',
+      '-m',
+      `[monorail-sync] Automatic file sync commit from ${basename(resolve('.'))}`,
+    ],
+    ['gh', 'pr', 'create', '--fill'],
+  ];
+  console.group(`[✓] Making a pull request for synchronized files in \`${repositoryName}\`.`);
+  if (process.env.DRY_RUN) {
+    commands.forEach((command) => console.log(`> ${normalizedCommandForPrint(command)}`));
+    console.groupEnd();
+    console.log(`[✓] DRY_RUN for making PR for \`${repositoryName}\` completed.`);
+  } else {
+    commands.forEach((command) => {
+      const normalizedCommandString = normalizedCommandForPrint(command);
+      console.group(`> ${normalizedCommandString}`);
+      const childProcess = spawnSync(command[0], command.slice(1), { cwd: repositoryPath });
+
+      console.group();
+      const pipeOutput = (buffer: Buffer, isError: boolean) => {
+        const string = buffer.toString().trim();
+        if (!string) return;
+        string
+          .split('\n')
+          .filter(Boolean)
+          .forEach((output) => (isError ? console.error(output) : console.log(output)));
+      };
+      if (childProcess.status !== 0 || process.env.INCLUDE_ERROR) {
+        pipeOutput(childProcess.stderr, true);
+      }
+      pipeOutput(childProcess.stdout, false);
+      console.groupEnd();
+
+      console.groupEnd();
+
+      if (childProcess.status !== 0) {
+        throw new Error(`Failed to run: \`${command}\``);
+      }
+    });
+
+    console.groupEnd();
+    console.log(`\n[✓] Made a pull request for synchronized files in \`${repositoryName}\`.`);
+  }
 };
 
 const synchronize = (): void => {
@@ -55,15 +90,18 @@ const synchronize = (): void => {
   if (!existsSync(synchronizeConfigurationPath)) {
     return;
   }
+
+  console.group('--- Monorail Cross-repository Sync Service ---');
   const synchronizeConfiguration: SynchronizeConfiguration = JSON.parse(
     readFileSync(synchronizeConfigurationPath).toString()
   );
 
   Object.entries(synchronizeConfiguration).forEach(([repositoryName, synchronizeFileMappings]) => {
-    console.group(`Synchronizing for \`${repositoryName}\`...`);
+    console.group(`\nSynchronizing for \`${repositoryName}\`...`);
     synchronizeToRepository(repositoryName, synchronizeFileMappings);
     console.groupEnd();
   });
+  console.groupEnd();
 };
 
 export default synchronize;
