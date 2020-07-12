@@ -102,6 +102,8 @@ const synchronize = (): void => {
     console.groupEnd();
   });
   console.groupEnd();
+
+  console.log(`\n[✓] Synchronized all files.`);
 };
 
 export default synchronize;
