@@ -6,8 +6,7 @@
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
     "build": "NODE_NO_WARNINGS=1 docusaurus build",
     "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
-    "tsc": "run -T tsc",
-    "compile": "run -T tsc && yarn build",
+    "compile": "run -T tsc",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
   "dependencies": {
