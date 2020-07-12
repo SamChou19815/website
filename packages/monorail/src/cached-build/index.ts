@@ -18,8 +18,7 @@ const cachedBuild = async (): Promise<void> => {
     return [
       workspace,
       spawnSync('yarn', ['workspace', workspace, 'codegen'], {
-        shell: true,
-        stdio: 'inherit',
+        stdio: ['inherit', process.env.INCLUDE_ERROR ? 'inherit' : 'ignore', 'inherit'],
       }).status === 0,
     ] as const;
   });
@@ -30,7 +29,7 @@ const cachedBuild = async (): Promise<void> => {
     .map(([name]) => name);
 
   if (failedWorkspacesRuns.length === 0) {
-    console.log('\n[✓] All workspaces have been successfully rebuilt!');
+    console.log('[✓] All workspaces have been successfully rebuilt!');
     return;
   }
 
