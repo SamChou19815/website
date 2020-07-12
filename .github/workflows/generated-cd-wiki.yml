@@ -38,7 +38,7 @@ jobs:
         run: cat ../private-monorepo/README.md
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
-          project_id: developer-sam
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
           export_default_credentials: true
       - name: Build
