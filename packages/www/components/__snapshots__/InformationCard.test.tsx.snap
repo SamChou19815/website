@@ -59,7 +59,7 @@ exports[`InformationCard matches snapshot. 1`] = `
       <span
         className="IconLineText"
       >
-        Cornell DTI Dev Lead
+        Cornell DTI Developer
       </span>
     </div>
     <div
@@ -228,7 +228,7 @@ exports[`InformationCard with classname matches snapshot. 1`] = `
       <span
         className="IconLineText"
       >
-        Cornell DTI Dev Lead
+        Cornell DTI Developer
       </span>
     </div>
     <div

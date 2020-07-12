@@ -12,7 +12,7 @@ type About = { readonly facts: readonly Fact[]; readonly links: readonly Link[] 
 const about: About = {
   facts: [
     { icon: Facebook, text: 'Facebook SWE Intern' },
-    { icon: Work, text: 'Cornell DTI Dev Lead' },
+    { icon: Work, text: 'Cornell DTI Developer' },
     { icon: GitHub, text: 'Open source contributor' },
     { icon: School, text: 'Cornell University' },
     { icon: Domain, text: 'Computer Science' },
