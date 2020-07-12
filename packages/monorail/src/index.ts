@@ -8,6 +8,7 @@ process.chdir(require('./configuration').PROJECT_ROOT_DIRECTORY);
 
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
+import synchronize from './sync';
 
 /**
  * Supported commands:
@@ -21,6 +22,7 @@ const main = async (): Promise<void> => {
       await executeCodegenServices();
       return;
     case 'SYNC':
+      synchronize();
       return;
     default:
       throw new Error();
