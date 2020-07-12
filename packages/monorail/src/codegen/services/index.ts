@@ -1,7 +1,6 @@
 import { spawnSync } from 'child_process';
 import { writeFileSync } from 'fs';
 
-import cachedBuild from '../cached-build';
 import githubActionsCodegenService from './codegen-github-actions';
 import ignoreFileCodegenService from './codegen-ignore-files';
 import staticJsonCodegenService from './codegen-json';
@@ -12,7 +11,7 @@ const codegenServices = [
   staticJsonCodegenService,
 ];
 
-const executePredefinedCodegenServices = () => {
+const executeCodegenServices = (): void => {
   codegenServices.forEach((codegenService) => {
     const { generatedFilenamePattern, generatedCodeContentList } = codegenService;
     if (generatedFilenamePattern != null) {
@@ -22,11 +21,6 @@ const executePredefinedCodegenServices = () => {
       writeFileSync(pathForGeneratedCode, generatedCode)
     );
   });
-};
-
-const executeCodegenServices = async (): Promise<void> => {
-  executePredefinedCodegenServices();
-  await cachedBuild();
 };
 
 export default executeCodegenServices;
