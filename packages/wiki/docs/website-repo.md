@@ -151,7 +151,7 @@ To enable this feature, add a configuration with the following format:
 ```json title="configuration/sync-configuration.json"
 {
   "name of target repo, without org name": {
-    "relative path of source against root of current repo": "relative path of destination against root of target repo"
+    "relpath/to/source/in/current/repo": "relpath/to/destination/in/target/repo"
   }
 }
 ```
