@@ -39,7 +39,8 @@ export const getDevSamRepositoryDependencySetupSteps = (
 const GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP: GitHubActionJobStep = githubActionJobActionStep(
   'GoogleCloudPlatform/github-actions/setup-gcloud@master',
   {
-    project_id: 'developer-sam',
+    // eslint-disable-next-line no-template-curly-in-string
+    project_id: '${{ secrets.GCP_PROJECT_ID }}',
     // eslint-disable-next-line no-template-curly-in-string
     service_account_key: '${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}',
     export_default_credentials: 'true',
