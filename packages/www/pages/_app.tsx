@@ -6,6 +6,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import 'infima/dist/css/default/default.min.css';
+import 'lib-react/PrismCodeBlock.css';
 import './index.css';
 
 const description = 'Explore the portfolio and projects created and open sourced by Developer Sam.';

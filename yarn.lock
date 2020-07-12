@@ -12409,7 +12409,8 @@ fsevents@^1.2.7:
   resolution: "lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin"
   dependencies:
     "@docusaurus/types": ^2.0.0-alpha.37
-    lib-prism-extended: 0.1.0
+    lib-prism-extended: "workspace:0.1.0"
+    lib-react: "workspace:0.1.0"
   peerDependencies:
     prism-react-renderer: ^1.1.0
   peerDependenciesMeta:
@@ -12433,13 +12434,13 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"lib-prism-extended@0.1.0, lib-prism-extended@workspace:packages/lib-prism-extended":
+"lib-prism-extended@0.1.0, lib-prism-extended@workspace:0.1.0, lib-prism-extended@workspace:packages/lib-prism-extended":
   version: 0.0.0-use.local
   resolution: "lib-prism-extended@workspace:packages/lib-prism-extended"
   languageName: unknown
   linkType: soft
 
-"lib-react@0.1.0, lib-react@workspace:packages/lib-react":
+"lib-react@0.1.0, lib-react@workspace:0.1.0, lib-react@workspace:packages/lib-react":
   version: 0.0.0-use.local
   resolution: "lib-react@workspace:packages/lib-react"
   dependencies:

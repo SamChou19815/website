@@ -1,11 +1,8 @@
 import React, { ReactElement } from 'react';
 
-import { useSelector } from 'react-redux';
-
-import { State } from '../store';
 import styles from './StickyCodeBlock.module.css';
 
-import CodeBlock, { lightTheme, darkTheme } from 'lib-react/PrismCodeBlock';
+import CodeBlock, { flexibleTheme } from 'lib-react/PrismCodeBlock';
 
 const code = `
 /**
@@ -40,20 +37,14 @@ class Main {
 }
 `;
 
-const patchedLightTheme = {
-  ...lightTheme,
-  plain: { ...lightTheme.plain, backgroundColor: 'var(--ifm-background-color)' },
-};
-const patchedDarkTheme = {
-  ...darkTheme,
-  plain: { ...darkTheme.plain, backgroundColor: 'var(--ifm-background-color)' },
+const patchedTheme = {
+  ...flexibleTheme,
+  plain: { ...flexibleTheme.plain, backgroundColor: 'var(--ifm-background-color)' },
 };
 
 const StickyCodeBlock = (): ReactElement => {
-  const theme =
-    useSelector((state: State) => state.theme) === '' ? patchedLightTheme : patchedDarkTheme;
   return (
-    <CodeBlock language="samlang" theme={theme} className={styles.Block}>
+    <CodeBlock language="samlang" theme={patchedTheme} className={styles.Block}>
       {code}
     </CodeBlock>
   );
