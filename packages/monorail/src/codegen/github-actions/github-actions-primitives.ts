@@ -23,7 +23,7 @@ export const GITHUB_ACTIONS_USE_YARN_CACHE_STEP: GitHubActionJobStep = githubAct
   }
 );
 
-export const getDevSamRepositoryDependencySetupSteps = (
+export const getGitHubRepositoryDependencySetupSteps = (
   repositoryName: string
 ): readonly GitHubActionJobStep[] => [
   githubActionJobRunStep(

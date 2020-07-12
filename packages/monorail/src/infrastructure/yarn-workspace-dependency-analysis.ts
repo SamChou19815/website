@@ -54,9 +54,9 @@ export const getYarnWorkspaceInRepoDependencyChain = (workspace: string): readon
   return dependencyChain;
 };
 
-export const getYarnWorkspaceDevSamRepositoryDependencies = (
+export const getYarnWorkspaceGitHubRepositoryDependencies = (
   workspace: string
-): readonly string[] => getWorkspaceInformation(workspace).devSamRepositoryDependencies;
+): readonly string[] => getWorkspaceInformation(workspace).githubRepositoryDependencies;
 
 export const getYarnWorkspaceDeploymentDependencies = (workspace: string): readonly string[] =>
   getWorkspaceInformation(workspace).deploymentDependencies;
