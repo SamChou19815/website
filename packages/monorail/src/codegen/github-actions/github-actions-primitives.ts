@@ -28,7 +28,7 @@ export const getDevSamRepositoryDependencySetupSteps = (
 ): readonly GitHubActionJobStep[] => [
   githubActionJobRunStep(
     `Checkout ${PROJECT_CONFIGURATION.organizationName}/${repositoryName}`,
-    `cd ../ && git clone https://\${{ secrets.DEPLOY_GH_PAGE_TOKEN }}@github.com/${PROJECT_CONFIGURATION.organizationName}/${repositoryName} --depth 1`
+    `cd ../ && git clone https://\${{ secrets.GH_TOKEN }}@github.com/${PROJECT_CONFIGURATION.organizationName}/${repositoryName} --depth 1`
   ),
   githubActionJobRunStep(
     `Sanity Check ${repositoryName} setup`,
