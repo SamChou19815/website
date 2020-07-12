@@ -34,5 +34,4 @@ it('commands does not crash', () => {
   commands['dev-sam'].fn('timeline', '--only');
   commands['dev-sam'].fn('timeline', 'bad command');
   commands['dev-sam'].fn('bad command');
-  commands['switch-theme'].fn();
 });
