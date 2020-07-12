@@ -11,6 +11,13 @@ import './index.css';
 
 const description = 'Explore the portfolio and projects created and open sourced by Developer Sam.';
 
+const themeAutoSwitcher = `(function() {
+function t(theme){document.documentElement.setAttribute('data-theme', theme)}
+if(window.matchMedia('(prefers-color-scheme: light)').matches)t('')
+if(window.matchMedia('(prefers-color-scheme: dark)').matches)t('dark')
+window.matchMedia('(prefers-color-scheme: dark)').addListener(({matches:m})=>t(m?'dark':''))
+})();`;
+
 const MaterialUIApp = (props: AppProps): ReactElement => {
   const { Component, pageProps } = props;
 
@@ -76,6 +83,11 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
               ],
             }),
           }}
+        />
+        <script
+          type="text/javascript"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: themeAutoSwitcher }}
         />
       </Head>
       <Component

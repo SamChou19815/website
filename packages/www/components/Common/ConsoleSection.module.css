@@ -7,9 +7,8 @@
   text-align: center;
   background-color: var(--ifm-background-color);
   font-weight: 500;
-  border-bottom: 1px solid var(--console-section-title-border-color);
 }
 
 .Title code {
-  background-color: inherit;
+  background-color: transparent;
 }

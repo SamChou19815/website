@@ -4,11 +4,6 @@
   --ifm-pills-spacing: 0.5em;
   --ifm-color-primary: #3e7ae2;
   --ifm-background-color-transparent: rgba(62, 122, 226, 0.07);
-  --console-section-title-border-color: #ccc;
-}
-
-html[data-theme='dark'] {
-  --console-section-title-border-color: #444;
 }
 
 body {
@@ -18,13 +13,13 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--ifm-font-color-base);
   background: var(--ifm-background-color);
   overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
-  color: var(--ifm-font-color-base);
 }
 
 pre,
