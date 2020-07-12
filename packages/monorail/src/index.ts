@@ -7,6 +7,7 @@
 process.chdir(require('./configuration').PROJECT_ROOT_DIRECTORY);
 
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
+import cachedBuild from './codegen/cached-build';
 import executeCodegenServices from './codegen/services';
 import synchronize from './sync';
 
@@ -17,15 +18,24 @@ import synchronize from './sync';
  * - sync: Push changes in other known repositories if git status is not clean.
  */
 const main = async (): Promise<void> => {
-  switch (parseCommandLineArgumentsIntoCommand()) {
-    case 'CODEGEN':
-      await executeCodegenServices();
-      return;
-    case 'SYNC':
-      synchronize();
-      return;
-    default:
-      throw new Error();
+  try {
+    switch (parseCommandLineArgumentsIntoCommand()) {
+      case 'CODEGEN':
+        executeCodegenServices();
+        return;
+      case 'REBUILD':
+        await cachedBuild();
+        return;
+      case 'SYNC':
+        synchronize();
+        return;
+      default:
+        throw new Error();
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error.message);
+    process.exit(1);
   }
 };
 
