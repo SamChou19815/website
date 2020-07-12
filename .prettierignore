@@ -35,5 +35,4 @@ packages/wiki/docs/private-docs
 ## styles
 
 .yarn
-packages/lib-docusaurus-plugin/index.js
 packages/monorail/bin/
