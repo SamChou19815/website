@@ -75,7 +75,7 @@ If a workspace has a `codegenConfiguration` that has the format:
 
 ```json
 {
-  "sources": "<source directory or single source file>",
+  "sources": ["path to source directory", "or path to source file"],
   "output": "path to a single output file"
 }
 ```

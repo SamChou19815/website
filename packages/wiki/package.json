@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
-    "build:private-docs": "run -T ts-node --transpile-only --compiler-options '{\"module\": \"commonjs\"}' private-docs-generator.ts",
+    "codegen": "run -T ts-node --transpile-only --compiler-options '{\"module\": \"commonjs\"}' private-docs-generator.ts",
     "build:public": "NODE_NO_WARNINGS=1 docusaurus build",
-    "build:private": "yarn build:private-docs && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
+    "build:private": "codegen && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
     "build": "yarn build:public && yarn build:private",
     "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
     "compile": "run -T tsc",
@@ -35,6 +35,13 @@
   "deploymentDependencies": [
     "gcloud"
   ],
+  "codegenConfiguration": {
+    "sources": [
+      "../../../private-monorepo/confidential",
+      "private-docs-generator.ts"
+    ],
+    "output": "docs/private-docs/private-sidebars.json"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
