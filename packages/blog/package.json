@@ -6,7 +6,7 @@
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
     "build": "NODE_NO_WARNINGS=1 docusaurus build",
     "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
-    "compile": "yarn build",
+    "compile": "exit 0",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
   },
   "dependencies": {
