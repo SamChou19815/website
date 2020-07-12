@@ -1,6 +1,8 @@
 import { existsSync, readFileSync, lstatSync } from 'fs';
 import { join, dirname } from 'path';
 
+import { assertIsString, assertIsStringArray, assertHasFields } from './validator';
+
 type RepoToolsConfiguration = {
   readonly binary: string;
   readonly organizationName: string;
@@ -8,24 +10,16 @@ type RepoToolsConfiguration = {
 };
 
 const parseRepoToolsConfiguration = (json: unknown): RepoToolsConfiguration => {
-  if (typeof json !== 'object' || json == null) {
-    throw new Error(`Unexpected configuration format. Bad object: ${JSON.stringify(json)}`);
-  }
-  const { binary, organizationName, toolingPrefixes } = json as Record<string, unknown>;
-  if (typeof binary !== 'string') {
-    throw new Error('`binary` must be string!');
-  }
-  if (typeof organizationName !== 'string') {
-    throw new Error('`organizationName` must be string!');
-  }
-  if (!Array.isArray(toolingPrefixes)) {
-    throw new Error('`toolingPrefixes` must be string array!');
-  }
-  const legalToolingPrefixes = toolingPrefixes.filter((it): it is string => typeof it === 'string');
-  if (legalToolingPrefixes.length !== toolingPrefixes.length) {
-    throw new Error('`toolingPrefixes` must be string array!');
-  }
-  return { binary, organizationName, toolingPrefixes: legalToolingPrefixes };
+  const { binary, organizationName, toolingPrefixes } = assertHasFields(
+    'repoToolsConfiguration',
+    ['binary', 'organizationName', 'toolingPrefixes'],
+    json
+  );
+  return {
+    binary: assertIsString('binary', binary),
+    organizationName: assertIsString('organizationName', organizationName),
+    toolingPrefixes: assertIsStringArray('toolingPrefixes', toolingPrefixes),
+  };
 };
 
 const loadRepoToolsConfigurationAndFindRoot = (): readonly [string, RepoToolsConfiguration] => {

@@ -2,28 +2,21 @@ import { spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
+import { assertIsString, assertIsStringArray, assertHasFields } from '../validator';
+
 export type CodegenConfiguration = {
   /** Source directory or single source file. */
-  readonly sources: string;
+  readonly sources: readonly string[];
   /** Output file. */
   readonly output: string;
 };
 
 const validateCodegenConfiguration = (json?: unknown): CodegenConfiguration | undefined => {
-  if (json == null) {
-    return undefined;
-  }
-  if (typeof json !== 'object') {
-    throw new Error('Invalid codegen configuration. It should be an object.');
-  }
-  const { sources, output } = json as Record<string, unknown>;
-  if (typeof sources !== 'string' || typeof output !== 'string') {
-    throw new Error('Invalid codegen configuration. `sources` should be a string!');
-  }
-  if (typeof output !== 'string') {
-    throw new Error('Invalid codegen configuration. `output` should be a string!');
-  }
-  return { sources, output };
+  const { sources, output } = assertHasFields('codegenConfiguration', ['sources', 'output'], json);
+  return {
+    sources: assertIsStringArray('sources', sources),
+    output: assertIsString('output', output),
+  };
 };
 
 export type WorkspaceInformation = {
@@ -65,9 +58,20 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
       map.set(name, {
         workspaceLocation: location,
         inRepoWorkspaceDependencies,
-        devSamRepositoryDependencies: packageJson.devSamRepositoryDependencies ?? [],
-        deploymentDependencies: packageJson.deploymentDependencies ?? [],
-        codegenConfiguration: validateCodegenConfiguration(packageJson.codegenConfiguration),
+        devSamRepositoryDependencies: assertIsStringArray(
+          'devSamRepositoryDependencies',
+          packageJson.devSamRepositoryDependencies,
+          true
+        ),
+        deploymentDependencies: assertIsStringArray(
+          'deploymentDependencies',
+          packageJson.deploymentDependencies,
+          true
+        ),
+        codegenConfiguration:
+          packageJson.codegenConfiguration == null
+            ? undefined
+            : validateCodegenConfiguration(packageJson.codegenConfiguration),
       });
     }
   );

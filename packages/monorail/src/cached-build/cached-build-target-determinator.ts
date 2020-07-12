@@ -39,10 +39,8 @@ const cachedBuildTargetDeterminator = (): readonly string[] =>
     .filter(([, { workspaceLocation, codegenConfiguration }]) => {
       return (
         codegenConfiguration != null &&
-        sourcesNeedRebuild(
-          workspaceLocation,
-          codegenConfiguration.sources,
-          codegenConfiguration.output
+        codegenConfiguration.sources.some((sourceSet) =>
+          sourcesNeedRebuild(workspaceLocation, sourceSet, codegenConfiguration.output)
         )
       );
     })
