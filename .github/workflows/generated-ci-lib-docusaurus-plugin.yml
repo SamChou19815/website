@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'packages/lib-prism-extended/**'
+      - 'packages/lib-react/**'
       - 'packages/lib-docusaurus-plugin/**'
       - 'package.json'
       - 'yarn.lock'
