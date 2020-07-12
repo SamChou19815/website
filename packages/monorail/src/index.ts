@@ -6,8 +6,8 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports,  @typescript-eslint/no-var-requires
 process.chdir(require('./configuration').PROJECT_ROOT_DIRECTORY);
 
+import cachedBuild from './cached-build';
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
-import cachedBuild from './codegen/cached-build';
 import executeCodegenServices from './codegen/services';
 import synchronize from './sync';
 
