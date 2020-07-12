@@ -6,7 +6,7 @@
     "start": "NODE_NO_WARNINGS=1 docusaurus start",
     "codegen": "run -T ts-node --transpile-only --compiler-options '{\"module\": \"commonjs\"}' private-docs-generator.ts",
     "build:public": "NODE_NO_WARNINGS=1 docusaurus build",
-    "build:private": "codegen && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
+    "build:private": "yarn codegen && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
     "build": "yarn build:public && yarn build:private",
     "swizzle": "NODE_NO_WARNINGS=1 docusaurus swizzle",
     "compile": "run -T tsc",
