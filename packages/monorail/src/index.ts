@@ -3,8 +3,14 @@
 /* eslint-disable import/first */
 
 // Ensuring all subsequent command is run from project root, so this must be the first statement.
-// eslint-disable-next-line @typescript-eslint/no-require-imports,  @typescript-eslint/no-var-requires
-process.chdir(require('./configuration').PROJECT_ROOT_DIRECTORY);
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports,  @typescript-eslint/no-var-requires, global-require
+  process.chdir(require('./configuration').PROJECT_ROOT_DIRECTORY);
+} catch (error) {
+  // eslint-disable-next-line no-console
+  console.error(error.message);
+  process.exit(1);
+}
 
 import cachedBuild from './cached-build';
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
