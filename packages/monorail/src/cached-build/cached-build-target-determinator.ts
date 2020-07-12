@@ -1,7 +1,7 @@
 import { statSync, lstatSync, readdirSync, existsSync } from 'fs';
 import { join, resolve } from 'path';
 
-import { workspaceInformation } from '../../infrastructure/yarn-workspace-dependency-analysis';
+import { workspaceInformation } from '../infrastructure/yarn-workspace-dependency-analysis';
 
 const sourceNeedRebuild = (sourceFile: string, outputLastModifiedTime: number) =>
   // When the source is newer than the latest built artifact, it means we need to rebuild.
