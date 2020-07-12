@@ -7,7 +7,7 @@
   "scripts": {
     "build": "run -T tsc",
     "codegen": "NODE_NO_WARNINGS=1 node build.js",
-    "compile": "yarn build && yarn codegen && git status --porcelain"
+    "compile": "yarn build && yarn codegen && git diff --quiet --exit-code"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
