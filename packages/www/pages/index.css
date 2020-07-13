@@ -18,6 +18,10 @@ body {
   overflow-x: hidden;
 }
 
+svg {
+  fill: var(--ifm-font-color-base);
+}
+
 html {
   scroll-behavior: smooth;
 }
