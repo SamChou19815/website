@@ -13,14 +13,14 @@
   },
   "dependencies": {
     "lib-prism-extended": "workspace:0.1.0",
-    "prism-react-renderer": "^1.1.0"
+    "prism-react-renderer": "^1.1.1"
   },
   "peerDependencies": {
     "react": "^16.13.1"
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
-    "prism-react-renderer": "^1.1.0",
+    "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
     "typescript": "3.9.6"
   }

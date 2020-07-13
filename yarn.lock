@@ -4937,7 +4937,7 @@ __metadata:
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
-    prism-react-renderer: ^1.1.0
+    prism-react-renderer: ^1.1.1
     react: ^16.13.1
     react-dom: ^16.13.1
   languageName: unknown
@@ -12371,7 +12371,7 @@ fsevents@^1.2.7:
   dependencies:
     "@types/react": ^16.9.43
     lib-prism-extended: "workspace:0.1.0"
-    prism-react-renderer: ^1.1.0
+    prism-react-renderer: ^1.1.1
     react: ^16.13.1
     typescript: 3.9.6
   peerDependencies:
@@ -15823,7 +15823,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prism-react-renderer@npm:^1.1.0":
+"prism-react-renderer@npm:^1.1.0, prism-react-renderer@npm:^1.1.1":
   version: 1.1.1
   resolution: "prism-react-renderer@npm:1.1.1"
   peerDependencies:
@@ -17286,7 +17286,7 @@ fsevents@^1.2.7:
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
-    prism-react-renderer: ^1.1.0
+    prism-react-renderer: ^1.1.1
     react: ^16.13.1
     react-dom: ^16.13.1
     typescript: 3.9.6
@@ -20333,7 +20333,7 @@ typescript@3.9.6:
     clsx: ^1.1.1
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
-    prism-react-renderer: ^1.1.0
+    prism-react-renderer: ^1.1.1
     react: ^16.13.1
     react-dom: ^16.13.1
     typescript: 3.9.6
