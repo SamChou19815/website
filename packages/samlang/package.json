@@ -6,7 +6,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "compile": "run -T tsc",
+    "compile": "tsc",
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
   "dependencies": {
@@ -21,6 +21,12 @@
     "prism-react-renderer": "^1.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^2.0.0-alpha.56",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "16.9.43",
+    "typescript": "3.9.6"
   },
   "browserslist": {
     "production": [

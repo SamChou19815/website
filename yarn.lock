@@ -1653,7 +1653,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dev-sam/monorail@workspace:^0.0.1, @dev-sam/monorail@workspace:packages/monorail":
+"@dev-sam/monorail@workspace:packages/monorail":
   version: 0.0.0-use.local
   resolution: "@dev-sam/monorail@workspace:packages/monorail"
   dependencies:
@@ -1922,7 +1922,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/types@npm:^2.0.0-alpha.37, @docusaurus/types@npm:^2.0.0-alpha.56":
+"@docusaurus/types@npm:^2.0.0-alpha.56":
   version: 2.0.0-alpha.56
   resolution: "@docusaurus/types@npm:2.0.0-alpha.56"
   dependencies:
@@ -3194,7 +3194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/classnames@npm:2.2.10":
+"@types/classnames@npm:2.2.10, @types/classnames@npm:^2.2.10":
   version: 2.2.10
   resolution: "@types/classnames@npm:2.2.10"
   checksum: 31b6380183c2123c69f5e50b9e40c7da2862ddfe634361d906a6e300dacd716656ce95e508541d0ec300f71aeed57d30a7ea46f36e881c01eb2334843700fadc
@@ -3415,13 +3415,6 @@ __metadata:
   version: 2.0.0
   resolution: "@types/prettier@npm:2.0.0"
   checksum: aee539015e8c815b211ffdb1a4b6e6aab24bd5665b3c71cc1aa95b9b65b3452f3e2b8541146577ba25535317532e6c8d9626e27568a89fad1888f248142a19bb
-  languageName: node
-  linkType: hard
-
-"@types/prismjs@npm:1.16.1":
-  version: 1.16.1
-  resolution: "@types/prismjs@npm:1.16.1"
-  checksum: f3807984ec5df53c37a83d315851e620ff5038f37e748f18e68075c0184485abcf1b5de5fde94f5640922a24e3c0eb6f4ea424c27650322a25ab0f3de73d6ec1
   languageName: node
   linkType: hard
 
@@ -12409,7 +12402,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin"
   dependencies:
-    "@docusaurus/types": ^2.0.0-alpha.37
+    "@docusaurus/types": ^2.0.0-alpha.56
     lib-prism-extended: "workspace:0.1.0"
     lib-react: "workspace:0.1.0"
   peerDependencies:
@@ -17270,14 +17263,6 @@ fsevents@^1.2.7:
   dependencies:
     "@babel/core": ^7.10.4
     "@dev-sam/eslint-config-common": "workspace:^0.14.0"
-    "@dev-sam/monorail": "workspace:^0.0.1"
-    "@docusaurus/module-type-aliases": ^2.0.0-alpha.56
-    "@docusaurus/types": ^2.0.0-alpha.37
-    "@types/prismjs": 1.16.1
-    "@types/react": 16.9.43
-    "@types/react-dom": 16.9.8
-    "@types/react-redux": 7.1.9
-    "@types/react-test-renderer": 16.9.2
     "@typescript-eslint/eslint-plugin": ^3.6.0
     "@typescript-eslint/parser": ^3.6.0
     babel-jest: ^26.1.0
@@ -17420,8 +17405,11 @@ fsevents@^1.2.7:
   dependencies:
     "@dev-sam/samlang-demo": ^0.0.2
     "@docusaurus/core": ^2.0.0-alpha.56
+    "@docusaurus/module-type-aliases": ^2.0.0-alpha.56
     "@docusaurus/preset-classic": ^2.0.0-alpha.56
     "@mdx-js/react": ^1.6.4
+    "@types/classnames": ^2.2.10
+    "@types/react": 16.9.43
     autosize: ^4.0.2
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
@@ -17429,6 +17417,7 @@ fsevents@^1.2.7:
     prism-react-renderer: ^1.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
+    typescript: 3.9.6
   languageName: unknown
   linkType: soft
 
@@ -20498,6 +20487,7 @@ typescript@3.9.6:
   dependencies:
     "@aldridged/docusaurus-plugin-lunr": ^1.0.0-alpha.10
     "@docusaurus/core": ^2.0.0-alpha.56
+    "@docusaurus/module-type-aliases": ^2.0.0-alpha.56
     "@docusaurus/plugin-google-analytics": ^2.0.0-alpha.56
     "@docusaurus/plugin-google-gtag": ^2.0.0-alpha.56
     "@docusaurus/preset-classic": ^2.0.0-alpha.56
@@ -20509,6 +20499,7 @@ typescript@3.9.6:
     lib-react: 0.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
+    typescript: 3.9.6
   languageName: unknown
   linkType: soft
 
