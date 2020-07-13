@@ -1,6 +1,6 @@
 // Adapted from: https://github.com/mui-org/material-ui/tree/master/examples/nextjs-with-typescript
 
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -20,14 +20,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addListener(({matches:m})=>t(m
 
 const MaterialUIApp = (props: AppProps): ReactElement => {
   const { Component, pageProps } = props;
-
-  useEffect(() => {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles != null) {
-      jssStyles.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
 
   return (
     <>
