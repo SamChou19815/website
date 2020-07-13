@@ -20651,8 +20651,6 @@ typescript@3.9.6:
   version: 0.0.0-use.local
   resolution: "www@workspace:packages/www"
   dependencies:
-    "@material-ui/core": ^4.10.0
-    "@material-ui/icons": ^4.9.1
     "@types/jest": ^25.2.3
     classnames: ^2.2.6
     firebase: ^7.14.6

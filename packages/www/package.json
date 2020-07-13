@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.10.0",
-    "@material-ui/icons": "^4.9.1",
     "classnames": "^2.2.6",
     "firebase": "^7.14.6",
     "infima": "0.2.0-alpha.12",
