@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react';
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 import styles from './AboutSection.module.css';
 import ButtonLink from './Common/ButtonLink';
 import ConsoleSection from './Common/ConsoleSection';
+import { ExpandMoreIcon } from './Common/Icons';
 import InformationCard from './InformationCard';
 
 const AboutSection = (): ReactElement => (

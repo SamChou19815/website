@@ -1,22 +1,26 @@
-import Code from '@material-ui/icons/Code';
-import Domain from '@material-ui/icons/Domain';
-import Facebook from '@material-ui/icons/Facebook';
-import GitHub from '@material-ui/icons/GitHub';
-import School from '@material-ui/icons/School';
-import Work from '@material-ui/icons/Work';
+import { ReactElement } from 'react';
 
-type Fact = { readonly icon: typeof Code; readonly text: string };
+import {
+  CodeIcon,
+  DomainIcon,
+  FacebookIcon,
+  GitHubIcon,
+  SchoolIcon,
+  WorkIcon,
+} from '../components/Common/Icons';
+
+type Fact = { readonly icon: () => ReactElement; readonly text: string };
 type Link = { readonly href: string; readonly text: string };
 type About = { readonly facts: readonly Fact[]; readonly links: readonly Link[] };
 
 const about: About = {
   facts: [
-    { icon: Facebook, text: 'Facebook SWE Intern' },
-    { icon: Work, text: 'Cornell DTI Developer' },
-    { icon: GitHub, text: 'Open source contributor' },
-    { icon: School, text: 'Cornell University' },
-    { icon: Domain, text: 'Computer Science' },
-    { icon: Code, text: 'Coding since 13' },
+    { icon: FacebookIcon, text: 'Facebook SWE Intern' },
+    { icon: WorkIcon, text: 'Cornell DTI Developer' },
+    { icon: GitHubIcon, text: 'Open source contributor' },
+    { icon: SchoolIcon, text: 'Cornell University' },
+    { icon: DomainIcon, text: 'Computer Science' },
+    { icon: CodeIcon, text: 'Coding since 13' },
   ],
   links: [
     { href: 'https://blog.developersam.com', text: 'Blog' },
