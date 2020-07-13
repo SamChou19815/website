@@ -5005,6 +5005,7 @@ __metadata:
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
+    prism-react-renderer: ^1.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
   languageName: unknown
@@ -6440,17 +6441,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:*, core-js@npm:^2.6.5":
+  version: 2.6.11
+  resolution: "core-js@npm:2.6.11"
+  checksum: 39ad00b46deaecf344470ef940949b58c4b15e71608a98e8ac7429cd16e485b829f9720d44a44b5f4dee966ff04a18baf5283feb8aaba2cb59ce2c25fa72b88c
+  languageName: node
+  linkType: hard
+
 "core-js@npm:3.6.5":
   version: 3.6.5
   resolution: "core-js@npm:3.6.5"
   checksum: 9283348dd5be2f1d07feaf90e2336b3f00a2316e3d3c6d4f789c9a67bdd4d7b08ce1c88dca4e591340130056c6b412b0b74fae039f8e259206f1073f542e4e85
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^2.6.5":
-  version: 2.6.11
-  resolution: "core-js@npm:2.6.11"
-  checksum: 39ad00b46deaecf344470ef940949b58c4b15e71608a98e8ac7429cd16e485b829f9720d44a44b5f4dee966ff04a18baf5283feb8aaba2cb59ce2c25fa72b88c
   languageName: node
   linkType: hard
 
@@ -16027,7 +16028,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:^6.8.1, protobufjs@npm:^6.8.6, protobufjs@npm:^6.8.8, protobufjs@npm:^6.8.9":
+"protobufjs@npm:*, protobufjs@npm:^6.8.1, protobufjs@npm:^6.8.6, protobufjs@npm:^6.8.8, protobufjs@npm:^6.8.9":
   version: 6.9.0
   resolution: "protobufjs@npm:6.9.0"
   dependencies:
@@ -17273,7 +17274,6 @@ fsevents@^1.2.7:
     "@types/node": 14.0.22
     "@types/prismjs": 1.16.1
     "@types/react": 16.9.43
-    "@types/react-beautiful-dnd": 13.0.0
     "@types/react-dom": 16.9.8
     "@types/react-redux": 7.1.9
     "@types/react-test-renderer": 16.9.2
@@ -17294,11 +17294,13 @@ fsevents@^1.2.7:
     identity-obj-proxy: ^3.0.0
     jest: ^26.1.0
     lint-staged: ^10.2.11
+    next: ^9.4.4
     next-transpile-modules: ^3.3.0
     prettier: 2.0.5
     react-test-renderer: ^16.13.1
     ts-node: ^8.10.2
     typescript: 3.9.6
+    webpack: ^4.43.0
     worker-loader: ^2.0.0
   peerDependencies:
     react: ^16.13.1
@@ -17422,6 +17424,7 @@ fsevents@^1.2.7:
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
+    prism-react-renderer: ^1.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
   languageName: unknown
@@ -18827,7 +18830,11 @@ fsevents@^1.2.7:
     "@material-ui/core": ^4.10.0
     "@material-ui/icons": ^4.9.1
     "@material-ui/lab": ^4.0.0-alpha.54
-    "@types/jest": ^25.2.3
+    "@types/jest": 26.0.4
+    "@types/node": 14.0.22
+    "@types/react": 16.9.43
+    "@types/react-beautiful-dnd": 13.0.0
+    "@types/react-redux": 7.1.9
     firebase: ^7.14.6
     javascript-lp-solver: ^0.4.24
     lib-firebase: 0.1.0
@@ -18839,6 +18846,7 @@ fsevents@^1.2.7:
     react-redux: ^7.2.0
     redux: ^4.0.5
     rxjs: ^6.5.5
+    typescript: 3.9.6
   languageName: unknown
   linkType: soft
 
@@ -18857,12 +18865,15 @@ fsevents@^1.2.7:
   resolution: "ten@workspace:packages/ten"
   dependencies:
     "@material-ui/core": ^4.10.0
-    "@types/jest": ^25.2.3
+    "@types/jest": 26.0.4
+    "@types/node": 14.0.22
+    "@types/react": 16.9.43
     lib-react: 0.1.0
     next: ^9.4.4
     react: ^16.13.1
     react-dom: ^16.13.1
     react-test-renderer: ^16.13.1
+    typescript: 3.9.6
   languageName: unknown
   linkType: soft
 
@@ -20295,7 +20306,7 @@ typescript@3.9.6:
   languageName: node
   linkType: hard
 
-"webpack@npm:4.43.0, webpack@npm:^4.41.2":
+"webpack@npm:4.43.0, webpack@npm:^4.41.2, webpack@npm:^4.43.0":
   version: 4.43.0
   resolution: "webpack@npm:4.43.0"
   dependencies:
@@ -20651,7 +20662,9 @@ typescript@3.9.6:
   version: 0.0.0-use.local
   resolution: "www@workspace:packages/www"
   dependencies:
-    "@types/jest": ^25.2.3
+    "@types/jest": 26.0.4
+    "@types/node": 14.0.22
+    "@types/react": 16.9.43
     classnames: ^2.2.6
     firebase: ^7.14.6
     infima: 0.2.0-alpha.12
@@ -20663,6 +20676,7 @@ typescript@3.9.6:
     react-redux: ^7.2.0
     react-test-renderer: ^16.13.1
     redux: ^4.0.5
+    typescript: 3.9.6
   languageName: unknown
   linkType: soft
 

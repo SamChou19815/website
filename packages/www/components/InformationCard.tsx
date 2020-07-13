@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import classnames from 'classnames';
 
 import about from '../data/about';
@@ -9,7 +8,7 @@ import LazyCardMedia from './Common/LazyCardMedia';
 import styles from './InformationCard.module.css';
 
 type IconLineProps = {
-  readonly Icon: (props: SvgIconProps) => ReactElement;
+  readonly Icon: () => ReactElement;
   readonly children: string;
 };
 
