@@ -55,6 +55,9 @@
     "react": "^16.13.1"
   },
   "dependenciesMeta": {
+    "@ampproject/toolbox-optimizer": {
+      "built": false
+    },
     "core-js": {
       "built": false
     },

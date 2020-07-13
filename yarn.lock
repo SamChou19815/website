@@ -17305,6 +17305,8 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ^16.13.1
   dependenciesMeta:
+    "@ampproject/toolbox-optimizer":
+      built: false
     core-js:
       built: false
     core-js-pure:
