@@ -1,13 +1,17 @@
 import React, { ReactElement, ReactNode } from 'react';
 
-// eslint-disable-next-line import/no-unresolved
 import AppBar from '@material-ui/core/AppBar';
-// eslint-disable-next-line import/no-unresolved
 import Toolbar from '@material-ui/core/Toolbar';
-// eslint-disable-next-line import/no-unresolved
 import Typography from '@material-ui/core/Typography';
+import teal from '@material-ui/core/colors/teal';
+import { MuiThemeProvider, StylesProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import MaterialAppContainer from './MaterialAppContainer';
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#3E7AE2' },
+    secondary: { main: teal[500] },
+  },
+});
 
 type AppBarPosition = 'fixed' | 'absolute' | 'sticky' | 'static' | 'relative';
 
@@ -33,19 +37,21 @@ const MaterialThemedApp = ({
   children,
 }: Props): ReactElement => {
   return (
-    <MaterialAppContainer>
-      <div className={styles.app}>
-        <AppBar position={appBarPosition} className={styles.appBar}>
-          <Toolbar>
-            <Typography variant="h6" color="inherit" className={styles.title}>
-              {title}
-            </Typography>
-            {buttons}
-          </Toolbar>
-        </AppBar>
-        {children}
-      </div>
-    </MaterialAppContainer>
+    <MuiThemeProvider theme={theme}>
+      <StylesProvider injectFirst>
+        <div className={styles.app}>
+          <AppBar position={appBarPosition} className={styles.appBar}>
+            <Toolbar>
+              <Typography variant="h6" color="inherit" className={styles.title}>
+                {title}
+              </Typography>
+              {buttons}
+            </Toolbar>
+          </AppBar>
+          {children}
+        </div>
+      </StylesProvider>
+    </MuiThemeProvider>
   );
 };
 
