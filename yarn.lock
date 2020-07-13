@@ -12424,6 +12424,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
+    "@types/react": 16.9.43
     firebase: ^7.14.6
     lib-common: 0.1.0
     react: ^16.13.1
@@ -12447,6 +12448,8 @@ fsevents@^1.2.7:
   dependencies:
     "@types/jest": 26.0.4
     "@types/react": 16.9.43
+    "@types/react-dom": 16.9.8
+    "@types/remarkable": 1.7.4
     lib-prism-extended: 0.1.0
     prism-react-renderer: ^1.1.0
     prismjs: ^1.20.0
@@ -17270,15 +17273,11 @@ fsevents@^1.2.7:
     "@dev-sam/monorail": "workspace:^0.0.1"
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.56
     "@docusaurus/types": ^2.0.0-alpha.37
-    "@types/classnames": 2.2.10
-    "@types/jest": 26.0.4
-    "@types/node": 14.0.22
     "@types/prismjs": 1.16.1
     "@types/react": 16.9.43
     "@types/react-dom": 16.9.8
     "@types/react-redux": 7.1.9
     "@types/react-test-renderer": 16.9.2
-    "@types/remarkable": 1.7.4
     "@typescript-eslint/eslint-plugin": ^3.6.0
     "@typescript-eslint/parser": ^3.6.0
     babel-jest: ^26.1.0
