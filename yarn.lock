@@ -2701,44 +2701,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/icons@npm:^4.9.1":
-  version: 4.9.1
-  resolution: "@material-ui/icons@npm:4.9.1"
-  dependencies:
-    "@babel/runtime": ^7.4.4
-  peerDependencies:
-    "@material-ui/core": ^4.0.0
-    "@types/react": ^16.8.6
-    react: ^16.8.0
-    react-dom: ^16.8.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 110bb77f0758d16ad85b6a91f23fe05bac6790b30b6b1889b0578d7d42050c63c76e2764ec4991bdf342073de43e14ebfc171f1c63296a6dd8d523cc6c07d2bb
-  languageName: node
-  linkType: hard
-
-"@material-ui/lab@npm:^4.0.0-alpha.54":
-  version: 4.0.0-alpha.54
-  resolution: "@material-ui/lab@npm:4.0.0-alpha.54"
-  dependencies:
-    "@babel/runtime": ^7.4.4
-    "@material-ui/utils": ^4.9.6
-    clsx: ^1.0.4
-    prop-types: ^15.7.2
-    react-is: ^16.8.0
-  peerDependencies:
-    "@material-ui/core": ^4.9.10
-    "@types/react": ^16.8.6
-    react: ^16.8.0
-    react-dom: ^16.8.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 6758737d755dab1be0a18f334e7563872a28810e554637afbb2b65679256629262b59d914d753702650ae30bf3a5a07583dc0603ad3cad8f29660b3dcc6ad18f
-  languageName: node
-  linkType: hard
-
 "@material-ui/styles@npm:^4.10.0":
   version: 4.10.0
   resolution: "@material-ui/styles@npm:4.10.0"
@@ -3438,15 +3400,6 @@ __metadata:
   version: 1.5.4
   resolution: "@types/q@npm:1.5.4"
   checksum: 1a19cf2c41648b862bd25a4c26ba33dc7206f14fcf50c5b78031b59090d21176e703cd10aff8af409eafbefcebb288607d30af765ee3859637cf3fae6e875648
-  languageName: node
-  linkType: hard
-
-"@types/react-beautiful-dnd@npm:13.0.0":
-  version: 13.0.0
-  resolution: "@types/react-beautiful-dnd@npm:13.0.0"
-  dependencies:
-    "@types/react": "*"
-  checksum: 2f946d2dbfef86fb823758058056f2c4a52d2b7b12fcb1bbdca6a8077891f339b992691cd3dfc084acabb8515c315e87e028b451302fadfaeff902f974c3e0e5
   languageName: node
   linkType: hard
 
@@ -6674,15 +6627,6 @@ __metadata:
   bin:
     css-blank-pseudo: cli.js
   checksum: 605927ba911aa22820de56db3ce5760a7d8936834447c5e30e20f63f141a8787920a0aa8dd7fdde97823ee0619e76e003a6e66f2ff299d49e8574b12ed300a7f
-  languageName: node
-  linkType: hard
-
-"css-box-model@npm:^1.2.0":
-  version: 1.2.1
-  resolution: "css-box-model@npm:1.2.1"
-  dependencies:
-    tiny-invariant: ^1.0.6
-  checksum: 6a66067d0f632c2238f55f0a980fd7badb81c8eefbd25a9e78f087b9bac269d97cd8888d1b0c1396b58b1e2464011ad595428e8c4395de8432f77aefc24f5c4c
   languageName: node
   linkType: hard
 
@@ -11348,13 +11292,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"javascript-lp-solver@npm:^0.4.24":
-  version: 0.4.24
-  resolution: "javascript-lp-solver@npm:0.4.24"
-  checksum: f482b2fb5902cdc5350cb1e6630e981503e855530adabfb9e182f17f1ca9385e33eedb74e249b51083049a503c559252a67e2051e6008b1cd2dfd1ca1acf1a1d
-  languageName: node
-  linkType: hard
-
 "jest-changed-files@npm:^26.1.0":
   version: 26.1.0
   resolution: "jest-changed-files@npm:26.1.0"
@@ -13262,13 +13199,6 @@ fsevents@^1.2.7:
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0"
   checksum: be1c825782df7f38eebd451d778f6407bb15a59c8807a69e7f2ad74a25440e474536441c6bf583fdf2803ea23b866e91ff68f565cda297211dd89147758c8df3
-  languageName: node
-  linkType: hard
-
-"memoize-one@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "memoize-one@npm:5.1.1"
-  checksum: e7c4a9cceca71334bf09c38818c375a280dc6e8ec03a92701c16199763269ce756b7b0b370f4b464c071045349fb7b3e4a3cc7460a3f46a277f394d8634a6eb5
   languageName: node
   linkType: hard
 
@@ -16217,13 +16147,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"raf-schd@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "raf-schd@npm:4.0.2"
-  checksum: 28ad12b28814dc1b145a518e5ec6011e12aaf4b490cc7548ee0f8f2e26a7ac2168b62281588320a61743f7c4f70966c2db947aae60021f17546cb721a8d45821
-  languageName: node
-  linkType: hard
-
 "randombytes@npm:^2.0.0, randombytes@npm:^2.0.1, randombytes@npm:^2.0.5":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -16273,24 +16196,6 @@ fsevents@^1.2.7:
   bin:
     rc: ./cli.js
   checksum: ea2b7f7cee201a67923a2240de594a5d9b59bd312b814b06536d3d609a416dfd6fb9b85ea2abfd3b8a4eb5ed33eaff946ee75a8f2b7fb10941073c5cfee6b7a5
-  languageName: node
-  linkType: hard
-
-"react-beautiful-dnd@npm:^13.0.0":
-  version: 13.0.0
-  resolution: "react-beautiful-dnd@npm:13.0.0"
-  dependencies:
-    "@babel/runtime": ^7.8.4
-    css-box-model: ^1.2.0
-    memoize-one: ^5.1.1
-    raf-schd: ^4.0.2
-    react-redux: ^7.1.1
-    redux: ^4.0.4
-    use-memo-one: ^1.1.1
-  peerDependencies:
-    react: ^16.8.5
-    react-dom: ^16.8.5
-  checksum: 0ce5027375308139c04f6fd1c429591fdd17b175903a63bf238d2e0b2c3db1260272870b24ee50262fc7718db914416274740e50f19eaf0e8bbd03a9cf0cd556
   languageName: node
   linkType: hard
 
@@ -16396,7 +16301,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-redux@npm:^7.1.1, react-redux@npm:^7.2.0":
+"react-redux@npm:^7.2.0":
   version: 7.2.0
   resolution: "react-redux@npm:7.2.0"
   dependencies:
@@ -16684,7 +16589,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"redux@npm:^4.0.0, redux@npm:^4.0.4, redux@npm:^4.0.5":
+"redux@npm:^4.0.0, redux@npm:^4.0.5":
   version: 4.0.5
   resolution: "redux@npm:4.0.5"
   dependencies:
@@ -18826,33 +18731,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tasks@workspace:packages/tasks":
-  version: 0.0.0-use.local
-  resolution: "tasks@workspace:packages/tasks"
-  dependencies:
-    "@material-ui/core": ^4.10.0
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/lab": ^4.0.0-alpha.54
-    "@types/jest": 26.0.4
-    "@types/node": 14.0.22
-    "@types/react": ^16.9.43
-    "@types/react-beautiful-dnd": 13.0.0
-    "@types/react-redux": 7.1.9
-    firebase: ^7.14.6
-    javascript-lp-solver: ^0.4.24
-    lib-firebase: 0.1.0
-    lib-react: 0.1.0
-    next: ^9.4.4
-    react: ^16.13.1
-    react-beautiful-dnd: ^13.0.0
-    react-dom: ^16.13.1
-    react-redux: ^7.2.0
-    redux: ^4.0.5
-    rxjs: ^6.5.5
-    typescript: 3.9.6
-  languageName: unknown
-  linkType: soft
-
 "tcp-port-used@npm:^1.0.1":
   version: 1.0.1
   resolution: "tcp-port-used@npm:1.0.1"
@@ -19068,7 +18946,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tiny-invariant@npm:^1.0.2, tiny-invariant@npm:^1.0.6":
+"tiny-invariant@npm:^1.0.2":
   version: 1.1.0
   resolution: "tiny-invariant@npm:1.1.0"
   checksum: 64318fbd77c451cfff23b57b9f3aef56594d9cea051a87dc538c9b371f97e8d474eaa2a7cbd60b8aa23f852393152495e8651b197607465fdf9c8ff134043b1b
@@ -19850,15 +19728,6 @@ typescript@3.9.6:
     punycode: 1.3.2
     querystring: 0.2.0
   checksum: 537f785b16f873fdd2b63ccb7a61463b8e41370fdba95385b0102f3ed7b953c300d95b8755ec3b65f3e406372d47d16c3c989e196b25b70f42190da1fc36c56f
-  languageName: node
-  linkType: hard
-
-"use-memo-one@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "use-memo-one@npm:1.1.1"
-  peerDependencies:
-    react: ^16.8.0
-  checksum: 691a41156a966ec83246b0c684f9ce84dcf9fe1d6441d136d3a2cf681d84f5be510265e1e3a5951b1f2f45a760a3492e3c389392c1e66240d5430150148383df
   languageName: node
   linkType: hard
 
