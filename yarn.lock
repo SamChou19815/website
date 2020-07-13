@@ -2364,6 +2364,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@grpc/grpc-js@npm:*":
+  version: 1.1.2
+  resolution: "@grpc/grpc-js@npm:1.1.2"
+  dependencies:
+    semver: ^6.2.0
+  checksum: fbfeda0a1d224a61c619d081546b2d0c0fede49728a420603757aae1e1e7d7f9064b373a68bd38ac89625ec37db9ceda5382e69d818e151a0e3b6565deff5fce
+  languageName: node
+  linkType: hard
+
 "@grpc/grpc-js@npm:0.8.1":
   version: 0.8.1
   resolution: "@grpc/grpc-js@npm:0.8.1"
@@ -16572,7 +16581,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:1 || 2, readable-stream@npm:^2.0.0, readable-stream@npm:^2.0.1, readable-stream@npm:^2.0.2, readable-stream@npm:^2.0.5, readable-stream@npm:^2.0.6, readable-stream@npm:^2.1.5, readable-stream@npm:^2.2.2, readable-stream@npm:^2.3.3, readable-stream@npm:^2.3.6, readable-stream@npm:~2.3.6":
+"readable-stream@npm:1 || 2, readable-stream@npm:^2.0.0, readable-stream@npm:^2.0.1, readable-stream@npm:^2.0.2, readable-stream@npm:^2.0.5, readable-stream@npm:^2.0.6, readable-stream@npm:^2.1.5, readable-stream@npm:^2.2.2, readable-stream@npm:^2.3.3, readable-stream@npm:^2.3.6, readable-stream@npm:^2.3.7, readable-stream@npm:~2.3.6":
   version: 2.3.7
   resolution: "readable-stream@npm:2.3.7"
   dependencies:
@@ -20505,6 +20514,16 @@ typescript@3.9.6:
     typescript: 3.9.6
   languageName: unknown
   linkType: soft
+
+"winston-transport@npm:*":
+  version: 4.4.0
+  resolution: "winston-transport@npm:4.4.0"
+  dependencies:
+    readable-stream: ^2.3.7
+    triple-beam: ^1.2.0
+  checksum: 16050844d2636f4eb1458c0ab9df78d61cda26edcc66a7ee9fe157068080e7fd39e85082c4a4be89080194407bc91bfdd691e85a15eb079e021d0e4894ebfd45
+  languageName: node
+  linkType: hard
 
 "winston-transport@npm:^4.3.0":
   version: 4.3.0
