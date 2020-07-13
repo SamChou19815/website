@@ -278,10 +278,10 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         className="card__image"
       >
         <img
-          alt="Tasks"
+          alt="Wiki"
           loading="lazy"
-          src="/projects/tasks.png"
-          title="Tasks"
+          src="/projects/wiki.png"
+          title="Wiki"
         />
       </div>
       <div
@@ -296,7 +296,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
             <h4
               className="avatar__name"
             >
-              Tasks
+              Wiki
             </h4>
             <small
               className="avatar__subtitle"
@@ -309,7 +309,7 @@ exports[`ProjectsSection matches snapshot. 1`] = `
       <div
         className="card__body"
       >
-        A planner with drag and drop and dependency analysis.
+        Documentation for this monoropo and notes from Developer Sam.
       </div>
       <div
         className="card__footer"
@@ -319,13 +319,13 @@ exports[`ProjectsSection matches snapshot. 1`] = `
         >
           <a
             className="button button--link"
-            href="https://tasks.developersam.com"
+            href="https://wiki.developersam.com"
           >
-            APP
+            WEBSITE
           </a>
           <a
             className="button button--link"
-            href="https://github.com/SamChou19815/website/tree/master/packages/tasks"
+            href="https://github.com/SamChou19815/website/tree/master/packages/wiki"
           >
             GITHUB
           </a>
