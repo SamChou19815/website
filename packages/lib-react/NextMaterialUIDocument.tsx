@@ -2,6 +2,7 @@
 
 import React, { ReactElement } from 'react';
 
+// eslint-disable-next-line import/no-unresolved
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import Document, {
   DocumentContext,
@@ -10,6 +11,7 @@ import Document, {
   Head,
   Main,
   NextScript,
+  // eslint-disable-next-line import/no-unresolved
 } from 'next/document';
 
 export default class NextMaterialUIDocument extends Document {
@@ -20,7 +22,7 @@ export default class NextMaterialUIDocument extends Document {
     ctx.renderPage = () =>
       originalRenderPage({
         // eslint-disable-next-line react/jsx-props-no-spreading
-        enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+        enhanceApp: (App) => (props: Record<string, unknown>) => sheets.collect(<App {...props} />),
       });
 
     const initialProps = await Document.getInitialProps(ctx);
@@ -30,12 +32,23 @@ export default class NextMaterialUIDocument extends Document {
 
   // eslint-disable-next-line class-methods-use-this
   render(): ReactElement {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: weird
+    const head = <Head />;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: weird
+    const main = <Main />;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: weird
+    const next = <NextScript />;
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore: weird
       <Html lang="en">
-        <Head />
+        {head}
         <body>
-          <Main />
-          <NextScript />
+          {main}
+          {next}
         </body>
       </Html>
     );

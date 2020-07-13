@@ -17,10 +17,7 @@ module.exports = {
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
     disableDarkMode: true,
-    prism: {
-      theme,
-      additionalLanguages: ['java'],
-    },
+    prism: { theme },
     navbar: {
       title: 'Developer Sam Blog',
       links: [
@@ -44,12 +41,6 @@ module.exports = {
     googleAnalytics: { trackingID: 'UA-140662756-1' },
     gtag: { trackingID: 'UA-140662756-1' },
   },
-  themes: [
-    [
-      require.resolve('@docusaurus/theme-classic'),
-      { customCss: require.resolve('./src/css/custom.css') },
-    ],
-  ],
   presets: [
     [
       require.resolve('@docusaurus/preset-classic'),
@@ -63,6 +54,9 @@ module.exports = {
             copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
           },
         },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
         sitemap: {
           cacheTime: 600 * 1000,
           changefreq: 'weekly',
@@ -71,10 +65,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: [
-    require.resolve('@docusaurus/plugin-google-analytics'),
-    require.resolve('@docusaurus/plugin-google-gtag'),
-    require.resolve('@docusaurus/plugin-sitemap'),
-    require.resolve('lib-docusaurus-plugin'),
-  ],
+  plugins: [require.resolve('lib-docusaurus-plugin')],
 };
