@@ -56,15 +56,15 @@ const projects: readonly Project[] = [
     ],
   },
   {
-    name: 'Tasks',
+    name: 'Wiki',
     type: 'Web App',
-    media: '/projects/tasks.png',
-    description: 'A planner with drag and drop and dependency analysis.',
+    media: '/projects/wiki.png',
+    description: 'Documentation for this monoropo and notes from Developer Sam.',
     links: [
-      { text: 'App', href: 'https://tasks.developersam.com' },
+      { text: 'Website', href: 'https://wiki.developersam.com' },
       {
         text: 'GitHub',
-        href: 'https://github.com/SamChou19815/website/tree/master/packages/tasks',
+        href: 'https://github.com/SamChou19815/website/tree/master/packages/wiki',
       },
     ],
   },
