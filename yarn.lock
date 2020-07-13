@@ -20509,6 +20509,7 @@ typescript@3.9.6:
     clsx: ^1.1.1
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
+    prism-react-renderer: ^1.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
     typescript: 3.9.6
