@@ -21,7 +21,7 @@
     "@docusaurus/plugin-google-gtag": "^2.0.0-alpha.56",
     "@docusaurus/preset-classic": "^2.0.0-alpha.56",
     "@mdx-js/react": "^1.6.4",
-    "classnames": "^2.2.6",
+    "clsx": "^1.1.1",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
     "react": "^16.13.1",

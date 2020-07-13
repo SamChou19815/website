@@ -6,8 +6,8 @@ import Head from 'next/head';
 import styles from './App.module.css';
 import DistributedGameCard from './DistributedGameCard';
 import LocalGameCard from './LocalGameCard';
+import MaterialButtonLink from './MaterialButtonLink';
 
-import MaterialButtonLink from 'lib-react/MaterialButtonLink';
 import MaterialThemedApp from 'lib-react/MaterialThemedApp';
 
 type Mode = 'Local' | 'Distributed';

@@ -5974,6 +5974,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "clsx@npm:1.1.1"
+  checksum: d8ae10ac0546da19fe8c9516886f6582a64a382cf4d09ea7d36d5287cafbdab1192ab249adc2cdf0310e0b0aeac4f4142cf7c738c98d9cb68c19ba24b6f673d5
+  languageName: node
+  linkType: hard
+
 "co@npm:^4.6.0":
   version: 4.6.0
   resolution: "co@npm:4.6.0"
@@ -20503,7 +20510,7 @@ typescript@3.9.6:
     "@docusaurus/preset-classic": ^2.0.0-alpha.56
     "@mdx-js/react": ^1.6.4
     "@types/node": ^14.0.19
-    classnames: ^2.2.6
+    clsx: ^1.1.1
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
     react: ^16.13.1
