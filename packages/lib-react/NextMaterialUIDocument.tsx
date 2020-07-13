@@ -2,6 +2,7 @@
 
 import React, { ReactElement } from 'react';
 
+// eslint-disable-next-line import/no-unresolved
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import Document, {
   DocumentContext,
@@ -10,6 +11,7 @@ import Document, {
   Head,
   Main,
   NextScript,
+  // eslint-disable-next-line import/no-unresolved
 } from 'next/document';
 
 export default class NextMaterialUIDocument extends Document {

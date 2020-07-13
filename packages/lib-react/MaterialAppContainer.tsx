@@ -1,6 +1,8 @@
 import React, { ReactElement, ReactNode } from 'react';
 
+// eslint-disable-next-line import/no-unresolved
 import teal from '@material-ui/core/colors/teal';
+// eslint-disable-next-line import/no-unresolved
 import { MuiThemeProvider, StylesProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({

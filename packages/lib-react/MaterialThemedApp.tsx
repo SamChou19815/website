@@ -1,7 +1,10 @@
 import React, { ReactElement, ReactNode } from 'react';
 
+// eslint-disable-next-line import/no-unresolved
 import AppBar from '@material-ui/core/AppBar';
+// eslint-disable-next-line import/no-unresolved
 import Toolbar from '@material-ui/core/Toolbar';
+// eslint-disable-next-line import/no-unresolved
 import Typography from '@material-ui/core/Typography';
 
 import MaterialAppContainer from './MaterialAppContainer';
