@@ -3490,7 +3490,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:16.9.43":
+"@types/react@npm:^16.9.43":
   version: 16.9.43
   resolution: "@types/react@npm:16.9.43"
   dependencies:
@@ -12417,7 +12417,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
-    "@types/react": 16.9.43
+    "@types/react": ^16.9.43
     firebase: ^7.14.6
     lib-common: 0.1.0
     react: ^16.13.1
@@ -12439,11 +12439,13 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-react@workspace:packages/lib-react"
   dependencies:
+    "@material-ui/core": ^4.10.0
     "@types/jest": 26.0.4
-    "@types/react": 16.9.43
+    "@types/react": ^16.9.43
     "@types/react-dom": 16.9.8
     "@types/remarkable": 1.7.4
     lib-prism-extended: 0.1.0
+    next: ^9.4.4
     prism-react-renderer: ^1.1.0
     prismjs: ^1.20.0
     react: ^16.13.1
@@ -17410,7 +17412,7 @@ fsevents@^1.2.7:
     "@docusaurus/preset-classic": ^2.0.0-alpha.56
     "@mdx-js/react": ^1.6.4
     "@types/classnames": ^2.2.10
-    "@types/react": 16.9.43
+    "@types/react": ^16.9.43
     autosize: ^4.0.2
     classnames: ^2.2.6
     lib-docusaurus-plugin: 0.1.0
@@ -18824,7 +18826,7 @@ fsevents@^1.2.7:
     "@material-ui/lab": ^4.0.0-alpha.54
     "@types/jest": 26.0.4
     "@types/node": 14.0.22
-    "@types/react": 16.9.43
+    "@types/react": ^16.9.43
     "@types/react-beautiful-dnd": 13.0.0
     "@types/react-redux": 7.1.9
     firebase: ^7.14.6
@@ -18859,7 +18861,7 @@ fsevents@^1.2.7:
     "@material-ui/core": ^4.10.0
     "@types/jest": 26.0.4
     "@types/node": 14.0.22
-    "@types/react": 16.9.43
+    "@types/react": ^16.9.43
     lib-react: 0.1.0
     next: ^9.4.4
     react: ^16.13.1
@@ -20494,7 +20496,7 @@ typescript@3.9.6:
     "@docusaurus/preset-classic": ^2.0.0-alpha.56
     "@mdx-js/react": ^1.6.4
     "@types/node": 14.0.22
-    "@types/react": 16.9.43
+    "@types/react": ^16.9.43
     clsx: ^1.1.1
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
@@ -20660,7 +20662,7 @@ typescript@3.9.6:
     "@types/classnames": 2.2.10
     "@types/jest": 26.0.4
     "@types/node": 14.0.22
-    "@types/react": 16.9.43
+    "@types/react": ^16.9.43
     "@types/react-dom": 16.9.8
     "@types/react-redux": 7.1.9
     "@types/react-test-renderer": 16.9.2
