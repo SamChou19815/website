@@ -23,7 +23,7 @@ export default function Home(): JSX.Element {
                 'button button--outline button--secondary button--lg',
                 styles.getStarted
               )}
-              to={useBaseUrl('docs/start')}
+              to={useBaseUrl('docs/intro')}
             >
               Get Started
             </Link>
