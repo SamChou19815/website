@@ -31,8 +31,6 @@ const PrismCodeBlock = ({
   excludeWrapper,
 }: Props): ReactElement => {
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error: weird types
     <Highlight
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
@@ -40,15 +38,15 @@ const PrismCodeBlock = ({
       code={children.trim()}
       language={language as Language}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }: any) => {
+      {({ className, style, tokens, getLineProps, getTokenProps }) => {
         const combinedClassname =
           userDefinedClassname == null ? className : `${className} ${userDefinedClassname}`;
         const combinedStyle =
           userDefinedStyles == null ? style : { ...style, ...userDefinedStyles };
-        const content = tokens.map((line: string[], i: number) => (
+        const content = tokens.map((line, i) => (
           // eslint-disable-next-line react/no-array-index-key, react/jsx-props-no-spreading, react/jsx-key
           <div {...getLineProps({ line, key: i })}>
-            {line.map((token: string, key: number) => (
+            {line.map((token, key) => (
               // eslint-disable-next-line react/jsx-props-no-spreading, react/jsx-key
               <span {...getTokenProps({ token, key })} />
             ))}
