@@ -2,19 +2,9 @@ import React, { ReactElement, useRef } from 'react';
 import ReactDOM from 'react-dom';
 
 import { act } from 'react-dom/test-utils';
-import renderer from 'react-test-renderer';
 
 import { dispatchOnInputChange } from '../../testing/test-utils';
 import TerminalInput from './TerminalInput';
-
-it(`TerminalInput matches snapshot.`, () => {
-  const Wrapper = (): ReactElement => {
-    const terminalInput = useRef<HTMLInputElement>(null);
-    return <TerminalInput terminalInput={terminalInput} onArrow={() => null} onSubmit={() => {}} />;
-  };
-  const tree = renderer.create(<Wrapper />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
 
 it('TerminalInput can respond to inputs.', () => {
   const container = document.createElement('div');
