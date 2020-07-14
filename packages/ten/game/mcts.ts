@@ -14,8 +14,8 @@ const timeLimit = 1500;
 /**
  * Returns the winning probability association with a node.
  *
- * @param {Node} node the node of interest.
- * @return {number} the winning probability.
+ * @param node the node of interest.
+ * @return the winning probability.
  */
 function getWinningProb(node: Node): number {
   const { winningProbNum, winningProbDen } = node;
