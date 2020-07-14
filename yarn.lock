@@ -6443,17 +6443,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:*, core-js@npm:3.6.5":
-  version: 3.6.5
-  resolution: "core-js@npm:3.6.5"
-  checksum: 9283348dd5be2f1d07feaf90e2336b3f00a2316e3d3c6d4f789c9a67bdd4d7b08ce1c88dca4e591340130056c6b412b0b74fae039f8e259206f1073f542e4e85
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^2.6.5":
+"core-js@npm:2, core-js@npm:^2.6.5":
   version: 2.6.11
   resolution: "core-js@npm:2.6.11"
   checksum: 39ad00b46deaecf344470ef940949b58c4b15e71608a98e8ac7429cd16e485b829f9720d44a44b5f4dee966ff04a18baf5283feb8aaba2cb59ce2c25fa72b88c
+  languageName: node
+  linkType: hard
+
+"core-js@npm:3.6.5":
+  version: 3.6.5
+  resolution: "core-js@npm:3.6.5"
+  checksum: 9283348dd5be2f1d07feaf90e2336b3f00a2316e3d3c6d4f789c9a67bdd4d7b08ce1c88dca4e591340130056c6b412b0b74fae039f8e259206f1073f542e4e85
   languageName: node
   linkType: hard
 
@@ -9077,6 +9077,16 @@ __metadata:
   version: 1.0.0
   resolution: "fs-constants@npm:1.0.0"
   checksum: b8382395f555012591b20bddf08d258723f660b4e7312943d10431a893e2af879295fefc15a917df43c9ed52d80d2f014c0ca8ca359367969be5c8a133e39742
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:2":
+  version: 2.1.2
+  resolution: "fs-extra@npm:2.1.2"
+  dependencies:
+    graceful-fs: ^4.1.2
+    jsonfile: ^2.1.0
+  checksum: db32184698e0b97f5dfe06d21d6860fda11e2cbc1220100b6565a3feacfdcd66f5b4d04ca1dc7d4b5dc278728fbcbd92e85b037f8d061c6590b9613ecf4cac4e
   languageName: node
   linkType: hard
 
