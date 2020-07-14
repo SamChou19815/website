@@ -4,13 +4,12 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
-    "firebase": "^7.14.6",
     "infima": "0.2.0-alpha.12",
-    "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
     "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-ga": "^3.1.2",
     "react-redux": "^7.2.0",
     "react-test-renderer": "^16.13.1",
     "redux": "^4.0.5"
