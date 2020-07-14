@@ -11,7 +11,7 @@
 # misc
 .DS_Store
 
-## dependencies
+# dependencies
 **/.yarn/*
 !**/.yarn/releases
 !**/.yarn/plugins
@@ -19,20 +19,23 @@
 **/.pnp
 **/.pnp.js
 
-## testing
+# testing
 **/coverage
 
-## framework generated files
+# framework generated files
 **/.firebase
 **/.next
 .vscode/pnpify
 .docusaurus
 .cache-loader
 
-## project generated files
+# env
+.env.local
+
+# project generated files
 packages/wiki/docs/private-docs
 
-## styles
+# styles
 
 .yarn
 packages/monorail/bin/
