@@ -6,7 +6,12 @@ handlers:
     static_files: build/index.html
     upload: build/index.html
 
-  - url: /(.*)
+  - url: /(.*\.(css|eot|gz|ico|js|map|png|jpg|jpeg|svg|xml|pdf|gif))$
     secure: always
     static_files: build/\1
-    upload: build/(.*)
+    upload: build/(.*\.(css|eot|gz|ico|js|map|png|jpg|jpeg|svg|xml|pdf|gif))$
+
+  - url: /(.*)$
+    secure: always
+    static_files: build/\1/index.html
+    upload: build/(.*)\.html$
