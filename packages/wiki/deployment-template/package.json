@@ -7,6 +7,6 @@
   },
   "scripts": {
     "start": "exit 0",
-    "deploy": "gcloud app deploy"
+    "deploy": "gcloud app deploy --stop-previous-version"
   }
 }
