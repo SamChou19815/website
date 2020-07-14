@@ -11953,12 +11953,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lib-common@workspace:packages/lib-common":
-  version: 0.0.0-use.local
-  resolution: "lib-common@workspace:packages/lib-common"
-  languageName: unknown
-  linkType: soft
-
 "lib-docusaurus-plugin@0.1.0, lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin":
   version: 0.0.0-use.local
   resolution: "lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin"
