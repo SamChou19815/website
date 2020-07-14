@@ -12365,7 +12365,7 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"lib-firebase@0.1.0, lib-firebase@workspace:packages/lib-firebase":
+"lib-firebase@workspace:packages/lib-firebase":
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
@@ -15956,7 +15956,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.7.2, prop-types@npm:^15.5.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
+"prop-types@npm:*, prop-types@npm:15.7.2, prop-types@npm:^15.5.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2":
   version: 15.7.2
   resolution: "prop-types@npm:15.7.2"
   dependencies:
@@ -16265,6 +16265,16 @@ fsevents@^1.2.7:
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 6fe65c889eb4f326e97769135f97b3d63ac68737866f9c37f9625c9de4f5eaa9abed6f748eb3fd6a66808392118842916309cab7cfa99c67991f0c837433d6d2
+  languageName: node
+  linkType: hard
+
+"react-ga@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "react-ga@npm:3.1.2"
+  peerDependencies:
+    prop-types: ^15.6.0
+    react: ^15.6.2 || ^16.0
+  checksum: c1941f97b81a85c2f62b5407ea679b704385bdd287cb2a698f9bfdd001c684e08c69a441cdfe9ed5b3e994644f7018783c666bbffa027a16e084e1a9ba7fb9d2
   languageName: node
   linkType: hard
 
@@ -20541,13 +20551,12 @@ typescript@3.9.6:
     "@types/react-redux": 7.1.9
     "@types/react-test-renderer": 16.9.2
     classnames: ^2.2.6
-    firebase: ^7.14.6
     infima: 0.2.0-alpha.12
-    lib-firebase: 0.1.0
     lib-react: 0.1.0
     next: ^9.4.4
     react: ^16.13.1
     react-dom: ^16.13.1
+    react-ga: ^3.1.2
     react-redux: ^7.2.0
     react-test-renderer: ^16.13.1
     redux: ^4.0.5

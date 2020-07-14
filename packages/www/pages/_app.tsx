@@ -4,10 +4,16 @@ import React, { ReactElement } from 'react';
 
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import ReactGA from 'react-ga';
 
 import 'infima/dist/css/default/default.min.css';
 import 'lib-react/PrismCodeBlock.css';
 import './index.css';
+
+if (process.browser) {
+  ReactGA.initialize('UA-140662756-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
 
 const description = 'Explore the portfolio and projects created and open sourced by Developer Sam.';
 
