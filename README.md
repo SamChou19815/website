@@ -2,50 +2,13 @@
 
 ![GitHub](https://img.shields.io/github/license/SamChou19815/website.svg)
 ![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+![3.3.0](https://img.shields.io/badge/version-3.3.0-blue.svg)
 
 This is a monorepo of Sam's [website](https://developersam.com).
 
-## Included Sites
+## Documentation
 
-- [blog](https://blog.developersam.com)
-- [samlang](https://samlang.developersam.com)
-- [tasks](https://tasks.developersam.com)
-- [ten](https://ten.developersam.com)
-- [www](https://developersam.com)
-
-## Technology Stack
-
-- Frontend
-  - Build System: Yarn V2 with pnp
-  - Language: TypeScript
-  - Library: React
-  - UI: Material-UI
-  - Hosting: Firebase
-- Backend
-  - Languages
-    - Go
-  - Hosting
-    - Firebase
-    - Google Cloud Functions
-- CI/CD
-  - Provider: GitHub Actions
-  - Enforcement
-    - Branch protection enabled for master branch.
-    - Every pull request to be merged into master must pass all CI checks
-  - Deployment
-    - Automatically deploy changes to Firebase Hosting for each commit on master
-
-## Tools
-
-The [`tools/`](tools/) folder contains Deno code to compute dependencies between different
-Yarn workspaces and use that to generate GitHub Actions workflow files to accurately decide the
-order of building steps. In the future, it's expected to handle all build related job, including
-local building.
-
-## Stability
-
-This repository will be in 'move-fast' mode. i.e. Unstable technologies and libraries can go into
-master and be deployed on Sam's website.
+See [Wiki](https://wiki.developersam.com).
 
 ## License
 
