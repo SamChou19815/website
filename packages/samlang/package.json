@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "@dev-sam/samlang-demo": "^0.0.2",
-    "@docusaurus/core": "^2.0.0-alpha.56",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.56",
+    "@docusaurus/core": "2.0.0-alpha.56",
+    "@docusaurus/preset-classic": "2.0.0-alpha.56",
     "@mdx-js/react": "^1.6.4",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
-    "prism-react-renderer": "^1.1.0",
+    "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
