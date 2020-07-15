@@ -1,3 +1,4 @@
+import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   toolingWorkspaces,
   libraryWorkspaces,
@@ -70,7 +71,7 @@ const generateYarnWorkspaceProjectCDWorkflow = (
     triggerPaths: yarnWorkspaceGetDependencyPaths(workspace),
     masterBranchOnly: true,
   },
-  workflowSecrets: ['FIREBASE_TOKEN'],
+  workflowSecrets: PROJECT_CONFIGURATION.deploymentSecrets,
   workflowJobs: [
     {
       jobName: 'deploy',
