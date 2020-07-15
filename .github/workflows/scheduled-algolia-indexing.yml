@@ -1,0 +1,21 @@
+name: Algolia Private DocSearch Indexing
+on:
+  push:
+    paths:
+      - '.github/workflows/scheduled-algolia-indexing.yml'
+  schedule:
+    - cron: '0 3 * * 0'
+env:
+  ALGOLIA_PRIVATE_SEARCH_ENV: ${{ secrets.ALGOLIA_PRIVATE_SEARCH_ENV }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install JQ
+        run: sudo apt-get install jq
+      - name: Setup .env.local file
+        run: echo $ALGOLIA_PRIVATE_SEARCH_ENV > .env.local
+      - name: Run Search Indexer
+        run: docker run -it --env-file=.env.local -e "CONFIG=$(cat packages/wiki/algolia-index.json | jq -r tostring)" algolia/docsearch-scraper
