@@ -46,8 +46,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: [
-    require.resolve('lib-docusaurus-plugin'),
-    process.env.DEV_SAM && require.resolve('@aldridged/docusaurus-plugin-lunr'),
-  ].filter(Boolean),
+  plugins: [require.resolve('lib-docusaurus-plugin')],
 };

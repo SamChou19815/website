@@ -15,7 +15,6 @@
     "deploy": "yarn deploy:public && yarn deploy:private"
   },
   "dependencies": {
-    "@aldridged/docusaurus-plugin-lunr": "^1.0.0-alpha.10",
     "@docusaurus/core": "^2.0.0-alpha.58",
     "@docusaurus/preset-classic": "^2.0.0-alpha.58",
     "@mdx-js/react": "^1.6.4",
