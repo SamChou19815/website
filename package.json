@@ -64,6 +64,7 @@
       "vscode-"
     ],
     "deploymentSecrets": [
+      "ALGOLIA_PRIVATE_SEARCH_KEY",
       "FIREBASE_TOKEN"
     ]
   },
