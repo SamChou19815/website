@@ -7,18 +7,20 @@ type RepoToolsConfiguration = {
   readonly binary: string;
   readonly organizationName: string;
   readonly toolingPrefixes: readonly string[];
+  readonly deploymentSecrets: readonly string[];
 };
 
 const parseRepoToolsConfiguration = (json: unknown): RepoToolsConfiguration => {
-  const { binary, organizationName, toolingPrefixes } = assertHasFields(
+  const { binary, organizationName, toolingPrefixes, deploymentSecrets } = assertHasFields(
     'repoToolsConfiguration',
-    ['binary', 'organizationName', 'toolingPrefixes'],
+    ['binary', 'organizationName', 'toolingPrefixes', 'deploymentSecrets'],
     json
   );
   return {
     binary: assertIsString('binary', binary),
     organizationName: assertIsString('organizationName', organizationName),
     toolingPrefixes: assertIsStringArray('toolingPrefixes', toolingPrefixes),
+    deploymentSecrets: assertIsStringArray('deploymentSecrets', deploymentSecrets),
   };
 };
 

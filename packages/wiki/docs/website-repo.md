@@ -56,7 +56,8 @@ Your root `package.json` should contain at least two sections:
   "repoToolsConfiguration": {
     "binary": "relative/path/to/monorail/binary",
     "organizationName": "your-github-username-or-organization-name",
-    "toolingPrefixes": ["anything-that-can-be-tooling-workspace-prefix"]
+    "toolingPrefixes": ["anything-that-can-be-tooling-workspace-prefix"],
+    "deploymentSecrets": ["name of github actions secret to be included as env-var in CD"]
   }
 
   // ...
@@ -102,9 +103,8 @@ pull relevant repositories before building the workspace.
 
 ### Deployment tooling support
 
-By default, `monorail` assumes that deployment is done by Firebase CLI tool, with `FIREBASE_TOKEN`
-already set in your GitHub repository secrets. It also assumes that Firebase tool will be available
-as a dependency, which will be automatically installed by Yarn.
+By default, `monorail` assumes that deployment is done by running `yarn workspace [xxx] deploy`,
+with no additional tooling support beyond what's already installed by Yarn.
 
 It also supports adding a limited set of other deployment tools per workspace.
 
