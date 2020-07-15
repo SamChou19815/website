@@ -33,7 +33,7 @@
 .env.local
 
 # project generated files
-packages/wiki/docs/private-docs
+packages/wiki/private-docs
 
 # styles
 
