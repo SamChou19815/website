@@ -18,4 +18,4 @@ jobs:
       - name: Setup .env.local file
         run: echo $ALGOLIA_PRIVATE_SEARCH_ENV > .env.local
       - name: Run Search Indexer
-        run: docker run --env-file=.env.local -e "CONFIG=$(cat packages/wiki/algolia-index.json | jq -r tostring)" algolia/docsearch-scraper
+        run: docker run -t --env-file=.env.local -e "CONFIG=$(cat packages/wiki/algolia-index.json | jq -r tostring)" algolia/docsearch-scraper
