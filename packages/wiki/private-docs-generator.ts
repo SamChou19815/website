@@ -1,7 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { spawnSync } from 'child_process';
-import { readdirSync, readFileSync, lstatSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import {
+  readdirSync,
+  readFileSync,
+  lstatSync,
+  writeFileSync,
+  mkdirSync,
+  existsSync,
+  copyFileSync,
+} from 'fs';
 import { join, extname, relative, dirname, basename, sep } from 'path';
 
 const PRIVATE_DOCS_ROOT = join(__dirname, '..', '..', '..', 'private-monorepo', 'confidential');
@@ -36,7 +44,7 @@ const processMarkdownDocumentAndReturnId = (path: string): string => {
   const mainContent = markdownDocsContent.substring(markdownDocsContent.indexOf('\n')).trim();
   const reassembledContent = `---\nid: '${baseId}'\ntitle: '${title}'\n---\n\n${mainContent}\n`;
 
-  const generatedFilePath = join('docs', 'private-docs', documentRelativePath);
+  const generatedFilePath = join('private-docs', 'private-docs', documentRelativePath);
   mkdirSync(dirname(generatedFilePath), { recursive: true });
   writeFileSync(generatedFilePath, reassembledContent);
 
@@ -44,13 +52,13 @@ const processMarkdownDocumentAndReturnId = (path: string): string => {
 };
 
 const treeifyDocumentIds = (documentIds: readonly string[]): any[] => {
-  const tree = [];
+  const tree: any[] = [];
 
   const getOrCreate = (json: any[], key: string): any => {
     const element = json.find((item) => Object.keys(item).includes(key));
     if (element == null) {
       // eslint-disable-next-line no-param-reassign
-      const empty = [];
+      const empty: any[] = [];
       json.push({ [key]: empty });
       return empty;
     }
@@ -79,16 +87,18 @@ const generatePrivateDocs = (): void => {
     return;
   }
 
-  spawnSync('rm', ['-rf', 'docs/private-docs']);
+  spawnSync('rm', ['-rf', 'private-docs']);
+
   const markdownFilesAbsolutePath = recursiveListMarkdownFiles(PRIVATE_DOCS_ROOT);
   const documentIds = markdownFilesAbsolutePath.map(processMarkdownDocumentAndReturnId);
   const mergedSideBar = JSON.parse(readFileSync('sidebars.json').toString());
   mergedSideBar.docs.Private = treeifyDocumentIds(documentIds);
 
-  writeFileSync(
-    join('docs', 'private-docs', 'private-sidebars.json'),
-    JSON.stringify(mergedSideBar)
-  );
+  writeFileSync(join('private-docs', 'private-sidebars.json'), JSON.stringify(mergedSideBar));
+
+  readdirSync('docs').forEach((publicDocsPath) => {
+    copyFileSync(join('docs', publicDocsPath), join('private-docs', publicDocsPath));
+  });
 };
 
 generatePrivateDocs();
