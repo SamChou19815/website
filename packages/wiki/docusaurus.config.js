@@ -12,16 +12,15 @@ module.exports = {
   tagline: process.env.DEV_SAM
     ? 'Public and private documentation for dev-sam'
     : 'Public documentation for dev-sam',
-  url: (() => {
-    if (process.env.DEV_SAM) {
-      return process.env.LOCAL_BUILD ? 'http://192.168.0.101' : 'https://intern.developersam.com';
-    }
-    return 'https://wiki.developersam.com';
-  })(),
+  url: process.env.DEV_SAM ? 'https://intern.developersam.com' : 'https://wiki.developersam.com',
   baseUrl: '/',
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
     prism: { theme },
+    algolia: process.env.DEV_SAM && {
+      apiKey: process.env.ALGOLIA_PRIVATE_SEARCH_KEY,
+      indexName: 'dev-sam-intern',
+    },
     navbar: {
       title: 'Wiki',
       links: [],
