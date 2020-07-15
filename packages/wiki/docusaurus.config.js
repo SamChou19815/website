@@ -20,6 +20,7 @@ module.exports = {
     algolia: process.env.DEV_SAM && {
       apiKey: process.env.ALGOLIA_PRIVATE_SEARCH_KEY,
       indexName: 'dev-sam-intern',
+      appId: 'CYPLN8UYBW',
     },
     navbar: {
       title: 'Wiki',
