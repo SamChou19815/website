@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 import { TimelineItem } from '../../data/timeline';
 import ButtonLink from '../Common/ButtonLink';
@@ -15,7 +15,7 @@ const TimelineItemCard = ({ item: { title, time, image, detail, links } }: Props
     <div className={styles.CardContainer}>
       <div className={styles.ContentWrapper}>
         <span className={styles.ConnectorDot} />
-        <div className={classnames('card', styles.Card)}>
+        <div className={clsx('card', styles.Card)}>
           {image != null && <LazyCardMedia image={image} title={title} />}
           <CardHeader title={title} subheader={time} />
           {detail != null && <div className="card__body">{detail}</div>}

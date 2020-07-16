@@ -8,7 +8,7 @@
 import React, { useState, ReactElement } from 'react';
 
 import usePrismTheme from '@theme/hooks/usePrismTheme';
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 import Editor from './Editor';
 import styles from './LanguageDemo.module.css';
@@ -23,9 +23,9 @@ export default function InputCard({ onSubmit }: Props): ReactElement {
   const theme = usePrismTheme();
   const [text, setText] = useState<string>(initialText);
   return (
-    <div className={classnames('card', rootClassName)}>
+    <div className={clsx('card', rootClassName)}>
       <div
-        className={classnames('card__body', styles.EditorCardContainer)}
+        className={clsx('card__body', styles.EditorCardContainer)}
         style={{ backgroundColor: theme.plain.backgroundColor }}
       >
         <Editor code={text} theme={theme} onCodeChange={setText} />

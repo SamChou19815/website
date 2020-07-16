@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 import styles from './ConsoleSection.module.css';
 
@@ -20,7 +20,7 @@ const ConsoleSection = ({
   children,
 }: Props): ReactElement => (
   <section id={id} className={className}>
-    <h3 className={classnames(styles.Title, titleClassName)}>
+    <h3 className={clsx(styles.Title, titleClassName)}>
       <code>
         $&nbsp;
         {title}

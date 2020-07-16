@@ -8,7 +8,7 @@
 import React, { ReactNode, ReactElement } from 'react';
 
 import CodeBlock from '@theme/CodeBlock';
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
@@ -76,7 +76,7 @@ export default function ResultCard({ response }: Props): ReactElement {
     );
   }
   return (
-    <div className={classnames('card', DemoStyles.ParallelCard)}>
+    <div className={clsx('card', DemoStyles.ParallelCard)}>
       <div className="card__body">{children}</div>
     </div>
   );

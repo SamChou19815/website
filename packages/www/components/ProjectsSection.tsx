@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 import projects from '../data/projects';
 import ButtonLink from './Common/ButtonLink';
@@ -13,7 +13,7 @@ const ProjectsSection = (): ReactElement => (
   <ConsoleSection id="projects" title="dev-sam projects">
     <div className={styles.ProjectContainer}>
       {projects.map(({ name, type, media, description, links }) => (
-        <div key={name} className={classnames('card', styles.ProjectCard)}>
+        <div key={name} className={clsx('card', styles.ProjectCard)}>
           <LazyCardMedia image={media} title={name} />
           <CardHeader title={name} subheader={type} />
           <div className="card__body">{description}</div>

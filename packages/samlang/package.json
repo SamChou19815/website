@@ -15,7 +15,7 @@
     "@docusaurus/preset-classic": "^2.0.0-alpha.58",
     "@mdx-js/react": "^1.6.4",
     "autosize": "^4.0.2",
-    "classnames": "^2.2.6",
+    "clsx": "^1.1.1",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
     "prism-react-renderer": "^1.1.1",
@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.0.0-alpha.58",
-    "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.43",
     "typescript": "3.9.6"
   },

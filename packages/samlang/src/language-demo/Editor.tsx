@@ -10,7 +10,7 @@
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import autosize from 'autosize';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import { PrismTheme } from 'prism-react-renderer';
 
 import styles from './Editor.module.css';
@@ -223,7 +223,7 @@ const Editor = ({ code, tabSize = 2, theme, onCodeChange }: Props): ReactElement
     <div className={styles.EditorContainer}>
       <textarea
         ref={inputRef}
-        className={classnames(styles.Editor, styles.TextArea)}
+        className={clsx(styles.Editor, styles.TextArea)}
         value={code}
         onChange={(event) => onCodeChange(event.currentTarget.value)}
         onKeyDown={handleKeyDown}

@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 type Props = {
   readonly href: string;
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const ButtonLink = ({ href, children, className }: Props): ReactElement => (
-  <a className={classnames('button', 'button--link', className)} href={href}>
+  <a className={clsx('button', 'button--link', className)} href={href}>
     {typeof children === 'string' ? children.toLocaleUpperCase() : children}
   </a>
 );
