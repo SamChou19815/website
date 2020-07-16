@@ -14,9 +14,6 @@
     "index.js",
     "README.md"
   ],
-  "scripts": {
-    "compile": "exit 0"
-  },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "*",
     "@typescript-eslint/parser": "*",
