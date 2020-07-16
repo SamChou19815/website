@@ -27,7 +27,7 @@ jobs:
           key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
           restore-keys: yarn-berry-
       - name: Yarn Install
-        run: yarn install
+        run: yarn install --immutable
       - name: Checkout SamChou19815/private-monorepo
         run: cd ../ && git clone https://${{ secrets.GH_TOKEN }}@github.com/SamChou19815/private-monorepo --depth 1
       - name: Sanity Check private-monorepo setup

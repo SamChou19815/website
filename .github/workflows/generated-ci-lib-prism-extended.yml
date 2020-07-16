@@ -24,6 +24,6 @@ jobs:
           key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
           restore-keys: yarn-berry-
       - name: Yarn Install
-        run: yarn install
+        run: yarn install --immutable
       - name: Compile
         run: yarn workspace lib-prism-extended compile
