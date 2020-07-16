@@ -1,5 +1,3 @@
-// Adapted from: https://github.com/mui-org/material-ui/tree/master/examples/nextjs-with-typescript
-
 import React, { ReactElement } from 'react';
 
 import { AppProps } from 'next/app';
