@@ -5,7 +5,7 @@
   "private": true,
   "bin": "./bin/monorail",
   "scripts": {
-    "build": "run -T tsc",
+    "build": "tsc",
     "codegen": "node build.js",
     "compile": "yarn build && yarn codegen && git diff --quiet --exit-code"
   },
