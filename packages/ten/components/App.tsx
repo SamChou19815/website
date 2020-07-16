@@ -4,7 +4,6 @@ import Head from 'next/head';
 
 import DistributedGameCard from './DistributedGameCard';
 import LocalGameCard from './LocalGameCard';
-import MaterialThemedApp from './MaterialThemedApp';
 
 type Mode = 'Local' | 'Distributed';
 
@@ -31,27 +30,35 @@ export default function App(): ReactElement {
   );
 
   return (
-    <MaterialThemedApp title={`TEN - ${mode}`} buttons={buttons}>
-      <>
-        {head}
-        <div className="card">
-          <div className="card__footer">
-            <button
-              className="button button--outline button--primary"
-              onClick={(): void => setMode('Local')}
-            >
-              Local
-            </button>
-            <button
-              className="button button--outline button--primary"
-              onClick={(): void => setMode('Distributed')}
-            >
-              Distributed
-            </button>
+    <div>
+      {head}
+      <nav className="navbar">
+        <div className="navbar__inner">
+          <div className="navbar__items">
+            <a className="navbar__brand" href="/">
+              {`TEN - ${mode}`}
+            </a>
           </div>
+          <div className="navbar__items navbar__items--right">{buttons}</div>
         </div>
-        {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
-      </>
-    </MaterialThemedApp>
+      </nav>
+      <div className="card">
+        <div className="card__footer">
+          <button
+            className="button button--outline button--primary"
+            onClick={(): void => setMode('Local')}
+          >
+            Local
+          </button>
+          <button
+            className="button button--outline button--primary"
+            onClick={(): void => setMode('Distributed')}
+          >
+            Distributed
+          </button>
+        </div>
+      </div>
+      {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
+    </div>
   );
 }
