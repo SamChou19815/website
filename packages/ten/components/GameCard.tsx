@@ -66,7 +66,7 @@ export default function GameCard(props: Props): ReactElement {
   }
   return (
     <div>
-      <div className={`card ${styles.GameCard}`}>
+      <div className="card">
         <div className="card__body">{message}</div>
         <div className="card__body">
           {`Your Identity: ${playerIdentity === 1 ? 'Black' : 'White'}`}
@@ -80,7 +80,7 @@ export default function GameCard(props: Props): ReactElement {
             clickCallback={clickCallback}
           />
         </div>
-        <div className={`card__footer ${styles.GameCardControls}`}>
+        <div className="card__footer">
           <span className={styles.GameCardControlsText}>New Game</span>
           <Button size="small" color="primary" onClick={(): void => onSelectSide(1)}>
             Play as Black
@@ -90,7 +90,7 @@ export default function GameCard(props: Props): ReactElement {
           </Button>
         </div>
       </div>
-      <div className={`card ${styles.GameCard}`}>
+      <div className="card">
         <div className="card__header">Rules</div>
         <div className="card__body">
           The rules are mostly the same with the original&nbsp;
