@@ -7,7 +7,6 @@ on:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
       - 'packages/www/**'
-      - 'yarn.lock'
       - 'configuration/**'
       - '.github/workflows/generated-*-www.yml'
 

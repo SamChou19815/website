@@ -32,7 +32,6 @@ const yarnWorkspaceGetDependencyPaths = (workspace: string): readonly string[] =
   ...getYarnWorkspaceInRepoDependencyChain(workspace).map(
     (name) => `${getYarnWorkspaceLocation(name)}/**`
   ),
-  'yarn.lock',
   'configuration/**',
   `.github/workflows/generated-*-${workspace}.yml`,
 ];
