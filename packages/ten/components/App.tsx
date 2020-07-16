@@ -3,10 +3,8 @@ import React, { ReactElement } from 'react';
 import Button from '@material-ui/core/Button';
 import Head from 'next/head';
 
-import styles from './App.module.css';
 import DistributedGameCard from './DistributedGameCard';
 import LocalGameCard from './LocalGameCard';
-import MaterialButtonLink from './MaterialButtonLink';
 import MaterialThemedApp from './MaterialThemedApp';
 
 type Mode = 'Local' | 'Distributed';
@@ -16,15 +14,9 @@ export default function App(): ReactElement {
 
   const buttons = (
     <>
-      <Button color="inherit" onClick={(): void => setMode('Local')}>
-        Local
-      </Button>
-      <Button color="inherit" onClick={(): void => setMode('Distributed')}>
-        Distributed
-      </Button>
-      <MaterialButtonLink href="https://developersam.com" color="inherit">
+      <a className="navbar__item navbar__link" href="https://developersam.com">
         Home
-      </MaterialButtonLink>
+      </a>
     </>
   );
 
@@ -40,9 +32,19 @@ export default function App(): ReactElement {
   );
 
   return (
-    <MaterialThemedApp styles={{ title: styles.Title }} title={`TEN - ${mode}`} buttons={buttons}>
+    <MaterialThemedApp title={`TEN - ${mode}`} buttons={buttons}>
       <>
         {head}
+        <div className="card">
+          <div className="card__footer">
+            <Button color="inherit" onClick={(): void => setMode('Local')}>
+              Local
+            </Button>
+            <Button color="inherit" onClick={(): void => setMode('Distributed')}>
+              Distributed
+            </Button>
+          </div>
+        </div>
         {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
       </>
     </MaterialThemedApp>
