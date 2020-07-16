@@ -1,7 +1,5 @@
 import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
-  toolingWorkspaces,
-  libraryWorkspaces,
   projectWorkspaces,
   getYarnWorkspaceLocation,
   getYarnWorkspaceInRepoDependencyChain,
@@ -36,30 +34,6 @@ const yarnWorkspaceGetDependencyPaths = (workspace: string): readonly string[] =
   `.github/workflows/generated-*-${workspace}.yml`,
 ];
 
-const generateYarnWorkspaceProjectCIWorkflow = (
-  workspaceName: string,
-  prepareSteps: readonly GitHubActionJobStep[]
-): GitHubActionsWorkflow => ({
-  workflowName: `CI ${workspaceName}`,
-  workflowtrigger: {
-    triggerPaths: yarnWorkspaceGetDependencyPaths(workspaceName),
-    masterBranchOnly: false,
-  },
-  workflowJobs: [
-    {
-      jobName: 'build',
-      jobSteps: [
-        ...yarnWorkspaceBoilterplateSetupSteps,
-        ...prepareSteps,
-        ...getYarnWorkspaceGitHubRepositoryDependencies(workspaceName)
-          .map(getGitHubRepositoryDependencySetupSteps)
-          .flat(),
-        githubActionJobRunStep('Compile', `yarn workspace ${workspaceName} compile`),
-      ],
-    },
-  ],
-});
-
 const generateYarnWorkspaceProjectCDWorkflow = (
   workspace: string,
   prepareSteps: readonly GitHubActionJobStep[]
@@ -92,20 +66,10 @@ export type YarnWorkspaceWorkflowsOverrides = Record<
   readonly GitHubActionJobStep[] | undefined
 >;
 
-const normalizeDependencyName = (dependency: string) =>
-  dependency.substring(dependency.indexOf('/') + 1);
-
 export const getYarnWorkspaceWorkflows = (
   overridePrepares: YarnWorkspaceWorkflowsOverrides = {}
 ): Record<string, GitHubActionsWorkflow> =>
   Object.fromEntries([
-    ...[...toolingWorkspaces, ...libraryWorkspaces, ...projectWorkspaces].map((workspace) => {
-      const name = `ci-${normalizeDependencyName(workspace)}`;
-      return [
-        name,
-        generateYarnWorkspaceProjectCIWorkflow(workspace, overridePrepares[name] ?? []),
-      ];
-    }),
     ...projectWorkspaces.map((workspace) => {
       const name = `cd-${workspace}`;
       return [

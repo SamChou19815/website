@@ -23,6 +23,7 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
       triggerPaths: [
         '.github/workflows/generated-ts-js.yml',
         'package.json',
+        '**/package.json',
         '**.js',
         '**.ts',
         '**.jsx',
@@ -36,6 +37,13 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
         jobSteps: [
           ...yarnWorkspaceBoilterplateSetupSteps,
           githubActionJobRunStep('Lint', 'yarn lint'),
+        ],
+      },
+      {
+        jobName: 'build',
+        jobSteps: [
+          ...yarnWorkspaceBoilterplateSetupSteps,
+          githubActionJobRunStep('Build', 'yarn build'),
         ],
       },
       {

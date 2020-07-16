@@ -9,7 +9,7 @@ title: Website Repository Setup
   directory.
 - Packages installed and managed by latest Yarn v2 release.
 - Must use Yarn v2's workspace feature.
-- Root workspace has `format:check`, `lint`, and `test` command.
+- Root workspace has `format:check`, `lint`, `build`, `test` command.
 - Managed by dev-sam's `monorail` tool.
 - Each workspace follows a set of naming conventions.
   - Tooling workspace names must start with a predefined set of prefix.
