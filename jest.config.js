@@ -5,7 +5,6 @@ const babelJestPath = require.resolve('babel-jest');
 const identityObjectProxyPath = require.resolve('identity-obj-proxy');
 
 module.exports = {
-  collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': babelJestPath,

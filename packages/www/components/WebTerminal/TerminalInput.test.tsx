@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import { act } from 'react-dom/test-utils';
 
-import { dispatchOnInputChange } from '../../testing/test-utils';
 import TerminalInput from './TerminalInput';
 
 it('TerminalInput can respond to inputs.', () => {
@@ -60,9 +59,6 @@ it('TerminalInput can respond to inputs.', () => {
   act(() => {
     inputNode.dispatchEvent(new KeyboardEvent('keydown', { key: 'Shift', bubbles: true }));
   });
-
-  act(() => dispatchOnInputChange(inputNode, 'ahhhhh'));
-  expect(inputNode.value).toBe('ahhhhh');
 
   document.body.removeChild(container);
 });

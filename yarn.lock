@@ -3032,15 +3032,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-test-renderer@npm:16.9.2":
-  version: 16.9.2
-  resolution: "@types/react-test-renderer@npm:16.9.2"
-  dependencies:
-    "@types/react": "*"
-  checksum: d8a45e1be5208221eaa612e6de8638575011b18f7b3a1dadb70e560d376086656ab89934d35d1be9194fd3238e5ff169322a6f15e6c27bc796a205ac8331eb88
-  languageName: node
-  linkType: hard
-
 "@types/react@npm:*, @types/react@npm:^16.9.43":
   version: 16.9.43
   resolution: "@types/react@npm:16.9.43"
@@ -15560,7 +15551,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.8.6, react-is@npm:^16.9.0":
+"react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.9.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 11bcf1267a314a522615f626f3ce3727a3a24cdbf61c4d452add3550a7875326669631326cfb1ba3e92b6f72244c32ffecf93ad21c0cad8455d3e169d0e3f060
@@ -15673,20 +15664,6 @@ fsevents@^1.2.7:
   peerDependencies:
     react: ^16.3.0
   checksum: 643a9898953776783515df3510a438f262f6dff059c3f880b7bbc180957cd0f9a0c4d7b3ae72c347d0f7c56bbd16466e850c5d9e213abad024df3b6c3a430564
-  languageName: node
-  linkType: hard
-
-"react-test-renderer@npm:^16.13.1":
-  version: 16.13.1
-  resolution: "react-test-renderer@npm:16.13.1"
-  dependencies:
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-    react-is: ^16.8.6
-    scheduler: ^0.19.1
-  peerDependencies:
-    react: ^16.13.1
-  checksum: e9c3c068d09a4252103eed270635d05897e23cbb86c6f0f74beced9345ed1b94a0fff44f16f97526e6f7a8337669156616e1e02eacb6d7b8f40295c92d91be12
   languageName: node
   linkType: hard
 
@@ -16451,7 +16428,6 @@ fsevents@^1.2.7:
     next: ^9.4.4
     next-transpile-modules: ^3.3.0
     prettier: 2.0.5
-    react-test-renderer: ^16.13.1
     typescript: ^3.9.6
     webpack: ^4.43.0
     worker-loader: ^2.0.0
@@ -19772,7 +19748,6 @@ fsevents@^1.2.7:
     "@types/react": ^16.9.43
     "@types/react-dom": 16.9.8
     "@types/react-redux": 7.1.9
-    "@types/react-test-renderer": 16.9.2
     clsx: ^1.1.1
     infima: 0.2.0-alpha.12
     lib-react: 0.1.0
@@ -19781,7 +19756,6 @@ fsevents@^1.2.7:
     react-dom: ^16.13.1
     react-ga: ^3.1.2
     react-redux: ^7.2.0
-    react-test-renderer: ^16.13.1
     redux: ^4.0.5
     typescript: 3.9.6
   languageName: unknown

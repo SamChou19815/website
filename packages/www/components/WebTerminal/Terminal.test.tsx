@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import { act } from 'react-dom/test-utils';
 
-import { dispatchOnInputChange } from '../../testing/test-utils';
 import Terminal from './Terminal';
 
 it('Terminal can respond to inputs.', () => {
@@ -15,16 +14,10 @@ it('Terminal can respond to inputs.', () => {
   });
   const inputNode = document.querySelectorAll('[name="terminal-input"]')[0] as HTMLInputElement;
 
-  act(() => dispatchOnInputChange(inputNode, 'cat'));
-  expect(inputNode.value).toBe('cat');
-
   act(() => {
     window.getSelection = () => null;
     inputNode.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
   });
-
-  act(() => dispatchOnInputChange(inputNode, 'haha'));
-  expect(inputNode.value).toBe('haha');
 
   act(() => {
     window.getSelection = () => null;
