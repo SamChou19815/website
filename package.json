@@ -33,7 +33,6 @@
     "next": "^9.4.4",
     "next-transpile-modules": "^3.3.0",
     "prettier": "2.0.5",
-    "react-test-renderer": "^16.13.1",
     "typescript": "^3.9.6",
     "webpack": "^4.43.0",
     "worker-loader": "^2.0.0"
