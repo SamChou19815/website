@@ -42,7 +42,7 @@
       "../../../private-monorepo/confidential",
       "private-docs-generator.ts"
     ],
-    "output": "docs/private-docs/private-sidebars.json"
+    "output": "private-docs/private-sidebars.json"
   },
   "browserslist": {
     "production": [
