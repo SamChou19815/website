@@ -29,8 +29,7 @@ it('Terminal can respond to inputs.', () => {
   act(() => {
     window.getSelection = () => null;
     inputNode.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error: non standard
     window.getSelection = () => ({ type: 'Range' });
     inputNode.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
   });

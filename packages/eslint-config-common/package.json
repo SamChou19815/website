@@ -38,5 +38,8 @@
     "eslint-plugin-react-hooks": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.23"
   }
 }

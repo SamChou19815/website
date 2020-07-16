@@ -1707,6 +1707,8 @@ __metadata:
 "@dev-sam/eslint-config-common@workspace:^0.14.0, @dev-sam/eslint-config-common@workspace:packages/eslint-config-common":
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
+  dependencies:
+    "@types/node": ^14.0.23
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": "*"
@@ -2953,7 +2955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.0.14":
+"@types/node@npm:*, @types/node@npm:^14.0.14, @types/node@npm:^14.0.23":
   version: 14.0.23
   resolution: "@types/node@npm:14.0.23"
   checksum: 35415a294f536c2b14d29ec02a733af23405f4e7e87dace5b4392a69358aae7a14d28805a528b6e9a5f55cfbd9e035bd817e4db0325945fe0332db40ecabdf84
