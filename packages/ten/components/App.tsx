@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import Button from '@material-ui/core/Button';
 import Head from 'next/head';
 
 import DistributedGameCard from './DistributedGameCard';
@@ -37,12 +36,18 @@ export default function App(): ReactElement {
         {head}
         <div className="card">
           <div className="card__footer">
-            <Button color="inherit" onClick={(): void => setMode('Local')}>
+            <button
+              className="button button--outline button--primary"
+              onClick={(): void => setMode('Local')}
+            >
               Local
-            </Button>
-            <Button color="inherit" onClick={(): void => setMode('Distributed')}>
+            </button>
+            <button
+              className="button button--outline button--primary"
+              onClick={(): void => setMode('Distributed')}
+            >
               Distributed
-            </Button>
+            </button>
           </div>
         </div>
         {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
