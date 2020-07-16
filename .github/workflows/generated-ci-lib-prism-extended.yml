@@ -5,7 +5,6 @@ on:
   push:
     paths:
       - 'packages/lib-prism-extended/**'
-      - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'
       - '.github/workflows/generated-*-lib-prism-extended.yml'

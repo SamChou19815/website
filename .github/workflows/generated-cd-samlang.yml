@@ -8,7 +8,6 @@ on:
       - 'packages/lib-react/**'
       - 'packages/lib-docusaurus-plugin/**'
       - 'packages/samlang/**'
-      - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'
       - '.github/workflows/generated-*-samlang.yml'

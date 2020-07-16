@@ -5,7 +5,6 @@ on:
   push:
     paths:
       - 'packages/eslint-config-common/**'
-      - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'
       - '.github/workflows/generated-*-@dev-sam/eslint-config-common.yml'
