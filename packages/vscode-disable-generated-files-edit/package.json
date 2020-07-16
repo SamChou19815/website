@@ -19,9 +19,10 @@
     "vscode": "^1.47.0"
   },
   "scripts": {
-    "compile": "run -T tsc"
+    "compile": "tsc"
   },
   "devDependencies": {
-    "@types/vscode": "1.47.0"
+    "@types/vscode": "1.47.0",
+    "typescript": "^3.9.6"
   }
 }

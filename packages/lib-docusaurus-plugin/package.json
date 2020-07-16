@@ -9,12 +9,15 @@
   },
   "private": true,
   "scripts": {
-    "compile": "run -T tsc"
+    "compile": "tsc"
   },
   "dependencies": {
     "@docusaurus/types": "^2.0.0-alpha.58",
     "lib-prism-extended": "workspace:0.1.0",
     "lib-react": "workspace:0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.6"
   },
   "peerDependencies": {
     "prism-react-renderer": "^1.1.0"

@@ -9,6 +9,6 @@
   },
   "private": true,
   "scripts": {
-    "compile": "run -T tsc"
+    "compile": "exit 0"
   }
 }
