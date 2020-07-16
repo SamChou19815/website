@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import Button from '@material-ui/core/Button';
-
 import { Board } from '../game/board';
 import BoardGrid from './BoardGrid';
 import styles from './GameCard.module.css';
@@ -82,12 +80,18 @@ export default function GameCard(props: Props): ReactElement {
         </div>
         <div className="card__footer">
           <span className={styles.GameCardControlsText}>New Game</span>
-          <Button size="small" color="primary" onClick={(): void => onSelectSide(1)}>
+          <button
+            className="button button--outline button--primary"
+            onClick={(): void => onSelectSide(1)}
+          >
             Play as Black
-          </Button>
-          <Button size="small" color="primary" onClick={(): void => onSelectSide(-1)}>
+          </button>
+          <button
+            className="button button--outline button--primary"
+            onClick={(): void => onSelectSide(-1)}
+          >
             Play as White
-          </Button>
+          </button>
         </div>
       </div>
       <div className="card">
