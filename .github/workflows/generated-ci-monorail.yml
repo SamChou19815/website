@@ -5,7 +5,6 @@ on:
   push:
     paths:
       - 'packages/monorail/**'
-      - 'package.json'
       - 'yarn.lock'
       - 'configuration/**'
       - '.github/workflows/generated-*-@dev-sam/monorail.yml'
