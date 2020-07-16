@@ -18,7 +18,7 @@ title: Introduction
   - Monorepo Tool: Sam's [monorail](./website-repo.md#monorail-monorepo-tool).
   - Language: TypeScript
   - Library: React
-  - UI: Infima/Material-UI
+  - UI: Infima
   - Hosting: Firebase
 - Backend
   - Languages
