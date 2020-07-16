@@ -35,6 +35,7 @@ module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
   plugins: ['@typescript-eslint', ...[jsxA11Y, react, reactHooks].filter(Boolean)],
   rules: {
+    '@typescript-eslint/ban-ts-comment': ['error', { 'ts-expect-error': 'allow-with-description' }],
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-unused-vars': [
@@ -54,7 +55,8 @@ module.exports = {
     'import/no-unresolved': [
       'error',
       {
-        ignore: ['^@theme', '^@docusaurus', '^@generated'],
+        // eslint-disable-next-line no-useless-concat
+        ignore: ['^@theme', '^@docusaurus', '^@' + 'generated'],
       },
     ],
     'import/no-anonymous-default-export': 'error',
