@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import classnames from 'classnames';
+import clsx from 'clsx';
 import { connect } from 'react-redux';
 
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
@@ -16,7 +16,7 @@ type CheckboxProps = {
 };
 
 const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactElement => {
-  const className = classnames('button', 'pills__item', checked && 'pills__item--active');
+  const className = clsx('button', 'pills__item', checked && 'pills__item--active');
   return (
     <button type="button" className={className} onClick={onChange}>
       {label}

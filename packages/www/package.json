@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "classnames": "^2.2.6",
+    "clsx": "^1.1.1",
     "infima": "0.2.0-alpha.12",
     "lib-react": "0.1.0",
     "next": "^9.4.4",
@@ -21,7 +21,6 @@
     "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
   },
   "devDependencies": {
-    "@types/classnames": "2.2.10",
     "@types/jest": "26.0.4",
     "@types/node": "14.0.22",
     "@types/react": "^16.9.43",

@@ -12,7 +12,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import CodeBlock from '@theme/CodeBlock';
 import Layout from '@theme/Layout';
-import classnames from 'classnames';
+import clsx from 'clsx';
 
 import styles from './styles.module.css';
 
@@ -80,13 +80,13 @@ function Home(): ReactElement {
   const { siteConfig = {} } = context;
   return (
     <Layout title={siteConfig.title} description={siteConfig.tagline}>
-      <header className={classnames('hero hero--primary', styles.heroBanner)}>
+      <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
             <Link
-              className={classnames('button button--secondary button--lg', styles.getStarted)}
+              className={clsx('button button--secondary button--lg', styles.getStarted)}
               to={useBaseUrl('docs/introduction')}
             >
               Get Started
@@ -102,7 +102,7 @@ function Home(): ReactElement {
                 {features.map(({ title, code }) => (
                   <div
                     key={title}
-                    className={classnames('col col--6', styles.feature, styles.CodeBlockWrapper)}
+                    className={clsx('col col--6', styles.feature, styles.CodeBlockWrapper)}
                   >
                     <h3>{title}</h3>
                     <CodeBlock className="samlang">{code}</CodeBlock>

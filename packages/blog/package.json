@@ -15,7 +15,6 @@
     "@docusaurus/plugin-google-gtag": "^2.0.0-alpha.58",
     "@docusaurus/preset-classic": "^2.0.0-alpha.58",
     "@mdx-js/react": "^1.6.4",
-    "classnames": "^2.2.6",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
     "prism-react-renderer": "^1.1.1",
