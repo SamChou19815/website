@@ -1,10 +1,6 @@
 import React, { ReactElement } from 'react';
 
 import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 
 import { Board } from '../game/board';
 import BoardGrid from './BoardGrid';
@@ -63,26 +59,28 @@ export default function GameCard(props: Props): ReactElement {
   } else {
     const [prob, count] = aiInfo;
     aiInfoNode = (
-      <CardContent>
+      <div className="card__body">
         {`AI Winning Probability ${prob}%. Number of Simulations Run: ${count}.`}
-      </CardContent>
+      </div>
     );
   }
   return (
     <div>
-      <Card className={styles.GameCard}>
-        <CardContent>{message}</CardContent>
-        <CardContent>{`Your Identity: ${playerIdentity === 1 ? 'Black' : 'White'}`}</CardContent>
+      <div className={`card ${styles.GameCard}`}>
+        <div className="card__body">{message}</div>
+        <div className="card__body">
+          {`Your Identity: ${playerIdentity === 1 ? 'Black' : 'White'}`}
+        </div>
         {aiInfoNode}
-        <CardContent className={styles.GameCells}>
+        <div className={`card__body ${styles.GameCells}`}>
           {blockerActive && <div className={styles.Overlay} />}
           <BoardGrid
             tiles={tiles}
             highlightedCell={highlightedCell}
             clickCallback={clickCallback}
           />
-        </CardContent>
-        <CardActions className={styles.GameCardControls}>
+        </div>
+        <div className={`card__footer ${styles.GameCardControls}`}>
           <span className={styles.GameCardControlsText}>New Game</span>
           <Button size="small" color="primary" onClick={(): void => onSelectSide(1)}>
             Play as Black
@@ -90,18 +88,18 @@ export default function GameCard(props: Props): ReactElement {
           <Button size="small" color="primary" onClick={(): void => onSelectSide(-1)}>
             Play as White
           </Button>
-        </CardActions>
-      </Card>
-      <Card className={styles.GameCard}>
-        <CardHeader title="Note" />
-        <CardContent>
+        </div>
+      </div>
+      <div className={`card ${styles.GameCard}`}>
+        <div className="card__header">Rules</div>
+        <div className="card__body">
           The rules are mostly the same with the original&nbsp;
           <a href="https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe">
             TEN game (Ultimate tic-tac-toe)
           </a>
           , except that a draw is a win for white in this game. AI thinking time is 1.5s.
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }
