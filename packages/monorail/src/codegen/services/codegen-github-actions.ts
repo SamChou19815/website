@@ -20,7 +20,14 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
   {
     workflowName: 'TS and JS',
     workflowtrigger: {
-      triggerPaths: ['.github/workflows/generated-ts-js.yml', '**.js', '**.ts', '**.jsx', '**.tsx'],
+      triggerPaths: [
+        '.github/workflows/generated-ts-js.yml',
+        'package.json',
+        '**.js',
+        '**.ts',
+        '**.jsx',
+        '**.tsx',
+      ],
       masterBranchOnly: false,
     },
     workflowJobs: [

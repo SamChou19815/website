@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - '.github/workflows/generated-ts-js.yml'
+      - 'package.json'
       - '**.js'
       - '**.ts'
       - '**.jsx'
