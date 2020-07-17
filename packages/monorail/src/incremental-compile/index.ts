@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-import { spawnSync } from 'child_process';
+import { spawnSync, spawn } from 'child_process';
 
 import workspaceSourcesNeedRebuild from '../infrastructure/need-rebuild-checker';
 import {
@@ -13,7 +13,7 @@ import {
   setIncrementalCompileLastRunTime,
 } from './incremental-compile-cache';
 
-const incrementalCompile = (): void => {
+const incrementalCompile = async (): Promise<void> => {
   console.log('--- Monorail Incremental Compile Service ---');
 
   const lastRunTime = getIncrementalCompileLastRunTime();
@@ -35,15 +35,15 @@ const incrementalCompile = (): void => {
   }
   console.group(`[${workspacesToCompile.join(', ')}] needs to be re-compiled!`);
 
-  const successfulStatus = workspacesToCompile.map((workspace) => {
-    console.log(`Compiling \`${workspace}\`...`);
-    return [
-      workspace,
-      spawnSync('yarn', ['workspace', workspace, 'compile'], {
-        stdio: ['inherit', process.env.INCLUDE_ERROR ? 'inherit' : 'ignore', 'inherit'],
-      }).status === 0,
-    ] as const;
-  });
+  const successfulStatus = await Promise.all(
+    workspacesToCompile.map((workspace) => {
+      console.log(`Compiling \`${workspace}\`...`);
+      const childProcess = spawn('yarn', ['workspace', workspace, 'compile']);
+      return new Promise<readonly [string, boolean]>((resolve) => {
+        childProcess.on('exit', (code) => resolve([workspace, code === 0] as const));
+      });
+    })
+  );
 
   console.groupEnd();
 

@@ -31,7 +31,8 @@ const main = async (): Promise<void> => {
         executeCodegenServices();
         return;
       case 'COMPILE':
-        incrementalCompile();
+        //
+        await incrementalCompile();
         return;
       case 'REBUILD':
         await cachedBuild();

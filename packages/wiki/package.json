@@ -42,6 +42,7 @@
     "sources": [
       "../../../private-monorepo/confidential",
       "private-docs-generator.ts",
+      "sidebars.json",
       "package.json"
     ],
     "output": "private-docs/private-sidebars.json"
