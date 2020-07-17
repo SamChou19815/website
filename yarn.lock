@@ -1734,7 +1734,7 @@ __metadata:
   resolution: "@dev-sam/monorail@workspace:packages/monorail"
   dependencies:
     "@types/jest": ^25.2.3
-    "@types/node": ^14.0.14
+    "@types/node": ^14.0.23
     "@zeit/ncc": ^0.22.3
     typescript: ^3.9.6
   bin:
@@ -2955,17 +2955,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.0.14, @types/node@npm:^14.0.23":
+"@types/node@npm:*, @types/node@npm:^14.0.23":
   version: 14.0.23
   resolution: "@types/node@npm:14.0.23"
   checksum: 35415a294f536c2b14d29ec02a733af23405f4e7e87dace5b4392a69358aae7a14d28805a528b6e9a5f55cfbd9e035bd817e4db0325945fe0332db40ecabdf84
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:14.0.22":
-  version: 14.0.22
-  resolution: "@types/node@npm:14.0.22"
-  checksum: 3b3f6cbd442504f5e921931281b77c3fc436365cf1e2af1432a47b9e96dbe9ce2fec9a128da33eabe23fdd2c2a71b1fbdaef80988dbf7935188a45e91f74f8e2
   languageName: node
   linkType: hard
 
@@ -17969,7 +17962,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "ten@workspace:packages/ten"
   dependencies:
-    "@types/node": 14.0.22
+    "@types/node": ^14.0.23
     "@types/react": ^16.9.43
     infima: 0.2.0-alpha.12
     lib-react: 0.1.0
@@ -19577,7 +19570,7 @@ fsevents@^1.2.7:
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.58
     "@docusaurus/preset-classic": ^2.0.0-alpha.58
     "@mdx-js/react": ^1.6.4
-    "@types/node": 14.0.22
+    "@types/node": ^14.0.23
     "@types/react": ^16.9.43
     clsx: ^1.1.1
     lib-docusaurus-plugin: 0.1.0
@@ -19744,7 +19737,7 @@ fsevents@^1.2.7:
   resolution: "www@workspace:packages/www"
   dependencies:
     "@types/jest": 26.0.4
-    "@types/node": 14.0.22
+    "@types/node": ^14.0.23
     "@types/react": ^16.9.43
     "@types/react-dom": 16.9.8
     "@types/react-redux": 7.1.9
