@@ -20,10 +20,15 @@ const incrementalCompile = (): void => {
 
   const needToRecompileLocalCheck = (workspace: string): boolean =>
     workspaceSourcesNeedRebuild(getYarnWorkspaceLocation(workspace), '.', lastRunTime);
+  const needToRecompileCICheck = (workspace: string): boolean =>
+    spawnSync('git', ['diff', 'HEAD^', 'HEAD', '--name-only', getYarnWorkspaceLocation(workspace)])
+      .stdout.toString()
+      .trim().length > 0;
+  const needToRecompileCheck = process.env.CI ? needToRecompileCICheck : needToRecompileLocalCheck;
 
   const workspacesToCompile = getYarnWorkspacesInTopologicalOrder()
     .filter(getYarnWorkspaceHasCompileScript)
-    .filter(needToRecompileLocalCheck);
+    .filter(needToRecompileCheck);
   if (workspacesToCompile.length === 0) {
     console.log('[✓] Nothing needs to be recompiled!');
     return;
