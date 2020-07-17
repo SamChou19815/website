@@ -79,7 +79,6 @@ export default function GameCard(props: Props): ReactElement {
           />
         </div>
         <div className="card__footer">
-          <span className={styles.GameCardControlsText}>New Game</span>
           <button
             className="button button--outline button--primary"
             onClick={(): void => onSelectSide(1)}
