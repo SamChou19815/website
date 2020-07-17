@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "codegen": "node build.js",
-    "compile": "yarn build && yarn codegen && git diff --quiet --exit-code"
+    "compile": "yarn build && yarn codegen"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
