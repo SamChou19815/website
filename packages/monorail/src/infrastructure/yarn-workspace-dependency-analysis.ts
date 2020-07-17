@@ -18,6 +18,9 @@ const getWorkspaceInformation = (workspace: string): WorkspaceInformation => {
 export const getYarnWorkspaceLocation = (workspace: string): string =>
   getWorkspaceInformation(workspace).workspaceLocation;
 
+export const getYarnWorkspaceHasCompileScript = (workspace: string): boolean =>
+  getWorkspaceInformation(workspace).hasCompileScript;
+
 export const getYarnWorkspaceInRepoDependencyChain = (workspace: string): readonly string[] => {
   const dependencyChain: string[] = [];
   const parentChain: string[] = [];
