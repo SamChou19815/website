@@ -44,7 +44,7 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
       {
         jobName: 'build',
         jobSteps: [
-          githubActionJobActionStep('actions/checkout@v2', { depth: '2' }),
+          githubActionJobActionStep('actions/checkout@v2', { 'fetch-depth': '2' }),
           GITHUB_ACTIONS_SETUP_NODE_STEP,
           GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
           githubActionJobRunStep('Yarn Install', 'yarn install --immutable'),
