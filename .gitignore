@@ -23,6 +23,7 @@
 # framework generated files
 **/.firebase
 **/.next
+.monorail
 .vscode/pnpify
 .docusaurus
 .cache-loader

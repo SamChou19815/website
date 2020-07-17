@@ -15,6 +15,7 @@ try {
 import cachedBuild from './cached-build';
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
+import incrementalCompile from './incremental-compile';
 import synchronize from './sync';
 
 /**
@@ -28,6 +29,9 @@ const main = async (): Promise<void> => {
     switch (parseCommandLineArgumentsIntoCommand()) {
       case 'CODEGEN':
         executeCodegenServices();
+        return;
+      case 'COMPILE':
+        incrementalCompile();
         return;
       case 'REBUILD':
         await cachedBuild();
