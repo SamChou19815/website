@@ -5,9 +5,8 @@
   "private": true,
   "bin": "./bin/monorail",
   "scripts": {
-    "build": "tsc",
     "codegen": "node build.js",
-    "compile": "yarn build && yarn codegen"
+    "compile": "tsc"
   },
   "devDependencies": {
     "@types/jest": "^25.2.3",
