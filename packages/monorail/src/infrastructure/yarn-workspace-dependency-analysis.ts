@@ -54,6 +54,23 @@ export const getYarnWorkspaceInRepoDependencyChain = (workspace: string): readon
   return dependencyChain;
 };
 
+export const getYarnWorkspacesInTopologicalOrder = (): readonly string[] => {
+  const sorted: string[] = [];
+  const set = new Set<string>();
+
+  Array.from(workspaceInformation.keys()).forEach((workspace) => {
+    const oneWorkspaceChainSorted = getYarnWorkspaceInRepoDependencyChain(workspace);
+    oneWorkspaceChainSorted.forEach((workspaceName) => {
+      if (!set.has(workspaceName)) {
+        sorted.push(workspaceName);
+        set.add(workspaceName);
+      }
+    });
+  });
+
+  return sorted;
+};
+
 export const getYarnWorkspaceGitHubRepositoryDependencies = (
   workspace: string
 ): readonly string[] => getWorkspaceInformation(workspace).githubRepositoryDependencies;

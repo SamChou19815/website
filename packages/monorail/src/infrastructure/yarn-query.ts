@@ -21,6 +21,7 @@ const validateCodegenConfiguration = (json?: unknown): CodegenConfiguration | un
 
 export type WorkspaceInformation = {
   readonly workspaceLocation: string;
+  readonly hasCompileScript: boolean;
   readonly inRepoWorkspaceDependencies: readonly string[];
   readonly githubRepositoryDependencies: readonly string[];
   readonly deploymentDependencies: readonly string[];
@@ -57,6 +58,7 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
 
       map.set(name, {
         workspaceLocation: location,
+        hasCompileScript: packageJson.scripts?.compile != null,
         inRepoWorkspaceDependencies,
         githubRepositoryDependencies: assertIsStringArray(
           'githubRepositoryDependencies',
