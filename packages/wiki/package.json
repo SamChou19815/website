@@ -41,7 +41,8 @@
   "codegenConfiguration": {
     "sources": [
       "../../../private-monorepo/confidential",
-      "private-docs-generator.ts"
+      "private-docs-generator.ts",
+      "package.json"
     ],
     "output": "private-docs/private-sidebars.json"
   },

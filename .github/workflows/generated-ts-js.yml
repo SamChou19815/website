@@ -33,6 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          depth: 2
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
         with:
@@ -44,7 +46,7 @@ jobs:
       - name: Yarn Install
         run: yarn install --immutable
       - name: Build
-        run: yarn build
+        run: yarn compile
   test:
     runs-on: ubuntu-latest
     steps:
