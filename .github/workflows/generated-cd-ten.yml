@@ -4,8 +4,6 @@ name: CD ten
 on:
   push:
     paths:
-      - 'packages/lib-prism-extended/**'
-      - 'packages/lib-react/**'
       - 'packages/ten/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-ten.yml'
