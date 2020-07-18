@@ -48,12 +48,12 @@ const generateYarnWorkspaceProjectCDWorkflow = (
     {
       jobName: 'deploy',
       jobSteps: [
-        ...yarnWorkspaceBoilterplateSetupSteps,
-        ...prepareSteps,
         ...getYarnWorkspaceGitHubRepositoryDependencies(workspace)
           .map(getGitHubRepositoryDependencySetupSteps)
           .flat(),
         ...getYarnWorkspaceDeploymentDependencies(workspace).map(getDeploymentDependencySetupStep),
+        ...yarnWorkspaceBoilterplateSetupSteps,
+        ...prepareSteps,
         githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
         githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
       ],
