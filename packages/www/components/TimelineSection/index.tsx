@@ -1,10 +1,8 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import clsx from 'clsx';
-import { connect } from 'react-redux';
 
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
-import { State, TimelineState, patchTimeline } from '../../store';
 import ConsoleSection from '../Common/ConsoleSection';
 import TimelineItemCard from './TimelineItemCard';
 import styles from './index.module.css';
@@ -24,11 +22,13 @@ const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactE
   );
 };
 
-export const TimelineSection = ({
-  workChecked,
-  projectsChecked,
-  eventsChecked,
-}: TimelineState): ReactElement => {
+export const TimelineSection = (): ReactElement => {
+  const [{ workChecked, projectsChecked, eventsChecked }, patchTimeline] = useState({
+    workChecked: true,
+    projectsChecked: true,
+    eventsChecked: true,
+  });
+
   const workOnChange = (): void => {
     patchTimeline({ workChecked: !workChecked, projectsChecked, eventsChecked });
   };
@@ -91,5 +91,4 @@ export const TimelineSection = ({
   );
 };
 
-const Connected = connect(({ timeline }: State) => ({ ...timeline }))(TimelineSection);
-export default Connected;
+export default TimelineSection;
