@@ -2651,16 +2651,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/hoist-non-react-statics@npm:^3.3.0":
-  version: 3.3.1
-  resolution: "@types/hoist-non-react-statics@npm:3.3.1"
-  dependencies:
-    "@types/react": "*"
-    hoist-non-react-statics: ^3.3.0
-  checksum: 16ab4c45d4920fa378c8be76554b10061247fc04d2c8af11bdb7d520b3967e9c06d7ad5efd9b0f1657fbc4d095f62c6e1325f03b9141eb1ef2c8095b96fd42f8
-  languageName: node
-  linkType: hard
-
 "@types/html-minifier-terser@npm:^5.0.0":
   version: 5.1.0
   resolution: "@types/html-minifier-terser@npm:5.1.0"
@@ -2792,18 +2782,6 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 53a223c0266178bca9161301d18ee6199e8f75f88caed5c4601c5aaedaf4c68f03bd72f6aafa979254beb20759f0b68a542ce04295d704eb67ae179769c50813
-  languageName: node
-  linkType: hard
-
-"@types/react-redux@npm:7.1.9":
-  version: 7.1.9
-  resolution: "@types/react-redux@npm:7.1.9"
-  dependencies:
-    "@types/hoist-non-react-statics": ^3.3.0
-    "@types/react": "*"
-    hoist-non-react-statics: ^3.3.0
-    redux: ^4.0.0
-  checksum: 061c4ef6af67f05e55d4304429d689a62f98a27e6b7ddebe25bd4d90229b6ae7508cd6d87aecc4c98ac9dccd1c09c8d6bd75ab395d71692f44d0fa0152c2f703
   languageName: node
   linkType: hard
 
@@ -8196,7 +8174,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.1.0, hoist-non-react-statics@npm:^3.3.0":
+"hoist-non-react-statics@npm:^3.1.0":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -13603,7 +13581,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1, react-is@npm:^16.9.0":
+"react-is@npm:16.13.1, react-is@npm:^16.12.0, react-is@npm:^16.6.0, react-is@npm:^16.7.0, react-is@npm:^16.8.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 11bcf1267a314a522615f626f3ce3727a3a24cdbf61c4d452add3550a7875326669631326cfb1ba3e92b6f72244c32ffecf93ad21c0cad8455d3e169d0e3f060
@@ -13628,29 +13606,6 @@ fsevents@^1.2.7:
   peerDependencies:
     react: "*"
   checksum: fb14650fe86f20c2554e3645482ed67eb4ce0e46d72e06f91a7f57739e90b1b42c31e8597d7d415ee69bc16f85211bafec7b24ddadd7f3fe72c176f45931158d
-  languageName: node
-  linkType: hard
-
-"react-redux@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "react-redux@npm:7.2.0"
-  dependencies:
-    "@babel/runtime": ^7.5.5
-    hoist-non-react-statics: ^3.3.0
-    loose-envify: ^1.4.0
-    prop-types: ^15.7.2
-    react-is: ^16.9.0
-  peerDependencies:
-    react: ^16.8.3
-    react-dom: "*"
-    react-native: "*"
-    redux: ^2.0.0 || ^3.0.0 || ^4.0.0-0
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-  checksum: e4beaa6064a5354f65bdeaf22c90fb8bf3df1ec0bcecf7c568321c6eba0cdf4b432236a828cb53801c5815a83d5090f38738f67ed14fb8cfddd21abe5fba317c
   languageName: node
   linkType: hard
 
@@ -13878,16 +13833,6 @@ fsevents@^1.2.7:
   dependencies:
     object-keys: ^1.1.0
   checksum: 782c3f1e81d1dce1f5223f205cddfd9d64c0ac9cfc7500ddff368c7f9750b61f24f80f40d0201dccac02c57019d32fe55cd15c3446206892f82a816d2f03537d
-  languageName: node
-  linkType: hard
-
-"redux@npm:^4.0.0, redux@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "redux@npm:4.0.5"
-  dependencies:
-    loose-envify: ^1.4.0
-    symbol-observable: ^1.2.0
-  checksum: 112739c2fb83ae2e18335d942a883b3ee14ebada31ff3a7924511a1f38a4278a762f5823491f3eb5083492de601ed76cb2687295c7d5db9a6e098c2542cdc05b
   languageName: node
   linkType: hard
 
@@ -15772,13 +15717,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"symbol-observable@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "symbol-observable@npm:1.2.0"
-  checksum: 268834a1d4cba19d40f367e5c2755f612969c8418e43a3be17408e392802a667f8bb542893440d58a080a8ea8da05ea98e27e472b9f4ff6fbda78a21a1a41c53
-  languageName: node
-  linkType: hard
-
 "symbol-tree@npm:^3.2.4":
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4"
@@ -17369,7 +17307,6 @@ fsevents@^1.2.7:
     "@types/node": ^14.0.23
     "@types/react": ^16.9.43
     "@types/react-dom": 16.9.8
-    "@types/react-redux": 7.1.9
     clsx: ^1.1.1
     infima: 0.2.0-alpha.12
     lib-react: 0.1.0
@@ -17377,8 +17314,6 @@ fsevents@^1.2.7:
     react: ^16.13.1
     react-dom: ^16.13.1
     react-ga: ^3.1.2
-    react-redux: ^7.2.0
-    redux: ^4.0.5
     typescript: 3.9.6
   languageName: unknown
   linkType: soft
