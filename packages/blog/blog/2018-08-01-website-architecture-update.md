@@ -74,7 +74,7 @@ What's more, it forced me to stick to it.
 
 Here is a example showing how confusing it is:
 
-```java
+```typescript
 private void printSchedulerItemContent() throws JspException, IOException {
     CardTextBorderedTag cardTextTagForDeadline = new CardTextBorderedTag();
     cardTextTagForDeadline.setParent(this); // Comment: WHAT IS THIS?!

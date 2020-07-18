@@ -197,16 +197,11 @@ console.
 You will see that this program does not parse. Therefore, the compiler will throw and die during
 parsing stage and we won't even have an AST. Even if we did some magic to get a valid AST that
 parses (for example, by removing the dot), we can still end up getting a program that does not type
-check. For example, consider this Java program:
+check. For example, consider this TypeScript program:
 
-```java
-class ABC {
-  String foo;
-  ABC(String foo) { this.foo = foo; }
-  void run() {
-    String bar = new ABC("") /* press dot here to autocomplete. */;
-  }
-}
+```typescript
+type ABC = { foo: string };
+const bar: string = { foo: '' }; /* press dot here to autocomplete. */
 ```
 
 When we press dot after `new ABC("")`, we would expect field `foo` to popup. However, the current
@@ -221,12 +216,10 @@ I already revealed a hack in the previous section, but let's repeat it again. Us
 fails to parse after pressing a DOT, so we can simply remove the DOT and parse to get an AST.
 Although the type checking problem still exists, sometimes we are lucky:
 
-```java
-class Main {
-  void run() {
-    // "foo" is assignable to `String` here, so we can autocomplete!
-    String bar = "foo" /* press dot here to autocomplete. */;
-  }
+```typescript
+function run() {
+  // "foo" is assignable to `string` here, so we can autocomplete!
+  const bar: string = 'foo'; /* press dot here to autocomplete. */
 }
 ```
 
