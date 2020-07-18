@@ -6,7 +6,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
+    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.58",
@@ -20,6 +20,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
+  "deploymentDependencies": [
+    "firebase-tools"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

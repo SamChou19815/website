@@ -20,6 +20,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Install firebase-tools
+        run: yarn global add firebase-tools
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2

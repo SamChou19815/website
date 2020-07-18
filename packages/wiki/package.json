@@ -10,7 +10,7 @@
     "build": "yarn build:public && yarn build:private",
     "swizzle": "docusaurus swizzle",
     "compile": "tsc",
-    "deploy:public": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:wiki",
+    "deploy:public": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:wiki",
     "deploy:private": "cd deployment-template && gcloud app deploy",
     "deploy": "yarn deploy:public && yarn deploy:private"
   },
@@ -36,6 +36,7 @@
     "private-monorepo"
   ],
   "deploymentDependencies": [
+    "firebase-tools",
     "gcloud"
   ],
   "codegenConfiguration": {
