@@ -90,7 +90,7 @@ simplest example in JavaScript:
 
 ```javascript
 function notEnoughContext() {
-  const identity = x => x;
+  const identity = (x) => x;
 }
 ```
 
@@ -102,17 +102,13 @@ There are two options: make the undecided type `unit` or die with a compile-time
 latter. The former option may look fine in this case, but it misses an important mistake. Suppose
 the user define a (bad) generic function and use it in this way:
 
-```java
-class BadExample {
+```typescript
+function random<T>(): int {
+  return 0;
+}
 
-    static int <T> random() {
-        return 0;
-    }
-
-    static void useRandom() {
-        int a = random();
-    }
-
+function useRandom(): void {
+  const a = random();
 }
 ```
 
