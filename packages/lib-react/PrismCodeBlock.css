@@ -6,7 +6,7 @@
   --prism-code-block-number-color: rgb(195, 59, 48);
   --prism-code-block-string-color: rgb(26, 143, 82);
   --prism-code-block-function-color: rgb(213, 34, 98);
-  --prism-code-block-comment-color: rgb(111, 111, 111);
+  --prism-code-block-comment-color: rgb(100, 100, 100);
 }
 
 html[data-theme='dark'] {
@@ -17,5 +17,55 @@ html[data-theme='dark'] {
   --prism-code-block-number-color: rgb(189, 147, 249);
   --prism-code-block-string-color: rgb(255, 121, 198);
   --prism-code-block-function-color: rgb(80, 250, 123);
-  --prism-code-block-comment-color: rgb(98, 114, 164);
+  --prism-code-block-comment-color: rgb(138, 154, 214);
+}
+
+.prism-code {
+  color: var(--prism-code-block-plain-color);
+  background-color: var(--prism-code-block-background-color);
+}
+
+.token.plain {
+  color: var(--prism-code-block-plain-color);
+}
+
+.token.comment {
+  color: var(--prism-code-block-comment-color);
+  font-style: italic;
+}
+
+.token.keyword,
+.token.char,
+.token.tag,
+.token.key {
+  color: var(--prism-code-block-keyword-color);
+}
+
+.token.operator,
+.token.variable,
+.token.punctuation {
+  color: var(--prism-code-block-plain-color);
+}
+
+.token.constant,
+.token.builtin,
+.token.class-name,
+.token.attr-name,
+.token.selector,
+.token.changed,
+.token.deleted,
+.token.property {
+  color: var(--prism-code-block-property-color);
+}
+
+.token.number {
+  color: var(--prism-code-block-number-color);
+}
+
+.token.string {
+  color: var(--prism-code-block-string-color);
+}
+
+.token.function {
+  color: var(--prism-code-block-function-color);
 }
