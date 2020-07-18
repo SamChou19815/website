@@ -33,8 +33,6 @@ jobs:
         run: yarn install --immutable
       - name: Checkout SamChou19815/private-monorepo
         run: cd ../ && git clone https://${{ secrets.GH_TOKEN }}@github.com/SamChou19815/private-monorepo --depth 1
-      - name: Sanity Check private-monorepo setup
-        run: cat ../private-monorepo/README.md
       - name: Build
         run: yarn workspace wiki build
       - name: Install firebase-tools

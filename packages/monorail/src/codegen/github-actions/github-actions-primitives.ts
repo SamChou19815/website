@@ -30,10 +30,6 @@ export const getGitHubRepositoryDependencySetupSteps = (
     `Checkout ${PROJECT_CONFIGURATION.organizationName}/${repositoryName}`,
     `cd ../ && git clone https://\${{ secrets.GH_TOKEN }}@github.com/${PROJECT_CONFIGURATION.organizationName}/${repositoryName} --depth 1`
   ),
-  githubActionJobRunStep(
-    `Sanity Check ${repositoryName} setup`,
-    `cat ../${repositoryName}/README.md`
-  ),
 ];
 
 const GITHUB_ACTIONS_FIREBASE_TOOLS_SETUP_STEP: GitHubActionJobStep = githubActionJobRunStep(
