@@ -1,0 +1,31 @@
+name: Monorail E2E
+on:
+  push:
+    paths:
+      - '.github/workflows/monorail-e2e.yml'
+  schedule:
+    - cron: '0 3 * * 0'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+      - name: Codegen
+        run: ./packages/monorail/bin/monorail codegen
+  test-windows:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@
+      - uses: actions/setup-node@v2-beta
+      - name: Codegen
+        run: node ./packages/monorail/bin/monorail codegen

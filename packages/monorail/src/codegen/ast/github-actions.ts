@@ -18,7 +18,6 @@ export type GitHubActionJobStep =
 type GitHubActionJob = {
   readonly jobName: string;
   readonly jobSteps: readonly GitHubActionJobStep[];
-  readonly multiplatform?: boolean;
 };
 
 export type GitHubActionsWorkflow = {
@@ -70,17 +69,7 @@ const githubActionJobStepToString = (step: GitHubActionJobStep): string => {
   }
 };
 
-const githubActionJobToString = ({ jobName, jobSteps, multiplatform }: GitHubActionJob): string => {
-  if (multiplatform === true) {
-    return `  ${jobName}:
-    runs-on: \${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macOS-latest, windows-latest]
-    steps:
-${jobSteps.map(githubActionJobStepToString).join('')}`;
-  }
+const githubActionJobToString = ({ jobName, jobSteps }: GitHubActionJob): string => {
   return `  ${jobName}:
     runs-on: ubuntu-latest
     steps:
@@ -93,8 +82,7 @@ export const githubActionWorkflowToString = ({
   workflowSecrets = [],
   workflowJobs,
 }: GitHubActionsWorkflow): string => {
-  const GENERATED = 'generated';
-  const header = `# @${GENERATED}
+  const header = `# @generated
 
 name: ${workflowName}
 on:
