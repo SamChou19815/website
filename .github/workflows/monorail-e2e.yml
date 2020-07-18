@@ -18,10 +18,3 @@ jobs:
       - uses: actions/setup-node@v2-beta
       - name: Codegen
         run: ./packages/monorail/bin/monorail codegen
-  test-windows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-      - name: Codegen
-        run: node ./packages/monorail/bin/monorail codegen
