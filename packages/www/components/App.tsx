@@ -1,8 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import { Provider as ReactReduxProvider } from 'react-redux';
-
-import { store } from '../store';
 import AboutSection from './AboutSection';
 import styles from './App.module.css';
 import ProjectsSection from './ProjectsSection';
@@ -12,7 +9,7 @@ import TimelineSection from './TimelineSection';
 import WebTerminal from './WebTerminal';
 
 const App = (): ReactElement => (
-  <ReactReduxProvider store={store}>
+  <>
     <div className={styles.MainLayout}>
       <div className={styles.SideBar}>
         <StickyCodeBlock />
@@ -25,7 +22,7 @@ const App = (): ReactElement => (
       </div>
     </div>
     <WebTerminal />
-  </ReactReduxProvider>
+  </>
 );
 
 export default App;

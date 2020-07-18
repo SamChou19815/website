@@ -3,7 +3,7 @@ import projects from '../../data/projects';
 import techTalks from '../../data/tech-talks';
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
-import { store, patchFileSystem } from '../../store';
+import { getFilesystemState, setFilesystemState } from './global-filesystem-state';
 import { Commands } from './types';
 
 const help = (): string =>
@@ -17,7 +17,7 @@ const help = (): string =>
 
 const cat = (...paths: string[]): string => {
   try {
-    return showFiles(store.getState().fileSystem, paths);
+    return showFiles(getFilesystemState(), paths);
   } catch (exception) {
     return exception.message;
   }
@@ -25,7 +25,7 @@ const cat = (...paths: string[]): string => {
 
 const cd = (path: string | undefined): string | void => {
   try {
-    patchFileSystem(changeDirectory(store.getState().fileSystem, path || '/'));
+    setFilesystemState(changeDirectory(getFilesystemState(), path || '/'));
     return undefined;
   } catch (exception) {
     return exception.message;
@@ -61,13 +61,13 @@ const echo = (...inputs: string[]): string => inputs.join(' ');
 
 const ls = (...paths: string[]): string => {
   try {
-    return listFiles(store.getState().fileSystem, paths);
+    return listFiles(getFilesystemState(), paths);
   } catch (exception) {
     return exception.message;
   }
 };
 
-const pwd = (): string => currentDirectoryPath(store.getState().fileSystem);
+const pwd = (): string => currentDirectoryPath(getFilesystemState());
 
 const timeline = (...args: string[]): string | void => {
   if (args.length === 0) {
