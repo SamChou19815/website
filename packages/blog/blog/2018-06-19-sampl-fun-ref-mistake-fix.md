@@ -49,9 +49,9 @@ or a function.
 
 You may ask: is it possible to tell from the string of the variable? Well, that's not possible:
 
-```kotlin
-val iAmAFunction = 3
-fun iAmAConstant(): Int = 5
+```typescript
+const iAmAFunction = 3
+function iAmAConstant(): number = 5
 ```
 
 Although if the identifier has some generics in it, you are sure that it is a function, that's not a
@@ -61,9 +61,11 @@ You may ask: what about adding the environment? Well, the problem is the environ
 idea of what's going on. Although the environment can distinguish a function type and an identifier
 type, it can't distinguish different types of functions:
 
-```kotlin
-val fun1 = { a: Int -> a }
-fun fun2(a: Int): Int = a
+```typescript
+const fun1 = (a: number) => a;
+function fun2(a: number): number {
+  return a;
+}
 ```
 
 In Kotlin, class member functions and lambda functions are very different. Class members functions
@@ -74,17 +76,25 @@ This is very bad and it needs to be fixed. You may have already discovered that 
 wrap everything inside a lambda. However, lambda expression has some performance cost. Also, by
 doing so, the generated code for the most common use will be very ugly:
 
-```kotlin
-fun test(a: Int): Int = a + 3
-fun abc(): Int = test(3)
+```typescript
+function test(a: number): number {
+  return a + 3;
+}
+function abc(): number {
+  return test(3);
+}
 ```
 
 Now consider what will the generated code for the body of `abc` be in this case. `test` is a
 function expression, so it will be wrapped inside a lambda and we will get:
 
-```kotlin
-fun test(a: Int): Int = a + 3
-fun abc(): Int = { (\_temp0: Int) -> test(\_temp0) }() // :-(
+```typescript
+function test(a: number): number {
+  return a + 3;
+}
+function abc(): number {
+  return ((_temp0: number) => test(_temp0))(3); // :-(
+}
 ```
 
 This is not a good fix and it defeats the purpose of generating efficient and readable Kotlin code.

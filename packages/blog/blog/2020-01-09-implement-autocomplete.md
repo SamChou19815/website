@@ -282,14 +282,15 @@ error is easy: simply catch the exception, print it and die. Now it's slight mor
 If we are programming in a non-functional programming language, we can use a mutable list to keep
 track of all type errors:
 
-```kotlin
-class TypeChecker(private val errorCollector: ErrorCollector) {
-  // ...
-  fun typeCheck(literal: Literal, context: Context): Literal {
+```typescript
+class TypeChecker {
+  constructor(private readonly errorCollector: ErrorCollector) {}
+
+  typeCheck(literal: Literal, context: Context): Literal {
     // ...
     if (notWellTyped) {
-      errorCollector.add(UnexpectedTypeError(/* some error information */))
-      return dummyLiteralThatHasExpectedType
+      errorCollector.add(new UnexpectedTypeError(/* some error information */));
+      return dummyLiteralThatHasExpectedType;
     }
     // ...
   }

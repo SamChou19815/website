@@ -104,7 +104,7 @@ escape hatch.
 
 In the common code, we write the `expect` declaration
 
-```kotlin
+```typescript
 expect fun buildModuleFromText(
   moduleReference: ModuleReference,
   text: String
@@ -114,7 +114,7 @@ expect fun buildModuleFromText(
 For JVM, we can write an `actual` implementation that calls the old JVM specific parser code.
 For JavaScript, we temporarily give up:
 
-```kotlin
+```typescript
 actual fun buildModuleFromText(
   moduleReference: ModuleReference,
   text: String
@@ -246,7 +246,7 @@ The flow can be explained by the following figure:
 Now the parser code is finally working, and it's time to remove the `GIVE UP` error and replace that
 with code that connects to the TS code:
 
-```kotlin
+```typescript
 // The TS code imported here
 import buildTsModuleFromText
 

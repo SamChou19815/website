@@ -47,8 +47,8 @@ fundamental difficulties related to how extension function works.
 For example, we may write this in Kotlin to extend a data class, which is closest to a plain
 JavaScript object:
 
-```kotlin
-data class Student(val name: String, val age: Int)
+```typescript
+data class Student(val name: String, val age: String)
 fun Student.getNameWithAge(): String = "$name($age)"
 ```
 
