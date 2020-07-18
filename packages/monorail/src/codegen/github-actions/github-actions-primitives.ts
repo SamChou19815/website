@@ -36,6 +36,11 @@ export const getGitHubRepositoryDependencySetupSteps = (
   ),
 ];
 
+const GITHUB_ACTIONS_FIREBASE_TOOLS_SETUP_STEP: GitHubActionJobStep = githubActionJobRunStep(
+  'Install firebase-tools',
+  'yarn global add firebase-tools'
+);
+
 const GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP: GitHubActionJobStep = githubActionJobActionStep(
   'GoogleCloudPlatform/github-actions/setup-gcloud@master',
   {
@@ -50,8 +55,12 @@ const GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP: GitHubActionJobStep = githubAc
 export const getDeploymentDependencySetupStep = (
   deploymentDependency: string
 ): GitHubActionJobStep => {
-  if (deploymentDependency === 'gcloud') {
-    return GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP;
+  switch (deploymentDependency) {
+    case 'firebase-tools':
+      return GITHUB_ACTIONS_FIREBASE_TOOLS_SETUP_STEP;
+    case 'gcloud':
+      return GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP;
+    default:
+      throw new Error(`Unsupported deployment dependency: ${deploymentDependency}`);
   }
-  throw new Error(`Unsupported deployment dependency: ${deploymentDependency}`);
 };

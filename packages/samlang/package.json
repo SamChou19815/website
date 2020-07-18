@@ -7,7 +7,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "compile": "tsc",
-    "deploy": "yarn common:firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
+    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:samlang"
   },
   "dependencies": {
     "@dev-sam/samlang-demo": "^0.0.2",
@@ -27,6 +27,9 @@
     "@types/react": "^16.9.43",
     "typescript": "3.9.6"
   },
+  "deploymentDependencies": [
+    "firebase-tools"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

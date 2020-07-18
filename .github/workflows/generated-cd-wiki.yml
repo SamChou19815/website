@@ -24,6 +24,8 @@ jobs:
         run: cd ../ && git clone https://${{ secrets.GH_TOKEN }}@github.com/SamChou19815/private-monorepo --depth 1
       - name: Sanity Check private-monorepo setup
         run: cat ../private-monorepo/README.md
+      - name: Install firebase-tools
+        run: yarn global add firebase-tools
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
