@@ -15,11 +15,15 @@ const executeCodegenServices = (): void => {
   codegenServices.forEach((codegenService) => {
     const { generatedFilenamePattern, generatedCodeContentList } = codegenService;
     if (generatedFilenamePattern != null) {
-      spawnSync('rm', [generatedFilenamePattern], { shell: true });
+      spawnSync('git', ['rm', generatedFilenamePattern]);
     }
-    generatedCodeContentList.forEach(({ pathForGeneratedCode, generatedCode }) =>
-      writeFileSync(pathForGeneratedCode, generatedCode)
+    const generatedPaths = generatedCodeContentList.map(
+      ({ pathForGeneratedCode, generatedCode }) => {
+        writeFileSync(pathForGeneratedCode, generatedCode);
+        return pathForGeneratedCode;
+      }
     );
+    spawnSync('git', ['add', ...generatedPaths]);
   });
 };
 

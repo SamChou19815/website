@@ -31,7 +31,7 @@ export type WorkspaceInformation = {
 const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInformation> => {
   const map = new Map<string, WorkspaceInformation>();
 
-  const process = spawnSync('yarn', ['workspaces', 'list', '-v', '--json'], { shell: true });
+  const process = spawnSync('yarn', ['workspaces', 'list', '-v', '--json']);
   const output = process.stdout.toString().trim();
   const parsableJsonString = `[${output.split('\n').join(',')}]`;
   const workspacesJson = JSON.parse(parsableJsonString);
