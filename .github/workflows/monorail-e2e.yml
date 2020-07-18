@@ -1,0 +1,30 @@
+name: Monorail E2E Test
+on:
+  push:
+    paths:
+      - '.github/workflows/monorail-e2e.yml'
+  schedule:
+    - cron: '0 3 * * 0'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+      - name: Yarn Install
+        run: yarn install --immutable
+      - name: Checkout SamChou19815/private-monorepo
+        run: cd ../ && git clone https://${{ secrets.GH_TOKEN }}@github.com/SamChou19815/private-monorepo --depth 1
+      - name: Codegen
+        run: ./packages/monorail/bin/monorail codegen
+      - name: Rebuild
+        run: ./packages/monorail/bin/monorail rebuild
+      - name: Compile
+        run: ./packages/monorail/bin/monorail compile
+      - name: Check changed
+        run: git diff --quiet --exit-code
