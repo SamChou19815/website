@@ -88,7 +88,7 @@ to put everything into a set of global variables and a single giant expression. 
 
 Here is the code that will be compiled to a critter language:
 
-```kotlin
+```typescript
 // Variables: TM Constructs
 var needHalt = 0
 // 0 ==> not in stage, 1 ==> right, 2 ==> serve/eat, 3 ==> left, 4 ==> move

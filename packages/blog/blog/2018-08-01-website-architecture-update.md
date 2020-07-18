@@ -107,7 +107,7 @@ design was still awkward.
 
 Here is a weird, counter-intuitive example.
 
-```kotlin
+```typescript
 object SchedulerWriteItemService : StructuredInputService<SchedulerItemData>(
   inType = SchedulerItemData::class.java
 ) {
@@ -160,7 +160,7 @@ rewritten!
 
 Here is an example of a code snippet harmed by the callback hell:
 
-```kotlin
+```typescript
 // Comment: Awkward Consumer
 fun getAllSchedulerItems(user: FirebaseUser, printer: Consumer<List<SchedulerItem>>) {
   val filterUser = PropertyFilter.eq("userEmail", user.email)
@@ -202,7 +202,7 @@ my website's database code to the new library, which I called
 
 Here is the nice CRUD example copied from the GitHub repo's README:
 
-```kotlin
+```typescript
 // Create
 val obj = FooEntity.insert {
   // You need to explicitly declare all the fields. Otherwise, it will throw an exception.
@@ -237,7 +237,7 @@ friend system based on Firebase Auth, and published that in a separate library, 
 
 Here is an example of the much better declaration for routes.
 
-```kotlin
+```typescript
 private fun initializeFriendSystemApiHandlers() {
   get(path = "/load") { FriendData(user = user) }
   get(path = "/get_user_info") {

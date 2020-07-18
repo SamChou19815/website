@@ -84,20 +84,14 @@ careful thought.
 Generics are notoriously hard to deal with because you need to keep track of an additional list of
 information for type, which may be empty, a concrete definition like `List<String>` or just a
 parameter like `Set<T>`. To make it worse, I decided that the target code should be able to run on
-the type-erased JVM. I know at least on Java and Kotlin, polymorphic values are not allowed. For
-example, it is impossible to write:
+the type-erased JVM. I know at least on Java and Kotlin, polymorphic values are not allowed. In
+TypeScript, the missing generics type will be silently treated as `any`. For example:
 
-```kotlin
-fun test() {
-  val oneEmptyList: List<T> = emptyList() // BAD
-}
-```
-
-Instead, the type parameter of the `oneEmptyList` must be fixed:
-
-```kotlin
-fun test() {
-  val oneEmptyList: List<String> = emptyList<String>() // Good
+```typescript
+function test() {
+  const anyList = []; // type: any[]
+  const stringList1: string[] = []; // type: string[]
+  const stringList2 = new Array<string>(); // type: string[]
 }
 ```
 
