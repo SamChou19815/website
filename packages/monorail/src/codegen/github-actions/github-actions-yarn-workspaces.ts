@@ -34,10 +34,7 @@ const yarnWorkspaceGetDependencyPaths = (workspace: string): readonly string[] =
   `.github/workflows/generated-*-${workspace}.yml`,
 ];
 
-const generateYarnWorkspaceProjectCDWorkflow = (
-  workspace: string,
-  prepareSteps: readonly GitHubActionJobStep[]
-): GitHubActionsWorkflow => ({
+const generateYarnWorkspaceProjectCDWorkflow = (workspace: string): GitHubActionsWorkflow => ({
   workflowName: `CD ${workspace}`,
   workflowtrigger: {
     triggerPaths: yarnWorkspaceGetDependencyPaths(workspace),
@@ -48,13 +45,12 @@ const generateYarnWorkspaceProjectCDWorkflow = (
     {
       jobName: 'deploy',
       jobSteps: [
+        ...yarnWorkspaceBoilterplateSetupSteps,
+        githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
         ...getYarnWorkspaceGitHubRepositoryDependencies(workspace)
           .map(getGitHubRepositoryDependencySetupSteps)
           .flat(),
         ...getYarnWorkspaceDeploymentDependencies(workspace).map(getDeploymentDependencySetupStep),
-        ...yarnWorkspaceBoilterplateSetupSteps,
-        ...prepareSteps,
-        githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
         githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
       ],
     },
@@ -66,15 +62,10 @@ export type YarnWorkspaceWorkflowsOverrides = Record<
   readonly GitHubActionJobStep[] | undefined
 >;
 
-export const getYarnWorkspaceWorkflows = (
-  overridePrepares: YarnWorkspaceWorkflowsOverrides = {}
-): Record<string, GitHubActionsWorkflow> =>
+export const getYarnWorkspaceWorkflows = (): Record<string, GitHubActionsWorkflow> =>
   Object.fromEntries([
     ...projectWorkspaces.map((workspace) => {
       const name = `cd-${workspace}`;
-      return [
-        name,
-        generateYarnWorkspaceProjectCDWorkflow(workspace, overridePrepares[name] ?? []),
-      ];
+      return [name, generateYarnWorkspaceProjectCDWorkflow(workspace)];
     }),
   ]);

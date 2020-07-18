@@ -19,8 +19,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Install firebase-tools
-        run: sudo npm install -g firebase-tools
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
@@ -34,5 +32,7 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn workspace ten build
+      - name: Install firebase-tools
+        run: sudo npm install -g firebase-tools
       - name: Deploy
         run: yarn workspace ten deploy
