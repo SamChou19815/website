@@ -71,6 +71,7 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, GitHubActionsWork
     },
     workflowJobs: [
       {
+        multiplatform: true,
         jobName: 'lint',
         jobSteps: [
           GITHUB_ACTIONS_CHECKOUT_STEP,
