@@ -38,7 +38,7 @@ export const getGitHubRepositoryDependencySetupSteps = (
 
 const GITHUB_ACTIONS_FIREBASE_TOOLS_SETUP_STEP: GitHubActionJobStep = githubActionJobRunStep(
   'Install firebase-tools',
-  'npm install -g firebase-tools'
+  'sudo npm install -g firebase-tools'
 );
 
 const GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP: GitHubActionJobStep = githubActionJobActionStep(

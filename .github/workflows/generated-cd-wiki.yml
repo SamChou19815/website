@@ -25,7 +25,7 @@ jobs:
       - name: Sanity Check private-monorepo setup
         run: cat ../private-monorepo/README.md
       - name: Install firebase-tools
-        run: npm install -g firebase-tools
+        run: sudo npm install -g firebase-tools
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
