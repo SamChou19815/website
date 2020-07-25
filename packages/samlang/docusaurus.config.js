@@ -27,10 +27,10 @@ module.exports = {
         alt: 'SAMLANG Logo',
         src: 'img/logo.svg',
       },
-      links: [
-        { to: 'docs/introduction', label: 'Docs', exact: true, position: 'left' },
-        { to: 'demo', label: 'Demo', exact: true, position: 'left' },
-        { to: 'blog', label: 'Blog', exact: true, position: 'left' },
+      items: [
+        { to: 'docs/introduction', label: 'Docs', position: 'left' },
+        { to: 'demo', label: 'Demo', position: 'left' },
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/SamChou19815/samlang',
           label: 'GitHub',
