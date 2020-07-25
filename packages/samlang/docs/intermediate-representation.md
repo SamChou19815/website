@@ -113,3 +113,14 @@ val e = (c) -> {
 , the captured variabled are `a` and `b`.
 
 The struct for function closures has the format `{ [0] -> function name, [1] -> environment object }`.
+
+## Mid-level IR
+
+Mid-level IR is almost identical to
+[Appel's IR](https://www.cs.cornell.edu/courses/cs4120/2020sp/lectures/14irgen/lec14-sp16.pdf).
+Therefore, you are better served by reading the lecture notes.
+
+One major difference is that almost all non-canonical MIR expressions and statements are not in
+samlang. The lowering work is done completely in source-level to HIR lowering phase. The only
+exception is `MIR_CJUMP_NON_FALLTHROUGH_NON_CANONICAL`, which is being handled by trace reordering
+code in the MIR lowering phase.
