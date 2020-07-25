@@ -87,7 +87,7 @@ class List<T>(Nil(unit), Cons([T * List<T>])) { }
 During type checking time, a tag to index mapping will be established like `Nil => 0, Cons => 1`.
 You should not rely on the order of the mappings.
 
-Then during lowering from source to HIR, `val a = List(b)` will be translated to
+Then during lowering from source to HIR, `val a = Cons(b)` will be translated to
 `HIR_STRUCT_INITIALIZATION(a, [1, b])`.
 
 #### Function closures in HIR
