@@ -59,3 +59,57 @@ the remaining gap, where labels, jumps, and raw pointer arithmetics are allowed.
   This construct is widely used to represent various source-level concepts, like objects, variants,
   and function closures. In this process, source-level objects' field names are completely erased,
   and values are put into various slots in the process.
+
+### Selected source level constructs in HIR
+
+#### Objects in HIR
+
+For a class that defines an object type like the following:
+
+```samlang
+class Developer(val name: string, val github: string, val projects: List<string>) {}
+```
+
+During type checking time, a name to index mapping will be established like
+`name => 0, github => 1, projects => 2`. You should not rely on the order of the mappings.
+
+Then during lowering from source to HIR, `val d = {name: a, github: b, projects: c}` will be
+translated to `HIR_STRUCT_INITIALIZATION(d, [a, b, c])`.
+
+#### Variants in HIR
+
+For a class that defines an variant type like the following:
+
+```samlang
+class List<T>(Nil(unit), Cons([T * List<T>])) { }
+```
+
+During type checking time, a tag to index mapping will be established like `Nil => 0, Cons => 1`.
+You should not rely on the order of the mappings.
+
+Then during lowering from source to HIR, `val a = List(b)` will be translated to
+`HIR_STRUCT_INITIALIZATION(a, [1, b])`.
+
+#### Function closures in HIR
+
+A function closure contains a name reference to function and an optional `environment`. The
+environment is `NULL (0)` when it's a reference to a static function like `Foo.bar`. The environment
+is the receiver itself. (e.g. for `this.myMethodCall`, the environment is `this`.)
+
+The environment for a lambda expression is all the captured variables. Captures variables are
+variables defined outside of the lambda expressions.
+
+For example, for lambda in the following statements:
+
+```samlang
+val a = 1;
+val b = 2;
+val e = (c) -> {
+  val d = 2;
+  a + b + c + d
+}
+```
+
+, the captured variabled are `a` and `b`.
+
+The struct for function closures has the format `{ [0] -> function name, [1] -> environment object }`.
