@@ -37,7 +37,7 @@ Kotlin.
 ### Initial Design Mistake
 
 When I'm first designing
-[SAMPL](/design-choices/2018/06/15/sampl-alpha-design-choices/), I forgot there was an issue with
+[SAMPL](/2018/06/15/sampl-alpha-design-choices/), I forgot there was an issue with
 this. SAMPL is functional, so I choose not to use the `::` in Java and Kotlin. Instead, you simply
 write the name of the function as if it is a normal variable.
 
