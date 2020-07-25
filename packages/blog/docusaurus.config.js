@@ -16,11 +16,14 @@ module.exports = {
   baseUrl: '/',
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
-    disableDarkMode: true,
+    colorMode: {
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     prism: { theme },
     navbar: {
       title: 'Developer Sam Blog',
-      links: [
+      items: [
         {
           href: 'https://developersam.com/',
           label: 'Main Site',

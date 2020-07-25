@@ -24,7 +24,7 @@ module.exports = {
     },
     navbar: {
       title: 'Wiki',
-      links: [],
+      items: [],
     },
     footer: {
       style: 'dark',
