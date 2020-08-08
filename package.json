@@ -34,8 +34,7 @@
     "next-transpile-modules": "^4.0.2",
     "prettier": "2.0.5",
     "typescript": "^3.9.6",
-    "webpack": "^4.44.1",
-    "worker-loader": "^3.0.1"
+    "webpack": "^4.44.1"
   },
   "peerDependencies": {
     "react": "^16.13.1"
