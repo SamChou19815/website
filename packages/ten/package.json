@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "infima": "0.2.0-alpha.12",
-    "next": "^9.4.4",
+    "next": "^9.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

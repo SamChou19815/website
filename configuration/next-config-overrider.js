@@ -14,7 +14,7 @@ module.exports = (additionalConfigurations = {}) =>
         test: /\.worker\.js$/,
         loader: require.resolve('worker-loader'),
         options: {
-          name: 'static/[hash].worker.js',
+          chunkFilename: 'static/[hash].worker.js',
           publicPath: '/_next/',
         },
       });
