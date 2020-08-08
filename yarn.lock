@@ -15385,7 +15385,6 @@ fsevents@^1.2.7:
     prettier: 2.0.5
     typescript: ^3.9.6
     webpack: ^4.44.1
-    worker-loader: ^3.0.1
   peerDependencies:
     react: ^16.13.1
   dependenciesMeta:
@@ -18403,18 +18402,6 @@ fsevents@^1.2.7:
   dependencies:
     errno: ~0.1.7
   checksum: ef76a6892bdf6a4231e6d657c13e2e960278535915d6235d9e0e3e23b65da94a56e5bed17ac5fda282370601d4cd18f4cba9552aa52f4fa9a25cc9fd3fcf58a9
-  languageName: node
-  linkType: hard
-
-"worker-loader@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "worker-loader@npm:3.0.1"
-  dependencies:
-    loader-utils: ^2.0.0
-    schema-utils: ^2.7.0
-  peerDependencies:
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 4b8f557744da545cdc0d510ccab90ee68ba98516dd402b1e547e01011489d35b45909c35c686c9d7be8002ccd873abfc88a50ab2336cf94eca672a7daeba0bc1
   languageName: node
   linkType: hard
 

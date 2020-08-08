@@ -3,13 +3,8 @@ import React, { ReactElement } from 'react';
 import Head from 'next/head';
 
 import DistributedGameCard from './DistributedGameCard';
-import LocalGameCard from './LocalGameCard';
-
-type Mode = 'Local' | 'Distributed';
 
 export default function App(): ReactElement {
-  const [mode, setMode] = React.useState<Mode>('Local');
-
   const buttons = (
     <>
       <a className="navbar__item navbar__link" href="https://developersam.com">
@@ -35,30 +30,12 @@ export default function App(): ReactElement {
       <nav className="navbar">
         <div className="navbar__inner">
           <div className="navbar__items">
-            <a className="navbar__brand" href="/">
-              {`TEN - ${mode}`}
-            </a>
+            <a className="navbar__brand" href="/">TEN</a>
           </div>
           <div className="navbar__items navbar__items--right">{buttons}</div>
         </div>
       </nav>
-      <div className="card">
-        <div className="card__footer">
-          <button
-            className="button button--outline button--primary"
-            onClick={(): void => setMode('Local')}
-          >
-            Local
-          </button>
-          <button
-            className="button button--outline button--primary"
-            onClick={(): void => setMode('Distributed')}
-          >
-            Distributed
-          </button>
-        </div>
-      </div>
-      {mode === 'Local' ? <LocalGameCard /> : <DistributedGameCard />}
+      <DistributedGameCard />
     </div>
   );
 }

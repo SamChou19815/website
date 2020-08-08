@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import { Board, boardToJson, getGameStatus, makeMoveWithoutCheck } from '../game/board';
-import { MctsResponse } from '../game/mcts';
+import type { MctsResponse } from '../game/mcts';
 import { Status } from './GameCard';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';
 
