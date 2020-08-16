@@ -12,6 +12,12 @@ h3.Title {
   margin: 0 auto;
 }
 
+.ReadMore {
+  display: flex;
+  align-content: center;
+  line-height: 24px;
+}
+
 @media screen and (min-width: 960px) {
   .AboutSection {
     display: flex;
@@ -49,10 +55,4 @@ h3.Title {
   .InfoCard {
     width: 560px;
   }
-}
-
-.ReadMore {
-  display: flex;
-  align-content: center;
-  line-height: 24px;
 }
