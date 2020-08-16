@@ -6,10 +6,7 @@ module.exports = (additionalConfigurations = {}) =>
   withTM(libraries)({
     webpack(config) {
       // eslint-disable-next-line no-param-reassign
-      config.node = {
-        fs: 'empty',
-        child_process: 'empty',
-      };
+      config.node = { fs: 'empty', child_process: 'empty' };
       return config;
     },
     ...additionalConfigurations,

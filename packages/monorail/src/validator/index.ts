@@ -34,7 +34,6 @@ export const assertHasFields = <S extends string>(
   if (typeof json !== 'object') {
     throw new Error(`Expect '${key}' to be an object, but got ${typeof json}!`);
   }
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error: S must be string!
   const record: Record<S, unknown> = {};
   const missingFields = requiredFields.filter((requiredKey) => {

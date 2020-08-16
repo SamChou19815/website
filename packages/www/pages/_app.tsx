@@ -86,10 +86,7 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
           dangerouslySetInnerHTML={{ __html: themeAutoSwitcher }}
         />
       </Head>
-      <Component
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...pageProps}
-      />
+      <Component {...pageProps} />
     </>
   );
 };

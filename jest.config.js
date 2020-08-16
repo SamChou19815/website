@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const libraries = require('./configuration/libraries.json');
 
 const babelJestPath = require.resolve('babel-jest');
