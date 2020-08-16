@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import * as vscode from 'vscode';
 
 const disabledEditDecorationType = vscode.window.createTextEditorDecorationType({
@@ -14,7 +13,6 @@ const updateGeneratedHoverForEditor = (editor: vscode.TextEditor | undefined): v
   if (editor == null) {
     return;
   }
-  // eslint-disable-next-line no-useless-concat
   if (editor.document.getText().includes('@' + 'generated')) {
     editor.setDecorations(disabledEditDecorationType, [
       {

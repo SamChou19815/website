@@ -27,13 +27,12 @@ module.exports = {
     Deno: 'readonly',
   },
   extends: [
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    require.resolve('eslint-config-airbnb-base'),
-    require.resolve('eslint-config-prettier'),
     ...[jsxA11Y, react].filter(Boolean).map((packageName) => `plugin:${packageName}/recommended`),
   ],
   parser: require.resolve('@typescript-eslint/parser'),
-  plugins: ['@typescript-eslint', ...[jsxA11Y, react, reactHooks].filter(Boolean)],
+  plugins: ['@typescript-eslint', 'import', ...[jsxA11Y, react, reactHooks].filter(Boolean)],
   rules: {
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-expect-error': 'allow-with-description' }],
     '@typescript-eslint/no-empty-function': 'off',
@@ -47,42 +46,85 @@ module.exports = {
         varsIgnorePattern: '_',
       },
     ],
-    'import/named': 'off', // Covered by TypeScript
-    'import/no-cycle': 'off', // Too slow
-    'import/no-named-as-default': 'off', // Too slow
-    'import/no-named-as-default-member': 'off', // Covered by TypeScript
-    'import/extensions': 'off', // Too noisy
-    'import/no-unresolved': [
+    complexity: 'off',
+    'class-methods-use-this': 'error',
+    'consistent-return': 'error',
+    curly: ['error', 'multi-line'],
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
+    'guard-for-in': 'error',
+    'import/first': 'error',
+    'import/prefer-default-export': 'error',
+    'import/no-absolute-path': 'error',
+    'import/no-anonymous-default-export': 'error',
+    'import/no-duplicates': 'error',
+    'import/no-dynamic-require': 'error',
+    'import/no-extraneous-dependencies': [
       'error',
       {
-        // eslint-disable-next-line no-useless-concat
-        ignore: ['^@theme', '^@docusaurus', '^@' + 'generated'],
+        devDependencies: [
+          '**/__tests__/**', // jest pattern
+          '**/*{.,_}{test,spec}.{ts,tsx}', // tests where the extension or filename suffix denotes that it is a test
+          '**/*.js', // Most code is in TS. JS code is usually for devDependencies
+        ],
+        peerDependencies: true,
+        optionalDependencies: false,
       },
     ],
-    'import/no-anonymous-default-export': 'error',
-    'import/no-extraneous-dependencies': 'off',
+    'import/no-named-default': 'error',
     'import/order': [
       'error',
       {
         groups: ['builtin', 'external', ['parent', 'sibling', 'index']],
         // Make React always appear first.
-        pathGroups: [
-          {
-            pattern: 'react?(-dom)',
-            group: 'external',
-            position: 'before',
-          },
-        ],
+        pathGroups: [{ pattern: 'react?(-dom)', group: 'external', position: 'before' }],
         pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: false },
       },
     ],
-    indent: 'off', // Already covered by Prettier
+    'no-alert': 'warn',
+    'no-await-in-loop': 'error',
+    'no-console': 'warn',
+    'no-constant-condition': 'warn',
+    'no-empty-function': 'off',
+    'no-eq-null': 'off',
+    'no-eval': 'error',
+    'no-implicit-coercion': ['off', { boolean: false, number: true, string: true, allow: [] }],
+    'no-implied-eval': 'error',
+    'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
+    'no-lone-blocks': 'error',
+    'no-param-reassign': ['error', { props: true }],
+    'no-proto': 'error',
+    'no-restricted-properties': [
+      'error',
+      { object: 'arguments', property: 'callee', message: 'arguments.callee is deprecated' },
+      { object: 'global', property: 'isFinite', message: 'Please use Number.isFinite instead' },
+      { object: 'self', property: 'isFinite', message: 'Please use Number.isFinite instead' },
+      { object: 'window', property: 'isFinite', message: 'Please use Number.isFinite instead' },
+      { object: 'global', property: 'isNaN', message: 'Please use Number.isNaN instead' },
+      { object: 'self', property: 'isNaN', message: 'Please use Number.isNaN instead' },
+      { object: 'window', property: 'isNaN', message: 'Please use Number.isNaN instead' },
+      { property: '__defineGetter__', message: 'Please use Object.defineProperty instead.' },
+      { property: '__defineSetter__', message: 'Please use Object.defineProperty instead.' },
+      { object: 'Math', property: 'pow', message: 'Use the exponentiation operator (**) instead.' },
+    ],
+    'no-return-assign': ['error', 'always'],
+    'no-self-compare': 'error',
+    'no-sequences': 'error',
+    'no-shadow': 'error',
+    'no-shadow-restricted-names': 'error',
+    'no-template-curly-in-string': 'error',
+    'no-throw-literal': 'error',
     'no-underscore-dangle': 'off',
+    'no-useless-constructor': 'error',
+    'no-useless-return': 'error',
     'no-use-before-define': 'off', // Already covered by TypeScript
     'no-unused-expressions': 'off', // Already covered by typescript-eslint
-    'object-curly-newline': 'off', // Already covered by Prettier
+    'no-var': 'error',
+    'object-shorthand': ['error', 'always', { ignoreConstructors: false, avoidQuotes: true }],
+    'prefer-const': ['error', { destructuring: 'any', ignoreReadBeforeAssign: true }],
+    'prefer-template': 'error',
+    radix: 'error',
     // Need for .d.ts type references
     'spaced-comment': ['error', 'always', { markers: ['/'] }],
     ...(react
@@ -94,10 +136,7 @@ module.exports = {
         }
       : {}),
     ...(reactHooks
-      ? {
-          'react-hooks/exhaustive-deps': 'error',
-          'react-hooks/rules-of-hooks': 'error',
-        }
+      ? { 'react-hooks/exhaustive-deps': 'error', 'react-hooks/rules-of-hooks': 'error' }
       : {}),
   },
   settings: {
@@ -106,13 +145,7 @@ module.exports = {
         extensions: ['.js', '.json', '.mjs', '.ts', '.tsx'],
       },
     },
-    ...(react
-      ? {
-          react: {
-            version: '16.13.0',
-          },
-        }
-      : {}),
+    ...(react ? { react: { version: '16.13.0' } } : {}),
   },
   overrides: [
     {
@@ -122,8 +155,6 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
       },
     },
-    {
-      files: ['*.ts', '*.tsx'],
-    },
+    { files: ['*.ts', '*.tsx'] },
   ],
 };

@@ -31,7 +31,6 @@ const PrismCodeBlock = ({
 }: Props): ReactElement => {
   return (
     <Highlight
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
       theme={userDefinedTheme || flexibleTheme}
       code={children.trim()}
@@ -43,10 +42,10 @@ const PrismCodeBlock = ({
         const combinedStyle =
           userDefinedStyles == null ? style : { ...style, ...userDefinedStyles };
         const content = tokens.map((line, i) => (
-          // eslint-disable-next-line react/no-array-index-key, react/jsx-props-no-spreading, react/jsx-key
+          // eslint-disable-next-line react/no-array-index-key, react/jsx-key
           <div {...getLineProps({ line, key: i })}>
             {line.map((token, key) => (
-              // eslint-disable-next-line react/jsx-props-no-spreading, react/jsx-key
+              // eslint-disable-next-line react/jsx-key
               <span {...getTokenProps({ token, key })} />
             ))}
           </div>
