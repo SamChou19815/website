@@ -13,7 +13,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.11.1",
-    "@dev-sam/eslint-config-common": "workspace:^0.15.0",
+    "@dev-sam/eslint-config-common": "workspace:^0.17.0",
     "@dev-sam/monorail": "workspace:packages/monorail",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.8.0",

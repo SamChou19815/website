@@ -2032,7 +2032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/eslint-config-common@workspace:^0.15.0, @dev-sam/eslint-config-common@workspace:packages/eslint-config-common":
+"@dev-sam/eslint-config-common@workspace:^0.17.0, @dev-sam/eslint-config-common@workspace:packages/eslint-config-common":
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
   dependencies:
@@ -15321,7 +15321,7 @@ fsevents@^1.2.7:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@babel/core": ^7.11.1
-    "@dev-sam/eslint-config-common": "workspace:^0.15.0"
+    "@dev-sam/eslint-config-common": "workspace:^0.17.0"
     "@dev-sam/monorail": "workspace:packages/monorail"
     "@typescript-eslint/eslint-plugin": ^3.8.0
     "@typescript-eslint/parser": ^3.8.0

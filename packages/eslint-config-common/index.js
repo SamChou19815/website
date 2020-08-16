@@ -48,7 +48,7 @@ module.exports = {
     ],
     complexity: 'off',
     'class-methods-use-this': 'error',
-    'consistent-return': 'error',
+    'consistent-return': 'off',
     curly: ['error', 'multi-line'],
     eqeqeq: ['error', 'always', { null: 'ignore' }],
     'guard-for-in': 'error',
@@ -116,7 +116,7 @@ module.exports = {
     'no-template-curly-in-string': 'error',
     'no-throw-literal': 'error',
     'no-underscore-dangle': 'off',
-    'no-useless-constructor': 'error',
+    'no-useless-constructor': 'off',
     'no-useless-return': 'error',
     'no-use-before-define': 'off', // Already covered by TypeScript
     'no-unused-expressions': 'off', // Already covered by typescript-eslint
