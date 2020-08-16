@@ -1,5 +1,6 @@
 {
   "docs": {
-    "Public": ["intro", "website-repo"]
+    "Documentation": ["intro", "website-repo"],
+    "Roadmap": ["oss-roadmap-2020-h2"]
   }
 }
