@@ -32,7 +32,7 @@ existing code and functor related code.
 ### Optimization
 
 Since we want to add JS backend support and JS is emitted directly from HIR, we should move as many
-optimizations to HIR as possible. To accompolish this, we need to first unify the IR expressions in
+optimizations to HIR as possible. To accomplish this, we need to first unify the IR expressions in
 HIR and MIR, and then refactor the control flow analysis framework to make it runnable on HIR.
 
 If I have additional time, I may implement an additional loop related optimization.
