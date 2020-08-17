@@ -25,6 +25,12 @@ export type TimelineItem = {
 
 const timelineItems: readonly TimelineItem[] = [
   {
+    title: 'Facebook SWE Intern',
+    type: 'work',
+    time: 'June 2020',
+    image: FacebookHackerWay,
+  },
+  {
     title: 'Cornell DTI Developer Lead',
     type: 'work',
     time: 'June 2019',
