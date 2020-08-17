@@ -5193,6 +5193,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"caniuse-lite@npm:*":
+  version: 1.0.30001114
+  resolution: "caniuse-lite@npm:1.0.30001114"
+  checksum: 23b73c98d7cc1bffb3e975ad73ebc927d8ad204c549597a531d41e34a29a91816fc51ab4cda7d45ba221e7cca7b0d124a9def647e6461fe24f6f3e88af95bf51
+  languageName: node
+  linkType: hard
+
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001035, caniuse-lite@npm:^1.0.30001043, caniuse-lite@npm:^1.0.30001097":
   version: 1.0.30001099
   resolution: "caniuse-lite@npm:1.0.30001099"
