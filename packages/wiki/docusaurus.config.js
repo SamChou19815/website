@@ -26,11 +26,6 @@ module.exports = {
       title: 'Wiki',
       items: [],
     },
-    footer: {
-      style: 'dark',
-      links: [],
-      copyright: `Copyright © 2020-${new Date().getFullYear()} Developer Sam. Built with Docusaurus.`,
-    },
   },
   presets: [
     [
