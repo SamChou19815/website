@@ -14,7 +14,6 @@
     "@docusaurus/core": "^2.0.0-alpha.61",
     "@docusaurus/preset-classic": "^2.0.0-alpha.61",
     "@mdx-js/react": "^1.6.4",
-    "autosize": "^4.0.2",
     "clsx": "^1.1.1",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",

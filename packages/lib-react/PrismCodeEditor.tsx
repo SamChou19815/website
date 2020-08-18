@@ -13,7 +13,7 @@ import autosize from 'autosize';
 import clsx from 'clsx';
 import { PrismTheme } from 'prism-react-renderer';
 
-import styles from './Editor.module.css';
+import styles from './PrismCodeEditor.module.css';
 
 import CodeBlock from 'lib-react/PrismCodeBlock';
 
@@ -24,13 +24,14 @@ type Record = {
 };
 
 type Props = {
+  readonly language: string;
   readonly code: string;
   readonly tabSize?: number;
   readonly theme: PrismTheme;
   readonly onCodeChange: (value: string) => void;
 };
 
-const Editor = ({ code, tabSize = 2, theme, onCodeChange }: Props): ReactElement => {
+const PrismCodeEditor = ({ language, code, tabSize = 2, theme, onCodeChange }: Props): ReactElement => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const inputRef = useRef<HTMLTextAreaElement>(undefined!);
   const [codeBlockHeight, setCodeBlockHeight] = useState(0);
@@ -234,7 +235,7 @@ const Editor = ({ code, tabSize = 2, theme, onCodeChange }: Props): ReactElement
         data-gramm={false}
       />
       <CodeBlock
-        language="samlang"
+        language={language}
         className={`${styles.Editor} ${styles.CodeBlock}`}
         theme={theme}
         style={{ height: codeBlockHeight + 16 }}
@@ -245,4 +246,4 @@ const Editor = ({ code, tabSize = 2, theme, onCodeChange }: Props): ReactElement
   );
 };
 
-export default Editor;
+export default PrismCodeEditor;
