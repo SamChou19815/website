@@ -10,9 +10,10 @@ import React, { useState, ReactElement } from 'react';
 import usePrismTheme from '@theme/hooks/usePrismTheme';
 import clsx from 'clsx';
 
-import Editor from './Editor';
 import styles from './LanguageDemo.module.css';
 import { initialText } from './demo';
+
+import PrismCodeEditor from 'lib-react/PrismCodeEditor';
 
 type Props = { readonly onSubmit: (code: string) => void };
 
@@ -28,7 +29,7 @@ export default function InputCard({ onSubmit }: Props): ReactElement {
         className={clsx('card__body', styles.EditorCardContainer)}
         style={{ backgroundColor: theme.plain.backgroundColor }}
       >
-        <Editor code={text} theme={theme} onCodeChange={setText} />
+        <PrismCodeEditor language="samlang" code={text} theme={theme} onCodeChange={setText} />
       </div>
       <div className="card__footer">
         <button

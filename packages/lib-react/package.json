@@ -12,6 +12,8 @@
     "compile": "tsc"
   },
   "dependencies": {
+    "autosize": "^4.0.2",
+    "clsx": "^1.1.1",
     "lib-prism-extended": "workspace:0.1.0"
   },
   "peerDependencies": {
