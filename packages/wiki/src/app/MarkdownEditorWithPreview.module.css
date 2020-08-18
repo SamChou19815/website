@@ -1,0 +1,37 @@
+.EditorCardContainer {
+  position: relative;
+  width: 100%;
+  padding: 0 !important;
+}
+
+.MarkdownEditorWithPreview {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.EditorCard {
+  min-width: 660px;
+}
+
+@media only screen and (min-width: 800px) {
+  .MarkdownEditorWithPreview {
+    flex-direction: row;
+  }
+
+  .ParallelCard {
+    width: 48%;
+    margin: 1em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .MarkdownEditorWithPreview {
+    flex-direction: column;
+  }
+
+  .ParallelCard {
+    width: 90vw;
+    margin: 1em auto;
+  }
+}

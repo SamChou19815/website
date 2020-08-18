@@ -37,7 +37,9 @@ html[data-theme='dark'] {
 .token.keyword,
 .token.char,
 .token.tag,
-.token.key {
+.token.key,
+.token.title,
+.token.url.content {
   color: var(--prism-code-block-keyword-color);
 }
 
@@ -54,7 +56,8 @@ html[data-theme='dark'] {
 .token.selector,
 .token.changed,
 .token.deleted,
-.token.property {
+.token.property,
+.token.url {
   color: var(--prism-code-block-property-color);
 }
 

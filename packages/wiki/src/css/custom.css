@@ -1,0 +1,30 @@
+:root {
+  --app-background-color: #f7f7f7;
+}
+
+html[data-theme='dark'] {
+  --app-background-color: #0a0a0a;
+}
+
+body {
+  background-color: var(--app-background-color);
+}
+
+pre {
+  font-family: 'Roboto Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  margin-bottom: 0;
+}
+
+.markdown > pre {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.token-line {
+  line-height: 1.35;
+}
+
+.prism-code {
+  font-size: 14px;
+}
