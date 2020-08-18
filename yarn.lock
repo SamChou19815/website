@@ -3340,7 +3340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:16.9.8":
+"@types/react-dom@npm:16.9.8, @types/react-dom@npm:^16.9.8":
   version: 16.9.8
   resolution: "@types/react-dom@npm:16.9.8"
   dependencies:
@@ -3356,6 +3356,13 @@ __metadata:
     "@types/prop-types": "*"
     csstype: ^2.2.0
   checksum: b9d4491463ab013e0752bf6f99bd578f91504f74dfd1ebd7fbceebbdffe89762b040494a78403e249bb72d1645d2784f844890e7b1acdb3634432533ff9732fb
+  languageName: node
+  linkType: hard
+
+"@types/remarkable@npm:1.7.4":
+  version: 1.7.4
+  resolution: "@types/remarkable@npm:1.7.4"
+  checksum: 5ba1ca461a44cac5a324490d633db05db229072a481e77e1f968bb84e0bbb3e5d44ff89d8b0217f35c183022c877a47a47f431c7872c99e5d9b48ae9fbe74df2
   languageName: node
   linkType: hard
 
@@ -4091,7 +4098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"argparse@npm:^1.0.7":
+"argparse@npm:^1.0.10, argparse@npm:^1.0.7":
   version: 1.0.10
   resolution: "argparse@npm:1.0.10"
   dependencies:
@@ -4338,6 +4345,15 @@ __metadata:
   bin:
     atob: bin/atob.js
   checksum: 597c0d1a740bb6522c98bea8fe362ae9420b4203af588d2bd470326d9abd4504264956b8355923d7019a21527ef5e6526a7b4455862ec5178ccd81e0ea289d5f
+  languageName: node
+  linkType: hard
+
+"autolinker@npm:^3.11.0":
+  version: 3.14.1
+  resolution: "autolinker@npm:3.14.1"
+  dependencies:
+    tslib: ^1.9.3
+  checksum: 0ce159e8ff5f68c6936fa042561b4bc9d27e317f4a39583db072d5a6703e1b67ca08700fd2576d2ffb8a20d7c78a1b2838808108574c6cd9d68d2a1501fb6377
   languageName: node
   linkType: hard
 
@@ -15085,6 +15101,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"remarkable@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "remarkable@npm:2.0.1"
+  dependencies:
+    argparse: ^1.0.10
+    autolinker: ^3.11.0
+  bin:
+    remarkable: bin/remarkable.js
+  checksum: 020afe2520317dfd84880aece3f42fc0684267c28a246a42d1e7f8c756da67cde81cbc8ad7ca52c00116df054cc268b336be5add33ab8030a93de50b1db205be
+  languageName: node
+  linkType: hard
+
 "remove-trailing-separator@npm:^1.0.1":
   version: 1.1.0
   resolution: "remove-trailing-separator@npm:1.1.0"
@@ -17250,7 +17278,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0":
+"tslib@npm:^1.10.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
   version: 1.13.0
   resolution: "tslib@npm:1.13.0"
   checksum: 5dc3bdaea3b67c76ef4a14c28fcb2171da7bcf292fd9c59a260098729626b1ce766c52b588f08e324ed9a0c52ea8a93a815920f980d75981abc9d850fbf310fb
@@ -18403,12 +18431,15 @@ typescript@^3.9.7:
     "@mdx-js/react": ^1.6.4
     "@types/node": ^14.0.23
     "@types/react": ^16.9.43
+    "@types/react-dom": ^16.9.8
+    "@types/remarkable": 1.7.4
     clsx: ^1.1.1
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
     prism-react-renderer: ^1.1.1
     react: ^16.13.1
     react-dom: ^16.13.1
+    remarkable: ^2.0.1
     ts-node: ^8.10.2
     typescript: ^3.9.7
   languageName: unknown
