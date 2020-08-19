@@ -17,15 +17,7 @@ module.exports = {
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
     prism: { theme },
-    algolia: process.env.DEV_SAM && {
-      apiKey: process.env.ALGOLIA_PRIVATE_SEARCH_KEY,
-      indexName: 'dev-sam-intern',
-      appId: 'CYPLN8UYBW',
-    },
-    navbar: {
-      title: 'Wiki',
-      items: [],
-    },
+    navbar: { title: 'Wiki', items: [] },
   },
   presets: [
     [
