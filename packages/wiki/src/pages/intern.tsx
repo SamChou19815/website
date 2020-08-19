@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/no-require-imports */
-
 import React, { ReactElement, Suspense, lazy } from 'react';
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
