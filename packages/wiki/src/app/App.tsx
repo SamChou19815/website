@@ -1,16 +1,12 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
 import DocSidebar from '@theme/DocSidebar';
+import clsx from 'clsx';
 
 import styles from './App.module.css';
 import MarkdownBlock from './MarkdownBlock';
 import { getAppUser } from './authentication';
-import { WikiPrivateDocument } from './documents';
-
-const documents: readonly WikiPrivateDocument[] = [
-  { documentID: 'foo', sharedWith: [], title: 'Foo', markdownContent: '# h2\n- a\n- b\n' },
-  { documentID: 'bar', sharedWith: [], title: 'Bar', markdownContent: '# h2\n### h3\n[sam](https://developersam.com)\n' }
-]
+import { useWikiPrivateDocuments } from './documents';
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);
@@ -22,10 +18,16 @@ const App = (): ReactElement => {
     () => clearInterval(handle);
   });
 
+  const documents = useWikiPrivateDocuments();
+
+  if (documents == null) {
+    return <div className="simple-page-center">Loading...</div>
+  }
+
   const documentToRender = documents.find(document => document.documentID === documentID);
   const markdownCode = documentToRender != null
     ? `# ${documentToRender.title}\n\n${documentToRender.markdownContent}`
-    : '# Select a document on the left';
+    : `# Hello ${getAppUser().displayName}!\nSelect a document on the left`;
 
   return (
     <div className={styles.App}>
@@ -45,8 +47,7 @@ const App = (): ReactElement => {
           sidebarCollapsible
         />
       </div>
-      <main className={styles.DocumentMainContainer}>
-        <div>Hello {getAppUser().displayName}!</div>
+      <main className={clsx('container', styles.DocumentMainContainer)}>
         <MarkdownBlock markdownCode={markdownCode} />
       </main>
     </div>
