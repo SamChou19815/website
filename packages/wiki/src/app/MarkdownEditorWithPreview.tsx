@@ -2,25 +2,11 @@ import React, { useState, ReactElement } from 'react';
 
 import usePrismTheme from '@theme/hooks/usePrismTheme';
 import clsx from 'clsx';
-import { renderToString } from 'react-dom/server';
-import * as remarkable from 'remarkable';
 
+import MarkdownBlock from './MarkdownBlock';
 import styles from './MarkdownEditorWithPreview.module.css';
 
-import PrismCodeBlock from 'lib-react/PrismCodeBlock';
 import PrismCodeEditor from 'lib-react/PrismCodeEditor';
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: TypeScript type definition has problems. :(
-const markdownRenderer: Remarkable = new remarkable.Remarkable({
-  typeGrapher: true,
-  highlight: (code: string, language: string): string =>
-    renderToString(
-      <PrismCodeBlock language={language} excludeWrapper>
-        {code}
-      </PrismCodeBlock>
-    ),
-});
 
 type MarkdownInputCardProps = {
   readonly code: string,
@@ -56,12 +42,7 @@ const MarkdownPreviewCard = ({ markdownCode }: { readonly markdownCode: string }
       <div className="card__header">
         <h2>Markdown Preview</h2>
       </div>
-      <div
-        className="card__body"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: markdownRenderer.render(markdownCode) }}
-      >
-      </div>
+      <MarkdownBlock className="card__body" markdownCode={markdownCode} />
     </div>
   );
 }
