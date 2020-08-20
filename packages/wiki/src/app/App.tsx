@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import styles from './App.module.css';
 import MarkdownBlock from './MarkdownBlock';
+import MarkdownEditorWithPreview from './MarkdownEditorWithPreview';
 import { getAppUser, isAdminUser } from './authentication';
 import { useWikiPrivateDocuments } from './documents';
 
@@ -49,7 +50,9 @@ const App = (): ReactElement => {
       </div>
       <main className={clsx('container', styles.DocumentMainContainer)}>
         <MarkdownBlock markdownCode={markdownCode} />
-        {documentToRender != null && isAdminUser() && <div>You are admin with super power.</div>}
+        {documentToRender != null && isAdminUser() && (
+          <MarkdownEditorWithPreview initialMarkdownCode={documentToRender.markdownContent} />
+        )}
       </main>
     </div>
   );
