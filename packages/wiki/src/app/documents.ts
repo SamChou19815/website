@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { firestore } from 'firebase/app';
 
-import { getAppUser } from './authentication';
+import { getAppUser, isAdminUser } from './authentication';
 
 export type WikiPrivateDocument = {
   readonly documentID: string;
@@ -12,25 +12,18 @@ export type WikiPrivateDocument = {
 };
 
 const Firestore = firestore();
-const firestoreWikiPrivateDocumentCollection = Firestore.collection('wiki-app-private-documents');
-
-const ADMIN_EMAIL = 'sam@developersam.com';
+const firestorePrivateDocumentCollection = Firestore.collection('wiki-app-private-documents');
 
 export const useWikiPrivateDocuments = (): readonly WikiPrivateDocument[] | null => {
   const [documents, setDocuments] = useState<readonly WikiPrivateDocument[] | null>(null);
 
   useEffect(() => {
     const currentUserEmail = getAppUser().email;
-    const query =
-      currentUserEmail === ADMIN_EMAIL
-        ? firestoreWikiPrivateDocumentCollection
-        : // This check is added for user experience, not for security.
-          // The check is also in security rules.
-          firestoreWikiPrivateDocumentCollection.where(
-            'sharedWith',
-            'array-contains',
-            currentUserEmail
-          );
+    const query = isAdminUser()
+      ? firestorePrivateDocumentCollection
+      : // This check is added for user experience, not for security.
+        // The check is also in security rules.
+        firestorePrivateDocumentCollection.where('sharedWith', 'array-contains', currentUserEmail);
     return query.onSnapshot((snapshot) => {
       const updatedDocuments = snapshot.docs.map((document) => {
         const documentWithoutId = document.data() as Omit<WikiPrivateDocument, 'documentID'>;
@@ -47,9 +40,9 @@ export const upsertWikiPrivateDocument = ({
   documentID,
   ...documentData
 }: WikiPrivateDocument): void => {
-  firestoreWikiPrivateDocumentCollection.doc(documentID).set(documentData);
+  firestorePrivateDocumentCollection.doc(documentID).set(documentData);
 };
 
 export const deleteWikiPrivateDocument = (documentID: string): void => {
-  firestoreWikiPrivateDocumentCollection.doc(documentID).delete();
+  firestorePrivateDocumentCollection.doc(documentID).delete();
 };
