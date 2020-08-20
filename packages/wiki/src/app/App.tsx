@@ -35,6 +35,12 @@ const createNewDocument = (): void => {
   upsertWikiPrivateDocument({ documentID, title, sharedWith: [], markdownContent: '' });
 };
 
+const editTitle = (document: WikiPrivateDocument): void => {
+  // eslint-disable-next-line no-alert
+  const title = prompt('New Title', document.title) ?? document.title;
+  upsertWikiPrivateDocument({ ...document, title });
+};
+
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);
 
@@ -85,12 +91,20 @@ const App = (): ReactElement => {
               Create new document
             </button>
             {documentToRender != null && (
-              <button
-                className="button button--primary"
-                onClick={() => deleteWikiPrivateDocument(documentToRender.documentID)}
-              >
-                Delete this document
-              </button>
+              <>
+                <button
+                  className="button button--primary"
+                  onClick={() => editTitle(documentToRender)}
+                >
+                  Edit Title
+                </button>
+                <button
+                  className="button button--primary"
+                  onClick={() => deleteWikiPrivateDocument(documentToRender.documentID)}
+                >
+                  Delete this document
+                </button>
+              </>
             )}
           </div>
         )}
