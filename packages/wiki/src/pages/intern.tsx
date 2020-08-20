@@ -10,13 +10,13 @@ const FirebaseLoginAppBarrier = lazy(() => import('../app/FirebaseLoginAppBarrie
 export default function InternTierAccessEntryPoint(): ReactElement {
   return (
     <Layout title="@dev-sam internals" description="Restricted-access internal portal">
-      {ExecutionEnvironment.canUseDOM
-        ? (
-          <Suspense fallback={null}>
-            <FirebaseLoginAppBarrier isDataLoaded={true} dataLoader={() => { }} />
-          </Suspense>
-        )
-        : <div />}
+      {ExecutionEnvironment.canUseDOM ? (
+        <Suspense fallback={null}>
+          <FirebaseLoginAppBarrier isDataLoaded={true} dataLoader={() => {}} />
+        </Suspense>
+      ) : (
+        <div />
+      )}
     </Layout>
   );
 }

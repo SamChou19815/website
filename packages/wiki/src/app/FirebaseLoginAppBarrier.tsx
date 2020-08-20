@@ -12,11 +12,7 @@ const onLoginClick = () => {
   firebase.auth().signInWithPopup(firebaseLoginProvider);
 };
 
-const LoadingPage = () => (
-  <div className="simple-page-center">
-    Loading...
-  </div>
-);
+const LoadingPage = () => <div className="simple-page-center">Loading...</div>;
 
 type Props = {
   /** Whether all data has been loaded. */
@@ -33,10 +29,7 @@ type AppStatus = 'INIT_LOADING' | 'LANDING' | 'DATA_LOADING_OR_APP';
  * The barrier to enter the main app.
  * It can help to enforce that all necessary information is loaded before entering the main app.
  */
-const FirebaseLoginAppBarrier = ({
-  isDataLoaded,
-  dataLoader,
-}: Props): ReactElement => {
+const FirebaseLoginAppBarrier = ({ isDataLoaded, dataLoader }: Props): ReactElement => {
   const [appStatus, setAppStatus] = useState<AppStatus>(
     hasAppUser() ? 'DATA_LOADING_OR_APP' : 'INIT_LOADING'
   );
@@ -63,11 +56,13 @@ const FirebaseLoginAppBarrier = ({
     case 'LANDING':
       return (
         <div className="simple-page-center">
-          <button className="button button--primary" onClick={onLoginClick}>Login</button>
+          <button className="button button--primary" onClick={onLoginClick}>
+            Login
+          </button>
         </div>
       );
     case 'INIT_LOADING':
-      return <LoadingPage />
+      return <LoadingPage />;
     case 'DATA_LOADING_OR_APP':
       return isDataLoaded ? <App /> : <LoadingPage />;
     default:

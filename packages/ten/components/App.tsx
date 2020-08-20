@@ -30,7 +30,9 @@ export default function App(): ReactElement {
       <nav className="navbar">
         <div className="navbar__inner">
           <div className="navbar__items">
-            <a className="navbar__brand" href="/">TEN</a>
+            <a className="navbar__brand" href="/">
+              TEN
+            </a>
           </div>
           <div className="navbar__items navbar__items--right">{buttons}</div>
         </div>
