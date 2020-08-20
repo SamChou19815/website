@@ -7,7 +7,7 @@ import styles from './App.module.css';
 import MarkdownBlock from './MarkdownBlock';
 import MarkdownEditorWithPreview from './MarkdownEditorWithPreview';
 import { getAppUser, isAdminUser } from './authentication';
-import { useWikiPrivateDocuments } from './documents';
+import { useWikiPrivateDocuments, upsertWikiPrivateDocument } from './documents';
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);
@@ -51,7 +51,10 @@ const App = (): ReactElement => {
       <main className={clsx('container', styles.DocumentMainContainer)}>
         <MarkdownBlock markdownCode={markdownCode} />
         {documentToRender != null && isAdminUser() && (
-          <MarkdownEditorWithPreview initialMarkdownCode={documentToRender.markdownContent} />
+          <MarkdownEditorWithPreview
+            initialMarkdownCode={documentToRender.markdownContent}
+            onSubmit={(markdownContent) => upsertWikiPrivateDocument({ ...documentToRender, markdownContent })}
+          />
         )}
       </main>
     </div>
