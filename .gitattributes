@@ -2,3 +2,4 @@
 * text=auto
 .github/workflows/generated-*.yml linguist-generated=true
 .yarn/** linguist-generated=true
+**/bin/** linguist-generated=true
