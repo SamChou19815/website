@@ -11,6 +11,7 @@ import {
   WikiPrivateDocument,
   useWikiPrivateDocuments,
   upsertWikiPrivateDocument,
+  deleteWikiPrivateDocument,
 } from './documents';
 
 const Editor = ({ document }: { readonly document: WikiPrivateDocument }): ReactElement => {
@@ -24,6 +25,15 @@ const Editor = ({ document }: { readonly document: WikiPrivateDocument }): React
     />
   );
 };
+
+const createNewDocument = (): void => {
+  // eslint-disable-next-line no-alert
+  const documentID = prompt('Document ID');
+  // eslint-disable-next-line no-alert
+  const title = prompt('Title');
+  if (documentID == null || title == null) return;
+  upsertWikiPrivateDocument({ documentID, title, sharedWith: [], markdownContent: '' })
+}
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);
@@ -69,9 +79,26 @@ const App = (): ReactElement => {
       </div>
       <main className={clsx('container', styles.DocumentMainContainer)}>
         <MarkdownBlock markdownCode={markdownCode} />
-        {documentToRender != null && isAdminUser() && <Editor document={documentToRender} />}
+        {isAdminUser() && (
+          <div className={`button-group button-group--block ${styles.ControlButtonGroup}`}>
+            <button className="button button--primary" onClick={createNewDocument}>
+              Create new document
+            </button>
+            {documentToRender != null && (
+              <button
+                className="button button--primary"
+                onClick={() => deleteWikiPrivateDocument(documentToRender.documentID)}
+              >
+                Delete this document
+              </button>
+            )}
+          </div>
+        )}
+        {documentToRender != null && isAdminUser() && (
+          <Editor key={documentToRender.documentID} document={documentToRender} />
+        )}
       </main>
-    </div>
+    </div >
   );
 };
 

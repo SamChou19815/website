@@ -14,3 +14,7 @@
   flex-grow: 1;
   padding: 1em;
 }
+
+.ControlButtonGroup {
+  margin: 1em 0;
+}
