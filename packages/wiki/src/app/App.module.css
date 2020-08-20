@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+}
+
+.DocumentSidebarContainer {
+  border-right: 1px solid var(--ifm-toc-border-color);
+  box-sizing: border-box;
+  width: 300px;
+  position: relative;
+  margin-top: calc(-1 * var(--ifm-navbar-height));
+}
+
+.DocumentMainContainer {
+  flex-grow: 1;
+}
