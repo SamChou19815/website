@@ -46,6 +46,10 @@ export const getAppUser = (): AppUser => {
   throw new Error('App is not initialized.');
 };
 
+const ADMIN_EMAIL = 'sam@developersam.com';
+
+export const isAdminUser = (): boolean => getAppUser().email === ADMIN_EMAIL;
+
 const firebaseAuth = firebase.auth();
 
 const appUserAsyncProcessor = async (user: firebase.User | null) => {
