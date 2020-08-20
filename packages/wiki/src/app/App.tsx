@@ -32,8 +32,8 @@ const createNewDocument = (): void => {
   // eslint-disable-next-line no-alert
   const title = prompt('Title');
   if (documentID == null || title == null) return;
-  upsertWikiPrivateDocument({ documentID, title, sharedWith: [], markdownContent: '' })
-}
+  upsertWikiPrivateDocument({ documentID, title, sharedWith: [], markdownContent: '' });
+};
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);
@@ -98,7 +98,7 @@ const App = (): ReactElement => {
           <Editor key={documentToRender.documentID} document={documentToRender} />
         )}
       </main>
-    </div >
+    </div>
   );
 };
 
