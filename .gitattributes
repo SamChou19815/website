@@ -1,4 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 .github/workflows/generated-*.yml linguist-generated=true
-.yarn/ linguist-generated=true
+.yarn/** linguist-generated=true
