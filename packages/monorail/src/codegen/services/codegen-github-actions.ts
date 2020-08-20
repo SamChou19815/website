@@ -37,6 +37,7 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
         jobName: 'lint',
         jobSteps: [
           ...yarnWorkspaceBoilterplateSetupSteps,
+          githubActionJobRunStep('Format Check', 'yarn format:check'),
           githubActionJobRunStep('Lint', 'yarn lint'),
         ],
       },

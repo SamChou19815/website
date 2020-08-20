@@ -27,6 +27,8 @@ jobs:
           restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install --immutable
+      - name: Format Check
+        run: yarn format:check
       - name: Lint
         run: yarn lint
   build:
