@@ -24,7 +24,7 @@ const MarkdownInputCard = ({ code, className, onCodeChange, onSubmit }: Props): 
       </div>
       <div
         className={clsx('card__body', styles.EditorCardContainer)}
-        style={{ backgroundColor: theme.plain.backgroundColor }}
+        style={{ backgroundColor: 'var(--prism-code-block-background-color)' }}
       >
         <PrismCodeEditor
           language="markdown"
