@@ -17,9 +17,9 @@ const markdownRenderer: Remarkable = new remarkable.Remarkable({
     ),
 });
 
-type Props = { readonly className?: string; readonly markdownCode: string; };
+type Props = { readonly className?: string; readonly markdownCode: string };
 
-const MarkdownBlock = ({ className, markdownCode, }: Props): ReactElement => {
+const MarkdownBlock = ({ className, markdownCode }: Props): ReactElement => {
   return (
     <div
       className={className}
@@ -27,6 +27,6 @@ const MarkdownBlock = ({ className, markdownCode, }: Props): ReactElement => {
       dangerouslySetInnerHTML={{ __html: markdownRenderer.render(markdownCode) }}
     />
   );
-}
+};
 
 export default MarkdownBlock;

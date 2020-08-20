@@ -31,7 +31,13 @@ type Props = {
   readonly onCodeChange: (value: string) => void;
 };
 
-const PrismCodeEditor = ({ language, code, tabSize = 2, theme, onCodeChange }: Props): ReactElement => {
+const PrismCodeEditor = ({
+  language,
+  code,
+  tabSize = 2,
+  theme,
+  onCodeChange,
+}: Props): ReactElement => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const inputRef = useRef<HTMLTextAreaElement>(undefined!);
   const [codeBlockHeight, setCodeBlockHeight] = useState(0);

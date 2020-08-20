@@ -5,9 +5,25 @@ import clsx from 'clsx';
 
 import styles from './App.module.css';
 import MarkdownBlock from './MarkdownBlock';
-import MarkdownEditorWithPreview from './MarkdownEditorWithPreview';
+import MarkdownInputCard from './MarkdownInputCard';
 import { getAppUser, isAdminUser } from './authentication';
-import { useWikiPrivateDocuments, upsertWikiPrivateDocument } from './documents';
+import {
+  WikiPrivateDocument,
+  useWikiPrivateDocuments,
+  upsertWikiPrivateDocument,
+} from './documents';
+
+const Editor = ({ document }: { readonly document: WikiPrivateDocument }): ReactElement => {
+  const [code, setCode] = useState(document.markdownContent);
+
+  return (
+    <MarkdownInputCard
+      code={code}
+      onCodeChange={setCode}
+      onSubmit={(markdownContent) => upsertWikiPrivateDocument({ ...document, markdownContent })}
+    />
+  );
+};
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);
@@ -22,13 +38,14 @@ const App = (): ReactElement => {
   const documents = useWikiPrivateDocuments();
 
   if (documents == null) {
-    return <div className="simple-page-center">Loading...</div>
+    return <div className="simple-page-center">Loading...</div>;
   }
 
-  const documentToRender = documents.find(document => document.documentID === documentID);
-  const markdownCode = documentToRender != null
-    ? `# ${documentToRender.title}\n\n${documentToRender.markdownContent}`
-    : `# Hello ${getAppUser().displayName}!\nSelect a document on the left`;
+  const documentToRender = documents.find((document) => document.documentID === documentID);
+  const markdownCode =
+    documentToRender != null
+      ? `# ${documentToRender.title}\n\n${documentToRender.markdownContent}`
+      : `# Hello ${getAppUser().displayName}!\nSelect a document on the left`;
 
   return (
     <div className={styles.App}>
@@ -40,9 +57,11 @@ const App = (): ReactElement => {
               type: 'category',
               collapsed: false,
               items: documents.map(({ documentID: id, title }) => ({
-                type: 'link', label: title, href: `/intern#doc-${id}`
-              }))
-            }
+                type: 'link',
+                label: title,
+                href: `/intern#doc-${id}`,
+              })),
+            },
           ]}
           path={`/intern${documentID == null ? '' : `#doc-${documentID}`}`}
           sidebarCollapsible
@@ -50,15 +69,10 @@ const App = (): ReactElement => {
       </div>
       <main className={clsx('container', styles.DocumentMainContainer)}>
         <MarkdownBlock markdownCode={markdownCode} />
-        {documentToRender != null && isAdminUser() && (
-          <MarkdownEditorWithPreview
-            initialMarkdownCode={documentToRender.markdownContent}
-            onSubmit={(markdownContent) => upsertWikiPrivateDocument({ ...documentToRender, markdownContent })}
-          />
-        )}
+        {documentToRender != null && isAdminUser() && <Editor document={documentToRender} />}
       </main>
     </div>
   );
-}
+};
 
 export default App;
