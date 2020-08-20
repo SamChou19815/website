@@ -47,8 +47,10 @@ const MarkdownPreviewCard = ({ markdownCode }: { readonly markdownCode: string }
   );
 }
 
-const MarkdownEditorWithPreview = (): ReactElement => {
-  const [code, setCode] = useState('');
+type Props = { readonly initialMarkdownCode: string };
+
+const MarkdownEditorWithPreview = ({ initialMarkdownCode }: Props): ReactElement => {
+  const [code, setCode] = useState(initialMarkdownCode);
 
   return (
     <div className={styles.MarkdownEditorWithPreview}>
