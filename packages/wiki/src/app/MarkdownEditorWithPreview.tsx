@@ -9,11 +9,12 @@ import styles from './MarkdownEditorWithPreview.module.css';
 import PrismCodeEditor from 'lib-react/PrismCodeEditor';
 
 type MarkdownInputCardProps = {
-  readonly code: string,
-  readonly onCodeChange: (code: string) => void
+  readonly code: string;
+  readonly onCodeChange: (code: string) => void;
+  readonly onSubmit: (code: string) => void;
 };
 
-const MarkdownInputCard = ({ code, onCodeChange }: MarkdownInputCardProps): ReactElement => {
+const MarkdownInputCard = ({ code, onCodeChange, onSubmit }: MarkdownInputCardProps): ReactElement => {
   const theme = usePrismTheme();
 
   return (
@@ -32,6 +33,9 @@ const MarkdownInputCard = ({ code, onCodeChange }: MarkdownInputCardProps): Reac
           onCodeChange={onCodeChange}
         />
       </div>
+      <div className="card__footer">
+        <button className="button button--primary" onClick={() => onSubmit(code)}>Save</button>
+      </div>
     </div>
   )
 };
@@ -47,14 +51,14 @@ const MarkdownPreviewCard = ({ markdownCode }: { readonly markdownCode: string }
   );
 }
 
-type Props = { readonly initialMarkdownCode: string };
+type Props = { readonly initialMarkdownCode: string; readonly onSubmit: (code: string) => void };
 
-const MarkdownEditorWithPreview = ({ initialMarkdownCode }: Props): ReactElement => {
+const MarkdownEditorWithPreview = ({ initialMarkdownCode, onSubmit }: Props): ReactElement => {
   const [code, setCode] = useState(initialMarkdownCode);
 
   return (
     <div className={styles.MarkdownEditorWithPreview}>
-      <MarkdownInputCard code={code} onCodeChange={setCode} />
+      <MarkdownInputCard code={code} onCodeChange={setCode} onSubmit={onSubmit} />
       <MarkdownPreviewCard markdownCode={code} />
     </div>
   )
