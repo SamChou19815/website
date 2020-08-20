@@ -66,9 +66,9 @@ const App = (): ReactElement => {
               label: 'Documents Shared with You',
               type: 'category',
               collapsed: false,
-              items: documents.map(({ documentID: id, title }) => ({
+              items: documents.map(({ documentID: id }) => ({
                 type: 'link',
-                label: title,
+                label: id,
                 href: `/intern#doc-${id}`,
               })),
             },
