@@ -5,9 +5,9 @@ import clsx from 'clsx';
 
 import styles from './App.module.css';
 import MarkdownBlock from './MarkdownBlock';
+import MarkdownEditorWithPreview from './MarkdownEditorWithPreview';
 import { getAppUser, isAdminUser } from './authentication';
 import { useWikiPrivateDocuments } from './documents';
-import MarkdownEditorWithPreview from './MarkdownEditorWithPreview';
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);
