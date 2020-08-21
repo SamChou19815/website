@@ -4,15 +4,10 @@
   "private": true,
   "scripts": {
     "start": "docusaurus start",
-    "codegen": "ts-node --transpile-only --compiler-options '{\"module\": \"commonjs\"}' private-docs-generator.ts",
-    "build:public": "docusaurus build",
-    "build:private": "yarn codegen && DEV_SAM=true NODE_NO_WARNINGS=1 docusaurus build --out-dir deployment-template/build",
-    "build": "yarn build:public && yarn build:private",
+    "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "compile": "tsc",
-    "deploy:public": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:wiki",
-    "deploy:private": "cd deployment-template && gcloud app deploy",
-    "deploy": "yarn deploy:public && yarn deploy:private"
+    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:wiki"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.61",
@@ -34,15 +29,13 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/remarkable": "1.7.4",
-    "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   },
   "githubRepositoryDependencies": [
     "private-monorepo"
   ],
   "deploymentDependencies": [
-    "firebase-tools",
-    "gcloud"
+    "firebase-tools"
   ],
   "codegenConfiguration": {
     "sources": [
