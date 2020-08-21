@@ -9,10 +9,8 @@ const theme = require('lib-react/prism-theme.json');
 
 module.exports = {
   title: 'Wiki',
-  tagline: process.env.DEV_SAM
-    ? 'Public and private documentation for dev-sam'
-    : 'Public documentation for dev-sam',
-  url: process.env.DEV_SAM ? 'https://intern.developersam.com' : 'https://wiki.developersam.com',
+  tagline: 'Documentation for dev-sam',
+  url: 'https://wiki.developersam.com',
   baseUrl: '/',
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
@@ -23,15 +21,8 @@ module.exports = {
     [
       require.resolve('@docusaurus/preset-classic'),
       {
-        docs: {
-          path: process.env.DEV_SAM ? 'private-docs' : 'docs',
-          sidebarPath: process.env.DEV_SAM
-            ? require.resolve('./private-docs/private-sidebars.json')
-            : require.resolve('./sidebars.json'),
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+        docs: { sidebarPath: require.resolve('./sidebars.json') },
+        theme: { customCss: require.resolve('./src/css/custom.css') },
       },
     ],
   ],
