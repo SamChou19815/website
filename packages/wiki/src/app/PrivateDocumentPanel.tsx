@@ -89,7 +89,7 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
         </div>
       )}
       {isAdminUser() && <PrivateDocumentMetadataEditor metadata={documentMetadata} />}
-      <PrivateDocumentPanelWithMetadata className={className} metadata={documentMetadata} />
+      <PrivateDocumentPanelWithMetadata metadata={documentMetadata} />
     </main>
   );
 };
