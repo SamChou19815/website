@@ -23,10 +23,6 @@
     "webpack": "^4.43.0"
   },
   "codegenConfiguration": {
-    "sources": [
-      "src",
-      "build.js"
-    ],
     "output": "bin/monorail"
   }
 }

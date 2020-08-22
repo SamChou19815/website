@@ -5,17 +5,16 @@ import { join } from 'path';
 import { assertIsString, assertIsStringArray, assertHasFields } from '../validator';
 
 export type CodegenConfiguration = {
-  /** Source directory or single source file. */
-  readonly sources: readonly string[];
   /** Output file. */
   readonly output: string;
 };
 
 const validateCodegenConfiguration = (json?: unknown): CodegenConfiguration | undefined => {
-  const { sources, output } = assertHasFields('codegenConfiguration', ['sources', 'output'], json);
   return {
-    sources: assertIsStringArray('sources', sources),
-    output: assertIsString('output', output),
+    output: assertIsString(
+      'output',
+      assertHasFields('codegenConfiguration', ['output'], json).output
+    ),
   };
 };
 
