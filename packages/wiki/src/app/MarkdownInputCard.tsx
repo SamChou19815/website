@@ -13,7 +13,7 @@ type Props = {
   readonly className?: string;
   readonly onTitleChange: (title: string) => void;
   readonly onCodeChange: (code: string) => void;
-  readonly onSubmit: (code: string) => void;
+  readonly onSubmit: (title: string, code: string) => void;
 };
 
 const MarkdownInputCard = ({
@@ -52,7 +52,7 @@ const MarkdownInputCard = ({
         />
       </div>
       <div className="card__footer">
-        <button className="button button--primary" onClick={() => onSubmit(code)}>
+        <button className="button button--primary" onClick={() => onSubmit(title, code)}>
           Save
         </button>
       </div>

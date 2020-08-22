@@ -20,7 +20,7 @@ const MarkdownPreviewCard = ({ markdownCode }: { readonly markdownCode: string }
 type Props = {
   readonly initialTitle: string;
   readonly initialMarkdownCode: string;
-  readonly onSubmit: (code: string) => void;
+  readonly onSubmit: (title: string, code: string) => void;
 };
 
 const MarkdownEditorWithPreview = ({

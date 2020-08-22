@@ -1,0 +1,17 @@
+.PrivateDocumentContentEditorModal {
+  position: fixed;
+  background-color: var(--prism-code-block-background-color);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em;
+  overflow: scroll;
+  z-index: 1000;
+}
+
+.FloatRightButtonContainer {
+  display: flex;
+  flex-direction: row-reverse;
+}

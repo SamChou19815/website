@@ -3,43 +3,24 @@ import React, { ReactElement, useState } from 'react';
 import clsx from 'clsx';
 
 import MarkdownBlock from './MarkdownBlock';
-import MarkdownInputCard from './MarkdownInputCard';
+import PrivateDocumentContentEditorModal from './PrivateDocumentContentEditorModal';
 import PrivateDocumentMetadataEditor from './PrivateDocumentMetadataEditor';
 import { isAdminUser, getAppUser } from './authentication';
 import {
   WikiPrivateDocumentMetadata,
-  WikiPrivateDocumentContent,
   deleteWikiPrivateDocument,
   useWikiPrivateDocumentContent,
   createWikiPrivateDocument,
-  updateWikiPrivateDocumentContent,
 } from './documents';
-
-const ContentEditor = ({
-  content,
-}: {
-  readonly content: WikiPrivateDocumentContent;
-}): ReactElement => {
-  const [title, setTitle] = useState(content.title);
-  const [code, setCode] = useState(content.markdownContent);
-
-  return (
-    <MarkdownInputCard
-      title={title}
-      code={code}
-      onTitleChange={setTitle}
-      onCodeChange={setCode}
-      onSubmit={(markdownContent) =>
-        updateWikiPrivateDocumentContent({ documentID: content.documentID, title, markdownContent })
-      }
-    />
-  );
-};
 
 const PrivateDocumentPanelWithMetadata = ({
   metadata,
+  showEditorModal,
+  onEditorClose,
 }: {
   readonly metadata: WikiPrivateDocumentMetadata;
+  readonly showEditorModal: boolean;
+  readonly onEditorClose: () => void;
 }): ReactElement => {
   const content = useWikiPrivateDocumentContent(metadata.documentID);
   if (content == null) return <>Loading...</>;
@@ -47,7 +28,9 @@ const PrivateDocumentPanelWithMetadata = ({
   return (
     <>
       <MarkdownBlock markdownCode={`# ${content.title}\n\n${content.markdownContent}`} />
-      {isAdminUser() && <ContentEditor content={content} />}
+      {showEditorModal && (
+        <PrivateDocumentContentEditorModal content={content} onClose={onEditorClose} />
+      )}
     </>
   );
 };
@@ -58,6 +41,8 @@ type Props = {
 };
 
 const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElement => {
+  const [showEditorModal, setShowEditorModal] = useState(false);
+
   if (documentMetadata == null) {
     return (
       <main className={clsx('container', className)}>
@@ -80,6 +65,9 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
             Create new document
           </button>
+          <button className="button button--primary" onClick={() => setShowEditorModal(true)}>
+            Edit document content
+          </button>
           <button
             className="button button--primary"
             onClick={() => deleteWikiPrivateDocument(documentMetadata.documentID)}
@@ -89,7 +77,11 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
         </div>
       )}
       {isAdminUser() && <PrivateDocumentMetadataEditor metadata={documentMetadata} />}
-      <PrivateDocumentPanelWithMetadata metadata={documentMetadata} />
+      <PrivateDocumentPanelWithMetadata
+        metadata={documentMetadata}
+        showEditorModal={showEditorModal}
+        onEditorClose={() => setShowEditorModal(false)}
+      />
     </main>
   );
 };
