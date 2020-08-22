@@ -7,21 +7,18 @@ const singleSourceNeedsRebuild = (sourceFile: string, artifactTime: number) =>
 
 const workspaceSourcesNeedRebuild = (
   workspaceLocation: string,
-  sources: string,
+  excludes: readonly string[],
   artifactTime: number
 ): boolean => {
-  const startPath = resolve(join(workspaceLocation, sources));
-
   const recursiveVisit = (path: string): boolean => {
-    if (lstatSync(path).isFile()) {
-      return singleSourceNeedsRebuild(path, artifactTime);
-    }
-
+    if (excludes.includes(path)) return false;
+    if (lstatSync(path).isFile()) return singleSourceNeedsRebuild(path, artifactTime);
     return readdirSync(path).some((relativeChildPath) =>
       recursiveVisit(join(path, relativeChildPath))
     );
   };
 
+  const startPath = resolve(workspaceLocation);
   return recursiveVisit(startPath);
 };
 

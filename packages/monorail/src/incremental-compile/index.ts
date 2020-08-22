@@ -19,7 +19,7 @@ const incrementalCompile = async (): Promise<void> => {
   const lastRunTime = getIncrementalCompileLastRunTime();
 
   const needToRecompileLocalCheck = (workspace: string): boolean =>
-    workspaceSourcesNeedRebuild(getYarnWorkspaceLocation(workspace), '.', lastRunTime);
+    workspaceSourcesNeedRebuild(getYarnWorkspaceLocation(workspace), [], lastRunTime);
   const needToRecompileCICheck = (workspace: string): boolean =>
     spawnSync('git', ['diff', 'HEAD^', 'HEAD', '--name-only', getYarnWorkspaceLocation(workspace)])
       .stdout.toString()
