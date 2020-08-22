@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import MarkdownBlock from './MarkdownBlock';
 import MarkdownInputCard from './MarkdownInputCard';
-import styles from './PrivateDocumentPanel.module.css';
+import PrivateDocumentMetadataEditor from './PrivateDocumentMetadataEditor';
 import { isAdminUser, getAppUser } from './authentication';
 import {
   WikiPrivateDocumentMetadata,
@@ -12,61 +12,8 @@ import {
   deleteWikiPrivateDocument,
   useWikiPrivateDocumentContent,
   createWikiPrivateDocument,
-  updateWikiPrivateDocumentMetadata,
   updateWikiPrivateDocumentContent,
 } from './documents';
-
-const MetadataEditor = ({
-  metadata,
-}: {
-  readonly metadata: WikiPrivateDocumentMetadata;
-}): ReactElement => {
-  const [filename, setFilename] = useState(metadata.filename);
-  const [sharedWithString, setSharedWithString] = useState(metadata.sharedWith.join(','));
-
-  return (
-    <div className={clsx('card', styles.ControlGroup)}>
-      <div className="card__header">
-        <h2>Edit Document Metadata</h2>
-      </div>
-      <div className="card__body">
-        <input
-          className="text-input"
-          type="text"
-          value={filename}
-          placeholder="Filename"
-          onChange={(event) => setFilename(event.currentTarget.value)}
-        />
-      </div>
-      <div className="card__body">
-        <input
-          className="text-input"
-          type="text"
-          value={sharedWithString}
-          placeholder="Shared With"
-          onChange={(event) => setSharedWithString(event.currentTarget.value)}
-        />
-      </div>
-      <div className="card__footer">
-        <button
-          className="button button--primary"
-          onClick={() => {
-            updateWikiPrivateDocumentMetadata({
-              documentID: metadata.documentID,
-              filename,
-              sharedWith:
-                sharedWithString.trim() === ''
-                  ? []
-                  : sharedWithString.split(',').map((it) => it.trim()),
-            });
-          }}
-        >
-          Save
-        </button>
-      </div>
-    </div>
-  );
-};
 
 const ContentEditor = ({
   content,
@@ -105,7 +52,7 @@ const PrivateDocumentPanelWithMetadata = ({
   return (
     <main className={clsx('container', className)}>
       {isAdminUser() && (
-        <div className={`button-group button-group--block ${styles.ControlGroup}`}>
+        <div className="button-group button-group--block vertical-margin-1em">
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
             Create new document
           </button>
@@ -117,7 +64,7 @@ const PrivateDocumentPanelWithMetadata = ({
           </button>
         </div>
       )}
-      {isAdminUser() && <MetadataEditor metadata={metadata} />}
+      {isAdminUser() && <PrivateDocumentMetadataEditor metadata={metadata} />}
       <MarkdownBlock markdownCode={`# ${content.title}\n\n${content.markdownContent}`} />
       {isAdminUser() && <ContentEditor content={content} />}
     </main>
