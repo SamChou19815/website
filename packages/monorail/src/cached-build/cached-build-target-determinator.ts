@@ -1,13 +1,17 @@
 import { statSync, existsSync } from 'fs';
 import { join, resolve } from 'path';
 
-import workspaceSourcesNeedRebuild from '../infrastructure/need-rebuild-checker';
+import workspaceNeedRebuild from '../infrastructure/need-rebuild-checker';
 import { workspaceInformation } from '../infrastructure/yarn-workspace-dependency-analysis';
 
-const sourcesNeedRebuild = (workspaceLocation: string, output: string): boolean => {
+const sourcesNeedRebuild = (
+  workspaceName: string,
+  workspaceLocation: string,
+  output: string
+): boolean => {
   const outputPath = resolve(join(workspaceLocation, output));
-  return workspaceSourcesNeedRebuild(
-    workspaceLocation,
+  return workspaceNeedRebuild(
+    workspaceName,
     [outputPath],
     existsSync(outputPath) ? statSync(outputPath).mtime.getTime() : 0
   );
@@ -16,10 +20,10 @@ const sourcesNeedRebuild = (workspaceLocation: string, output: string): boolean 
 /** @returns workspaces that need rebuild */
 const cachedBuildTargetDeterminator = (): readonly string[] =>
   Array.from(workspaceInformation.entries())
-    .filter(([, { workspaceLocation, codegenConfiguration }]) => {
+    .filter(([workspaceName, { workspaceLocation, codegenConfiguration }]) => {
       return (
         codegenConfiguration != null &&
-        sourcesNeedRebuild(workspaceLocation, codegenConfiguration.output)
+        sourcesNeedRebuild(workspaceName, workspaceLocation, codegenConfiguration.output)
       );
     })
     .map(([name]) => name);

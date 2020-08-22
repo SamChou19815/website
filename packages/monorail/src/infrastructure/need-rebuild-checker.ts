@@ -1,11 +1,16 @@
 import { statSync, lstatSync, readdirSync } from 'fs';
 import { join, resolve } from 'path';
 
+import {
+  getYarnWorkspaceInRepoDependencyChain,
+  getYarnWorkspaceLocation,
+} from './yarn-workspace-dependency-analysis';
+
 const singleSourceNeedsRebuild = (sourceFile: string, artifactTime: number) =>
   // When the source is newer than the latest built artifact, it means we need to rebuild.
   statSync(sourceFile).mtime.getTime() >= artifactTime;
 
-const workspaceSourcesNeedRebuild = (
+const singleWorkspaceSourcesNeedRebuild = (
   workspaceLocation: string,
   excludes: readonly string[],
   artifactTime: number
@@ -22,4 +27,13 @@ const workspaceSourcesNeedRebuild = (
   return recursiveVisit(startPath);
 };
 
-export default workspaceSourcesNeedRebuild;
+const workspaceNeedRebuild = (
+  workspaceName: string,
+  excludes: readonly string[],
+  artifactTime: number
+): boolean =>
+  getYarnWorkspaceInRepoDependencyChain(workspaceName)
+    .map(getYarnWorkspaceLocation)
+    .some((location) => singleWorkspaceSourcesNeedRebuild(location, excludes, artifactTime));
+
+export default workspaceNeedRebuild;
