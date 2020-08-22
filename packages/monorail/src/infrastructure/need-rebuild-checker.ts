@@ -1,5 +1,6 @@
 import { statSync, lstatSync, readdirSync } from 'fs';
 import { join, resolve } from 'path';
+
 import {
   getYarnWorkspaceInRepoDependencyChain,
   getYarnWorkspaceLocation,
