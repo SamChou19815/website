@@ -16,14 +16,13 @@ import {
   updateWikiPrivateDocumentContent,
 } from './documents';
 
-type MetadataEditorProps = {
-  readonly document: WikiPrivateDocumentMetadata & WikiPrivateDocumentContent;
-};
-
-const MetadataEditor = ({ document }: MetadataEditorProps): ReactElement => {
-  const [filename, setFilename] = useState(document.filename);
-  const [sharedWithString, setSharedWithString] = useState(document.sharedWith.join(','));
-  const [title, setTitle] = useState(document.title);
+const MetadataEditor = ({
+  metadata,
+}: {
+  readonly metadata: WikiPrivateDocumentMetadata;
+}): ReactElement => {
+  const [filename, setFilename] = useState(metadata.filename);
+  const [sharedWithString, setSharedWithString] = useState(metadata.sharedWith.join(','));
 
   return (
     <div className={clsx('card', styles.ControlGroup)}>
@@ -32,7 +31,7 @@ const MetadataEditor = ({ document }: MetadataEditorProps): ReactElement => {
       </div>
       <div className="card__body">
         <input
-          className={styles.Input}
+          className="text-input"
           type="text"
           value={filename}
           placeholder="Filename"
@@ -41,16 +40,7 @@ const MetadataEditor = ({ document }: MetadataEditorProps): ReactElement => {
       </div>
       <div className="card__body">
         <input
-          className={styles.Input}
-          type="text"
-          value={title}
-          placeholder="Title"
-          onChange={(event) => setTitle(event.currentTarget.value)}
-        />
-      </div>
-      <div className="card__body">
-        <input
-          className={styles.Input}
+          className="text-input"
           type="text"
           value={sharedWithString}
           placeholder="Shared With"
@@ -61,19 +51,13 @@ const MetadataEditor = ({ document }: MetadataEditorProps): ReactElement => {
         <button
           className="button button--primary"
           onClick={() => {
-            const sharedWith =
-              sharedWithString.trim() === ''
-                ? []
-                : sharedWithString.split(',').map((it) => it.trim());
             updateWikiPrivateDocumentMetadata({
-              documentID: document.documentID,
+              documentID: metadata.documentID,
               filename,
-              sharedWith,
-            });
-            updateWikiPrivateDocumentContent({
-              documentID: document.documentID,
-              title,
-              markdownContent: document.markdownContent,
+              sharedWith:
+                sharedWithString.trim() === ''
+                  ? []
+                  : sharedWithString.split(',').map((it) => it.trim()),
             });
           }}
         >
@@ -89,14 +73,17 @@ const ContentEditor = ({
 }: {
   readonly content: WikiPrivateDocumentContent;
 }): ReactElement => {
+  const [title, setTitle] = useState(content.title);
   const [code, setCode] = useState(content.markdownContent);
 
   return (
     <MarkdownInputCard
+      title={title}
       code={code}
+      onTitleChange={setTitle}
       onCodeChange={setCode}
       onSubmit={(markdownContent) =>
-        updateWikiPrivateDocumentContent({ ...content, markdownContent })
+        updateWikiPrivateDocumentContent({ documentID: content.documentID, title, markdownContent })
       }
     />
   );
@@ -111,7 +98,7 @@ const PrivateDocumentPanelWithMetadata = ({
   className,
   metadata,
 }: PropsWithMetadata): ReactElement => {
-  const { documentID, filename, sharedWith } = metadata;
+  const { documentID } = metadata;
   const content = useWikiPrivateDocumentContent(documentID);
   if (content == null) return <main className={clsx('container', className)}>Loading...</main>;
 
@@ -130,7 +117,7 @@ const PrivateDocumentPanelWithMetadata = ({
           </button>
         </div>
       )}
-      {isAdminUser() && <MetadataEditor document={{ filename, sharedWith, ...content }} />}
+      {isAdminUser() && <MetadataEditor metadata={metadata} />}
       <MarkdownBlock markdownCode={`# ${content.title}\n\n${content.markdownContent}`} />
       {isAdminUser() && <ContentEditor content={content} />}
     </main>

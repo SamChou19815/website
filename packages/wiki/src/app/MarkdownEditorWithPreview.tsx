@@ -17,20 +17,31 @@ const MarkdownPreviewCard = ({ markdownCode }: { readonly markdownCode: string }
   );
 };
 
-type Props = { readonly initialMarkdownCode: string; readonly onSubmit: (code: string) => void };
+type Props = {
+  readonly initialTitle: string;
+  readonly initialMarkdownCode: string;
+  readonly onSubmit: (code: string) => void;
+};
 
-const MarkdownEditorWithPreview = ({ initialMarkdownCode, onSubmit }: Props): ReactElement => {
+const MarkdownEditorWithPreview = ({
+  initialTitle,
+  initialMarkdownCode,
+  onSubmit,
+}: Props): ReactElement => {
+  const [title, setTitle] = useState(initialTitle);
   const [code, setCode] = useState(initialMarkdownCode);
 
   return (
     <div className={styles.MarkdownEditorWithPreview}>
       <MarkdownInputCard
+        title={title}
         code={code}
         className={styles.ParallelCard}
+        onTitleChange={setTitle}
         onCodeChange={setCode}
         onSubmit={onSubmit}
       />
-      <MarkdownPreviewCard markdownCode={code} />
+      <MarkdownPreviewCard markdownCode={`# ${title}\n\n${code}`} />
     </div>
   );
 };

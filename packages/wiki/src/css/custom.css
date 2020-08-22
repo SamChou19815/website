@@ -29,3 +29,8 @@ pre {
   align-content: center;
   justify-content: center;
 }
+
+.card__body > .text-input {
+  width: 100%;
+  padding: 0.5em;
+}

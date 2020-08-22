@@ -10,7 +10,11 @@ const onSubmit = () => alert('This dummy submit button does nothing.');
 export default function MarkdownEditorDemo(): JSX.Element {
   return (
     <Layout title="Markdown Editor Demo" description="Developer Sam's Wiki">
-      <MarkdownEditorWithPreview initialMarkdownCode="" onSubmit={onSubmit} />
+      <MarkdownEditorWithPreview
+        initialTitle="Untitled"
+        initialMarkdownCode=""
+        onSubmit={onSubmit}
+      />
     </Layout>
   );
 }
