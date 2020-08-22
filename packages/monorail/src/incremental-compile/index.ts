@@ -2,7 +2,7 @@
 
 import { spawnSync, spawn } from 'child_process';
 
-import workspaceSourcesNeedRebuild from '../infrastructure/need-rebuild-checker';
+import workspaceNeedRebuild from '../infrastructure/need-rebuild-checker';
 import {
   getYarnWorkspacesInTopologicalOrder,
   getYarnWorkspaceHasCompileScript,
@@ -19,7 +19,7 @@ const incrementalCompile = async (): Promise<void> => {
   const lastRunTime = getIncrementalCompileLastRunTime();
 
   const needToRecompileLocalCheck = (workspace: string): boolean =>
-    workspaceSourcesNeedRebuild(getYarnWorkspaceLocation(workspace), [], lastRunTime);
+    workspaceNeedRebuild(workspace, [], lastRunTime);
   const needToRecompileCICheck = (workspace: string): boolean =>
     spawnSync('git', ['diff', 'HEAD^', 'HEAD', '--name-only', getYarnWorkspaceLocation(workspace)])
       .stdout.toString()
