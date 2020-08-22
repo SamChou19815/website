@@ -77,7 +77,7 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, GitHubActionsWork
           GITHUB_ACTIONS_CHECKOUT_STEP,
           GITHUB_ACTIONS_SETUP_NODE_STEP,
           githubActionJobRunStep('Codegen', `${PROJECT_CONFIGURATION.binary} codegen`),
-          githubActionJobRunStep('Check changed', 'git diff --quiet --exit-code'),
+          githubActionJobRunStep('Check changed', `${PROJECT_CONFIGURATION.binary} no-changed`),
         ],
       },
     ],
