@@ -147,7 +147,7 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
     return (
       <main className={clsx('container', className)}>
         <h1>Hello {getAppUser().displayName}</h1>
-        {isAdminUser() ? (
+        {!isAdminUser() ? (
           <div>Select a document on the left</div>
         ) : (
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
