@@ -6,7 +6,7 @@ const checkThatThereIsNoChangedFiles = (): void => {
   }).stdout.toString();
   if (changedFiles.length === 0) return;
   throw new Error(
-    `There are changed files! Generated files might be out-of-sync!\n${changedFiles}`
+    `There are changed files! Generated files might be out-of-sync!\n${changedFiles.trimEnd()}`
   );
 };
 
