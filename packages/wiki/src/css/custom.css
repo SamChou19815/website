@@ -34,3 +34,7 @@ pre {
   width: 100%;
   padding: 0.5em;
 }
+
+.vertical-margin-1em {
+  margin: 1em 0;
+}
