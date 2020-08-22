@@ -37,15 +37,6 @@
   "deploymentDependencies": [
     "firebase-tools"
   ],
-  "codegenConfiguration": {
-    "sources": [
-      "../../../private-monorepo/confidential",
-      "private-docs-generator.ts",
-      "sidebars.json",
-      "package.json"
-    ],
-    "output": "private-docs/private-sidebars.json"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
