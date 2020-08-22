@@ -36,38 +36,19 @@ const ContentEditor = ({
   );
 };
 
-type PropsWithMetadata = {
-  readonly className?: string;
-  readonly metadata: WikiPrivateDocumentMetadata;
-};
-
 const PrivateDocumentPanelWithMetadata = ({
-  className,
   metadata,
-}: PropsWithMetadata): ReactElement => {
-  const { documentID } = metadata;
-  const content = useWikiPrivateDocumentContent(documentID);
-  if (content == null) return <main className={clsx('container', className)}>Loading...</main>;
+}: {
+  readonly metadata: WikiPrivateDocumentMetadata;
+}): ReactElement => {
+  const content = useWikiPrivateDocumentContent(metadata.documentID);
+  if (content == null) return <>Loading...</>;
 
   return (
-    <main className={clsx('container', className)}>
-      {isAdminUser() && (
-        <div className="button-group button-group--block vertical-margin-1em">
-          <button className="button button--primary" onClick={createWikiPrivateDocument}>
-            Create new document
-          </button>
-          <button
-            className="button button--primary"
-            onClick={() => deleteWikiPrivateDocument(documentID)}
-          >
-            Delete this document
-          </button>
-        </div>
-      )}
-      {isAdminUser() && <PrivateDocumentMetadataEditor metadata={metadata} />}
+    <>
       <MarkdownBlock markdownCode={`# ${content.title}\n\n${content.markdownContent}`} />
       {isAdminUser() && <ContentEditor content={content} />}
-    </main>
+    </>
   );
 };
 
@@ -92,7 +73,25 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
     );
   }
 
-  return <PrivateDocumentPanelWithMetadata className={className} metadata={documentMetadata} />;
+  return (
+    <main className={clsx('container', className)}>
+      {isAdminUser() && (
+        <div className="button-group button-group--block vertical-margin-1em">
+          <button className="button button--primary" onClick={createWikiPrivateDocument}>
+            Create new document
+          </button>
+          <button
+            className="button button--primary"
+            onClick={() => deleteWikiPrivateDocument(documentMetadata.documentID)}
+          >
+            Delete this document
+          </button>
+        </div>
+      )}
+      {isAdminUser() && <PrivateDocumentMetadataEditor metadata={documentMetadata} />}
+      <PrivateDocumentPanelWithMetadata metadata={documentMetadata} />
+    </main>
+  );
 };
 
 export default PrivateDocumentPanel;
