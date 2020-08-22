@@ -14,6 +14,7 @@ import cachedBuild from './cached-build';
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
 import incrementalCompile from './incremental-compile';
+import checkThatThereIsNoChangedFiles from './no-changed';
 import synchronize from './sync';
 
 /**
@@ -30,6 +31,9 @@ const main = async (): Promise<void> => {
         return;
       case 'COMPILE':
         await incrementalCompile();
+        return;
+      case 'NO_CHANGED':
+        checkThatThereIsNoChangedFiles();
         return;
       case 'REBUILD':
         await cachedBuild();

@@ -15,4 +15,4 @@ jobs:
       - name: Codegen
         run: ./packages/monorail/bin/monorail codegen
       - name: Check changed
-        run: git diff --quiet --exit-code
+        run: ./packages/monorail/bin/monorail no-changed

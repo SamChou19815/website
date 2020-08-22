@@ -1,4 +1,9 @@
-const parseCommandLineArgumentsIntoCommand = (): 'CODEGEN' | 'COMPILE' | 'REBUILD' | 'SYNC' => {
+const parseCommandLineArgumentsIntoCommand = ():
+  | 'CODEGEN'
+  | 'COMPILE'
+  | 'NO_CHANGED'
+  | 'REBUILD'
+  | 'SYNC' => {
   const normalizedArguments: readonly string[] = process.argv.slice(2);
 
   if (normalizedArguments.length === 0) {
@@ -11,6 +16,9 @@ const parseCommandLineArgumentsIntoCommand = (): 'CODEGEN' | 'COMPILE' | 'REBUIL
     case 'compile':
     case 'c':
       return 'COMPILE';
+    case 'no-changed':
+    case 'nc':
+      return 'NO_CHANGED';
     case 'rebuild':
     case 'r':
       return 'REBUILD';
