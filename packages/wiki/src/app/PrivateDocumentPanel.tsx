@@ -130,11 +130,9 @@ const PrivateDocumentPanelWithMetadata = ({
           </button>
         </div>
       )}
-      {isAdminUser() && (
-        <MetadataEditor key={documentID} document={{ filename, sharedWith, ...content }} />
-      )}
+      {isAdminUser() && <MetadataEditor document={{ filename, sharedWith, ...content }} />}
       <MarkdownBlock markdownCode={`# ${content.title}\n\n${content.markdownContent}`} />
-      {isAdminUser() && <ContentEditor key={documentID} content={content} />}
+      {isAdminUser() && <ContentEditor content={content} />}
     </main>
   );
 };

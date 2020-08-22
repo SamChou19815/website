@@ -49,7 +49,7 @@ export const useWikiPrivateDocumentsMetadata = ():
         const documentWithoutId = document.data() as FirebaseType<WikiPrivateDocumentMetadata>;
         return { ...documentWithoutId, documentID: document.id };
       });
-      setDocuments(updatedDocuments);
+      setDocuments(updatedDocuments.sort((a, b) => a.filename.localeCompare(b.filename)));
     });
   }, []);
 
