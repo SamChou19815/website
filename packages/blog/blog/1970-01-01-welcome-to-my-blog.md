@@ -16,8 +16,8 @@ Here is a Hello World code snippet in my own programming language
 
 ```samlang
 class Main {
-  fun main(): unit = println("Hello, Sam!")
+  function main(): unit = println("Hello, Sam!")
 }
 ```
 
-Last updated on March 26, 2020.
+Last updated on August 22, 2020.
