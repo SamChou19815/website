@@ -4,29 +4,49 @@ import { firestore } from 'firebase/app';
 
 import { getAppUser, isAdminUser } from './authentication';
 
-export type WikiPrivateDocument = {
+export type WikiPrivateDocumentMetadata = {
   readonly documentID: string;
+  readonly filename: string;
   readonly sharedWith: readonly string[];
+};
+
+export type WikiPrivateDocumentContent = {
+  readonly documentID: string;
   readonly title: string;
   readonly markdownContent: string;
 };
 
-const Firestore = firestore();
-const firestorePrivateDocumentCollection = Firestore.collection('wiki-app-private-documents');
+type FirebaseType<T> = Omit<T, 'documentID'>;
 
-export const useWikiPrivateDocuments = (): readonly WikiPrivateDocument[] | null => {
-  const [documents, setDocuments] = useState<readonly WikiPrivateDocument[] | null>(null);
+const Firestore = firestore();
+
+const firestorePrivateDocumentMetadataCollection = Firestore.collection(
+  'wiki-app-private-document-metadata'
+);
+
+const firestorePrivateDocumentContentCollection = Firestore.collection(
+  'wiki-app-private-document-content'
+);
+
+export const useWikiPrivateDocumentsMetadata = ():
+  | readonly WikiPrivateDocumentMetadata[]
+  | null => {
+  const [documents, setDocuments] = useState<readonly WikiPrivateDocumentMetadata[] | null>(null);
 
   useEffect(() => {
     const currentUserEmail = getAppUser().email;
     const query = isAdminUser()
-      ? firestorePrivateDocumentCollection
+      ? firestorePrivateDocumentMetadataCollection
       : // This check is added for user experience, not for security.
         // The check is also in security rules.
-        firestorePrivateDocumentCollection.where('sharedWith', 'array-contains', currentUserEmail);
+        firestorePrivateDocumentMetadataCollection.where(
+          'sharedWith',
+          'array-contains',
+          currentUserEmail
+        );
     return query.onSnapshot((snapshot) => {
       const updatedDocuments = snapshot.docs.map((document) => {
-        const documentWithoutId = document.data() as Omit<WikiPrivateDocument, 'documentID'>;
+        const documentWithoutId = document.data() as FirebaseType<WikiPrivateDocumentMetadata>;
         return { ...documentWithoutId, documentID: document.id };
       });
       setDocuments(updatedDocuments);
@@ -36,13 +56,56 @@ export const useWikiPrivateDocuments = (): readonly WikiPrivateDocument[] | null
   return documents;
 };
 
-export const upsertWikiPrivateDocument = ({
+export const useWikiPrivateDocumentContent = (
+  documentID: string
+): WikiPrivateDocumentContent | null => {
+  const [content, setContent] = useState<WikiPrivateDocumentContent | null>(null);
+
+  useEffect(() => {
+    return firestorePrivateDocumentContentCollection.doc(documentID).onSnapshot((snapshot) => {
+      const data = snapshot.data() as FirebaseType<WikiPrivateDocumentContent> | undefined;
+      if (data == null) {
+        setContent(null);
+      } else {
+        setContent({ ...data, documentID });
+      }
+    });
+  }, [documentID]);
+
+  return content;
+};
+
+export const createWikiPrivateDocument = async (): Promise<void> => {
+  // eslint-disable-next-line no-alert
+  const filename = prompt('Filename');
+  // eslint-disable-next-line no-alert
+  const title = prompt('Title');
+  if (filename == null || title == null) return;
+
+  const metadataDocument = await firestorePrivateDocumentMetadataCollection.add({
+    filename,
+    sharedWith: [],
+  });
+  await firestorePrivateDocumentContentCollection
+    .doc(metadataDocument.id)
+    .set({ title, markdownContent: '' });
+};
+
+export const updateWikiPrivateDocumentSharedWith = (
+  documentID: string,
+  sharedWith: readonly string[]
+): void => {
+  firestorePrivateDocumentMetadataCollection.doc(documentID).update({ sharedWith });
+};
+
+export const updateWikiPrivateDocumentContent = ({
   documentID,
-  ...documentData
-}: WikiPrivateDocument): void => {
-  firestorePrivateDocumentCollection.doc(documentID).set(documentData);
+  ...documentContent
+}: WikiPrivateDocumentContent): void => {
+  firestorePrivateDocumentContentCollection.doc(documentID).update(documentContent);
 };
 
 export const deleteWikiPrivateDocument = (documentID: string): void => {
-  firestorePrivateDocumentCollection.doc(documentID).delete();
+  firestorePrivateDocumentMetadataCollection.doc(documentID).delete();
+  firestorePrivateDocumentContentCollection.doc(documentID).delete();
 };
