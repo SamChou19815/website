@@ -30,7 +30,7 @@ jobs:
       - name: Format Check
         run: yarn format:check
       - name: Lint
-        run: yarn lint
+        run: yarn format:check
   build:
     runs-on: ubuntu-latest
     steps:
