@@ -91,11 +91,11 @@ export const createWikiPrivateDocument = async (): Promise<void> => {
     .set({ title, markdownContent: '' });
 };
 
-export const updateWikiPrivateDocumentSharedWith = (
-  documentID: string,
-  sharedWith: readonly string[]
-): void => {
-  firestorePrivateDocumentMetadataCollection.doc(documentID).update({ sharedWith });
+export const updateWikiPrivateDocumentMetadata = ({
+  documentID,
+  ...documentMedatata
+}: WikiPrivateDocumentMetadata): void => {
+  firestorePrivateDocumentMetadataCollection.doc(documentID).update(documentMedatata);
 };
 
 export const updateWikiPrivateDocumentContent = ({

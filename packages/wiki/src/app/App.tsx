@@ -21,6 +21,10 @@ const App = (): ReactElement => {
     return <div className="simple-page-center">Loading...</div>;
   }
 
+  const documentMetadata = documentMetadataList.find(
+    (metadata) => metadata.documentID === documentID
+  );
+
   return (
     <div className={styles.App}>
       <Sidebar
@@ -29,10 +33,9 @@ const App = (): ReactElement => {
         documentMetadataList={documentMetadataList}
       />
       <PrivateDocumentPanel
+        key={documentMetadata?.documentID ?? ''}
         className={styles.DocumentMainContainer}
-        documentMetadata={documentMetadataList.find(
-          (metadata) => metadata.documentID === documentID
-        )}
+        documentMetadata={documentMetadata}
       />
     </div>
   );

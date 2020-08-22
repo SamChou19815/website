@@ -12,10 +12,83 @@ import {
   deleteWikiPrivateDocument,
   useWikiPrivateDocumentContent,
   createWikiPrivateDocument,
+  updateWikiPrivateDocumentMetadata,
   updateWikiPrivateDocumentContent,
 } from './documents';
 
-const Editor = ({ content }: { readonly content: WikiPrivateDocumentContent }): ReactElement => {
+type MetadataEditorProps = {
+  readonly document: WikiPrivateDocumentMetadata & WikiPrivateDocumentContent;
+};
+
+const MetadataEditor = ({ document }: MetadataEditorProps): ReactElement => {
+  const [filename, setFilename] = useState(document.filename);
+  const [sharedWithString, setSharedWithString] = useState(document.sharedWith.join(','));
+  const [title, setTitle] = useState(document.title);
+
+  return (
+    <div className={clsx('card', styles.ControlGroup)}>
+      <div className="card__header">
+        <h2>Edit Document Metadata</h2>
+      </div>
+      <div className="card__body">
+        <input
+          className={styles.Input}
+          type="text"
+          value={filename}
+          placeholder="Filename"
+          onChange={(event) => setFilename(event.currentTarget.value)}
+        />
+      </div>
+      <div className="card__body">
+        <input
+          className={styles.Input}
+          type="text"
+          value={title}
+          placeholder="Title"
+          onChange={(event) => setTitle(event.currentTarget.value)}
+        />
+      </div>
+      <div className="card__body">
+        <input
+          className={styles.Input}
+          type="text"
+          value={sharedWithString}
+          placeholder="Shared With"
+          onChange={(event) => setSharedWithString(event.currentTarget.value)}
+        />
+      </div>
+      <div className="card__footer">
+        <button
+          className="button button--primary"
+          onClick={() => {
+            const sharedWith =
+              sharedWithString.trim() === ''
+                ? []
+                : sharedWithString.split(',').map((it) => it.trim());
+            updateWikiPrivateDocumentMetadata({
+              documentID: document.documentID,
+              filename,
+              sharedWith,
+            });
+            updateWikiPrivateDocumentContent({
+              documentID: document.documentID,
+              title,
+              markdownContent: document.markdownContent,
+            });
+          }}
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const ContentEditor = ({
+  content,
+}: {
+  readonly content: WikiPrivateDocumentContent;
+}): ReactElement => {
   const [code, setCode] = useState(content.markdownContent);
 
   return (
@@ -29,14 +102,6 @@ const Editor = ({ content }: { readonly content: WikiPrivateDocumentContent }): 
   );
 };
 
-const editTitle = (content: WikiPrivateDocumentContent): void => {
-  updateWikiPrivateDocumentContent({
-    ...content,
-    // eslint-disable-next-line no-alert
-    title: prompt('New Title', content.title) ?? content.title,
-  });
-};
-
 type PropsWithMetadata = {
   readonly className?: string;
   readonly metadata: WikiPrivateDocumentMetadata;
@@ -44,20 +109,18 @@ type PropsWithMetadata = {
 
 const PrivateDocumentPanelWithMetadata = ({
   className,
-  metadata: { documentID },
+  metadata,
 }: PropsWithMetadata): ReactElement => {
+  const { documentID, filename, sharedWith } = metadata;
   const content = useWikiPrivateDocumentContent(documentID);
   if (content == null) return <main className={clsx('container', className)}>Loading...</main>;
 
   return (
     <main className={clsx('container', className)}>
       {isAdminUser() && (
-        <div className={`button-group button-group--block ${styles.ControlButtonGroup}`}>
+        <div className={`button-group button-group--block ${styles.ControlGroup}`}>
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
             Create new document
-          </button>
-          <button className="button button--primary" onClick={() => editTitle(content)}>
-            Edit Title
           </button>
           <button
             className="button button--primary"
@@ -67,8 +130,11 @@ const PrivateDocumentPanelWithMetadata = ({
           </button>
         </div>
       )}
+      {isAdminUser() && (
+        <MetadataEditor key={documentID} document={{ filename, sharedWith, ...content }} />
+      )}
       <MarkdownBlock markdownCode={`# ${content.title}\n\n${content.markdownContent}`} />
-      {isAdminUser() && <Editor key={documentID} content={content} />}
+      {isAdminUser() && <ContentEditor key={documentID} content={content} />}
     </main>
   );
 };
