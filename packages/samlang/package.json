@@ -24,7 +24,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.0.0-alpha.61",
     "@types/react": "^16.9.43",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   },
   "deploymentDependencies": [
     "firebase-tools"

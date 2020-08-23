@@ -31,7 +31,7 @@
     "next": "^9.5.2",
     "next-transpile-modules": "^4.1.0",
     "prettier": "2.0.5",
-    "typescript": "^3.9.7",
+    "typescript": "^4.0.2",
     "webpack": "^4.44.1"
   },
   "peerDependencies": {
