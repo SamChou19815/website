@@ -1,10 +1,54 @@
 import { join } from 'path';
 
-import { CodegenInMemoryFilesystem } from '../codegen-filesystems';
-import runCodegenServicesAccordingToFilesystemEvents, {
+import {
+  CodegenInMemoryFilesystem,
+  createPlaintextCodegenService,
+  createPlaintextConcatenationCodegenService,
+  createTypeScriptCodegenService,
+  runCodegenServicesAccordingToFilesystemEvents,
   GENERATED_FILES_SOURCE_MAPPINGS_JSON,
-} from '../codegen-runner';
-import { createPlaintextCodegenService } from '../codegen-service-factory';
+} from '.';
+
+it('CodegenInMemoryFilesystem works.', () => {
+  const filesystem = new CodegenInMemoryFilesystem([['foo.txt', 'bar']]);
+  expect(filesystem.readFile('foo.txt')).toBe('bar');
+  expect(() => filesystem.readFile('bar.txt')).toThrow();
+  filesystem.writeFile('bar.txt', 'baz');
+  expect(filesystem.readFile('bar.txt')).toBe('baz');
+  filesystem.deleteFile('foo.txt');
+  expect(() => filesystem.readFile('foo.txt')).toThrow();
+});
+
+it('createPlaintextConcatenationCodegenService works', () => {
+  const service = createPlaintextConcatenationCodegenService('', '', [
+    { additionalContent: 'foo', outputFilename: 'foo.sam' },
+    { additionalContent: 'bar', outputFilename: 'bar.sam' },
+  ]);
+
+  expect(service.run('', 'haha-')).toEqual([
+    {
+      isOutputFileCodegenServiceManaged: true,
+      outputFilename: 'foo.sam',
+      outputRawContent: 'haha-foo',
+    },
+    {
+      isOutputFileCodegenServiceManaged: true,
+      outputFilename: 'bar.sam',
+      outputRawContent: 'haha-bar',
+    },
+  ]);
+});
+
+it('createTypeScriptCodegenService works', () => {
+  const service = createTypeScriptCodegenService<() => number>('', '', () => []);
+
+  // Test that
+  // - type imports are fully erased.
+  // - exports can be fully evaluated even if it's a function.
+  expect(
+    service.generatedSourceEvaluator('import type {Foo} from "bar"; export default () => 42')()
+  ).toBe(42);
+});
 
 it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
   const identityService = createPlaintextCodegenService('', '', (sourceFilename, sourceCode) => [
@@ -56,4 +100,12 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
   expect(filesystem.readFile('__generated__/template/bar.txt')).toBe('bar');
   expect(filesystem.readFile('__generated__/managed/baz.txt')).toBe('baz');
   expect(filesystem.readFile('__generated__/template/baz.txt')).toBe('bar');
+
+  expect(JSON.parse(filesystem.readFile(GENERATED_FILES_SOURCE_MAPPINGS_JSON))).toEqual({
+    __type__: '@' + 'generated',
+    mappings: {
+      'bar.txt': ['__generated__/managed/bar.txt'],
+      'baz.txt': ['__generated__/managed/baz.txt'],
+    },
+  });
 });
