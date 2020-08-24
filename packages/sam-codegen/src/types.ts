@@ -25,3 +25,13 @@ export interface CodegenService<T> {
   /** The main runner code. */
   readonly run: (sourceFilename: string, evaluatedSource: T) => readonly CodegenServiceFileOutput[];
 }
+
+/**
+ * For the purpose of deterministic testing as well potentially virtualized filesystem, we need to
+ * abstract out the filesystem actions.
+ */
+export interface CodegenFilesystem {
+  readonly readFile: (filename: string) => string;
+  readonly writeFile: (filename: string, content: string) => void;
+  readonly deleteFile: (filename: string) => void;
+}
