@@ -3,7 +3,6 @@ import React, { ReactElement, useState, useEffect } from 'react';
 import './firebase-initializer';
 import firebase from 'firebase/app';
 
-import App from './App';
 import { appUser$, hasAppUser } from './authentication';
 
 const firebaseLoginProvider = new firebase.auth.GithubAuthProvider();
@@ -15,24 +14,17 @@ const onLoginClick = () => {
 const LoadingPage = () => <div className="simple-page-center">Loading...</div>;
 
 type Props = {
-  /** Whether all data has been loaded. */
-  readonly isDataLoaded: boolean;
-  /**
-   * The function that will be called once the login finishes.
-   * The returned promise should resolve when all data has been loaded and stored.
-   */
-  readonly dataLoader: () => void;
+  /** The child to render when the barrier is cleared. */
+  readonly children: ReactElement;
 };
-type AppStatus = 'INIT_LOADING' | 'LANDING' | 'DATA_LOADING_OR_APP';
+type AppStatus = 'INIT_LOADING' | 'LANDING' | 'APP';
 
 /**
  * The barrier to enter the main app.
  * It can help to enforce that all necessary information is loaded before entering the main app.
  */
-const FirebaseLoginAppBarrier = ({ isDataLoaded, dataLoader }: Props): ReactElement => {
-  const [appStatus, setAppStatus] = useState<AppStatus>(
-    hasAppUser() ? 'DATA_LOADING_OR_APP' : 'INIT_LOADING'
-  );
+const FirebaseLoginAppBarrier = ({ children }: Props): ReactElement => {
+  const [appStatus, setAppStatus] = useState<AppStatus>(hasAppUser() ? 'APP' : 'INIT_LOADING');
 
   // Listen for auth state changes in effect hooks.
   useEffect(() => {
@@ -41,16 +33,10 @@ const FirebaseLoginAppBarrier = ({ isDataLoaded, dataLoader }: Props): ReactElem
         setAppStatus('LANDING');
         return;
       }
-      setAppStatus('DATA_LOADING_OR_APP');
+      setAppStatus('APP');
     });
     return () => subscription.unsubscribe();
   }, []);
-
-  useEffect(() => {
-    if (appStatus === 'DATA_LOADING_OR_APP' && !isDataLoaded) {
-      dataLoader();
-    }
-  }, [appStatus, dataLoader, isDataLoaded]);
 
   switch (appStatus) {
     case 'LANDING':
@@ -63,8 +49,8 @@ const FirebaseLoginAppBarrier = ({ isDataLoaded, dataLoader }: Props): ReactElem
       );
     case 'INIT_LOADING':
       return <LoadingPage />;
-    case 'DATA_LOADING_OR_APP':
-      return isDataLoaded ? <App /> : <LoadingPage />;
+    case 'APP':
+      return children;
     default:
       throw new Error(`Unknown state: ${appStatus}`);
   }
