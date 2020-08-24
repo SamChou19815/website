@@ -31,6 +31,7 @@ export interface CodegenService<T> {
  * abstract out the filesystem actions.
  */
 export interface CodegenFilesystem {
+  readonly fileExists: (filename: string) => boolean;
   readonly readFile: (filename: string) => string;
   readonly writeFile: (filename: string, content: string) => void;
   readonly deleteFile: (filename: string) => void;
