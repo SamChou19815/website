@@ -14,7 +14,7 @@ export interface CodegenService<T> {
   /** Name of the codegen service. Doesn't affect codegen results but useful for readable output. */
   readonly name: string;
   /** Optional file pattern of source file to help avoid scanning all files. */
-  readonly sourceFilesPattern?: string;
+  readonly sourceFilesPattern: string | undefined;
   /**
    * The raw source to be evaluated to an arbritrary JS object.
    * The implementation can be as simple as the identity function.
