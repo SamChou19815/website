@@ -1,4 +1,4 @@
-import { readFileSync, unlinkSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
 
 import { CodegenFilesystem } from './types';
 
@@ -7,6 +7,10 @@ export class CodegenInMemoryFilesystem implements CodegenFilesystem {
 
   constructor(initialFiles: readonly (readonly [string, string])[]) {
     this.files = new Map(initialFiles);
+  }
+
+  fileExists(filename: string): boolean {
+    return this.files.has(filename);
   }
 
   readFile(filename: string): string {
@@ -25,6 +29,7 @@ export class CodegenInMemoryFilesystem implements CodegenFilesystem {
 }
 
 export const CodegenRealFilesystem: CodegenFilesystem = {
+  fileExists: (filename) => existsSync(filename),
   readFile: (filename) => readFileSync(filename).toString(),
   writeFile: (filename, content) => writeFileSync(filename, content),
   deleteFile: (filename) => unlinkSync(filename),
