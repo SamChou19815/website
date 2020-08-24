@@ -6,15 +6,15 @@ import Layout from '@theme/Layout';
 // Lazy import is necessary for conditional execution below,
 // since firebase/app code cannot be executed in SSR environments.
 const FirebaseLoginAppBarrier = lazy(() => import('../app/FirebaseLoginAppBarrier'));
-const App = lazy(() => import('../app/App'));
+const PermissionViewer = lazy(() => import('../app/PermissionViewer'));
 
-export default function InternTierAccessEntryPoint(): ReactElement {
+export default function InternPermissions(): ReactElement {
   return (
-    <Layout title="internals@dev-sam" description="Restricted-access internal portal">
+    <Layout title="internals-permissions@dev-sam" description="Show a list of permissions">
       {ExecutionEnvironment.canUseDOM ? (
         <Suspense fallback={null}>
           <FirebaseLoginAppBarrier>
-            <App />
+            <PermissionViewer />
           </FirebaseLoginAppBarrier>
         </Suspense>
       ) : (
