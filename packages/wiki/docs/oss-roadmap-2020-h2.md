@@ -65,6 +65,11 @@ implement an access control mechanism that doesn't require non-local building.
 - Auditing every existing rules and eliminate dependencies on airbnb config;
 - Make the linter config TypeScript first.
 
+### Codegen Service
+
+- A codegen service that can support custom codegen plugins.
+- Its architecture must support both full rebuild and incremental rebuild.
+
 ### Build System
 
 Improve upon the current build system and achieve the following goals:
