@@ -43,11 +43,13 @@ type Props = {
 const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElement => {
   const [showEditorModal, setShowEditorModal] = useState(false);
 
+  const isAdmin = isAdminUser();
+
   if (documentMetadata == null) {
     return (
       <main className={clsx('container', className)}>
         <h1>Hello {getAppUser().displayName}</h1>
-        {!isAdminUser() ? (
+        {!isAdmin ? (
           <div>Select a document on the left</div>
         ) : (
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
@@ -60,7 +62,7 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
 
   return (
     <main className={clsx('container', className)}>
-      {isAdminUser() && (
+      {isAdmin && (
         <div className="button-group button-group--block vertical-margin-1em">
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
             Create new document
@@ -76,7 +78,28 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
           </button>
         </div>
       )}
-      {isAdminUser() && <PrivateDocumentMetadataEditor metadata={documentMetadata} />}
+      {isAdmin ? (
+        <PrivateDocumentMetadataEditor metadata={documentMetadata} />
+      ) : (
+        <div className="card vertical-margin-1em">
+          <div className="card__header">
+            <h2>Document Metadata</h2>
+          </div>
+          <div className="card__body">
+            Filename: <code>{documentMetadata.filename}</code>
+          </div>
+          {documentMetadata.sharedWith.length > 0 && (
+            <div className="card__body">
+              <div>Shared with:</div>
+              <ul>
+                {documentMetadata.sharedWith.map((email) => (
+                  <li key={email}>{email}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
       <PrivateDocumentPanelWithMetadata
         metadata={documentMetadata}
         showEditorModal={showEditorModal}
