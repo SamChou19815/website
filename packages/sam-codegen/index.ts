@@ -47,22 +47,15 @@ export const CodegenRealFilesystem: CodegenFilesystem = {
 };
 
 export type CodegenServiceFileOutput = {
-  /**
-   * When set to false, it will be treated as a template file.
-   * The file won't be overridden if something is already there.
-   */
-  readonly isOutputFileCodegenServiceManaged: boolean;
   /** Needed to output file and delete it when the source is gone */
   readonly outputFilename: string;
   /** Raw content with extra comments. The framework will handle it. */
-  readonly outputRawContent: string;
+  readonly outputContent: string;
 };
 
 export interface CodegenService<T> {
   /** Name of the codegen service. Doesn't affect codegen results but useful for readable output. */
   readonly name: string;
-  /** Optional file pattern of source file to help avoid scanning all files. */
-  readonly sourceFilesPattern: string | undefined;
   /**
    * The raw source to be evaluated to an arbritrary JS object.
    * The implementation can be as simple as the identity function.
@@ -76,38 +69,32 @@ export interface CodegenService<T> {
 
 export const createPlaintextCodegenService = (
   name: string,
-  sourceFilesPattern: string | undefined,
   run: (sourceFilename: string, evaluatedSource: string) => readonly CodegenServiceFileOutput[]
 ): CodegenService<string> => ({
   name,
-  sourceFilesPattern,
   generatedSourceEvaluator: (sourceString) => sourceString,
   run,
 });
 
 export const createPlaintextConcatenationCodegenService = (
   name: string,
-  sourceFilesPattern: string | undefined,
   additionalContentsToConcatenate: readonly {
     readonly additionalContent: string;
     readonly outputFilename: string;
   }[]
 ): CodegenService<string> =>
-  createPlaintextCodegenService(name, sourceFilesPattern, (_, evaluatedSource) =>
+  createPlaintextCodegenService(name, (_, evaluatedSource) =>
     additionalContentsToConcatenate.map(({ additionalContent, outputFilename }) => ({
-      isOutputFileCodegenServiceManaged: true,
-      outputRawContent: `${evaluatedSource}${additionalContent}`,
+      outputContent: `${evaluatedSource}${additionalContent}`,
       outputFilename,
     }))
   );
 
 export const createTypeScriptCodegenService = <T>(
   name: string,
-  sourceFilesPattern: string | undefined,
   run: (sourceFilename: string, evaluatedSource: T) => readonly CodegenServiceFileOutput[]
 ): CodegenService<T> => ({
   name,
-  sourceFilesPattern,
   generatedSourceEvaluator: (sourceString) => {
     const transpiledModuleCode = TypeScript.transpile(sourceString, {
       module: TypeScript.ModuleKind.CommonJS,
@@ -157,23 +144,15 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
     const source = filesystem.readFile(filename);
     codegenServices.forEach((service) => {
       const codegenOutputs = service.run(filename, service.generatedSourceEvaluator(source));
-      const managedFiles: string[] = [];
+      const managedFiles = new Set(generatedFileMappings[filename] ?? []);
 
-      codegenOutputs.forEach(
-        ({ isOutputFileCodegenServiceManaged, outputFilename, outputRawContent }) => {
-          if (isOutputFileCodegenServiceManaged || !filesystem.fileExists(outputFilename)) {
-            filesystem.writeFile(outputFilename, outputRawContent);
-            writtenFiles.add(outputFilename);
-          }
-          if (isOutputFileCodegenServiceManaged) {
-            managedFiles.push(outputFilename);
-          }
-        }
-      );
+      codegenOutputs.forEach(({ outputFilename, outputContent }) => {
+        filesystem.writeFile(outputFilename, outputContent);
+        writtenFiles.add(outputFilename);
+        managedFiles.add(outputFilename);
+      });
 
-      generatedFileMappings[filename] = Array.from(
-        new Set([...(generatedFileMappings[filename] ?? []), ...managedFiles])
-      ).sort(stringComparator);
+      generatedFileMappings[filename] = Array.from(managedFiles).sort(stringComparator);
     });
   });
 
