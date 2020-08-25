@@ -27,8 +27,8 @@ Autocomplete for Kotlin (IDE: IntelliJ IDEA)
 
 Autocompletion is a useful service that can usually be well implemented for statically typed
 programming languages. The most common form is dot completion: you press `.` after an object
-expression, and a list of available fields and methods for that object will popup. It is possible
-to build the same feature for dynamic programming languages, but the lack of type information can
+expression, and a list of available fields and methods for that object will popup. It is possible to
+build the same feature for dynamic programming languages, but the lack of type information can
 decrease the quality of completion results.
 
 ### Compiler 101
@@ -134,11 +134,11 @@ An example of an easy feature is type query. When a user hovers over an expressi
 expect IDE to show some information about this expression. Usually, type information is shown to the
 user. Here are some examples of type query:
 
-![Type Query for SAMLANG](/img/2020-01-09-implement-autocomplete/type-query-samlang.png)
-Type Query for SAMLANG (IDE: VSCode)
+![Type Query for SAMLANG](/img/2020-01-09-implement-autocomplete/type-query-samlang.png) Type Query
+for SAMLANG (IDE: VSCode)
 
-![Type Query for Kotlin](/img/2020-01-09-implement-autocomplete/type-query-kotlin.png)
-Type Query for Kotlin (IDE: IntelliJ IDEA)
+![Type Query for Kotlin](/img/2020-01-09-implement-autocomplete/type-query-kotlin.png) Type Query
+for Kotlin (IDE: IntelliJ IDEA)
 
 Once we have a typed AST with locations information, implementing type query is easy. To initiate a
 type query, the IDE will send the location of the cursor to the language service. The language
@@ -273,8 +273,8 @@ If we do not want to do type inference, we can simply use the annotated fact tha
 a two-statement AST with a broken first statement and a well-typed second statement.
 
 To help autocomplete more, we should not return a completed untyped first line like
-`const a: ??? = 'foo'`, but instead `const a: number = ('foo' : string)`. Although the AST's type
-is inconsistent with each other, it's better than having no types.
+`const a: ??? = 'foo'`, but instead `const a: number = ('foo' : string)`. Although the AST's type is
+inconsistent with each other, it's better than having no types.
 
 Now we have to consider how we collect type errors. In a naive approach, collecting type checker
 error is easy: simply catch the exception, print it and die. Now it's slight more involves.
@@ -361,9 +361,9 @@ have to re-parse and recheck every single file whenever the user presses a dot. 
 codebase of a million lines of code, the IDE will freeze. Therefore, we must have incremental
 parsing and type checking for performance.
 
-We can do incremental parsing and checking down to expression levels, but it's usually sufficient
-to figure out the files that need to be rechecked, since a single source file is not and should not
-be terribly long.
+We can do incremental parsing and checking down to expression levels, but it's usually sufficient to
+figure out the files that need to be rechecked, since a single source file is not and should not be
+terribly long.
 
 Doing incremental parsing is easy: IDEs can tell us which files are changed and we can simply
 re-parse those files. Incremental type checking is slightly more involved. We cannot just recheck
@@ -402,8 +402,8 @@ mentioned above.
 
 I started the SAMLANG project a year ago. I implemented the type checker with type inference,
 cleaned up the code and added module system in the summer, and finally introduced incremental
-checking and various IDE feature support in this winter. I wanted autocomplete for my language for
-a long time, now it's finally there!
+checking and various IDE feature support in this winter. I wanted autocomplete for my language for a
+long time, now it's finally there!
 
 ### Amazing Results
 

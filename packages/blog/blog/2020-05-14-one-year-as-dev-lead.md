@@ -26,35 +26,34 @@ On August 16, 2019, I finished my 12-week internship at Facebook. In the same mo
 team published a
 [paper](https://cacm.acm.org/magazines/2019/8/238344-scaling-static-analyses-at-facebook/fulltext)
 on ACM that discusses how Facebook applies advanced static analysis at scale. The result is
-mind-blowing and I started to think about whether I can apply even a subset of these techniques
-to my side projects. Luckily, towards the end of the internship, I began to touch more CI related
-code, and learned a lot of best practices on CI/CD on a monorepo scale.
+mind-blowing and I started to think about whether I can apply even a subset of these techniques to
+my side projects. Luckily, towards the end of the internship, I began to touch more CI related code,
+and learned a lot of best practices on CI/CD on a monorepo scale.
 
 The newly-gained experience has led to a [complete refactoring](./2019-08-24-automation-monorepo.md)
 of my website repo. It became an automation-powered monorepo at the end of August. Then I started to
-turn my focus onto the [`cornell-dti`](https://github.com/cornell-dti) GitHub organization, which
-I belong and had to manage it soon. I want developers at DTI to
-_move fast on a stable infrastructure_.
+turn my focus onto the [`cornell-dti`](https://github.com/cornell-dti) GitHub organization, which I
+belong and had to manage it soon. I want developers at DTI to _move fast on a stable
+infrastructure_.
 
 ### Phase 1: Fall 2019
 
 An initial scan of all the repositories produced some quite disappointing results. Out of the 6
 active projects at that time, only 2 projects enabled branch protection. Linter configurations have
 been setup a year ago, but a quick experiment showed that almost no one respected these linter
-warnings and errors. Continuous integration and deployment was only enabled on one project, which
-I was its TPM in spring 2019.
+warnings and errors. Continuous integration and deployment was only enabled on one project, which I
+was its TPM in spring 2019.
 
 If all the repositories in `cornell-dti` are my side projects, I would just self-impose a new
-feature freeze and cleanup the code first. As a TA who witnessed projects with messy code ending
-up getting very bad grades on correctness, I had a strong dislike of bad code. Yet, a large scale
-code cleanup that blocks all feature development was simply impossible: it would cause a tremendous
+feature freeze and cleanup the code first. As a TA who witnessed projects with messy code ending up
+getting very bad grades on correctness, I had a strong dislike of bad code. Yet, a large scale code
+cleanup that blocks all feature development was simply impossible: it would cause a tremendous
 amount of friction both on the development side and the people side.
 
 Therefore, a gradual improvement plan is formed. The initiative was announced at the first TPM
 meeting. During the first few weeks, all I did was to enable branch protection to prohibit pushing
-to `master` directly. It doesn't even have to pass CI or even include CI tests yet. Luckily,
-changes in this stage don't cause any pushbacks, and I went on to the next stage: re-introducing
-linters.
+to `master` directly. It doesn't even have to pass CI or even include CI tests yet. Luckily, changes
+in this stage don't cause any pushbacks, and I went on to the next stage: re-introducing linters.
 
 Making subteam properly configures their linters was initially a task I assigned to every TPM.
 Sadly, nothing really changed in a week, since it's the time of recruitment and semester planning.
@@ -90,8 +89,8 @@ report [here](/pdfs/2020-05-14-one-year-as-dev-lead/technical-communication.pdf)
 
 A superficial victory was achieved within the first month of the fall 2019 semester. However, it
 took an entire semester to consolidate it. Although code review is required, there is no way to
-_automatically_ tell whether an approving review is a result of deliberation, a simple showcase
-of friendship, or even worse, a manifestation of a rushed release.
+_automatically_ tell whether an approving review is a result of deliberation, a simple showcase of
+friendship, or even worse, a manifestation of a rushed release.
 
 To automatically and completely solve the problem of careless review, we have to up the required
 number of reviews to 3. Such a requirement is only enforced on release branch merges. The sad
@@ -109,15 +108,15 @@ live with it, and was about to make more compromises next semester.
 
 ### Phase 2: Spring 2020
 
-I performed an analysis over all pull requests made in fall 2019 in the winter break, and found
-two major issues:
+I performed an analysis over all pull requests made in fall 2019 in the winter break, and found two
+major issues:
 
 1. A lot of pull requests are ignored for a long time;
 2. A lot of pull requests are too big to effectively review.
 
 I tried to solve problem 1 via the newly released GitHub's scheduled reminder feature, which can
-post slack notification about unreviewed PRs in a specified time interval. After some pushbacks,
-the reminder interval has been reduced from every day to every Tuesday and Friday.
+post slack notification about unreviewed PRs in a specified time interval. After some pushbacks, the
+reminder interval has been reduced from every day to every Tuesday and Friday.
 
 After a discussion with the other two developer leads [Laura](https://github.com/lsizemore8) and
 [Jagger](https://github.com/jboss925), we settled on a somewhat risky approach: strictly ban
@@ -142,8 +141,8 @@ the developers didn't satisfy the minimum requirement yet. As a result, we had t
 offer clarifications, and reach out to individual developers who seem to need help.
 
 The final result was not completely satisfactory. Although most of our pull request changes are
-under 500 lines of code, it is still far from industry's best practices to strive for diffs
-that are less than 200 LOCs.
+under 500 lines of code, it is still far from industry's best practices to strive for diffs that are
+less than 200 LOCs.
 
 ### Beyond DevOps and code quality
 
@@ -169,9 +168,9 @@ I also taught some optional DevSeshes on the topics I'm really passionate about:
 
 ### Received feedbacks and final thoughts
 
-Near the end of the 2019-2020 academic year, we sent out a developer survey and leads review form.
-I am glad to see that our developers liked the strictified setup and we completed the first step
-to transform our development from a do-whatever-I-like style to a workflow that follows established
+Near the end of the 2019-2020 academic year, we sent out a developer survey and leads review form. I
+am glad to see that our developers liked the strictified setup and we completed the first step to
+transform our development from a do-whatever-I-like style to a workflow that follows established
 industry standards.
 
 I did get some feedback on the grading rubrics and my obsession with good code. The content above
@@ -183,9 +182,9 @@ myself:
 > By the time my term ends, the code quality should be good enough that I can comfortably work on
 > every subteam (with the same level of obsession of good code).
 
-Now I declare this goal to be 95% achieved. We are finally in a place to
-_move fast without breaking things_. I'm proud that my work in the past year has unlocked several
-previously unimaginable possibilities:
+Now I declare this goal to be 95% achieved. We are finally in a place to _move fast without breaking
+things_. I'm proud that my work in the past year has unlocked several previously unimaginable
+possibilities:
 
 - Required TypeScript setup for new projects
 - Required frequent peer code review for each developer

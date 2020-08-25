@@ -86,8 +86,7 @@ engineer; Computerization was no longer an activist group; it became a research 
 organization. We no longer cared about the actual statistics of active users; we cared about the
 quality of our service and the difficulty of the research project.
 
-![SAM on GitHub](/img/2016-12-30-nerd-pride/sam-on-github.png)
-SAM on GitHub
+![SAM on GitHub](/img/2016-12-30-nerd-pride/sam-on-github.png) SAM on GitHub
 
 Concurrent with the fundamental change in Computerization, there was an ongoing battle: mathematical
 modeling. It started when I signed up for HiMCM 2015 in 2014 fall and started to teach myself
@@ -96,8 +95,7 @@ from basic mathematics and tutorials of MATLAB ending with some smart algorithms
 using. Now with the advantage of hindsight, I can argue that the experience in Computerization and
 mathematical modeling shaped my nerdy life, and gave me the sense of Nerd Pride.
 
-![All the Math Books I Have](/img/2016-12-30-nerd-pride/math-books.png)
-All the Math Books I Have
+![All the Math Books I Have](/img/2016-12-30-nerd-pride/math-books.png) All the Math Books I Have
 
 Before these activities, I was highly unsure about my future. Instead of a concrete plan, for
 example, for the training of a future software engineer, I only had some vague ideas: probably some
@@ -186,8 +184,8 @@ expression analysis.
 
 The incident occurred in the summer of eighth grade. Then it was a year of deadly preparation for
 High School Entrance Exam that nearly killed me. In tenth grade at the high school when I had not
-yet overwhelmed by SAT, I taught myself calculus to build a mathematical foundation for that work.
-A year later when I finally conquered the SAT, and when I was rich in mathematics after the training
+yet overwhelmed by SAT, I taught myself calculus to build a mathematical foundation for that work. A
+year later when I finally conquered the SAT, and when I was rich in mathematics after the training
 for mathematical modeling, I was ready to re-take the challenge. Neural networks, activation
 functions, regularization, convolutional neural networks, recurrent neural networks, long-short-term
 memory, etc. Tons of new words flowed through my mind. It was like figuring out the core of calculus
@@ -309,5 +307,5 @@ Everything has a beginning has an end. I prefer to end with the ending of my Cor
 essay: "My journey in artificial intelligence has only just begun and I hope my next steps in that
 journey are taken at Cornell."
 
-![Letter of Acceptance from Cornell Engineering](/img/2016-12-30-nerd-pride/acceptance.png)
-Letter of Acceptance from Cornell Engineering
+![Letter of Acceptance from Cornell Engineering](/img/2016-12-30-nerd-pride/acceptance.png) Letter
+of Acceptance from Cornell Engineering

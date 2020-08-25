@@ -89,8 +89,7 @@ experience. The code was terrible and thankfully forever lost, but it was a nece
 DEFCON 1 could be the status I used to describe that period, but it was a system developed by me at
 the time, in response to events that I would classify as DEFCON 1.
 
-![Steam Game DEFCON](/img/2020-01-07-my-decade-in-review/defcon.png)
-Source: Steam Game DEFCON
+![Steam Game DEFCON](/img/2020-01-07-my-decade-in-review/defcon.png) Source: Steam Game DEFCON
 
 The system was a _2FA-like_ login system. The first login was a normal one, which was implemented
 with a simple Google login at that time. The second factor showed its uniqueness. The second step
@@ -171,9 +170,8 @@ organization of the students, by the students, for the students. It would also h
 to help me achieve things. The only small problem is that none of the above is true, at least from
 my perspective.
 
-![None is True](/img/2020-01-07-my-decade-in-review/none-is-true.png)
-None is True.
-Source: CS 5414 Lecture [Slides](http://www.cs.cornell.edu/courses/cs5414/2019fa/notes/Week5.pdf)
+![None is True](/img/2020-01-07-my-decade-in-review/none-is-true.png) None is True. Source: CS 5414
+Lecture [Slides](http://www.cs.cornell.edu/courses/cs5414/2019fa/notes/Week5.pdf)
 
 Events were still organized; student lives were said to be enriched; big impacts were made. Yet,
 their way of organization and work showed no sign of being revolutionized by the latest technology.
@@ -200,8 +198,7 @@ simple: going back to the root and follow my passion. As a result, a new chapter
 In February 2015, I was invited to join the club called Computerization that was just founded last
 semester. Computerization developed a platform for teachers to send and for students to receive
 homework. I was the main developer from February 2015 to June 2016 and was the club president from
-September 2015 to June 2016.
-I already covered most of the story in
+September 2015 to June 2016. I already covered most of the story in
 [Computer Science in High Schools](/2018/12/31/cs-in-high-schools/) and covered the same story from
 a more technical perspective in
 [The Road to Better Engineering](/2019/08/17/the-road-to-better-engineering/). For the sake of
@@ -209,30 +206,30 @@ avoiding duplicating content and code, I decide to leave readers to read those p
 exercise. However, I do want to highlight an event that was not discussed in detail before. To avoid
 discrepancies, I decide to directly quote my words in my college admission essay:
 
-> "Please implement a feature to check whether students have actually seen their homework," a teacher
-> asked.
+> "Please implement a feature to check whether students have actually seen their homework," a
+> teacher asked.
 >
 > This was the fifth time I had received a request to add a feature to our platform, which allows
 > teachers to post assignments for students online. We had launched the beta version of our platform
 > for both teachers and students, hoping to get their advice to quickly improve the platform. We
 > initially invited about 10 teachers to our platform; however, due to our slow progress in changing
-> the code, only three teachers remained. We wanted to make quick modifications to retain our teacher
-> users, but as a computer science guy, I was instantly aware that making this change would require
-> tracking users' scroll bars, which can be used to re-visualize exactly what’s happening on a user's
-> screen, almost equivalent to quietly installing malware to record our users’ screens when they are
-> using our platform.
+> the code, only three teachers remained. We wanted to make quick modifications to retain our
+> teacher users, but as a computer science guy, I was instantly aware that making this change would
+> require tracking users' scroll bars, which can be used to re-visualize exactly what’s happening on
+> a user's screen, almost equivalent to quietly installing malware to record our users’ screens when
+> they are using our platform.
 >
 > "You know, the students are making up excuses for not doing homework," the teacher said.
 >
-> My memory flashed back to an incident in middle school. In the middle of a math class, there was an
-> unexpected ring of a mobile phone. The math teacher angrily demanded the student, we never knew who
-> it was, admit his or her error. There was no response. Later, the homeroom teacher ordered some of
-> my best friends to clandestinely search for the student's schoolbag in the suspected areas of the
-> ringing phone. All of my friends thought that was bad, but they still obeyed the order because they
-> were afraid of the teachers’ criticism. I don’t know if I had been chosen whether I would have
-> challenged the teacher, but I think I would at least have chosen not to tell the teacher if I did
-> find evidence of which phone was ringing. If I was not brave enough to blatantly reject the request,
-> at least I could have resisted passively.
+> My memory flashed back to an incident in middle school. In the middle of a math class, there was
+> an unexpected ring of a mobile phone. The math teacher angrily demanded the student, we never knew
+> who it was, admit his or her error. There was no response. Later, the homeroom teacher ordered
+> some of my best friends to clandestinely search for the student's schoolbag in the suspected areas
+> of the ringing phone. All of my friends thought that was bad, but they still obeyed the order
+> because they were afraid of the teachers’ criticism. I don’t know if I had been chosen whether I
+> would have challenged the teacher, but I think I would at least have chosen not to tell the
+> teacher if I did find evidence of which phone was ringing. If I was not brave enough to blatantly
+> reject the request, at least I could have resisted passively.
 >
 > "So that I can check whether they are lying," the teacher explained.
 >
@@ -307,9 +304,9 @@ did not get the desired conventional success as a return.
 
 It turned out that it was indeed a disaster on the product side, not so much for my CS career. It
 told me what I liked and disliked. In May 2016, I read the famous
-_[Why Nerds are Unpopular](http://www.paulgraham.com/nerds.html)_ essay by
-Paul Graham. This essay systematically examined the culture of an average American high school and
-its impact on nerds. Nerds are discriminated against, prosecuted, yet they remain who they are.
+_[Why Nerds are Unpopular](http://www.paulgraham.com/nerds.html)_ essay by Paul Graham. This essay
+systematically examined the culture of an average American high school and its impact on nerds.
+Nerds are discriminated against, prosecuted, yet they remain who they are.
 
 I have already discussed the impact on the article on me in the post
 [Computer Science in High Schools](/2018/12/31/cs-in-high-schools/), so I will omit further analysis
@@ -397,8 +394,8 @@ month later, a functional programming language that can be compiled to Kotlin wa
 summer, I also contributed to open source and developed some frameworks for the upcoming hackathon
 in fall.
 
-![The final FB interview](/img/2020-01-07-my-decade-in-review/timeline-fb.png)
-Screenshoted from my [website](https://developersam.com)'s timeline section
+![The final FB interview](/img/2020-01-07-my-decade-in-review/timeline-fb.png) Screenshoted from my
+[website](https://developersam.com)'s timeline section
 
 Probably due to these projects, especially the compiler one, I secured interviews from Google and
 Facebook during the fall career fair and eventually got accepted by Facebook. In September, I was
@@ -426,8 +423,8 @@ promise was fulfilled. You can read more about this hilarious incident in
 Student union or assembly, whatever it might be called, looks dysfunctional globally and
 universally.
 
-At the same time, I found my passion in programming languages and my compiler project continued after
-summer 2018. _The original one in summer 2018 was abandoned for a complete rewrite with better
+At the same time, I found my passion in programming languages and my compiler project continued
+after summer 2018. _The original one in summer 2018 was abandoned for a complete rewrite with better
 architecture in mind: good error messages and real type inference were taken into consideration from
 day one rather than some afterthought. Recently, I was working on adding IDE support to my new
 language SAMLANG and hope it can bootstrap in the future years._ This is the reason why this blog

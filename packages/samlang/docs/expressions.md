@@ -3,8 +3,7 @@ id: expressions
 title: Expressions
 ---
 
-The expressions are listed in order of precedence so you know where
-to add parenthesis.
+The expressions are listed in order of precedence so you know where to add parenthesis.
 
 ## Literal
 
@@ -128,13 +127,13 @@ Here are the supported ones:
 
 In SAMLANG, we don't have ternary expression, because if-else blocks are expressions.
 
-You can write: `if a == b then c else d`. `c` and `d` must have the same type and the result has
-the same type as `c` and `d`.
+You can write: `if a == b then c else d`. `c` and `d` must have the same type and the result has the
+same type as `c` and `d`.
 
 ## Match Expressions (Pattern Matching!)
 
-Suppose you have a variant type like `class Option<T>(None(unit), Some(T)) {}`. You can match
-on it like:
+Suppose you have a variant type like `class Option<T>(None(unit), Some(T)) {}`. You can match on it
+like:
 
 ```samlang
 function matchExample(opt: Option<int>): int =
@@ -179,10 +178,9 @@ class Obj(val d: int, val e: int) {
 }
 ```
 
-The above example shows various usages of val statement. You can choose to type-annotate the
-pattern (variable, tuple, object, or wildcard), destruct on tuples or object, and ignore the output
-by using wildcard (supported in tuple pattern and wildcard pattern). Note that the semicolon is
-optional.
+The above example shows various usages of val statement. You can choose to type-annotate the pattern
+(variable, tuple, object, or wildcard), destruct on tuples or object, and ignore the output by using
+wildcard (supported in tuple pattern and wildcard pattern). Note that the semicolon is optional.
 
 Statement blocks can be nested:
 

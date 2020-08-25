@@ -3,11 +3,9 @@ title: Automation! Migration to CI/CD System for My Open-Source Projects
 tags: [tech-journey]
 ---
 
-Badges:
-![Article Good](https://img.shields.io/badge/article-good-brightgreen.svg)
+Badges: ![Article Good](https://img.shields.io/badge/article-good-brightgreen.svg)
 ![Style Good](https://img.shields.io/badge/style-good-brightgreen.svg)
-![Examples Good](https://img.shields.io/badge/examples-good-brightgreen.svg)
-:)
+![Examples Good](https://img.shields.io/badge/examples-good-brightgreen.svg) :)
 
 GitHub badges look good. Having them in GitHub README is an indication of a good open source
 project. In the
@@ -125,8 +123,8 @@ beautifully done in a single line of code:
 ![Single Line](/img/2018-08-11-migration-ci-cd/single-line.png)
 
 The service is now mature and already generating badges for my website repositories. You can check
-it [here](https://github.com/SamChou19815/badges-4-gcp-cloud-build), which also
-includes an explanation of workflow.
+it [here](https://github.com/SamChou19815/badges-4-gcp-cloud-build), which also includes an
+explanation of workflow.
 
 With much more experience with CI, setup for my backend repository only took a single try.
 

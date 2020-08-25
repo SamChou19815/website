@@ -109,9 +109,8 @@ expression in my language, we have to introduce this ugly syntax:
 
 `if true then "hi" else throw<String> "bad"`
 
-I hope I can improve this when I'm ready to introduce subtyping and use Kotlin's
-idea of the [Nothing type](https://kotlinlang.org/docs/reference/exceptions.html) to prettify the
-syntax.
+I hope I can improve this when I'm ready to introduce subtyping and use Kotlin's idea of the
+[Nothing type](https://kotlinlang.org/docs/reference/exceptions.html) to prettify the syntax.
 
 #### Code Generation and Compilation
 
@@ -148,8 +147,8 @@ function. For the compiler part, I can simply emit an import line with the fully
 the function's class. For the interpreter part, it can be invoked by reflection, although it is
 costly.
 
-Since the type system is sound (if the provided runtime library does not use any unsound features
-on JVM platform), we do not need type information for interpretation. Therefore, the interpretation
+Since the type system is sound (if the provided runtime library does not use any unsound features on
+JVM platform), we do not need type information for interpretation. Therefore, the interpretation
 part is quite easy and I finished it in two nights.
 
 ### End
@@ -162,8 +161,8 @@ In the next few days, I will try to write a Turing Machine simulator in this lan
 Turing complete and use that complex program to test various part of the language design.
 
 There will be no big structural change in near future (which roughly translates to "this year"), so
-the design will be stable for a while. Therefore, I think it is now possible to openly invite you
-to participate in this project and learn some nice programming language thing. Hope to see you on
+the design will be stable for a while. Therefore, I think it is now possible to openly invite you to
+participate in this project and learn some nice programming language thing. Hope to see you on
 [forks](https://github.com/SamChou19815/SAMPL/network),
 [pull requests](https://github.com/SamChou19815/SAMPL/pulls) or even
 [contributors](https://github.com/SamChou19815/SAMPL/graphs/contributors)!

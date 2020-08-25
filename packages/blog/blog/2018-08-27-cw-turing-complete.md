@@ -3,10 +3,10 @@ title: Critter World is Turing Complete - A Not-So-Rigorous Proof
 tags: [math]
 ---
 
-Critter World is Cornell's CS 2112's Final Project. It is a simulated hexagon world where
-critters, controled by programs, can move, eat, mate, bud, attack, etc. The programming language
-is very primitive and not Turing complete, but it's still useful and expressive enough to cleverly
-control one step of a critter move. You can see the spec publicly
+Critter World is Cornell's CS 2112's Final Project. It is a simulated hexagon world where critters,
+controled by programs, can move, eat, mate, bud, attack, etc. The programming language is very
+primitive and not Turing complete, but it's still useful and expressive enough to cleverly control
+one step of a critter move. You can see the spec publicly
 [here](http://www.cs.cornell.edu/courses/cs2112/2018fa/project/project.pdf).
 
 <!--truncate-->
@@ -38,8 +38,8 @@ We need these modifications to make it Turing Complete:
 A Turing Machine is specified by an alphabet, a state set, and transition rules.
 
 In a Turing machine, the alphabet is a set of all characters that can initially appear on the tape.
-In critter world, the alphabet is a set of all possible food valeus that can initially appear on
-the second line.
+In critter world, the alphabet is a set of all possible food valeus that can initially appear on the
+second line.
 
 The state set can be represented by the finite amount of critter memory that you specify during
 critter creation. Note that we can also just use them as variables conveniently while still

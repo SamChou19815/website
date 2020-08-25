@@ -25,12 +25,12 @@ The communication between a legit system user and administrator must follow a st
 The user can only send one of two strings: one for normal access, and the other for emergency. The
 one for emergency must be misguided as a normal one. For example, if user Alice wants to access her
 file containing all of her password, she must contact administrator Bob and say something like
-"ABCDEFG" or a strong password when she feels safe.
-(See [Alice and Bob](https://en.wikipedia.org/wiki/Alice_and_Bob)) In another day, Alice is held
-captive by an evil guy named Eve who wants the evidence of her secret plan to defame the student
-government. Under torture, Alice gives Eve the password for first step login. Then she contacts Bob
-and says "I want the key". This message looks quite normal to Eve, but for Bob, it is a coded
-message for "I'm in danger". Bob then wipes all the data.
+"ABCDEFG" or a strong password when she feels safe. (See
+[Alice and Bob](https://en.wikipedia.org/wiki/Alice_and_Bob)) In another day, Alice is held captive
+by an evil guy named Eve who wants the evidence of her secret plan to defame the student government.
+Under torture, Alice gives Eve the password for first step login. Then she contacts Bob and says "I
+want the key". This message looks quite normal to Eve, but for Bob, it is a coded message for "I'm
+in danger". Bob then wipes all the data.
 
 As shown by the example above, the system takes the confidentiality of the data to extreme. The
 essence of the architecture is that the action of sending coded emergency message has irreversible

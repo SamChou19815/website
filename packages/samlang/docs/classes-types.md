@@ -30,8 +30,8 @@ although they are not very useful.
 You already see two several _primitive_ types: `string` and `int`. There are 4 kinds of primitive
 types: `unit`, `int`, `string`, `bool`.
 
-The `unit` type has only one possible value, which is `{}`. It's usually an indication of some
-side effects. The `int` type includes all 64-bit integers. The string type includes all the strings
+The `unit` type has only one possible value, which is `{}`. It's usually an indication of some side
+effects. The `int` type includes all 64-bit integers. The string type includes all the strings
 quoted by double-quotes, like `"Hello World!"`. The `bool` types has two possible values: `true` and
 `false`.
 

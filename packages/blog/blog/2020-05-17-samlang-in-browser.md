@@ -15,8 +15,8 @@ JavaScript with a single codebase. Therefore, it's theoretically possible to cre
 that can run in browsers.
 
 The reality is always harsher than the theory. It takes a significant effort of refactoring to make
-this happen. In this blog post, I will explain these efforts and some of the tricky design
-decisions I made along the way.
+this happen. In this blog post, I will explain these efforts and some of the tricky design decisions
+I made along the way.
 
 <!--truncate-->
 
@@ -56,9 +56,9 @@ instead.
 ### A rough introduction to Kotlin multiplatform
 
 Kotlin multiplatform allows you to compile a single codebase into JVM bytecode, JavaScript and
-native code backed by LLVM toolchain. In case when platform-specific code is necessary, it gives
-you the escape hatch of `expect`/`actual` declaration. For JVM platform, you can import JVM
-classes. For JavaScript, you can require npm packages and create external declaration bindings.
+native code backed by LLVM toolchain. In case when platform-specific code is necessary, it gives you
+the escape hatch of `expect`/`actual` declaration. For JVM platform, you can import JVM classes. For
+JavaScript, you can require npm packages and create external declaration bindings.
 
 The above description sounds like the same heaven envisioned by [Flutter](https://flutter.dev/).
 However, it shares the same problem with Flutter: when it's impossible to write platform-independent
@@ -69,8 +69,8 @@ Here begins the Herculean effort of refactoring.
 ### Stage 1: Reduce the amount of platform-dependent code
 
 To be clear, it is impossible to eliminate all platform-dependent code. On the desktop, the compiler
-needs to read source files and write compiled code into hard drive. On the web, we all know that
-you can't read and write files.
+needs to read source files and write compiled code into hard drive. On the web, we all know that you
+can't read and write files.
 
 Fortunately, the demo functionality does not need to depend on file operations: all it does is to
 take some string (source code), and gives back a bunch of strings (interpreter result, compiled
@@ -93,14 +93,14 @@ results make the ugliness more justifiable.
 The real problem lies in the parser code. It's very difficult to write correct parsers by hand, but
 it's very easy to write correct _parser specifications_ by hand and let them program generates a
 good parser. Therefore, samlang uses antlr4 to generate parser code. The official battle-tested
-ANTLR4 cannot generate Kotlin code directly. Nevertheless, it can generate Java code and we can
-take advantage of Kotlin's perfect interop with Java to avoid compilation problems. Now we want
+ANTLR4 cannot generate Kotlin code directly. Nevertheless, it can generate Java code and we can take
+advantage of Kotlin's perfect interop with Java to avoid compilation problems. Now we want
 platform-independent code, so this is no longer an option. (There does exist
-[a project](https://github.com/Strumenta/antlr-kotlin) that accepts ANTL4 grammar specification
-and claims to support Kotlin multiplatform. However, I did a quick test and found its very broken.)
+[a project](https://github.com/Strumenta/antlr-kotlin) that accepts ANTL4 grammar specification and
+claims to support Kotlin multiplatform. However, I did a quick test and found its very broken.)
 
-Tackling the parser problem in one shot is almost impossible. Therefore, I decided to use the
-escape hatch.
+Tackling the parser problem in one shot is almost impossible. Therefore, I decided to use the escape
+hatch.
 
 In the common code, we write the `expect` declaration
 
@@ -111,8 +111,8 @@ expect fun buildModuleFromText(
 ): Pair<Module, List<CompileTimeError>>
 ```
 
-For JVM, we can write an `actual` implementation that calls the old JVM specific parser code.
-For JavaScript, we temporarily give up:
+For JVM, we can write an `actual` implementation that calls the old JVM specific parser code. For
+JavaScript, we temporarily give up:
 
 ```typescript
 actual fun buildModuleFromText(
@@ -163,15 +163,15 @@ rewrite the runtime into Kotlin as well, which introduces the same old long-term
 problem.
 
 Now we are left with two options that require some Kotlin/JS interop. Option 4 has the advantage
-that it is officially maintained by the ANTLR4 team, so it's very unlikely that it will generate
-bad parser code. On the flip side, it doesn't have TypeScript support at all, so I had to work with
+that it is officially maintained by the ANTLR4 team, so it's very unlikely that it will generate bad
+parser code. On the flip side, it doesn't have TypeScript support at all, so I had to work with
 completely untyped code. Option 5 provides a strong typing support, but it has the same danger of
 the broken Kotlin parser generator.
 
 I eventually picked option 5 since I believe in the quality of the community-powered project:
-[antlr4ts](https://github.com/tunnelvisionlabs/antlr4ts). The belief doesn't come from nowhere.
-Two months ago, I used it to create [dti-lang](https://github.com/cornell-dti/dti-lang) for DevSesh,
-and it is both battle-tested by myself and students in the DevSesh.
+[antlr4ts](https://github.com/tunnelvisionlabs/antlr4ts). The belief doesn't come from nowhere. Two
+months ago, I used it to create [dti-lang](https://github.com/cornell-dti/dti-lang) for DevSesh, and
+it is both battle-tested by myself and students in the DevSesh.
 
 #### Stage 2 Act 2: Choose an interop solution
 
@@ -208,11 +208,11 @@ type List<T> =
 Kotlin cannot support this so the generated Kotlin type will simply be `Any`.
 
 These limitations imply that we cannot write the TypeScript code like we normally did. Instead, we
-should write TypeScript in a "Kotlin way", so that the types can be properly picked up by the
-type declaration transformer.
+should write TypeScript in a "Kotlin way", so that the types can be properly picked up by the type
+declaration transformer.
 
-The above problem is only half of the story. The second half is the fight with the build system.
-You might expect that you can mix Kotlin and JavaScript code, just like you can mix JS with TS code.
+The above problem is only half of the story. The second half is the fight with the build system. You
+might expect that you can mix Kotlin and JavaScript code, just like you can mix JS with TS code.
 That's a bad assumption. For some unknown reason, Kotlin's Gradle plugin doesn't let you depend on
 arbitrary JavaScript code. The only way you can depend on JavaScript code is by declaring them as
 NPM dependency in `build.gradle`. (Yes, in Gradle, not even in `package.json`.)
@@ -235,9 +235,9 @@ make a hard choice again:
 2. Create a different AST in the TypeScript code, and transfor that into Kotlin AST in adapter.
 
 You might think choice 1 might be easier. However, it means that we have to publish or copy the
-generated JS code for AST package, which introduces another dependency publishing hell. Therefore,
-I chose option 2. It needs slightly more code, but those additional code is easy to reason: you
-just need to write a bunch of boring visitor code that transform the AST in an uninteresting way.
+generated JS code for AST package, which introduces another dependency publishing hell. Therefore, I
+chose option 2. It needs slightly more code, but those additional code is easy to reason: you just
+need to write a bunch of boring visitor code that transform the AST in an uninteresting way.
 
 The flow can be explained by the following figure:
 
@@ -264,10 +264,10 @@ actual fun buildModuleFromText(
 
 ### Stage 3: Create an NPM package build
 
-At this stage, we already have a fully-functional multiplatform build of samlang that can run on
-JVM and JS platform. However, the JS one still needs some work. The compiled JS code is in a form of
-10 different packages that depend on each other. If we do it in a naive way, we have to publish all
-10 of them and create another dependency hell for us.
+At this stage, we already have a fully-functional multiplatform build of samlang that can run on JVM
+and JS platform. However, the JS one still needs some work. The compiled JS code is in a form of 10
+different packages that depend on each other. If we do it in a naive way, we have to publish all 10
+of them and create another dependency hell for us.
 
 Kotlin/JS provides webpack integration that can assemble everything, including dependencies, into a
 single file. This is exactly the solution I need. However, it takes me many hours to figure out why
@@ -284,14 +284,14 @@ export const main = () => a();
 ```
 
 A compiler can first safely delete the function `c` since it is not used by any other function.
-After that, it can throw away function `b`, since nobody calls `b` after `c` is gone. However,
-a naive implementation might end up throw away everything. Notice that there is also nothing calling
+After that, it can throw away function `b`, since nobody calls `b` after `c` is gone. However, a
+naive implementation might end up throw away everything. Notice that there is also nothing calling
 `main`. Therefore, `main` will be thrown away and then everything will be gone eventually!
 
 Kotlin compiler isn't that dumb. It has a special case that says don't throw away the `main`
 function. However, its wisdom stops there. Instead of keeping all public functions in Kotlin, it
-throws them away completely, unless you configure it in Gradle. This configuration mystery takes
-me hours to debug!
+throws them away completely, unless you configure it in Gradle. This configuration mystery takes me
+hours to debug!
 
 Then a 1.1MB `samlang-demo.js` is generated, which exports `runDemo` function inside the
 `samlang.demo` namespace. This implies a final push that provides a nicer experience to end-users:

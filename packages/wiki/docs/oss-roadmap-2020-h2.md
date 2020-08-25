@@ -7,10 +7,10 @@ title: Open Source Roadmap 2020 H2
 
 ### Compiler Backend
 
-In H1, I dropped support for the Java/JS/TS backend and replaced it with X86 assembly backend.
-This changes eliminated the need for an ugly and poorly maintained high IR AST. With recent
-refactorings in place, we will be able to restore the support for JS backend. In particular, samlang
-should be able to emit human-readable JavaScript with beautiful indentation.
+In H1, I dropped support for the Java/JS/TS backend and replaced it with X86 assembly backend. This
+changes eliminated the need for an ugly and poorly maintained high IR AST. With recent refactorings
+in place, we will be able to restore the support for JS backend. In particular, samlang should be
+able to emit human-readable JavaScript with beautiful indentation.
 
 With the recent Apple annoucement that Macs will be moving to ARM, we should start thinking about
 moving away from X86 target. In this half, I aim to finish exploring the following viable
@@ -83,8 +83,8 @@ Improve upon the current build system and achieve the following goals:
 
 Create a service that can:
 
-- Generating GitHub Actions configurations that automatically build and test binaries for all
-  major operating systems from source and securely upload them to a remote file server;
+- Generating GitHub Actions configurations that automatically build and test binaries for all major
+  operating systems from source and securely upload them to a remote file server;
 - A CLI for local and CI that can download the binaries from remote on demand and cache them based
   on version hash.
 
