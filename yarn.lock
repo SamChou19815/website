@@ -16135,7 +16135,6 @@ fsevents@^1.2.7:
     jest: ^26.4.0
     lint-staged: ^10.2.11
     next: ^9.5.2
-    next-transpile-modules: ^4.1.0
     prettier: 2.1.0
     typescript: ^4.0.2
     webpack: ^4.44.1
@@ -19252,6 +19251,7 @@ typescript@^4.0.2:
     infima: 0.2.0-alpha.12
     lib-react: 0.1.0
     next: ^9.5.2
+    next-transpile-modules: ^4.1.0
     react: ^16.13.1
     react-dom: ^16.13.1
     react-ga: ^3.1.2
