@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 
+import LoadingOverlay from './LoadingOverlay';
 import MarkdownBlock from './MarkdownBlock';
 import { useWikiPrivateDocumentsMetadata } from './documents';
 
@@ -7,7 +8,7 @@ const PermissionViewer = (): ReactElement => {
   const documentMetadataList = useWikiPrivateDocumentsMetadata();
 
   if (documentMetadataList == null) {
-    return <div className="simple-page-center">Loading...</div>;
+    return <LoadingOverlay />;
   }
 
   const body = documentMetadataList

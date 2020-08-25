@@ -1,6 +1,7 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
 import styles from './App.module.css';
+import LoadingOverlay from './LoadingOverlay';
 import PrivateDocumentPanel from './PrivateDocumentPanel';
 import Sidebar from './Sidebar';
 import { useWikiPrivateDocumentsMetadata } from './documents';
@@ -18,7 +19,7 @@ const App = (): ReactElement => {
   const documentMetadataList = useWikiPrivateDocumentsMetadata();
 
   if (documentMetadataList == null) {
-    return <div className="simple-page-center">Loading...</div>;
+    return <LoadingOverlay />;
   }
 
   const documentMetadata = documentMetadataList.find(
