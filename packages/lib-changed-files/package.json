@@ -1,0 +1,17 @@
+{
+  "name": "lib-changed-files",
+  "description": "Developer Sam's library for querying changed files.",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "compile": "tsc"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.23",
+    "@types/node-fetch": "^2.5.7",
+    "typescript": "^4.0.2"
+  }
+}

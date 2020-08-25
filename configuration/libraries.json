@@ -1,4 +1,5 @@
 [
+  "lib-changed-files",
   "lib-docusaurus-plugin",
   "lib-prism-extended",
   "lib-react"
