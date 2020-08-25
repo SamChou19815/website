@@ -1,6 +1,6 @@
 pre {
   font-family: 'Roboto Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  margin-bottom: 0;
+  margin-bottom: var(--ifm-leading);
 }
 
 .markdown > pre {
