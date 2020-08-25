@@ -150,7 +150,8 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
     delete generatedFileMappings[filename];
   });
 
-  const writtenFiles: string[] = [];
+  const writtenFiles = new Set<string>();
+  const stringComparator = (a: string, b: string) => a.localeCompare(b);
 
   changedSourceFiles.forEach((filename) => {
     const source = filesystem.readFile(filename);
@@ -162,7 +163,7 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
         ({ isOutputFileCodegenServiceManaged, outputFilename, outputRawContent }) => {
           if (isOutputFileCodegenServiceManaged || !filesystem.fileExists(outputFilename)) {
             filesystem.writeFile(outputFilename, outputRawContent);
-            writtenFiles.push(outputFilename);
+            writtenFiles.add(outputFilename);
           }
           if (isOutputFileCodegenServiceManaged) {
             managedFiles.push(outputFilename);
@@ -170,7 +171,9 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
         }
       );
 
-      generatedFileMappings[filename] = managedFiles.sort((a, b) => a.localeCompare(b));
+      generatedFileMappings[filename] = Array.from(
+        new Set([...(generatedFileMappings[filename] ?? []), ...managedFiles])
+      ).sort(stringComparator);
     });
   });
 
@@ -180,7 +183,7 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
       {
         __type__: '@' + 'generated',
         mappings: Object.fromEntries(
-          Object.entries(generatedFileMappings).sort(([k1], [k2]) => k1.localeCompare(k2))
+          Object.entries(generatedFileMappings).sort(([k1], [k2]) => stringComparator(k1, k2))
         ),
       },
       undefined,
@@ -188,5 +191,5 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
     )
   );
 
-  return writtenFiles;
+  return Array.from(writtenFiles).sort(stringComparator);
 };

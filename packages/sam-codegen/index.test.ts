@@ -63,14 +63,25 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
       outputFilename: join('__generated__', 'template', sourceFilename),
     },
   ]);
+  const barTxtOnlyService = createPlaintextCodegenService('', '', (sourceFilename) =>
+    sourceFilename === 'bar.txt'
+      ? [
+          {
+            isOutputFileCodegenServiceManaged: true,
+            outputRawContent: 'special',
+            outputFilename: join('__generated__', 'managed', 'very-special'),
+          },
+        ]
+      : []
+  );
 
   const filesystem = new CodegenInMemoryFilesystem([
     [
       GENERATED_FILES_SOURCE_MAPPINGS_JSON,
       JSON.stringify({
         mappings: {
-          'foo.txt': ['__generated__/managed/foo.txt', '__generated__/template/foo.txt'],
-          'bar.txt': ['__generated__/managed/bar.txt', '__generated__/template/bar.txt'],
+          'foo.txt': ['__generated__/managed/foo.txt'],
+          'bar.txt': ['__generated__/managed/bar.txt'],
         },
       }),
     ],
@@ -85,26 +96,28 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
   const writtenFiles = runCodegenServicesAccordingToFilesystemEvents(
     ['bar.txt', 'baz.txt'],
     ['foo.txt'],
-    [identityService],
+    [identityService, barTxtOnlyService],
     filesystem
   );
 
   expect(writtenFiles).toEqual([
     '__generated__/managed/bar.txt',
-    '__generated__/template/bar.txt',
     '__generated__/managed/baz.txt',
+    '__generated__/managed/very-special',
+    '__generated__/template/bar.txt',
   ]);
   expect(filesystem.fileExists('__generated__/managed/foo.txt')).toBe(false);
-  expect(filesystem.fileExists('__generated__/template/foo.txt')).toBe(false);
+  expect(filesystem.fileExists('__generated__/template/foo.txt')).toBe(true);
   expect(filesystem.readFile('__generated__/managed/bar.txt')).toBe('bar');
   expect(filesystem.readFile('__generated__/template/bar.txt')).toBe('bar');
   expect(filesystem.readFile('__generated__/managed/baz.txt')).toBe('baz');
   expect(filesystem.readFile('__generated__/template/baz.txt')).toBe('bar');
+  expect(filesystem.readFile('__generated__/managed/very-special')).toBe('special');
 
   expect(JSON.parse(filesystem.readFile(GENERATED_FILES_SOURCE_MAPPINGS_JSON))).toEqual({
     __type__: '@' + 'generated',
     mappings: {
-      'bar.txt': ['__generated__/managed/bar.txt'],
+      'bar.txt': ['__generated__/managed/bar.txt', '__generated__/managed/very-special'],
       'baz.txt': ['__generated__/managed/baz.txt'],
     },
   });
