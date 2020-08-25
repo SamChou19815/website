@@ -1,11 +1,4 @@
 {
   "extends": "../../configuration/tsconfig.react.json",
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "compilerOptions": {},
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"]
 }

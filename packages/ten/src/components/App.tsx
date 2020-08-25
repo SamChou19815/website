@@ -1,10 +1,16 @@
 import React, { ReactElement } from 'react';
 
-import Head from 'next/head';
+import Head from '@docusaurus/Head';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import DistributedGameCard from './DistributedGameCard';
 
 export default function App(): ReactElement {
+  const { siteConfig = {} } = useDocusaurusContext();
+  const { favicon } = siteConfig;
+  const faviconUrl = useBaseUrl(favicon);
+
   const buttons = (
     <>
       <a className="navbar__item navbar__link" href="https://developersam.com">
@@ -15,12 +21,11 @@ export default function App(): ReactElement {
 
   const head = (
     <Head>
-      <meta charSet="utf-8" />
-      <link rel="shortcut icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="theme-color" content="#000000" />
-      <link rel="manifest" href="/manifest.json" />
+      <html lang="en" />
       <title>TEN Game</title>
+      <meta property="og:title" content="TEN Game" />
+      <link rel="shortcut icon" href={faviconUrl} />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     </Head>
   );
 
