@@ -20,27 +20,25 @@ it('CodegenInMemoryFilesystem works.', () => {
 });
 
 it('createPlaintextConcatenationCodegenService works', () => {
-  const service = createPlaintextConcatenationCodegenService('', '', [
+  const service = createPlaintextConcatenationCodegenService('', [
     { additionalContent: 'foo', outputFilename: 'foo.sam' },
     { additionalContent: 'bar', outputFilename: 'bar.sam' },
   ]);
 
   expect(service.run('', 'haha-')).toEqual([
     {
-      isOutputFileCodegenServiceManaged: true,
+      outputContent: 'haha-foo',
       outputFilename: 'foo.sam',
-      outputRawContent: 'haha-foo',
     },
     {
-      isOutputFileCodegenServiceManaged: true,
+      outputContent: 'haha-bar',
       outputFilename: 'bar.sam',
-      outputRawContent: 'haha-bar',
     },
   ]);
 });
 
 it('createTypeScriptCodegenService works', () => {
-  const service = createTypeScriptCodegenService<() => number>('', '', () => []);
+  const service = createTypeScriptCodegenService<() => number>('', () => []);
 
   // Test that
   // - type imports are fully erased.
@@ -51,25 +49,18 @@ it('createTypeScriptCodegenService works', () => {
 });
 
 it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
-  const identityService = createPlaintextCodegenService('', '', (sourceFilename, sourceCode) => [
+  const identityService = createPlaintextCodegenService('', (sourceFilename, sourceCode) => [
     {
-      isOutputFileCodegenServiceManaged: true,
-      outputRawContent: sourceCode,
-      outputFilename: join('__generated__', 'managed', sourceFilename),
-    },
-    {
-      isOutputFileCodegenServiceManaged: false,
-      outputRawContent: sourceCode,
-      outputFilename: join('__generated__', 'template', sourceFilename),
+      outputContent: sourceCode,
+      outputFilename: join('__generated__', sourceFilename),
     },
   ]);
-  const barTxtOnlyService = createPlaintextCodegenService('', '', (sourceFilename) =>
+  const barTxtOnlyService = createPlaintextCodegenService('', (sourceFilename) =>
     sourceFilename === 'bar.txt'
       ? [
           {
-            isOutputFileCodegenServiceManaged: true,
-            outputRawContent: 'special',
-            outputFilename: join('__generated__', 'managed', 'very-special'),
+            outputContent: 'special',
+            outputFilename: join('__generated__', 'very-special'),
           },
         ]
       : []
@@ -80,17 +71,15 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
       GENERATED_FILES_SOURCE_MAPPINGS_JSON,
       JSON.stringify({
         mappings: {
-          'foo.txt': ['__generated__/managed/foo.txt'],
-          'bar.txt': ['__generated__/managed/bar.txt'],
+          'foo.txt': ['__generated__/foo.txt'],
+          'bar.txt': ['__generated__/bar.txt'],
         },
       }),
     ],
     ['bar.txt', 'bar'],
     ['baz.txt', 'baz'],
-    ['__generated__/managed/foo.txt', 'foo'],
-    ['__generated__/template/foo.txt', 'foo'],
-    ['__generated__/managed/baz.txt', 'bar'],
-    ['__generated__/template/baz.txt', 'bar'],
+    ['__generated__/foo.txt', 'foo'],
+    ['__generated__/baz.txt', 'bar'],
   ]);
 
   const writtenFiles = runCodegenServicesAccordingToFilesystemEvents(
@@ -101,24 +90,20 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
   );
 
   expect(writtenFiles).toEqual([
-    '__generated__/managed/bar.txt',
-    '__generated__/managed/baz.txt',
-    '__generated__/managed/very-special',
-    '__generated__/template/bar.txt',
+    '__generated__/bar.txt',
+    '__generated__/baz.txt',
+    '__generated__/very-special',
   ]);
-  expect(filesystem.fileExists('__generated__/managed/foo.txt')).toBe(false);
-  expect(filesystem.fileExists('__generated__/template/foo.txt')).toBe(true);
-  expect(filesystem.readFile('__generated__/managed/bar.txt')).toBe('bar');
-  expect(filesystem.readFile('__generated__/template/bar.txt')).toBe('bar');
-  expect(filesystem.readFile('__generated__/managed/baz.txt')).toBe('baz');
-  expect(filesystem.readFile('__generated__/template/baz.txt')).toBe('bar');
-  expect(filesystem.readFile('__generated__/managed/very-special')).toBe('special');
+  expect(filesystem.fileExists('__generated__/foo.txt')).toBe(false);
+  expect(filesystem.readFile('__generated__/bar.txt')).toBe('bar');
+  expect(filesystem.readFile('__generated__/baz.txt')).toBe('baz');
+  expect(filesystem.readFile('__generated__/very-special')).toBe('special');
 
   expect(JSON.parse(filesystem.readFile(GENERATED_FILES_SOURCE_MAPPINGS_JSON))).toEqual({
     __type__: '@' + 'generated',
     mappings: {
-      'bar.txt': ['__generated__/managed/bar.txt', '__generated__/managed/very-special'],
-      'baz.txt': ['__generated__/managed/baz.txt'],
+      'bar.txt': ['__generated__/bar.txt', '__generated__/very-special'],
+      'baz.txt': ['__generated__/baz.txt'],
     },
   });
 });
