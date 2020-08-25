@@ -14,8 +14,8 @@ must be `((int) -> bool, int, int) -> int`.
 The type-checker first decides that `b` must be `int` since `+` adds up two `int`s. Then it knows
 that `c` must also be `int`, because `b` and `c` must have the same type. From the syntax, `a` must
 be a function. Since the function application of `a` happens at the boolean expression part of `if`,
-we know it must return `bool`. Since `a` accepts one argument that is `int`, the type of `a` must
-be `(int) -> bool`.
+we know it must return `bool`. Since `a` accepts one argument that is `int`, the type of `a` must be
+`(int) -> bool`.
 
 Although the type-checker is smart, in some cases it simply cannot determine the type because there
 is not enough information.

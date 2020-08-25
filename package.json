@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "common:firebase": "firebase",
-    "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html}'",
-    "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html}'",
+    "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
+    "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
     "lint": "NODE_NO_WARNINGS=1 eslint . --cache",
     "test": "NODE_NO_WARNINGS=1 jest",
     "compile": "./packages/monorail/bin/monorail compile"
@@ -78,7 +78,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,js,tsx,jsx,scss,css,html}": [
+    "**/*.{ts,js,tsx,jsx,scss,css,html,md}": [
       "yarn prettier --write"
     ]
   }

@@ -30,16 +30,14 @@ const ignoreMe = test(f, '3');
 
 <!--truncate-->
 
-However, functions do not have first-class support on JVM. Although Java 8 and Kotlin have good
-and reasonable support for FP, function reference still need a special syntax like `::test` in
-Kotlin.
+However, functions do not have first-class support on JVM. Although Java 8 and Kotlin have good and
+reasonable support for FP, function reference still need a special syntax like `::test` in Kotlin.
 
 ### Initial Design Mistake
 
-When I'm first designing
-[SAMPL](/2018/06/15/sampl-alpha-design-choices/), I forgot there was an issue with
-this. SAMPL is functional, so I choose not to use the `::` in Java and Kotlin. Instead, you simply
-write the name of the function as if it is a normal variable.
+When I'm first designing [SAMPL](/2018/06/15/sampl-alpha-design-choices/), I forgot there was an
+issue with this. SAMPL is functional, so I choose not to use the `::` in Java and Kotlin. Instead,
+you simply write the name of the function as if it is a normal variable.
 
 Later, when I fininished writing a Turing Machine simulator in SAMPL and try to compile it, I found
 a bug in code translation. Since in SAMPL function reference is the same as a normal variable,

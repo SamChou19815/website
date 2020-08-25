@@ -18,12 +18,16 @@ The last large-scale architecture update happens almost a year ago.
 into Google Kubernetes Engine.
 
 GKE serves my website well, except that it's too expensive. The minimum cost to setup some running
-cluster is $14 per month, since Kubernetes master eats up a lot of resources. Also, I need to spend
-$18 per month just to setup a load balancer, which is only used to do some simple URL dispatch work.
+cluster is
+$14 per month, since Kubernetes master eats up a lot of resources. Also, I need to spend
+$18 per
+month just to setup a load balancer, which is only used to do some simple URL dispatch work.
 
-Running websites on Kubernetes looks cool. However, my $1500 Google Cloud credit would expire in
-mid-March this year. Paying $32 a month for a random personal website without many visitors is not
-fun. Therefore, I am actively seeking alternatives since last year.
+Running websites on Kubernetes looks cool. However, my
+$1500 Google Cloud credit would expire in
+mid-March this year. Paying $32 a month for a random
+personal website without many visitors is not fun. Therefore, I am actively seeking alternatives
+since last year.
 
 I swiftly performed a migration mostly during my university's February break. In the process, I
 nuked some apps that I no longer use and only kept a TEN game and my programming language

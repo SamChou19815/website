@@ -88,8 +88,8 @@ product to teachers. Something was wrong because we were intentionally deoptimiz
 should be optimized sooner or later.
 
 If I all care about are those stupid numbers, I could be much happier and could achieve much greater
-conventional success. But I was not. In my heart I know there exists something more important. Now
-I know these things include secure applications, well-designed abstractions, and scalable
+conventional success. But I was not. In my heart I know there exists something more important. Now I
+know these things include secure applications, well-designed abstractions, and scalable
 infrastructure. Random numbers are not on the list.
 
 I don’t feel pride when I am finally putting those numbers in my application, but I do feel pride
@@ -109,11 +109,11 @@ dreamed for a long time.
 It starts from my website, which is something has been set up since early 2015 but has been
 neglected for a long time. After a year of learning, refactoring, and exploring, it finally reached
 a state where I can be proud of. (For technical details, you can read
-[this blog post](/2018/08/01/website-architecture-update).) The old code has been
-completely purged and it was written in the latest Kotlin and TypeScript, running on Google
-Kubernetes Engine. For the first time in a few years, the latest hot terms are like SPA, containers,
-and serverless are backed by real code on my website. It did not stop there. A few days later you
-might see another post on my re-architecturing effort in the past year.
+[this blog post](/2018/08/01/website-architecture-update).) The old code has been completely purged
+and it was written in the latest Kotlin and TypeScript, running on Google Kubernetes Engine. For the
+first time in a few years, the latest hot terms are like SPA, containers, and serverless are backed
+by real code on my website. It did not stop there. A few days later you might see another post on my
+re-architecturing effort in the past year.
 
 No longer need to care about numbers, I could eventually start to build something technically
 challenging but completely useless: my programming language. Probably with a working compiler and an
@@ -148,8 +148,8 @@ software engineering principles. Now I had a lot: knowledge, salary, servers, ex
 believe that I can personally do something to change the course of history for the newer
 generations.
 
-This is a personal decision without any approvals, nor do I need any. I did it because I want to.
-I want to do something to make the lives of high school computer suck less, to help make their
+This is a personal decision without any approvals, nor do I need any. I did it because I want to. I
+want to do something to make the lives of high school computer suck less, to help make their
 codebase better through better infrastructure and financial support, and to encourage them to move
 fast and break things. Against the strong stereotype of nerds, there is the unwavering engineering
 pride that we the nerd hold strong, sometimes bloodied but unbowed.

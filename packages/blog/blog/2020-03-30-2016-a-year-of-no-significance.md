@@ -222,12 +222,10 @@ final exams. Students are especially outraged by some school's decision to assum
 a final exam in addition to the mock exam. The original discussion thread about whether the decision
 was reasonable soon became a place for enraged students to publicly share the past tyranny
 instances. You can see the original thread [here](https://www.zhihu.com/question/381695780), and
-students in other schools
-[(1)](https://www.zhihu.com/question/382317218)
-[(2)](https://www.zhihu.com/question/381873641)
-[(3)](https://www.zhihu.com/question/60918009)
-also joined the fight.
-(They are in Chinese and I'm not hardworking enough to translate them all into English.)
+students in other schools [(1)](https://www.zhihu.com/question/382317218)
+[(2)](https://www.zhihu.com/question/381873641) [(3)](https://www.zhihu.com/question/60918009) also
+joined the fight. (They are in Chinese and I'm not hardworking enough to translate them all into
+English.)
 
 I read through all the replies, and I started to form my opinions. To be fair, I believe that what
 happened there was much more benign than many other Chinese high schools. For example, some authors
@@ -247,9 +245,9 @@ happen to have the power. However, the world has changed forever since 1920.
 You might ask why I joined this argument while it had nothing to do with my life. My answer for that
 question is that I considered this to my responsibility as an unthreatenable outsider. Chilling
 effects are real. If even an outsider won't bother speaking against the injustice, these incidents
-will just repeat themselves and the grievances will be buried in history without a trace. However,
-I wasn't able to obtain a directly evidence so far, so I decided to talk about the distant past that
-I know. I think the past still reflect the reality quite accurately.
+will just repeat themselves and the grievances will be buried in history without a trace. However, I
+wasn't able to obtain a directly evidence so far, so I decided to talk about the distant past that I
+know. I think the past still reflect the reality quite accurately.
 
 The title and the layout of the post are influenced by historian Ray Huang's book
 _[1587, a Year of No Significance: The Ming Dynasty in Decline](https://en.wikipedia.org/wiki/1587,_a_Year_of_No_Significance)_.

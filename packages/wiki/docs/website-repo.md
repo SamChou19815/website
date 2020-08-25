@@ -29,10 +29,8 @@ title: Website Repository Setup
 
 ## `monorail` monorepo tool
 
-:::caution
-This document might not be as updated as latest monorail build. Only documented features here is
-guaranteed to be _relatively_ stable.
-:::
+:::caution This document might not be as updated as latest monorail build. Only documented features
+here is guaranteed to be _relatively_ stable. :::
 
 ### Installation
 
@@ -90,8 +88,8 @@ dependency. To declare that dependency, add the following lines to relevant work
 
 In addition, set `GH_TOKEN` in GitHub repository secrets to be your GitHub personal access token.
 
-In local runs of `monorail`, it will have no effect. This declaration only instructs the CI to
-pull relevant repositories before building the workspace.
+In local runs of `monorail`, it will have no effect. This declaration only instructs the CI to pull
+relevant repositories before building the workspace.
 
 `monorail` assumes a specific layout when pulling this dependency:
 
@@ -141,8 +139,8 @@ If a workspace's `package.json` has `codegenConfiguration` with the format:
 }
 ```
 
-Then rebuild will invoke the `codegen` script in the workspace. It will only rebuild if one of
-the specified source file's modified time is newer than the generated output.
+Then rebuild will invoke the `codegen` script in the workspace. It will only rebuild if one of the
+specified source file's modified time is newer than the generated output.
 
 ### Cross-repository file syncing
 

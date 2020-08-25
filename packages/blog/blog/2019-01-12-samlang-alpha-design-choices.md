@@ -8,8 +8,8 @@ tags: [design-choices]
 In the last summer, I developed my first programming language SAMPL. Measured against my technical
 skills at that time, it was a clear success. I was able to implement an interpreter and a compiler
 for a self-designed functional programming language with only the knowledge to implement an
-interpreter for a toy language in Cornell CS 3110. I was particularly proud of the module system
-and generics in that language.
+interpreter for a toy language in Cornell CS 3110. I was particularly proud of the module system and
+generics in that language.
 
 <!--truncate-->
 
@@ -25,8 +25,8 @@ implement a better programming language in my mind, with the additional knowledg
 language theory thanks to Cornell CS 4110 and past experience of designing a language. I decided to
 name it SAMLANG because I can't think of other names. In this week, I archived the old language's
 repo, open sourced the new language's repo on [GitHub](https://github.com/SamChou19815/samlang) and
-published its [official documentation](http://samlang-docs.developersam.com). Now it's the time
-to discuss some of my design choices.
+published its [official documentation](http://samlang-docs.developersam.com). Now it's the time to
+discuss some of my design choices.
 
 ### Influence of Design Choices and My Justification
 
@@ -58,10 +58,10 @@ If the type system is structural, then the user may choose to write:
 const info = { name: 'RANDOM_BABY', age: 0 }.getNameWithAge();
 ```
 
-Then deciding which function to call requires iterating over the entire typing environment, which
-is inefficient and slow. It also places some burden on the user to reason which function gets
-called. In a nominal type system, the search is confined to a single module and it will simply be a
-string search in an immutable map in `O(lg n)` time.
+Then deciding which function to call requires iterating over the entire typing environment, which is
+inefficient and slow. It also places some burden on the user to reason which function gets called.
+In a nominal type system, the search is confined to a single module and it will simply be a string
+search in an immutable map in `O(lg n)` time.
 
 Therefore, I decided to use the nominal typing rule to simplify the implementation. It also makes
 type inference a lot easier because the type constraints with objects are more explicit under my
@@ -74,8 +74,8 @@ languages.
 ### Implementation
 
 The greatest challenge is type inference.
-[Cornell's course notes](https://www.cs.cornell.edu/courses/cs4110/2018fa/lectures/slides23.pdf)
-say that we should use a set of constraints to gradually solve the type, but the examples given are
+[Cornell's course notes](https://www.cs.cornell.edu/courses/cs4110/2018fa/lectures/slides23.pdf) say
+that we should use a set of constraints to gradually solve the type, but the examples given are
 quite simple.
 
 With some experimentation and thoughts, I introduced undecided type to represent an expression
@@ -117,8 +117,8 @@ complain when `random` is called, the user can catch his/her mistake.
 
 ### Current Status
 
-Right now I only implemented a type-checker, an interpreter, and a pretty-printer. I will try to
-do some IR lowering in the near future to support easy compilation to Java and JavaScript. I'm also
+Right now I only implemented a type-checker, an interpreter, and a pretty-printer. I will try to do
+some IR lowering in the near future to support easy compilation to Java and JavaScript. I'm also
 planning to support Kotlin, TypeScript, and Flow as additional compilation targets because the
 type-checker can already provide rich type information for those languages to use. Again, I would
 welcome your contribution. Let's end the blog post with a code snippet on

@@ -5,9 +5,9 @@ tags: [tech-journey, review, thoughts]
 
 This year, I got an intern with a resume that did not mention my high school’s CS project with a
 single word. Therefore, at this point, either success or failure in my high school CS career does
-not matter at all, so I can honestly reflect on it. I reviewed again all my computer science
-related records and writings to ensure the content in this article is as accurate as possible. I
-hope it still helps.
+not matter at all, so I can honestly reflect on it. I reviewed again all my computer science related
+records and writings to ensure the content in this article is as accurate as possible. I hope it
+still helps.
 
 <!--truncate-->
 
@@ -143,9 +143,9 @@ drove me forward even when everything was in a mess. It was never about producin
 to be put on the Common App. It was about an ideal. It's an ideal that software engineers took for
 granted to build great software. It was about Google’s line on its website: Google is not a
 conventional company; we never intend to be. It was about Facebook's motto: move fast and break
-things. It was about that software engineers who love to build things can build great things to
-make a change. Regulation and authority were never part of this story, because we place correctness
-of code before pleasing others.
+things. It was about that software engineers who love to build things can build great things to make
+a change. Regulation and authority were never part of this story, because we place correctness of
+code before pleasing others.
 
 On the club fest next week, instead of echoing the random theme the administrator happened to think
 of, we talked about our newly released CollegeChoice feature, about the freedom I gave to the
@@ -278,9 +278,9 @@ There are more.
 
 ### 4. Final Comments
 
-My story is mostly about failure. You may think that at least the development is not a failure.
-No. Judging from my current standard, I would say the code I wrote at that time was complete trash,
-and it’s one of many reasons why I never touched the codebase after graduation.
+My story is mostly about failure. You may think that at least the development is not a failure. No.
+Judging from my current standard, I would say the code I wrote at that time was complete trash, and
+it’s one of many reasons why I never touched the codebase after graduation.
 
 I said a lot of harsh things in this post, but really I want to send an optimistic message. The
 failure is related to code quality, but it’s a thing you can truly understand after you go to the
