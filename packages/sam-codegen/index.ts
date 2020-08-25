@@ -131,9 +131,11 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
     : {};
 
   deletedSourceFiles.forEach((filename) => {
-    generatedFileMappings[filename].forEach((managedFileToBeDeleted) =>
-      filesystem.deleteFile(managedFileToBeDeleted)
-    );
+    generatedFileMappings[filename].forEach((managedFileToBeDeleted) => {
+      if (filesystem.fileExists(managedFileToBeDeleted)) {
+        filesystem.deleteFile(managedFileToBeDeleted);
+      }
+    });
     delete generatedFileMappings[filename];
   });
 
