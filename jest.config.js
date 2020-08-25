@@ -1,5 +1,3 @@
-const libraries = require('./configuration/libraries.json');
-
 const babelJestPath = require.resolve('babel-jest');
 const identityObjectProxyPath = require.resolve('identity-obj-proxy');
 
@@ -9,7 +7,7 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': babelJestPath,
   },
   transformIgnorePatterns: [
-    `/node_modules/(?!(${libraries.join('|')})).+\\.js$`,
+    `/node_modules/(?!(lib-react)).+\\.js$`,
     '^.+\\.module\\.(css|sass|scss)$',
   ],
   moduleNameMapper: {
