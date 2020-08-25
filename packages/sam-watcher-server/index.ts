@@ -50,6 +50,7 @@ const projectRoot = dirname(gitignoreAbsolutePath);
 const watcher = chokidar.watch('.', {
   persistent: true,
   cwd: projectRoot,
+  ignoreInitial: true,
   ignored: [
     ...normalizeIgnorePatterns(readFileSync(gitignoreAbsolutePath).toString().split('\n')),
     '.git/**',
