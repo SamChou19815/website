@@ -6,6 +6,9 @@
   "scripts": {
     "compile": "tsc"
   },
+  "dependencies": {
+    "lib-changed-files": "workspace:^0.0.1"
+  },
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.23",

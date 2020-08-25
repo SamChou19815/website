@@ -2,6 +2,8 @@ import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
 
 import * as TypeScript from 'typescript';
 
+import queryChangedFilesFromDevSamWatcherServerSince from 'lib-changed-files';
+
 /**
  * For the purpose of deterministic testing as well potentially virtualized filesystem, we need to
  * abstract out the filesystem actions.
@@ -173,4 +175,29 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   );
 
   return Array.from(writtenFiles).sort(stringComparator);
+};
+
+export const runCodegenServicesIncrementally = async (
+  since: number,
+  // Need the any type to overcome covariance and contravariance issue :(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  codegenServices: readonly CodegenService<any>[]
+): Promise<void> => {
+  const events = await queryChangedFilesFromDevSamWatcherServerSince(since);
+  const changedSourceFiles: string[] = [];
+  const deletedSourceFiles: string[] = [];
+  events.forEach(({ type, filename }) => {
+    if (type === 'changed') {
+      changedSourceFiles.push(filename);
+    } else {
+      deletedSourceFiles.push(filename);
+    }
+  });
+
+  runCodegenServicesAccordingToFilesystemEvents(
+    changedSourceFiles,
+    deletedSourceFiles,
+    codegenServices,
+    CodegenRealFilesystem
+  );
 };
