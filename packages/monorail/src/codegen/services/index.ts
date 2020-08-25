@@ -3,13 +3,8 @@ import { writeFileSync } from 'fs';
 
 import githubActionsCodegenService from './codegen-github-actions';
 import ignoreFileCodegenService from './codegen-ignore-files';
-import staticJsonCodegenService from './codegen-json';
 
-const codegenServices = [
-  githubActionsCodegenService,
-  ignoreFileCodegenService,
-  staticJsonCodegenService,
-];
+const codegenServices = [githubActionsCodegenService, ignoreFileCodegenService];
 
 const executeCodegenServices = (): void => {
   codegenServices.forEach((codegenService) => {
