@@ -3,6 +3,7 @@ import React, { ReactElement, useState, useEffect } from 'react';
 import './firebase-initializer';
 import firebase from 'firebase/app';
 
+import LoadingOverlay from './LoadingOverlay';
 import { appUser$, hasAppUser } from './authentication';
 
 const firebaseLoginProvider = new firebase.auth.GithubAuthProvider();
@@ -10,8 +11,6 @@ const firebaseLoginProvider = new firebase.auth.GithubAuthProvider();
 const onLoginClick = () => {
   firebase.auth().signInWithPopup(firebaseLoginProvider);
 };
-
-const LoadingPage = () => <div className="simple-page-center">Loading...</div>;
 
 type Props = {
   /** The child to render when the barrier is cleared. */
@@ -48,7 +47,7 @@ const FirebaseLoginAppBarrier = ({ children }: Props): ReactElement => {
         </div>
       );
     case 'INIT_LOADING':
-      return <LoadingPage />;
+      return <LoadingOverlay />;
     case 'APP':
       return children;
     default:
