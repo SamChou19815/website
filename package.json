@@ -52,11 +52,6 @@
   },
   "repoToolsConfiguration": {
     "binary": "./packages/monorail/bin/monorail",
-    "organizationName": "SamChou19815",
-    "toolingPrefixes": [
-      "@dev-sam/",
-      "vscode-"
-    ],
     "deploymentSecrets": [
       "FIREBASE_TOKEN"
     ]
