@@ -1,6 +1,6 @@
 {
-  "name": "@dev-sam/codegen",
-  "description": "Developer Sam's codegen CLI and library.",
+  "name": "lib-codegen",
+  "description": "Developer Sam's codegen library.",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,6 +16,5 @@
   },
   "peerDependencies": {
     "typescript": "*"
-  },
-  "packageType": "tool"
+  }
 }
