@@ -4,6 +4,8 @@ import { spawnSync } from 'child_process';
 import { existsSync, copyFileSync, mkdirSync, readFileSync } from 'fs';
 import { basename, dirname, join, resolve } from 'path';
 
+import chalk from 'chalk';
+
 const safeCopy = (source: string, destination: string): void => {
   mkdirSync(dirname(destination), { recursive: true });
   copyFileSync(source, destination);
@@ -91,7 +93,7 @@ const synchronize = (): void => {
     return;
   }
 
-  console.group('--- Monorail Cross-repository Sync Service ---');
+  console.group(chalk.blue('--- Monorail Cross-repository Sync Service ---'));
   const synchronizeConfiguration: SynchronizeConfiguration = JSON.parse(
     readFileSync(synchronizeConfigurationPath).toString()
   );
@@ -103,7 +105,7 @@ const synchronize = (): void => {
   });
   console.groupEnd();
 
-  console.log(`\n[✓] Synchronized all files.`);
+  console.log(`\n${chalk.green('[✓] Synchronized all files.')}`);
 };
 
 export default synchronize;
