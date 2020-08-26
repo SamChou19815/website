@@ -5,7 +5,7 @@
   "private": true,
   "bin": "./bin/monorail",
   "scripts": {
-    "codegen": "NODE_NO_WARNINGS=1 node build.js",
+    "codegen": "NODE_NO_WARNINGS=1 ncc build src/index.ts -o bin -m --no-source-map-register --transpile-only",
     "compile": "tsc"
   },
   "dependencies": {
