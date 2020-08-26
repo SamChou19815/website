@@ -5,7 +5,7 @@ import { CodegenService } from './codegen-service-types';
 const gitignoreContent = readFileSync('.gitignore');
 const styleIgnoreAdditions = readFileSync('configuration/styleignore.additions');
 
-const styleIgnoreContent = `# @generated
+const styleIgnoreContent = `# ${'@' + 'generated'}
 
 ${gitignoreContent}
 ${styleIgnoreAdditions}`;

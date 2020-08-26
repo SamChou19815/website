@@ -29,7 +29,7 @@ export type WorkspaceInformation = {
   readonly workspaceLocation: string;
   readonly hasCompileScript: boolean;
   readonly packageType: 'library' | 'tool' | 'app';
-  readonly inRepoWorkspaceDependencies: readonly string[];
+  readonly dependencies: readonly string[];
   readonly deploymentDependencies: readonly string[];
   readonly codegenConfiguration?: CodegenConfiguration;
 };
@@ -53,7 +53,7 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
       if (name == null) {
         return;
       }
-      const inRepoWorkspaceDependencies = workspaceDependencies.map((dependencyString) => {
+      const dependencies = workspaceDependencies.map((dependencyString) => {
         if (!dependencyString.startsWith('packages/')) {
           throw new Error(`Bad dependency of ${name}: ${dependencyString}`);
         }
@@ -65,7 +65,7 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
       map.set(name, {
         workspaceLocation: location,
         hasCompileScript: packageJson.scripts?.compile != null,
-        inRepoWorkspaceDependencies,
+        dependencies,
         packageType: assertIsLibraryType(packageJson.packageType),
         deploymentDependencies: assertIsStringArray(
           'deploymentDependencies',

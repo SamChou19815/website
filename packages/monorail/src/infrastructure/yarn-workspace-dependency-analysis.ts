@@ -41,7 +41,7 @@ export const getYarnWorkspaceInRepoDependencyChain = (workspace: string): readon
     }
 
     // Check dependencies.
-    const workspaceDependencies = getWorkspaceInformation(node).inRepoWorkspaceDependencies;
+    const workspaceDependencies = getWorkspaceInformation(node).dependencies;
 
     // Visit dependencies
     allVisited.add(node);
