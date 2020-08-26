@@ -39,11 +39,10 @@ export const useWikiPrivateDocumentsMetadata = ():
       ? firestorePrivateDocumentMetadataCollection
       : // This check is added for user experience, not for security.
         // The check is also in security rules.
-        firestorePrivateDocumentMetadataCollection.where(
-          'sharedWith',
-          'array-contains',
-          currentUserEmail
-        );
+        firestorePrivateDocumentMetadataCollection.where('sharedWith', 'array-contains-any', [
+          currentUserEmail,
+          'ALL',
+        ]);
     return query.onSnapshot((snapshot) => {
       const updatedDocuments = snapshot.docs.map((document) => {
         const documentWithoutId = document.data() as FirebaseType<WikiPrivateDocumentMetadata>;
