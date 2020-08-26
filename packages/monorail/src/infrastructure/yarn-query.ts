@@ -18,7 +18,6 @@ const validateCodegenConfiguration = (json?: unknown): string | undefined =>
 
 export type WorkspaceInformation = {
   readonly workspaceLocation: string;
-  readonly hasCompileScript: boolean;
   readonly codegenOutput?: string;
   readonly packageType: 'library' | 'tool' | 'app';
   readonly dependencies: readonly string[];
@@ -54,7 +53,6 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
 
       map.set(name, {
         workspaceLocation: location,
-        hasCompileScript: packageJson.scripts?.compile != null,
         codegenOutput: validateCodegenConfiguration(packageJson.codegenConfiguration),
         dependencies,
         packageType: assertIsLibraryType(packageJson.packageType),

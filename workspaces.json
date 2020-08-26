@@ -3,7 +3,6 @@
   "information": {
     "@dev-sam/eslint-config-common": {
       "workspaceLocation": "packages/eslint-config-common",
-      "hasCompileScript": false,
       "dependencies": [],
       "packageType": "tool",
       "dependencyChain": [
@@ -12,7 +11,6 @@
     },
     "@dev-sam/monorail": {
       "workspaceLocation": "packages/monorail",
-      "hasCompileScript": true,
       "codegenOutput": "bin/index.js",
       "dependencies": [
         "lib-changed-files",
@@ -27,7 +25,6 @@
     },
     "@dev-sam/watcher-server": {
       "workspaceLocation": "packages/sam-watcher-server",
-      "hasCompileScript": true,
       "dependencies": [],
       "packageType": "tool",
       "dependencyChain": [
@@ -36,7 +33,6 @@
     },
     "blog": {
       "workspaceLocation": "packages/blog",
-      "hasCompileScript": true,
       "dependencies": [
         "lib-docusaurus-plugin",
         "lib-react"
@@ -51,7 +47,6 @@
     },
     "lib-changed-files": {
       "workspaceLocation": "packages/lib-changed-files",
-      "hasCompileScript": true,
       "dependencies": [],
       "packageType": "library",
       "dependencyChain": [
@@ -60,7 +55,6 @@
     },
     "lib-codegen": {
       "workspaceLocation": "packages/lib-codegen",
-      "hasCompileScript": true,
       "dependencies": [
         "lib-changed-files",
         "lib-incremental"
@@ -74,7 +68,6 @@
     },
     "lib-docusaurus-plugin": {
       "workspaceLocation": "packages/lib-docusaurus-plugin",
-      "hasCompileScript": true,
       "dependencies": [
         "lib-prism-extended",
         "lib-react"
@@ -88,7 +81,6 @@
     },
     "lib-incremental": {
       "workspaceLocation": "packages/lib-incremental",
-      "hasCompileScript": true,
       "dependencies": [],
       "packageType": "library",
       "dependencyChain": [
@@ -97,7 +89,6 @@
     },
     "lib-prism-extended": {
       "workspaceLocation": "packages/lib-prism-extended",
-      "hasCompileScript": false,
       "dependencies": [],
       "packageType": "library",
       "dependencyChain": [
@@ -106,7 +97,6 @@
     },
     "lib-react": {
       "workspaceLocation": "packages/lib-react",
-      "hasCompileScript": true,
       "dependencies": [
         "lib-prism-extended"
       ],
@@ -118,7 +108,6 @@
     },
     "samlang": {
       "workspaceLocation": "packages/samlang",
-      "hasCompileScript": true,
       "dependencies": [
         "lib-docusaurus-plugin",
         "lib-react"
@@ -133,7 +122,6 @@
     },
     "ten": {
       "workspaceLocation": "packages/ten",
-      "hasCompileScript": true,
       "dependencies": [],
       "packageType": "app",
       "dependencyChain": [
@@ -142,7 +130,6 @@
     },
     "vscode-disable-generated-files-edit": {
       "workspaceLocation": "packages/vscode-disable-generated-files-edit",
-      "hasCompileScript": true,
       "dependencies": [],
       "packageType": "tool",
       "dependencyChain": [
@@ -151,7 +138,6 @@
     },
     "wiki": {
       "workspaceLocation": "packages/wiki",
-      "hasCompileScript": true,
       "dependencies": [
         "lib-docusaurus-plugin",
         "lib-react"
@@ -166,7 +152,6 @@
     },
     "www": {
       "workspaceLocation": "packages/www",
-      "hasCompileScript": true,
       "dependencies": [
         "lib-react"
       ],
