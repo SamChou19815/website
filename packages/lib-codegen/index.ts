@@ -55,28 +55,12 @@ export type CodegenServiceFileOutput = {
   readonly outputContent: string;
 };
 
-export interface CodegenService<T> {
+export interface CodegenService {
   /** Name of the codegen service. Doesn't affect codegen results but useful for readable output. */
   readonly name: string;
-  /**
-   * The raw source to be evaluated to an arbritrary JS object.
-   * The implementation can be as simple as the identity function.
-   * This is needed to ensure that we can run arbitrary JS code to get the information necessary for
-   * codegen instead of parsing everything statically.
-   */
-  readonly generatedSourceEvaluator: (sourceString: string) => T;
   /** The main runner code. */
-  readonly run: (sourceFilename: string, evaluatedSource: T) => readonly CodegenServiceFileOutput[];
+  readonly run: (sourceFilename: string, source: string) => readonly CodegenServiceFileOutput[];
 }
-
-export const createPlaintextCodegenService = (
-  name: string,
-  run: (sourceFilename: string, evaluatedSource: string) => readonly CodegenServiceFileOutput[]
-): CodegenService<string> => ({
-  name,
-  generatedSourceEvaluator: (sourceString) => sourceString,
-  run,
-});
 
 export const createPlaintextConcatenationCodegenService = (
   name: string,
@@ -84,21 +68,30 @@ export const createPlaintextConcatenationCodegenService = (
     readonly additionalContent: string;
     readonly outputFilename: string;
   }[]
-): CodegenService<string> =>
-  createPlaintextCodegenService(name, (_, evaluatedSource) =>
+): CodegenService => ({
+  name,
+  run: (_, source) =>
     additionalContentsToConcatenate.map(({ additionalContent, outputFilename }) => ({
-      outputContent: `${evaluatedSource}${additionalContent}`,
+      outputContent: `${source}${additionalContent}`,
       outputFilename,
-    }))
-  );
+    })),
+});
+
+export const createJsonCodegenService = <T>(
+  name: string,
+  run: (sourceFilename: string, json: T) => readonly CodegenServiceFileOutput[]
+): CodegenService => ({
+  name,
+  run: (sourceFilename, source) => run(sourceFilename, JSON.parse(source)),
+});
 
 export const createTypeScriptCodegenService = <T>(
   name: string,
   run: (sourceFilename: string, evaluatedSource: T) => readonly CodegenServiceFileOutput[]
-): CodegenService<T> => ({
+): CodegenService => ({
   name,
-  generatedSourceEvaluator: (sourceString) => {
-    const transpiledModuleCode = TypeScript.transpile(sourceString, {
+  run: (sourceFilename, source) => {
+    const transpiledModuleCode = TypeScript.transpile(source, {
       module: TypeScript.ModuleKind.CommonJS,
     });
     /*
@@ -111,9 +104,9 @@ export const createTypeScriptCodegenService = <T>(
       return exports.default;
     })({})`;
     // eslint-disable-next-line no-eval
-    return eval(wrappedModuleCodeForEval);
+    const evaluatedSource = eval(wrappedModuleCodeForEval);
+    return run(sourceFilename, evaluatedSource);
   },
-  run,
 });
 
 export const GENERATED_FILES_SOURCE_MAPPINGS_JSON = '.codegen/mappings.json';
@@ -121,9 +114,7 @@ export const GENERATED_FILES_SOURCE_MAPPINGS_JSON = '.codegen/mappings.json';
 export const runCodegenServicesAccordingToFilesystemEvents = (
   changedSourceFiles: readonly string[],
   deletedSourceFiles: readonly string[],
-  // Need the any type to overcome covariance and contravariance issue :(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  codegenServices: readonly CodegenService<any>[],
+  codegenServices: readonly CodegenService[],
   filesystem: CodegenFilesystem
 ): readonly string[] => {
   const generatedFileMappings: Record<string, readonly string[]> = filesystem.fileExists(
@@ -147,7 +138,7 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   changedSourceFiles.forEach((filename) => {
     const source = filesystem.readFile(filename);
     codegenServices.forEach((service) => {
-      const codegenOutputs = service.run(filename, service.generatedSourceEvaluator(source));
+      const codegenOutputs = service.run(filename, source);
       const managedFiles = new Set(generatedFileMappings[filename] ?? []);
 
       codegenOutputs.forEach(({ outputFilename, outputContent }) => {
@@ -179,9 +170,7 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
 
 export const runCodegenServicesIncrementally = async (
   since: number,
-  // Need the any type to overcome covariance and contravariance issue :(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  codegenServices: readonly CodegenService<any>[]
+  codegenServices: readonly CodegenService[]
 ): Promise<void> => {
   const { changedFiles, deletedFiles } = await queryChangedFilesSince(since);
   runCodegenServicesAccordingToFilesystemEvents(
