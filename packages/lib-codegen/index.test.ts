@@ -2,8 +2,8 @@ import { join } from 'path';
 
 import {
   CodegenInMemoryFilesystem,
-  createPlaintextCodegenService,
   createPlaintextConcatenationCodegenService,
+  createJsonCodegenService,
   createTypeScriptCodegenService,
   runCodegenServicesAccordingToFilesystemEvents,
   GENERATED_FILES_SOURCE_MAPPINGS_JSON,
@@ -37,35 +37,27 @@ it('createPlaintextConcatenationCodegenService works', () => {
   ]);
 });
 
+it('createJsonCodegenService works', () => {
+  const service = createJsonCodegenService<{ foo: string }>('', (_, json) => [
+    { outputFilename: '', outputContent: json.foo },
+  ]);
+  expect(service.run('', '{"foo":"bar"}')[0].outputContent).toBe('bar');
+});
+
 it('createTypeScriptCodegenService works', () => {
-  const service = createTypeScriptCodegenService<() => number>('', () => []);
+  const service = createTypeScriptCodegenService<() => number>('', (_, f) => [
+    { outputFilename: '', outputContent: String(f()) },
+  ]);
 
   // Test that
   // - type imports are fully erased.
   // - exports can be fully evaluated even if it's a function.
   expect(
-    service.generatedSourceEvaluator('import type {Foo} from "bar"; export default () => 42')()
-  ).toBe(42);
+    service.run('', 'import type {Foo} from "bar"; export default () => 42')[0].outputContent
+  ).toBe('42');
 });
 
 it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
-  const identityService = createPlaintextCodegenService('', (sourceFilename, sourceCode) => [
-    {
-      outputContent: sourceCode,
-      outputFilename: join('__generated__', sourceFilename),
-    },
-  ]);
-  const barTxtOnlyService = createPlaintextCodegenService('', (sourceFilename) =>
-    sourceFilename === 'bar.txt'
-      ? [
-          {
-            outputContent: 'special',
-            outputFilename: join('__generated__', 'very-special'),
-          },
-        ]
-      : []
-  );
-
   const filesystem = new CodegenInMemoryFilesystem([
     [
       GENERATED_FILES_SOURCE_MAPPINGS_JSON,
@@ -85,7 +77,29 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
   const writtenFiles = runCodegenServicesAccordingToFilesystemEvents(
     ['bar.txt', 'baz.txt'],
     ['foo.txt'],
-    [identityService, barTxtOnlyService],
+    [
+      {
+        name: '',
+        run: (sourceFilename: string, sourceCode: string) => [
+          {
+            outputContent: sourceCode,
+            outputFilename: join('__generated__', sourceFilename),
+          },
+        ],
+      },
+      {
+        name: '',
+        run: (sourceFilename) =>
+          sourceFilename === 'bar.txt'
+            ? [
+                {
+                  outputContent: 'special',
+                  outputFilename: join('__generated__', 'very-special'),
+                },
+              ]
+            : [],
+      },
+    ],
     filesystem
   );
 
