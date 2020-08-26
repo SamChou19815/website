@@ -6,7 +6,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "compile": "yarn build",
+    "compile": "exit 0",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
   },
   "dependencies": {
