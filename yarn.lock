@@ -2134,6 +2134,8 @@ __metadata:
     chokidar: ^3.4.2
     express: ^4.17.1
     typescript: ^4.0.2
+  bin:
+    sam-watch-server: build/index.js
   languageName: unknown
   linkType: soft
 

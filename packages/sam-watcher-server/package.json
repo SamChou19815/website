@@ -2,7 +2,6 @@
   "name": "@dev-sam/watcher-server",
   "description": "Developer Sam's file watcher as a HTTP service.",
   "version": "0.0.5",
-  "private": false,
   "files": [
     "build"
   ],
