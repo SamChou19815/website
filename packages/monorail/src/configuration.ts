@@ -1,21 +1,19 @@
 import { existsSync, readFileSync, lstatSync } from 'fs';
-import { join, dirname } from 'path';
+import { join, dirname, relative } from 'path';
 
-import { assertIsString, assertIsStringArray, assertHasFields } from './validator';
+import { assertIsStringArray, assertHasFields } from './validator';
 
 type RepoToolsConfiguration = {
-  readonly binary: string;
   readonly deploymentSecrets: readonly string[];
 };
 
 const parseRepoToolsConfiguration = (json: unknown): RepoToolsConfiguration => {
-  const { binary, deploymentSecrets } = assertHasFields(
+  const { deploymentSecrets } = assertHasFields(
     'repoToolsConfiguration',
-    ['binary', 'deploymentSecrets'],
+    ['deploymentSecrets'],
     json
   );
   return {
-    binary: assertIsString('binary', binary),
     deploymentSecrets: assertIsStringArray('deploymentSecrets', deploymentSecrets),
   };
 };
@@ -43,3 +41,5 @@ export const [
   PROJECT_ROOT_DIRECTORY,
   PROJECT_CONFIGURATION,
 ] = loadRepoToolsConfigurationAndFindRoot();
+
+export const MONORAIL_BINARY_PATH = relative(PROJECT_ROOT_DIRECTORY, process.argv[1]);

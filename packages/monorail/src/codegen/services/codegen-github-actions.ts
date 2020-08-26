@@ -1,4 +1,4 @@
-import { PROJECT_CONFIGURATION } from '../../configuration';
+import { MONORAIL_BINARY_PATH, PROJECT_CONFIGURATION } from '../../configuration';
 import {
   GitHubActionsWorkflow,
   githubActionJobRunStep,
@@ -76,8 +76,8 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, GitHubActionsWork
         jobSteps: [
           GITHUB_ACTIONS_CHECKOUT_STEP,
           GITHUB_ACTIONS_SETUP_NODE_STEP,
-          githubActionJobRunStep('Codegen', `${PROJECT_CONFIGURATION.binary} codegen`),
-          githubActionJobRunStep('Check changed', `${PROJECT_CONFIGURATION.binary} no-changed`),
+          githubActionJobRunStep('Codegen', `${MONORAIL_BINARY_PATH} codegen`),
+          githubActionJobRunStep('Check changed', `${MONORAIL_BINARY_PATH} no-changed`),
         ],
       },
     ],
