@@ -15,13 +15,13 @@ const incrementalTaskSpecification: IncrementalTaskSpecification = {
   needRerun: async (latestKnownGoodRerunTime) => {
     const allWorkspaces = await Promise.all(
       Array.from(workspaceInformation.entries()).map(
-        async ([workspaceName, { workspaceLocation, codegenConfiguration }]) => {
-          if (codegenConfiguration == null) return [workspaceName, false] as const;
+        async ([workspaceName, { workspaceLocation, codegenOutput }]) => {
+          if (codegenOutput == null) return [workspaceName, false] as const;
           const { changedFiles, deletedFiles } = await queryChangedFilesSince(
             latestKnownGoodRerunTime[workspaceName] ?? 0,
             workspaceLocation
           );
-          const outputPathToExclude = join(workspaceLocation, codegenConfiguration.output);
+          const outputPathToExclude = join(workspaceLocation, codegenOutput);
           const meaningfulFiles = [...changedFiles, ...deletedFiles].filter(
             (it) => it !== outputPathToExclude
           );

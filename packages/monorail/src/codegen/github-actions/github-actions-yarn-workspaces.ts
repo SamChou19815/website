@@ -3,7 +3,6 @@ import {
   getYarnWorkspacePackageType,
   getYarnWorkspaceLocation,
   getYarnWorkspaceInRepoDependencyChain,
-  getYarnWorkspaceDeploymentDependencies,
 } from '../../infrastructure/yarn-workspace-dependency-analysis';
 import {
   GitHubActionsWorkflow,
@@ -14,7 +13,6 @@ import {
   GITHUB_ACTIONS_CHECKOUT_STEP,
   GITHUB_ACTIONS_SETUP_NODE_STEP,
   GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
-  getDeploymentDependencySetupStep,
 } from './github-actions-primitives';
 
 export const yarnWorkspaceBoilterplateSetupSteps = [
@@ -45,7 +43,7 @@ const generateYarnWorkspaceProjectCDWorkflow = (workspace: string): GitHubAction
       jobSteps: [
         ...yarnWorkspaceBoilterplateSetupSteps,
         githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
-        ...getYarnWorkspaceDeploymentDependencies(workspace).map(getDeploymentDependencySetupStep),
+        githubActionJobRunStep('Install firebase-tools', 'sudo npm install -g firebase-tools'),
         githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
       ],
     },

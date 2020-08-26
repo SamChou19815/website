@@ -2,12 +2,7 @@ import { spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-import { assertIsString, assertIsStringArray, assertHasFields } from '../validator';
-
-export type CodegenConfiguration = {
-  /** Output file. */
-  readonly output: string;
-};
+import { assertIsString, assertHasFields } from '../validator';
 
 const assertIsLibraryType = (value?: unknown): 'library' | 'tool' | 'app' => {
   if (value == null) return 'library';
@@ -16,22 +11,17 @@ const assertIsLibraryType = (value?: unknown): 'library' | 'tool' | 'app' => {
   return type;
 };
 
-const validateCodegenConfiguration = (json?: unknown): CodegenConfiguration | undefined => {
-  return {
-    output: assertIsString(
-      'output',
-      assertHasFields('codegenConfiguration', ['output'], json).output
-    ),
-  };
-};
+const validateCodegenConfiguration = (json?: unknown): string | undefined =>
+  json == null
+    ? undefined
+    : assertIsString('output', assertHasFields('codegenConfiguration', ['output'], json).output);
 
 export type WorkspaceInformation = {
   readonly workspaceLocation: string;
   readonly hasCompileScript: boolean;
+  readonly codegenOutput?: string;
   readonly packageType: 'library' | 'tool' | 'app';
   readonly dependencies: readonly string[];
-  readonly deploymentDependencies: readonly string[];
-  readonly codegenConfiguration?: CodegenConfiguration;
 };
 
 const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInformation> => {
@@ -65,17 +55,9 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
       map.set(name, {
         workspaceLocation: location,
         hasCompileScript: packageJson.scripts?.compile != null,
+        codegenOutput: validateCodegenConfiguration(packageJson.codegenConfiguration),
         dependencies,
         packageType: assertIsLibraryType(packageJson.packageType),
-        deploymentDependencies: assertIsStringArray(
-          'deploymentDependencies',
-          packageJson.deploymentDependencies,
-          true
-        ),
-        codegenConfiguration:
-          packageJson.codegenConfiguration == null
-            ? undefined
-            : validateCodegenConfiguration(packageJson.codegenConfiguration),
       });
     }
   );

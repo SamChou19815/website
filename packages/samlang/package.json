@@ -27,9 +27,6 @@
     "typescript": "^4.0.2"
   },
   "packageType": "app",
-  "deploymentDependencies": [
-    "firebase-tools"
-  ],
   "browserslist": {
     "production": [
       ">0.2%",

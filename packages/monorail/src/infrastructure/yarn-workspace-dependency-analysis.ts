@@ -73,6 +73,3 @@ export const getYarnWorkspacesInTopologicalOrder = (): readonly string[] => {
 
   return sorted;
 };
-
-export const getYarnWorkspaceDeploymentDependencies = (workspace: string): readonly string[] =>
-  getWorkspaceInformation(workspace).deploymentDependencies;
