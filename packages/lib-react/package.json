@@ -9,7 +9,7 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc --noEmit"
   },
   "dependencies": {
     "autosize": "^4.0.2",

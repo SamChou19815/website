@@ -6,7 +6,7 @@
   "bin": "./bin/monorail",
   "scripts": {
     "codegen": "NODE_NO_WARNINGS=1 ncc build src/index.ts -o bin -m --no-source-map-register --transpile-only",
-    "compile": "tsc"
+    "compile": "tsc --noEmit"
   },
   "dependencies": {
     "chalk": "^4.1.0"
