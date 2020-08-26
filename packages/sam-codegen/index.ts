@@ -2,7 +2,7 @@ import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
 
 import * as TypeScript from 'typescript';
 
-import queryChangedFilesFromDevSamWatcherServerSince from 'lib-changed-files';
+import queryChangedFilesSince from 'lib-changed-files';
 
 /**
  * For the purpose of deterministic testing as well potentially virtualized filesystem, we need to
@@ -183,20 +183,10 @@ export const runCodegenServicesIncrementally = async (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   codegenServices: readonly CodegenService<any>[]
 ): Promise<void> => {
-  const events = await queryChangedFilesFromDevSamWatcherServerSince(since);
-  const changedSourceFiles: string[] = [];
-  const deletedSourceFiles: string[] = [];
-  events.forEach(({ type, filename }) => {
-    if (type === 'changed') {
-      changedSourceFiles.push(filename);
-    } else {
-      deletedSourceFiles.push(filename);
-    }
-  });
-
+  const { changedFiles, deletedFiles } = await queryChangedFilesSince(since);
   runCodegenServicesAccordingToFilesystemEvents(
-    changedSourceFiles,
-    deletedSourceFiles,
+    changedFiles,
+    deletedFiles,
     codegenServices,
     CodegenRealFilesystem
   );
