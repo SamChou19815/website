@@ -2056,19 +2056,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/codegen@workspace:packages/sam-codegen":
-  version: 0.0.0-use.local
-  resolution: "@dev-sam/codegen@workspace:packages/sam-codegen"
-  dependencies:
-    "@types/jest": ^25.2.3
-    "@types/node": ^14.0.23
-    lib-changed-files: "workspace:^0.0.1"
-    typescript: ^4.0.2
-  peerDependencies:
-    typescript: "*"
-  languageName: unknown
-  linkType: soft
-
 "@dev-sam/eslint-config-common@workspace:^0.17.0, @dev-sam/eslint-config-common@workspace:packages/eslint-config-common":
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
@@ -11680,6 +11667,19 @@ fsevents@^1.2.7:
     "@types/node-fetch": ^2.5.7
     node-fetch: ^2.6.0
     typescript: ^4.0.2
+  languageName: unknown
+  linkType: soft
+
+"lib-codegen@workspace:packages/lib-codegen":
+  version: 0.0.0-use.local
+  resolution: "lib-codegen@workspace:packages/lib-codegen"
+  dependencies:
+    "@types/jest": ^25.2.3
+    "@types/node": ^14.0.23
+    lib-changed-files: "workspace:^0.0.1"
+    typescript: ^4.0.2
+  peerDependencies:
+    typescript: "*"
   languageName: unknown
   linkType: soft
 

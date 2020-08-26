@@ -1,19 +1,6 @@
 {
   "__type__": "@generated",
   "information": {
-    "@dev-sam/codegen": {
-      "workspaceLocation": "packages/sam-codegen",
-      "hasCompileScript": true,
-      "dependencies": [
-        "lib-changed-files"
-      ],
-      "packageType": "tool",
-      "deploymentDependencies": [],
-      "dependencyChain": [
-        "lib-changed-files",
-        "@dev-sam/codegen"
-      ]
-    },
     "@dev-sam/eslint-config-common": {
       "workspaceLocation": "packages/eslint-config-common",
       "hasCompileScript": false,
@@ -78,6 +65,19 @@
       "deploymentDependencies": [],
       "dependencyChain": [
         "lib-changed-files"
+      ]
+    },
+    "lib-codegen": {
+      "workspaceLocation": "packages/lib-codegen",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-changed-files"
+      ],
+      "packageType": "tool",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "lib-changed-files",
+        "lib-codegen"
       ]
     },
     "lib-docusaurus-plugin": {
@@ -210,9 +210,9 @@
     "blog",
     "@dev-sam/eslint-config-common",
     "lib-changed-files",
+    "lib-codegen",
     "lib-incremental",
     "@dev-sam/monorail",
-    "@dev-sam/codegen",
     "@dev-sam/watcher-server",
     "samlang",
     "ten",
