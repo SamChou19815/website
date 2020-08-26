@@ -11672,6 +11672,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-changed-files@workspace:packages/lib-changed-files"
   dependencies:
+    "@types/jest": ^25.2.3
     "@types/node": ^14.0.23
     "@types/node-fetch": ^2.5.7
     node-fetch: ^2.6.0
