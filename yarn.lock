@@ -2106,6 +2106,7 @@ __metadata:
     "@vercel/ncc": ^0.24.0
     babel-loader: ^8.1.0
     chalk: ^4.1.0
+    lib-incremental: "workspace:^0.0.1"
     terser: ^4.8.0
     terser-webpack-plugin: ^3.0.7
     typescript: ^4.0.2
@@ -11706,6 +11707,16 @@ fsevents@^1.2.7:
   peerDependenciesMeta:
     prism-react-renderer:
       optional: true
+  languageName: unknown
+  linkType: soft
+
+"lib-incremental@workspace:^0.0.1, lib-incremental@workspace:packages/lib-incremental":
+  version: 0.0.0-use.local
+  resolution: "lib-incremental@workspace:packages/lib-incremental"
+  dependencies:
+    "@types/jest": ^25.2.3
+    "@types/node": ^14.0.23
+    typescript: ^4.0.2
   languageName: unknown
   linkType: soft
 

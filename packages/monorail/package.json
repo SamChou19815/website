@@ -9,7 +9,8 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
-    "chalk": "^4.1.0"
+    "chalk": "^4.1.0",
+    "lib-incremental": "workspace:^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -28,6 +29,6 @@
   },
   "packageType": "tool",
   "codegenConfiguration": {
-    "output": "bin/monorail"
+    "output": "bin/index.js"
   }
 }
