@@ -73,7 +73,7 @@
       "dependencies": [
         "lib-changed-files"
       ],
-      "packageType": "tool",
+      "packageType": "library",
       "deploymentDependencies": [],
       "dependencyChain": [
         "lib-changed-files",
