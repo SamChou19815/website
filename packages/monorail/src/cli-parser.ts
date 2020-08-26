@@ -1,8 +1,4 @@
-const parseCommandLineArgumentsIntoCommand = ():
-  | 'CODEGEN'
-  | 'COMPILE'
-  | 'NO_CHANGED'
-  | 'REBUILD' => {
+const parseCommandLineArgumentsIntoCommand = (): 'CODEGEN' | 'COMPILE' | 'NO_CHANGED' => {
   const normalizedArguments: readonly string[] = process.argv.slice(2);
 
   if (normalizedArguments.length === 0) {
@@ -18,9 +14,6 @@ const parseCommandLineArgumentsIntoCommand = ():
     case 'no-changed':
     case 'nc':
       return 'NO_CHANGED';
-    case 'rebuild':
-    case 'r':
-      return 'REBUILD';
     default:
       throw new Error(`Unknown command: ${normalizedArguments[0]}`);
   }

@@ -2,23 +2,17 @@ import { spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-import { assertIsString, assertHasFields } from '../validator';
-
 const assertIsLibraryType = (value?: unknown): 'library' | 'tool' | 'app' => {
   if (value == null) return 'library';
-  const type = assertIsString('packageType', value);
-  if (type !== 'tool' && type !== 'app') throw new Error('');
-  return type;
+  if (typeof value !== 'string') {
+    throw new Error(`Expect 'packageType' to be a string!`);
+  }
+  if (value !== 'tool' && value !== 'app') throw new Error('');
+  return value;
 };
-
-const validateCodegenConfiguration = (json?: unknown): string | undefined =>
-  json == null
-    ? undefined
-    : assertIsString('output', assertHasFields('codegenConfiguration', ['output'], json).output);
 
 export type WorkspaceInformation = {
   readonly workspaceLocation: string;
-  readonly codegenOutput?: string;
   readonly packageType: 'library' | 'tool' | 'app';
   readonly dependencies: readonly string[];
 };
@@ -53,7 +47,6 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
 
       map.set(name, {
         workspaceLocation: location,
-        codegenOutput: validateCodegenConfiguration(packageJson.codegenConfiguration),
         dependencies,
         packageType: assertIsLibraryType(packageJson.packageType),
       });

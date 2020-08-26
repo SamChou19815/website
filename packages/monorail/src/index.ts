@@ -14,7 +14,6 @@ try {
 
 import chalk from 'chalk';
 
-import cachedBuild from './cached-build';
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
 import incrementalCompile from './incremental-compile';
@@ -37,9 +36,6 @@ const main = async (): Promise<void> => {
         return;
       case 'NO_CHANGED':
         checkThatThereIsNoChangedFiles();
-        return;
-      case 'REBUILD':
-        await cachedBuild();
         return;
       default:
         throw new Error();
