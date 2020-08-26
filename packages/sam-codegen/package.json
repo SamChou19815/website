@@ -16,5 +16,6 @@
   },
   "peerDependencies": {
     "typescript": "*"
-  }
+  },
+  "packageType": "tool"
 }

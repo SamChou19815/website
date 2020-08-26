@@ -1,11 +1,8 @@
 import queryYarnForWorkspaceInformation, { WorkspaceInformation } from './yarn-query';
-import classifyYarnWorkspaces from './yarn-workspace-classifier';
 
 export const workspaceInformation = queryYarnForWorkspaceInformation();
 
-export const { toolingWorkspaces, libraryWorkspaces, projectWorkspaces } = classifyYarnWorkspaces(
-  Array.from(workspaceInformation.keys())
-);
+export const workspaceNames: readonly string[] = Array.from(workspaceInformation.keys());
 
 const getWorkspaceInformation = (workspace: string): WorkspaceInformation => {
   const information = workspaceInformation.get(workspace);
@@ -20,6 +17,9 @@ export const getYarnWorkspaceLocation = (workspace: string): string =>
 
 export const getYarnWorkspaceHasCompileScript = (workspace: string): boolean =>
   getWorkspaceInformation(workspace).hasCompileScript;
+
+export const getYarnWorkspacePackageType = (workspace: string): 'library' | 'tool' | 'app' =>
+  getWorkspaceInformation(workspace).packageType;
 
 export const getYarnWorkspaceInRepoDependencyChain = (workspace: string): readonly string[] => {
   const dependencyChain: string[] = [];
@@ -73,10 +73,6 @@ export const getYarnWorkspacesInTopologicalOrder = (): readonly string[] => {
 
   return sorted;
 };
-
-export const getYarnWorkspaceGitHubRepositoryDependencies = (
-  workspace: string
-): readonly string[] => getWorkspaceInformation(workspace).githubRepositoryDependencies;
 
 export const getYarnWorkspaceDeploymentDependencies = (workspace: string): readonly string[] =>
   getWorkspaceInformation(workspace).deploymentDependencies;
