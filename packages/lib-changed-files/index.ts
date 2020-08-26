@@ -33,10 +33,11 @@ export const parseGitDiffWithStatus_EXPOSED_FOR_TESTING = (
 };
 
 const queryChangedFilesFromDevSamWatcherServerSince = async (
-  since: number
+  since: number,
+  pathPrefix = '.'
 ): Promise<ChangedFilesQueryResults> => {
   const events: readonly { type: 'changed' | 'deleted'; filename: string }[] = await fetch(
-    `http://localhost:19815/?since=${since}`
+    `http://localhost:19815/?since=${since}&pathPrefix=${pathPrefix}`
   ).then((response) => response.json());
   const changedFiles: string[] = [];
   const deletedFiles: string[] = [];
@@ -52,31 +53,31 @@ const queryChangedFilesFromDevSamWatcherServerSince = async (
   return { changedFiles, deletedFiles };
 };
 
-const queryChangedFilesSince = async (since: number): Promise<ChangedFilesQueryResults> => {
-  if (process.env.CI) {
-    return parseGitDiffWithStatus_EXPOSED_FOR_TESTING(
+const queryChangedFilesSince = async (
+  since: number,
+  pathPrefix = '.'
+): Promise<ChangedFilesQueryResults> => {
+  const queryFromGitDiffResult = (base: string, head?: string): ChangedFilesQueryResults =>
+    parseGitDiffWithStatus_EXPOSED_FOR_TESTING(
       spawnSync('git', [
         'diff',
-        'HEAD^',
-        'HEAD',
+        base,
+        ...(head ? [head] : []),
         '--name-status',
         '--diff-filter=ADRM',
+        '--',
+        pathPrefix,
       ]).stdout.toString()
     );
+
+  if (process.env.CI) {
+    return queryFromGitDiffResult('HEAD^', 'HEAD');
   }
   try {
     return await queryChangedFilesFromDevSamWatcherServerSince(since);
   } catch {
     // In case the server is dead, run the git command locally, assuming origin/master is always good.
-    return parseGitDiffWithStatus_EXPOSED_FOR_TESTING(
-      spawnSync('git', [
-        'diff',
-        'origin/master',
-        'HEAD',
-        '--name-status',
-        '--diff-filter=ADRM',
-      ]).stdout.toString()
-    );
+    return queryFromGitDiffResult('origin/master');
   }
 };
 

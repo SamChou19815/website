@@ -1,5 +1,5 @@
 import { existsSync, lstatSync, readFileSync } from 'fs';
-import { dirname, join } from 'path';
+import { dirname, join, normalize } from 'path';
 
 import chokidar from 'chokidar';
 import express from 'express';
@@ -82,9 +82,12 @@ watcher.on('all', (eventName, path) => {
 });
 
 server.get('/', (request, response) => {
-  const rawSince = request.query.since ?? '0';
-  if (typeof rawSince !== 'string') throw new Error();
+  const rawSince = request.query.since;
+  const rawPathPrefix = request.query.pathPrefix ?? '.';
+  if (typeof rawSince !== 'string' || typeof rawPathPrefix !== 'string') throw new Error();
   const since = parseInt(rawSince, 10);
+  let pathPrefix = normalize(rawPathPrefix);
+  if (pathPrefix === '.') pathPrefix = '';
   const eventsToReport: FilesystemEvent[] = [];
   const mentionedFilenames = new Set<string>();
   for (let i = events.length - 1; i >= 0; i -= 1) {
@@ -92,7 +95,7 @@ server.get('/', (request, response) => {
     if (event.time < since) {
       break;
     }
-    if (!mentionedFilenames.has(event.filename)) {
+    if (event.filename.startsWith(pathPrefix) && !mentionedFilenames.has(event.filename)) {
       mentionedFilenames.add(event.filename);
       eventsToReport.push(event);
     }
