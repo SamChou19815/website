@@ -24,5 +24,6 @@
   "devDependencies": {
     "@types/vscode": "1.47.0",
     "typescript": "^4.0.2"
-  }
+  },
+  "packageType": "tool"
 }

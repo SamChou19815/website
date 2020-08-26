@@ -1,9 +1,9 @@
 import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
-  projectWorkspaces,
+  workspaceNames,
+  getYarnWorkspacePackageType,
   getYarnWorkspaceLocation,
   getYarnWorkspaceInRepoDependencyChain,
-  getYarnWorkspaceGitHubRepositoryDependencies,
   getYarnWorkspaceDeploymentDependencies,
 } from '../../infrastructure/yarn-workspace-dependency-analysis';
 import {
@@ -15,7 +15,6 @@ import {
   GITHUB_ACTIONS_CHECKOUT_STEP,
   GITHUB_ACTIONS_SETUP_NODE_STEP,
   GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
-  getGitHubRepositoryDependencySetupSteps,
   getDeploymentDependencySetupStep,
 } from './github-actions-primitives';
 
@@ -46,9 +45,6 @@ const generateYarnWorkspaceProjectCDWorkflow = (workspace: string): GitHubAction
       jobName: 'deploy',
       jobSteps: [
         ...yarnWorkspaceBoilterplateSetupSteps,
-        ...getYarnWorkspaceGitHubRepositoryDependencies(workspace)
-          .map(getGitHubRepositoryDependencySetupSteps)
-          .flat(),
         githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
         ...getYarnWorkspaceDeploymentDependencies(workspace).map(getDeploymentDependencySetupStep),
         githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
@@ -64,8 +60,10 @@ export type YarnWorkspaceWorkflowsOverrides = Record<
 
 export const getYarnWorkspaceWorkflows = (): Record<string, GitHubActionsWorkflow> =>
   Object.fromEntries([
-    ...projectWorkspaces.map((workspace) => {
-      const name = `cd-${workspace}`;
-      return [name, generateYarnWorkspaceProjectCDWorkflow(workspace)];
-    }),
+    ...workspaceNames
+      .filter((name) => getYarnWorkspacePackageType(name) === 'app')
+      .map((workspace) => {
+        const name = `cd-${workspace}`;
+        return [name, generateYarnWorkspaceProjectCDWorkflow(workspace)];
+      }),
   ]);

@@ -9,6 +9,13 @@ export type CodegenConfiguration = {
   readonly output: string;
 };
 
+const assertIsLibraryType = (value?: unknown): 'library' | 'tool' | 'app' => {
+  if (value == null) return 'library';
+  const type = assertIsString('packageType', value);
+  if (type !== 'tool' && type !== 'app') throw new Error('');
+  return type;
+};
+
 const validateCodegenConfiguration = (json?: unknown): CodegenConfiguration | undefined => {
   return {
     output: assertIsString(
@@ -21,8 +28,8 @@ const validateCodegenConfiguration = (json?: unknown): CodegenConfiguration | un
 export type WorkspaceInformation = {
   readonly workspaceLocation: string;
   readonly hasCompileScript: boolean;
+  readonly packageType: 'library' | 'tool' | 'app';
   readonly inRepoWorkspaceDependencies: readonly string[];
-  readonly githubRepositoryDependencies: readonly string[];
   readonly deploymentDependencies: readonly string[];
   readonly codegenConfiguration?: CodegenConfiguration;
 };
@@ -59,11 +66,7 @@ const queryYarnForWorkspaceInformation = (): ReadonlyMap<string, WorkspaceInform
         workspaceLocation: location,
         hasCompileScript: packageJson.scripts?.compile != null,
         inRepoWorkspaceDependencies,
-        githubRepositoryDependencies: assertIsStringArray(
-          'githubRepositoryDependencies',
-          packageJson.githubRepositoryDependencies,
-          true
-        ),
+        packageType: assertIsLibraryType(packageJson.packageType),
         deploymentDependencies: assertIsStringArray(
           'deploymentDependencies',
           packageJson.deploymentDependencies,

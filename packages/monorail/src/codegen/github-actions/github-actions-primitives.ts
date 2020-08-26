@@ -1,4 +1,3 @@
-import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   GitHubActionJobStep,
   githubActionJobActionStep,
@@ -23,29 +22,9 @@ export const GITHUB_ACTIONS_USE_YARN_CACHE_STEP: GitHubActionJobStep = githubAct
   }
 );
 
-export const getGitHubRepositoryDependencySetupSteps = (
-  repositoryName: string
-): readonly GitHubActionJobStep[] => [
-  githubActionJobRunStep(
-    `Checkout ${PROJECT_CONFIGURATION.organizationName}/${repositoryName}`,
-    `cd ../ && git clone https://\${{ secrets.GH_TOKEN }}@github.com/${PROJECT_CONFIGURATION.organizationName}/${repositoryName} --depth 1`
-  ),
-];
-
 const GITHUB_ACTIONS_FIREBASE_TOOLS_SETUP_STEP: GitHubActionJobStep = githubActionJobRunStep(
   'Install firebase-tools',
   'sudo npm install -g firebase-tools'
-);
-
-const GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP: GitHubActionJobStep = githubActionJobActionStep(
-  'GoogleCloudPlatform/github-actions/setup-gcloud@master',
-  {
-    // eslint-disable-next-line no-template-curly-in-string
-    project_id: '${{ secrets.GCP_PROJECT_ID }}',
-    // eslint-disable-next-line no-template-curly-in-string
-    service_account_key: '${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}',
-    export_default_credentials: 'true',
-  }
 );
 
 export const getDeploymentDependencySetupStep = (
@@ -54,8 +33,6 @@ export const getDeploymentDependencySetupStep = (
   switch (deploymentDependency) {
     case 'firebase-tools':
       return GITHUB_ACTIONS_FIREBASE_TOOLS_SETUP_STEP;
-    case 'gcloud':
-      return GITHUB_ACTIONS_GOOGLE_CLOUD_SDK_SETUP_STEP;
     default:
       throw new Error(`Unsupported deployment dependency: ${deploymentDependency}`);
   }

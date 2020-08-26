@@ -31,9 +31,7 @@
     "@types/remarkable": "1.7.4",
     "typescript": "^4.0.2"
   },
-  "githubRepositoryDependencies": [
-    "private-monorepo"
-  ],
+  "packageType": "app",
   "deploymentDependencies": [
     "firebase-tools"
   ],
