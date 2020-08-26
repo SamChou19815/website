@@ -19,11 +19,11 @@ export const toAppUser = async (firebaseUser: firebase.User | null): Promise<App
     return null;
   }
   const { uid, displayName, email } = firebaseUser;
-  if (typeof displayName !== 'string' || typeof email !== 'string') {
+  if (typeof email !== 'string') {
     throw new Error('Bad user!');
   }
   const token: string = await firebaseUser.getIdToken(true);
-  return { uid, displayName, email, token };
+  return { uid, displayName: displayName ?? 'GitHub User without display name', email, token };
 };
 
 let appUser: AppUser | null = null;
