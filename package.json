@@ -50,11 +50,6 @@
       "built": false
     }
   },
-  "repoToolsConfiguration": {
-    "deploymentSecrets": [
-      "FIREBASE_TOKEN"
-    ]
-  },
   "eslintConfig": {
     "extends": [
       "@dev-sam/common"

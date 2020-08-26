@@ -1,4 +1,4 @@
-import { MONORAIL_BINARY_PATH, PROJECT_CONFIGURATION } from '../../configuration';
+import { MONORAIL_BINARY_PATH } from '../../configuration';
 import {
   GitHubActionsWorkflow,
   githubActionJobRunStep,

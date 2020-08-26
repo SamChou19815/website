@@ -1,4 +1,3 @@
-import { PROJECT_CONFIGURATION } from '../../configuration';
 import {
   workspaceNames,
   getYarnWorkspacePackageType,
@@ -39,7 +38,7 @@ const generateYarnWorkspaceProjectCDWorkflow = (workspace: string): GitHubAction
     triggerPaths: yarnWorkspaceGetDependencyPaths(workspace),
     masterBranchOnly: true,
   },
-  workflowSecrets: PROJECT_CONFIGURATION.deploymentSecrets,
+  workflowSecrets: ['FIREBASE_TOKEN'],
   workflowJobs: [
     {
       jobName: 'deploy',
