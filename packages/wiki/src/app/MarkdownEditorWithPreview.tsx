@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import MarkdownBlock from './MarkdownBlock';
 import styles from './MarkdownEditorWithPreview.module.css';
 import MarkdownInputCard from './MarkdownInputCard';
+import { isAdminUser } from './authentication';
 
 const MarkdownPreviewCard = ({ markdownCode }: { readonly markdownCode: string }): ReactElement => {
   return (
@@ -37,6 +38,7 @@ const MarkdownEditorWithPreview = ({
         title={title}
         code={code}
         className={styles.ParallelCard}
+        showSaveButton={!isAdminUser()}
         onTitleChange={setTitle}
         onCodeChange={setCode}
         onSubmit={onSubmit}

@@ -88,7 +88,7 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
 
   return (
     <main className={clsx('container', className)}>
-      {!isAdmin ? (
+      {isAdmin ? (
         <div className="button-group button-group--block vertical-margin-1em">
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
             Create new document
@@ -104,12 +104,17 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
           </button>
         </div>
       ) : (
-        <button
-          className="button button--block button--primary vertical-margin-1em"
-          onClick={() => setShowMetadata((shown) => !shown)}
-        >
-          Toggle Metadata
-        </button>
+        <div className="button-group button-group--block vertical-margin-1em">
+          <button
+            className="button button--primary"
+            onClick={() => setShowMetadata((shown) => !shown)}
+          >
+            Toggle Metadata
+          </button>
+          <button className="button button--primary" onClick={() => setShowEditorModal(true)}>
+            Show Markdown Source
+          </button>
+        </div>
       )}
       {isAdmin ? (
         <PrivateDocumentMetadataEditor metadata={documentMetadata} />
