@@ -2106,6 +2106,7 @@ __metadata:
     "@vercel/ncc": ^0.24.0
     babel-loader: ^8.1.0
     chalk: ^4.1.0
+    lib-changed-files: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
     terser: ^4.8.0
     terser-webpack-plugin: ^3.0.7
@@ -7827,7 +7828,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"encoding@npm:^0.1.11":
+"encoding@npm:*":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
   dependencies:
