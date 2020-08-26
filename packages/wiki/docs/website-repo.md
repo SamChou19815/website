@@ -29,8 +29,12 @@ title: Website Repository Setup
 
 ## `monorail` monorepo tool
 
-:::caution This document might not be as updated as latest monorail build. Only documented features
-here is guaranteed to be _relatively_ stable. :::
+<!-- prettier-ignore-start -->
+:::caution
+This document might not be as updated as latest monorail build. Only documented features
+here is guaranteed to be _relatively_ stable.
+:::
+<!-- prettier-ignore-end -->
 
 ### Installation
 
