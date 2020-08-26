@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { existsSync, lstatSync, readFileSync } from 'fs';
 import { dirname, join, normalize } from 'path';
 
