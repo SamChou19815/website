@@ -13,6 +13,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
       - name: Codegen
-        run: ./packages/monorail/bin/monorail codegen
+        run: packages/monorail/bin/monorail codegen
       - name: Check changed
-        run: ./packages/monorail/bin/monorail no-changed
+        run: packages/monorail/bin/monorail no-changed

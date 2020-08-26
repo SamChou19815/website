@@ -51,7 +51,6 @@
     }
   },
   "repoToolsConfiguration": {
-    "binary": "./packages/monorail/bin/monorail",
     "deploymentSecrets": [
       "FIREBASE_TOKEN"
     ]
