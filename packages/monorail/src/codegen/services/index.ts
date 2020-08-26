@@ -4,8 +4,13 @@ import { dirname } from 'path';
 
 import githubActionsCodegenService from './codegen-github-actions';
 import ignoreFileCodegenService from './codegen-ignore-files';
+import workspacesJsonCodegenService from './codegen-workspaces-json';
 
-const codegenServices = [githubActionsCodegenService, ignoreFileCodegenService];
+const codegenServices = [
+  githubActionsCodegenService,
+  ignoreFileCodegenService,
+  workspacesJsonCodegenService,
+];
 
 const executeCodegenServices = (): void => {
   codegenServices.forEach((codegenService) => {

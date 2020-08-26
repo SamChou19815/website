@@ -1,0 +1,223 @@
+{
+  "__type__": "@generated",
+  "information": {
+    "@dev-sam/codegen": {
+      "workspaceLocation": "packages/sam-codegen",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-changed-files"
+      ],
+      "packageType": "tool",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "lib-changed-files",
+        "@dev-sam/codegen"
+      ]
+    },
+    "@dev-sam/eslint-config-common": {
+      "workspaceLocation": "packages/eslint-config-common",
+      "hasCompileScript": false,
+      "dependencies": [],
+      "packageType": "tool",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "@dev-sam/eslint-config-common"
+      ]
+    },
+    "@dev-sam/monorail": {
+      "workspaceLocation": "packages/monorail",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-changed-files",
+        "lib-incremental"
+      ],
+      "packageType": "tool",
+      "deploymentDependencies": [],
+      "codegenConfiguration": {
+        "output": "bin/index.js"
+      },
+      "dependencyChain": [
+        "lib-changed-files",
+        "lib-incremental",
+        "@dev-sam/monorail"
+      ]
+    },
+    "@dev-sam/watcher-server": {
+      "workspaceLocation": "packages/sam-watcher-server",
+      "hasCompileScript": true,
+      "dependencies": [],
+      "packageType": "tool",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "@dev-sam/watcher-server"
+      ]
+    },
+    "blog": {
+      "workspaceLocation": "packages/blog",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-docusaurus-plugin",
+        "lib-react"
+      ],
+      "packageType": "app",
+      "deploymentDependencies": [
+        "firebase-tools"
+      ],
+      "dependencyChain": [
+        "lib-prism-extended",
+        "lib-react",
+        "lib-docusaurus-plugin",
+        "blog"
+      ]
+    },
+    "lib-changed-files": {
+      "workspaceLocation": "packages/lib-changed-files",
+      "hasCompileScript": true,
+      "dependencies": [],
+      "packageType": "library",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "lib-changed-files"
+      ]
+    },
+    "lib-docusaurus-plugin": {
+      "workspaceLocation": "packages/lib-docusaurus-plugin",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-prism-extended",
+        "lib-react"
+      ],
+      "packageType": "library",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "lib-prism-extended",
+        "lib-react",
+        "lib-docusaurus-plugin"
+      ]
+    },
+    "lib-incremental": {
+      "workspaceLocation": "packages/lib-incremental",
+      "hasCompileScript": true,
+      "dependencies": [],
+      "packageType": "library",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "lib-incremental"
+      ]
+    },
+    "lib-prism-extended": {
+      "workspaceLocation": "packages/lib-prism-extended",
+      "hasCompileScript": false,
+      "dependencies": [],
+      "packageType": "library",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "lib-prism-extended"
+      ]
+    },
+    "lib-react": {
+      "workspaceLocation": "packages/lib-react",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-prism-extended"
+      ],
+      "packageType": "library",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "lib-prism-extended",
+        "lib-react"
+      ]
+    },
+    "samlang": {
+      "workspaceLocation": "packages/samlang",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-docusaurus-plugin",
+        "lib-react"
+      ],
+      "packageType": "app",
+      "deploymentDependencies": [
+        "firebase-tools"
+      ],
+      "dependencyChain": [
+        "lib-prism-extended",
+        "lib-react",
+        "lib-docusaurus-plugin",
+        "samlang"
+      ]
+    },
+    "ten": {
+      "workspaceLocation": "packages/ten",
+      "hasCompileScript": true,
+      "dependencies": [],
+      "packageType": "app",
+      "deploymentDependencies": [
+        "firebase-tools"
+      ],
+      "dependencyChain": [
+        "ten"
+      ]
+    },
+    "vscode-disable-generated-files-edit": {
+      "workspaceLocation": "packages/vscode-disable-generated-files-edit",
+      "hasCompileScript": true,
+      "dependencies": [],
+      "packageType": "tool",
+      "deploymentDependencies": [],
+      "dependencyChain": [
+        "vscode-disable-generated-files-edit"
+      ]
+    },
+    "wiki": {
+      "workspaceLocation": "packages/wiki",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-docusaurus-plugin",
+        "lib-react"
+      ],
+      "packageType": "app",
+      "deploymentDependencies": [
+        "firebase-tools"
+      ],
+      "dependencyChain": [
+        "lib-prism-extended",
+        "lib-react",
+        "lib-docusaurus-plugin",
+        "wiki"
+      ]
+    },
+    "www": {
+      "workspaceLocation": "packages/www",
+      "hasCompileScript": true,
+      "dependencies": [
+        "lib-react"
+      ],
+      "packageType": "app",
+      "deploymentDependencies": [
+        "firebase-tools"
+      ],
+      "dependencyChain": [
+        "lib-prism-extended",
+        "lib-react",
+        "www"
+      ]
+    }
+  },
+  "topologicallyOrdered": [
+    "lib-prism-extended",
+    "lib-react",
+    "lib-docusaurus-plugin",
+    "blog",
+    "@dev-sam/eslint-config-common",
+    "lib-changed-files",
+    "lib-incremental",
+    "@dev-sam/monorail",
+    "@dev-sam/codegen",
+    "@dev-sam/watcher-server",
+    "samlang",
+    "ten",
+    "vscode-disable-generated-files-edit",
+    "wiki",
+    "www"
+  ]
+}
