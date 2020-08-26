@@ -2,8 +2,7 @@ const parseCommandLineArgumentsIntoCommand = ():
   | 'CODEGEN'
   | 'COMPILE'
   | 'NO_CHANGED'
-  | 'REBUILD'
-  | 'SYNC' => {
+  | 'REBUILD' => {
   const normalizedArguments: readonly string[] = process.argv.slice(2);
 
   if (normalizedArguments.length === 0) {
@@ -22,9 +21,6 @@ const parseCommandLineArgumentsIntoCommand = ():
     case 'rebuild':
     case 'r':
       return 'REBUILD';
-    case 'sync':
-    case 's':
-      return 'SYNC';
     default:
       throw new Error(`Unknown command: ${normalizedArguments[0]}`);
   }

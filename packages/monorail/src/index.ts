@@ -19,7 +19,6 @@ import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
 import incrementalCompile from './incremental-compile';
 import checkThatThereIsNoChangedFiles from './no-changed';
-import synchronize from './sync';
 
 /**
  * Supported commands:
@@ -41,9 +40,6 @@ const main = async (): Promise<void> => {
         return;
       case 'REBUILD':
         await cachedBuild();
-        return;
-      case 'SYNC':
-        synchronize();
         return;
       default:
         throw new Error();

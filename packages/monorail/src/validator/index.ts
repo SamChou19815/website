@@ -5,24 +5,6 @@ export const assertIsString = (key: string, json?: unknown): string => {
   return json;
 };
 
-export const assertIsStringArray = (
-  key: string,
-  json?: unknown,
-  allowUndefined = false
-): readonly string[] => {
-  if (allowUndefined && json == null) {
-    return [];
-  }
-  if (json == null || !Array.isArray(json)) {
-    throw new Error(`Expect '${key}' to be a string array!`);
-  }
-  const elements = json.filter((it): it is string => typeof it === 'string');
-  if (elements.length !== json.length) {
-    throw new Error(`Expect '${key}' to be a string array!`);
-  }
-  return elements;
-};
-
 export const assertHasFields = <S extends string>(
   key: string,
   requiredFields: S[],
