@@ -1,5 +1,6 @@
 import { spawnSync } from 'child_process';
-import { writeFileSync } from 'fs';
+import { mkdirSync, writeFileSync } from 'fs';
+import { dirname } from 'path';
 
 import githubActionsCodegenService from './codegen-github-actions';
 import ignoreFileCodegenService from './codegen-ignore-files';
@@ -14,6 +15,7 @@ const executeCodegenServices = (): void => {
     }
     const generatedPaths = generatedCodeContentList.map(
       ({ pathForGeneratedCode, generatedCode }) => {
+        mkdirSync(dirname(pathForGeneratedCode), { recursive: true });
         writeFileSync(pathForGeneratedCode, generatedCode);
         return pathForGeneratedCode;
       }
