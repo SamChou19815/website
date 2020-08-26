@@ -22,9 +22,6 @@
     "react-dom": "^16.13.1"
   },
   "packageType": "app",
-  "deploymentDependencies": [
-    "firebase-tools"
-  ],
   "browserslist": {
     "production": [
       ">0.2%",

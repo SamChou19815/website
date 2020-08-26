@@ -6,7 +6,6 @@
       "hasCompileScript": false,
       "dependencies": [],
       "packageType": "tool",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "@dev-sam/eslint-config-common"
       ]
@@ -14,15 +13,12 @@
     "@dev-sam/monorail": {
       "workspaceLocation": "packages/monorail",
       "hasCompileScript": true,
+      "codegenOutput": "bin/index.js",
       "dependencies": [
         "lib-changed-files",
         "lib-incremental"
       ],
       "packageType": "tool",
-      "deploymentDependencies": [],
-      "codegenConfiguration": {
-        "output": "bin/index.js"
-      },
       "dependencyChain": [
         "lib-changed-files",
         "lib-incremental",
@@ -34,7 +30,6 @@
       "hasCompileScript": true,
       "dependencies": [],
       "packageType": "tool",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "@dev-sam/watcher-server"
       ]
@@ -47,9 +42,6 @@
         "lib-react"
       ],
       "packageType": "app",
-      "deploymentDependencies": [
-        "firebase-tools"
-      ],
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -62,7 +54,6 @@
       "hasCompileScript": true,
       "dependencies": [],
       "packageType": "library",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "lib-changed-files"
       ]
@@ -75,7 +66,6 @@
         "lib-incremental"
       ],
       "packageType": "library",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "lib-changed-files",
         "lib-incremental",
@@ -90,7 +80,6 @@
         "lib-react"
       ],
       "packageType": "library",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -102,7 +91,6 @@
       "hasCompileScript": true,
       "dependencies": [],
       "packageType": "library",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "lib-incremental"
       ]
@@ -112,7 +100,6 @@
       "hasCompileScript": false,
       "dependencies": [],
       "packageType": "library",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "lib-prism-extended"
       ]
@@ -124,7 +111,6 @@
         "lib-prism-extended"
       ],
       "packageType": "library",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react"
@@ -138,9 +124,6 @@
         "lib-react"
       ],
       "packageType": "app",
-      "deploymentDependencies": [
-        "firebase-tools"
-      ],
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -153,9 +136,6 @@
       "hasCompileScript": true,
       "dependencies": [],
       "packageType": "app",
-      "deploymentDependencies": [
-        "firebase-tools"
-      ],
       "dependencyChain": [
         "ten"
       ]
@@ -165,7 +145,6 @@
       "hasCompileScript": true,
       "dependencies": [],
       "packageType": "tool",
-      "deploymentDependencies": [],
       "dependencyChain": [
         "vscode-disable-generated-files-edit"
       ]
@@ -178,9 +157,6 @@
         "lib-react"
       ],
       "packageType": "app",
-      "deploymentDependencies": [
-        "firebase-tools"
-      ],
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -195,9 +171,6 @@
         "lib-react"
       ],
       "packageType": "app",
-      "deploymentDependencies": [
-        "firebase-tools"
-      ],
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",

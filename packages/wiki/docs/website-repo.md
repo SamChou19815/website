@@ -105,32 +105,6 @@ relevant repositories before building the workspace.
   - dependency-repository (same as the repo name on GitHub)
 ```
 
-### Deployment tooling support
-
-By default, `monorail` assumes that deployment is done by running `yarn workspace [xxx] deploy`,
-with no additional tooling support beyond what's already installed by Yarn.
-
-It also supports adding a limited set of other deployment tools per workspace.
-
-#### `gcloud` deployment
-
-To use `gcloud` CLI for deployment, add the following lines to relevant workspace's `package.json`:
-
-```json
-{
-  // ...
-  "deploymentDependencies": ["gcloud"]
-  // ...
-}
-```
-
-In addition, you need to set `GCP_PROJECT_ID` and `GCP_SERVICE_ACCOUNT_KEY` as secrets in your
-GitHub repository according to
-[Google's official guide](https://github.com/GoogleCloudPlatform/github-actions/blob/master/setup-gcloud/README.md).
-
-In local runs of deployment script, it will have no effect. It only instructs `monorail` to generate
-continuous deployment workflows that will pull `gcloud` before deployment.
-
 ### Cached rebuild
 
 Running `monorail rebuild` or `monorail r` will rebuild some generated code according to the
