@@ -9,7 +9,7 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc --noEmit"
   },
   "dependencies": {
     "@docusaurus/types": "^2.0.0-alpha.61",

@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc --noEmit"
   },
   "dependencies": {
     "node-fetch": "^2.6.0"
