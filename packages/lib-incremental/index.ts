@@ -15,7 +15,10 @@ export interface IncrementalTaskSpecification {
     lastestKnownGoodRunTime: LastestKnownGoodRunTime
   ) => Promise<readonly string[]>;
   /** Run the job and returns whether a run is successful. */
-  readonly rerun: (taskID: string) => Promise<boolean>;
+  readonly rerun: (
+    taskID: string,
+    lastestKnownGoodRunTime: LastestKnownGoodRunTime
+  ) => Promise<boolean>;
 }
 
 /**
@@ -38,7 +41,10 @@ const runIncrementalTasks = async (
 
   const tasksToRun = await specification.needRerun(lastestKnownGoodRunTime);
   const statusList = await Promise.all(
-    tasksToRun.map(async (taskID) => [taskID, await specification.rerun(taskID)] as const)
+    tasksToRun.map(
+      async (taskID) =>
+        [taskID, await specification.rerun(taskID, lastestKnownGoodRunTime)] as const
+    )
   );
 
   const latestRunTime = new Date().getTime();
