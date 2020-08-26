@@ -33,11 +33,9 @@ const incrementalTaskSpecification: IncrementalTaskSpecification = {
     const targets = allWorkspaces
       .filter(([, needRebuild]) => needRebuild)
       .map(([workspace]) => workspace);
-    if (targets.length === 0) {
-      console.log(chalk.green('[✓] No need to rebuild!'));
-      return [];
+    if (targets.length !== 0) {
+      console.log(chalk.yellow(`[${targets.join(', ')}] needs to be rebuilt!`));
     }
-    console.log(chalk.yellow(`[${targets.join(', ')}] needs to be rebuilt!`));
     return targets;
   },
   rerun: async (workspace) => {

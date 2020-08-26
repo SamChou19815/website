@@ -74,7 +74,7 @@ const queryChangedFilesSince = async (
     return queryFromGitDiffResult('HEAD^', 'HEAD');
   }
   try {
-    return await queryChangedFilesFromDevSamWatcherServerSince(since);
+    return await queryChangedFilesFromDevSamWatcherServerSince(since, pathPrefix);
   } catch {
     // In case the server is dead, run the git command locally, assuming origin/master is always good.
     return queryFromGitDiffResult('origin/master');
