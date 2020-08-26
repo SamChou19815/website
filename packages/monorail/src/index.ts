@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* eslint-disable import/first */
 
 // Ensuring all subsequent command is run from project root, so this must be the first statement.
@@ -9,6 +11,8 @@ try {
   console.error(error.message);
   process.exit(1);
 }
+
+import chalk from 'chalk';
 
 import cachedBuild from './cached-build';
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
@@ -46,7 +50,7 @@ const main = async (): Promise<void> => {
     }
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error(error.message);
+    console.error(chalk.red(error.message));
     process.exit(1);
   }
 };

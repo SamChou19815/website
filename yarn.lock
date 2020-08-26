@@ -2103,7 +2103,9 @@ __metadata:
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.23
     "@types/webpack": ^4.41.21
+    "@vercel/ncc": ^0.24.0
     babel-loader: ^8.1.0
+    chalk: ^4.1.0
     terser: ^4.8.0
     terser-webpack-plugin: ^3.0.7
     typescript: ^4.0.2
@@ -4085,6 +4087,17 @@ __metadata:
   dependencies:
     eslint-visitor-keys: ^1.1.0
   checksum: dfd1c859d33bef9c8107f01a62f79708cacd25effda7645969faeea78f863237e1a7b30b04ac9d62b264dc7db7271c413af011abb64c0df9046838d01645a3fb
+  languageName: node
+  linkType: hard
+
+"@vercel/ncc@npm:^0.24.0":
+  version: 0.24.0
+  resolution: "@vercel/ncc@npm:0.24.0"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: 46b04944fed95223d66a576240d3ee997a13827d81fbc91965af1173f705fac8f071e92d86ceaa031b7c42e4aaef2e5286a91b3a648694889336aaa130f8856e
   languageName: node
   linkType: hard
 

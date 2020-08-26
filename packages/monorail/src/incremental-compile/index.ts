@@ -2,6 +2,8 @@
 
 import { spawnSync, spawn } from 'child_process';
 
+import chalk from 'chalk';
+
 import workspaceNeedRebuild from '../infrastructure/need-rebuild-checker';
 import {
   getYarnWorkspacesInTopologicalOrder,
@@ -14,7 +16,7 @@ import {
 } from './incremental-compile-cache';
 
 const incrementalCompile = async (): Promise<void> => {
-  console.log('--- Monorail Incremental Compile Service ---');
+  console.log(chalk.blue('--- Monorail Incremental Compile Service ---'));
 
   const lastRunTime = getIncrementalCompileLastRunTime();
 
@@ -30,10 +32,10 @@ const incrementalCompile = async (): Promise<void> => {
     .filter(getYarnWorkspaceHasCompileScript)
     .filter(needToRecompileCheck);
   if (workspacesToCompile.length === 0) {
-    console.log('[✓] Nothing needs to be recompiled!');
+    console.log(chalk.green('[✓] Nothing needs to be recompiled!'));
     return;
   }
-  console.group(`[${workspacesToCompile.join(', ')}] needs to be re-compiled!`);
+  console.group(chalk.yellow(`[${workspacesToCompile.join(', ')}] needs to be re-compiled!`));
 
   const successfulStatus = await Promise.all(
     workspacesToCompile.map((workspace) => {
@@ -52,7 +54,7 @@ const incrementalCompile = async (): Promise<void> => {
     .map(([name]) => name);
 
   if (failedWorkspacesRuns.length === 0) {
-    console.log('[✓] All workspaces have been successfully compiled!');
+    console.log(chalk.green('[✓] All workspaces have been successfully compiled!'));
     setIncrementalCompileLastRunTime();
     return;
   }

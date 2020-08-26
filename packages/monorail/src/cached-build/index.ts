@@ -2,17 +2,19 @@
 
 import { spawnSync } from 'child_process';
 
+import chalk from 'chalk';
+
 import cachedBuildTargetDeterminator from './cached-build-target-determinator';
 
 const cachedBuild = async (): Promise<void> => {
-  console.log('--- Monorail Cached Build Service ---');
+  console.log(chalk.blue('--- Monorail Cached Build Service ---'));
   const targets = cachedBuildTargetDeterminator();
   if (targets.length === 0) {
-    console.log('[✓] No need to rebuild!');
+    console.log(chalk.green('[✓] No need to rebuild!'));
     return;
   }
 
-  console.group(`[${targets.join(', ')}] needs to be rebuilt!`);
+  console.group(chalk.yellow(`[${targets.join(', ')}] needs to be rebuilt!`));
   const successfulStatus = targets.map((workspace) => {
     console.log(`Rebuiding \`${workspace}\`...`);
     return [
@@ -29,7 +31,7 @@ const cachedBuild = async (): Promise<void> => {
     .map(([name]) => name);
 
   if (failedWorkspacesRuns.length === 0) {
-    console.log('[✓] All workspaces have been successfully rebuilt!');
+    console.log(chalk.green('[✓] All workspaces have been successfully rebuilt!'));
     return;
   }
 
