@@ -3,6 +3,7 @@ import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
 import * as TypeScript from 'typescript';
 
 import queryChangedFilesSince from 'lib-changed-files';
+import runIncrementalTasks from 'lib-incremental';
 
 /**
  * For the purpose of deterministic testing as well potentially virtualized filesystem, we need to
@@ -169,14 +170,22 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
 };
 
 export const runCodegenServicesIncrementally = async (
-  since: number,
+  lastestKnownGoodRunTimeFilename: string,
   codegenServices: readonly CodegenService[]
 ): Promise<void> => {
-  const { changedFiles, deletedFiles } = await queryChangedFilesSince(since);
-  runCodegenServicesAccordingToFilesystemEvents(
-    changedFiles,
-    deletedFiles,
-    codegenServices,
-    CodegenRealFilesystem
-  );
+  await runIncrementalTasks({
+    lastestKnownGoodRunTimeFilename,
+    needRerun: async () => ['codegen'],
+    rerun: async (_, lastestKnownGoodRunTimes) => {
+      const since = lastestKnownGoodRunTimes['codegen'] ?? 0;
+      const { changedFiles, deletedFiles } = await queryChangedFilesSince(since);
+      runCodegenServicesAccordingToFilesystemEvents(
+        changedFiles,
+        deletedFiles,
+        codegenServices,
+        CodegenRealFilesystem
+      );
+      return true;
+    },
+  });
 };

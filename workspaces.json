@@ -71,12 +71,14 @@
       "workspaceLocation": "packages/lib-codegen",
       "hasCompileScript": true,
       "dependencies": [
-        "lib-changed-files"
+        "lib-changed-files",
+        "lib-incremental"
       ],
       "packageType": "library",
       "deploymentDependencies": [],
       "dependencyChain": [
         "lib-changed-files",
+        "lib-incremental",
         "lib-codegen"
       ]
     },
@@ -210,8 +212,8 @@
     "blog",
     "@dev-sam/eslint-config-common",
     "lib-changed-files",
-    "lib-codegen",
     "lib-incremental",
+    "lib-codegen",
     "@dev-sam/monorail",
     "@dev-sam/watcher-server",
     "samlang",
