@@ -35,6 +35,31 @@ const PrivateDocumentPanelWithMetadata = ({
   );
 };
 
+const PrivateDocumentMetadataCard = ({
+  metadata,
+}: {
+  readonly metadata: WikiPrivateDocumentMetadata;
+}): ReactElement => (
+  <div className="card vertical-margin-1em">
+    <div className="card__header">
+      <h2>Document Metadata</h2>
+    </div>
+    <div className="card__body">
+      Filename: <code>{metadata.filename}</code>
+    </div>
+    {metadata.sharedWith.length > 0 && (
+      <div className="card__body">
+        <div>Shared with:</div>
+        <ul>
+          {metadata.sharedWith.map((email) => (
+            <li key={email}>{email}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+);
+
 type Props = {
   readonly className?: string;
   readonly documentMetadata?: WikiPrivateDocumentMetadata;
@@ -42,6 +67,7 @@ type Props = {
 
 const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElement => {
   const [showEditorModal, setShowEditorModal] = useState(false);
+  const [showMetadata, setShowMetadata] = useState(false);
 
   const isAdmin = isAdminUser();
 
@@ -62,7 +88,7 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
 
   return (
     <main className={clsx('container', className)}>
-      {isAdmin && (
+      {!isAdmin ? (
         <div className="button-group button-group--block vertical-margin-1em">
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
             Create new document
@@ -77,28 +103,18 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
             Delete this document
           </button>
         </div>
+      ) : (
+        <button
+          className="button button--block button--primary vertical-margin-1em"
+          onClick={() => setShowMetadata((shown) => !shown)}
+        >
+          Toggle Metadata
+        </button>
       )}
       {isAdmin ? (
         <PrivateDocumentMetadataEditor metadata={documentMetadata} />
       ) : (
-        <div className="card vertical-margin-1em">
-          <div className="card__header">
-            <h2>Document Metadata</h2>
-          </div>
-          <div className="card__body">
-            Filename: <code>{documentMetadata.filename}</code>
-          </div>
-          {documentMetadata.sharedWith.length > 0 && (
-            <div className="card__body">
-              <div>Shared with:</div>
-              <ul>
-                {documentMetadata.sharedWith.map((email) => (
-                  <li key={email}>{email}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        showMetadata && <PrivateDocumentMetadataCard metadata={documentMetadata} />
       )}
       <PrivateDocumentPanelWithMetadata
         metadata={documentMetadata}
