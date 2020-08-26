@@ -33,6 +33,8 @@ title: Website Repository Setup
 :::caution
 This document might not be as updated as latest monorail build. Only documented features
 here is guaranteed to be _relatively_ stable.
+
+Currently, it is outdated. TODO for @dev-sam: fix it.
 :::
 <!-- prettier-ignore-end -->
 
