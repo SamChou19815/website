@@ -1,6 +1,8 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
+import { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
+
 import { GitHubActionsWorkflow, githubActionJobRunStep } from '../ast/github-actions';
 import {
   GITHUB_ACTIONS_CHECKOUT_STEP,
@@ -15,7 +17,7 @@ export const yarnWorkspaceBoilterplateSetupSteps = [
   githubActionJobRunStep('Yarn Install', 'yarn install --immutable'),
 ];
 
-const workspacesJson = JSON.parse(readFileSync('workspaces.json').toString());
+const workspacesJson: YarnWorkspacesJson = JSON.parse(readFileSync('workspaces.json').toString());
 
 const isDeployable = (name: string): boolean =>
   JSON.parse(
