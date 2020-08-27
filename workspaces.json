@@ -5,9 +5,8 @@
       "workspaceLocation": "packages/codegen-cli",
       "dependencyChain": [
         "lib-changed-files",
-        "lib-incremental",
-        "lib-codegen",
         "lib-find-monorepo-root",
+        "lib-incremental",
         "@dev-sam/codegen-cli"
       ]
     },
@@ -23,8 +22,6 @@
         "lib-changed-files",
         "lib-find-monorepo-root",
         "lib-incremental",
-        "lib-codegen",
-        "repo-codegen-services",
         "@dev-sam/monorail"
       ]
     },
@@ -52,8 +49,6 @@
     "lib-codegen": {
       "workspaceLocation": "packages/lib-codegen",
       "dependencyChain": [
-        "lib-changed-files",
-        "lib-incremental",
         "lib-codegen"
       ]
     },
@@ -93,8 +88,6 @@
     "repo-codegen-services": {
       "workspaceLocation": "packages/repo-codegen-services",
       "dependencyChain": [
-        "lib-changed-files",
-        "lib-incremental",
         "lib-codegen",
         "repo-codegen-services"
       ]
@@ -144,13 +137,13 @@
     "lib-docusaurus-plugin",
     "blog",
     "lib-changed-files",
-    "lib-incremental",
-    "lib-codegen",
     "lib-find-monorepo-root",
+    "lib-incremental",
     "@dev-sam/codegen-cli",
     "@dev-sam/eslint-config-common",
-    "repo-codegen-services",
+    "lib-codegen",
     "@dev-sam/monorail",
+    "repo-codegen-services",
     "@dev-sam/watcher-server",
     "samlang",
     "ten",

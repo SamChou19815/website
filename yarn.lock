@@ -1968,12 +1968,9 @@ __metadata:
     "@types/node": ^14.0.23
     "@vercel/ncc": ^0.24.0
     lib-changed-files: "workspace:^0.0.1"
-    lib-codegen: "workspace:^0.0.1"
     lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
     typescript: ^4.0.2
-  peerDependencies:
-    typescript: "*"
   bin:
     sam-codegen: ./bin/index.js
   languageName: unknown
@@ -2013,7 +2010,6 @@ __metadata:
     lib-changed-files: "workspace:^0.0.1"
     lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
-    repo-codegen-services: "workspace:^0.0.1"
     typescript: ^4.0.2
   bin:
     monorail: ./bin/monorail
@@ -11554,8 +11550,6 @@ fsevents@^1.2.7:
   dependencies:
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.23
-    lib-changed-files: "workspace:^0.0.1"
-    lib-incremental: "workspace:^0.0.1"
     typescript: ^4.0.2
   languageName: unknown
   linkType: soft
