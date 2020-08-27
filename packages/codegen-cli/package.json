@@ -1,0 +1,26 @@
+{
+  "name": "@dev-sam/codegen-cli",
+  "description": "Developer Sam's codegen CLI.",
+  "version": "0.0.1",
+  "private": true,
+  "bin": {
+    "sam-codegen": "./bin/index.js"
+  },
+  "scripts": {
+    "bundle": "NODE_NO_WARNINGS=1 ncc build src/index.ts -o bin -m -e typescript --no-source-map-register --transpile-only",
+    "compile": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.23",
+    "@vercel/ncc": "^0.24.0",
+    "lib-changed-files": "workspace:^0.0.1",
+    "lib-codegen": "workspace:^0.0.1",
+    "lib-find-monorepo-root": "workspace:^0.0.1",
+    "lib-incremental": "workspace:^0.0.1",
+    "typescript": "^4.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "*"
+  }
+}

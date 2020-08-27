@@ -1,9 +1,11 @@
 {
-  "name": "lib-codegen-services",
-  "description": "Developer Sam's codegen library for github actions.",
+  "name": "repo-codegen-services",
+  "description": "Developer Sam's codegen configuration for this monorepo.",
   "version": "0.0.1",
   "private": true,
+  "main": "./bin/index.js",
   "scripts": {
+    "bundle": "NODE_NO_WARNINGS=1 ncc build index.ts -o bin -m -e typescript --no-source-map-register --transpile-only",
     "compile": "tsc --noEmit"
   },
   "dependencies": {
@@ -13,6 +15,7 @@
     "@dev-sam/yarn-workspaces-json-types": "0.0.1",
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.23",
+    "@vercel/ncc": "^0.24.0",
     "typescript": "^4.0.2"
   },
   "peerDependencies": {

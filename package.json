@@ -6,6 +6,7 @@
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
     "lint": "NODE_NO_WARNINGS=1 eslint . --cache",
     "test": "NODE_NO_WARNINGS=1 jest",
+    "codegen": "",
     "compile": "./packages/monorail/bin/index.js compile"
   },
   "workspaces": [
@@ -13,6 +14,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.11.1",
+    "@dev-sam/codegen-cli": "workspace:^0.0.1",
     "@dev-sam/eslint-config-common": "workspace:^0.17.0",
     "@dev-sam/monorail": "workspace:packages/monorail",
     "@typescript-eslint/eslint-plugin": "^3.10.0",
@@ -30,6 +32,7 @@
     "lint-staged": "^10.2.11",
     "next": "^9.5.2",
     "prettier": "2.1.0",
+    "repo-codegen-services": "workspace:^0.0.1",
     "typescript": "^4.0.2"
   },
   "peerDependencies": {
