@@ -18,9 +18,6 @@ import {
 
 import { CodegenService, createJsonCodegenService } from 'lib-codegen';
 
-// TODO: DO NOT HARDCODE
-const MONORAIL_BINARY_PATH = 'packages/monorail/bin/index.js';
-
 const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
   'general',
   {
@@ -34,6 +31,11 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
         jobName: 'lint',
         jobSteps: [
           ...yarnWorkspaceBoilterplateSetupSteps,
+          githubActionJobRunStep('Codegen', `yarn node packages/monorail/bin/index.js codegen`),
+          githubActionJobRunStep(
+            'Check changed',
+            'if [[ `git status --porcelain` ]]; then exit 1; fi'
+          ),
           githubActionJobRunStep('Format Check', 'yarn format:check'),
           githubActionJobRunStep('Lint', 'yarn lint'),
         ],
@@ -59,38 +61,12 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
   },
 ];
 
-const generateCodegenPorcelainWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
-  'generated-in-sync',
-  {
-    workflowName: 'lint-generated',
-    workflowtrigger: {
-      triggerPaths: ['**'],
-      masterBranchOnly: false,
-    },
-    workflowJobs: [
-      {
-        jobName: 'lint',
-        jobSteps: [
-          GITHUB_ACTIONS_CHECKOUT_STEP,
-          GITHUB_ACTIONS_SETUP_NODE_STEP,
-          githubActionJobRunStep('Codegen', `${MONORAIL_BINARY_PATH} codegen`),
-          githubActionJobRunStep(
-            'Check changed',
-            'if [[ `git status --porcelain` ]]; then exit 1; fi'
-          ),
-        ],
-      },
-    ],
-  },
-];
-
 const githubActionsCodegenService: CodegenService = createJsonCodegenService<YarnWorkspacesJson>(
   'GitHub Actions Workflows Codegen',
-  (sourceFilename, workspacesJson) => {
-    if (sourceFilename !== 'workspaces.json') return [];
+  (sourceFilename) => sourceFilename === 'workspaces.json',
+  (_, workspacesJson) => {
     return [
       generateTSJSWorkflow(),
-      generateCodegenPorcelainWorkflow(),
       ...Object.entries(getYarnWorkspaceWorkflows(workspacesJson)),
     ].map(([name, workflow]) => ({
       outputFilename: `.github/workflows/generated-${name}.yml`,
@@ -101,9 +77,8 @@ const githubActionsCodegenService: CodegenService = createJsonCodegenService<Yar
 
 const ignoreFileCodegenService: CodegenService = {
   name: 'Ignore Files Codegen',
-  run: (sourceFilename, gitignoreContent) => {
-    if (sourceFilename !== '.gitignore') return [];
-
+  sourceFileIsRelevant: (sourceFilename) => sourceFilename === '.gitignore',
+  run: (_, gitignoreContent) => {
     const styleIgnoreContent = `# ${'@' + 'generated'}
 
 ${gitignoreContent}

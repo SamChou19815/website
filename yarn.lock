@@ -2095,6 +2095,8 @@ __metadata:
     babel-loader: ^8.1.0
     chalk: ^4.1.0
     lib-changed-files: "workspace:^0.0.1"
+    lib-codegen: "workspace:^0.0.1"
+    lib-codegen-services: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
     terser: ^4.8.0
     terser-webpack-plugin: ^3.0.7
@@ -11678,7 +11680,7 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"lib-codegen-services@workspace:packages/lib-codegen-services":
+"lib-codegen-services@workspace:^0.0.1, lib-codegen-services@workspace:packages/lib-codegen-services":
   version: 0.0.0-use.local
   resolution: "lib-codegen-services@workspace:packages/lib-codegen-services"
   dependencies:

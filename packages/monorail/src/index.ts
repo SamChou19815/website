@@ -13,11 +13,14 @@ try {
 }
 
 import { spawnSync } from 'child_process';
+import { join } from 'path';
 
 import chalk from 'chalk';
 
-import executeCodegenServices from './codegen/services';
 import incrementalCompile from './incremental-compile';
+
+import { runCodegenServicesIncrementally } from 'lib-codegen';
+import codegenServices from 'lib-codegen-services';
 
 const parseCommandLineArgumentsIntoCommand = (): 'CODEGEN' | 'COMPILE' | 'NO_CHANGED' => {
   const normalizedArguments: readonly string[] = process.argv.slice(2);
@@ -43,9 +46,13 @@ const parseCommandLineArgumentsIntoCommand = (): 'CODEGEN' | 'COMPILE' | 'NO_CHA
 const main = async (): Promise<void> => {
   try {
     switch (parseCommandLineArgumentsIntoCommand()) {
-      case 'CODEGEN':
-        executeCodegenServices();
+      case 'CODEGEN': {
+        await runCodegenServicesIncrementally(
+          join('.monorail', 'codegen-cache.json'),
+          codegenServices
+        );
         return;
+      }
       case 'COMPILE':
         await incrementalCompile();
         return;

@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, lstatSync } from 'fs';
-import { join, dirname, relative } from 'path';
+import { join, dirname } from 'path';
 
 const findMonorepoRoot = (): string => {
   let configurationDirectory = process.cwd();
@@ -17,6 +17,5 @@ const findMonorepoRoot = (): string => {
   throw new Error('No root package.json found. Abort!');
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const PROJECT_ROOT_DIRECTORY = findMonorepoRoot();
-
-export const MONORAIL_BINARY_PATH = relative(PROJECT_ROOT_DIRECTORY, process.argv[1]);

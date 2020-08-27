@@ -2,7 +2,6 @@ import { join } from 'path';
 
 import {
   CodegenInMemoryFilesystem,
-  createPlaintextConcatenationCodegenService,
   createJsonCodegenService,
   createTypeScriptCodegenService,
   runCodegenServicesAccordingToFilesystemEvents,
@@ -19,35 +18,21 @@ it('CodegenInMemoryFilesystem works.', () => {
   expect(() => filesystem.readFile('foo.txt')).toThrow();
 });
 
-it('createPlaintextConcatenationCodegenService works', () => {
-  const service = createPlaintextConcatenationCodegenService('', [
-    { additionalContent: 'foo', outputFilename: 'foo.sam' },
-    { additionalContent: 'bar', outputFilename: 'bar.sam' },
-  ]);
-
-  expect(service.run('', 'haha-')).toEqual([
-    {
-      outputContent: 'haha-foo',
-      outputFilename: 'foo.sam',
-    },
-    {
-      outputContent: 'haha-bar',
-      outputFilename: 'bar.sam',
-    },
-  ]);
-});
-
 it('createJsonCodegenService works', () => {
-  const service = createJsonCodegenService<{ foo: string }>('', (_, json) => [
-    { outputFilename: '', outputContent: json.foo },
-  ]);
+  const service = createJsonCodegenService<{ foo: string }>(
+    '',
+    () => true,
+    (_, json) => [{ outputFilename: '', outputContent: json.foo }]
+  );
   expect(service.run('', '{"foo":"bar"}')[0].outputContent).toBe('bar');
 });
 
 it('createTypeScriptCodegenService works', () => {
-  const service = createTypeScriptCodegenService<() => number>('', (_, f) => [
-    { outputFilename: '', outputContent: String(f()) },
-  ]);
+  const service = createTypeScriptCodegenService<() => number>(
+    '',
+    () => true,
+    (_, f) => [{ outputFilename: '', outputContent: String(f()) }]
+  );
 
   // Test that
   // - type imports are fully erased.
@@ -80,6 +65,7 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
     [
       {
         name: '',
+        sourceFileIsRelevant: () => true,
         run: (sourceFilename: string, sourceCode: string) => [
           {
             outputContent: sourceCode,
@@ -89,6 +75,7 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
       },
       {
         name: '',
+        sourceFileIsRelevant: () => true,
         run: (sourceFilename) =>
           sourceFilename === 'bar.txt'
             ? [
