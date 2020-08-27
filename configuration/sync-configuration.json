@@ -1,5 +1,0 @@
-{
-  "private-monorepo": {
-    "packages/monorail/bin/monorail": "scripts/monorail"
-  }
-}
