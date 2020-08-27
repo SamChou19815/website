@@ -21,7 +21,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "packageType": "app",
   "browserslist": {
     "production": [
       ">0.2%",

@@ -3,14 +3,12 @@
   "information": {
     "@dev-sam/eslint-config-common": {
       "workspaceLocation": "packages/eslint-config-common",
-      "packageType": "tool",
       "dependencyChain": [
         "@dev-sam/eslint-config-common"
       ]
     },
     "@dev-sam/monorail": {
       "workspaceLocation": "packages/monorail",
-      "packageType": "tool",
       "dependencyChain": [
         "lib-changed-files",
         "lib-incremental",
@@ -19,14 +17,12 @@
     },
     "@dev-sam/watcher-server": {
       "workspaceLocation": "packages/sam-watcher-server",
-      "packageType": "tool",
       "dependencyChain": [
         "@dev-sam/watcher-server"
       ]
     },
     "blog": {
       "workspaceLocation": "packages/blog",
-      "packageType": "app",
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -36,14 +32,12 @@
     },
     "lib-changed-files": {
       "workspaceLocation": "packages/lib-changed-files",
-      "packageType": "library",
       "dependencyChain": [
         "lib-changed-files"
       ]
     },
     "lib-codegen": {
       "workspaceLocation": "packages/lib-codegen",
-      "packageType": "library",
       "dependencyChain": [
         "lib-changed-files",
         "lib-incremental",
@@ -52,7 +46,6 @@
     },
     "lib-docusaurus-plugin": {
       "workspaceLocation": "packages/lib-docusaurus-plugin",
-      "packageType": "library",
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -61,21 +54,18 @@
     },
     "lib-incremental": {
       "workspaceLocation": "packages/lib-incremental",
-      "packageType": "library",
       "dependencyChain": [
         "lib-incremental"
       ]
     },
     "lib-prism-extended": {
       "workspaceLocation": "packages/lib-prism-extended",
-      "packageType": "library",
       "dependencyChain": [
         "lib-prism-extended"
       ]
     },
     "lib-react": {
       "workspaceLocation": "packages/lib-react",
-      "packageType": "library",
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react"
@@ -83,7 +73,6 @@
     },
     "samlang": {
       "workspaceLocation": "packages/samlang",
-      "packageType": "app",
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -93,21 +82,18 @@
     },
     "ten": {
       "workspaceLocation": "packages/ten",
-      "packageType": "app",
       "dependencyChain": [
         "ten"
       ]
     },
     "vscode-disable-generated-files-edit": {
       "workspaceLocation": "packages/vscode-disable-generated-files-edit",
-      "packageType": "tool",
       "dependencyChain": [
         "vscode-disable-generated-files-edit"
       ]
     },
     "wiki": {
       "workspaceLocation": "packages/wiki",
-      "packageType": "app",
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
@@ -117,7 +103,6 @@
     },
     "www": {
       "workspaceLocation": "packages/www",
-      "packageType": "app",
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react",
