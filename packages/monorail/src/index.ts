@@ -3,14 +3,10 @@
 /* eslint-disable import/first */
 
 // Ensuring all subsequent command is run from project root, so this must be the first statement.
-try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports,  @typescript-eslint/no-var-requires
-  process.chdir(require('./configuration').PROJECT_ROOT_DIRECTORY);
-} catch (error) {
-  // eslint-disable-next-line no-console
-  console.error(error.message);
-  process.exit(1);
-}
+// eslint-disable-next-line import/order
+import { switchToMonorepoRoot } from 'lib-find-monorepo-root';
+
+switchToMonorepoRoot();
 
 import { spawnSync } from 'child_process';
 import { join } from 'path';
