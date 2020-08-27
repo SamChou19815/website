@@ -17,7 +17,13 @@ export const parseGitDiffWithStatus_EXPOSED_FOR_TESTING = (
     .trim()
     .split('\n')
     .forEach((line) => {
-      const parts = line.trim().split(/\s/);
+      const parts = line
+        .trim()
+        .split(/\s/)
+        .filter((it) => it.trim().length > 0);
+      if (parts.length === 0) {
+        return;
+      }
       const type = parts[0];
       if (type === 'A' || type === 'M') {
         changedFiles.push(parts[1]);
@@ -57,18 +63,18 @@ const queryChangedFilesSince = async (
   since: number,
   pathPrefix = '.'
 ): Promise<ChangedFilesQueryResults> => {
-  const queryFromGitDiffResult = (base: string, head?: string): ChangedFilesQueryResults =>
-    parseGitDiffWithStatus_EXPOSED_FOR_TESTING(
-      spawnSync('git', [
-        'diff',
-        base,
-        ...(head ? [head] : []),
-        '--name-status',
-        '--diff-filter=ADRM',
-        '--',
-        pathPrefix,
-      ]).stdout.toString()
-    );
+  const queryFromGitDiffResult = (base: string, head?: string): ChangedFilesQueryResults => {
+    const gitDiffResponse = spawnSync('git', [
+      'diff',
+      base,
+      ...(head ? [head] : []),
+      '--name-status',
+      '--diff-filter=ADRM',
+      '--',
+      pathPrefix,
+    ]).stdout.toString();
+    return parseGitDiffWithStatus_EXPOSED_FOR_TESTING(gitDiffResponse);
+  };
 
   if (process.env.CI) {
     return queryFromGitDiffResult('HEAD^', 'HEAD');
