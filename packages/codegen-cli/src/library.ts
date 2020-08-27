@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 
@@ -35,26 +37,50 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   codegenServices: readonly CodegenService[],
   filesystem: CodegenFilesystem
 ): readonly string[] => {
+  console.log('-------------------- sam-codegen --------------------');
+
   const generatedFileMappings: Record<string, readonly string[]> = filesystem.fileExists(
     GENERATED_FILES_SOURCE_MAPPINGS_JSON
   )
     ? JSON.parse(filesystem.readFile(GENERATED_FILES_SOURCE_MAPPINGS_JSON)).mappings
     : {};
 
+  const syntheticChangedSourceFiles = new Set(changedSourceFiles);
+
+  const generatedToSourceMappings: Record<string, string | undefined> = {};
+  Object.entries(generatedFileMappings).forEach(([source, generared]) =>
+    generared.forEach((it) => {
+      generatedToSourceMappings[it] = source;
+    })
+  );
+  const treatGeneratedFilesUpdateAsSourceFileChange = (generatedFile: string): void => {
+    const source = generatedToSourceMappings[generatedFile];
+    if (source != null) syntheticChangedSourceFiles.add(source);
+  };
+  changedSourceFiles.forEach(treatGeneratedFilesUpdateAsSourceFileChange);
+  deletedSourceFiles.forEach(treatGeneratedFilesUpdateAsSourceFileChange);
+
+  const filesToDelete = new Set<string>();
   deletedSourceFiles.forEach((filename) => {
     (generatedFileMappings[filename] ?? []).forEach((managedFileToBeDeleted) => {
       if (filesystem.fileExists(managedFileToBeDeleted)) {
         filesystem.deleteFile(managedFileToBeDeleted);
+        filesToDelete.add(managedFileToBeDeleted);
       }
     });
     delete generatedFileMappings[filename];
   });
+  if (filesToDelete.size > 0) {
+    const sorted = Array.from(filesToDelete).sort((a, b) => a.localeCompare(b));
+    console.log(`Deleted orphan generated files: [${sorted.join(', ')}]...`);
+  }
 
   const writtenFiles = new Set<string>();
   const stringComparator = (a: string, b: string) => a.localeCompare(b);
 
-  changedSourceFiles.forEach((filename) => {
-    codegenServices.forEach((service) => {
+  codegenServices.forEach((service) => {
+    console.log(`> Running ${service.name}...`);
+    syntheticChangedSourceFiles.forEach((filename) => {
       if (!service.sourceFileIsRelevant(filename)) {
         return;
       }
@@ -86,7 +112,9 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
     )
   );
 
-  return Array.from(writtenFiles).sort(stringComparator);
+  const sortedUpdatedFiles = Array.from(writtenFiles).sort(stringComparator);
+  console.log(`Updated generated files: [${sortedUpdatedFiles.join(', ')}]...`);
+  return sortedUpdatedFiles;
 };
 
 export const runCodegenServicesIncrementally = async (
