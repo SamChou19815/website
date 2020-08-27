@@ -15,8 +15,7 @@ const incrementalTaskSpecification: IncrementalTaskSpecification = {
   needRerun: async (latestKnownGoodRerunTime) => {
     const allWorkspaces = await Promise.all(
       Array.from(workspaceInformation.entries()).map(
-        async ([workspaceName, { workspaceLocation, hasCompileScript }]) => {
-          if (!hasCompileScript) return [workspaceName, false] as const;
+        async ([workspaceName, { workspaceLocation }]) => {
           const { changedFiles, deletedFiles } = await queryChangedFilesSince(
             latestKnownGoodRerunTime[workspaceName] ?? 0,
             workspaceLocation

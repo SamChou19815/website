@@ -15,9 +15,6 @@ const getWorkspaceInformation = (workspace: string): WorkspaceInformation => {
 export const getYarnWorkspaceLocation = (workspace: string): string =>
   getWorkspaceInformation(workspace).workspaceLocation;
 
-export const getYarnWorkspaceHasCompileScript = (workspace: string): boolean =>
-  getWorkspaceInformation(workspace).hasCompileScript;
-
 export const getYarnWorkspacePackageType = (workspace: string): 'library' | 'tool' | 'app' =>
   getWorkspaceInformation(workspace).packageType;
 
