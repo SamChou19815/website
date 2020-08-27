@@ -20,7 +20,7 @@ const incrementalTaskSpecification: IncrementalTaskSpecification = {
         const needRebuilds = await Promise.all(
           workspacesJson.information[workspaceName].dependencyChain.map(async (item) => {
             const { changedFiles, deletedFiles } = await queryChangedFilesSince(
-              latestKnownGoodRerunTime[workspaceName] ?? 0,
+              latestKnownGoodRerunTime[item] ?? 0,
               workspacesJson.information[item].workspaceLocation
             );
             return changedFiles.length + deletedFiles.length !== 0;

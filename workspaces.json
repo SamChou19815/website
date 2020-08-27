@@ -44,6 +44,15 @@
         "lib-codegen"
       ]
     },
+    "lib-codegen-services": {
+      "workspaceLocation": "packages/lib-codegen-services",
+      "dependencyChain": [
+        "lib-changed-files",
+        "lib-incremental",
+        "lib-codegen",
+        "lib-codegen-services"
+      ]
+    },
     "lib-docusaurus-plugin": {
       "workspaceLocation": "packages/lib-docusaurus-plugin",
       "dependencyChain": [
@@ -119,6 +128,7 @@
     "lib-changed-files",
     "lib-incremental",
     "lib-codegen",
+    "lib-codegen-services",
     "@dev-sam/monorail",
     "@dev-sam/watcher-server",
     "samlang",
