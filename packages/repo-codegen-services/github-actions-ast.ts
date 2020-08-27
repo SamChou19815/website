@@ -1,29 +1,18 @@
-type GitHubActionsPushTriggerCondition = {
-  readonly triggerPaths: readonly string[];
-  readonly masterBranchOnly: boolean;
-};
-
 export type GitHubActionJobStep =
   | {
       readonly type: 'use-action';
       readonly actionName: string;
       readonly actionArguments: Readonly<Record<string, string>>;
     }
-  | {
-      readonly type: 'run';
-      readonly stepName: string;
-      readonly command: string;
-    };
-
-type GitHubActionJob = {
-  readonly jobName: string;
-  readonly jobSteps: readonly GitHubActionJobStep[];
-};
+  | { readonly type: 'run'; readonly stepName: string; readonly command: string };
 
 export type GitHubActionsWorkflow = {
   readonly workflowName: string;
-  readonly workflowtrigger: GitHubActionsPushTriggerCondition;
-  readonly workflowJobs: readonly GitHubActionJob[];
+  readonly workflowtrigger: {
+    readonly triggerPaths: readonly string[];
+    readonly masterBranchOnly: boolean;
+  };
+  readonly workflowJobs: readonly (readonly [string, readonly GitHubActionJobStep[]])[];
 };
 
 export const githubActionJobActionStep = (
@@ -40,30 +29,25 @@ export const githubActionJobRunStep = (stepName: string, command: string): GitHu
 const githubActionJobStepToString = (step: GitHubActionJobStep): string => {
   switch (step.type) {
     case 'use-action': {
-      const header = `      - uses: ${step.actionName}\n`;
+      const header = `${' '.repeat(6)}- uses: ${step.actionName}\n`;
       if (Object.keys(step.actionArguments).length === 0) {
         return header;
       }
       const withArguments = Object.entries(step.actionArguments)
-        .map(([key, value]) => {
-          const lines = value.split('\n');
-          if (lines.length === 1) {
-            return `          ${key}: ${lines[0]}`;
-          }
-          return `          ${key}: |\n${lines.map((line) => `            ${line}`).join('\n')}`;
-        })
+        .map(([key, value]) => `${' '.repeat(10)}${key}: "${value}"`)
         .join('\n');
-      return `${header}        with:\n${withArguments}\n`;
+      return `${header}${' '.repeat(8)}with:\n${withArguments}\n`;
     }
     case 'run': {
-      return `      - name: ${step.stepName}
-        run: ${step.command}
-`;
+      return `${' '.repeat(6)}- name: ${step.stepName}\n${' '.repeat(8)}run: ${step.command}\n`;
     }
   }
 };
 
-const githubActionJobToString = ({ jobName, jobSteps }: GitHubActionJob): string => {
+const githubActionJobToString = ([jobName, jobSteps]: readonly [
+  string,
+  readonly GitHubActionJobStep[]
+]): string => {
   return `  ${jobName}:
     runs-on: ubuntu-latest
     steps:
@@ -81,13 +65,14 @@ name: ${workflowName}
 on:
   push:
     paths:
-${triggerPaths.map((path) => `      - '${path}'\n`).join('')}${
-    masterBranchOnly
-      ? `    branches:
+${triggerPaths.map((path) => `      - '${path}'`).join('\n')}
+${
+  masterBranchOnly
+    ? `    branches:
       - master
 `
-      : ''
-  }
+    : ''
+}
 jobs:
 ${workflowJobs.map(githubActionJobToString).join('')}`;
   return header;

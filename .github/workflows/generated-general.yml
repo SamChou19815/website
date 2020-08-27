@@ -14,11 +14,9 @@ jobs:
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
         with:
-          path: |
-            .yarn/cache
-            .pnp.js
-          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: yarn-berry-
+          path: ".yarn/cache\n.pnp.js"
+          key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}"
+          restore-keys: "yarn-berry-"
       - name: Yarn Install
         run: yarn install --immutable
       - name: Format Check
@@ -30,15 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 2
+          fetch-depth: "2"
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
         with:
-          path: |
-            .yarn/cache
-            .pnp.js
-          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: yarn-berry-
+          path: ".yarn/cache\n.pnp.js"
+          key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}"
+          restore-keys: "yarn-berry-"
       - name: Yarn Install
         run: yarn install --immutable
       - name: Build
@@ -50,11 +46,9 @@ jobs:
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
         with:
-          path: |
-            .yarn/cache
-            .pnp.js
-          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: yarn-berry-
+          path: ".yarn/cache\n.pnp.js"
+          key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}"
+          restore-keys: "yarn-berry-"
       - name: Yarn Install
         run: yarn install --immutable
       - name: Check Codegen
@@ -68,11 +62,9 @@ jobs:
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
         with:
-          path: |
-            .yarn/cache
-            .pnp.js
-          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: yarn-berry-
+          path: ".yarn/cache\n.pnp.js"
+          key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}"
+          restore-keys: "yarn-berry-"
       - name: Yarn Install
         run: yarn install --immutable
       - name: Test
