@@ -5,7 +5,7 @@ import { join } from 'path';
 
 import chalk from 'chalk';
 
-import { workspaceInformation } from '../infrastructure/yarn-workspace-dependency-analysis';
+import { workspaceInformation } from './yarn-workspaces';
 
 import queryChangedFilesSince from 'lib-changed-files';
 import runIncrementalTasks, { IncrementalTaskSpecification } from 'lib-incremental';

@@ -36,7 +36,7 @@
 # project generated files
 packages/wiki/private-docs
 
-# styles
 
+# additions
 .yarn
-packages/monorail/bin/
+**/bin/

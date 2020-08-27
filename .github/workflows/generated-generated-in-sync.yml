@@ -15,4 +15,4 @@ jobs:
       - name: Codegen
         run: packages/monorail/bin/index.js codegen
       - name: Check changed
-        run: packages/monorail/bin/index.js no-changed
+        run: if [[ `git status --porcelain` ]]; then exit 1; fi
