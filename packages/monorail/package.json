@@ -9,7 +9,6 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
     "lib-changed-files": "workspace:^0.0.1",
     "lib-codegen": "workspace:^0.0.1",
     "lib-codegen-services": "workspace:^0.0.1",
