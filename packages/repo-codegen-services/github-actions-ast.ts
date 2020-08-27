@@ -23,7 +23,6 @@ type GitHubActionJob = {
 export type GitHubActionsWorkflow = {
   readonly workflowName: string;
   readonly workflowtrigger: GitHubActionsPushTriggerCondition;
-  readonly workflowSecrets?: readonly string[];
   readonly workflowJobs: readonly GitHubActionJob[];
 };
 
@@ -57,15 +56,10 @@ const githubActionJobStepToString = (step: GitHubActionJobStep): string => {
       return `${header}        with:\n${withArguments}\n`;
     }
     case 'run': {
-      const header = `      - name: ${step.stepName}\n`;
-      const lines = step.command.split('\n');
-      if (lines.length === 1) {
-        return `${header}        run: ${lines[0]}\n`;
-      }
-      return `${header}        run: |\n${lines.map((line) => `          ${line}\n`).join('')}`;
+      return `      - name: ${step.stepName}
+        run: ${step.command}
+`;
     }
-    default:
-      throw new Error();
   }
 };
 
@@ -79,10 +73,9 @@ ${jobSteps.map(githubActionJobStepToString).join('')}`;
 export const githubActionWorkflowToString = ({
   workflowName,
   workflowtrigger: { triggerPaths, masterBranchOnly },
-  workflowSecrets = [],
   workflowJobs,
 }: GitHubActionsWorkflow): string => {
-  const header = `# @generated
+  const header = `# @${'generated'}
 
 name: ${workflowName}
 on:
@@ -92,12 +85,6 @@ ${triggerPaths.map((path) => `      - '${path}'\n`).join('')}${
     masterBranchOnly
       ? `    branches:
       - master
-`
-      : ''
-  }${
-    workflowSecrets.length > 0
-      ? `env:
-${workflowSecrets.map((secret) => `  ${secret}: \${{ secrets.${secret} }}`).join('\n')}
 `
       : ''
   }

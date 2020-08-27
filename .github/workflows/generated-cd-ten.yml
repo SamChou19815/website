@@ -9,8 +9,6 @@ on:
       - '.github/workflows/generated-*-ten.yml'
     branches:
       - master
-env:
-  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
 jobs:
   deploy:
@@ -32,4 +30,4 @@ jobs:
       - name: Install firebase-tools
         run: sudo npm install -g firebase-tools
       - name: Deploy
-        run: yarn workspace ten deploy
+        run: FIREBASE_TOKEN=${{ secrets.FIREBASE_TOKEN }} yarn workspace ten deploy
