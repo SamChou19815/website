@@ -16,16 +16,30 @@ import { spawnSync } from 'child_process';
 
 import chalk from 'chalk';
 
-import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
 import incrementalCompile from './incremental-compile';
 
-/**
- * Supported commands:
- *
- * - codegen: Generate code according to repository configuration and Yarn workspace setup.
- * - sync: Push changes in other known repositories if git status is not clean.
- */
+const parseCommandLineArgumentsIntoCommand = (): 'CODEGEN' | 'COMPILE' | 'NO_CHANGED' => {
+  const normalizedArguments: readonly string[] = process.argv.slice(2);
+
+  if (normalizedArguments.length === 0) {
+    return 'CODEGEN';
+  }
+
+  switch (normalizedArguments[0].toLowerCase()) {
+    case 'codegen':
+      return 'CODEGEN';
+    case 'compile':
+    case 'c':
+      return 'COMPILE';
+    case 'no-changed':
+    case 'nc':
+      return 'NO_CHANGED';
+    default:
+      throw new Error(`Unknown command: ${normalizedArguments[0]}`);
+  }
+};
+
 const main = async (): Promise<void> => {
   try {
     switch (parseCommandLineArgumentsIntoCommand()) {

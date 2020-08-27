@@ -17,19 +17,11 @@ import {
 import { CodegenService } from './codegen-service-types';
 
 const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
-  'ts-js',
+  'general',
   {
-    workflowName: 'TS and JS',
+    workflowName: 'General',
     workflowtrigger: {
-      triggerPaths: [
-        '.github/workflows/generated-ts-js.yml',
-        'package.json',
-        '**/package.json',
-        '**.js',
-        '**.ts',
-        '**.jsx',
-        '**.tsx',
-      ],
+      triggerPaths: ['**'],
       masterBranchOnly: false,
     },
     workflowJobs: [
@@ -77,7 +69,10 @@ const generateCodegenPorcelainWorkflow = (): readonly [string, GitHubActionsWork
           GITHUB_ACTIONS_CHECKOUT_STEP,
           GITHUB_ACTIONS_SETUP_NODE_STEP,
           githubActionJobRunStep('Codegen', `${MONORAIL_BINARY_PATH} codegen`),
-          githubActionJobRunStep('Check changed', `${MONORAIL_BINARY_PATH} no-changed`),
+          githubActionJobRunStep(
+            'Check changed',
+            'if [[ `git status --porcelain` ]]; then exit 1; fi'
+          ),
         ],
       },
     ],
