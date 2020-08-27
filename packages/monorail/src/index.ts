@@ -15,8 +15,6 @@ try {
 import { spawnSync } from 'child_process';
 import { join } from 'path';
 
-import chalk from 'chalk';
-
 import incrementalCompile from './incremental-compile';
 
 import { runCodegenServicesIncrementally } from 'lib-codegen';
@@ -70,7 +68,7 @@ const main = async (): Promise<void> => {
     }
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error(chalk.red(error.message));
+    console.error(error);
     process.exit(1);
   }
 };

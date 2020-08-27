@@ -5,7 +5,6 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 import { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
-import chalk from 'chalk';
 
 import queryChangedFilesSince from 'lib-changed-files';
 import runIncrementalTasks, { IncrementalTaskSpecification } from 'lib-incremental';
@@ -34,7 +33,7 @@ const incrementalTaskSpecification: IncrementalTaskSpecification = {
       .filter(([, needRebuild]) => needRebuild)
       .map(([workspace]) => workspace);
     if (targets.length !== 0) {
-      console.log(chalk.yellow(`[${targets.join(', ')}] needs to be re-compiled!`));
+      console.log(`[${targets.join(', ')}] needs to be re-compiled!`);
     }
     return targets;
   },
@@ -48,10 +47,9 @@ const incrementalTaskSpecification: IncrementalTaskSpecification = {
 };
 
 const incrementalCompile = async (): Promise<void> => {
-  console.log(chalk.blue('--- Monorail Incremental Compile Service ---'));
   const failedWorkspacesRuns = await runIncrementalTasks(incrementalTaskSpecification);
   if (failedWorkspacesRuns.length === 0) {
-    console.log(chalk.green('[✓] All workspaces have been successfully compiled!'));
+    console.log('[✓] All workspaces have been successfully compiled!');
     return;
   }
   throw new Error(`[x] [${failedWorkspacesRuns.join(', ')}] failed to exit with 0`);
