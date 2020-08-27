@@ -37,7 +37,9 @@
 # project generated files
 packages/wiki/private-docs
 
-
 # additions
 .yarn
 **/bin/
+**/out/
+**/build/
+**/dist/

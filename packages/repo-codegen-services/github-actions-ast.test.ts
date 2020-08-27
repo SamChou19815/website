@@ -11,7 +11,6 @@ it('githubActionWorkflowToString() works as expected test 1', () => {
     githubActionWorkflowToString({
       workflowName: 'example-workflow',
       workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: true },
-      workflowSecrets: ['FIREBASE_TOKEN'],
       workflowJobs: [],
     })
   ).toBe(`# ${GENERATED}
@@ -24,8 +23,6 @@ on:
       - 'bar'
     branches:
       - master
-env:
-  FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
 
 jobs:
 `);
@@ -78,7 +75,6 @@ it('githubActionWorkflowToString() works as expected test 4', () => {
     githubActionWorkflowToString({
       workflowName: 'example-workflow',
       workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: false },
-      workflowSecrets: ['FIREBASE_TOKEN'],
       workflowJobs: [],
     })
   ).toBe(`# ${GENERATED}
@@ -89,8 +85,6 @@ on:
     paths:
       - 'foo'
       - 'bar'
-env:
-  FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
 
 jobs:
 `);
@@ -119,16 +113,6 @@ it('githubActionWorkflowToString() works as expected test 5', () => {
               'yarn workspace @dev-sam/repo-tools compile'
             ),
             githubActionJobRunStep('Generate Workflows', 'yarn codegen'),
-            githubActionJobRunStep(
-              'Check Changed',
-              `git status --porcelain
-if [[ \`git status --porcelain\` ]]; then
-  echo "Generated files are not in sync!"
-  exit 1
-else
-  echo "Generated files are in sync. Good to go!"
-fi`
-            ),
           ],
         },
         {
@@ -164,15 +148,6 @@ jobs:
         run: yarn workspace @dev-sam/repo-tools compile
       - name: Generate Workflows
         run: yarn codegen
-      - name: Check Changed
-        run: |
-          git status --porcelain
-          if [[ \`git status --porcelain\` ]]; then
-            echo "Generated files are not in sync!"
-            exit 1
-          else
-            echo "Generated files are in sync. Good to go!"
-          fi
   dummy:
     runs-on: ubuntu-latest
     steps:

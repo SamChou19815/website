@@ -21,10 +21,6 @@ jobs:
           restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install --immutable
-      - name: Check Codegen
-        run: yarn codegen
-      - name: Check changed
-        run: if [[ `git status --porcelain` ]]; then exit 1; fi
       - name: Format Check
         run: yarn format:check
       - name: Lint
@@ -47,6 +43,24 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn compile
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+      - uses: actions/cache@v2
+        with:
+          path: |
+            .yarn/cache
+            .pnp.js
+          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: yarn-berry-
+      - name: Yarn Install
+        run: yarn install --immutable
+      - name: Check Codegen
+        run: yarn codegen
+      - name: Check changed
+        run: if [[ `git status --porcelain` ]]; then exit 1; fi
   test:
     runs-on: ubuntu-latest
     steps:
