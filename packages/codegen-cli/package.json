@@ -2,7 +2,9 @@
   "name": "@dev-sam/codegen-cli",
   "description": "Developer Sam's codegen CLI.",
   "version": "0.0.1",
-  "private": true,
+  "files": [
+    "bin"
+  ],
   "bin": {
     "sam-codegen": "./bin/index.js"
   },
