@@ -1,4 +1,5 @@
-import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
+import { dirname } from 'path';
 
 import * as TypeScript from 'typescript';
 
@@ -45,7 +46,10 @@ export class CodegenInMemoryFilesystem implements CodegenFilesystem {
 export const CodegenRealFilesystem: CodegenFilesystem = {
   fileExists: (filename) => existsSync(filename),
   readFile: (filename) => readFileSync(filename).toString(),
-  writeFile: (filename, content) => writeFileSync(filename, content),
+  writeFile: (filename, content) => {
+    mkdirSync(dirname(filename), { recursive: true });
+    writeFileSync(filename, content);
+  },
   deleteFile: (filename) => unlinkSync(filename),
 };
 
@@ -59,38 +63,29 @@ export type CodegenServiceFileOutput = {
 export interface CodegenService {
   /** Name of the codegen service. Doesn't affect codegen results but useful for readable output. */
   readonly name: string;
+  /** Used to abandon useless codegen attempts. */
+  readonly sourceFileIsRelevant: (sourceFilename: string) => boolean;
   /** The main runner code. */
   readonly run: (sourceFilename: string, source: string) => readonly CodegenServiceFileOutput[];
 }
 
-export const createPlaintextConcatenationCodegenService = (
-  name: string,
-  additionalContentsToConcatenate: readonly {
-    readonly additionalContent: string;
-    readonly outputFilename: string;
-  }[]
-): CodegenService => ({
-  name,
-  run: (_, source) =>
-    additionalContentsToConcatenate.map(({ additionalContent, outputFilename }) => ({
-      outputContent: `${source}${additionalContent}`,
-      outputFilename,
-    })),
-});
-
 export const createJsonCodegenService = <T>(
   name: string,
+  sourceFileIsRelevant: (sourceFilename: string) => boolean,
   run: (sourceFilename: string, json: T) => readonly CodegenServiceFileOutput[]
 ): CodegenService => ({
   name,
+  sourceFileIsRelevant,
   run: (sourceFilename, source) => run(sourceFilename, JSON.parse(source)),
 });
 
 export const createTypeScriptCodegenService = <T>(
   name: string,
+  sourceFileIsRelevant: (sourceFilename: string) => boolean,
   run: (sourceFilename: string, evaluatedSource: T) => readonly CodegenServiceFileOutput[]
 ): CodegenService => ({
   name,
+  sourceFileIsRelevant,
   run: (sourceFilename, source) => {
     const transpiledModuleCode = TypeScript.transpile(source, {
       module: TypeScript.ModuleKind.CommonJS,
@@ -125,7 +120,7 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
     : {};
 
   deletedSourceFiles.forEach((filename) => {
-    generatedFileMappings[filename].forEach((managedFileToBeDeleted) => {
+    (generatedFileMappings[filename] ?? []).forEach((managedFileToBeDeleted) => {
       if (filesystem.fileExists(managedFileToBeDeleted)) {
         filesystem.deleteFile(managedFileToBeDeleted);
       }
@@ -137,10 +132,13 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   const stringComparator = (a: string, b: string) => a.localeCompare(b);
 
   changedSourceFiles.forEach((filename) => {
-    const source = filesystem.readFile(filename);
     codegenServices.forEach((service) => {
+      if (!service.sourceFileIsRelevant(filename)) {
+        return;
+      }
+      const source = filesystem.readFile(filename);
       const codegenOutputs = service.run(filename, source);
-      const managedFiles = new Set(generatedFileMappings[filename] ?? []);
+      const managedFiles = new Set<string>();
 
       codegenOutputs.forEach(({ outputFilename, outputContent }) => {
         filesystem.writeFile(outputFilename, outputContent);

@@ -12,6 +12,8 @@
       "dependencyChain": [
         "lib-changed-files",
         "lib-incremental",
+        "lib-codegen",
+        "lib-codegen-services",
         "@dev-sam/monorail"
       ]
     },
