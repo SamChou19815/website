@@ -12,12 +12,13 @@ try {
   process.exit(1);
 }
 
+import { spawnSync } from 'child_process';
+
 import chalk from 'chalk';
 
 import parseCommandLineArgumentsIntoCommand from './cli-parser';
 import executeCodegenServices from './codegen/services';
 import incrementalCompile from './incremental-compile';
-import checkThatThereIsNoChangedFiles from './no-changed';
 
 /**
  * Supported commands:
@@ -34,9 +35,15 @@ const main = async (): Promise<void> => {
       case 'COMPILE':
         await incrementalCompile();
         return;
-      case 'NO_CHANGED':
-        checkThatThereIsNoChangedFiles();
-        return;
+      case 'NO_CHANGED': {
+        const changedFiles = spawnSync('git', ['status', '--porcelain'], {
+          shell: true,
+        }).stdout.toString();
+        if (changedFiles.length === 0) return;
+        throw new Error(
+          `There are changed files! Generated files might be out-of-sync!\n${changedFiles.trimEnd()}`
+        );
+      }
       default:
         throw new Error();
     }
