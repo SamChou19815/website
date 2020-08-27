@@ -1,6 +1,5 @@
 import { spawnSync } from 'child_process';
-
-import fetch from 'node-fetch';
+import * as http from 'http';
 
 export type ChangedFilesQueryResults = {
   readonly changedFiles: readonly string[];
@@ -38,13 +37,38 @@ export const parseGitDiffWithStatus_EXPOSED_FOR_TESTING = (
   return { changedFiles, deletedFiles };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getJson = (url: string): Promise<any> =>
+  new Promise((resolve, reject) => {
+    http
+      .get(url, (res) => {
+        let body = '';
+
+        res.on('data', (chunk) => {
+          body += chunk;
+        });
+
+        res.on('end', () => {
+          try {
+            resolve(JSON.parse(body));
+          } catch (error) {
+            reject(error);
+          }
+        });
+      })
+      .on('error', (error) => {
+        reject(error);
+      });
+  });
+
 const queryChangedFilesFromDevSamWatcherServerSince = async (
   since: number,
   pathPrefix = '.'
 ): Promise<ChangedFilesQueryResults> => {
-  const events: readonly { type: 'changed' | 'deleted'; filename: string }[] = await fetch(
-    `http://localhost:19815/?since=${since}&pathPrefix=${pathPrefix}`
-  ).then((response) => response.json());
+  const events: readonly {
+    type: 'changed' | 'deleted';
+    filename: string;
+  }[] = await getJson(`http://localhost:19815/?since=${since}&pathPrefix=${pathPrefix}`);
   const changedFiles: string[] = [];
   const deletedFiles: string[] = [];
 
