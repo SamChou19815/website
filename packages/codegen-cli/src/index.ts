@@ -15,8 +15,8 @@ const run = async (): Promise<void> => {
   switchToMonorepoRoot();
 
   const importer = Module.createRequire(join(findMonorepoRoot(), 'package.json'));
-  const services: readonly CodegenService[] = importer(servicesModule).default;
-  await runCodegenServicesIncrementally(services);
+  const services: readonly CodegenService[] = importer(servicesModule);
+  await runCodegenServicesIncrementally(services, /* shouldLog */ true);
 };
 
 const main = async (): Promise<void> => {

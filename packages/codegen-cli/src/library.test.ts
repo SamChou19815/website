@@ -1,11 +1,46 @@
 import { join } from 'path';
 
 import {
+  CodegenFilesystem,
   runCodegenServicesAccordingToFilesystemEvents,
   GENERATED_FILES_SOURCE_MAPPINGS_JSON,
 } from './library';
 
-import { CodegenInMemoryFilesystem } from 'lib-codegen';
+class CodegenInMemoryFilesystem implements CodegenFilesystem {
+  private files: Map<string, string>;
+
+  constructor(initialFiles: readonly (readonly [string, string])[]) {
+    this.files = new Map(initialFiles);
+  }
+
+  fileExists(filename: string): boolean {
+    return this.files.has(filename);
+  }
+
+  readFile(filename: string): string {
+    const content = this.files.get(filename);
+    if (content == null) throw new Error(`No such file: ${filename}`);
+    return content;
+  }
+
+  writeFile(filename: string, content: string): void {
+    this.files.set(filename, content);
+  }
+
+  deleteFile(filename: string): void {
+    this.files.delete(filename);
+  }
+}
+
+it('CodegenInMemoryFilesystem works.', () => {
+  const filesystem = new CodegenInMemoryFilesystem([['foo.txt', 'bar']]);
+  expect(filesystem.readFile('foo.txt')).toBe('bar');
+  expect(() => filesystem.readFile('bar.txt')).toThrow();
+  filesystem.writeFile('bar.txt', 'baz');
+  expect(filesystem.readFile('bar.txt')).toBe('baz');
+  filesystem.deleteFile('foo.txt');
+  expect(() => filesystem.readFile('foo.txt')).toThrow();
+});
 
 it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
   const filesystem = new CodegenInMemoryFilesystem([
