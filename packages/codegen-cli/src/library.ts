@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
 import { dirname, join } from 'path';
 
@@ -35,9 +33,14 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   changedSourceFiles: readonly string[],
   deletedSourceFiles: readonly string[],
   codegenServices: readonly CodegenService[],
-  filesystem: CodegenFilesystem
+  filesystem: CodegenFilesystem,
+  shouldLog = false
 ): readonly string[] => {
-  console.log('-------------------- sam-codegen --------------------');
+  const log = (content: string): void => {
+    // eslint-disable-next-line no-console
+    if (shouldLog) console.log(content);
+  };
+  log('-------------------- sam-codegen --------------------');
 
   const generatedFileMappings: Record<string, readonly string[]> = filesystem.fileExists(
     GENERATED_FILES_SOURCE_MAPPINGS_JSON
@@ -72,14 +75,16 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   });
   if (filesToDelete.size > 0) {
     const sorted = Array.from(filesToDelete).sort((a, b) => a.localeCompare(b));
-    console.log(`Deleted orphan generated files: [${sorted.join(', ')}]...`);
+    log(`[✓] Deleted orphan generated files: [${sorted.join(', ')}]...`);
+  } else {
+    log('[✓] No orphan generated files.');
   }
 
   const writtenFiles = new Set<string>();
   const stringComparator = (a: string, b: string) => a.localeCompare(b);
 
   codegenServices.forEach((service) => {
-    console.log(`> Running ${service.name}...`);
+    log(`> Running ${service.name}...`);
     syntheticChangedSourceFiles.forEach((filename) => {
       if (!service.sourceFileIsRelevant(filename)) {
         return;
@@ -113,12 +118,17 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   );
 
   const sortedUpdatedFiles = Array.from(writtenFiles).sort(stringComparator);
-  console.log(`Updated generated files: [${sortedUpdatedFiles.join(', ')}]...`);
+  if (sortedUpdatedFiles.length === 0) {
+    log('[✓] No generated code updates.');
+  } else {
+    log(`[✓] Updated generated files: [${sortedUpdatedFiles.join(', ')}]...`);
+  }
   return sortedUpdatedFiles;
 };
 
 export const runCodegenServicesIncrementally = async (
-  codegenServices: readonly CodegenService[]
+  codegenServices: readonly CodegenService[],
+  shouldLog = false
 ): Promise<void> => {
   await runIncrementalTasks({
     lastestKnownGoodRunTimeFilename: join(findMonorepoRoot(), '.codegen', 'cache.json'),
@@ -130,7 +140,8 @@ export const runCodegenServicesIncrementally = async (
         changedFiles,
         deletedFiles,
         codegenServices,
-        CodegenRealFilesystem
+        CodegenRealFilesystem,
+        shouldLog
       );
       return true;
     },
