@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, lstatSync } from 'fs';
 import { join, dirname } from 'path';
 
-const findMonorepoRoot = (): string => {
+export const findMonorepoRoot = (): string => {
   let configurationDirectory = process.cwd();
   while (configurationDirectory !== '/') {
     const configurationPath = join(configurationDirectory, 'package.json');
@@ -17,5 +17,12 @@ const findMonorepoRoot = (): string => {
   throw new Error('No root package.json found. Abort!');
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export const PROJECT_ROOT_DIRECTORY = findMonorepoRoot();
+export const switchToMonorepoRoot = (): void => {
+  try {
+    process.chdir(findMonorepoRoot());
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error.message);
+    process.exit(1);
+  }
+};
