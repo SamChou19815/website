@@ -73,37 +73,19 @@ it('runCodegenServicesAccordingToFilesystemEvents integration test', () => {
           },
         ],
       },
-      {
-        name: '',
-        sourceFileIsRelevant: () => true,
-        run: (sourceFilename) =>
-          sourceFilename === 'bar.txt'
-            ? [
-                {
-                  outputContent: 'special',
-                  outputFilename: join('__generated__', 'very-special'),
-                },
-              ]
-            : [],
-      },
     ],
     filesystem
   );
 
-  expect(writtenFiles).toEqual([
-    '__generated__/bar.txt',
-    '__generated__/baz.txt',
-    '__generated__/very-special',
-  ]);
+  expect(writtenFiles).toEqual(['__generated__/bar.txt', '__generated__/baz.txt']);
   expect(filesystem.fileExists('__generated__/foo.txt')).toBe(false);
   expect(filesystem.readFile('__generated__/bar.txt')).toBe('bar');
   expect(filesystem.readFile('__generated__/baz.txt')).toBe('baz');
-  expect(filesystem.readFile('__generated__/very-special')).toBe('special');
 
   expect(JSON.parse(filesystem.readFile(GENERATED_FILES_SOURCE_MAPPINGS_JSON))).toEqual({
     __type__: '@' + 'generated',
     mappings: {
-      'bar.txt': ['__generated__/bar.txt', '__generated__/very-special'],
+      'bar.txt': ['__generated__/bar.txt'],
       'baz.txt': ['__generated__/baz.txt'],
     },
   });
