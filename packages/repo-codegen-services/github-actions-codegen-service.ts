@@ -17,7 +17,7 @@ const GITHUB_ACTIONS_CHECKOUT_STEP = githubActionJobActionStep('actions/checkout
 const GITHUB_ACTIONS_SETUP_NODE_STEP = githubActionJobActionStep('actions/setup-node@v2-beta');
 
 const GITHUB_ACTIONS_USE_YARN_CACHE_STEP = githubActionJobActionStep('actions/cache@v2', {
-  path: '.yarn/cache\n.pnp.js',
+  path: '.yarn/cache\\n.pnp.js',
   // eslint-disable-next-line no-template-curly-in-string
   key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
   'restore-keys': 'yarn-berry-',
@@ -50,27 +50,27 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
       masterBranchOnly: false,
     },
     workflowJobs: [
-      {
-        jobName: 'lint',
-        jobSteps: [
+      [
+        'lint',
+        [
           ...yarnWorkspaceBoilterplateSetupSteps,
           githubActionJobRunStep('Format Check', 'yarn format:check'),
           githubActionJobRunStep('Lint', 'yarn lint'),
         ],
-      },
-      {
-        jobName: 'build',
-        jobSteps: [
+      ],
+      [
+        'build',
+        [
           githubActionJobActionStep('actions/checkout@v2', { 'fetch-depth': '2' }),
           GITHUB_ACTIONS_SETUP_NODE_STEP,
           GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
           githubActionJobRunStep('Yarn Install', 'yarn install --immutable'),
           githubActionJobRunStep('Build', 'yarn compile'),
         ],
-      },
-      {
-        jobName: 'validate',
-        jobSteps: [
+      ],
+      [
+        'validate',
+        [
           ...yarnWorkspaceBoilterplateSetupSteps,
           githubActionJobRunStep('Check Codegen', 'yarn codegen'),
           githubActionJobRunStep(
@@ -78,14 +78,11 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
             'if [[ `git status --porcelain` ]]; then exit 1; fi'
           ),
         ],
-      },
-      {
-        jobName: 'test',
-        jobSteps: [
-          ...yarnWorkspaceBoilterplateSetupSteps,
-          githubActionJobRunStep('Test', 'yarn test'),
-        ],
-      },
+      ],
+      [
+        'test',
+        [...yarnWorkspaceBoilterplateSetupSteps, githubActionJobRunStep('Test', 'yarn test')],
+      ],
     ],
   },
 ];
@@ -113,9 +110,9 @@ export const getYarnWorkspaceWorkflows = (
             masterBranchOnly: true,
           },
           workflowJobs: [
-            {
-              jobName: 'deploy',
-              jobSteps: [
+            [
+              'deploy',
+              [
                 ...yarnWorkspaceBoilterplateSetupSteps,
                 githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
                 githubActionJobRunStep(
@@ -127,7 +124,7 @@ export const getYarnWorkspaceWorkflows = (
                   `FIREBASE_TOKEN=\${{ secrets.FIREBASE_TOKEN }} yarn workspace ${workspace} deploy`
                 ),
               ],
-            },
+            ],
           ],
         },
       ];

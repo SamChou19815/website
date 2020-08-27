@@ -73,52 +73,17 @@ jobs:
 it('githubActionWorkflowToString() works as expected test 4', () => {
   expect(
     githubActionWorkflowToString({
-      workflowName: 'example-workflow',
-      workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: false },
-      workflowJobs: [],
-    })
-  ).toBe(`# ${GENERATED}
-
-name: example-workflow
-on:
-  push:
-    paths:
-      - 'foo'
-      - 'bar'
-
-jobs:
-`);
-});
-
-it('githubActionWorkflowToString() works as expected test 5', () => {
-  expect(
-    githubActionWorkflowToString({
       workflowName: 'lint-generated',
       workflowtrigger: { triggerPaths: ['**'], masterBranchOnly: false },
       workflowJobs: [
-        {
-          jobName: 'lint',
-          jobSteps: [
+        [
+          'lint',
+          [
             githubActionJobActionStep('actions/checkout@master'),
-            githubActionJobActionStep('actions/setup-node@v1'),
-            githubActionJobActionStep('actions/cache@v2', {
-              path: '.yarn/cache\n.pnp.js',
-              // eslint-disable-next-line no-template-curly-in-string
-              key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
-              'restore-keys': 'yarn-berry-',
-            }),
             githubActionJobRunStep('Yarn Install', 'yarn install'),
-            githubActionJobRunStep(
-              'Compile Code Generetor',
-              'yarn workspace @dev-sam/repo-tools compile'
-            ),
-            githubActionJobRunStep('Generate Workflows', 'yarn codegen'),
           ],
-        },
-        {
-          jobName: 'dummy',
-          jobSteps: [githubActionJobActionStep('actions/checkout@master')],
-        },
+        ],
+        ['dummy', [githubActionJobActionStep('actions/checkout@master')]],
       ],
     })
   ).toBe(`# ${GENERATED}
@@ -134,20 +99,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
-      - uses: actions/cache@v2
-        with:
-          path: |
-            .yarn/cache
-            .pnp.js
-          key: yarn-berry-\${{ hashFiles('**/yarn.lock') }}
-          restore-keys: yarn-berry-
       - name: Yarn Install
         run: yarn install
-      - name: Compile Code Generetor
-        run: yarn workspace @dev-sam/repo-tools compile
-      - name: Generate Workflows
-        run: yarn codegen
   dummy:
     runs-on: ubuntu-latest
     steps:

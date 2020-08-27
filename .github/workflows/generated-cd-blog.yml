@@ -21,11 +21,9 @@ jobs:
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
         with:
-          path: |
-            .yarn/cache
-            .pnp.js
-          key: yarn-berry-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: yarn-berry-
+          path: ".yarn/cache\n.pnp.js"
+          key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}"
+          restore-keys: "yarn-berry-"
       - name: Yarn Install
         run: yarn install --immutable
       - name: Build
