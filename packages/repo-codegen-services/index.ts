@@ -98,4 +98,4 @@ const codegenServices: readonly CodegenService[] = [
   ignoreFileCodegenService,
 ];
 
-export default codegenServices;
+export = codegenServices;
