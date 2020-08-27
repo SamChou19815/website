@@ -15725,8 +15725,6 @@ fsevents@^1.2.7:
     "@vercel/ncc": ^0.24.0
     lib-codegen: "workspace:^0.0.1"
     typescript: ^4.0.2
-  peerDependencies:
-    typescript: "*"
   languageName: unknown
   linkType: soft
 
