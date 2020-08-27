@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import { join } from 'path';
 
 import { GitHubActionsWorkflow, githubActionJobRunStep } from '../ast/github-actions';
 import {
@@ -16,43 +17,48 @@ export const yarnWorkspaceBoilterplateSetupSteps = [
 
 const workspacesJson = JSON.parse(readFileSync('workspaces.json').toString());
 
+const isDeployable = (name: string): boolean =>
+  JSON.parse(
+    readFileSync(
+      join(workspacesJson.information[name].workspaceLocation, 'package.json')
+    ).toString()
+  )?.scripts?.deploy != null;
+
 export const getYarnWorkspaceWorkflows = (): Record<string, GitHubActionsWorkflow> =>
   Object.fromEntries([
-    ...workspacesJson.topologicallyOrdered
-      .filter((name: string) => workspacesJson.information[name].packageType === 'app')
-      .map((workspace: string) => {
-        const name = `cd-${workspace}`;
-        return [
-          name,
-          {
-            workflowName: `CD ${workspace}`,
-            workflowtrigger: {
-              triggerPaths: [
-                ...workspacesJson.information[workspace].dependencyChain.map(
-                  (workspaceDependency: string) =>
-                    `${workspacesJson.information[workspaceDependency].workspaceLocation}/**`
-                ),
-                'configuration/**',
-                `.github/workflows/generated-*-${workspace}.yml`,
-              ],
-              masterBranchOnly: true,
-            },
-            workflowSecrets: ['FIREBASE_TOKEN'],
-            workflowJobs: [
-              {
-                jobName: 'deploy',
-                jobSteps: [
-                  ...yarnWorkspaceBoilterplateSetupSteps,
-                  githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
-                  githubActionJobRunStep(
-                    'Install firebase-tools',
-                    'sudo npm install -g firebase-tools'
-                  ),
-                  githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
-                ],
-              },
+    ...workspacesJson.topologicallyOrdered.filter(isDeployable).map((workspace: string) => {
+      const name = `cd-${workspace}`;
+      return [
+        name,
+        {
+          workflowName: `CD ${workspace}`,
+          workflowtrigger: {
+            triggerPaths: [
+              ...workspacesJson.information[workspace].dependencyChain.map(
+                (workspaceDependency: string) =>
+                  `${workspacesJson.information[workspaceDependency].workspaceLocation}/**`
+              ),
+              'configuration/**',
+              `.github/workflows/generated-*-${workspace}.yml`,
             ],
+            masterBranchOnly: true,
           },
-        ];
-      }),
+          workflowSecrets: ['FIREBASE_TOKEN'],
+          workflowJobs: [
+            {
+              jobName: 'deploy',
+              jobSteps: [
+                ...yarnWorkspaceBoilterplateSetupSteps,
+                githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
+                githubActionJobRunStep(
+                  'Install firebase-tools',
+                  'sudo npm install -g firebase-tools'
+                ),
+                githubActionJobRunStep('Deploy', `yarn workspace ${workspace} deploy`),
+              ],
+            },
+          ],
+        },
+      ];
+    }),
   ]);

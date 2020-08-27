@@ -1,20 +1,8 @@
 import { spawnSync } from 'child_process';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 
 type SingleWorkspaceInformationFromYarn = {
   readonly workspaceLocation: string;
-  readonly packageType: 'library' | 'tool' | 'app';
   readonly dependencies: readonly string[];
-};
-
-const assertIsLibraryType = (value?: unknown): 'library' | 'tool' | 'app' => {
-  if (value == null) return 'library';
-  if (typeof value !== 'string') {
-    throw new Error(`Expect 'packageType' to be a string!`);
-  }
-  if (value !== 'tool' && value !== 'app') throw new Error('');
-  return value;
 };
 
 export const workspaceInformation = ((): ReadonlyMap<
@@ -48,9 +36,6 @@ export const workspaceInformation = ((): ReadonlyMap<
           }
           return dependencyString.substring('packages/'.length);
         }),
-        packageType: assertIsLibraryType(
-          JSON.parse(readFileSync(join(location, 'package.json')).toString()).packageType
-        ),
       });
     }
   );
@@ -98,7 +83,6 @@ const getYarnWorkspaceInRepoDependencyChain = (workspace: string): readonly stri
 
 export type YarnInvididualWorkspaceInformation = {
   readonly workspaceLocation: string;
-  readonly packageType: 'library' | 'tool' | 'app';
   readonly dependencyChain: readonly string[];
 };
 export type YarnWorkspacesJson = {
