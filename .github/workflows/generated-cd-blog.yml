@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: "2"
       - uses: actions/setup-node@v2-beta
       - uses: actions/cache@v2
         with:
@@ -28,7 +30,7 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn workspace blog build
-      - name: Install firebase-tools
+      - name: Install firebase
         run: sudo npm install -g firebase-tools
       - name: Deploy
         run: FIREBASE_TOKEN=${{ secrets.FIREBASE_TOKEN }} yarn workspace blog deploy
