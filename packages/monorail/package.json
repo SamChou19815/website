@@ -11,8 +11,7 @@
   "dependencies": {
     "lib-changed-files": "workspace:^0.0.1",
     "lib-find-monorepo-root": "workspace:^0.0.1",
-    "lib-incremental": "workspace:^0.0.1",
-    "repo-codegen-services": "workspace:^0.0.1"
+    "lib-incremental": "workspace:^0.0.1"
   },
   "devDependencies": {
     "@dev-sam/yarn-workspaces-json-types": "0.0.1",

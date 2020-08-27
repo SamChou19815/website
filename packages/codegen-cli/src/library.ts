@@ -2,9 +2,24 @@ import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from '
 import { dirname, join } from 'path';
 
 import queryChangedFilesSince from 'lib-changed-files';
-import type { CodegenService } from 'lib-codegen';
 import { findMonorepoRoot } from 'lib-find-monorepo-root';
 import runIncrementalTasks from 'lib-incremental';
+
+type CodegenServiceFileOutput = {
+  /** Needed to output file and delete it when the source is gone */
+  readonly outputFilename: string;
+  /** Raw content with extra comments. The framework will handle it. */
+  readonly outputContent: string;
+};
+
+export interface CodegenService {
+  /** Name of the codegen service. Doesn't affect codegen results but useful for readable output. */
+  readonly name: string;
+  /** Used to abandon useless codegen attempts. */
+  readonly sourceFileIsRelevant: (sourceFilename: string) => boolean;
+  /** The main runner code. */
+  readonly run: (sourceFilename: string, source: string) => readonly CodegenServiceFileOutput[];
+}
 
 /**
  * For the purpose of deterministic testing as well potentially virtualized filesystem, we need to

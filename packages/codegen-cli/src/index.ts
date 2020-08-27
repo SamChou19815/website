@@ -3,9 +3,8 @@
 import Module from 'module';
 import { join } from 'path';
 
-import { runCodegenServicesIncrementally } from './library';
+import { CodegenService, runCodegenServicesIncrementally } from './library';
 
-import type { CodegenService } from 'lib-codegen';
 import { findMonorepoRoot, switchToMonorepoRoot } from 'lib-find-monorepo-root';
 
 const run = async (): Promise<void> => {
