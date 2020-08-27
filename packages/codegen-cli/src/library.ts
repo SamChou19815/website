@@ -1,9 +1,31 @@
-import { join } from 'path';
+import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
+import { dirname, join } from 'path';
 
 import queryChangedFilesSince from 'lib-changed-files';
-import { CodegenFilesystem, CodegenRealFilesystem, CodegenService } from 'lib-codegen';
+import type { CodegenService } from 'lib-codegen';
 import { findMonorepoRoot } from 'lib-find-monorepo-root';
 import runIncrementalTasks from 'lib-incremental';
+
+/**
+ * For the purpose of deterministic testing as well potentially virtualized filesystem, we need to
+ * abstract out the filesystem actions.
+ */
+export interface CodegenFilesystem {
+  readonly fileExists: (filename: string) => boolean;
+  readonly readFile: (filename: string) => string;
+  readonly writeFile: (filename: string, content: string) => void;
+  readonly deleteFile: (filename: string) => void;
+}
+
+export const CodegenRealFilesystem: CodegenFilesystem = {
+  fileExists: (filename) => existsSync(filename),
+  readFile: (filename) => readFileSync(filename).toString(),
+  writeFile: (filename, content) => {
+    mkdirSync(dirname(filename), { recursive: true });
+    writeFileSync(filename, content);
+  },
+  deleteFile: (filename) => unlinkSync(filename),
+};
 
 export const GENERATED_FILES_SOURCE_MAPPINGS_JSON = '.codegen/mappings.json';
 

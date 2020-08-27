@@ -21,9 +21,9 @@
       "workspaceLocation": "packages/monorail",
       "dependencyChain": [
         "lib-changed-files",
+        "lib-find-monorepo-root",
         "lib-incremental",
         "lib-codegen",
-        "lib-find-monorepo-root",
         "repo-codegen-services",
         "@dev-sam/monorail"
       ]
