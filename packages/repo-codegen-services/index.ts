@@ -7,7 +7,6 @@ import {
   githubActionJobActionStep,
 } from './github-actions-ast';
 import {
-  GITHUB_ACTIONS_CHECKOUT_STEP,
   GITHUB_ACTIONS_SETUP_NODE_STEP,
   GITHUB_ACTIONS_USE_YARN_CACHE_STEP,
 } from './github-actions-primitives';
@@ -31,7 +30,7 @@ const generateTSJSWorkflow = (): readonly [string, GitHubActionsWorkflow] => [
         jobName: 'lint',
         jobSteps: [
           ...yarnWorkspaceBoilterplateSetupSteps,
-          githubActionJobRunStep('Codegen', `yarn node packages/monorail/bin/index.js codegen`),
+          githubActionJobRunStep('Check Codegen', 'yarn codegen'),
           githubActionJobRunStep(
             'Check changed',
             'if [[ `git status --porcelain` ]]; then exit 1; fi'

@@ -1,6 +1,16 @@
 {
   "__type__": "@generated",
   "information": {
+    "@dev-sam/codegen-cli": {
+      "workspaceLocation": "packages/codegen-cli",
+      "dependencyChain": [
+        "lib-changed-files",
+        "lib-incremental",
+        "lib-codegen",
+        "lib-find-monorepo-root",
+        "@dev-sam/codegen-cli"
+      ]
+    },
     "@dev-sam/eslint-config-common": {
       "workspaceLocation": "packages/eslint-config-common",
       "dependencyChain": [
@@ -13,8 +23,8 @@
         "lib-changed-files",
         "lib-incremental",
         "lib-codegen",
-        "lib-codegen-services",
         "lib-find-monorepo-root",
+        "repo-codegen-services",
         "@dev-sam/monorail"
       ]
     },
@@ -45,15 +55,6 @@
         "lib-changed-files",
         "lib-incremental",
         "lib-codegen"
-      ]
-    },
-    "lib-codegen-services": {
-      "workspaceLocation": "packages/lib-codegen-services",
-      "dependencyChain": [
-        "lib-changed-files",
-        "lib-incremental",
-        "lib-codegen",
-        "lib-codegen-services"
       ]
     },
     "lib-docusaurus-plugin": {
@@ -87,6 +88,15 @@
       "dependencyChain": [
         "lib-prism-extended",
         "lib-react"
+      ]
+    },
+    "repo-codegen-services": {
+      "workspaceLocation": "packages/repo-codegen-services",
+      "dependencyChain": [
+        "lib-changed-files",
+        "lib-incremental",
+        "lib-codegen",
+        "repo-codegen-services"
       ]
     },
     "samlang": {
@@ -133,12 +143,13 @@
     "lib-react",
     "lib-docusaurus-plugin",
     "blog",
-    "@dev-sam/eslint-config-common",
     "lib-changed-files",
     "lib-incremental",
     "lib-codegen",
-    "lib-codegen-services",
     "lib-find-monorepo-root",
+    "@dev-sam/codegen-cli",
+    "@dev-sam/eslint-config-common",
+    "repo-codegen-services",
     "@dev-sam/monorail",
     "@dev-sam/watcher-server",
     "samlang",
