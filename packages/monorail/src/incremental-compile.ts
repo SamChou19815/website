@@ -1,28 +1,33 @@
 /* eslint-disable no-console */
 
 import { spawn } from 'child_process';
+import { readFileSync } from 'fs';
 import { join } from 'path';
 
+import { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
 import chalk from 'chalk';
-
-import { workspaceInformation } from './yarn-workspaces';
 
 import queryChangedFilesSince from 'lib-changed-files';
 import runIncrementalTasks, { IncrementalTaskSpecification } from 'lib-incremental';
+
+const workspacesJson: YarnWorkspacesJson = JSON.parse(readFileSync('workspaces.json').toString());
 
 const incrementalTaskSpecification: IncrementalTaskSpecification = {
   lastestKnownGoodRunTimeFilename: join('.monorail', 'compile-cache.json'),
   needRerun: async (latestKnownGoodRerunTime) => {
     const allWorkspaces = await Promise.all(
-      Array.from(workspaceInformation.entries()).map(
-        async ([workspaceName, { workspaceLocation }]) => {
-          const { changedFiles, deletedFiles } = await queryChangedFilesSince(
-            latestKnownGoodRerunTime[workspaceName] ?? 0,
-            workspaceLocation
-          );
-          return [workspaceName, changedFiles.length + deletedFiles.length !== 0] as const;
-        }
-      )
+      workspacesJson.topologicallyOrdered.map(async (workspaceName) => {
+        const needRebuilds = await Promise.all(
+          workspacesJson.information[workspaceName].dependencyChain.map(async (item) => {
+            const { changedFiles, deletedFiles } = await queryChangedFilesSince(
+              latestKnownGoodRerunTime[workspaceName] ?? 0,
+              workspacesJson.information[item].workspaceLocation
+            );
+            return changedFiles.length + deletedFiles.length !== 0;
+          })
+        );
+        return [workspaceName, needRebuilds.some((it) => it)] as const;
+      })
     );
 
     const targets = allWorkspaces
