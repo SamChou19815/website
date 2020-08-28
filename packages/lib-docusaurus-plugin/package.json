@@ -12,7 +12,7 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
-    "@docusaurus/types": "^2.0.0-alpha.61",
+    "@docusaurus/types": "^2.0.0-alpha.62",
     "lib-prism-extended": "workspace:0.1.0",
     "lib-react": "workspace:0.1.0"
   },
