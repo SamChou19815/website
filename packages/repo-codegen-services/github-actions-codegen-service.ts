@@ -44,10 +44,6 @@ const githubActionsCodegenService: CodegenService = createJsonCodegenService<Yar
       outputFilename: '.github/workflows/generated-general.yml',
       outputContent: githubActionWorkflowToString({
         workflowName: 'General',
-        workflowtrigger: {
-          triggerPaths: ['**'],
-          masterBranchOnly: false,
-        },
         workflowJobs: [
           [
             'lint',
@@ -90,17 +86,14 @@ const githubActionsCodegenService: CodegenService = createJsonCodegenService<Yar
           outputFilename: `.github/workflows/generated-${name}.yml`,
           outputContent: githubActionWorkflowToString({
             workflowName: `CD ${workspace}`,
-            workflowtrigger: {
-              triggerPaths: [
-                ...workspacesJson.information[workspace].dependencyChain.map(
-                  (workspaceDependency: string) =>
-                    `${workspacesJson.information[workspaceDependency].workspaceLocation}/**`
-                ),
-                'configuration/**',
-                `.github/workflows/generated-*-${workspace}.yml`,
-              ],
-              masterBranchOnly: true,
-            },
+            workflowMasterBranchOnlyTriggerPaths: [
+              ...workspacesJson.information[workspace].dependencyChain.map(
+                (workspaceDependency: string) =>
+                  `${workspacesJson.information[workspaceDependency].workspaceLocation}/**`
+              ),
+              'configuration/**',
+              `.github/workflows/generated-*-${workspace}.yml`,
+            ],
             workflowJobs: [
               [
                 'deploy',

@@ -8,10 +8,7 @@ export type GitHubActionJobStep =
 
 export type GitHubActionsWorkflow = {
   readonly workflowName: string;
-  readonly workflowtrigger: {
-    readonly triggerPaths: readonly string[];
-    readonly masterBranchOnly: boolean;
-  };
+  readonly workflowMasterBranchOnlyTriggerPaths?: readonly string[];
   readonly workflowJobs: readonly (readonly [string, readonly GitHubActionJobStep[]])[];
 };
 
@@ -54,26 +51,32 @@ const githubActionJobToString = ([jobName, jobSteps]: readonly [
 ${jobSteps.map(githubActionJobStepToString).join('')}`;
 };
 
-export const githubActionWorkflowToString = ({
-  workflowName,
-  workflowtrigger: { triggerPaths, masterBranchOnly },
-  workflowJobs,
-}: GitHubActionsWorkflow): string => {
-  const header = `# @${'generated'}
+const workflowTriggerToString = (
+  workflowMasterBranchOnlyTriggerPaths?: readonly string[]
+): string => {
+  if (workflowMasterBranchOnlyTriggerPaths == null) {
+    return `on:
+  push:
+    branches:
+      - master
+  pull_request:`;
+  }
 
-name: ${workflowName}
-on:
+  return `on:
   push:
     paths:
-${triggerPaths.map((path) => `      - '${path}'`).join('\n')}
-${
-  masterBranchOnly
-    ? `    branches:
-      - master
-`
-    : ''
-}
+${workflowMasterBranchOnlyTriggerPaths.map((path) => `${' '.repeat(6)}- '${path}'`).join('\n')}
+    branches:
+      - master`;
+};
+
+export const githubActionWorkflowToString = (workflow: GitHubActionsWorkflow): string => {
+  const header = `# @${'generated'}
+
+name: ${workflow.workflowName}
+${workflowTriggerToString(workflow.workflowMasterBranchOnlyTriggerPaths)}
+
 jobs:
-${workflowJobs.map(githubActionJobToString).join('')}`;
+${workflow.workflowJobs.map(githubActionJobToString).join('')}`;
   return header;
 };
