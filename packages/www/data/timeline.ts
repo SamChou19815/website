@@ -1,3 +1,4 @@
+const MiniReact = '/projects/mini-react.png';
 const SAMLANG = '/projects/samlang.png';
 const Samwise = '/projects/samwise.png';
 const TEN = '/projects/ten.png';
@@ -29,6 +30,23 @@ const timelineItems: readonly TimelineItem[] = [
     type: 'work',
     time: 'June 2020',
     image: FacebookHackerWay,
+  },
+  {
+    title: 'mini-react',
+    type: 'project',
+    time: 'May 2020',
+    image: MiniReact,
+    detail: "Sam's implementation of a simplified React.",
+    links: [
+      {
+        name: 'GitHub Repo',
+        url: 'https://github.com/SamChou19815/mini-react',
+      },
+      {
+        name: 'Demo',
+        url: 'https://mini-react.developersam.com/',
+      },
+    ],
   },
   {
     title: 'Cornell DTI Developer Lead',
