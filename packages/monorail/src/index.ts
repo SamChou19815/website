@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import incrementalCompile from './incremental-compile';
+import { incrementalCompile, incrementalBundle } from './workspace-incremental';
 
 import { switchToMonorepoRoot } from 'lib-find-monorepo-root';
 
@@ -11,6 +11,10 @@ const main = async (): Promise<void> => {
       case 'compile':
       case 'c':
         await incrementalCompile();
+        return;
+      case 'bundle':
+      case 'b':
+        await incrementalBundle();
         return;
       default:
         throw new Error();
