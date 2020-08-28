@@ -44,29 +44,34 @@ module.exports = {
     googleAnalytics: { trackingID: 'UA-140662756-1' },
     gtag: { trackingID: 'UA-140662756-1' },
   },
-  presets: [
+  themes: [
     [
-      require.resolve('@docusaurus/preset-classic'),
+      require.resolve('@docusaurus/theme-classic'),
+      { customCss: require.resolve('./src/css/custom.css') },
+    ],
+  ],
+  plugins: [
+    require.resolve('lib-docusaurus-plugin'),
+    [
+      require.resolve('@docusaurus/plugin-content-blog'),
       {
-        blog: {
-          path: './blog',
-          routeBasePath: '/',
-          editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/blog/',
-          feedOptions: {
-            type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
-          },
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-        sitemap: {
-          cacheTime: 600 * 1000,
-          changefreq: 'weekly',
-          priority: 0.5,
+        path: './blog',
+        routeBasePath: '/',
+        editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/blog/',
+        feedOptions: {
+          type: 'all',
+          copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
         },
       },
     ],
-  ],
-  plugins: [require.resolve('lib-docusaurus-plugin')],
+    process.env.NODE_ENV === 'production' && [
+      require.resolve('@docusaurus/plugin-sitemap'),
+      {
+        cacheTime: 600 * 1000,
+        changefreq: 'weekly',
+        priority: 0.5,
+      },
+    ],
+    process.env.NODE_ENV === 'production' && require.resolve('@docusaurus/plugin-google-gtag'),
+  ].filter(Boolean),
 };
