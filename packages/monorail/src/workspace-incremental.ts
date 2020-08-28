@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { spawn } from 'child_process';
-import { readFileSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { dirname, join } from 'path';
 
 import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
@@ -35,12 +35,16 @@ const workspaceHasChangedFilesExcludingBundledBinaries = async (
 const workspacesTargetDeterminator = async (
   workspacesJson: YarnWorkspacesJson,
   latestKnownGoodRerunTime: Readonly<Record<string, number | undefined>>,
+  needUnconditionalRerun: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean,
   prereqChecker: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean
 ): Promise<readonly string[]> => {
   const allWorkspaces = await Promise.all(
     workspacesJson.topologicallyOrdered.map(async (workspaceName) => {
       if (!prereqChecker(workspacesJson, workspaceName)) {
         return [workspaceName, false] as const;
+      }
+      if (needUnconditionalRerun(workspacesJson, workspaceName)) {
+        return [workspaceName, true] as const;
       }
       const needRebuild = await workspaceHasChangedFilesExcludingBundledBinaries(
         workspacesJson,
@@ -56,6 +60,7 @@ const workspacesTargetDeterminator = async (
 
 const runIncrementalWorkspacesTasks = async (
   command: string,
+  needUnconditionalRerun: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean,
   prereqChecker: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean
 ): Promise<void> => {
   const workspacesJson: YarnWorkspacesJson = readJson('workspaces.json');
@@ -67,6 +72,7 @@ const runIncrementalWorkspacesTasks = async (
       const targets = await workspacesTargetDeterminator(
         workspacesJson,
         latestKnownGoodRerunTime,
+        needUnconditionalRerun,
         prereqChecker
       );
 
@@ -93,12 +99,23 @@ const runIncrementalWorkspacesTasks = async (
 };
 
 export const incrementalCompile = async (): Promise<void> =>
-  runIncrementalWorkspacesTasks('compile', () => true);
+  runIncrementalWorkspacesTasks(
+    'compile',
+    () => false,
+    () => true
+  );
 
 export const incrementalBundle = async (): Promise<void> =>
-  runIncrementalWorkspacesTasks('bundle', (workspacesJson, workspaceName) => {
-    const packageJson = readJson(
-      join(workspacesJson.information[workspaceName].workspaceLocation, 'package.json')
-    );
-    return packageJson?.scripts?.bundle != null;
-  });
+  runIncrementalWorkspacesTasks(
+    'bundle',
+    (workspacesJson, workspaceName) =>
+      !existsSync(
+        join(workspacesJson.information[workspaceName].workspaceLocation, 'bin', 'index.js')
+      ),
+    (workspacesJson, workspaceName) => {
+      const packageJson = readJson(
+        join(workspacesJson.information[workspaceName].workspaceLocation, 'package.json')
+      );
+      return packageJson?.scripts?.bundle != null;
+    }
+  );
