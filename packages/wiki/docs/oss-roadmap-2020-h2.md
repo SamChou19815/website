@@ -79,15 +79,6 @@ Improve upon the current build system and achieve the following goals:
   underlying compilers;
 - Take advantage of samlang's Turing completeness to create expressive declarative build rules.
 
-### Binary Building and Distribution Service
-
-Create a service that can:
-
-- Generating GitHub Actions configurations that automatically build and test binaries for all major
-  operating systems from source and securely upload them to a remote file server;
-- A CLI for local and CI that can download the binaries from remote on demand and cache them based
-  on version hash.
-
 ### CI
 
 - CI runtime for most jobs are under 30s, while the longest running job doesn't run over 1 min;
