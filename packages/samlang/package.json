@@ -13,6 +13,7 @@
     "@dev-sam/samlang-demo": "^0.0.2",
     "@docusaurus/core": "^2.0.0-alpha.62",
     "@docusaurus/preset-classic": "^2.0.0-alpha.62",
+    "@docusaurus/theme-classic": "^2.0.0-alpha.62",
     "@mdx-js/react": "^1.6.4",
     "clsx": "^1.1.1",
     "lib-docusaurus-plugin": "0.1.0",

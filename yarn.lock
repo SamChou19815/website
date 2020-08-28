@@ -5159,7 +5159,6 @@ __metadata:
   dependencies:
     "@docusaurus/core": ^2.0.0-alpha.62
     "@docusaurus/plugin-content-blog": ^2.0.0-alpha.62
-    "@docusaurus/plugin-content-docs": ^2.0.0-alpha.62
     "@docusaurus/plugin-google-analytics": ^2.0.0-alpha.62
     "@docusaurus/plugin-google-gtag": ^2.0.0-alpha.62
     "@docusaurus/theme-classic": ^2.0.0-alpha.62
@@ -16323,6 +16322,7 @@ fsevents@^1.2.7:
     "@docusaurus/core": ^2.0.0-alpha.62
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.62
     "@docusaurus/preset-classic": ^2.0.0-alpha.62
+    "@docusaurus/theme-classic": ^2.0.0-alpha.62
     "@mdx-js/react": ^1.6.4
     "@types/react": ^16.9.43
     clsx: ^1.1.1
@@ -19206,6 +19206,7 @@ typescript@^4.0.2:
     "@docusaurus/core": ^2.0.0-alpha.62
     "@docusaurus/module-type-aliases": ^2.0.0-alpha.62
     "@docusaurus/preset-classic": ^2.0.0-alpha.62
+    "@docusaurus/theme-classic": ^2.0.0-alpha.62
     "@mdx-js/react": ^1.6.4
     "@types/node": ^14.0.23
     "@types/react": ^16.9.43
