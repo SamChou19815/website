@@ -15,9 +15,12 @@ type CodegenServiceFileOutput = {
 export interface CodegenService {
   /** Name of the codegen service. Doesn't affect codegen results but useful for readable output. */
   readonly name: string;
-  /** Used to abandon useless codegen attempts. */
-  readonly sourceFileIsRelevant: (sourceFilename: string) => boolean;
-  /** The main runner code. */
+  /**
+   * Used to abandon useless codegen attempts.
+   * If it is not provided, it is interpreted that the codegen service will be run unconditionally.
+   */
+  readonly sourceFileIsRelevant?: (sourceFilename: string) => boolean;
+  /** The main runner code. Unconditional codegen service will receive dummy inputs. */
   readonly run: (sourceFilename: string, source: string) => readonly CodegenServiceFileOutput[];
 }
 
@@ -98,14 +101,9 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   const writtenFiles = new Set<string>();
   const stringComparator = (a: string, b: string) => a.localeCompare(b);
 
-  codegenServices.forEach((service) => {
-    log(`> Running ${service.name}...`);
-    syntheticChangedSourceFiles.forEach((filename) => {
-      if (!service.sourceFileIsRelevant(filename)) {
-        return;
-      }
-      const source = filesystem.readFile(filename);
-      const codegenOutputs = service.run(filename, source);
+  codegenServices.forEach(({ name, sourceFileIsRelevant, run }) => {
+    const runAndUpdateManagedFiles = (sourceFilename: string, source: string): void => {
+      const codegenOutputs = run(sourceFilename, source);
       const managedFiles = new Set<string>();
 
       codegenOutputs.forEach(({ outputFilename, outputContent }) => {
@@ -114,8 +112,19 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
         managedFiles.add(outputFilename);
       });
 
-      generatedFileMappings[filename] = Array.from(managedFiles).sort(stringComparator);
-    });
+      generatedFileMappings[sourceFilename] = Array.from(managedFiles).sort(stringComparator);
+    };
+
+    log(`> Running ${name}...`);
+    if (sourceFileIsRelevant == null) {
+      runAndUpdateManagedFiles(`__SYNTHETIC_CODEGEN__${name}__`, '');
+    } else {
+      syntheticChangedSourceFiles.forEach((filename) => {
+        if (sourceFileIsRelevant(filename)) {
+          runAndUpdateManagedFiles(filename, filesystem.readFile(filename));
+        }
+      });
+    }
   });
 
   filesystem.writeFile(
@@ -136,7 +145,7 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   if (sortedUpdatedFiles.length === 0) {
     log('[✓] No generated code updates.');
   } else {
-    log(`[✓] Updated generated files: [${sortedUpdatedFiles.join(', ')}]...`);
+    log(`[✓] Updated generated files:\n${sortedUpdatedFiles.map((it) => `- ${it}`).join('\n')}`);
   }
   return sortedUpdatedFiles;
 };

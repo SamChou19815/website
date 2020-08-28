@@ -9,7 +9,7 @@ import {
   githubActionJobRunStep,
 } from './github-actions-ast';
 
-import { CodegenService, createJsonCodegenService } from 'lib-codegen';
+import type { CodegenService } from 'lib-codegen';
 
 const yarnWorkspaceBoilterplateSetupSteps = [
   githubActionJobActionStep('actions/checkout@v2', {
@@ -36,82 +36,89 @@ const hasScript = (
     ).toString()
   )?.scripts?.[script] != null;
 
-const githubActionsCodegenService: CodegenService = createJsonCodegenService<YarnWorkspacesJson>(
-  'GitHub Actions Workflows Codegen',
-  (sourceFilename) => sourceFilename === 'workspaces.json',
-  (_, workspacesJson) => [
-    {
-      outputFilename: '.github/workflows/generated-general.yml',
-      outputContent: githubActionWorkflowToString({
-        workflowName: 'General',
-        workflowJobs: [
-          [
-            'lint',
+const githubActionsCodegenService: CodegenService = {
+  name: 'GitHub Actions Workflows Codegen',
+  run: () => {
+    const workspacesJson: YarnWorkspacesJson = JSON.parse(
+      readFileSync('workspaces.json').toString()
+    );
+    return [
+      {
+        outputFilename: '.github/workflows/generated-general.yml',
+        outputContent: githubActionWorkflowToString({
+          workflowName: 'General',
+          workflowJobs: [
             [
-              ...yarnWorkspaceBoilterplateSetupSteps,
-              githubActionJobRunStep('Format Check', 'yarn format:check'),
-              githubActionJobRunStep('Lint', 'yarn lint'),
-            ],
-          ],
-          [
-            'build',
-            [
-              ...yarnWorkspaceBoilterplateSetupSteps,
-              githubActionJobRunStep('Build', 'yarn compile'),
-            ],
-          ],
-          [
-            'validate',
-            [
-              ...yarnWorkspaceBoilterplateSetupSteps,
-              githubActionJobRunStep('Check Codegen', 'yarn codegen'),
-              githubActionJobRunStep(
-                'Check changed',
-                'if [[ `git status --porcelain` ]]; then exit 1; fi'
-              ),
-            ],
-          ],
-          [
-            'test',
-            [...yarnWorkspaceBoilterplateSetupSteps, githubActionJobRunStep('Test', 'yarn test')],
-          ],
-        ],
-      }),
-    },
-    ...workspacesJson.topologicallyOrdered
-      .filter((name) => hasScript(workspacesJson, name, 'deploy'))
-      .map((workspace) => {
-        const name = `cd-${workspace}`;
-        return {
-          outputFilename: `.github/workflows/generated-${name}.yml`,
-          outputContent: githubActionWorkflowToString({
-            workflowName: `CD ${workspace}`,
-            workflowMasterBranchOnlyTriggerPaths: [
-              ...workspacesJson.information[workspace].dependencyChain.map(
-                (workspaceDependency: string) =>
-                  `${workspacesJson.information[workspaceDependency].workspaceLocation}/**`
-              ),
-              'configuration/**',
-              `.github/workflows/generated-*-${workspace}.yml`,
-            ],
-            workflowJobs: [
+              'lint',
               [
-                'deploy',
-                [
-                  ...yarnWorkspaceBoilterplateSetupSteps,
-                  githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
-                  githubActionJobRunStep('Install firebase', 'sudo npm install -g firebase-tools'),
-                  githubActionJobRunStep(
-                    'Deploy',
-                    `FIREBASE_TOKEN=\${{ secrets.FIREBASE_TOKEN }} yarn workspace ${workspace} deploy`
-                  ),
-                ],
+                ...yarnWorkspaceBoilterplateSetupSteps,
+                githubActionJobRunStep('Format Check', 'yarn format:check'),
+                githubActionJobRunStep('Lint', 'yarn lint'),
               ],
             ],
-          }),
-        };
-      }),
-  ]
-);
+            [
+              'build',
+              [
+                ...yarnWorkspaceBoilterplateSetupSteps,
+                githubActionJobRunStep('Build', 'yarn compile'),
+              ],
+            ],
+            [
+              'validate',
+              [
+                ...yarnWorkspaceBoilterplateSetupSteps,
+                githubActionJobRunStep('Check Codegen', 'yarn codegen'),
+                githubActionJobRunStep(
+                  'Check changed',
+                  'if [[ `git status --porcelain` ]]; then exit 1; fi'
+                ),
+              ],
+            ],
+            [
+              'test',
+              [...yarnWorkspaceBoilterplateSetupSteps, githubActionJobRunStep('Test', 'yarn test')],
+            ],
+          ],
+        }),
+      },
+      ...workspacesJson.topologicallyOrdered
+        .filter((name) => hasScript(workspacesJson, name, 'deploy'))
+        .map((workspace) => {
+          const name = `cd-${workspace}`;
+          return {
+            outputFilename: `.github/workflows/generated-${name}.yml`,
+            outputContent: githubActionWorkflowToString({
+              workflowName: `CD ${workspace}`,
+              workflowMasterBranchOnlyTriggerPaths: [
+                ...workspacesJson.information[workspace].dependencyChain.map(
+                  (workspaceDependency: string) =>
+                    `${workspacesJson.information[workspaceDependency].workspaceLocation}/**`
+                ),
+                'configuration/**',
+                `.github/workflows/generated-*-${workspace}.yml`,
+              ],
+              workflowJobs: [
+                [
+                  'deploy',
+                  [
+                    ...yarnWorkspaceBoilterplateSetupSteps,
+                    githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
+                    githubActionJobRunStep(
+                      'Install firebase',
+                      'sudo npm install -g firebase-tools'
+                    ),
+                    githubActionJobRunStep(
+                      'Deploy',
+                      `FIREBASE_TOKEN=\${{ secrets.FIREBASE_TOKEN }} yarn workspace ${workspace} deploy`
+                    ),
+                  ],
+                ],
+              ],
+            }),
+          };
+        }),
+    ];
+  },
+};
 
 export default githubActionsCodegenService;
