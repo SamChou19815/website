@@ -8,9 +8,12 @@ export type CodegenServiceFileOutput = {
 export interface CodegenService {
   /** Name of the codegen service. Doesn't affect codegen results but useful for readable output. */
   readonly name: string;
-  /** Used to abandon useless codegen attempts. */
-  readonly sourceFileIsRelevant: (sourceFilename: string) => boolean;
-  /** The main runner code. */
+  /**
+   * Used to abandon useless codegen attempts.
+   * If it is not provided, it is interpreted that the codegen service will be run unconditionally.
+   */
+  readonly sourceFileIsRelevant?: (sourceFilename: string) => boolean;
+  /** The main runner code. Unconditional codegen service will receive dummy inputs. */
   readonly run: (sourceFilename: string, source: string) => readonly CodegenServiceFileOutput[];
 }
 
