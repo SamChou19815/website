@@ -55,13 +55,13 @@ export default function ResultCard({ response }: Props): ReactElement {
         {interpreterResult && (
           <div className={`${ResultStyles.ColoredResult} ${ResultStyles.GoodResult}`}>
             <h3>Program Running Result</h3>
-            <CodeBlock>{response.interpreterResult}</CodeBlock>
+            <CodeBlock>{interpreterResult}</CodeBlock>
           </div>
         )}
         {interpreterPrinted && (
           <div className={`${ResultStyles.ColoredResult} ${ResultStyles.GoodResult}`}>
             <h3>Program Standard Out</h3>
-            <CodeBlock>{response.interpreterPrinted}</CodeBlock>
+            <CodeBlock>{interpreterPrinted}</CodeBlock>
           </div>
         )}
         {prettyPrintedProgram && (
