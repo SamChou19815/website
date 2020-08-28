@@ -6,6 +6,7 @@
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
     "lint": "NODE_NO_WARNINGS=1 eslint . --cache",
     "test": "NODE_NO_WARNINGS=1 jest",
+    "bundle": "./packages/monorail/bin/index.js bundle",
     "codegen": "yarn sam-codegen repo-codegen-services",
     "compile": "./packages/monorail/bin/index.js compile"
   },
