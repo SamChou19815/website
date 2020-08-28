@@ -10,7 +10,6 @@ it('githubActionWorkflowToString() works as expected test 1', () => {
   expect(
     githubActionWorkflowToString({
       workflowName: 'example-workflow',
-      workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: true },
       workflowJobs: [],
     })
   ).toBe(`# ${GENERATED}
@@ -18,11 +17,9 @@ it('githubActionWorkflowToString() works as expected test 1', () => {
 name: example-workflow
 on:
   push:
-    paths:
-      - 'foo'
-      - 'bar'
     branches:
       - master
+  pull_request:
 
 jobs:
 `);
@@ -32,27 +29,7 @@ it('githubActionWorkflowToString() works as expected test 2', () => {
   expect(
     githubActionWorkflowToString({
       workflowName: 'example-workflow',
-      workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: false },
-      workflowJobs: [],
-    })
-  ).toBe(`# ${GENERATED}
-
-name: example-workflow
-on:
-  push:
-    paths:
-      - 'foo'
-      - 'bar'
-
-jobs:
-`);
-});
-
-it('githubActionWorkflowToString() works as expected test 3', () => {
-  expect(
-    githubActionWorkflowToString({
-      workflowName: 'example-workflow',
-      workflowtrigger: { triggerPaths: ['foo', 'bar'], masterBranchOnly: true },
+      workflowMasterBranchOnlyTriggerPaths: ['foo', 'bar'],
       workflowJobs: [],
     })
   ).toBe(`# ${GENERATED}
@@ -70,11 +47,10 @@ jobs:
 `);
 });
 
-it('githubActionWorkflowToString() works as expected test 4', () => {
+it('githubActionWorkflowToString() works as expected test 3', () => {
   expect(
     githubActionWorkflowToString({
       workflowName: 'lint-generated',
-      workflowtrigger: { triggerPaths: ['**'], masterBranchOnly: false },
       workflowJobs: [
         [
           'lint',
@@ -91,8 +67,9 @@ it('githubActionWorkflowToString() works as expected test 4', () => {
 name: lint-generated
 on:
   push:
-    paths:
-      - '**'
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:

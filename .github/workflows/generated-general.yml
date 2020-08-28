@@ -3,8 +3,9 @@
 name: General
 on:
   push:
-    paths:
-      - '**'
+    branches:
+      - master
+  pull_request:
 
 jobs:
   lint:
