@@ -23,7 +23,7 @@ export default function LanguageDemo(): ReactElement {
       const demoResult = runSamlangDemo(programString);
       setResponse(demoResult);
     } catch (interpreterError) {
-      setResponse(interpreterError.name || 'Unknown interpreter error.');
+      setResponse(interpreterError.message || 'Unknown interpreter error.');
     }
   };
 
