@@ -34,7 +34,7 @@ The multiplatform setup also introduces parser maintenance problems. Instead of 
 picture painted by Kotlin team where I can write the code once and the Kotlin compiler can correctly
 produce JVM and JS code for me effortlessly, the reality is that I have to write the parser adapter
 code twice. Sadly, this is the
-[least painful hack](2020/05/17/samlang-in-browser#stage-2-fight-the-parser) I can found among
+[least painful hack](/2020/05/17/samlang-in-browser#stage-2-fight-the-parser) I can found among
 several other choices.
 
 Tooling is also a big concern for Kotlin ecosystem. Kotlin is invented by JetBrains. JetBrains want
