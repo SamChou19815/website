@@ -16,14 +16,21 @@ import { Response } from './demo';
 
 const ErrorDetail = ({ children }: { readonly children: readonly string[] }): ReactElement => (
   <div className={`${ResultStyles.ColoredResult} ${ResultStyles.BadResult}`}>
-    <h3>Compile Time Errors</h3>
+    <h3>Compile Time Errors:</h3>
     <CodeBlock>{children.join('\n')}</CodeBlock>
+  </div>
+);
+
+const JSBlock = ({ children }: { readonly children: string }): ReactElement => (
+  <div className={`${ResultStyles.ColoredResult} ${ResultStyles.NeutralResult}`}>
+    <h3>Compiled JS:</h3>
+    <CodeBlock className="javascript">{children.trim()}</CodeBlock>
   </div>
 );
 
 const AssemblyBlock = ({ children }: { readonly children: string }): ReactElement => (
   <div className={`${ResultStyles.ColoredResult} ${ResultStyles.NeutralResult}`}>
-    <h3>Optimized Assembly</h3>
+    <h3>Optimized Assembly:</h3>
     <CodeBlock>{children.trim()}</CodeBlock>
   </div>
 );
@@ -43,24 +50,12 @@ export default function ResultCard({ response }: Props): ReactElement {
       </div>
     );
   } else {
-    const {
-      interpreterResult,
-      interpreterPrinted,
-      prettyPrintedProgram,
-      assemblyString,
-      errors,
-    } = response;
+    const { interpreterPrinted, prettyPrintedProgram, jsString, assemblyString, errors } = response;
     children = (
       <div>
-        {interpreterResult && (
-          <div className={`${ResultStyles.ColoredResult} ${ResultStyles.GoodResult}`}>
-            <h3>Program Running Result</h3>
-            <CodeBlock>{interpreterResult}</CodeBlock>
-          </div>
-        )}
         {interpreterPrinted && (
           <div className={`${ResultStyles.ColoredResult} ${ResultStyles.GoodResult}`}>
-            <h3>Program Standard Out</h3>
+            <h3>Program Standard Out:</h3>
             <CodeBlock>{interpreterPrinted}</CodeBlock>
           </div>
         )}
@@ -70,6 +65,7 @@ export default function ResultCard({ response }: Props): ReactElement {
             <CodeBlock className="samlang">{prettyPrintedProgram.trim()}</CodeBlock>
           </div>
         )}
+        {jsString && <JSBlock>{jsString}</JSBlock>}
         {assemblyString && <AssemblyBlock>{assemblyString}</AssemblyBlock>}
         {errors.length > 0 && <ErrorDetail>{errors}</ErrorDetail>}
       </div>

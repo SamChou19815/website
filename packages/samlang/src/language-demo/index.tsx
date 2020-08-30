@@ -10,9 +10,9 @@ import React, { ReactElement } from 'react';
 import InputCard from './InputCard';
 import styles from './LanguageDemo.module.css';
 import ResultCard from './ResultCard';
-import { initialText, runDemo, Response } from './demo';
+import { initialText, runSamlangDemo, Response } from './demo';
 
-const initialDemoResult = runDemo(initialText);
+const initialDemoResult = runSamlangDemo(initialText);
 
 /** The component of the language demo. */
 export default function LanguageDemo(): ReactElement {
@@ -20,7 +20,7 @@ export default function LanguageDemo(): ReactElement {
 
   const onSubmit = (programString: string): void => {
     try {
-      const demoResult = runDemo(programString);
+      const demoResult = runSamlangDemo(programString);
       setResponse(demoResult);
     } catch (interpreterError) {
       setResponse(interpreterError.name || 'Unknown interpreter error.');
