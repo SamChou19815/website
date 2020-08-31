@@ -11,6 +11,7 @@ const SAMFirst = '/timeline/sam-first.png';
 const SAMLater = '/timeline/sam-later.png';
 const SAMPL = '/timeline/sampl.png';
 const WebsiteV2 = '/timeline/website-v2.png';
+const Wiki = '/projects/wiki.png';
 
 type NamedLink = { readonly name: string; readonly url: string };
 export type TimelineItemType = 'work' | 'project' | 'event';
@@ -25,6 +26,30 @@ export type TimelineItem = {
 };
 
 const timelineItems: readonly TimelineItem[] = [
+  {
+    title: 'samlang Rewritten in TypeScript',
+    type: 'event',
+    time: 'August 2020',
+    links: [
+      {
+        name: 'Blog Post',
+        url: 'https://blog.developersam.com/2020/08/30/samlang-ts-rewrite',
+      },
+    ],
+  },
+  {
+    title: 'Wiki',
+    type: 'project',
+    time: 'July 2020',
+    image: Wiki,
+    detail: 'Documentation for this monoropo and notes from Developer Sam.',
+    links: [
+      {
+        name: 'Project',
+        url: 'https://wiki.developersam.com/',
+      },
+    ],
+  },
   {
     title: 'Facebook SWE Intern',
     type: 'work',
