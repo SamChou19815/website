@@ -17,7 +17,7 @@ Kotlin is a great language. It has a powerful static type system that can catch 
 during compile time. For example, the biggest advantage of Kotlin over Java is its compile-time null
 safety. Kotlin also has a sweet syntax. It offers extension and inline functions that allow you to
 write code in a functional way without worrying about the extra cost. The same features also allow
-you sto write DSL-like code without using a new language.
+you to write DSL-like code without using a new language.
 
 However, Kotlin is not perfect, especially on the ecosystem and tooling side.
 
