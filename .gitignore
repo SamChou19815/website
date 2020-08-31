@@ -28,6 +28,7 @@
 .vscode/pnpify
 .docusaurus
 .cache-loader
+workspaces.json
 
 # env
 .env.local
