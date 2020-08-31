@@ -35,8 +35,8 @@ const workspaceHasChangedFilesExcludingBundledBinaries = async (
 const workspacesTargetDeterminator = async (
   workspacesJson: YarnWorkspacesJson,
   latestKnownGoodRerunTime: Readonly<Record<string, number | undefined>>,
-  needUnconditionalRerun: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean,
-  prereqChecker: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean
+  needUnconditionalRerun: (json: YarnWorkspacesJson, workspaceName: string) => boolean,
+  prereqChecker: (json: YarnWorkspacesJson, workspaceName: string) => boolean
 ): Promise<readonly string[]> => {
   const allWorkspaces = await Promise.all(
     workspacesJson.topologicallyOrdered.map(async (workspaceName) => {
