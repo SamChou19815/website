@@ -24,8 +24,8 @@ successful, some are not.
   club management decisions.
 - [One Year as Developer Lead](https://blog.developersam.com/2020/05/14/one-year-as-dev-lead/):
   Covers a much more successful experience of myself as developer lead at Cornell DTI. Do not take
-  everything in the post as absolute guideline. Remember that my project team has a much better
-  engineer pool than Computerization.
+  everything in the post as absolute guideline. Remember that your organization might have a very
+  different application pool than a college-level CS project team.
 
 ## Software engineering blog posts
 
@@ -45,6 +45,13 @@ people. Don't feel bad if you can't understand every part of it.
 
 Check [the project section](https://developersam.com/#projects) of my main website for an actively
 maintained list.
+
+## Blogs I follow
+
+- [Dan Abramov's Overreacted](https://overreacted.io/)
+- [Facebook engineering](https://engineering.fb.com/)
+- [React blog](https://reactjs.org/blog)
+- [HHVM blog](https://hhvm.com/blog/)
 
 ## Random
 
