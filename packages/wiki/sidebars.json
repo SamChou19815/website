@@ -1,6 +1,7 @@
 {
   "docs": {
     "Documentation": ["intro", "website-repo"],
-    "Roadmap": ["oss-roadmap-2020-h2"]
+    "Roadmap": ["oss-roadmap-2020-h2"],
+    "Resources": ["resources-cs"]
   }
 }
