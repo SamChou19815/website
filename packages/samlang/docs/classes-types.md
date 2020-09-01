@@ -97,9 +97,8 @@ class PrimitiveType(
 
 Inside the module, you can construct a variant by `VariantName(expr)`.
 
-As shown in the example, you use `|` to separate different kinds of variant. Each variant carries
-some data with a specific type. To perform a case-analysis on different possibilities, you can use
-the `match` expression to pattern match on the expression.
+Each variant carries some data with a specific type. To perform a case-analysis on different
+possibilities, you can use the `match` expression to pattern match on the expression.
 
 ## Generics
 
