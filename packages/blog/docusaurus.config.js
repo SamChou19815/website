@@ -44,34 +44,29 @@ module.exports = {
     googleAnalytics: { trackingID: 'UA-140662756-1' },
     gtag: { trackingID: 'UA-140662756-1' },
   },
-  themes: [
+  presets: [
     [
-      require.resolve('@docusaurus/theme-classic'),
-      { customCss: require.resolve('./src/css/custom.css') },
-    ],
-  ],
-  plugins: [
-    require.resolve('lib-docusaurus-plugin'),
-    [
-      require.resolve('@docusaurus/plugin-content-blog'),
+      require.resolve('@docusaurus/preset-classic'),
       {
-        path: './blog',
-        routeBasePath: '/',
-        editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/blog/',
-        feedOptions: {
-          type: 'all',
-          copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
+        blog: {
+          path: './blog',
+          routeBasePath: '/',
+          editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/blog/',
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
+          },
+        },
+        docs: false,
+        pages: false,
+        theme: { customCss: require.resolve('./src/css/custom.css') },
+        sitemap: {
+          cacheTime: 600 * 1000,
+          changefreq: 'weekly',
+          priority: 0.5,
         },
       },
     ],
-    process.env.NODE_ENV === 'production' && [
-      require.resolve('@docusaurus/plugin-sitemap'),
-      {
-        cacheTime: 600 * 1000,
-        changefreq: 'weekly',
-        priority: 0.5,
-      },
-    ],
-    process.env.NODE_ENV === 'production' && require.resolve('@docusaurus/plugin-google-gtag'),
-  ].filter(Boolean),
+  ],
+  plugins: [require.resolve('lib-docusaurus-plugin')].filter(Boolean),
 };
