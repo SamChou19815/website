@@ -2043,9 +2043,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/tssa@npm:^0.0.1":
-  version: 0.0.1
-  resolution: "@dev-sam/tssa@npm:0.0.1"
+"@dev-sam/tssa@npm:^0.0.2":
+  version: 0.0.2
+  resolution: "@dev-sam/tssa@npm:0.0.2"
   dependencies:
     "@octokit/rest": ^18.0.5
     ts-morph: ^8.1.0
@@ -2053,7 +2053,7 @@ __metadata:
     typescript: "*"
   bin:
     tssa: dist/index.js
-  checksum: f609625731ed8eda357f611eb5e42736e3c7c4b20180ad65b029e2fe949e2f838be191d9b5a112ceb96dcd36c15b02c35997307fe20e5e7cd91501f7f262784b
+  checksum: e19cc8efbef68caf81a37f95f963e534d93739f0d42ecb8fd6cd25c12e6f2059d4033add246cdc8b2542fd3293faf0387c34adc60e86ed7f07fe2c9098a8d276
   languageName: node
   linkType: hard
 
@@ -16517,7 +16517,7 @@ fsevents@^1.2.7:
     "@dev-sam/codegen-cli": "workspace:^0.0.2"
     "@dev-sam/eslint-config-common": "workspace:^0.17.0"
     "@dev-sam/monorail": "workspace:packages/monorail"
-    "@dev-sam/tssa": ^0.0.1
+    "@dev-sam/tssa": ^0.0.2
     "@typescript-eslint/eslint-plugin": ^4.1.0
     "@typescript-eslint/parser": ^4.1.0
     babel-jest: ^26.3.0
