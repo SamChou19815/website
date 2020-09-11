@@ -11,6 +11,7 @@ const SAMFirst = '/timeline/sam-first.png';
 const SAMLater = '/timeline/sam-later.png';
 const SAMPL = '/timeline/sampl.png';
 const WebsiteV2 = '/timeline/website-v2.png';
+const WebsiteV3 = '/timeline/website-v3.png';
 const Wiki = '/projects/wiki.png';
 
 type NamedLink = { readonly name: string; readonly url: string };
@@ -98,10 +99,17 @@ const timelineItems: readonly TimelineItem[] = [
       'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly and Cornell CS 2112 critter language.',
   },
   {
-    title: 'Website Redesign v3',
+    title: 'Website Redesign v3.0',
     type: 'event',
     time: 'March 2019',
-    detail: 'This is the current version.',
+    image: WebsiteV3,
+    detail: 'This is the first version that includes a samlang program about myself.',
+    links: [
+      {
+        name: 'Archive',
+        url: 'https://web.archive.org/web/20200331050322/https://developersam.com/',
+      },
+    ],
   },
   {
     title: 'Cornell DTI TPM',
