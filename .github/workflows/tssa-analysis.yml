@@ -19,7 +19,7 @@ jobs:
       - name: Yarn Install
         run: yarn install --immutable
       - name: Analyze
-        run: yarn start $(cat workspaces.json | jq '.information | .[] | .workspaceLocation' -r) -- $(git diff --name-only origin/${{ github.base_ref }}..${{ github.head_ref }})
+        run: yarn tssa $(cat workspaces.json | jq '.information | .[] | .workspaceLocation' -r) -- $(git diff --name-only origin/${{ github.base_ref }}..${{ github.head_ref }})
         env:
           USER_LOGIN: SamChou19815
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
