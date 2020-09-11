@@ -21,6 +21,6 @@ jobs:
       - name: Analyze
         run: yarn tssa $(cat workspaces.json | jq '.information | .[] | .workspaceLocation' -r) -- $(git diff --name-only origin/${{ github.base_ref }}..${{ github.head_ref }})
         env:
-          USER_LOGIN: SamChou19815
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER_LOGIN: dev-sam-bot
+          GITHUB_TOKEN: ${{ secrets.DEV_SAM_BOT_TOKEN }}
           GITHUB_PR_NUMBER: ${{ github.event.number }}
