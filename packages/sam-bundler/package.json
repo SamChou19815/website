@@ -1,0 +1,17 @@
+{
+  "name": "@dev-sam/bundler",
+  "description": "Developer Sam's thin wrapper around ncc.",
+  "version": "0.0.1",
+  "bin": {
+    "sam-bundle": "./index.js"
+  },
+  "scripts": {
+    "compile": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vercel/ncc": "^0.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.23"
+  }
+}
