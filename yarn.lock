@@ -1980,10 +1980,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dev-sam/bundler@workspace:^0.0.1, @dev-sam/bundler@workspace:packages/sam-bundler":
+  version: 0.0.0-use.local
+  resolution: "@dev-sam/bundler@workspace:packages/sam-bundler"
+  dependencies:
+    "@types/node": ^14.0.23
+    "@vercel/ncc": ^0.24.0
+  bin:
+    sam-bundle: ./index.js
+  languageName: unknown
+  linkType: soft
+
 "@dev-sam/codegen-cli@workspace:^0.0.2, @dev-sam/codegen-cli@workspace:packages/codegen-cli":
   version: 0.0.0-use.local
   resolution: "@dev-sam/codegen-cli@workspace:packages/codegen-cli"
   dependencies:
+    "@dev-sam/bundler": "workspace:^0.0.1"
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.23
     "@vercel/ncc": ^0.24.0
@@ -1992,7 +2004,7 @@ __metadata:
     lib-incremental: "workspace:^0.0.1"
     typescript: ^4.0.2
   bin:
-    sam-codegen: ./bin/index.js
+    sam-codegen: ./bin/index
   languageName: unknown
   linkType: soft
 
@@ -2023,10 +2035,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/monorail@workspace:packages/monorail"
   dependencies:
+    "@dev-sam/bundler": "workspace:^0.0.1"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.23
-    "@vercel/ncc": ^0.24.0
     lib-changed-files: "workspace:^0.0.1"
     lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
@@ -16217,6 +16229,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "repo-codegen-services@workspace:packages/repo-codegen-services"
   dependencies:
+    "@dev-sam/bundler": "workspace:^0.0.1"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
     "@types/jest": ^25.2.3
     "@types/node": ^14.0.23

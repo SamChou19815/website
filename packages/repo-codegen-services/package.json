@@ -3,15 +3,16 @@
   "description": "Developer Sam's codegen configuration for this monorepo.",
   "version": "0.0.1",
   "private": true,
-  "main": "./bin/index.js",
+  "main": "./bin/index",
   "scripts": {
-    "bundle": "NODE_NO_WARNINGS=1 ncc build index.ts -o bin -m -e typescript --no-source-map-register --transpile-only",
+    "bundle": "sam-bundle",
     "compile": "tsc --noEmit"
   },
   "dependencies": {
     "lib-codegen": "workspace:^0.0.1"
   },
   "devDependencies": {
+    "@dev-sam/bundler": "workspace:^0.0.1",
     "@dev-sam/yarn-workspaces-json-types": "0.0.1",
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.23",
