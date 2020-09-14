@@ -18,7 +18,6 @@
     "@dev-sam/codegen-cli": "workspace:^0.0.2",
     "@dev-sam/eslint-config-common": "workspace:^0.17.0",
     "@dev-sam/monorail": "workspace:packages/monorail",
-    "@dev-sam/tssa": "^0.0.2",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",
     "babel-jest": "^26.3.0",
