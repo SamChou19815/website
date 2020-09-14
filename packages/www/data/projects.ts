@@ -10,7 +10,7 @@ type Project = {
 
 const projects: readonly Project[] = [
   {
-    name: 'SAMLANG',
+    name: 'samlang',
     type: 'Programming Language',
     media: '/projects/samlang.png',
     description:
