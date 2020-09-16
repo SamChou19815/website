@@ -1,5 +1,5 @@
 import { initialState } from '../../filesystem';
-import { FileSystemState } from '../../filesystem/types';
+import type { FileSystemState } from '../../filesystem/types';
 
 let mutableFilesystemState = initialState;
 

@@ -4,7 +4,7 @@ import techTalks from '../../data/tech-talks';
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 import { getFilesystemState, setFilesystemState } from './global-filesystem-state';
-import { Commands } from './types';
+import type { Commands } from './types';
 
 const help = (): string =>
   Object.keys(commands)

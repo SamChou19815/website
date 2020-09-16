@@ -1,6 +1,6 @@
 import { changeDirectory, listFiles } from '../../filesystem';
 import { normalize, getParent, getLast, join } from '../../filesystem/path';
-import { FileSystemState } from '../../filesystem/types';
+import type { FileSystemState } from '../../filesystem/types';
 import commands from './commands';
 import { getFilesystemState } from './global-filesystem-state';
 

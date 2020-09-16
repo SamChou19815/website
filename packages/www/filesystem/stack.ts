@@ -1,6 +1,6 @@
 import initialState from './initial-state';
 import { normalize, join, currentDirectoryPath } from './path';
-import { Directory, FileSystemState } from './types';
+import type { Directory, FileSystemState } from './types';
 
 /**
  * @param state the current filesystem state of the terminal.

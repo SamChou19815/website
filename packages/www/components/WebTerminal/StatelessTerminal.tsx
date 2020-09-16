@@ -4,7 +4,7 @@ import React, { ReactElement, RefObject } from 'react';
 
 import styles from './Terminal.module.css';
 import TerminalInput from './TerminalInput';
-import { TerminalHistory } from './types';
+import type { TerminalHistory } from './types';
 
 const TerminalHistoryLine = ({ isCommand, line }: TerminalHistory): ReactElement => {
   if (!isCommand) {

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import { Board, boardToJson, getGameStatus, makeMoveWithoutCheck } from '../game/board';
 import type { MctsResponse } from '../game/mcts';
-import { Status } from './GameCard';
+import type { Status } from './GameCard';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';
 
 /**

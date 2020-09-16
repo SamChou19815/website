@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import clsx from 'clsx';
 
-import { TimelineItem } from '../../data/timeline';
+import type { TimelineItem } from '../../data/timeline';
 import ButtonLink from '../Common/ButtonLink';
 import CardHeader from '../Common/CardHeader';
 import LazyCardMedia from '../Common/LazyCardMedia';

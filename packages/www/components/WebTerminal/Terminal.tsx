@@ -5,7 +5,7 @@ import React, { ReactElement, useRef, useState } from 'react';
 import StatelessTerminal from './StatelessTerminal';
 import commands from './commands';
 import scrollHistory from './history';
-import { TerminalHistory } from './types';
+import type { TerminalHistory } from './types';
 
 const initialHistory: readonly TerminalHistory[] = [
   { isCommand: false, line: 'Type `help` to show a list of available commands.' },
