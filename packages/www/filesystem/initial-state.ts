@@ -1,4 +1,4 @@
-import { Directory, FileSystemState } from './types';
+import type { Directory, FileSystemState } from './types';
 
 export const root: Directory = {
   type: 'DIRECTORY',

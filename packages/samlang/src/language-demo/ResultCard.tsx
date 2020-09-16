@@ -12,7 +12,7 @@ import clsx from 'clsx';
 
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';
-import { Response } from './demo';
+import type { Response } from './demo';
 
 const ErrorDetail = ({ children }: { readonly children: readonly string[] }): ReactElement => (
   <div className={`${ResultStyles.ColoredResult} ${ResultStyles.BadResult}`}>

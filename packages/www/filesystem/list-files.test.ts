@@ -3,7 +3,7 @@ import listFiles, {
   listFilesInDirectoryWithRelativePath,
   listFilesInDirectory,
 } from './list-files';
-import { Directory } from './types';
+import type { Directory } from './types';
 
 it('listFilesInDirectory works', () => {
   expect(listFilesInDirectory(root)).toBe('top-secret/\nblog.txt\ngithub.txt\nREADME.md\nwww.txt');

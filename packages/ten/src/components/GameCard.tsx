@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { Board } from '../game/board';
+import type { Board } from '../game/board';
 import BoardGrid from './BoardGrid';
 import styles from './GameCard.module.css';
 

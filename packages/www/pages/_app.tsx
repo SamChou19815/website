@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import ReactGA from 'react-ga';
 

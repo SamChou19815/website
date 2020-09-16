@@ -11,7 +11,7 @@ import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 
 
 import autosize from 'autosize';
 import clsx from 'clsx';
-import { PrismTheme } from 'prism-react-renderer';
+import type { PrismTheme } from 'prism-react-renderer';
 
 import styles from './PrismCodeEditor.module.css';
 

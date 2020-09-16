@@ -1,7 +1,7 @@
 import initialState from './initial-state';
 import { getParent, getLast, join, currentDirectoryPath } from './path';
 import { changeDirectory, peek } from './stack';
-import { Directory, FileSystemState } from './types';
+import type { Directory, FileSystemState } from './types';
 
 export const showFileInDirectory = (directory: Directory, filename: string): string | null => {
   const foundFileWithName = directory.children.find(

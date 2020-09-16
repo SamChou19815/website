@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import DocSidebar from '@theme/DocSidebar';
 
-import { WikiPrivateDocumentMetadata } from './documents';
+import type { WikiPrivateDocumentMetadata } from './documents';
 
 type Props = {
   readonly className?: string;
