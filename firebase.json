@@ -17,20 +17,21 @@
       ]
     },
     {
+      "target": "dot-dev",
+      "public": "packages/dot-dev/out",
+      "ignore": ["**/.*"],
+      "redirects": [
+        {
+          "source": "/",
+          "destination": "https://developersam.com",
+          "type": 301
+        }
+      ]
+    },
+    {
       "target": "samlang",
       "public": "packages/samlang/build",
       "ignore": ["**/.*"]
-    },
-    {
-      "target": "tasks",
-      "public": "packages/tasks/out",
-      "ignore": ["**/.*"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
     },
     {
       "target": "ten",

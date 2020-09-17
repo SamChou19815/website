@@ -8,11 +8,11 @@
         "blog": [
           "developer-sam-blog"
         ],
+        "dot-dev": [
+          "developer-sam-dot-dev"
+        ],
         "samlang": [
           "developer-sam-samlang-docs"
-        ],
-        "tasks": [
-          "developer-sam-tasks"
         ],
         "ten": [
           "developer-sam-ten-web"
