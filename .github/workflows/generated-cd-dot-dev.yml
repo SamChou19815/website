@@ -4,8 +4,6 @@ name: CD dot-dev
 on:
   push:
     paths:
-      - 'packages/lib-prism-extended/**'
-      - 'packages/lib-react/**'
       - 'packages/dot-dev/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-dot-dev.yml'

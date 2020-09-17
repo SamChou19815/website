@@ -28,8 +28,19 @@ export type TimelineItem = {
 
 const timelineItems: readonly TimelineItem[] = [
   {
+    title: 'Turn samzhou.dev into a fan-art site',
+    type: 'project',
+    time: 'September 2020',
+    links: [
+      {
+        name: 'samzhou.dev',
+        url: 'https://samzhou.dev',
+      },
+    ],
+  },
+  {
     title: 'samlang Rewritten in TypeScript',
-    type: 'event',
+    type: 'project',
     time: 'August 2020',
     links: [
       {

@@ -1,0 +1,54 @@
+:root {
+  --ifm-background-color: #f7f7f7;
+  --ifm-color-primary: #3e7ae2;
+  --ifm-background-color-transparent: rgba(62, 122, 226, 0.07);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-color);
+  overflow-x: hidden;
+}
+
+.card {
+  margin: 1em auto;
+}
+
+@media only screen and (min-width: 800px) {
+  .card {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .card {
+    width: 90%;
+  }
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
+a:visited {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+a:active {
+  text-decoration: none !important;
+}
+
+.button--link:hover {
+  color: var(--ifm-color-primary);
+  background-color: var(--ifm-background-color-transparent);
+}

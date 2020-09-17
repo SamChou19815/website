@@ -19,14 +19,7 @@
     {
       "target": "dot-dev",
       "public": "packages/dot-dev/out",
-      "ignore": ["**/.*"],
-      "redirects": [
-        {
-          "source": "/",
-          "destination": "https://developersam.com",
-          "type": 301
-        }
-      ]
+      "ignore": ["**/.*"]
     },
     {
       "target": "samlang",
