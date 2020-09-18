@@ -1,10 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
 import React, { ReactElement, useEffect } from 'react';
 
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Link from 'next/link';
 import ReactGA from 'react-ga';
 
 import 'infima/dist/css/default/default.min.css';
@@ -39,20 +36,6 @@ const App = (props: AppProps): ReactElement => {
           dangerouslySetInnerHTML={{ __html: themeAutoSwitcher }}
         />
       </Head>
-      <nav className="navbar">
-        <div className="navbar__inner">
-          <div className="navbar__items">
-            <Link href="/">
-              <a className="navbar__brand">Random@dev-sam</a>
-            </Link>
-          </div>
-          <div className="navbar__items navbar__items--right">
-            <a className="navbar__item navbar__link" href="https://developersam.com">
-              Home
-            </a>
-          </div>
-        </div>
-      </nav>
       <Component {...pageProps} />
     </>
   );
