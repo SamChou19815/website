@@ -15,7 +15,18 @@ module.exports = {
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
     prism: { theme },
-    navbar: { title: 'Wiki', items: [] },
+    navbar: {
+      title: 'Wiki',
+      items: [
+        { to: 'docs/intro', label: 'Docs', position: 'left' },
+        { to: 'intern', label: 'internals@dev-sam', position: 'left' },
+        {
+          href: 'https://developersam.com/',
+          label: 'Main Site',
+          position: 'right',
+        },
+      ],
+    },
   },
   presets: [
     [
