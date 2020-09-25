@@ -25,30 +25,9 @@ title: Website Repository Setup
 - `GH_TOKEN`
 - `FIREBASE_TOKEN`
 
-## `monorail` monorepo tool
+## Infra Tools
 
-<!-- prettier-ignore-start -->
-:::caution
-This document might not be as updated as latest monorail build. Only documented features
-here is guaranteed to be _relatively_ stable.
-
-Currently, it is outdated. TODO for @dev-sam: fix it.
-:::
-<!-- prettier-ignore-end -->
-
-### Installation
-
-Download the self-contained
-[code](https://github.com/SamChou19815/website/blob/master/packages/monorail/bin/monorail) checked
-in the repo, and run it directly. You might need to reset the executable bit.
-
-You can add `monorail` to your `PATH` so that you can directly run `monorail`.
-
-### Configuration
-
-Your repo must be managed by Yarn v2 workspaces, so the root `package.json` should contain
-`workspaces` field.
-
-### Incremental Compile
-
-TODO
+- `monorail` for incremental compilation and bundling
+- `sam-bundler` as a wrapper for `ncc` to produce self-contained NodeJS code
+- `sam-codegen` for handling incremental code generation
+- `sam-watcher-server` to report changed files
