@@ -10,7 +10,7 @@ dotEnv.config();
 admin.initializeApp();
 
 const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
-  headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN ?? 'INVALID_TOKEN'}` },
+  headers: { authorization: `Bearer ${functions.config().github_contribution_alert.github_token}` },
 });
 
 const numberOfContributionToday = async (githubUser: string): Promise<number> => {

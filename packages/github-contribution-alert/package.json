@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "tsc --module commonjs --declaration false && node index.js && rm index.js",
     "build": "ncc build index.ts -o deployment-template -m --no-source-map-register --transpile-only",
     "compile": "tsc --noEmit",
     "deploy": "cd deployment-template && firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only functions",
