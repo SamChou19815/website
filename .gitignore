@@ -33,7 +33,10 @@ workspaces.json
 
 # env
 .env.local
-packages/github-contribution-alert/.env
 
-# project generated files
-packages/wiki/private-docs
+# project-specific ignores
+packages/github-contribution-alert/.env
+packages/github-contribution-alert/deployment-template/*
+!packages/github-contribution-alert/deployment-template/package.json
+!packages/github-contribution-alert/deployment-template/.firebaserc
+!packages/github-contribution-alert/deployment-template/firebase.json

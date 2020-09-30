@@ -4,11 +4,15 @@
   "private": true,
   "scripts": {
     "start": "tsc --module commonjs --declaration false && node index.js && rm index.js",
-    "build": "exit 0",
-    "compile": "tsc --noEmit"
+    "build": "ncc build index.ts -o deployment-template -m --no-source-map-register --transpile-only",
+    "compile": "tsc --noEmit",
+    "deploy": "cd deployment-template && firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only functions",
+    "deploy:local": "yarn build && cd deployment-template && firebase deploy --only functions"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.11.0",
     "graphql": "^15.3.0",
     "graphql-request": "1.8.2",
     "luxon": "^1.25.0"
@@ -16,6 +20,7 @@
   "devDependencies": {
     "@types/luxon": "^1.25.0",
     "@types/node": "^14.11.2",
+    "@vercel/ncc": "^0.24.1",
     "typescript": "^4.0.3"
   }
 }
