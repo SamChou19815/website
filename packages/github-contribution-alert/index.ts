@@ -1,5 +1,8 @@
+/* eslint-disable no-console */
+
 import dotEnv from 'dotenv';
 import { GraphQLClient } from 'graphql-request';
+import { DateTime } from 'luxon';
 
 dotEnv.config();
 
@@ -8,11 +11,12 @@ const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
 });
 
 const numberOfContributionToday = async (githubUser: string): Promise<number> => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const todayEnd = new Date();
-  todayEnd.setHours(23, 59, 0, 0);
+  // The system is built for a small set of users in NY, at least in recent future.
+  const currentTimeInNewYork = DateTime.local().setZone('America/New_York');
+  const todayInNYStart = currentTimeInNewYork.startOf('day');
+  const todayInNYEnd = currentTimeInNewYork.endOf('day');
 
+  // Using Sam's PAT, which makes the query timezone in NY.
   const contributionDays: readonly {
     readonly date: string;
     readonly contributionCount: number;
@@ -20,7 +24,7 @@ const numberOfContributionToday = async (githubUser: string): Promise<number> =>
     .request(
       `query {
   user(login: "${githubUser}") {
-    contributionsCollection(from: "${today.toISOString()}", to: "${todayEnd.toISOString()}") {
+    contributionsCollection(from: "${todayInNYStart.toISO()}", to: "${todayInNYEnd.toISO()}") {
       contributionCalendar { weeks { contributionDays { date contributionCount } } }
     }
   }
@@ -33,16 +37,20 @@ const numberOfContributionToday = async (githubUser: string): Promise<number> =>
     );
 
   return (
-    contributionDays.find(({ date }) => today.toISOString().substring(0, 10) === date)
+    contributionDays.find(({ date }) => currentTimeInNewYork.toISODate() === date)
       ?.contributionCount ?? 0
   );
 };
 
 (async () => {
-  const results = await Promise.all([
+  // Always log time in UTC and NY for debugging.
+  // UTC is the hardcoded timezone for Google's datacenter.
+  console.log(`Current time in UTC: ${DateTime.local().toUTC().toISO()}`);
+  console.log(`Current time in NY: ${DateTime.local().setZone('America/New_York').toISO()}`);
+
+  const [sam, megan] = await Promise.all([
     numberOfContributionToday('SamChou19815'),
     numberOfContributionToday('meganyin13'),
   ]);
-  // eslint-disable-next-line no-console
-  console.log('Sam', results[0], 'Megan', results[1]);
+  console.log('Sam', sam, 'Megan', megan);
 })();

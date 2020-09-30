@@ -33,6 +33,7 @@ workspaces.json
 
 # env
 .env.local
+packages/github-contribution-alert/.env
 
 # project generated files
 packages/wiki/private-docs
