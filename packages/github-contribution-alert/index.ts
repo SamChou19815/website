@@ -1,10 +1,13 @@
 /* eslint-disable no-console */
 
 import dotEnv from 'dotenv';
+import * as admin from 'firebase-admin';
+import * as functions from 'firebase-functions';
 import { GraphQLClient } from 'graphql-request';
 import { DateTime } from 'luxon';
 
 dotEnv.config();
+admin.initializeApp();
 
 const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
   headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN ?? 'INVALID_TOKEN'}` },
@@ -42,15 +45,27 @@ const numberOfContributionToday = async (githubUser: string): Promise<number> =>
   );
 };
 
-(async () => {
-  // Always log time in UTC and NY for debugging.
-  // UTC is the hardcoded timezone for Google's datacenter.
-  console.log(`Current time in UTC: ${DateTime.local().toUTC().toISO()}`);
-  console.log(`Current time in NY: ${DateTime.local().setZone('America/New_York').toISO()}`);
+// eslint-disable-next-line import/prefer-default-export
+export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
+  .schedule('0 * * * *')
+  .onRun(async () => {
+    const currentTime = DateTime.local();
+    // Always log time in UTC and NY for debugging.
+    // UTC is the hardcoded timezone for Google's datacenter.
+    console.log(`Current time in UTC: ${currentTime.toUTC().toISO()}`);
+    console.log(`Current time in NY: ${currentTime.setZone('America/New_York').toISO()}`);
 
-  const [sam, megan] = await Promise.all([
-    numberOfContributionToday('SamChou19815'),
-    numberOfContributionToday('meganyin13'),
-  ]);
-  console.log('Sam', sam, 'Megan', megan);
-})();
+    const currentHourInNewYork = currentTime.setZone('America/New_York').hour;
+    if (currentHourInNewYork < 20) {
+      console.log(
+        `The script is only active after 8PM in NY. Current hour: ${currentHourInNewYork}`
+      );
+      return;
+    }
+
+    const [sam, megan] = await Promise.all([
+      numberOfContributionToday('SamChou19815'),
+      numberOfContributionToday('meganyin13'),
+    ]);
+    console.log('Sam', sam, 'Megan', megan);
+  });
