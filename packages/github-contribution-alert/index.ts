@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 
+import SendGridMail from '@sendgrid/mail';
 import dotEnv from 'dotenv';
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
@@ -8,6 +9,7 @@ import { DateTime } from 'luxon';
 
 dotEnv.config();
 admin.initializeApp();
+SendGridMail.setApiKey(functions.config().github_contribution_alert.sendgrid_api_key);
 
 const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
   headers: { authorization: `Bearer ${functions.config().github_contribution_alert.github_token}` },
@@ -63,9 +65,31 @@ export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
       return;
     }
 
-    const [sam, megan] = await Promise.all([
-      numberOfContributionToday('SamChou19815'),
-      numberOfContributionToday('meganyin13'),
-    ]);
-    console.log('Sam', sam, 'Megan', megan);
+    // Format: user1-github,user1-nickname,user1-email;user2-github,user2-nickname,user2-email
+    const usersFromConfig: string = functions.config().github_contribution_alert.users;
+    const users = usersFromConfig
+      .trim()
+      .split(';')
+      .map((userInformationCommaSeparated) => {
+        const [githubID, name, email] = userInformationCommaSeparated.split(',');
+        return { githubID, name, email };
+      });
+
+    await Promise.all(
+      users.map(async ({ githubID, name, email }) => {
+        const count = await numberOfContributionToday(githubID);
+        console.log(`${name}'s number of contributions: ${count}.`);
+        if (count > 0) {
+          return null;
+        }
+        await SendGridMail.send({
+          to: email,
+          from: 'bot@developersam.com',
+          subject: "[github-contribution-alert] You still don't have a contribution for today!",
+          text: `Hi ${name}. Looks like you still don't have a contribution for today :sad-octocat:.
+(Reply back if you think it is a false alert.)`,
+        });
+        console.log(`Sent alert email to ${email} (${name})`);
+      })
+    );
   });

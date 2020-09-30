@@ -3479,6 +3479,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sendgrid/client@npm:^7.2.6":
+  version: 7.2.6
+  resolution: "@sendgrid/client@npm:7.2.6"
+  dependencies:
+    "@sendgrid/helpers": ^7.2.6
+    axios: ^0.19.2
+  checksum: be508689a189a6d999b3f79791328f4b0812400a84ab89cb8df8bbd3c73e1e76bf40fa79599975789b41f39245190b12d37dd2202d9bd8d6c472f400f218a04d
+  languageName: node
+  linkType: hard
+
+"@sendgrid/helpers@npm:^7.2.6":
+  version: 7.2.6
+  resolution: "@sendgrid/helpers@npm:7.2.6"
+  dependencies:
+    chalk: ^2.0.1
+    deepmerge: ^4.2.2
+  checksum: 9e99077f03f9e0e2e93e288c9dcd27aab16a690294c671168deb6970009491f901c8a338c686a4f24ac8485ef4ff6644bda5947de06aed64957b6f193c62aa1d
+  languageName: node
+  linkType: hard
+
+"@sendgrid/mail@npm:^7.2.6":
+  version: 7.2.6
+  resolution: "@sendgrid/mail@npm:7.2.6"
+  dependencies:
+    "@sendgrid/client": ^7.2.6
+    "@sendgrid/helpers": ^7.2.6
+  checksum: a6d516f4352f432e33cb877b863aea1e5aaf78f2482ea3b82ff47e84a13d275db61e2f45caa051c869c340edd893d7fcd0ae9d4e6b120c9be864a98a549c5fc4
+  languageName: node
+  linkType: hard
+
 "@sindresorhus/is@npm:^0.14.0":
   version: 0.14.0
   resolution: "@sindresorhus/is@npm:0.14.0"
@@ -5114,6 +5144,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.19.2":
+  version: 0.19.2
+  resolution: "axios@npm:0.19.2"
+  dependencies:
+    follow-redirects: 1.5.10
+  checksum: bad346deea24050f9953ce09bb8015f85a99a7b8f016806adccfab0b8981827d1fbee9c77c0ef7c70cc48392c1af6bbc65e07c3e88221d17282d2d5fd0a191f6
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^2.1.2":
   version: 2.2.0
   resolution: "axobject-query@npm:2.2.0"
@@ -5987,7 +6026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -7405,6 +7444,15 @@ __metadata:
     supports-color:
       optional: true
   checksum: dcfb8ede26b4d899628a75806923ab9ad29daae7db0f6f1ca6227b660693ae0ca085c7f87261793abe0832ad56aff2afc33f907c6b5dc96a41fc208771feb465
+  languageName: node
+  linkType: hard
+
+"debug@npm:=3.1.0":
+  version: 3.1.0
+  resolution: "debug@npm:3.1.0"
+  dependencies:
+    ms: 2.0.0
+  checksum: 1295acd5e0531761255661d325cd0a80ac8c5f6de8942a53bb23c2197ccb97526972de662ed0e5d9393be83f3428a298a6e7185ecb02f0da6282019cd2ffb4a8
   languageName: node
   linkType: hard
 
@@ -9241,6 +9289,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:1.5.10":
+  version: 1.5.10
+  resolution: "follow-redirects@npm:1.5.10"
+  dependencies:
+    debug: =3.1.0
+  checksum: 6e58e02c31337b6b41ffc3d5f3d49920b7db428eddcf374537da00ef121fe473983e12d8557f4304287604168d3efcc288d1f009abaf4c9d61e5db0c0cee3c4a
+  languageName: node
+  linkType: hard
+
 "follow-redirects@npm:^1.0.0":
   version: 1.12.1
   resolution: "follow-redirects@npm:1.12.1"
@@ -9551,6 +9608,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "github-contribution-alert@workspace:packages/github-contribution-alert"
   dependencies:
+    "@sendgrid/mail": ^7.2.6
     "@types/luxon": ^1.25.0
     "@types/node": ^14.11.2
     "@vercel/ncc": ^0.24.1
