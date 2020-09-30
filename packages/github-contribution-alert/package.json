@@ -9,6 +9,7 @@
     "deploy:local": "yarn build && cd deployment-template && firebase deploy --only functions"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.2.6",
     "dotenv": "^8.2.0",
     "firebase-admin": "^9.2.0",
     "firebase-functions": "^3.11.0",
