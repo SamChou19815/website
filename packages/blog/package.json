@@ -10,11 +10,11 @@
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:blog"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.64",
-    "@docusaurus/plugin-google-analytics": "^2.0.0-alpha.64",
-    "@docusaurus/plugin-google-gtag": "^2.0.0-alpha.64",
-    "@docusaurus/plugin-sitemap": "^2.0.0-alpha.64",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.64",
+    "@docusaurus/core": "^2.0.0-alpha.65",
+    "@docusaurus/plugin-google-analytics": "^2.0.0-alpha.65",
+    "@docusaurus/plugin-google-gtag": "^2.0.0-alpha.65",
+    "@docusaurus/plugin-sitemap": "^2.0.0-alpha.65",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.65",
     "@mdx-js/react": "^1.6.4",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
