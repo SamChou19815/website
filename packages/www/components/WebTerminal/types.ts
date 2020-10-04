@@ -1,4 +1,8 @@
-export type TerminalHistory = { readonly isCommand: boolean; readonly line: string };
+import type { ReactNode } from 'react';
+
+export type TerminalHistory =
+  | { readonly isCommand: false; readonly line: ReactNode }
+  | { readonly isCommand: true; readonly line: string };
 
 type CommandSpecification = {
   readonly description: string;
