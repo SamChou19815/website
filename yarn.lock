@@ -9945,13 +9945,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"harmony-reflect@npm:^1.4.6":
-  version: 1.6.1
-  resolution: "harmony-reflect@npm:1.6.1"
-  checksum: cd8ee880be124d0f634e5f58027c2e6c9f600c2874a1e2481cb7acd369f0df6fb41b496aa3fbf247fb6a4a2de8d70b7587854c652493a6c6c21964ce70573100
-  languageName: node
-  linkType: hard
-
 "has-ansi@npm:^2.0.0":
   version: 2.0.0
   resolution: "has-ansi@npm:2.0.0"
@@ -10519,15 +10512,6 @@ fsevents@^1.2.7:
   version: 3.0.2
   resolution: "idb@npm:3.0.2"
   checksum: 396d2998352cbed755bae7d006d6cfa6867cd0423d1056addbccdc927e5f51f2bdfdfd22710baeafcc1eedbd046cf68590add5f58a0e602d49c1c3a3e2b865c9
-  languageName: node
-  linkType: hard
-
-"identity-obj-proxy@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "identity-obj-proxy@npm:3.0.0"
-  dependencies:
-    harmony-reflect: ^1.4.6
-  checksum: 87f71cb15bc6173123a97f37f4fe2a9e1e44d9ceaceb19b0b233a0ab62bcc08793a019bc00241d876a73421ec4005fd28952805ef72725cda5866d712d789fe7
   languageName: node
   linkType: hard
 
@@ -16957,7 +16941,6 @@ fsevents@^1.2.7:
     eslint-plugin-react: ^7.21.2
     eslint-plugin-react-hooks: ^4.1.2
     husky: ^4.3.0
-    identity-obj-proxy: ^3.0.0
     jest: ^26.4.2
     lint-staged: ^10.4.0
     next: ^9.5.3

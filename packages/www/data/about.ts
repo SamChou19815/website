@@ -1,26 +1,17 @@
-import type { ReactElement } from 'react';
+import type { WwwSvgIconName } from '../components/Common/Icons';
 
-import {
-  CodeIcon,
-  DomainIcon,
-  FacebookIcon,
-  GitHubIcon,
-  SchoolIcon,
-  WorkIcon,
-} from '../components/Common/Icons';
-
-type Fact = { readonly icon: () => ReactElement; readonly text: string };
+type Fact = { readonly iconName: WwwSvgIconName; readonly text: string };
 type Link = { readonly href: string; readonly text: string };
 type About = { readonly facts: readonly Fact[]; readonly links: readonly Link[] };
 
 const about: About = {
   facts: [
-    { icon: FacebookIcon, text: 'Facebook SWE Intern' },
-    { icon: WorkIcon, text: 'Cornell DTI Developer' },
-    { icon: GitHubIcon, text: 'Open source contributor' },
-    { icon: SchoolIcon, text: 'Cornell University' },
-    { icon: DomainIcon, text: 'Computer Science' },
-    { icon: CodeIcon, text: 'Coding since 13' },
+    { iconName: 'facebook', text: 'Facebook SWE Intern' },
+    { iconName: 'work', text: 'Cornell DTI Developer' },
+    { iconName: 'github', text: 'Open source contributor' },
+    { iconName: 'school', text: 'Cornell University' },
+    { iconName: 'domain', text: 'Computer Science' },
+    { iconName: 'code', text: 'Coding since 13' },
   ],
   links: [
     { href: 'https://blog.developersam.com', text: 'Blog' },

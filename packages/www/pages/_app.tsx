@@ -8,7 +8,7 @@ import 'infima/dist/css/default/default.min.css';
 import 'lib-react/PrismCodeBlock.css';
 import './index.css';
 
-if (process.browser) {
+if (process.env.NODE_ENV !== 'development' && process.browser) {
   ReactGA.initialize('UA-140662756-1');
   ReactGA.pageview(window.location.pathname + window.location.search);
 }

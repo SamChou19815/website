@@ -4,17 +4,18 @@ import clsx from 'clsx';
 
 import about from '../data/about';
 import ButtonLink from './Common/ButtonLink';
+import WwwSvgIcon, { WwwSvgIconName } from './Common/Icons';
 import LazyCardMedia from './Common/LazyCardMedia';
 import styles from './InformationCard.module.css';
 
 type IconLineProps = {
-  readonly Icon: () => ReactElement;
+  readonly iconName: WwwSvgIconName;
   readonly children: string;
 };
 
-const IconLine = ({ Icon, children }: IconLineProps): ReactElement => (
+const IconLine = ({ iconName, children }: IconLineProps): ReactElement => (
   <div className={styles.IconLine}>
-    <Icon />
+    <WwwSvgIcon iconName={iconName} />
     <span className={styles.IconLineText}>{children}</span>
   </div>
 );
@@ -26,8 +27,8 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
       <h3>Sam Zhou</h3>
     </div>
     <div className={clsx('card__body', styles.IconLines)}>
-      {about.facts.map(({ text, icon }) => (
-        <IconLine key={text} Icon={icon}>
+      {about.facts.map(({ text, iconName }) => (
+        <IconLine key={text} iconName={iconName}>
           {text}
         </IconLine>
       ))}
