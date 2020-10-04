@@ -50,7 +50,8 @@ const Terminal = (): ReactElement => {
   const historyUpDown = (direction: 'up' | 'down'): string | null => {
     const simplifiedHistory = Array.from(history)
       .filter(({ isCommand }) => isCommand)
-      .map((item) => item.line)
+      .map((item) => (item.isCommand ? item.line : null))
+      .filter((commandLine): commandLine is string => commandLine != null)
       .reverse();
     const result = scrollHistory(direction, simplifiedHistory, historyPositionRef.current);
     if (result === null) {

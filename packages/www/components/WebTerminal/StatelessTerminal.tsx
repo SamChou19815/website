@@ -6,7 +6,11 @@ import styles from './Terminal.module.css';
 import TerminalInput from './TerminalInput';
 import type { TerminalHistory } from './types';
 
-const TerminalHistoryLine = ({ isCommand, line }: TerminalHistory): ReactElement => {
+const TerminalHistoryLine = ({
+  history: { isCommand, line },
+}: {
+  readonly history: TerminalHistory;
+}): ReactElement => {
   if (!isCommand) {
     return <p className={styles.TerminalMessage}>{line}</p>;
   }
@@ -39,9 +43,9 @@ const StatelessTerminal = ({
     <div className={styles.TerminalTitle}>Terminal</div>
     <div role="presentation" ref={terminalRoot} className={styles.Terminal} onClick={focusTerminal}>
       <div className={styles.TerminalContent}>
-        {history.map(({ isCommand, line }, index) => (
+        {history.map((oneHistoryLine, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <TerminalHistoryLine key={index} isCommand={isCommand} line={line} />
+          <TerminalHistoryLine key={index} history={oneHistoryLine} />
         ))}
         <TerminalInput terminalInput={terminalInput} onArrow={onArrow} onSubmit={processCommand} />
       </div>
