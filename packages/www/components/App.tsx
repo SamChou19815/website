@@ -7,9 +7,11 @@ import StickyCodeBlock from './StickyCodeBlock';
 import TechTalkSection from './TechTalkSection';
 import TimelineSection from './TimelineSection';
 import WebTerminal from './WebTerminal';
+import { WebTerminalCommandsContextProvider } from './WebTerminal/WebTerminalCommandsContext';
+import commands from './WebTerminal/commands';
 
 const App = (): ReactElement => (
-  <>
+  <WebTerminalCommandsContextProvider value={commands}>
     <div className={styles.MainLayout}>
       <div className={styles.SideBar}>
         <StickyCodeBlock />
@@ -22,7 +24,7 @@ const App = (): ReactElement => (
       </div>
     </div>
     <WebTerminal />
-  </>
+  </WebTerminalCommandsContextProvider>
 );
 
 export default App;

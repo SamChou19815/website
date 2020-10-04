@@ -3,15 +3,15 @@
 import React, { ReactElement, useRef, useState } from 'react';
 
 import StatelessTerminal from './StatelessTerminal';
-import commands from './commands';
+import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 import scrollHistory from './history';
-import type { TerminalHistory } from './types';
+import type { Commands, TerminalHistory } from './types';
 
 const initialHistory: readonly TerminalHistory[] = [
   { isCommand: false, line: 'Type `help` to show a list of available commands.' },
 ];
 
-const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
+const getNewHistory = (commands: Commands, inputLine: string): readonly TerminalHistory[] => {
   const rawCommandLineInput = inputLine.trim();
   const newHistoryItems: TerminalHistory[] = [];
   newHistoryItems.push({ isCommand: true, line: rawCommandLineInput });
@@ -35,6 +35,7 @@ const getNewHistory = (inputLine: string): readonly TerminalHistory[] => {
 };
 
 const Terminal = (): ReactElement => {
+  const commands = useWebTerminalCommands();
   const [history, setHistory] = useState(initialHistory);
   const terminalRoot = useRef<HTMLDivElement>(null);
   const terminalInput = useRef<HTMLInputElement>(null);
@@ -42,7 +43,7 @@ const Terminal = (): ReactElement => {
 
   const processCommand = (inputLine: string): void => {
     historyPositionRef.current = null;
-    setHistory((oldHistory) => [...oldHistory, ...getNewHistory(inputLine)]);
+    setHistory((oldHistory) => [...oldHistory, ...getNewHistory(commands, inputLine)]);
     scrollToBottom();
     focusTerminal();
   };

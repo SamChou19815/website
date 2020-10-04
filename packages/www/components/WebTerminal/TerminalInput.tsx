@@ -1,6 +1,7 @@
 import React, { ReactElement, KeyboardEvent, RefObject, useState, useEffect } from 'react';
 
 import styles from './Terminal.module.css';
+import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 import autoComplete from './auto-complete';
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
 };
 
 const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
+  const commands = useWebTerminalCommands();
   const [line, setLine] = useState('');
   const [justProcessedArrowKey, setJustProcessedArrowKey] = useState(false);
 
@@ -30,7 +32,7 @@ const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElemen
       }
       case 'Tab':
         event.preventDefault();
-        setLine((currentLine) => autoComplete(currentLine));
+        setLine((currentLine) => autoComplete(commands, currentLine));
         break;
       default:
         break;
