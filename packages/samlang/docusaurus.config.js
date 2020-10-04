@@ -10,7 +10,7 @@ const theme = require('lib-react/prism-theme.json');
 module.exports = {
   title: 'SAMLANG',
   tagline: "Sam's Programming Language",
-  url: 'https://samlang.developersam.com',
+  url: 'https://samlang.io',
   baseUrl: '/',
   favicon: 'img/favicon.png',
   organizationName: 'SamChou19815',
