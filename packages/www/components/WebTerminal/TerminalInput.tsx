@@ -1,4 +1,4 @@
-import React, { ReactElement, KeyboardEvent, RefObject, useState } from 'react';
+import React, { ReactElement, KeyboardEvent, RefObject, useState, useEffect } from 'react';
 
 import styles from './Terminal.module.css';
 import autoComplete from './auto-complete';
@@ -11,6 +11,7 @@ type Props = {
 
 const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
   const [line, setLine] = useState('');
+  const [justProcessedArrowKey, setJustProcessedArrowKey] = useState(false);
 
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     switch (event.key) {
@@ -21,6 +22,7 @@ const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElemen
       case 'ArrowUp':
       case 'ArrowDown': {
         const result = onArrow(event.key === 'ArrowUp' ? 'up' : 'down');
+        setJustProcessedArrowKey(true);
         if (result !== null) {
           setLine(result);
         }
@@ -34,6 +36,14 @@ const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElemen
         break;
     }
   };
+
+  useEffect(() => {
+    const terminalInputDOMNode = terminalInput?.current;
+    if (terminalInputDOMNode != null && justProcessedArrowKey) {
+      setJustProcessedArrowKey(false);
+      terminalInputDOMNode.selectionStart = line.length;
+    }
+  }, [terminalInput, line, justProcessedArrowKey]);
 
   return (
     <div className={styles.TerminalInputArea}>
