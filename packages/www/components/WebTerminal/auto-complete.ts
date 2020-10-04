@@ -1,8 +1,8 @@
 import { changeDirectory, listFiles } from '../../filesystem';
 import { normalize, getParent, getLast, join } from '../../filesystem/path';
 import type { FileSystemState } from '../../filesystem/types';
-import commands from './commands';
 import { getFilesystemState } from './global-filesystem-state';
+import type { Commands } from './types';
 
 /**
  * @param sources a list of strings that can be used to expand the prefix.
@@ -62,11 +62,12 @@ export const autoCompleteFilename = (state: FileSystemState, prefix: string): st
 };
 
 /**
+ * @param commands provided commands list.
  * @param sources a list of strings that can be used to expand the prefix.
  * @param prefix the line to expand.
  * @returns expanded line.
  */
-const autoCompleteCommandLine = (line: string): string => {
+const autoCompleteCommandLine = (commands: Commands, line: string): string => {
   const parts = line.trim().split(' ');
   if (parts.length === 0) {
     return '';

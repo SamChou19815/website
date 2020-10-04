@@ -1,5 +1,6 @@
 import { initialState } from '../../filesystem';
 import autoComplete, { autoCompleteCommand, autoCompleteFilename } from './auto-complete';
+import commands from './commands';
 
 it('autoCompleteCommand works', () => {
   // One choice cases
@@ -42,33 +43,35 @@ it('autoCompleteFilename works', () => {
 
 it('autoComplete works', () => {
   // Empty string cases
-  expect(autoComplete('')).toBe('');
+  expect(autoComplete(commands, '')).toBe('');
   // No choices cases
-  expect(autoComplete('random')).toBe('random');
-  expect(autoComplete('foo random')).toBe('foo random');
-  expect(autoComplete(' foo random ')).toBe('foo random');
+  expect(autoComplete(commands, 'random')).toBe('random');
+  expect(autoComplete(commands, 'foo random')).toBe('foo random');
+  expect(autoComplete(commands, ' foo random ')).toBe('foo random');
   // Command autocompletion.
-  expect(autoComplete('l')).toBe('ls');
-  expect(autoComplete('ca')).toBe('cat');
-  expect(autoComplete('cd')).toBe('cd');
-  expect(autoComplete('h')).toBe('help');
+  expect(autoComplete(commands, 'l')).toBe('ls');
+  expect(autoComplete(commands, 'ca')).toBe('cat');
+  expect(autoComplete(commands, 'cd')).toBe('cd');
+  expect(autoComplete(commands, 'h')).toBe('help');
   // Filename autocompletion
-  expect(autoComplete('cat R')).toBe('cat README.md');
-  expect(autoComplete('cat ./R')).toBe('cat README.md');
-  expect(autoComplete('cat b')).toBe('cat blog.txt');
-  expect(autoComplete('cat ./b')).toBe('cat blog.txt');
-  expect(autoComplete('cat g')).toBe('cat github.txt');
-  expect(autoComplete('cat ./g')).toBe('cat github.txt');
-  expect(autoComplete('cat t')).toBe('cat top-secret');
-  expect(autoComplete('cat ./t')).toBe('cat top-secret');
-  expect(autoComplete('cat top-secret/f')).toBe('cat top-secret/fact.txt');
-  expect(autoComplete('cat top-secret/r')).toBe('cat top-secret/real-secret');
-  expect(autoComplete('cat top-secret/a')).toBe('cat top-secret/a');
-  expect(autoComplete('cat top-secret/real-secret/ra')).toBe('cat top-secret/real-secret/random');
-  expect(autoComplete('cat top-secret/real-secret/re')).toBe(
+  expect(autoComplete(commands, 'cat R')).toBe('cat README.md');
+  expect(autoComplete(commands, 'cat ./R')).toBe('cat README.md');
+  expect(autoComplete(commands, 'cat b')).toBe('cat blog.txt');
+  expect(autoComplete(commands, 'cat ./b')).toBe('cat blog.txt');
+  expect(autoComplete(commands, 'cat g')).toBe('cat github.txt');
+  expect(autoComplete(commands, 'cat ./g')).toBe('cat github.txt');
+  expect(autoComplete(commands, 'cat t')).toBe('cat top-secret');
+  expect(autoComplete(commands, 'cat ./t')).toBe('cat top-secret');
+  expect(autoComplete(commands, 'cat top-secret/f')).toBe('cat top-secret/fact.txt');
+  expect(autoComplete(commands, 'cat top-secret/r')).toBe('cat top-secret/real-secret');
+  expect(autoComplete(commands, 'cat top-secret/a')).toBe('cat top-secret/a');
+  expect(autoComplete(commands, 'cat top-secret/real-secret/ra')).toBe(
+    'cat top-secret/real-secret/random'
+  );
+  expect(autoComplete(commands, 'cat top-secret/real-secret/re')).toBe(
     'cat top-secret/real-secret/real-fact.txt'
   );
-  expect(autoComplete('cat top-secret/real-secret/random/a')).toBe(
+  expect(autoComplete(commands, 'cat top-secret/real-secret/random/a')).toBe(
     'cat top-secret/real-secret/random/actual-fact.txt'
   );
 });
