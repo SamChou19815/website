@@ -1,5 +1,5 @@
-import { initialState } from '../../filesystem';
-import type { FileSystemState } from '../../filesystem/types';
+import { initialState } from 'lib-in-memory-filesystem';
+import type { FileSystemState } from 'lib-in-memory-filesystem/types';
 
 let mutableFilesystemState = initialState;
 

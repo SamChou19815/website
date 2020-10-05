@@ -12360,6 +12360,15 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
+"lib-in-memory-filesystem@0.1.0, lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem":
+  version: 0.0.0-use.local
+  resolution: "lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem"
+  dependencies:
+    "@types/jest": 26.0.4
+    typescript: ^4.0.3
+  languageName: unknown
+  linkType: soft
+
 "lib-incremental@workspace:^0.0.1, lib-incremental@workspace:packages/lib-incremental":
   version: 0.0.0-use.local
   resolution: "lib-incremental@workspace:packages/lib-incremental"
@@ -12389,6 +12398,20 @@ fsevents@^1.2.7:
     typescript: ^4.0.3
   peerDependencies:
     prism-react-renderer: ^1.1.1
+    react: ^16.13.1
+  languageName: unknown
+  linkType: soft
+
+"lib-web-terminal@0.1.0, lib-web-terminal@workspace:packages/lib-web-terminal":
+  version: 0.0.0-use.local
+  resolution: "lib-web-terminal@workspace:packages/lib-web-terminal"
+  dependencies:
+    "@types/jest": 26.0.4
+    "@types/react": ^16.9.43
+    lib-in-memory-filesystem: 0.1.0
+    react: ^16.13.1
+    typescript: ^4.0.3
+  peerDependencies:
     react: ^16.13.1
   languageName: unknown
   linkType: soft
@@ -20073,6 +20096,7 @@ typescript@^4.0.3:
     clsx: ^1.1.1
     infima: 0.2.0-alpha.12
     lib-react: 0.1.0
+    lib-web-terminal: 0.1.0
     next: ^9.5.3
     next-transpile-modules: ^4.1.0
     react: ^16.13.1

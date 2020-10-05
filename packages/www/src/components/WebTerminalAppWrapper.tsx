@@ -1,36 +1,14 @@
-import DATASET_ABOUT from '../../data/about';
-import DATASET_PROJECTS from '../../data/projects';
-import DATASET_TECH_TALKS from '../../data/tech-talks';
-import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
-import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
-import { getFilesystemState, setFilesystemState } from './global-filesystem-state';
-import type { Commands } from './types';
+import React, { ReactElement, ReactNode } from 'react';
 
-const help = (): string =>
-  Object.keys(commands)
-    .map((key) => {
-      const cmdObj = commands[key];
-      const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
-      return `${key} - ${cmdObj.description}${usage}`;
-    })
-    .join('\n');
+import DATASET_ABOUT from '../data/about';
+import DATASET_PROJECTS from '../data/projects';
+import DATASET_TECH_TALKS from '../data/tech-talks';
+import { TimelineItemType, getFilteredTimeline } from '../data/timeline';
 
-const cat = (...paths: string[]): string => {
-  try {
-    return showFiles(getFilesystemState(), paths);
-  } catch (exception) {
-    return exception.message;
-  }
-};
-
-const cd = (path: string | undefined): string | void => {
-  try {
-    setFilesystemState(changeDirectory(getFilesystemState(), path || '/'));
-    return undefined;
-  } catch (exception) {
-    return exception.message;
-  }
-};
+import WebTerminal from 'lib-web-terminal';
+import { WebTerminalCommandsContextProvider } from 'lib-web-terminal/WebTerminalCommandsContext';
+import baseCommands from 'lib-web-terminal/base-commands';
+import type { Commands } from 'lib-web-terminal/types';
 
 const devSam = (command: string, ...commandArguments: readonly string[]): string | void => {
   const information = `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
@@ -56,18 +34,6 @@ const devSam = (command: string, ...commandArguments: readonly string[]): string
       return `Supported commands: about, projects, tech-talk, timeline.\n${information}`;
   }
 };
-
-const echo = (...inputs: string[]): string => inputs.join(' ');
-
-const ls = (...paths: string[]): string => {
-  try {
-    return listFiles(getFilesystemState(), paths);
-  } catch (exception) {
-    return exception.message;
-  }
-};
-
-const pwd = (): string => currentDirectoryPath(getFilesystemState());
 
 const timeline = (...args: string[]): string | void => {
   if (args.length === 0) {
@@ -108,13 +74,15 @@ const timeline = (...args: string[]): string | void => {
 };
 
 const commands: Commands = {
-  help: { fn: help, description: 'Show a list of available commands.' },
-  cat: { fn: cat, description: 'Concatenate and print files', usage: 'cat [path1] [path2] ...' },
-  cd: { fn: cd, description: 'Change current directory.', usage: 'cd [path]' },
+  ...baseCommands,
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
-  echo: { fn: echo, description: 'Print back the arguments.', usage: 'echo [foo] [bar] ...' },
-  ls: { fn: ls, description: 'List directory contents.', usage: 'ls [path1] [path2] ...' },
-  pwd: { fn: pwd, description: 'Print currrent absolute directory.' },
 };
 
-export default commands;
+const WebTerminalAppWrapper = ({ children }: { readonly children: ReactNode }): ReactElement => (
+  <WebTerminalCommandsContextProvider value={commands}>
+    {children}
+    <WebTerminal />
+  </WebTerminalCommandsContextProvider>
+);
+
+export default WebTerminalAppWrapper;

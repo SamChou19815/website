@@ -2,20 +2,21 @@
   "name": "www",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "clsx": "^1.1.1",
-    "infima": "0.2.0-alpha.12",
-    "lib-react": "0.1.0",
-    "next": "^9.5.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-ga": "^3.1.2"
-  },
   "scripts": {
     "start": "next",
     "build": "next build && next export",
     "compile": "tsc",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1",
+    "infima": "0.2.0-alpha.12",
+    "lib-react": "0.1.0",
+    "lib-web-terminal": "0.1.0",
+    "next": "^9.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^3.1.2"
   },
   "devDependencies": {
     "@types/jest": "26.0.4",

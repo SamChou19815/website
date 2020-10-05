@@ -6,6 +6,8 @@ on:
     paths:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
+      - 'packages/lib-in-memory-filesystem/**'
+      - 'packages/lib-web-terminal/**'
       - 'packages/www/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-www.yml'
