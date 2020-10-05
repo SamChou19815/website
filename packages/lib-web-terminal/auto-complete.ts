@@ -1,8 +1,9 @@
-import { changeDirectory, listFiles } from '../../filesystem';
-import { normalize, getParent, getLast, join } from '../../filesystem/path';
-import type { FileSystemState } from '../../filesystem/types';
 import { getFilesystemState } from './global-filesystem-state';
 import type { Commands } from './types';
+
+import { changeDirectory, listFiles } from 'lib-in-memory-filesystem';
+import { normalize, getParent, getLast, join } from 'lib-in-memory-filesystem/path';
+import type { FileSystemState } from 'lib-in-memory-filesystem/types';
 
 /**
  * @param sources a list of strings that can be used to expand the prefix.

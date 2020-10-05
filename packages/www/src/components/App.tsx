@@ -6,12 +6,10 @@ import ProjectsSection from './ProjectsSection';
 import StickyCodeBlock from './StickyCodeBlock';
 import TechTalkSection from './TechTalkSection';
 import TimelineSection from './TimelineSection';
-import WebTerminal from './WebTerminal';
-import { WebTerminalCommandsContextProvider } from './WebTerminal/WebTerminalCommandsContext';
-import commands from './WebTerminal/commands';
+import WebTerminalAppWrapper from './WebTerminalAppWrapper';
 
 const App = (): ReactElement => (
-  <WebTerminalCommandsContextProvider value={commands}>
+  <WebTerminalAppWrapper>
     <div className={styles.MainLayout}>
       <div className={styles.SideBar}>
         <StickyCodeBlock />
@@ -23,8 +21,7 @@ const App = (): ReactElement => (
         <TimelineSection />
       </div>
     </div>
-    <WebTerminal />
-  </WebTerminalCommandsContextProvider>
+  </WebTerminalAppWrapper>
 );
 
 export default App;
