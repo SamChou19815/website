@@ -1,6 +1,6 @@
 type ProjectLink = { readonly text: string; readonly href: string };
 
-type Project = {
+type ProjectDataEntry = {
   readonly name: string;
   readonly type: string;
   readonly media: string;
@@ -8,7 +8,7 @@ type Project = {
   readonly links: readonly ProjectLink[];
 };
 
-const projects: readonly Project[] = [
+const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
   {
     name: 'samlang',
     type: 'Programming Language',
@@ -80,4 +80,4 @@ const projects: readonly Project[] = [
   },
 ];
 
-export default projects;
+export default DATASET_PROJECTS;

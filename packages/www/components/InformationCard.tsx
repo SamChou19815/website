@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import clsx from 'clsx';
 
-import about from '../data/about';
+import DATASET_ABOUT from '../data/about';
 import ButtonLink from './Common/ButtonLink';
 import WwwSvgIcon, { WwwSvgIconName } from './Common/Icons';
 import LazyCardMedia from './Common/LazyCardMedia';
@@ -27,7 +27,7 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
       <h3>Sam Zhou</h3>
     </div>
     <div className={clsx('card__body', styles.IconLines)}>
-      {about.facts.map(({ text, iconName }) => (
+      {DATASET_ABOUT.facts.map(({ text, iconName }) => (
         <IconLine key={text} iconName={iconName}>
           {text}
         </IconLine>
@@ -35,7 +35,7 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
     </div>
     <div className={clsx('card__footer', styles.Links)}>
       <div className="button-group button-group--block">
-        {about.links.map(({ href, text }) => (
+        {DATASET_ABOUT.links.map(({ href, text }) => (
           <ButtonLink key={text} href={href} className={styles.Link}>
             {text}
           </ButtonLink>

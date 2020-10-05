@@ -1,10 +1,14 @@
 import type { WwwSvgIconName } from '../components/Common/Icons';
 
-type Fact = { readonly iconName: WwwSvgIconName; readonly text: string };
-type Link = { readonly href: string; readonly text: string };
-type About = { readonly facts: readonly Fact[]; readonly links: readonly Link[] };
+type AboutSectionFact = { readonly iconName: WwwSvgIconName; readonly text: string };
+type AboutSectionLink = { readonly href: string; readonly text: string };
 
-const about: About = {
+type AboutDataEntry = {
+  readonly facts: readonly AboutSectionFact[];
+  readonly links: readonly AboutSectionLink[];
+};
+
+const DATASET_ABOUT: AboutDataEntry = {
   facts: [
     { iconName: 'facebook', text: 'Facebook SWE Intern' },
     { iconName: 'work', text: 'Cornell DTI Developer' },
@@ -19,4 +23,4 @@ const about: About = {
   ],
 };
 
-export default about;
+export default DATASET_ABOUT;

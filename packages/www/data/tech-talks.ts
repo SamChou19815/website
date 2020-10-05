@@ -1,11 +1,11 @@
-type Talk = {
+type TechTalkDataEntry = {
   readonly title: string;
   readonly type: string;
   readonly description: string;
   readonly link: string;
 };
 
-const techTalks: readonly Talk[] = [
+const DATASET_TECH_TALKS: readonly TechTalkDataEntry[] = [
   {
     title: 'How to scale',
     type: 'Learning Series',
@@ -34,4 +34,4 @@ const techTalks: readonly Talk[] = [
   },
 ];
 
-export default techTalks;
+export default DATASET_TECH_TALKS;
