@@ -1,6 +1,6 @@
-import about from '../../data/about';
-import projects from '../../data/projects';
-import techTalks from '../../data/tech-talks';
+import DATASET_ABOUT from '../../data/about';
+import DATASET_PROJECTS from '../../data/projects';
+import DATASET_TECH_TALKS from '../../data/tech-talks';
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../../filesystem';
 import { getFilesystemState, setFilesystemState } from './global-filesystem-state';
@@ -36,18 +36,18 @@ const devSam = (command: string, ...commandArguments: readonly string[]): string
   const information = `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
   switch (command) {
     case 'about': {
-      const facts = about.facts.map(({ text }) => `- ${text}`).join('\n');
-      const links = about.links.map(({ href, text }) => `- [${text}](${href})`).join('\n');
+      const facts = DATASET_ABOUT.facts.map(({ text }) => `- ${text}`).join('\n');
+      const links = DATASET_ABOUT.links.map(({ href, text }) => `- [${text}](${href})`).join('\n');
       return `Random Facts:\n${facts}\nExternal Links:\n${links}`;
     }
     case 'projects':
-      return projects
-        .map(({ name, type, description }) => `${name}:\n- ${type}\n- ${description}`)
-        .join('\n');
+      return DATASET_PROJECTS.map(
+        ({ name, type, description }) => `${name}:\n- ${type}\n- ${description}`
+      ).join('\n');
     case 'tech-talks':
-      return techTalks
-        .map(({ title, type, description }) => `${title}:\n- ${type}\n- ${description}`)
-        .join('\n');
+      return DATASET_TECH_TALKS.map(
+        ({ title, type, description }) => `${title}:\n- ${type}\n- ${description}`
+      ).join('\n');
     case 'timeline':
       return timeline(...commandArguments);
     case undefined:

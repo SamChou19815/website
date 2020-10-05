@@ -26,7 +26,7 @@ export type TimelineItem = {
   readonly links?: readonly NamedLink[];
 };
 
-const timelineItems: readonly TimelineItem[] = [
+const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
     title: 'Turn samzhou.dev into a fan-art site',
     type: 'project',
@@ -370,6 +370,6 @@ const timelineItems: readonly TimelineItem[] = [
 ];
 
 export const getFilteredTimeline = (types: readonly TimelineItemType[]): readonly TimelineItem[] =>
-  timelineItems.filter(({ type }: TimelineItem): boolean => types.includes(type));
+  DATASET_TIMELINE.filter(({ type }: TimelineItem): boolean => types.includes(type));
 
-export default timelineItems;
+export default DATASET_TIMELINE;
