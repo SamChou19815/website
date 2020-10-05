@@ -1,27 +1,24 @@
 import React, { ReactElement, useState } from 'react';
 
-import Terminal from './Terminal';
-import Trigger from './Trigger';
+import StatefulTerminal from './StatefulTerminal';
+import styles from './index.module.css';
 
-const memoizedTerminal = <Terminal />;
-
-type Props = {
-  readonly shown: boolean;
-  readonly onTrigger: () => void;
-};
-
-export const WebTerminal = ({ shown, onTrigger }: Props): ReactElement => (
-  <>
-    <Trigger onClick={onTrigger} />
-    {shown && memoizedTerminal}
-  </>
-);
+const memoizedTerminal = <StatefulTerminal />;
 
 const HiddenByDefaultWebTerminal = (): ReactElement => {
   const [isTerminalShown, setIsTerminalShown] = useState(false);
   const toggle = (): void => setIsTerminalShown((isShown) => !isShown);
 
-  return <WebTerminal shown={isTerminalShown} onTrigger={toggle} />;
+  return (
+    <>
+      <button type="button" onClick={toggle} className={styles.TriggerButton}>
+        <span className={styles.FirstEdge} />
+        <span className={styles.SecondEdge} />
+        <span className={styles.Text}>Terminal Toggle</span>
+      </button>
+      {isTerminalShown && memoizedTerminal}
+    </>
+  );
 };
 
 export default HiddenByDefaultWebTerminal;
