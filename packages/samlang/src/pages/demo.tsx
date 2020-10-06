@@ -11,7 +11,7 @@ import Layout from '@theme/Layout';
 
 import LanguageDemo from '../language-demo';
 
-const title = 'SAMLANG Demo';
+const title = 'samlang Demo';
 const description =
   'A web-based samlang demo with type checker, interpreter, and compiler running in browser';
 

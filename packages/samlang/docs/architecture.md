@@ -15,7 +15,7 @@ JVM bytecode and JavaScript.
 ## Program Logic Flow
 
 To produce a source set (defined by `sconfig.json`) into an optimized compiled native program, the
-SAMLANG CLI performs following computation in order:
+samlang CLI performs following computation in order:
 
 1. `samlang-cli` collects all sources specified by `sconfig.json` and stores a mapping from
    `ModuleReference` to source code in `String` (`Map<ModuleReference, String>`).
@@ -33,5 +33,5 @@ SAMLANG CLI performs following computation in order:
    which will be consumed by `samlang-core/optimization` to perform various optimizations. Register
    allocation will be performed at the end.
 5. `samlang-core/printer` prints the assembly AST into assembly files.
-6. `samlang-cli` then shells out to `runtime` folder that links the assembly against the SAMLANG
+6. `samlang-cli` then shells out to `runtime` folder that links the assembly against the samlang
    runtime. Now you get a program that is directly runnable!

@@ -11,10 +11,10 @@ const code = `
  * @author sam
  */
 
-// Basic information of sam, written in SAMLANG.
-// The code below is a well-typed SAMLANG program.
+// Basic information of sam, written in samlang.
+// The code below is a well-typed samlang program.
 // Try it by yourself at
-// https://samlang.developersam.com/demo
+// https://samlang.io/demo
 
 class List<T>(Nil(unit), Cons([T * List<T>])) {
   function <T> of(t: T): List<T> =
@@ -27,7 +27,7 @@ class Developer(
   val projects: List<string>,
 ) {
   function sam(): Developer = {
-    val l = List.of("SAMLANG").cons("...")
+    val l = List.of("samlang").cons("...")
     val github = "SamChou19815"
     { name: "Sam Zhou", github, projects: l }
   }

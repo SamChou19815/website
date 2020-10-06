@@ -1,5 +1,5 @@
 ---
-title: Design Choice of SAMLANG in Alpha
+title: Design Choice of samlang in Alpha
 tags: [design-choices]
 ---
 
@@ -23,7 +23,7 @@ the substring SAM, which seems very unnatural.
 Given that giant heap of legacy issues, I decided to start from scratch again to design and
 implement a better programming language in my mind, with the additional knowledge in programming
 language theory thanks to Cornell CS 4110 and past experience of designing a language. I decided to
-name it SAMLANG because I can't think of other names. In this week, I archived the old language's
+name it samlang because I can't think of other names. In this week, I archived the old language's
 repo, open sourced the new language's repo on [GitHub](https://github.com/SamChou19815/samlang) and
 published its [official documentation](http://samlang-docs.developersam.com). Now it's the time to
 discuss some of my design choices.

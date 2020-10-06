@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 ---
 
-SAMLANG is a statically-typed functional programming language designed and implemented by Sam Zhou.
+samlang is a statically-typed functional programming language designed and implemented by Sam Zhou.
 The language is still under development so the syntax and semantics may be changed at any time.
 
 The language can be compiled down to X86 assembly and machine code.

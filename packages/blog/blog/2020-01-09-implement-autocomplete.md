@@ -8,7 +8,7 @@ Implement autocomplete in 79 lines of code. Actually, it's not that easy.
 Without the infrastructure discussed in this post, that code snippet mentioned here is useless.
 
 I will walk through my journey to implement autocomplete in this blog post, using my programming
-language [SAMLANG](https://samlang.developersam.com) as an example.
+language [samlang](https://samlang.developersam.com) as an example.
 
 <!--truncate-->
 
@@ -16,8 +16,8 @@ language [SAMLANG](https://samlang.developersam.com) as an example.
 
 First, let's understand what is the autocomplete that I'm talking about. Here are some examples:
 
-![Autocomplete for SAMLANG](/img/2020-01-09-implement-autocomplete/autocomplete-samlang.png)
-Autocomplete for SAMLANG (IDE: VSCode)
+![Autocomplete for samlang](/img/2020-01-09-implement-autocomplete/autocomplete-samlang.png)
+Autocomplete for samlang (IDE: VSCode)
 
 ![Autocomplete for TypeScript](/img/2020-01-09-implement-autocomplete/autocomplete-ts.png)
 Autocomplete for TypeScript (IDE: VSCode)
@@ -134,8 +134,8 @@ An example of an easy feature is type query. When a user hovers over an expressi
 expect IDE to show some information about this expression. Usually, type information is shown to the
 user. Here are some examples of type query:
 
-![Type Query for SAMLANG](/img/2020-01-09-implement-autocomplete/type-query-samlang.png) Type Query
-for SAMLANG (IDE: VSCode)
+![Type Query for samlang](/img/2020-01-09-implement-autocomplete/type-query-samlang.png) Type Query
+for samlang (IDE: VSCode)
 
 ![Type Query for Kotlin](/img/2020-01-09-implement-autocomplete/type-query-kotlin.png) Type Query
 for Kotlin (IDE: IntelliJ IDEA)
@@ -318,7 +318,7 @@ I am not a program. HAHA :)
 ```
 
 Fortunately, parser generators support recovery parsing natively nowadays. I use
-[ANTLR4](https://github.com/antlr/antlr4) for SAMLANG, and it defaults to parsing with recovery.
+[ANTLR4](https://github.com/antlr/antlr4) for samlang, and it defaults to parsing with recovery.
 However, you need to be careful. ANTLR4 can generate a parse tree that can be accepted by its
 generated visitor interface, but it can return `null` when it cannot deal with a really broken node.
 Therefore, you need to handle `null` safety everywhere.
@@ -400,14 +400,14 @@ with the clever hack while I was interning at Facebook. The code is still
 but it was disabled by default and gated behind a flag, because it is unstable with the reasons I
 mentioned above.
 
-I started the SAMLANG project a year ago. I implemented the type checker with type inference,
+I started the samlang project a year ago. I implemented the type checker with type inference,
 cleaned up the code and added module system in the summer, and finally introduced incremental
 checking and various IDE feature support in this winter. I wanted autocomplete for my language for a
 long time, now it's finally there!
 
 ### Amazing Results
 
-![Autocomplete for SAMLANG](/img/2020-01-09-implement-autocomplete/autocomplete-samlang.png)
-![Autocomplete for SAMLANG 2](/img/2020-01-09-implement-autocomplete/autocomplete-samlang-2.png)
-![Autocomplete for SAMLANG 3](/img/2020-01-09-implement-autocomplete/autocomplete-samlang-3.png)
-![Autocomplete for SAMLANG 4](/img/2020-01-09-implement-autocomplete/autocomplete-samlang-4.png)
+![Autocomplete for samlang](/img/2020-01-09-implement-autocomplete/autocomplete-samlang.png)
+![Autocomplete for samlang 2](/img/2020-01-09-implement-autocomplete/autocomplete-samlang-2.png)
+![Autocomplete for samlang 3](/img/2020-01-09-implement-autocomplete/autocomplete-samlang-3.png)
+![Autocomplete for samlang 4](/img/2020-01-09-implement-autocomplete/autocomplete-samlang-4.png)

@@ -8,7 +8,7 @@
 const theme = require('lib-react/prism-theme.json');
 
 module.exports = {
-  title: 'SAMLANG',
+  title: 'samlang',
   tagline: "Sam's Programming Language",
   url: 'https://samlang.io',
   baseUrl: '/',
@@ -22,9 +22,9 @@ module.exports = {
       indexName: 'developersam_samllang',
     },
     navbar: {
-      title: 'SAMLANG',
+      title: 'samlang',
       logo: {
-        alt: 'SAMLANG Logo',
+        alt: 'samlang logo',
         src: 'img/logo.svg',
       },
       items: [
