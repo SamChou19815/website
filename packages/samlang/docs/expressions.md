@@ -102,7 +102,7 @@ There are three built-in functions:
 - `intToString: (int) -> string`
 - `println: (string) -> unit`
 
-You can directly call them in SAMLANG code.
+You can directly call them in samlang code.
 
 ## Function Call
 
@@ -125,7 +125,7 @@ Here are the supported ones:
 
 ## If-Else Expressions
 
-In SAMLANG, we don't have ternary expression, because if-else blocks are expressions.
+In samlang, we don't have ternary expression, because if-else blocks are expressions.
 
 You can write: `if a == b then c else d`. `c` and `d` must have the same type and the result has the
 same type as `c` and `d`.

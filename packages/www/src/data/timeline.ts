@@ -135,7 +135,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     ],
   },
   {
-    title: 'SAMLANG',
+    title: 'samlang',
     type: 'project',
     time: 'January 2019',
     image: SAMLANG,
@@ -147,7 +147,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
       },
       {
         name: 'Docs',
-        url: 'https://samlang.developersam.com/',
+        url: 'https://samlang.io/',
       },
     ],
   },
@@ -231,7 +231,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     type: 'project',
     time: 'June 2018',
     image: SAMPL,
-    detail: "Sam's first programming language. Archived in favor of SAMLANG.",
+    detail: "Sam's first programming language. Archived in favor of samlang.",
     links: [
       {
         name: 'GitHub Repo',

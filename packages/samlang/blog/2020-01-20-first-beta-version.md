@@ -2,7 +2,7 @@
 title: First Beta Version
 ---
 
-The first beta version of SAMLANG is released. The expression level language features are mostly
+The first beta version of samlang is released. The expression level language features are mostly
 fixed. Future versions will try to maintain backward-compatibility with best effort.
 
 Features considered for future versions include:

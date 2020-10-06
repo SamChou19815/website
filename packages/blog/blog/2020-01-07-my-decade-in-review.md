@@ -427,11 +427,11 @@ At the same time, I found my passion in programming languages and my compiler pr
 after summer 2018. _The original one in summer 2018 was abandoned for a complete rewrite with better
 architecture in mind: good error messages and real type inference were taken into consideration from
 day one rather than some afterthought. Recently, I was working on adding IDE support to my new
-language SAMLANG and hope it can bootstrap in the future years._ This is the reason why this blog
+language samlang and hope it can bootstrap in the future years._ This is the reason why this blog
 post was delayed for so long.
 
-![Autocompletion for SAMLANG](/img/2020-01-07-my-decade-in-review/samlang-autocompletion.png)
-Autocompletion for SAMLANG
+![Autocompletion for samlang](/img/2020-01-07-my-decade-in-review/samlang-autocompletion.png)
+Autocompletion for samlang
 
 I will not add any reflection for the past two years. It is too close to the present to derive any
 useful insights.

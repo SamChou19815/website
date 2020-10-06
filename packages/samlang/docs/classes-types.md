@@ -35,11 +35,11 @@ effects. The `int` type includes all 64-bit integers. The string type includes a
 quoted by double-quotes, like `"Hello World!"`. The `bool` types has two possible values: `true` and
 `false`.
 
-SAMLANG enables you to use these primitive types to construct more complex types. You can also have
+samlang enables you to use these primitive types to construct more complex types. You can also have
 tuple types like `[int, bool, string]` and function types like `((int) -> int, int) -> int`.
 
-You may want to have some named tuple so that the code is more readable. SAMLANG allows that by
-letting you create an object class module.
+You may want to have some named tuple so that the code is more readable. samlang allows that by
+letting you create an object class.
 
 ## Object Class Module
 
