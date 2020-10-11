@@ -26,7 +26,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
     type: 'Open source contributions',
     media: '/projects/docusaurus.png',
     description:
-      'A static documentation site generator developed by Facebook open source. I am one of the top 20 contributors.',
+      'A static documentation site generator developed by Facebook open source. I am one of the top 10 contributors.',
     links: [
       { text: 'Docs', href: 'https://v2.docusaurus.io' },
       { text: 'GitHub', href: 'https://github.com/facebook/docusaurus' },
