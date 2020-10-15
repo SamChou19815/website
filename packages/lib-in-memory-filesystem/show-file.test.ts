@@ -7,7 +7,8 @@ it('showFileInDirectory works', () => {
 });
 
 it('showFiles works', () => {
-  expect(showFiles(initialState, ['README.md', 'www.txt'])).toBe(
-    '# Developer Samhttps://developersam.com/'
-  );
+  expect(showFiles(initialState, ['README.md', 'www.txt'])).toEqual([
+    '# Developer Sam',
+    'https://developersam.com/',
+  ]);
 });

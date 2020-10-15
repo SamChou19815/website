@@ -10,7 +10,7 @@ import {
 
 const baseCommands: Commands = {
   cat: {
-    fn: (...paths: string[]): string => {
+    fn: (...paths: string[]): readonly string[] | string => {
       try {
         return showFiles(getFilesystemState(), paths);
       } catch (exception) {
@@ -41,7 +41,7 @@ const baseCommands: Commands = {
   },
 
   ls: {
-    fn: (...paths: string[]): string => {
+    fn: (...paths: string[]): readonly string[] => {
       try {
         return listFiles(getFilesystemState(), paths);
       } catch (exception) {

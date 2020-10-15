@@ -10,14 +10,12 @@ export const useWebTerminalCommands = (): Commands => {
 
   // Patch help command into commands, to provide help for all commands.
 
-  const help = (): string =>
-    Object.keys(commandsWithHelp)
-      .map((key) => {
-        const cmdObj = commandsWithHelp[key];
-        const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
-        return `${key} - ${cmdObj.description}${usage}`;
-      })
-      .join('\n');
+  const help = (): readonly string[] =>
+    Object.keys(commandsWithHelp).map((key) => {
+      const cmdObj = commandsWithHelp[key];
+      const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
+      return `${key} - ${cmdObj.description}${usage}`;
+    });
 
   const commandsWithHelp: Commands = {
     ...commands,
