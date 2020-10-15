@@ -14,25 +14,20 @@ export const showFileInDirectory = (directory: Directory, filename: string): str
   return foundFile.type === 'DIRECTORY' ? null : foundFile.text;
 };
 
-const showFiles = (state: FileSystemState, pathList: readonly string[]): string => {
-  return pathList
-    .map((path) => {
-      const parent = getParent(path);
-      const stack = parent === '/' ? initialState : changeDirectory(state, parent);
-      const directory = peek(stack)[1];
-      const filename = getLast(path);
-      const content = showFileInDirectory(directory, filename);
-      if (content === null) {
-        throw new Error(
-          `\`${join(
-            currentDirectoryPath(stack),
-            filename
-          )}\` cannot be found or is not a text file.`
-        );
-      }
-      return content;
-    })
-    .join('');
+const showFiles = (state: FileSystemState, pathList: readonly string[]): readonly string[] => {
+  return pathList.map((path) => {
+    const parent = getParent(path);
+    const stack = parent === '/' ? initialState : changeDirectory(state, parent);
+    const directory = peek(stack)[1];
+    const filename = getLast(path);
+    const content = showFileInDirectory(directory, filename);
+    if (content === null) {
+      throw new Error(
+        `\`${join(currentDirectoryPath(stack), filename)}\` cannot be found or is not a text file.`
+      );
+    }
+    return content;
+  });
 };
 
 export default showFiles;

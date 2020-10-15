@@ -6,30 +6,53 @@ import listFiles, {
 import type { Directory } from './types';
 
 it('listFilesInDirectory works', () => {
-  expect(listFilesInDirectory(root)).toBe('top-secret/\nblog.txt\ngithub.txt\nREADME.md\nwww.txt');
-  expect(listFilesInDirectory(root.children[0][1] as Directory)).toBe('real-secret/\nfact.txt');
-  expect(listFilesInDirectory((root.children[0][1] as Directory).children[0][1] as Directory)).toBe(
-    'random/\nreal-fact.txt'
-  );
+  expect(listFilesInDirectory(root)).toEqual([
+    'top-secret/',
+    'blog.txt',
+    'github.txt',
+    'README.md',
+    'www.txt',
+  ]);
+  expect(listFilesInDirectory(root.children[0][1] as Directory)).toEqual([
+    'real-secret/',
+    'fact.txt',
+  ]);
+  expect(
+    listFilesInDirectory((root.children[0][1] as Directory).children[0][1] as Directory)
+  ).toEqual(['random/', 'real-fact.txt']);
   expect(
     listFilesInDirectory(
       ((root.children[0][1] as Directory).children[0][1] as Directory).children[0][1] as Directory
     )
-  ).toBe('actual-fact.txt');
+  ).toEqual(['actual-fact.txt']);
 });
 
 it('listFilesInDirectoryWithRelativePath works', () => {
   expect(
     listFilesInDirectoryWithRelativePath(initialState, './.././top-secret/real-secret/random')
-  ).toBe('actual-fact.txt');
+  ).toEqual(['actual-fact.txt']);
 });
 
 it('listFiles works', () => {
-  expect(listFiles(initialState, [])).toBe('top-secret/\nblog.txt\ngithub.txt\nREADME.md\nwww.txt');
-  expect(listFiles(initialState, ['.'])).toBe(
-    'top-secret/\nblog.txt\ngithub.txt\nREADME.md\nwww.txt'
-  );
-  expect(listFiles(initialState, ['top-secret/real-secret/random', 'top-secret'])).toBe(
-    'top-secret/real-secret/random:\nactual-fact.txt\n\ntop-secret:\nreal-secret/\nfact.txt'
-  );
+  expect(listFiles(initialState, [])).toEqual([
+    'top-secret/',
+    'blog.txt',
+    'github.txt',
+    'README.md',
+    'www.txt',
+  ]);
+  expect(listFiles(initialState, ['.'])).toEqual([
+    'top-secret/',
+    'blog.txt',
+    'github.txt',
+    'README.md',
+    'www.txt',
+  ]);
+  expect(listFiles(initialState, ['top-secret/real-secret/random', 'top-secret'])).toEqual([
+    'top-secret/real-secret/random:',
+    'actual-fact.txt',
+    'top-secret:',
+    'real-secret/',
+    'fact.txt',
+  ]);
 });

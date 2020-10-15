@@ -46,9 +46,9 @@ export const autoCompleteCommand = (sources: readonly string[], prefix: string):
  */
 export const autoCompleteFilename = (state: FileSystemState, prefix: string): string | null => {
   const parent = getParent(prefix);
-  let files: string[] | null;
+  let files: readonly string[] | null;
   try {
-    files = listFiles(changeDirectory(state, parent), []).split('\n');
+    files = listFiles(changeDirectory(state, parent), []);
   } catch {
     files = null;
   }

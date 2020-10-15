@@ -27,7 +27,11 @@ const getNewHistory = (commands: Commands, inputLine: string): readonly Terminal
     } else {
       const result = command.fn(...args);
       if (result != null) {
-        result.split('\n').forEach((line) => newHistoryItems.push({ isCommand: false, line }));
+        if (Array.isArray(result)) {
+          result.forEach((line) => newHistoryItems.push({ isCommand: false, line }));
+        } else {
+          newHistoryItems.push({ isCommand: false, line: result });
+        }
       }
     }
   }
