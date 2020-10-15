@@ -76,9 +76,13 @@ const timeline = (...args: string[]): readonly string[] | void => {
   return getFilteredTimeline(types).map(({ title, time }) => `${time}: ${title}`);
 };
 
+const devMegan = (): ReactElement => <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>;
+
 const commands: Commands = {
   ...baseCommands,
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
+  // TODO: make description support JSX and actually render :devmegan: custom emoji.
+  'dev-megan': { fn: devMegan, description: ':devmegan:' },
 };
 
 const WebTerminalAppWrapper = ({ children }: { readonly children: ReactNode }): ReactElement => (
