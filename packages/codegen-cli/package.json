@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "@dev-sam/bundler": "workspace:^0.0.1",
-    "@types/jest": "^25.2.3",
-    "@types/node": "^14.0.23",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.10",
     "@vercel/ncc": "^0.24.0",
     "lib-changed-files": "workspace:^0.0.1",
     "lib-find-monorepo-root": "workspace:^0.0.1",
