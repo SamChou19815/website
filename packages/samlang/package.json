@@ -19,12 +19,12 @@
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
     "prism-react-renderer": "^1.1.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.0.0-alpha.65",
-    "@types/react": "^16.9.43",
+    "@types/react": "^16.9.53",
     "typescript": "^4.0.3"
   },
   "browserslist": {
