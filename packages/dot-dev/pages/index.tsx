@@ -1,12 +1,17 @@
 import React, { ReactElement } from 'react';
 
 import FanArtWorkPage from '../components/FanArtWorkPage';
-import { FAN_ART_ITERATION_0, FAN_ART_ITERATION_1, FAN_ART_ITERATION_2 } from '../components/data';
+import {
+  FAN_ART_ITERATION_0,
+  FAN_ART_ITERATION_1,
+  FAN_ART_ITERATION_2,
+  FAN_ART_ITERATION_3,
+} from '../components/data';
 
 const ArtsPage = (): ReactElement => (
   <FanArtWorkPage
     title="Fan Arts"
-    works={[FAN_ART_ITERATION_0, FAN_ART_ITERATION_1, FAN_ART_ITERATION_2]}
+    works={[FAN_ART_ITERATION_3, FAN_ART_ITERATION_2, FAN_ART_ITERATION_1, FAN_ART_ITERATION_0]}
   />
 );
 
