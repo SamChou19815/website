@@ -36,7 +36,8 @@ export default function App(): ReactElement {
         <div className="navbar__inner">
           <div className="navbar__items">
             <a className="navbar__brand" href="/">
-              TEN
+              <img className="navbar__logo" src="/logo.png" alt="TEN App logo" />
+              <strong className="navbar__title">TEN</strong>
             </a>
           </div>
           <div className="navbar__items navbar__items--right">{buttons}</div>
