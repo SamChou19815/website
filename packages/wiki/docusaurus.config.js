@@ -17,6 +17,10 @@ module.exports = {
     prism: { theme },
     navbar: {
       title: 'Wiki',
+      logo: {
+        alt: 'devsam logo',
+        src: 'https://developersam.com/logo.png',
+      },
       items: [
         { to: 'docs/intro', label: 'Docs', position: 'left' },
         { to: 'intern', label: 'internals@dev-sam', position: 'left' },
