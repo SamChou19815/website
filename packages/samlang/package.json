@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@dev-sam/samlang-demo": "^0.3.0",
-    "@docusaurus/core": "^2.0.0-alpha.65",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.65",
-    "@docusaurus/theme-classic": "^2.0.0-alpha.65",
+    "@docusaurus/core": "2.0.0-alpha.65",
+    "@docusaurus/preset-classic": "2.0.0-alpha.65",
+    "@docusaurus/theme-classic": "2.0.0-alpha.65",
     "@mdx-js/react": "^1.6.4",
     "clsx": "^1.1.1",
     "lib-docusaurus-plugin": "0.1.0",
@@ -23,7 +23,7 @@
     "react-dom": "^16.14.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-alpha.65",
+    "@docusaurus/module-type-aliases": "2.0.0-alpha.65",
     "@types/react": "^16.9.53",
     "typescript": "^4.0.3"
   },

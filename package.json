@@ -42,6 +42,7 @@
   "peerDependencies": {
     "react": "^16.14.0"
   },
+  "resolve": {},
   "dependenciesMeta": {
     "@ampproject/toolbox-optimizer": {
       "built": false
