@@ -23,6 +23,10 @@ module.exports = {
     prism: { theme },
     navbar: {
       title: 'Developer Sam Blog',
+      logo: {
+        alt: 'devsam logo',
+        src: 'https://developersam.com/logo.png',
+      },
       items: [
         {
           href: 'https://developersam.com/',
