@@ -6,8 +6,8 @@
     "@docusaurus/core": "2.0.0-alpha.65",
     "@docusaurus/plugin-content-pages": "2.0.0-alpha.65",
     "infima": "0.2.0-alpha.12",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "scripts": {
     "start": "docusaurus start",
