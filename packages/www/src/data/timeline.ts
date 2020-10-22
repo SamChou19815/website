@@ -28,6 +28,21 @@ export type TimelineItem = {
 
 const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
+    title: '💕',
+    type: 'event',
+    time: 'October 2020',
+    links: [
+      {
+        name: 'Megan Yin',
+        url: 'https://meganyin.com',
+      },
+      {
+        name: 'dev-megan',
+        url: 'https://github.com/meganyin13',
+      },
+    ],
+  },
+  {
     title: 'Turn samzhou.dev into a fan-art site',
     type: 'project',
     time: 'September 2020',
