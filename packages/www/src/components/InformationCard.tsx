@@ -24,7 +24,16 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
   <div className={clsx('card', className)}>
     <LazyCardMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
     <div className="card__header">
-      <h3>Sam Zhou</h3>
+      <div className="avatar">
+        <img
+          className="avatar__photo"
+          src="/sam-by-megan-3-square.png"
+          alt="dev-sam fan art by dev-megan"
+        />
+        <div className="avatar__intro">
+          <h4 className="avatar__name">Sam Zhou</h4>
+        </div>
+      </div>
     </div>
     <div className={clsx('card__body', styles.IconLines)}>
       {DATASET_ABOUT.facts.map(({ text, iconName }) => (
