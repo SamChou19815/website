@@ -16,8 +16,8 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
     description:
       'A statically-typed functional programming language with full type inference. A research programming language developed by Sam.',
     links: [
-      { text: 'Docs', href: 'https://samlang.developersam.com' },
-      { text: 'Demo', href: 'https://samlang.developersam.com/demo' },
+      { text: 'Docs', href: 'https://samlang.io' },
+      { text: 'Demo', href: 'https://samlang.io/demo' },
       { text: 'GitHub', href: 'https://github.com/SamChou19815/samlang' },
     ],
   },
