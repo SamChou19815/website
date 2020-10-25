@@ -33,7 +33,7 @@ const PrismCodeBlock = ({
     <Highlight
       {...defaultProps}
       theme={userDefinedTheme || flexibleTheme}
-      code={children.trim()}
+      code={children}
       language={language as Language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
