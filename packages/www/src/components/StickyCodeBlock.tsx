@@ -4,8 +4,7 @@ import styles from './StickyCodeBlock.module.css';
 
 import CodeBlock, { flexibleTheme } from 'lib-react/PrismCodeBlock';
 
-const code = `
-/**
+const code = `/**
  * Copyright (C) 2015–2020 Developer Sam.
  *
  * @author sam
@@ -34,8 +33,7 @@ class Developer(
 }
 class Main {
   function main(): Developer = Developer.sam()
-}
-`;
+}`;
 
 const patchedTheme = {
   ...flexibleTheme,

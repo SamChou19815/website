@@ -246,7 +246,7 @@ const PrismCodeEditor = ({
         theme={theme}
         style={{ height: codeBlockHeight + 16 }}
       >
-        {code.trim()}
+        {code}
       </CodeBlock>
     </div>
   );
