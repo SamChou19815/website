@@ -13,7 +13,7 @@
     "infima": "0.2.0-alpha.12",
     "lib-react": "0.1.0",
     "lib-web-terminal": "0.1.0",
-    "next": "^9.5.3",
+    "next": "^10.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-ga": "^3.1.2"
