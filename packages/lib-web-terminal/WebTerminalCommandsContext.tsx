@@ -1,4 +1,4 @@
-import { Provider, createContext, useContext } from 'react';
+import React, { ReactNode, Provider, createContext, useContext } from 'react';
 
 import type { Commands } from './types';
 
@@ -10,11 +10,16 @@ export const useWebTerminalCommands = (): Commands => {
 
   // Patch help command into commands, to provide help for all commands.
 
-  const help = (): readonly string[] =>
+  const help = (): readonly ReactNode[] =>
     Object.keys(commandsWithHelp).map((key) => {
       const cmdObj = commandsWithHelp[key];
       const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
-      return `${key} - ${cmdObj.description}${usage}`;
+      return (
+        <>
+          {key} -&nbsp;{cmdObj.description}
+          {usage}
+        </>
+      );
     });
 
   const commandsWithHelp: Commands = {
