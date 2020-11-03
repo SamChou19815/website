@@ -5,7 +5,7 @@ export type TerminalHistory =
   | { readonly isCommand: true; readonly line: string };
 
 type CommandSpecification = {
-  readonly description: string;
+  readonly description: ReactNode;
   readonly usage?: string;
   readonly fn: (...args: string[]) => readonly ReactNode[] | ReactNode | void;
 };
