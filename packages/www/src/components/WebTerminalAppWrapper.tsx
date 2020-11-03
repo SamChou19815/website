@@ -81,8 +81,18 @@ const devMegan = (): ReactElement => <a href="https://meganyin.com">{"Visit Mega
 const commands: Commands = {
   ...baseCommands,
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
-  // TODO: make description support JSX and actually render :devmegan: custom emoji.
-  'dev-megan': { fn: devMegan, description: ':devmegan:' },
+  'dev-megan': {
+    fn: devMegan,
+    description: (
+      <img
+        src="/emojis/devmegan.png"
+        width={20}
+        height={20}
+        style={{ marginBottom: '-4px' }}
+        alt="dev-megan"
+      />
+    ),
+  },
 };
 
 const WebTerminalAppWrapper = ({ children }: { readonly children: ReactNode }): ReactElement => (
