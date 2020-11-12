@@ -15,6 +15,7 @@ const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
   headers: { authorization: `Bearer ${functions.config().github_contribution_alert.github_token}` },
 });
 
+type TotalCount = { readonly totalCount: number };
 type GitHubGraphQLResponse = {
   readonly user: {
     readonly contributionsCollection: {
@@ -27,6 +28,10 @@ type GitHubGraphQLResponse = {
         }[];
       };
     };
+    readonly issueContributions: TotalCount;
+    readonly pullRequestContributions: TotalCount;
+    readonly repositoryContributions: TotalCount;
+    readonly commitContributionsByRepository: readonly { readonly contributions: TotalCount }[];
   };
 };
 
@@ -48,6 +53,20 @@ const numberOfContributionToday = async (githubUser: string): Promise<number> =>
             date
             contributionCount
           }
+        }
+      }
+      issueContributions {
+        totalCount
+      }
+      repositoryContributions {
+        totalCount
+      }
+      commitContributionsByRepository {
+        repository {
+          nameWithOwner
+        }
+        contributions {
+          totalCount
         }
       }
     }
