@@ -16,46 +16,35 @@ const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
 });
 
 type TotalCount = { readonly totalCount: number };
+type ContributionsCollection = {
+  readonly issueContributions: TotalCount;
+  readonly pullRequestContributions: TotalCount;
+  readonly repositoryContributions: TotalCount;
+  readonly commitContributionsByRepository: readonly { readonly contributions: TotalCount }[];
+};
 type GitHubGraphQLResponse = {
-  readonly user: {
-    readonly contributionsCollection: {
-      readonly contributionCalendar: {
-        readonly weeks: readonly {
-          readonly contributionDays: readonly {
-            readonly date: string;
-            readonly contributionCount: number;
-          }[];
-        }[];
-      };
-    };
-    readonly issueContributions: TotalCount;
-    readonly pullRequestContributions: TotalCount;
-    readonly repositoryContributions: TotalCount;
-    readonly commitContributionsByRepository: readonly { readonly contributions: TotalCount }[];
-  };
+  readonly user: { readonly contributionsCollection: ContributionsCollection };
 };
 
-const numberOfContributionToday = async (githubUser: string): Promise<number> => {
+const fetchContributionsCollection = async (
+  githubUser: string
+): Promise<ContributionsCollection> => {
   // The system is built for a small set of users in NY, at least in recent future.
   const currentTimeInNewYork = DateTime.local().setZone('America/New_York');
   const todayInNYStart = currentTimeInNewYork.startOf('day');
   const todayInNYEnd = currentTimeInNewYork.endOf('day');
 
   // Using Sam's PAT, which makes the query timezone in NY.
-  const contributionDays = await graphQLClient
-    .request<GitHubGraphQLResponse>(
-      `query {
+  const {
+    user: { contributionsCollection },
+  } = await graphQLClient.request<GitHubGraphQLResponse>(
+    `query {
   user(login: "${githubUser}") {
     contributionsCollection(from: "${todayInNYStart.toISO()}", to: "${todayInNYEnd.toISO()}") {
-      contributionCalendar {
-        weeks {
-          contributionDays {
-            date
-            contributionCount
-          }
-        }
-      }
       issueContributions {
+        totalCount
+      }
+      pullRequestContributions {
         totalCount
       }
       repositoryContributions {
@@ -72,17 +61,22 @@ const numberOfContributionToday = async (githubUser: string): Promise<number> =>
     }
   }
 }`
-    )
-    .then((data) => {
-      console.log(data);
-      return data.user.contributionsCollection.contributionCalendar.weeks[0].contributionDays;
-    });
-
-  return (
-    contributionDays.find(({ date }) => currentTimeInNewYork.toISODate() === date)
-      ?.contributionCount ?? 0
   );
+  return contributionsCollection;
 };
+
+const sumContributions = ({
+  issueContributions,
+  pullRequestContributions,
+  repositoryContributions,
+  commitContributionsByRepository,
+}: ContributionsCollection): number =>
+  commitContributionsByRepository.reduce(
+    (accumulator, current) => accumulator + current.contributions.totalCount,
+    issueContributions.totalCount +
+      pullRequestContributions.totalCount +
+      repositoryContributions.totalCount
+  );
 
 // eslint-disable-next-line import/prefer-default-export
 export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
@@ -114,8 +108,10 @@ export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
 
     await Promise.all(
       users.map(async ({ githubID, name, email }) => {
-        const count = await numberOfContributionToday(githubID);
+        const contributions = await fetchContributionsCollection(githubID);
+        const count = sumContributions(contributions);
         console.log(`${name}'s number of contributions: ${count}.`);
+        console.log(`Raw data: ${JSON.stringify(contributions)}`);
         if (count > 0) {
           return null;
         }
@@ -123,7 +119,7 @@ export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
           to: email,
           from: 'bot@developersam.com',
           subject: "[github-contribution-alert] You still don't have a contribution for today!",
-          text: `Hi ${name}. Looks like you still don't have a contribution for today :sad-octocat:.
+          text: `Hi ${name}. Looks like you still don't have a **safe** contribution for today :sad-octocat:.
 (Reply back if you think it is a false alert.)`,
         });
         console.log(`Sent alert email to ${email} (${name})`);
