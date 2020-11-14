@@ -1947,10 +1947,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dev-sam/samlang-demo@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@dev-sam/samlang-demo@npm:0.3.0"
-  checksum: 98e91293caa3eed03f2292605e1c54af1f833958d2c5af82b84b392fa2433a87a5ed17466e3d8cf6ef57706bc3280163610e13f4e033f4e256b378a0a7b0b7d6
+"@dev-sam/samlang-demo@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@dev-sam/samlang-demo@npm:0.3.1"
+  checksum: 4ebb268fb38c4261e3e3516ebc6ff076eda0bbe931d63c681b67eb0c0f836d3ff158f62146c827e97723659360c94af2fc85a6444de7c2054672c4bb048182e1
   languageName: node
   linkType: hard
 
@@ -17029,7 +17029,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "samlang@workspace:packages/samlang"
   dependencies:
-    "@dev-sam/samlang-demo": ^0.3.0
+    "@dev-sam/samlang-demo": ^0.3.1
     "@docusaurus/core": 2.0.0-alpha.66
     "@docusaurus/module-type-aliases": 2.0.0-alpha.66
     "@docusaurus/preset-classic": 2.0.0-alpha.66
