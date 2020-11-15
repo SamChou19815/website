@@ -37,3 +37,10 @@ export const FAN_ART_ITERATION_3: FanArtWork = {
   description: '@dev-sam/fan-art Iteration 3',
   pageLink: '/fan-art-iteration-3',
 };
+
+export const FAN_ART_BIRTHDAY_EDITION: FanArtWork = {
+  link: '/fan-arts/dev-sam-birthday-edition.jpg',
+  author: MEGAN,
+  description: '@dev-sam/fan-art Birthday Edition',
+  pageLink: '/fan-art-birthday-edition',
+};
