@@ -7644,6 +7644,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-confetti@npm:0.2.2":
+  version: 0.2.2
+  resolution: "dom-confetti@npm:0.2.2"
+  checksum: 47ebd2388adf3f146ea6e39ad82b51016cd1c93d23a0ae8cb7ef24ad35a17877614606423addd804344969f075e56e87a7de81c2469c29bc77d6f5ed55bd43e4
+  languageName: node
+  linkType: hard
+
 "dom-converter@npm:^0.2":
   version: 0.2.0
   resolution: "dom-converter@npm:0.2.0"
@@ -16005,6 +16012,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-dom-confetti@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "react-dom-confetti@npm:0.2.0"
+  dependencies:
+    dom-confetti: 0.2.2
+  peerDependencies:
+    react: "*"
+  checksum: 741aa63f0f5829382e262ab51fb7392fc41ad1e75a28222282a1f49177ec2c26b933ca0d20eb799d755d9c792885ac6367c6be9f8b5e520dc023a3b5d260f504
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^17.0.0":
   version: 17.0.0
   resolution: "react-dom@npm:17.0.0"
@@ -16326,6 +16344,20 @@ fsevents@^1.2.7:
   dependencies:
     resolve: ^1.1.6
   checksum: 6646a6bce733282d182bf04816b15d4e2d63736b3453cf62a8568aaa1399621a73b3942315161f549e090f9a3c61bc09f4cb674f928c369a40037621e10295bd
+  languageName: node
+  linkType: hard
+
+"recoil@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "recoil@npm:0.1.2"
+  peerDependencies:
+    react: ^16.13.1
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: c69105dd7da74430b2c58d17a9c690ebe6e6364c8a7e79e08ff732d4a3d6154a365dc698113ac29639948a6f0ddee05a34201375235f370fc9e3dc17234ed7b2
   languageName: node
   linkType: hard
 
@@ -20058,7 +20090,9 @@ typescript@^4.0.5:
     next-transpile-modules: ^4.1.0
     react: ^17.0.0
     react-dom: ^17.0.0
+    react-dom-confetti: ^0.2.0
     react-ga: ^3.1.2
+    recoil: ^0.1.2
     typescript: ^4.0.5
   languageName: unknown
   linkType: soft

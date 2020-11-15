@@ -7,6 +7,7 @@ import ButtonLink from './Common/ButtonLink';
 import WwwSvgIcon, { WwwSvgIconName } from './Common/Icons';
 import LazyCardMedia from './Common/LazyCardMedia';
 import styles from './InformationCard.module.css';
+import ProfilePicture from './ProfilePicture';
 
 type IconLineProps = {
   readonly iconName: WwwSvgIconName;
@@ -25,11 +26,7 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
     <LazyCardMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
     <div className="card__header">
       <div className="avatar">
-        <img
-          className="avatar__photo"
-          src="/sam-by-megan-3-square.png"
-          alt="dev-sam fan art by dev-megan"
-        />
+        <ProfilePicture />
         <div className="avatar__intro">
           <h4 className="avatar__name">Sam Zhou</h4>
         </div>
