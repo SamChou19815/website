@@ -1,9 +1,10 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import DATASET_PROJECTS from '../data/projects';
 import DATASET_TECH_TALKS from '../data/tech-talks';
 import { TimelineItemType, getFilteredTimeline } from '../data/timeline';
+import { useSetTerminalForceOnBirthday } from './global-states';
 
 import WebTerminal from 'lib-web-terminal';
 import { WebTerminalCommandsContextProvider } from 'lib-web-terminal/WebTerminalCommandsContext';
@@ -78,6 +79,18 @@ const timeline = (...args: string[]): readonly string[] | void => {
 
 const devMegan = (): ReactElement => <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>;
 
+const ForceBirthdayDummyComponent = (): ReactElement => {
+  const setForceOnBirthday = useSetTerminalForceOnBirthday();
+
+  useEffect(() => {
+    setForceOnBirthday((forced) => !forced);
+  }, [setForceOnBirthday]);
+
+  return <>Toggled birthday state!</>;
+};
+
+const forceBirthday = (): ReactElement => <ForceBirthdayDummyComponent />;
+
 const commands: Commands = {
   ...baseCommands,
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
@@ -92,6 +105,10 @@ const commands: Commands = {
         alt="dev-megan"
       />
     ),
+  },
+  'birthday-toggle': {
+    fn: forceBirthday,
+    description: "Make the website to believe that today is Sam's birthday, or reset the belief.",
   },
 };
 

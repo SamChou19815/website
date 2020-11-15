@@ -1,12 +1,17 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import ReactGA from 'react-ga';
+import { RecoilRoot } from 'recoil';
 
 import 'infima/dist/css/default/default.min.css';
 import 'lib-react/PrismCodeBlock.css';
 import './index.css';
+import {
+  useSetDeveloperSamOnBirthday,
+  useTerminalForceOnBirthday,
+} from '../components/global-states';
 
 if (process.env.NODE_ENV !== 'development' && process.browser) {
   ReactGA.initialize('UA-140662756-1');
@@ -22,9 +27,23 @@ if(window.matchMedia('(prefers-color-scheme: dark)').matches)t('dark')
 window.matchMedia('(prefers-color-scheme: dark)').addListener(({matches:m})=>t(m?'dark':''))
 })();`;
 
-const MaterialUIApp = (props: AppProps): ReactElement => {
-  const { Component, pageProps } = props;
+const AppContent = ({ Component, pageProps }: AppProps): ReactElement => {
+  const setOnBirthday = useSetDeveloperSamOnBirthday();
+  const terminalForceOnBirthday = useTerminalForceOnBirthday();
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const today = new Date();
+      const onBirthday = today.getMonth() === 10 && today.getDate() === 15;
+      setOnBirthday(terminalForceOnBirthday || onBirthday);
+    }, 200);
+    return () => clearInterval(interval);
+  }, [terminalForceOnBirthday, setOnBirthday]);
+
+  return <Component {...pageProps} />;
+};
+
+const MaterialUIApp = (props: AppProps): ReactElement => {
   return (
     <>
       <Head>
@@ -86,7 +105,9 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
           dangerouslySetInnerHTML={{ __html: themeAutoSwitcher }}
         />
       </Head>
-      <Component {...pageProps} />
+      <RecoilRoot>
+        <AppContent {...props} />
+      </RecoilRoot>
     </>
   );
 };
