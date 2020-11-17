@@ -19,6 +19,14 @@ type TotalCount = { readonly totalCount: number };
 type ContributionsCollection = {
   readonly issueContributions: TotalCount;
   readonly pullRequestContributions: TotalCount;
+  readonly pullRequestReviewContributions: {
+    readonly nodes: readonly {
+      readonly pullRequest: {
+        readonly baseRef: { readonly name: string };
+        readonly headRef: { readonly name: string };
+      };
+    }[];
+  };
   readonly repositoryContributions: TotalCount;
   readonly commitContributionsByRepository: readonly { readonly contributions: TotalCount }[];
 };
@@ -47,6 +55,21 @@ const fetchContributionsCollection = async (
       pullRequestContributions {
         totalCount
       }
+      pullRequestReviewContributions(first: 100) {
+        nodes {
+          pullRequest {
+            repository {
+              nameWithOwner
+            }
+            baseRef {
+              name
+            }
+            headRef {
+              name
+            }
+          }
+        }
+      }
       repositoryContributions {
         totalCount
       }
@@ -68,14 +91,21 @@ const fetchContributionsCollection = async (
 const sumContributions = ({
   issueContributions,
   pullRequestContributions,
+  pullRequestReviewContributions,
   repositoryContributions,
   commitContributionsByRepository,
 }: ContributionsCollection): number =>
+  issueContributions.totalCount +
+  pullRequestContributions.totalCount +
+  pullRequestReviewContributions.nodes.reduce(
+    (accumulator, { pullRequest: { baseRef } }) =>
+      accumulator + (baseRef.name === 'master' || baseRef.name === 'main' ? 1 : 0),
+    0
+  ) +
+  repositoryContributions.totalCount +
   commitContributionsByRepository.reduce(
     (accumulator, current) => accumulator + current.contributions.totalCount,
-    issueContributions.totalCount +
-      pullRequestContributions.totalCount +
-      repositoryContributions.totalCount
+    0
   );
 
 // eslint-disable-next-line import/prefer-default-export
