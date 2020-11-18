@@ -67,6 +67,8 @@ const Sidebar = ({ className, selectedDocumentID, documentMetadataList }: Props)
         sidebar={treeifyDocumentMetadata(documentMetadataList)}
         path={`/intern${selectedDocumentID == null ? '' : `#doc-${selectedDocumentID}`}`}
         sidebarCollapsible
+        isHidden={false}
+        onCollapse={() => {}}
       />
     </div>
   );
