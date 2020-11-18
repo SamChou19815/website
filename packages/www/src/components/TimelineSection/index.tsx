@@ -1,9 +1,9 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 
 import clsx from 'clsx';
 
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
-import ConsoleSection from '../Common/ConsoleSection';
+import { useTimelinePillsState } from '../global-states';
 import TimelineItemCard from './TimelineItemCard';
 import styles from './index.module.css';
 
@@ -23,11 +23,7 @@ const ControlledCheckbox = ({ checked, onChange, label }: CheckboxProps): ReactE
 };
 
 export const TimelineSection = (): ReactElement => {
-  const [{ workChecked, projectsChecked, eventsChecked }, patchTimeline] = useState({
-    workChecked: true,
-    projectsChecked: true,
-    eventsChecked: true,
-  });
+  const [{ workChecked, projectsChecked, eventsChecked }, patchTimeline] = useTimelinePillsState();
 
   const workOnChange = (): void => {
     patchTimeline({ workChecked: !workChecked, projectsChecked, eventsChecked });
@@ -39,32 +35,15 @@ export const TimelineSection = (): ReactElement => {
     patchTimeline({ workChecked, projectsChecked, eventsChecked: !eventsChecked });
   };
 
-  let title = 'dev-sam timeline';
   const types: TimelineItemType[] = [];
-  if (workChecked && projectsChecked && eventsChecked) {
-    types.push('work', 'project', 'event');
-  } else if (!workChecked && !projectsChecked && !eventsChecked) {
-    title += ' --none';
-  } else {
-    title += ' --only';
-    if (workChecked) {
-      title += ' work';
-      types.push('work');
-    }
-    if (projectsChecked) {
-      title += ' projects';
-      types.push('project');
-    }
-    if (eventsChecked) {
-      title += ' events';
-      types.push('event');
-    }
-  }
+  if (workChecked) types.push('work');
+  if (projectsChecked) types.push('project');
+  if (eventsChecked) types.push('event');
 
   const filteredItems = getFilteredTimeline(types);
 
   return (
-    <ConsoleSection id="timeline" title={title}>
+    <>
       <div className={styles.ControlSection}>
         <h3 className={styles.ControlSectionTitle}>Filters:</h3>
         <ul className="pills">
@@ -87,7 +66,7 @@ export const TimelineSection = (): ReactElement => {
           <TimelineItemCard key={`${item.title}-${item.time}`} item={item} />
         ))}
       </div>
-    </ConsoleSection>
+    </>
   );
 };
 
