@@ -6,6 +6,7 @@ import ProjectsSection from './ProjectsSection';
 import TechTalkSection from './TechTalkSection';
 import { useSetTerminalForceOnBirthday } from './global-states';
 
+import { checkNotNull } from 'lib-common';
 import WebTerminal from 'lib-web-terminal';
 import { WebTerminalCommandsContextProvider } from 'lib-web-terminal/WebTerminalCommandsContext';
 import baseCommands from 'lib-web-terminal/base-commands';
@@ -52,8 +53,7 @@ const timeline = (...args: string[]): readonly string[] | void => {
   const invalidArguments: string[] = [];
   const types: TimelineItemType[] = [];
   for (let i = 1; i < args.length; i += 1) {
-    const argument = args[i];
-    if (argument == null) throw new Error();
+    const argument = checkNotNull(args[i]);
     switch (argument) {
       case 'work':
         types.push('work');

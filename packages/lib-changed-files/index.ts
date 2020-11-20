@@ -1,6 +1,8 @@
 import { spawnSync } from 'child_process';
 import * as http from 'http';
 
+import { assertNotNull } from 'lib-common';
+
 export type ChangedFilesQueryResults = {
   readonly changedFiles: readonly string[];
   readonly deletedFiles: readonly string[];
@@ -24,14 +26,15 @@ export const parseGitDiffWithStatus_EXPOSED_FOR_TESTING = (
         return;
       }
       const [type, part1, part2] = parts;
-      if (type == null || part1 == null) throw new Error();
+      assertNotNull(type);
+      assertNotNull(part1);
       if (type === 'A' || type === 'M') {
         changedFiles.push(part1);
       } else if (type === 'D') {
         deletedFiles.push(part1);
       } else if (type.startsWith('R')) {
         deletedFiles.push(part1);
-        if (part2 == null) throw new Error();
+        assertNotNull(part2);
         changedFiles.push(part2);
       }
     });

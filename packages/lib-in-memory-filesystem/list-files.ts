@@ -1,6 +1,8 @@
 import { changeDirectory, peek } from './stack';
 import type { Directory, FileSystemState } from './types';
 
+import { checkNotNull } from 'lib-common';
+
 export const listFilesInDirectory = (directory: Directory): readonly string[] =>
   directory.children.map(([filename, file]) =>
     file.type === 'DIRECTORY' ? `${filename}/` : filename
@@ -16,9 +18,7 @@ const listFiles = (state: FileSystemState, pathList: readonly string[]): readonl
     return listFilesInDirectory(peek(state)[1]);
   }
   if (pathList.length === 1) {
-    const first = pathList[0];
-    if (first == null) throw new Error();
-    return listFilesInDirectoryWithRelativePath(state, first);
+    return listFilesInDirectoryWithRelativePath(state, checkNotNull(pathList[0]));
   }
   return pathList
     .map((path) => [`${path}:`, ...listFilesInDirectoryWithRelativePath(state, path)])

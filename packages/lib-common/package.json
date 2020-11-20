@@ -1,0 +1,12 @@
+{
+  "name": "lib-common",
+  "description": "Developer Sam's common standard library.",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "compile": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  }
+}

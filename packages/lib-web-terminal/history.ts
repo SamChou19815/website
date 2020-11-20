@@ -1,11 +1,8 @@
+import { checkNotNull } from 'lib-common';
+
 type Result = {
   readonly value: string;
   readonly historyPosition: number | null;
-};
-
-const checkNotNull = (v: string | undefined): string => {
-  if (v == null) throw new Error();
-  return v;
 };
 
 const scrollHistory = (
@@ -47,8 +44,6 @@ const scrollHistory = (
         value: checkNotNull(history[historyPosition - 1]),
         historyPosition: historyPosition - 1,
       };
-    default:
-      throw new Error();
   }
 };
 

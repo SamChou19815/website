@@ -17,7 +17,7 @@ const main = async (): Promise<void> => {
         await incrementalBundle();
         return;
       default:
-        throw new Error();
+        throw new Error('Invalid command.');
     }
   } catch (error) {
     // eslint-disable-next-line no-console

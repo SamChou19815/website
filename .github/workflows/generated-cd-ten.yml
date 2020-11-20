@@ -4,6 +4,7 @@ name: CD ten
 on:
   push:
     paths:
+      - 'packages/lib-common/**'
       - 'packages/ten/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-ten.yml'

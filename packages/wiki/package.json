@@ -16,6 +16,7 @@
     "@mdx-js/react": "^1.6.4",
     "clsx": "^1.1.1",
     "firebase": "^7.18.0",
+    "lib-common": "0.0.1",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
     "prism-react-renderer": "^1.1.1",
