@@ -137,6 +137,7 @@ export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
       .split(';')
       .map((userInformationCommaSeparated) => {
         const [githubID, name, email] = userInformationCommaSeparated.split(',');
+        if (githubID == null || name == null || email == null) throw new Error();
         return { githubID, name, email };
       });
 

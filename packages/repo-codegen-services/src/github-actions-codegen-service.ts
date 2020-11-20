@@ -29,12 +29,14 @@ const hasScript = (
   workspacesJson: YarnWorkspacesJson,
   workspace: string,
   script: string
-): boolean =>
-  JSON.parse(
-    readFileSync(
-      join(workspacesJson.information[workspace].workspaceLocation, 'package.json')
-    ).toString()
-  )?.scripts?.[script] != null;
+): boolean => {
+  const information = workspacesJson.information[workspace];
+  if (information == null) throw new Error();
+  return (
+    JSON.parse(readFileSync(join(information.workspaceLocation, 'package.json')).toString())
+      ?.scripts?.[script] != null
+  );
+};
 
 const githubActionsCodegenService: CodegenService = {
   name: 'GitHub Actions Workflows Codegen',
@@ -90,9 +92,9 @@ const githubActionsCodegenService: CodegenService = {
             outputContent: githubActionWorkflowToString({
               workflowName: `CD ${workspace}`,
               workflowMasterBranchOnlyTriggerPaths: [
-                ...workspacesJson.information[workspace].dependencyChain.map(
+                ...(workspacesJson.information[workspace]?.dependencyChain ?? []).map(
                   (workspaceDependency: string) =>
-                    `${workspacesJson.information[workspaceDependency].workspaceLocation}/**`
+                    `${workspacesJson.information[workspaceDependency]?.workspaceLocation}/**`
                 ),
                 'configuration/**',
                 `.github/workflows/generated-*-${workspace}.yml`,

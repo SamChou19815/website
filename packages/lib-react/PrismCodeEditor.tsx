@@ -94,6 +94,7 @@ const PrismCodeEditor = ({
 
         if (value !== nextValue) {
           const startLineText = linesBeforeCaret[startLine];
+          if (startLineText == null) throw new Error();
 
           updateInput({
             value: nextValue,
@@ -112,6 +113,7 @@ const PrismCodeEditor = ({
         const startLine = linesBeforeCaret.length - 1;
         const endLine = getLines(value, selectionEnd).length - 1;
         const startLineText = linesBeforeCaret[startLine];
+        if (startLineText == null) throw new Error();
 
         updateInput({
           value: value

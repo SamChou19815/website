@@ -26,6 +26,7 @@ export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Pro
       const b = (i % 3) * 3 + (j % 3);
       const index = a * 9 + b;
       const tileStatus = tiles[index];
+      if (tileStatus == null) throw new Error();
       let doesNeedHighlight = false;
       if (highlightedCell !== null) {
         const [c, d] = highlightedCell;

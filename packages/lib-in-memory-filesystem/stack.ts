@@ -6,7 +6,11 @@ import type { Directory, FileSystemState } from './types';
  * @param state the current filesystem state of the terminal.
  * @returns current directory object.
  */
-export const peek = (state: FileSystemState): [string, Directory] => state[state.length - 1];
+export const peek = (state: FileSystemState): readonly [string, Directory] => {
+  const tuple = state[state.length - 1];
+  if (tuple == null) throw new Error();
+  return tuple;
+};
 
 /**
  * Change the directory stack for one level.

@@ -15,11 +15,11 @@
   "devDependencies": {
     "@dev-sam/bundler": "workspace:^0.0.1",
     "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.7",
+    "@types/node": "^14.14.9",
     "@vercel/ncc": "^0.24.0",
     "lib-changed-files": "workspace:^0.0.1",
     "lib-find-monorepo-root": "workspace:^0.0.1",
     "lib-incremental": "workspace:^0.0.1",
-    "typescript": "^4.0.5"
+    "typescript": "^4.1.2"
   }
 }

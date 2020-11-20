@@ -7,7 +7,7 @@ import { switchToMonorepoRoot } from 'lib-find-monorepo-root';
 const main = async (): Promise<void> => {
   try {
     switchToMonorepoRoot();
-    switch (process.argv[2].toLowerCase()) {
+    switch (process.argv[2]?.toLowerCase()) {
       case 'compile':
       case 'c':
         await incrementalCompile();

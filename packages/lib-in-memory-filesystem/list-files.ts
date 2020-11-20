@@ -16,7 +16,9 @@ const listFiles = (state: FileSystemState, pathList: readonly string[]): readonl
     return listFilesInDirectory(peek(state)[1]);
   }
   if (pathList.length === 1) {
-    return listFilesInDirectoryWithRelativePath(state, pathList[0]);
+    const first = pathList[0];
+    if (first == null) throw new Error();
+    return listFilesInDirectoryWithRelativePath(state, first);
   }
   return pathList
     .map((path) => [`${path}:`, ...listFilesInDirectoryWithRelativePath(state, path)])

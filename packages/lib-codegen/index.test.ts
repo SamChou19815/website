@@ -6,7 +6,7 @@ it('createJsonCodegenService works', () => {
     () => true,
     (_, json) => [{ outputFilename: '', outputContent: json.foo }]
   );
-  expect(service.run('', '{"foo":"bar"}')[0].outputContent).toBe('bar');
+  expect(service.run('', '{"foo":"bar"}')[0]?.outputContent).toBe('bar');
 });
 
 it('createJSCodegenService works', () => {
@@ -16,5 +16,5 @@ it('createJSCodegenService works', () => {
     (_, f) => [{ outputFilename: '', outputContent: String(f()) }]
   );
 
-  expect(service.run('', 'exports = () => 42;')[0].outputContent).toBe('42');
+  expect(service.run('', 'exports = () => 42;')[0]?.outputContent).toBe('42');
 });
