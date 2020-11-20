@@ -1,9 +1,9 @@
 import React, { ReactElement, ReactNode, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
-import DATASET_PROJECTS from '../data/projects';
-import DATASET_TECH_TALKS from '../data/tech-talks';
 import { TimelineItemType, getFilteredTimeline } from '../data/timeline';
+import ProjectsSection from './ProjectsSection';
+import TechTalkSection from './TechTalkSection';
 import { useSetTerminalForceOnBirthday } from './global-states';
 
 import WebTerminal from 'lib-web-terminal';
@@ -14,7 +14,7 @@ import type { Commands } from 'lib-web-terminal/types';
 const devSam = (
   command: string,
   ...commandArguments: readonly string[]
-): readonly string[] | void => {
+): readonly ReactNode[] | ReactNode | void => {
   const information = `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
   switch (command) {
     case 'about':
@@ -25,13 +25,9 @@ const devSam = (
         ...DATASET_ABOUT.links.map(({ href, text }) => `- [${text}](${href})`),
       ];
     case 'projects':
-      return DATASET_PROJECTS.map(
-        ({ name, type, description }) => `${name}:\n- ${type}\n- ${description}`
-      );
+      return <ProjectsSection />;
     case 'tech-talks':
-      return DATASET_TECH_TALKS.map(
-        ({ title, type, description }) => `${title}:\n- ${type}\n- ${description}`
-      );
+      return <TechTalkSection />;
     case 'timeline':
       return timeline(...commandArguments);
     case undefined:
