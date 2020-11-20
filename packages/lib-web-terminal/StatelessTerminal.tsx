@@ -12,7 +12,8 @@ const TerminalHistoryLine = ({
   readonly history: TerminalHistory;
 }): ReactElement => {
   if (!isCommand) {
-    return <p className={styles.TerminalMessage}>{line}</p>;
+    if (typeof line === 'string') return <p className={styles.TerminalMessage}>{line}</p>;
+    return <div className={styles.TerminalMessage}>{line}</div>;
   }
   return (
     <p className={styles.TerminalMessage}>
