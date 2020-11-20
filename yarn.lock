@@ -1963,6 +1963,7 @@ __metadata:
     "@vercel/ncc": ^0.24.0
     chokidar: ^3.4.2
     express: ^4.17.1
+    lib-common: 0.0.1
     typescript: ^4.1.2
   bin:
     sam-watch-server: build/index.js
@@ -9423,6 +9424,7 @@ fsevents@^1.2.7:
     firebase-functions: ^3.11.0
     graphql: ^15.3.0
     graphql-request: 1.8.2
+    lib-common: 0.0.1
     luxon: ^1.25.0
     typescript: ^4.1.2
   languageName: unknown
@@ -12189,16 +12191,25 @@ fsevents@^1.2.7:
   dependencies:
     "@types/jest": ^26.0.15
     "@types/node": ^14.14.9
+    lib-common: 0.0.1
     typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
-"lib-codegen@workspace:^0.0.1, lib-codegen@workspace:packages/lib-codegen":
+"lib-codegen@workspace:0.0.1, lib-codegen@workspace:packages/lib-codegen":
   version: 0.0.0-use.local
   resolution: "lib-codegen@workspace:packages/lib-codegen"
   dependencies:
     "@types/jest": ^26.0.15
     "@types/node": ^14.14.9
+    typescript: ^4.1.2
+  languageName: unknown
+  linkType: soft
+
+"lib-common@0.0.1, lib-common@^0.0.1, lib-common@workspace:0.0.1, lib-common@workspace:packages/lib-common":
+  version: 0.0.0-use.local
+  resolution: "lib-common@workspace:packages/lib-common"
+  dependencies:
     typescript: ^4.1.2
   languageName: unknown
   linkType: soft
@@ -12233,6 +12244,7 @@ fsevents@^1.2.7:
   resolution: "lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem"
   dependencies:
     "@types/jest": ^26.0.15
+    lib-common: 0.0.1
     typescript: ^4.1.2
   languageName: unknown
   linkType: soft
@@ -12260,6 +12272,7 @@ fsevents@^1.2.7:
     "@types/react": ^16.9.56
     autosize: ^4.0.2
     clsx: ^1.1.1
+    lib-common: ^0.0.1
     lib-prism-extended: "workspace:0.1.0"
     prism-react-renderer: ^1.1.1
     react: ^17.0.0
@@ -12276,6 +12289,7 @@ fsevents@^1.2.7:
   dependencies:
     "@types/jest": ^26.0.15
     "@types/react": ^16.9.56
+    lib-common: 0.0.1
     lib-in-memory-filesystem: 0.1.0
     react: ^17.0.0
     typescript: ^4.1.2
@@ -16653,7 +16667,8 @@ fsevents@^1.2.7:
     "@types/jest": ^26.0.15
     "@types/node": ^14.14.9
     "@vercel/ncc": ^0.24.0
-    lib-codegen: "workspace:^0.0.1"
+    lib-codegen: "workspace:0.0.1"
+    lib-common: "workspace:0.0.1"
     typescript: ^4.1.2
   languageName: unknown
   linkType: soft
@@ -18462,6 +18477,7 @@ fsevents@^1.2.7:
     "@types/node": ^14.14.9
     "@types/react": ^16.9.56
     infima: 0.2.0-alpha.12
+    lib-common: 0.0.1
     react: ^17.0.0
     react-dom: ^17.0.0
     typescript: ^4.1.2
@@ -19977,6 +19993,7 @@ typescript@^4.1.2:
     "@types/remarkable": 1.7.4
     clsx: ^1.1.1
     firebase: ^7.18.0
+    lib-common: 0.0.1
     lib-docusaurus-plugin: 0.1.0
     lib-react: 0.1.0
     prism-react-renderer: ^1.1.1
@@ -20097,6 +20114,7 @@ typescript@^4.1.2:
     "@types/react-dom": ^16.9.9
     clsx: ^1.1.1
     infima: 0.2.0-alpha.12
+    lib-common: 0.0.1
     lib-react: 0.1.0
     lib-web-terminal: 0.1.0
     next: ^10.0.0

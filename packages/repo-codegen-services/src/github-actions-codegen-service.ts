@@ -10,6 +10,7 @@ import {
 } from './github-actions-ast';
 
 import type { CodegenService } from 'lib-codegen';
+import { checkNotNull } from 'lib-common';
 
 const yarnWorkspaceBoilterplateSetupSteps = [
   githubActionJobActionStep('actions/checkout@v2', {
@@ -29,14 +30,12 @@ const hasScript = (
   workspacesJson: YarnWorkspacesJson,
   workspace: string,
   script: string
-): boolean => {
-  const information = workspacesJson.information[workspace];
-  if (information == null) throw new Error();
-  return (
-    JSON.parse(readFileSync(join(information.workspaceLocation, 'package.json')).toString())
-      ?.scripts?.[script] != null
-  );
-};
+): boolean =>
+  JSON.parse(
+    readFileSync(
+      join(checkNotNull(workspacesJson.information[workspace]).workspaceLocation, 'package.json')
+    ).toString()
+  )?.scripts?.[script] != null;
 
 const githubActionsCodegenService: CodegenService = {
   name: 'GitHub Actions Workflows Codegen',

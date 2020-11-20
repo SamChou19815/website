@@ -2,18 +2,19 @@ import React, { ReactNode, Provider, createContext, useContext } from 'react';
 
 import type { Commands } from './types';
 
+import { assertNotNull, checkNotNull } from 'lib-common';
+
 const WebTerminalCommandsContext = createContext<Commands | null>(null);
 
 export const useWebTerminalCommands = (): Commands => {
   const commands = useContext(WebTerminalCommandsContext);
-  if (commands == null) throw new Error();
+  assertNotNull(commands);
 
   // Patch help command into commands, to provide help for all commands.
 
   const help = (): readonly ReactNode[] =>
     Object.keys(commandsWithHelp).map((key) => {
-      const cmdObj = commandsWithHelp[key];
-      if (cmdObj == null) throw new Error();
+      const cmdObj = checkNotNull(commandsWithHelp[key]);
       const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
       return (
         <>

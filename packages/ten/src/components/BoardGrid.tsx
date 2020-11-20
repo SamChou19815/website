@@ -3,6 +3,8 @@ import React, { ReactElement } from 'react';
 import BoardCell from './BoardCell';
 import styles from './BoardGrid.module.css';
 
+import { checkNotNull } from 'lib-common';
+
 type Props = {
   readonly tiles: number[];
   readonly highlightedCell: [number, number] | null;
@@ -25,8 +27,7 @@ export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Pro
       const a = Math.floor(i / 3) * 3 + Math.floor(j / 3);
       const b = (i % 3) * 3 + (j % 3);
       const index = a * 9 + b;
-      const tileStatus = tiles[index];
-      if (tileStatus == null) throw new Error();
+      const tileStatus = checkNotNull(tiles[index]);
       let doesNeedHighlight = false;
       if (highlightedCell !== null) {
         const [c, d] = highlightedCell;

@@ -7,6 +7,8 @@ import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 import scrollHistory from './history';
 import type { Commands, TerminalHistory } from './types';
 
+import { checkNotNull } from 'lib-common';
+
 const initialHistory: readonly TerminalHistory[] = [
   { isCommand: false, line: 'Type `help` to show a list of available commands.' },
 ];
@@ -18,8 +20,7 @@ const getNewHistory = (commands: Commands, inputLine: string): readonly Terminal
 
   if (rawCommandLineInput) {
     const input = rawCommandLineInput.split(' ');
-    const commandName = input[0];
-    if (commandName == null) throw new Error();
+    const commandName = checkNotNull(input[0]);
     const args = input.slice(1);
 
     const command = commands[commandName];

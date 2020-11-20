@@ -7,6 +7,8 @@ import * as functions from 'firebase-functions';
 import { GraphQLClient } from 'graphql-request';
 import { DateTime } from 'luxon';
 
+import { assertNotNull } from 'lib-common';
+
 dotEnv.config();
 admin.initializeApp();
 SendGridMail.setApiKey(functions.config().github_contribution_alert.sendgrid_api_key);
@@ -137,7 +139,9 @@ export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
       .split(';')
       .map((userInformationCommaSeparated) => {
         const [githubID, name, email] = userInformationCommaSeparated.split(',');
-        if (githubID == null || name == null || email == null) throw new Error();
+        assertNotNull(githubID);
+        assertNotNull(name);
+        assertNotNull(email);
         return { githubID, name, email };
       });
 

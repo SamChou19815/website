@@ -8,6 +8,8 @@ import express from 'express';
 
 import getIgnorePatterns from './ignore-patterns';
 
+import { checkNotNull } from 'lib-common';
+
 const DEV_SAM_MAGIC_PORT_CONSTANT = 19815;
 
 const gitignoreAbsolutePath = (() => {
@@ -56,15 +58,16 @@ watcher.on('all', (eventName, path) => {
 server.get('/', (request, response) => {
   const rawSince = request.query.since;
   const rawPathPrefix = request.query.pathPrefix ?? '.';
-  if (typeof rawSince !== 'string' || typeof rawPathPrefix !== 'string') throw new Error();
+  if (typeof rawSince !== 'string' || typeof rawPathPrefix !== 'string') {
+    throw new Error('Invalid argument since and pathPrefix');
+  }
   const since = parseInt(rawSince, 10);
   let pathPrefix = normalize(rawPathPrefix);
   if (pathPrefix === '.') pathPrefix = '';
   const eventsToReport: FilesystemEvent[] = [];
   const mentionedFilenames = new Set<string>();
   for (let i = events.length - 1; i >= 0; i -= 1) {
-    const event = events[i];
-    if (event == null) throw new Error();
+    const event = checkNotNull(events[i]);
     if (event.time < since) {
       break;
     }

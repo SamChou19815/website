@@ -2,13 +2,6 @@
   "name": "ten",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.68",
-    "@docusaurus/plugin-content-pages": "2.0.0-alpha.68",
-    "infima": "0.2.0-alpha.12",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
-  },
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -16,6 +9,14 @@
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "proxy": "https://us-central1-dev-sam.cloudfunctions.net/HandleTenAIMoveRequest",
+  "dependencies": {
+    "@docusaurus/core": "2.0.0-alpha.68",
+    "@docusaurus/plugin-content-pages": "2.0.0-alpha.68",
+    "infima": "0.2.0-alpha.12",
+    "lib-common": "0.0.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-alpha.68",
     "@types/node": "^14.14.9",

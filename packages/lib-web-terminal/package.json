@@ -12,6 +12,7 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
+    "lib-common": "0.0.1",
     "lib-in-memory-filesystem": "0.1.0"
   },
   "peerDependencies": {

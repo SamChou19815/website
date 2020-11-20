@@ -13,9 +13,10 @@ import autosize from 'autosize';
 import clsx from 'clsx';
 import type { PrismTheme } from 'prism-react-renderer';
 
+import CodeBlock from './PrismCodeBlock';
 import styles from './PrismCodeEditor.module.css';
 
-import CodeBlock from 'lib-react/PrismCodeBlock';
+import { checkNotNull } from 'lib-common';
 
 type Record = {
   readonly value: string;
@@ -93,8 +94,7 @@ const PrismCodeEditor = ({
           .join('\n');
 
         if (value !== nextValue) {
-          const startLineText = linesBeforeCaret[startLine];
-          if (startLineText == null) throw new Error();
+          const startLineText = checkNotNull(linesBeforeCaret[startLine]);
 
           updateInput({
             value: nextValue,
@@ -112,8 +112,7 @@ const PrismCodeEditor = ({
         const linesBeforeCaret = getLines(value, selectionStart);
         const startLine = linesBeforeCaret.length - 1;
         const endLine = getLines(value, selectionEnd).length - 1;
-        const startLineText = linesBeforeCaret[startLine];
-        if (startLineText == null) throw new Error();
+        const startLineText = checkNotNull(linesBeforeCaret[startLine]);
 
         updateInput({
           value: value
