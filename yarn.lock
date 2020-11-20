@@ -1883,7 +1883,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/bundler@workspace:packages/sam-bundler"
   dependencies:
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@vercel/ncc": ^0.24.0
   bin:
     sam-bundle: ./index.js
@@ -1896,12 +1896,12 @@ __metadata:
   dependencies:
     "@dev-sam/bundler": "workspace:^0.0.1"
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@vercel/ncc": ^0.24.0
     lib-changed-files: "workspace:^0.0.1"
     lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   bin:
     sam-codegen: ./bin/index
   languageName: unknown
@@ -1911,7 +1911,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
   dependencies:
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": "*"
@@ -1937,11 +1937,11 @@ __metadata:
     "@dev-sam/bundler": "workspace:^0.0.1"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     lib-changed-files: "workspace:^0.0.1"
     lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   bin:
     monorail: ./bin/monorail
   languageName: unknown
@@ -1959,11 +1959,11 @@ __metadata:
   resolution: "@dev-sam/watcher-server@workspace:packages/sam-watcher-server"
   dependencies:
     "@types/express": ^4.17.7
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@vercel/ncc": ^0.24.0
     chokidar: ^3.4.2
     express: ^4.17.1
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   bin:
     sam-watch-server: build/index.js
   languageName: unknown
@@ -3802,7 +3802,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^14.14.7":
+"@types/node@npm:*":
   version: 14.14.7
   resolution: "@types/node@npm:14.14.7"
   checksum: 4fc8434bfe81c2a3102fa76777712ecee9e9177d43ec5929ba0dfd5a77a6c459cf10a37df64ea880a328f06973f6210eabf04b312428e309b2e8998147a6cd63
@@ -3827,6 +3827,13 @@ __metadata:
   version: 13.13.27
   resolution: "@types/node@npm:13.13.27"
   checksum: d47d3d6e36762a260f3d63f0930d2c14ccf45f6c62445c440ea1bdcaf27759f96706fac9a143c073f5a326e857dcdebd5c7857fbe6f9e439b2c41179864eb7d7
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.14.9":
+  version: 14.14.9
+  resolution: "@types/node@npm:14.14.9"
+  checksum: df0405c708fa94831e7f71ed01cd6f859a38ab0daeae99e01afdd408905479f205556a43bafe5692c82cd126abbdc68baeb99b4b7d653c1480c289080b71622b
   languageName: node
   linkType: hard
 
@@ -4025,12 +4032,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^4.8.0":
-  version: 4.8.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:4.8.0"
+"@typescript-eslint/eslint-plugin@npm:^4.8.1":
+  version: 4.8.1
+  resolution: "@typescript-eslint/eslint-plugin@npm:4.8.1"
   dependencies:
-    "@typescript-eslint/experimental-utils": 4.8.0
-    "@typescript-eslint/scope-manager": 4.8.0
+    "@typescript-eslint/experimental-utils": 4.8.1
+    "@typescript-eslint/scope-manager": 4.8.1
     debug: ^4.1.1
     functional-red-black-tree: ^1.0.1
     regexpp: ^3.0.0
@@ -4042,66 +4049,66 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 695e04c989c6ec8cc029a14c701e0dd2efbba0a9349d09c3bbf992b9c31f135b8a2c479a4b2f17da39c327029176690b51cbaa79c502bab3989d424b3c389cd9
+  checksum: d3ab0d7e184ecbb55a0c4404ebd906f4988f6df87447641229938048160963add34f257f0b012ee2ed9a7c0c4b1e3e6377cf9e0fe229eba33b5470883141d5eb
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:4.8.0":
-  version: 4.8.0
-  resolution: "@typescript-eslint/experimental-utils@npm:4.8.0"
+"@typescript-eslint/experimental-utils@npm:4.8.1":
+  version: 4.8.1
+  resolution: "@typescript-eslint/experimental-utils@npm:4.8.1"
   dependencies:
     "@types/json-schema": ^7.0.3
-    "@typescript-eslint/scope-manager": 4.8.0
-    "@typescript-eslint/types": 4.8.0
-    "@typescript-eslint/typescript-estree": 4.8.0
+    "@typescript-eslint/scope-manager": 4.8.1
+    "@typescript-eslint/types": 4.8.1
+    "@typescript-eslint/typescript-estree": 4.8.1
     eslint-scope: ^5.0.0
     eslint-utils: ^2.0.0
   peerDependencies:
     eslint: "*"
-  checksum: 1781e5cc7bda9e16ecabd5b5e0bfd6f293f3c1ee0fe126c7c41821706d62ef150b54ed9f8e06dcf702362704b45491ff474bfc93cd6041e9904d5dbf5cfba1cb
+  checksum: ddebd9ab65b775d3ce11fd1f9bbd76e11e0a545ef64e31b0eac6a0fccab337e86b946c60ff6ee0df60ea0aa9f315b10ac824a054ba49614ddef78f476c64fdd5
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^4.8.0":
-  version: 4.8.0
-  resolution: "@typescript-eslint/parser@npm:4.8.0"
+"@typescript-eslint/parser@npm:^4.8.1":
+  version: 4.8.1
+  resolution: "@typescript-eslint/parser@npm:4.8.1"
   dependencies:
-    "@typescript-eslint/scope-manager": 4.8.0
-    "@typescript-eslint/types": 4.8.0
-    "@typescript-eslint/typescript-estree": 4.8.0
+    "@typescript-eslint/scope-manager": 4.8.1
+    "@typescript-eslint/types": 4.8.1
+    "@typescript-eslint/typescript-estree": 4.8.1
     debug: ^4.1.1
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: d93a0ef0085698a909a5e6b7afda11410f34a32cdd55d11aa4cc9a1dd9fa2c4375c89f09c19e80270f69373af4a36ecd072824a2b2ea2ff1c30b0d24ad156212
+  checksum: c3a61efc48e79e6fdcc9686fb6011a7f462ff213741689e58a0c5e303282c745e982c9d699baea397a4c81eb11493c43b816d1299f1dd55854e7dfa3f870b949
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:4.8.0":
-  version: 4.8.0
-  resolution: "@typescript-eslint/scope-manager@npm:4.8.0"
+"@typescript-eslint/scope-manager@npm:4.8.1":
+  version: 4.8.1
+  resolution: "@typescript-eslint/scope-manager@npm:4.8.1"
   dependencies:
-    "@typescript-eslint/types": 4.8.0
-    "@typescript-eslint/visitor-keys": 4.8.0
-  checksum: 6d18290a15fde0219b0eeb1a3497e39f1bcd7e373af49b3acc083c8c2247801a6ca9ba9b85cbd34a8286b53aa807061fff852de2bda2361f0a15a290975b218c
+    "@typescript-eslint/types": 4.8.1
+    "@typescript-eslint/visitor-keys": 4.8.1
+  checksum: 40d9fff9178ae94af407d194e022e2a3f8b2e683779fcfd33c0f10de8a111d70f8c7c85bd813250f1fe6fbaa8bad2e6d6039189e3138a3d3610f33df28a4db2f
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:4.8.0":
-  version: 4.8.0
-  resolution: "@typescript-eslint/types@npm:4.8.0"
-  checksum: 9f1e89bae01d1facb897719af76ac96eedf18667aa328d3133167236742a00f70b917e36f9b181e0e644799509c42f16c3f55bcaf58bd7de5a867470eb7ff9f1
+"@typescript-eslint/types@npm:4.8.1":
+  version: 4.8.1
+  resolution: "@typescript-eslint/types@npm:4.8.1"
+  checksum: ccb647f35828aaa7991bde8a46c40c7ab48fdb1cc6ad6837a5e0f234dbbbd256babd23d83f0516ca797bd0060ca0950e4a5fd9104242ba2a83f74d06cfce59c5
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:4.8.0":
-  version: 4.8.0
-  resolution: "@typescript-eslint/typescript-estree@npm:4.8.0"
+"@typescript-eslint/typescript-estree@npm:4.8.1":
+  version: 4.8.1
+  resolution: "@typescript-eslint/typescript-estree@npm:4.8.1"
   dependencies:
-    "@typescript-eslint/types": 4.8.0
-    "@typescript-eslint/visitor-keys": 4.8.0
+    "@typescript-eslint/types": 4.8.1
+    "@typescript-eslint/visitor-keys": 4.8.1
     debug: ^4.1.1
     globby: ^11.0.1
     is-glob: ^4.0.1
@@ -4111,17 +4118,17 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 52ac3fa1ec5891e6a9f84b1ab7729bc3bc4f1d2426cd181f0b71d3a388f5f8bec0ffc8bda6bd5d77c83815f248f36009854f14b5b273856de7e7f6c0a64ce0b0
+  checksum: c49c39ea1368b95b00c40ec903d5dfe1316b58f024b023e317f5583d4c068290f989d698198b63464c5b6125d4a0ddf80e9e4c800b2c3bcfa89206db29079448
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:4.8.0":
-  version: 4.8.0
-  resolution: "@typescript-eslint/visitor-keys@npm:4.8.0"
+"@typescript-eslint/visitor-keys@npm:4.8.1":
+  version: 4.8.1
+  resolution: "@typescript-eslint/visitor-keys@npm:4.8.1"
   dependencies:
-    "@typescript-eslint/types": 4.8.0
+    "@typescript-eslint/types": 4.8.1
     eslint-visitor-keys: ^2.0.0
-  checksum: 8e66039e3f209e37ea13afd0e3e26a207e9b27f948bc446f155eedc047f878b39f3cad8e687646437dac75fa58eaa04e4652268e4584e24b5f29b02d973d4c7e
+  checksum: 318bfa2a4645fa52d1826de2c7b5c7ac49f4df2fcbe73dbbc7ed6d9d091cbb253ce4762919606ea717744d6b6978cfe966963786eb16877b70b87ad6eadbf7e0
   languageName: node
   linkType: hard
 
@@ -7769,7 +7776,7 @@ __metadata:
   resolution: "dot-dev@workspace:packages/dot-dev"
   dependencies:
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@types/react": ^16.9.56
     "@types/react-dom": ^16.9.9
     infima: 0.2.0-alpha.12
@@ -7777,7 +7784,7 @@ __metadata:
     react: ^17.0.0
     react-dom: ^17.0.0
     react-ga: ^3.1.2
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -9409,7 +9416,7 @@ fsevents@^1.2.7:
   dependencies:
     "@sendgrid/mail": ^7.2.6
     "@types/luxon": ^1.25.0
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@vercel/ncc": ^0.24.1
     dotenv: ^8.2.0
     firebase-admin: ^9.2.0
@@ -9417,7 +9424,7 @@ fsevents@^1.2.7:
     graphql: ^15.3.0
     graphql-request: 1.8.2
     luxon: ^1.25.0
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -12181,8 +12188,8 @@ fsevents@^1.2.7:
   resolution: "lib-changed-files@workspace:packages/lib-changed-files"
   dependencies:
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
-    typescript: ^4.0.5
+    "@types/node": ^14.14.9
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -12191,8 +12198,8 @@ fsevents@^1.2.7:
   resolution: "lib-codegen@workspace:packages/lib-codegen"
   dependencies:
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
-    typescript: ^4.0.5
+    "@types/node": ^14.14.9
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -12203,7 +12210,7 @@ fsevents@^1.2.7:
     "@docusaurus/types": 2.0.0-alpha.68
     lib-prism-extended: "workspace:0.1.0"
     lib-react: "workspace:0.1.0"
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   peerDependencies:
     prism-react-renderer: ^1.1.1
   peerDependenciesMeta:
@@ -12216,8 +12223,8 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-find-monorepo-root@workspace:packages/lib-find-monorepo-root"
   dependencies:
-    "@types/node": ^14.14.7
-    typescript: ^4.0.5
+    "@types/node": ^14.14.9
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -12226,7 +12233,7 @@ fsevents@^1.2.7:
   resolution: "lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem"
   dependencies:
     "@types/jest": ^26.0.15
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -12235,8 +12242,8 @@ fsevents@^1.2.7:
   resolution: "lib-incremental@workspace:packages/lib-incremental"
   dependencies:
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
-    typescript: ^4.0.5
+    "@types/node": ^14.14.9
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -12256,7 +12263,7 @@ fsevents@^1.2.7:
     lib-prism-extended: "workspace:0.1.0"
     prism-react-renderer: ^1.1.1
     react: ^17.0.0
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   peerDependencies:
     prism-react-renderer: ^1.1.1
     react: ^17.0.0
@@ -12271,7 +12278,7 @@ fsevents@^1.2.7:
     "@types/react": ^16.9.56
     lib-in-memory-filesystem: 0.1.0
     react: ^17.0.0
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   peerDependencies:
     react: ^17.0.0
   languageName: unknown
@@ -16644,10 +16651,10 @@ fsevents@^1.2.7:
     "@dev-sam/bundler": "workspace:^0.0.1"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@vercel/ncc": ^0.24.0
     lib-codegen: "workspace:^0.0.1"
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -16953,8 +16960,8 @@ fsevents@^1.2.7:
     "@dev-sam/codegen-cli": "workspace:^0.0.2"
     "@dev-sam/eslint-config-common": "workspace:^0.17.0"
     "@dev-sam/monorail": "workspace:packages/monorail"
-    "@typescript-eslint/eslint-plugin": ^4.8.0
-    "@typescript-eslint/parser": ^4.8.0
+    "@typescript-eslint/eslint-plugin": ^4.8.1
+    "@typescript-eslint/parser": ^4.8.1
     babel-jest: ^26.6.3
     eslint: ^7.13.0
     eslint-import-resolver-node: ^0.3.4
@@ -16968,7 +16975,7 @@ fsevents@^1.2.7:
     next: ^10.0.0
     prettier: ^2.1.2
     repo-codegen-services: "workspace:^0.0.1"
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   peerDependencies:
     react: ^17.0.0
   dependenciesMeta:
@@ -17069,7 +17076,7 @@ fsevents@^1.2.7:
     prism-react-renderer: ^1.1.1
     react: ^17.0.0
     react-dom: ^17.0.0
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -18452,12 +18459,12 @@ fsevents@^1.2.7:
     "@docusaurus/core": 2.0.0-alpha.68
     "@docusaurus/module-type-aliases": 2.0.0-alpha.68
     "@docusaurus/plugin-content-pages": 2.0.0-alpha.68
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@types/react": ^16.9.56
     infima: 0.2.0-alpha.12
     react: ^17.0.0
     react-dom: ^17.0.0
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -18955,23 +18962,23 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-typescript@^4.0.5:
-  version: 4.0.5
-  resolution: "typescript@npm:4.0.5"
+typescript@^4.1.2:
+  version: 4.1.2
+  resolution: "typescript@npm:4.1.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: ce94d4bbb914cc9d6fbd42e1476ab18c3292b262b8ba7ba76cd167a858545207a604e75bf1efbb75b8654c8f85deaa19795c3ef00098d7612855139b4ecc0240
+  checksum: d2ac373b469e973448c7287d0fbc732dbd34d00d07911b9506bbf81469a80db6613361fc9293d021da357cb7c7da2ee32f56d8ef76446361231374200cd6aee9
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.0.5#builtin<compat/typescript>":
-  version: 4.0.5
-  resolution: "typescript@patch:typescript@npm%3A4.0.5#builtin<compat/typescript>::version=4.0.5&hash=5bf698"
+"typescript@patch:typescript@^4.1.2#builtin<compat/typescript>":
+  version: 4.1.2
+  resolution: "typescript@patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=5bf698"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: d4be0bd2a2050b2d7b132cb2a40329178f181543e9d2ac6d1f06babd9f047208558a736a7effdeb28759ae2e815f070b61d10ee2f02cc93a6221a1490f21ffce
+  checksum: acfc7be6a091806432f324ad258c4a7d2a63996106a4c001db1eebb2661608a9fd0d109d0d29249c3e6890e3547a97b8580cbe0833aa64b2fb83f66e4d88a466
   languageName: node
   linkType: hard
 
@@ -19494,7 +19501,7 @@ typescript@^4.0.5:
   resolution: "vscode-disable-generated-files-edit@workspace:packages/vscode-disable-generated-files-edit"
   dependencies:
     "@types/vscode": 1.47.0
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -19964,7 +19971,7 @@ typescript@^4.0.5:
     "@docusaurus/preset-classic": 2.0.0-alpha.68
     "@docusaurus/theme-classic": 2.0.0-alpha.68
     "@mdx-js/react": ^1.6.4
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@types/react": ^16.9.56
     "@types/react-dom": ^16.9.9
     "@types/remarkable": 1.7.4
@@ -19977,7 +19984,7 @@ typescript@^4.0.5:
     react-dom: ^17.0.0
     remarkable: ^2.0.1
     rxjs: ^6.6.2
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 
@@ -20085,7 +20092,7 @@ typescript@^4.0.5:
   resolution: "www@workspace:packages/www"
   dependencies:
     "@types/jest": ^26.0.15
-    "@types/node": ^14.14.7
+    "@types/node": ^14.14.9
     "@types/react": ^16.9.56
     "@types/react-dom": ^16.9.9
     clsx: ^1.1.1
@@ -20099,7 +20106,7 @@ typescript@^4.0.5:
     react-dom-confetti: ^0.2.0
     react-ga: ^3.1.2
     recoil: ^0.1.2
-    typescript: ^4.0.5
+    typescript: ^4.1.2
   languageName: unknown
   linkType: soft
 

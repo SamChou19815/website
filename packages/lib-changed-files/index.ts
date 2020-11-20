@@ -23,14 +23,16 @@ export const parseGitDiffWithStatus_EXPOSED_FOR_TESTING = (
       if (parts.length === 0) {
         return;
       }
-      const type = parts[0];
+      const [type, part1, part2] = parts;
+      if (type == null || part1 == null) throw new Error();
       if (type === 'A' || type === 'M') {
-        changedFiles.push(parts[1]);
+        changedFiles.push(part1);
       } else if (type === 'D') {
-        deletedFiles.push(parts[1]);
+        deletedFiles.push(part1);
       } else if (type.startsWith('R')) {
-        deletedFiles.push(parts[1]);
-        changedFiles.push(parts[2]);
+        deletedFiles.push(part1);
+        if (part2 == null) throw new Error();
+        changedFiles.push(part2);
       }
     });
 

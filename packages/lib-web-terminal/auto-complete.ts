@@ -16,13 +16,14 @@ export const autoCompleteCommand = (sources: readonly string[], prefix: string):
     return null;
   }
   if (matchedPrefix.length === 1) {
-    return matchedPrefix[0];
+    return matchedPrefix[0] ?? null;
   }
   let bestPrefix = prefix;
   for (let i = prefix.length; ; i += 1) {
     const characterSet = new Set<string>();
     for (let j = 0; j < matchedPrefix.length; j += 1) {
       const source = matchedPrefix[j];
+      if (source == null) throw new Error();
       if (i >= source.length) {
         return bestPrefix;
       }
@@ -35,7 +36,7 @@ export const autoCompleteCommand = (sources: readonly string[], prefix: string):
       // Choosing either one means loss of generality. We stop here.
       return bestPrefix;
     }
-    bestPrefix += Array.from(characterSet.entries())[0][0];
+    bestPrefix += Array.from(characterSet.entries())[0]?.[0];
   }
 };
 
@@ -74,10 +75,16 @@ const autoCompleteCommandLine = (commands: Commands, line: string): string => {
     return '';
   }
   if (parts.length === 1) {
-    const result = autoCompleteCommand(Object.keys(commands), parts[parts.length - 1]);
-    return result === null ? parts[0] : result;
+    const last = parts[parts.length - 1];
+    if (last == null) throw new Error();
+    const result = autoCompleteCommand(Object.keys(commands), last);
+    if (result != null) return result;
+    const first = parts[0];
+    if (first == null) throw new Error();
+    return first;
   }
   const finalPart = parts[parts.length - 1];
+  if (finalPart == null) throw new Error();
   const expandedFilename = autoCompleteFilename(getFilesystemState(), finalPart);
   const expandedFinalPart = expandedFilename === null ? finalPart : expandedFilename;
   return [...parts.slice(0, parts.length - 1), expandedFinalPart].join(' ').trim();

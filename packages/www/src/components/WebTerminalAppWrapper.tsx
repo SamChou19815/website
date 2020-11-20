@@ -53,6 +53,7 @@ const timeline = (...args: string[]): readonly string[] | void => {
   const types: TimelineItemType[] = [];
   for (let i = 1; i < args.length; i += 1) {
     const argument = args[i];
+    if (argument == null) throw new Error();
     switch (argument) {
       case 'work':
         types.push('work');

@@ -18,13 +18,14 @@ const workspaceHasChangedFilesExcludingBundledBinaries = async (
   latestKnownGoodRerunTime: Readonly<Record<string, number | undefined>>
 ): Promise<boolean> => {
   const isNotBundledBinary = (filename: string): boolean =>
-    dirname(filename) !== join(workspacesJson.information[workspaceName].workspaceLocation, 'bin');
+    dirname(filename) !==
+    join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'bin');
 
   const files = await Promise.all(
-    workspacesJson.information[workspaceName].dependencyChain.map(async (item) => {
+    (workspacesJson.information[workspaceName]?.dependencyChain ?? []).map(async (item) => {
       const { changedFiles, deletedFiles } = await queryChangedFilesSince(
         latestKnownGoodRerunTime[item] ?? 0,
-        workspacesJson.information[item].workspaceLocation
+        workspacesJson.information[item]?.workspaceLocation ?? '.'
       );
       return changedFiles.some(isNotBundledBinary) || deletedFiles.some(isNotBundledBinary);
     })
@@ -110,11 +111,11 @@ export const incrementalBundle = async (): Promise<void> =>
     'bundle',
     (workspacesJson, workspaceName) =>
       !existsSync(
-        join(workspacesJson.information[workspaceName].workspaceLocation, 'bin', 'index.js')
+        join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'bin', 'index.js')
       ),
     (workspacesJson, workspaceName) => {
       const packageJson = readJson(
-        join(workspacesJson.information[workspaceName].workspaceLocation, 'package.json')
+        join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'package.json')
       );
       return packageJson?.scripts?.bundle != null;
     }

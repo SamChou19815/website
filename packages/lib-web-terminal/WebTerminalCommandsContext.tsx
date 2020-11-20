@@ -13,6 +13,7 @@ export const useWebTerminalCommands = (): Commands => {
   const help = (): readonly ReactNode[] =>
     Object.keys(commandsWithHelp).map((key) => {
       const cmdObj = commandsWithHelp[key];
+      if (cmdObj == null) throw new Error();
       const usage = cmdObj.usage ? ` - ${cmdObj.usage}` : '';
       return (
         <>

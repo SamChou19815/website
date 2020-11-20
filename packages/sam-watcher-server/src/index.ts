@@ -64,6 +64,7 @@ server.get('/', (request, response) => {
   const mentionedFilenames = new Set<string>();
   for (let i = events.length - 1; i >= 0; i -= 1) {
     const event = events[i];
+    if (event == null) throw new Error();
     if (event.time < since) {
       break;
     }

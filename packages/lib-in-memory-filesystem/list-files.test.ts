@@ -13,16 +13,17 @@ it('listFilesInDirectory works', () => {
     'README.md',
     'www.txt',
   ]);
-  expect(listFilesInDirectory(root.children[0][1] as Directory)).toEqual([
+  expect(listFilesInDirectory(root.children[0]?.[1] as Directory)).toEqual([
     'real-secret/',
     'fact.txt',
   ]);
   expect(
-    listFilesInDirectory((root.children[0][1] as Directory).children[0][1] as Directory)
+    listFilesInDirectory((root.children[0]?.[1] as Directory).children?.[0]?.[1] as Directory)
   ).toEqual(['random/', 'real-fact.txt']);
   expect(
     listFilesInDirectory(
-      ((root.children[0][1] as Directory).children[0][1] as Directory).children[0][1] as Directory
+      ((root.children[0]?.[1] as Directory).children[0]?.[1] as Directory)
+        .children?.[0]?.[1] as Directory
     )
   ).toEqual(['actual-fact.txt']);
 });

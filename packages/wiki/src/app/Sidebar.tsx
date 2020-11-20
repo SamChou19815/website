@@ -24,13 +24,17 @@ const treeifySingleDocumentMedatada = ({
   filename,
 }: WikiPrivateDocumentMetadata): SideBarEntry => {
   const filenameSegments = filename.split('/');
+  const lastSegment = filenameSegments[filenameSegments.length - 1];
+  if (lastSegment == null) throw new Error();
   let entry: SideBarEntry = {
     type: 'link',
-    label: filenameSegments[filenameSegments.length - 1],
+    label: lastSegment,
     href: `/intern#doc-${documentID}`,
   };
   for (let i = filenameSegments.length - 2; i >= 0; i -= 1) {
-    entry = { type: 'category', label: filenameSegments[i], collapsed: true, items: [entry] };
+    const label = filenameSegments[i];
+    if (label == null) throw new Error();
+    entry = { type: 'category', label, collapsed: true, items: [entry] };
   }
   return entry;
 };
@@ -42,8 +46,11 @@ const mergeTrees = (existingTrees: SideBarEntry[], entry: SideBarEntry): void =>
   }
   for (let i = 0; i < existingTrees.length; i += 1) {
     const mergeCandidate = existingTrees[i];
+    if (mergeCandidate == null) throw new Error();
     if (mergeCandidate.type === 'category' && mergeCandidate.label === entry.label) {
-      mergeTrees(mergeCandidate.items, entry.items[0]);
+      const firstItem = entry.items[0];
+      if (firstItem == null) throw new Error();
+      mergeTrees(mergeCandidate.items, firstItem);
       return;
     }
   }
