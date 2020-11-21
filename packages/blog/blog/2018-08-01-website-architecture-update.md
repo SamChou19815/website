@@ -279,11 +279,10 @@ You can visit the [homepage](https://developersam.com) to see the full page.
 
 #### Infrastructure
 
-App Engine Flex was good, but it was too expensive. Its lowest cost is about
-$40 a month if you want
-your server to serve continuously, even if there were 0 visitors. With $1500
-GCP credit won from the fall hackathon, I can bear it for a while. However, the credit will expire
-in March next year and I had to come up with _something_ to avoid paying \$40 a month for nothing.
+App Engine Flex was good, but it was too expensive. Its lowest cost is about $40 a month if you want
+your server to serve continuously, even if there were 0 visitors. With $1500 GCP credit won from the
+fall hackathon, I can bear it for a while. However, the credit will expire in March next year and I
+had to come up with _something_ to avoid paying \$40 a month for nothing.
 
 In the summer holidays, I had the time so I was determined to lower the cost before the hard
 deadline. I first switched to Google Compute Engine with the worst machine type f1-micro, which was
