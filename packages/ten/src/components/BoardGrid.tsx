@@ -7,7 +7,7 @@ import { checkNotNull } from 'lib-common';
 
 type Props = {
   readonly tiles: number[];
-  readonly highlightedCell: readonly [number, number] | null;
+  readonly highlightedCell?: readonly [number, number];
   readonly clickCallback: (a: number, b: number) => void;
 };
 
@@ -29,7 +29,7 @@ export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Pro
       const index = a * 9 + b;
       const tileStatus = checkNotNull(tiles[index]);
       let doesNeedHighlight = false;
-      if (highlightedCell !== null) {
+      if (highlightedCell != null) {
         const [c, d] = highlightedCell;
         if (a === c && b === d) {
           doesNeedHighlight = true;

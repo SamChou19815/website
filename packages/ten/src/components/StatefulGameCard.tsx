@@ -8,22 +8,14 @@ import {
   makeMove,
   makeMoveWithoutCheck,
 } from '../game/board';
-import GameCard, { Status } from './GameCard';
+import type { GameState, GameStatus } from '../game/game-state';
+import GameCard from './GameCard';
 
 import { assertNotNull } from 'lib-common';
 
-type GameState = {
-  readonly board: Board;
-  readonly highlightedCell: readonly [number, number] | null;
-  readonly status: Status;
-  readonly aiInfo: readonly [number, number] | null;
-};
-
 export const initialGameState: GameState = {
   board: emptyBoard,
-  highlightedCell: null,
   status: 'PLAYER_MOVE',
-  aiInfo: null,
 };
 
 type Props = {
@@ -40,7 +32,7 @@ export default function StatefulGameCard({
   setGameState,
   aiResponder,
 }: Props): ReactElement {
-  const { board, highlightedCell, status, aiInfo } = gameState;
+  const { board } = gameState;
 
   const clickCellCallback = (a: number, b: number): void => {
     const move: Move = [a, b];
@@ -50,7 +42,7 @@ export default function StatefulGameCard({
       return;
     }
     const gameStatus = getGameStatus(newBoard);
-    let newStatus: Status;
+    let newStatus: GameStatus;
     if (gameStatus === 1) {
       newStatus = 'BLACK_WINS';
     } else if (gameStatus === -1) {
@@ -62,7 +54,6 @@ export default function StatefulGameCard({
       board: newBoard,
       highlightedCell: move,
       status: newStatus,
-      aiInfo: null,
     });
     aiResponder(newBoard);
   };
@@ -71,9 +62,7 @@ export default function StatefulGameCard({
     const newBoard = id === 1 ? emptyBoard : makeMoveWithoutCheck(emptyBoard, [4, 4]);
     setGameState({
       board: newBoard,
-      highlightedCell: null,
       status: 'PLAYER_MOVE',
-      aiInfo: null,
     });
   };
 
@@ -82,21 +71,17 @@ export default function StatefulGameCard({
     assertNotNull(oldBoard);
     setGameState({
       board: oldBoard,
-      highlightedCell: null,
       status: 'PLAYER_MOVE',
-      aiInfo: null,
     });
   };
 
   return (
     <GameCard
+      gameState={gameState}
       board={board}
       clickCallback={clickCellCallback}
       onSelectSide={onSelectSide}
       onUndoMove={onUndoMove}
-      status={status}
-      highlightedCell={highlightedCell}
-      aiInfo={aiInfo}
     />
   );
 }
