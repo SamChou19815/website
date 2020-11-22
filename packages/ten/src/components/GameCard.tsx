@@ -15,38 +15,37 @@ type Props = {
   readonly aiInfo: readonly [number, number] | null;
 };
 
-/**
- * The presentational game card.
- *
- * @param {Props} props all the props.
- * @return {Node} the rendered node.
- * @constructor
- */
 export default function GameCard(props: Props): ReactElement {
   const { board, clickCallback, onSelectSide, status, highlightedCell, aiInfo } = props;
   const { tiles, playerIdentity } = board;
   let message: string;
   let blockerActive: boolean;
+  let showGameStarterButtons: boolean;
   switch (status) {
     case 'PLAYER_MOVE':
       message = 'Waiting for your move.';
       blockerActive = false;
+      showGameStarterButtons = board.previousBoard == null;
       break;
     case 'ILLEGAL_MOVE':
       message = 'Illegal move!';
       blockerActive = false;
+      showGameStarterButtons = false;
       break;
     case 'AI_MOVE':
       message = 'Waiting for AI move.';
       blockerActive = true;
+      showGameStarterButtons = false;
       break;
     case 'BLACK_WINS':
       message = 'Black Wins';
       blockerActive = true;
+      showGameStarterButtons = true;
       break;
     case 'WHITE_WINS':
       message = 'White Wins';
       blockerActive = true;
+      showGameStarterButtons = true;
       break;
     default:
       throw new Error('Bad status!');
@@ -78,20 +77,22 @@ export default function GameCard(props: Props): ReactElement {
             clickCallback={clickCallback}
           />
         </div>
-        <div className="card__footer">
-          <button
-            className="button button--outline button--primary"
-            onClick={(): void => onSelectSide(1)}
-          >
-            Play as Black
-          </button>
-          <button
-            className="button button--outline button--primary"
-            onClick={(): void => onSelectSide(-1)}
-          >
-            Play as White
-          </button>
-        </div>
+        {showGameStarterButtons && (
+          <div className="card__footer">
+            <button
+              className="button button--outline button--primary"
+              onClick={(): void => onSelectSide(1)}
+            >
+              Play as Black
+            </button>
+            <button
+              className="button button--outline button--primary"
+              onClick={(): void => onSelectSide(-1)}
+            >
+              Play as White
+            </button>
+          </div>
+        )}
       </div>
       <div className="card">
         <div className="card__header">Rules</div>
