@@ -12,9 +12,9 @@ import GameCard, { Status } from './GameCard';
 
 type GameState = {
   readonly board: Board;
-  readonly highlightedCell: [number, number] | null;
+  readonly highlightedCell: readonly [number, number] | null;
   readonly status: Status;
-  readonly aiInfo: [number, number] | null;
+  readonly aiInfo: readonly [number, number] | null;
 };
 
 export const initialGameState: GameState = {

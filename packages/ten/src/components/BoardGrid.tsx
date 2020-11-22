@@ -7,7 +7,7 @@ import { checkNotNull } from 'lib-common';
 
 type Props = {
   readonly tiles: number[];
-  readonly highlightedCell: [number, number] | null;
+  readonly highlightedCell: readonly [number, number] | null;
   readonly clickCallback: (a: number, b: number) => void;
 };
 

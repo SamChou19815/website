@@ -1,3 +1,5 @@
+export type Move = readonly [number, number];
+
 export type Board = {
   /**
    * In variable names, a big square refers to a 3*3 square;
@@ -26,9 +28,11 @@ export type Board = {
    * The identity of the current player. Either 1 or -1.
    */
   readonly playerIdentity: 1 | -1;
+  /**
+   * The pointer to an earlier board. Useful for undoing moves.
+   */
+  readonly previousBoard?: Board;
 };
-
-export type Move = [number, number];
 
 /**
  * An universal empty board.
@@ -185,6 +189,7 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
     bigSquareToPick,
     winningCounter,
     playerIdentity,
+    previousBoard: board,
   };
 }
 

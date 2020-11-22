@@ -11,8 +11,8 @@ type Props = {
   readonly clickCallback: (a: number, b: number) => void;
   readonly onSelectSide: (side: 1 | -1) => void;
   readonly status: Status;
-  readonly highlightedCell: [number, number] | null;
-  readonly aiInfo: [number, number] | null;
+  readonly highlightedCell: readonly [number, number] | null;
+  readonly aiInfo: readonly [number, number] | null;
 };
 
 /**
