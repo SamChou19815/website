@@ -15,6 +15,11 @@ export default function App({ children }: { readonly children: ReactNode }): Rea
       <Link className="navbar__item navbar__link" to="/">
         Play against AI
       </Link>
+      {process.env.NODE_ENV === 'development' && (
+        <Link className="navbar__item navbar__link" to="/local">
+          Play locally
+        </Link>
+      )}
       <Link className="navbar__item navbar__link" to="/rules">
         Rules
       </Link>
