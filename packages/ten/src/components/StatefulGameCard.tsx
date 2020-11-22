@@ -1,37 +1,51 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import {
-  Board,
   Move,
+  Board,
   emptyBoard,
+  boardToJson,
   getGameStatus,
   makeMove,
   makeMoveWithoutCheck,
 } from '../game/board';
 import type { GameState, GameStatus } from '../game/game-state';
+import type { MctsResponse } from '../game/mcts';
 import GameCard from './GameCard';
 
 import { assertNotNull } from 'lib-common';
 
-export const initialGameState: GameState = {
-  board: emptyBoard,
-  status: 'PLAYER_MOVE',
-};
+const initialGameState: GameState = { board: emptyBoard, status: 'PLAYER_MOVE' };
 
-type Props = {
-  readonly gameState: GameState;
-  readonly setGameState: (stateOrStateF: GameState | ((s: GameState) => GameState)) => void;
-  readonly aiResponder: (newBoard: Board) => void;
-};
+const aiResponder = async (board: Board): Promise<GameState> =>
+  fetch('/api/respond', { method: 'POST', body: JSON.stringify(boardToJson(board)) })
+    .then((resp): Promise<MctsResponse> => resp.json())
+    .then((json) => {
+      const { move, winningPercentage, simulationCounter } = json;
+      const newBoardAfterAI = makeMoveWithoutCheck(board, move);
+      const gameStatus = getGameStatus(newBoardAfterAI);
+      let newStatus: GameStatus;
+      if (gameStatus === 1) {
+        newStatus = 'BLACK_WINS';
+      } else if (gameStatus === -1) {
+        newStatus = 'WHITE_WINS';
+      } else {
+        newStatus = 'PLAYER_MOVE';
+      }
+      return {
+        board: newBoardAfterAI,
+        highlightedCell: move,
+        status: newStatus,
+        aiInfo: {
+          aiWinningProbability: winningPercentage,
+          aiNumberOfSimulations: simulationCounter,
+        },
+      };
+    });
 
-/**
- * The game card in local mode.
- */
-export default function StatefulGameCard({
-  gameState,
-  setGameState,
-  aiResponder,
-}: Props): ReactElement {
+export default function StatefulGameCard(): ReactElement {
+  const [gameState, setGameState] = useState(initialGameState);
+
   const { board } = gameState;
 
   const clickCellCallback = (a: number, b: number): void => {
@@ -55,7 +69,7 @@ export default function StatefulGameCard({
       highlightedCell: move,
       status: newStatus,
     });
-    aiResponder(newBoard);
+    aiResponder(newBoard).then(setGameState);
   };
 
   const onSelectSide = (id: 1 | -1): void => {
