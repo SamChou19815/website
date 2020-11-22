@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 
 import type { Board } from '../game/board';
-import type { GameState } from '../game/game-state';
+import type { GameStates } from '../game/game-state';
 import BoardGrid from './BoardGrid';
 import styles from './GameCard.module.css';
 
 type Props = {
-  readonly gameState: GameState;
+  readonly gameStates: GameStates;
   readonly board: Board;
   readonly clickCallback: (a: number, b: number) => void;
   readonly onSelectSide: (side: 1 | -1) => void;
@@ -14,11 +14,12 @@ type Props = {
 };
 
 export default function GameCard({
-  gameState: { board, status, highlightedCell, aiInfo },
+  gameStates,
   clickCallback,
   onSelectSide,
   onUndoMove,
 }: Props): ReactElement {
+  const { board, status, highlightedCell, aiInfo } = gameStates.currentState;
   const { tiles, playerIdentity } = board;
   let message: string;
   let blockerActive: boolean;
@@ -27,7 +28,7 @@ export default function GameCard({
     case 'PLAYER_MOVE':
       message = 'Waiting for your move.';
       blockerActive = false;
-      showGameStarterButtons = board.previousBoard == null;
+      showGameStarterButtons = gameStates.previousState == null;
       break;
     case 'ILLEGAL_MOVE':
       message = 'Illegal move!';
@@ -95,13 +96,14 @@ export default function GameCard({
             </button>
           </div>
         )}
-        {status === 'PLAYER_MOVE' && board.previousBoard?.previousBoard != null && (
-          <div className="card__footer">
-            <button className="button button--outline button--primary" onClick={onUndoMove}>
-              Undo your last move
-            </button>
-          </div>
-        )}
+        {(status === 'PLAYER_MOVE' || status === 'ILLEGAL_MOVE') &&
+          gameStates.previousState != null && (
+            <div className="card__footer">
+              <button className="button button--outline button--primary" onClick={onUndoMove}>
+                Undo your last move
+              </button>
+            </div>
+          )}
       </div>
       <div className="card">
         <div className="card__header">Rules</div>

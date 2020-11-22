@@ -9,11 +9,11 @@ import {
   makeMove,
   makeMoveWithoutCheck,
 } from '../game/board';
-import type { GameState, GameStatus } from '../game/game-state';
+import type { GameState, GameStates, GameStatus } from '../game/game-state';
 import type { MctsResponse } from '../game/mcts';
 import GameCard from './GameCard';
 
-import { assertNotNull } from 'lib-common';
+import { checkNotNull } from 'lib-common';
 
 const initialGameState: GameState = { board: emptyBoard, status: 'PLAYER_MOVE' };
 
@@ -44,15 +44,18 @@ const aiResponder = async (board: Board): Promise<GameState> =>
     });
 
 export default function StatefulGameCard(): ReactElement {
-  const [gameState, setGameState] = useState(initialGameState);
+  const [gameStates, setGameStates] = useState<GameStates>({ currentState: initialGameState });
 
-  const { board } = gameState;
+  const { board } = gameStates.currentState;
 
   const clickCellCallback = (a: number, b: number): void => {
     const move: Move = [a, b];
     const newBoard = makeMove(board, move);
     if (newBoard === null) {
-      setGameState((prev): GameState => ({ ...prev, status: 'ILLEGAL_MOVE' }));
+      setGameStates((previousState) => ({
+        ...previousState,
+        currentState: { ...previousState.currentState, status: 'ILLEGAL_MOVE' },
+      }));
       return;
     }
     const gameStatus = getGameStatus(newBoard);
@@ -64,34 +67,30 @@ export default function StatefulGameCard(): ReactElement {
     } else {
       newStatus = 'AI_MOVE';
     }
-    setGameState({
-      board: newBoard,
-      highlightedCell: move,
-      status: newStatus,
-    });
-    aiResponder(newBoard).then(setGameState);
+    setGameStates((previousState) => ({
+      previousState: {
+        ...previousState,
+        currentState: { ...previousState.currentState, status: 'PLAYER_MOVE' },
+      },
+      currentState: { board: newBoard, highlightedCell: move, status: newStatus },
+    }));
+    aiResponder(newBoard).then((currentState) =>
+      setGameStates((previousState) => ({ ...previousState, currentState }))
+    );
   };
 
   const onSelectSide = (id: 1 | -1): void => {
     const newBoard = id === 1 ? emptyBoard : makeMoveWithoutCheck(emptyBoard, [4, 4]);
-    setGameState({
-      board: newBoard,
-      status: 'PLAYER_MOVE',
-    });
+    setGameStates({ currentState: { board: newBoard, status: 'PLAYER_MOVE' } });
   };
 
   const onUndoMove = (): void => {
-    const oldBoard = board.previousBoard?.previousBoard;
-    assertNotNull(oldBoard);
-    setGameState({
-      board: oldBoard,
-      status: 'PLAYER_MOVE',
-    });
+    setGameStates((currentState) => checkNotNull(currentState.previousState));
   };
 
   return (
     <GameCard
-      gameState={gameState}
+      gameStates={gameStates}
       board={board}
       clickCallback={clickCellCallback}
       onSelectSide={onSelectSide}
