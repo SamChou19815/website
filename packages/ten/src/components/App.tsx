@@ -4,7 +4,7 @@ import Head from '@docusaurus/Head';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import DistributedGameCard from './DistributedGameCard';
+import StatefulGameCard from './StatefulGameCard';
 
 export default function App(): ReactElement {
   const { siteConfig = {} } = useDocusaurusContext();
@@ -43,7 +43,7 @@ export default function App(): ReactElement {
           <div className="navbar__items navbar__items--right">{buttons}</div>
         </div>
       </nav>
-      <DistributedGameCard />
+      <StatefulGameCard />
     </div>
   );
 }
