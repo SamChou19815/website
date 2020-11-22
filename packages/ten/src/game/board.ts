@@ -163,6 +163,11 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
   const [a, b] = move;
   tiles[a * 9 + b] = oldPlayerIdentity;
   const newBigSquareStatus = computeBigSquareStatus(tiles, a * 9);
+  if (newBigSquareStatus === 1 || newBigSquareStatus === -1) {
+    for (let i = 0; i < 9; i += 1) {
+      tiles[a * 9 + i] = newBigSquareStatus;
+    }
+  }
   const bigSquareStatusArray = [...oldBigSquareStatusArray];
   bigSquareStatusArray[a] = newBigSquareStatus;
   const bigSquareToPick = bigSquareStatusArray[b] === 0 ? b : -1;

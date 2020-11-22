@@ -15,6 +15,6 @@ module.exports = {
   favicon: '/favicon.ico',
   plugins: [
     require.resolve('@docusaurus/plugin-content-pages'),
-    require.resolve('./docusaurus-infima-css-plugin'),
+    require.resolve('./docusaurus-plugin'),
   ],
 };
