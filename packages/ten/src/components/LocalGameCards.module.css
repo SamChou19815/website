@@ -1,0 +1,8 @@
+.LocalGameCardsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.LocalGameCardsContainer > div {
+  margin: 1em;
+}

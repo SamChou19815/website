@@ -7,7 +7,7 @@ import StatefulGameCard from './StatefulGameCard';
 
 const initialGameState: GameState = { board: emptyBoard, status: 'PLAYER_MOVE' };
 
-const aiResponder = async (board: Board): Promise<GameState> =>
+const aiResponder = (board: Board): Promise<GameState> =>
   fetch('/api/respond', { method: 'POST', body: JSON.stringify(boardToJson(board)) })
     .then((resp): Promise<MctsResponse> => resp.json())
     .then((json) => {
