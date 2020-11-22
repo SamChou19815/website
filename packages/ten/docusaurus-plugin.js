@@ -1,17 +1,23 @@
-const API = 'https://ten.developersam.com/api/respond';
+const API = 'https://ten.developersam.com/';
 
 const setupPlugin = () => ({
   name: 'docusaurus-ten-plugin',
   configureWebpack() {
     return {
       devServer: {
-        proxy: {
-          '/api': {
+        publicPath: '/',
+        proxy: [
+          {
+            path: '/api/**',
             target: API,
-            secure: false,
             changeOrigin: true,
+            onProxyReq: (proxyReq) => {
+              if (proxyReq.getHeader('origin')) {
+                proxyReq.setHeader('origin', API);
+              }
+            },
           },
-        },
+        ],
       },
     };
   },
