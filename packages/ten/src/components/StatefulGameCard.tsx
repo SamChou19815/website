@@ -10,6 +10,8 @@ import {
 } from '../game/board';
 import GameCard, { Status } from './GameCard';
 
+import { assertNotNull } from 'lib-common';
+
 type GameState = {
   readonly board: Board;
   readonly highlightedCell: readonly [number, number] | null;
@@ -75,11 +77,23 @@ export default function StatefulGameCard({
     });
   };
 
+  const onUndoMove = (): void => {
+    const oldBoard = board.previousBoard?.previousBoard;
+    assertNotNull(oldBoard);
+    setGameState({
+      board: oldBoard,
+      highlightedCell: null,
+      status: 'PLAYER_MOVE',
+      aiInfo: null,
+    });
+  };
+
   return (
     <GameCard
       board={board}
       clickCallback={clickCellCallback}
       onSelectSide={onSelectSide}
+      onUndoMove={onUndoMove}
       status={status}
       highlightedCell={highlightedCell}
       aiInfo={aiInfo}

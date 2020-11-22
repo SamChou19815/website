@@ -10,13 +10,21 @@ type Props = {
   readonly board: Board;
   readonly clickCallback: (a: number, b: number) => void;
   readonly onSelectSide: (side: 1 | -1) => void;
+  readonly onUndoMove: () => void;
   readonly status: Status;
   readonly highlightedCell: readonly [number, number] | null;
   readonly aiInfo: readonly [number, number] | null;
 };
 
-export default function GameCard(props: Props): ReactElement {
-  const { board, clickCallback, onSelectSide, status, highlightedCell, aiInfo } = props;
+export default function GameCard({
+  board,
+  clickCallback,
+  onSelectSide,
+  onUndoMove,
+  status,
+  highlightedCell,
+  aiInfo,
+}: Props): ReactElement {
   const { tiles, playerIdentity } = board;
   let message: string;
   let blockerActive: boolean;
@@ -81,15 +89,22 @@ export default function GameCard(props: Props): ReactElement {
           <div className="card__footer">
             <button
               className="button button--outline button--primary"
-              onClick={(): void => onSelectSide(1)}
+              onClick={() => onSelectSide(1)}
             >
               Play as Black
             </button>
             <button
               className="button button--outline button--primary"
-              onClick={(): void => onSelectSide(-1)}
+              onClick={() => onSelectSide(-1)}
             >
               Play as White
+            </button>
+          </div>
+        )}
+        {status === 'PLAYER_MOVE' && board.previousBoard?.previousBoard != null && (
+          <div className="card__footer">
+            <button className="button button--outline button--primary" onClick={onUndoMove}>
+              Undo your last move
             </button>
           </div>
         )}
