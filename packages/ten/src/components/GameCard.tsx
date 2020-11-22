@@ -1,29 +1,23 @@
 import React, { ReactElement } from 'react';
 
 import type { Board } from '../game/board';
+import type { GameState } from '../game/game-state';
 import BoardGrid from './BoardGrid';
 import styles from './GameCard.module.css';
 
-export type Status = 'PLAYER_MOVE' | 'ILLEGAL_MOVE' | 'AI_MOVE' | 'BLACK_WINS' | 'WHITE_WINS';
-
 type Props = {
+  readonly gameState: GameState;
   readonly board: Board;
   readonly clickCallback: (a: number, b: number) => void;
   readonly onSelectSide: (side: 1 | -1) => void;
   readonly onUndoMove: () => void;
-  readonly status: Status;
-  readonly highlightedCell: readonly [number, number] | null;
-  readonly aiInfo: readonly [number, number] | null;
 };
 
 export default function GameCard({
-  board,
+  gameState: { board, status, highlightedCell, aiInfo },
   clickCallback,
   onSelectSide,
   onUndoMove,
-  status,
-  highlightedCell,
-  aiInfo,
 }: Props): ReactElement {
   const { tiles, playerIdentity } = board;
   let message: string;
@@ -59,13 +53,13 @@ export default function GameCard({
       throw new Error('Bad status!');
   }
   let aiInfoNode: ReactElement | null;
-  if (aiInfo === null) {
+  if (aiInfo == null) {
     aiInfoNode = null;
   } else {
-    const [prob, count] = aiInfo;
+    const { aiWinningProbability, aiNumberOfSimulations } = aiInfo;
     aiInfoNode = (
       <div className="card__body">
-        {`AI Winning Probability ${prob}%. Number of Simulations Run: ${count}.`}
+        {`AI Winning Probability ${aiWinningProbability}%. Number of Simulations Run: ${aiNumberOfSimulations}.`}
       </div>
     );
   }

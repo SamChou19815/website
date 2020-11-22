@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 
 import { Board, boardToJson, getGameStatus, makeMoveWithoutCheck } from '../game/board';
+import type { GameStatus } from '../game/game-state';
 import type { MctsResponse } from '../game/mcts';
-import type { Status } from './GameCard';
 import StatefulGameCard, { initialGameState } from './StatefulGameCard';
 
 /**
@@ -18,7 +18,7 @@ export default function DistributedGameCard(): ReactElement {
         const { move, winningPercentage, simulationCounter } = json;
         const newBoardAfterAI = makeMoveWithoutCheck(board, move);
         const gameStatus = getGameStatus(newBoardAfterAI);
-        let newStatus: Status;
+        let newStatus: GameStatus;
         if (gameStatus === 1) {
           newStatus = 'BLACK_WINS';
         } else if (gameStatus === -1) {
@@ -26,12 +26,14 @@ export default function DistributedGameCard(): ReactElement {
         } else {
           newStatus = 'PLAYER_MOVE';
         }
-        const aiInfo: [number, number] = [winningPercentage, simulationCounter];
         setGameState({
           board: newBoardAfterAI,
           highlightedCell: move,
           status: newStatus,
-          aiInfo,
+          aiInfo: {
+            aiWinningProbability: winningPercentage,
+            aiNumberOfSimulations: simulationCounter,
+          },
         });
       });
   };
