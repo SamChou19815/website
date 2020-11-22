@@ -11,3 +11,8 @@ export type GameState = {
     readonly aiNumberOfSimulations: number;
   };
 };
+
+export type GameStates = {
+  readonly currentState: GameState;
+  readonly previousState?: GameStates;
+};
