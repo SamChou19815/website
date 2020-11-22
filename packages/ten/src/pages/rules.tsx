@@ -4,7 +4,7 @@ import App from '../components/App';
 
 import './index.css';
 
-export default function Index(): ReactElement {
+export default function Rules(): ReactElement {
   return (
     <App>
       <div className="card">
