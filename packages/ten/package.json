@@ -8,7 +8,6 @@
     "compile": "tsc",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
-  "proxy": "https://us-central1-dev-sam.cloudfunctions.net/HandleTenAIMoveRequest",
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.68",
     "@docusaurus/plugin-content-pages": "2.0.0-alpha.68",
