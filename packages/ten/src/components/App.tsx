@@ -1,18 +1,23 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 import Head from '@docusaurus/Head';
+import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import StatefulGameCard from './StatefulGameCard';
-
-export default function App(): ReactElement {
+export default function App({ children }: { readonly children: ReactNode }): ReactElement {
   const { siteConfig = {} } = useDocusaurusContext();
   const { favicon } = siteConfig;
   const faviconUrl = useBaseUrl(favicon);
 
   const buttons = (
     <>
+      <Link className="navbar__item navbar__link" to="/">
+        Play against AI
+      </Link>
+      <Link className="navbar__item navbar__link" to="/rules">
+        Rules
+      </Link>
       <a className="navbar__item navbar__link" href="https://developersam.com">
         Home
       </a>
@@ -43,17 +48,7 @@ export default function App(): ReactElement {
           <div className="navbar__items navbar__items--right">{buttons}</div>
         </div>
       </nav>
-      <StatefulGameCard />
-      <div className="card">
-        <div className="card__header">Rules</div>
-        <div className="card__body">
-          The rules are mostly the same with the original&nbsp;
-          <a href="https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe">
-            TEN game (Ultimate tic-tac-toe)
-          </a>
-          , except that a draw is a win for white in this game. AI thinking time is 1.5s.
-        </div>
-      </div>
+      {children}
     </div>
   );
 }
