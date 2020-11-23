@@ -26,15 +26,13 @@ const computeCanShowGameStarterButtons = (gameStates: GameStates): boolean => {
 };
 
 type Props = {
-  readonly initialGameState: GameState;
-  readonly otherPlayerResponder: (board: Board) => Promise<GameState>;
+  readonly otherPlayerResponder?: (board: Board) => Promise<GameState>;
 };
 
-export default function StatefulGameCard({
-  initialGameState,
-  otherPlayerResponder,
-}: Props): ReactElement {
-  const [gameStates, setGameStates] = useState<GameStates>({ currentState: initialGameState });
+export default function GameCardWithLogic({ otherPlayerResponder }: Props): ReactElement {
+  const [gameStates, setGameStates] = useState<GameStates>({
+    currentState: { board: emptyBoard, status: 'PLAYER_MOVE' },
+  });
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 
   const clickCellCallback = (board: Board, move: Move): void => {
@@ -51,7 +49,7 @@ export default function StatefulGameCard({
     } else if (gameStatus === -1) {
       newStatus = 'WHITE_WINS';
     } else {
-      newStatus = 'AI_MOVE';
+      newStatus = otherPlayerResponder == null ? 'PLAYER_MOVE' : 'AI_MOVE';
     }
     setGameStates((previousState) => ({
       previousState: {
@@ -60,6 +58,7 @@ export default function StatefulGameCard({
       },
       currentState: { board: newBoard, highlightedCell: move, status: newStatus },
     }));
+    if (otherPlayerResponder == null) return;
     otherPlayerResponder(newBoard).then((currentState) =>
       setGameStates((previousState) => ({ ...previousState, currentState }))
     );
