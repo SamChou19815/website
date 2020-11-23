@@ -1,6 +1,6 @@
 import type { Board } from './board';
 
-export type GameStatus = 'PLAYER_MOVE' | 'ILLEGAL_MOVE' | 'AI_MOVE' | 'BLACK_WINS' | 'WHITE_WINS';
+export type GameStatus = 'PLAYER_MOVE' | 'AI_MOVE' | 'BLACK_WINS' | 'WHITE_WINS';
 
 export type GameState = {
   readonly board: Board;
