@@ -3,7 +3,7 @@ import React, { ReactElement, Suspense, lazy } from 'react';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 import App from '../components/App';
-import GameCardWithLogic from '../components/GameCardWithLogic';
+import OnlineGameCard from '../components/OnlineGameCard';
 
 import './index.css';
 import LoadingOverlay from 'lib-react/LoadingOverlay';
@@ -18,7 +18,7 @@ export default function Online(): ReactElement {
       {ExecutionEnvironment.canUseDOM ? (
         <Suspense fallback={<LoadingOverlay />}>
           <FirebaseLoginAppBarrier>
-            <GameCardWithLogic />
+            <OnlineGameCard />
           </FirebaseLoginAppBarrier>
         </Suspense>
       ) : (
