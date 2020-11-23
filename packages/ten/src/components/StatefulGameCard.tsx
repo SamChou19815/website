@@ -17,7 +17,6 @@ const computeCanShowGameStarterButtons = (gameStates: GameStates): boolean => {
   switch (gameStates.currentState.status) {
     case 'PLAYER_MOVE':
       return gameStates.previousState == null;
-    case 'ILLEGAL_MOVE':
     case 'AI_MOVE':
       return false;
     case 'BLACK_WINS':
@@ -36,16 +35,15 @@ export default function StatefulGameCard({
   otherPlayerResponder,
 }: Props): ReactElement {
   const [gameStates, setGameStates] = useState<GameStates>({ currentState: initialGameState });
+  const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 
   const clickCellCallback = (board: Board, move: Move): void => {
     const newBoard = makeMove(board, move);
     if (newBoard === null) {
-      setGameStates((previousState) => ({
-        ...previousState,
-        currentState: { ...previousState.currentState, status: 'ILLEGAL_MOVE' },
-      }));
+      setPlayerMadeIllegalMove(true);
       return;
     }
+    setPlayerMadeIllegalMove(false);
     const gameStatus = getGameStatus(newBoard);
     let newStatus: GameStatus;
     if (gameStatus === 1) {
@@ -70,11 +68,10 @@ export default function StatefulGameCard({
   return (
     <GameCard
       gameState={gameStates.currentState}
+      playerMadeIllegalMove={playerMadeIllegalMove}
       showGameStarterButtons={computeCanShowGameStarterButtons(gameStates)}
       showUndoButton={
-        (gameStates.currentState.status === 'PLAYER_MOVE' ||
-          gameStates.currentState.status === 'ILLEGAL_MOVE') &&
-        gameStates.previousState != null
+        gameStates.currentState.status === 'PLAYER_MOVE' && gameStates.previousState != null
       }
       clickCallback={(a, b) => clickCellCallback(gameStates.currentState.board, [a, b])}
       onSelectSide={(id) => {
