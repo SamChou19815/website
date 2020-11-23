@@ -1,27 +1,29 @@
 import React, { ReactElement, Suspense, lazy } from 'react';
 
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-import Layout from '@theme/Layout';
 
+import App from '../components/App';
+import GameCardWithLogic from '../components/GameCardWithLogic';
+
+import './index.css';
 import LoadingOverlay from 'lib-react/LoadingOverlay';
 
 // Lazy import is necessary for conditional execution below,
 // since firebase/app code cannot be executed in SSR environments.
-const FirebaseLoginAppBarrier = lazy(() => import('../app/FirebaseLoginAppBarrier'));
-const PermissionViewer = lazy(() => import('../app/PermissionViewer'));
+const FirebaseLoginAppBarrier = lazy(() => import('../components/FirebaseLoginBarrier'));
 
-export default function InternPermissions(): ReactElement {
+export default function Online(): ReactElement {
   return (
-    <Layout title="internals-permissions@dev-sam" description="Show a list of permissions">
+    <App>
       {ExecutionEnvironment.canUseDOM ? (
         <Suspense fallback={<LoadingOverlay />}>
           <FirebaseLoginAppBarrier>
-            <PermissionViewer />
+            <GameCardWithLogic />
           </FirebaseLoginAppBarrier>
         </Suspense>
       ) : (
         <div />
       )}
-    </Layout>
+    </App>
   );
 }

@@ -11,10 +11,13 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.68",
     "@docusaurus/plugin-content-pages": "2.0.0-alpha.68",
+    "firebase": "^8.1.1",
     "infima": "0.2.0-alpha.12",
     "lib-common": "0.0.1",
+    "lib-react": "0.1.0",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "rxjs": "^6.6.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-alpha.68",
