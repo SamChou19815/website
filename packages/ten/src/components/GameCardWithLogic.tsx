@@ -26,12 +26,16 @@ const computeCanShowGameStarterButtons = (gameStates: GameStates): boolean => {
 };
 
 type Props = {
-  readonly otherPlayerResponder?: (board: Board) => Promise<GameState>;
+  readonly initialBoard?: Board;
+  readonly otherPlayerResponder?: (board: Board, move: Move) => Promise<GameState>;
 };
 
-export default function GameCardWithLogic({ otherPlayerResponder }: Props): ReactElement {
+export default function GameCardWithLogic({
+  initialBoard = emptyBoard,
+  otherPlayerResponder,
+}: Props): ReactElement {
   const [gameStates, setGameStates] = useState<GameStates>({
-    currentState: { board: emptyBoard, status: 'PLAYER_MOVE' },
+    currentState: { board: initialBoard, status: 'PLAYER_MOVE' },
   });
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 
@@ -59,7 +63,7 @@ export default function GameCardWithLogic({ otherPlayerResponder }: Props): Reac
       currentState: { board: newBoard, highlightedCell: move, status: newStatus },
     }));
     if (otherPlayerResponder == null) return;
-    otherPlayerResponder(newBoard).then((currentState) =>
+    otherPlayerResponder(newBoard, move).then((currentState) =>
       setGameStates((previousState) => ({ ...previousState, currentState }))
     );
   };
