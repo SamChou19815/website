@@ -1,10 +1,11 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
 import styles from './App.module.css';
-import LoadingOverlay from './LoadingOverlay';
 import PrivateDocumentPanel from './PrivateDocumentPanel';
 import Sidebar from './Sidebar';
 import { useWikiPrivateDocumentsMetadata } from './documents';
+
+import LoadingOverlay from 'lib-react/LoadingOverlay';
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);

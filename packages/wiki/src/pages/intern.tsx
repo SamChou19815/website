@@ -3,7 +3,7 @@ import React, { ReactElement, Suspense, lazy } from 'react';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Layout from '@theme/Layout';
 
-import LoadingOverlay from '../app/LoadingOverlay';
+import LoadingOverlay from 'lib-react/LoadingOverlay';
 
 // Lazy import is necessary for conditional execution below,
 // since firebase/app code cannot be executed in SSR environments.

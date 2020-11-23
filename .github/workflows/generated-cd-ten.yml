@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - 'packages/lib-common/**'
+      - 'packages/lib-prism-extended/**'
+      - 'packages/lib-react/**'
       - 'packages/ten/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-ten.yml'
