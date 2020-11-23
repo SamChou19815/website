@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { firestore } from 'firebase/app';
+import firebase from 'firebase/app';
 
 import { getAppUser, isAdminUser } from './authentication';
 
@@ -18,7 +18,7 @@ export type WikiPrivateDocumentContent = {
 
 type FirebaseType<T> = Omit<T, 'documentID'>;
 
-const Firestore = firestore();
+const Firestore = firebase.firestore();
 
 const firestorePrivateDocumentMetadataCollection = Firestore.collection(
   'wiki-app-private-document-metadata'

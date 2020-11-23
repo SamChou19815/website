@@ -15,7 +15,7 @@
     "@docusaurus/theme-classic": "2.0.0-alpha.68",
     "@mdx-js/react": "^1.6.4",
     "clsx": "^1.1.1",
-    "firebase": "^7.18.0",
+    "firebase": "^8.1.1",
     "lib-common": "0.0.1",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",
@@ -23,7 +23,7 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "remarkable": "^2.0.1",
-    "rxjs": "^6.6.2"
+    "rxjs": "^6.6.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-alpha.68",
