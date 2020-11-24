@@ -1,24 +1,31 @@
 import React, { ReactElement } from 'react';
 
-import type { GameState, GameStatus } from '../game/game-state';
+import { Board, getGameStatus } from '../game/board';
+import type { GameState } from '../game/game-state';
 import BoardGrid from './BoardGrid';
 import styles from './GameCard.module.css';
 
-const getMessage = (status: GameStatus, playerMadeIllegalMove: boolean): string => {
-  switch (status) {
-    case 'PLAYER_MOVE':
+const getMessage = (
+  board: Board,
+  playerCanMove: boolean,
+  playerMadeIllegalMove: boolean
+): string => {
+  switch (getGameStatus(board)) {
+    case 0:
+      if (!playerCanMove) {
+        return 'Waiting for AI move.';
+      }
       return playerMadeIllegalMove ? 'Illegal move!' : 'Waiting for your move.';
-    case 'AI_MOVE':
-      return 'Waiting for AI move.';
-    case 'BLACK_WINS':
+    case 1:
       return 'Black Wins';
-    case 'WHITE_WINS':
+    case -1:
       return 'White Wins';
   }
 };
 
 type Props = {
   readonly gameState: GameState;
+  readonly playerCanMove: boolean;
   readonly playerMadeIllegalMove: boolean;
   readonly showGameStarterButtons: boolean;
   readonly showUndoButton: boolean;
@@ -28,7 +35,8 @@ type Props = {
 };
 
 export default function GameCard({
-  gameState: { board, status, highlightedCell, aiInfo },
+  gameState: { board, highlightedCell, aiInfo },
+  playerCanMove,
   playerMadeIllegalMove,
   showGameStarterButtons,
   showUndoButton,
@@ -41,22 +49,22 @@ export default function GameCard({
   if (aiInfo == null) {
     aiInfoNode = null;
   } else {
-    const { aiWinningProbability, aiNumberOfSimulations } = aiInfo;
+    const { winningPercentage, simulationCounter } = aiInfo;
     aiInfoNode = (
       <div className="card__body">
-        {`AI Winning Probability ${aiWinningProbability}%. Number of Simulations Run: ${aiNumberOfSimulations}.`}
+        {`AI Winning Probability ${winningPercentage}%. Number of Simulations Run: ${simulationCounter}.`}
       </div>
     );
   }
   return (
     <div className="card">
-      <div className="card__body">{getMessage(status, playerMadeIllegalMove)}</div>
+      <div className="card__body">{getMessage(board, playerCanMove, playerMadeIllegalMove)}</div>
       <div className="card__body">
         {`Your Identity: ${playerIdentity === 1 ? 'Black' : 'White'}`}
       </div>
       {aiInfoNode}
       <div className={`card__body ${styles.GameCells}`}>
-        {status !== 'PLAYER_MOVE' && <div className={styles.Overlay} />}
+        {!playerCanMove && <div className={styles.Overlay} />}
         <BoardGrid tiles={tiles} highlightedCell={highlightedCell} clickCallback={clickCallback} />
       </div>
       {showGameStarterButtons && (
