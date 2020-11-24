@@ -2,8 +2,8 @@ import React, { ReactElement, useState, useEffect, useRef } from 'react';
 
 import firebase from 'firebase/app';
 
-import { Move, Board, emptyBoard, getGameStatus, makeMoveWithoutCheck } from '../game/board';
-import type { GameState, GameStatus } from '../game/game-state';
+import { Move, Board, emptyBoard, makeMoveWithoutCheck } from '../game/board';
+import type { GameState } from '../game/game-state';
 import GameCardWithLogic from './GameCardWithLogic';
 
 import LoadingOverlay from 'lib-react/LoadingOverlay';
@@ -106,20 +106,7 @@ export default function OnlineGameCard(): ReactElement {
       .set({ board, move, moveIndex: resolveOtherPlayerMoveRef.current.moveIndex });
     return new Promise((resolve) => {
       resolveOtherPlayerMoveRef.current.resolver = (newBoardAfterAI) => {
-        const gameStatus = getGameStatus(newBoardAfterAI);
-        let newStatus: GameStatus;
-        if (gameStatus === 1) {
-          newStatus = 'BLACK_WINS';
-        } else if (gameStatus === -1) {
-          newStatus = 'WHITE_WINS';
-        } else {
-          newStatus = 'PLAYER_MOVE';
-        }
-        resolve({
-          board: newBoardAfterAI,
-          highlightedCell: move,
-          status: newStatus,
-        });
+        resolve({ board: newBoardAfterAI });
         resolveOtherPlayerMoveRef.current.resolver = undefined;
       };
     });

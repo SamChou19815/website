@@ -6,21 +6,12 @@ import styles from './BoardGrid.module.css';
 import { checkNotNull } from 'lib-common';
 
 type Props = {
-  readonly tiles: number[];
-  readonly highlightedCell?: readonly [number, number];
+  readonly tiles: readonly number[];
+  readonly lastMove?: readonly [number, number];
   readonly clickCallback: (a: number, b: number) => void;
 };
 
-/**
- * The board grid to display.
- *
- * @param {number[]} tiles the tiles array from the game engine.
- * @param {[number, number] | null} highlightedCell the cell to highlight or null.
- * @param {function(number, number): void} clickCallback the callback to call when click a tile.
- * @return {Node} the rendered node.
- * @constructor
- */
-export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Props): ReactElement {
+export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): ReactElement {
   const children = [];
   for (let i = 0; i < 9; i += 1) {
     for (let j = 0; j < 9; j += 1) {
@@ -29,8 +20,8 @@ export default function BoardGrid({ tiles, highlightedCell, clickCallback }: Pro
       const index = a * 9 + b;
       const tileStatus = checkNotNull(tiles[index]);
       let doesNeedHighlight = false;
-      if (highlightedCell != null) {
-        const [c, d] = highlightedCell;
+      if (lastMove != null) {
+        const [c, d] = lastMove;
         if (a === c && b === d) {
           doesNeedHighlight = true;
         }

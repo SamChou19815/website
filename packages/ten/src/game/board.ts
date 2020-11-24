@@ -1,11 +1,8 @@
 export type Move = readonly [number, number];
 
 export type Board = {
-  /**
-   * In variable names, a big square refers to a 3*3 square;
-   * a tile refers to a 1*1 square.
-   */
-  readonly tiles: number[];
+  /** In variable names, a big square refers to a 3*3 square; a tile refers to a 1*1 square. */
+  readonly tiles: readonly number[];
   /**
    * Keep track of winning progress on big squares.
    * 1 ==> BLACK_WINS
@@ -13,27 +10,21 @@ export type Board = {
    * 0 ==> INCONCLUSIVE
    * -2 ==> ALL_OCCUPIED
    */
-  readonly bigSquareStatusArray: number[];
+  readonly bigSquareStatusArray: readonly (1 | -1 | 0 | -2)[];
   /**
    * The current legal big square to pick as next move. If it's value is -1,
    * that means the user can place the move everywhere.
    * This variable is important for maintaining the current game state.
    */
   readonly bigSquareToPick: number;
-  /**
-   * Counter of big squares occupied by black or white.
-   */
-  readonly winningCounter: [number, number];
-  /**
-   * The identity of the current player. Either 1 or -1.
-   */
+  /** Counter of big squares occupied by black or white. */
+  readonly winningCounter: readonly [number, number];
+  /** The identity of the current player. Either 1 or -1. */
   readonly playerIdentity: 1 | -1;
+  /** The last move made by a player. */
+  readonly lastMove?: Move;
 };
 
-/**
- * An universal empty board.
- * @type {Board}
- */
 export const emptyBoard: Board = {
   tiles: Array(81).fill(0),
   bigSquareStatusArray: Array(9).fill(0),
@@ -42,13 +33,6 @@ export const emptyBoard: Board = {
   playerIdentity: 1,
 };
 
-/**
- * Check whether a move is legal.
- *
- * @param {Board} board the board as context.
- * @param {Move} move the move to check.
- * @return {boolean} whether a move is legal.
- */
 function isLegalMove(board: Board, move: Move): boolean {
   const [a, b] = move;
   if (a < 0 || a > 8 || b < 0 || b > 8) {
@@ -64,35 +48,6 @@ function isLegalMove(board: Board, move: Move): boolean {
 }
 
 /**
- * Returns a list of all legal moves for AI.
- *
- * @param {Board} board the board as context.
- * @return {Move[]} a list of moves.
- */
-export function allLegalMovesForAI(board: Board): Move[] {
-  const { bigSquareToPick } = board;
-  const list = [];
-  if (bigSquareToPick === -1) {
-    for (let i = 0; i < 9; i += 1) {
-      for (let j = 0; j < 9; j += 1) {
-        const move: Move = [i, j];
-        if (isLegalMove(board, move)) {
-          list.push(move);
-        }
-      }
-    }
-  } else {
-    for (let j = 0; j < 9; j += 1) {
-      const move: Move = [bigSquareToPick, j];
-      if (isLegalMove(board, move)) {
-        list.push(move);
-      }
-    }
-  }
-  return list;
-}
-
-/**
  * Perform a naive check on the square about whether the player with given identity win the square.
  * It only checks according to the primitive tic-tac-toe rule.
  *
@@ -101,7 +56,7 @@ export function allLegalMovesForAI(board: Board): Move[] {
  * @param {number} id the player identity.
  * @return {boolean} whether the player wins the square.
  */
-function playerSimplyWinSquare(s: number[], offset: number, id: 1 | -1): boolean {
+function playerSimplyWinSquare(s: readonly number[], offset: number, id: 1 | -1): boolean {
   return (
     (s[offset] === id && s[offset + 1] === id && s[offset + 2] === id) ||
     (s[offset + 3] === id && s[offset + 4] === id && s[offset + 5] === id) ||
@@ -121,7 +76,7 @@ function playerSimplyWinSquare(s: number[], offset: number, id: 1 | -1): boolean
  * @param {number} offset offset of the square array.
  * @return {number} the status of the big square.
  */
-function computeBigSquareStatus(s: number[], offset: number): 1 | -1 | 0 | -2 {
+function computeBigSquareStatus(s: readonly number[], offset: number): 1 | -1 | 0 | -2 {
   if (playerSimplyWinSquare(s, offset, 1)) {
     return 1;
   }
@@ -185,6 +140,7 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
     bigSquareToPick,
     winningCounter,
     playerIdentity,
+    lastMove: move,
   };
 }
 
@@ -211,13 +167,10 @@ export function getGameStatus(board: Board): 1 | -1 | 0 {
     const [b, w] = board.winningCounter;
     return b > w ? 1 : -1;
   }
-  // $FlowFixMe: incomplete flow type refinement behavior.
   return status;
 }
 
-/**
- * Convert the board to a json for server communication.
- */
+/** Convert the board to a json for server communication. */
 export function boardToJson(board: Board): unknown {
   const { tiles, bigSquareToPick, playerIdentity } = board;
   return { tiles, bigSquareToPick, playerIdentity };
