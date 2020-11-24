@@ -8,7 +8,7 @@ import './index.css';
 export default function Local(): ReactElement {
   return (
     <App>
-      <GameCardWithLogic />
+      <GameCardWithLogic showGameStarterButtons={false} />
     </App>
   );
 }
