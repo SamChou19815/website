@@ -27,11 +27,13 @@ const computeCanShowGameStarterButtons = (gameStates: GameStates): boolean => {
 
 type Props = {
   readonly initialBoard?: Board;
+  readonly showGameStarterButtons?: boolean;
   readonly otherPlayerResponder?: (board: Board, move: Move) => Promise<GameState>;
 };
 
 export default function GameCardWithLogic({
   initialBoard = emptyBoard,
+  showGameStarterButtons,
   otherPlayerResponder,
 }: Props): ReactElement {
   const [gameStates, setGameStates] = useState<GameStates>({
@@ -72,7 +74,9 @@ export default function GameCardWithLogic({
     <GameCard
       gameState={gameStates.currentState}
       playerMadeIllegalMove={playerMadeIllegalMove}
-      showGameStarterButtons={computeCanShowGameStarterButtons(gameStates)}
+      showGameStarterButtons={
+        showGameStarterButtons ?? computeCanShowGameStarterButtons(gameStates)
+      }
       showUndoButton={
         gameStates.currentState.status === 'PLAYER_MOVE' && gameStates.previousState != null
       }
