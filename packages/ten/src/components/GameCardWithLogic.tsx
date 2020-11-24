@@ -30,7 +30,7 @@ const computeCanShowGameStarterButtons = (
 type Props = {
   readonly initialBoard?: Board;
   readonly showGameStarterButtons?: boolean;
-  readonly otherPlayerResponder?: (board: Board, move: Move) => Promise<GameState>;
+  readonly otherPlayerResponder?: (board: Board) => Promise<GameState>;
 };
 
 export default function GameCardWithLogic({
@@ -57,7 +57,7 @@ export default function GameCardWithLogic({
     }));
     if (otherPlayerResponder == null) return;
     setPlayerCanMove(false);
-    otherPlayerResponder(newBoard, move).then((currentState) => {
+    otherPlayerResponder(newBoard).then((currentState) => {
       setPlayerCanMove(true);
       setGameStates((previousState) => ({ ...previousState, currentState }));
     });

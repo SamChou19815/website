@@ -2,7 +2,7 @@ import React, { ReactElement, useState, useEffect, useRef } from 'react';
 
 import firebase from 'firebase/app';
 
-import { Move, Board, emptyBoard, makeMoveWithoutCheck } from '../game/board';
+import { Board, emptyBoard, makeMoveWithoutCheck } from '../game/board';
 import type { GameState } from '../game/game-state';
 import GameCardWithLogic from './GameCardWithLogic';
 
@@ -10,7 +10,6 @@ import LoadingOverlay from 'lib-react/LoadingOverlay';
 
 type FirestoreGameData = {
   readonly board: Board;
-  readonly move: Move;
   readonly moveIndex: number;
 };
 
@@ -32,7 +31,7 @@ export default function OnlineGameCard(): ReactElement {
   const [gameID, setGameID] = useState<string | null>(getGameID());
   const [initialBoard, setInitialBoard] = useState<Board | undefined>();
   const resolveOtherPlayerMoveRef = useRef<{
-    resolver?: (board: Board, move: Move) => void;
+    resolver?: (board: Board) => void;
     moveIndex: number;
   }>({ moveIndex: -1 });
 
@@ -54,7 +53,7 @@ export default function OnlineGameCard(): ReactElement {
       }
       setInitialBoard(data.board);
       if (resolveOtherPlayerMoveRef.current.moveIndex === data.moveIndex) return;
-      resolveOtherPlayerMoveRef.current.resolver?.(data.board, data.move);
+      resolveOtherPlayerMoveRef.current.resolver?.(data.board);
     });
   }, [gameID]);
 
@@ -99,11 +98,11 @@ export default function OnlineGameCard(): ReactElement {
     return <LoadingOverlay />;
   }
 
-  const otherPlayerResponder = (board: Board, move: Move): Promise<GameState> => {
+  const otherPlayerResponder = (board: Board): Promise<GameState> => {
     resolveOtherPlayerMoveRef.current.moveIndex += 1;
     gameDataCollection
       .doc(gameID)
-      .set({ board, move, moveIndex: resolveOtherPlayerMoveRef.current.moveIndex });
+      .set({ board, moveIndex: resolveOtherPlayerMoveRef.current.moveIndex });
     return new Promise((resolve) => {
       resolveOtherPlayerMoveRef.current.resolver = (newBoardAfterAI) => {
         resolve({ board: newBoardAfterAI });
