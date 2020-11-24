@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 import { Board, getGameStatus } from '../game/board';
 import type { GameState } from '../game/game-state';
@@ -27,21 +27,19 @@ type Props = {
   readonly gameState: GameState;
   readonly playerCanMove: boolean;
   readonly playerMadeIllegalMove: boolean;
-  readonly showGameStarterButtons: boolean;
   readonly showUndoButton: boolean;
+  readonly children?: ReactNode;
   readonly clickCallback: (a: number, b: number) => void;
-  readonly onSelectSide: (side: 1 | -1) => void;
-  readonly onUndoMove: () => void;
+  readonly onUndoMove?: () => void;
 };
 
 export default function GameCard({
   gameState: { board, aiInfo },
   playerCanMove,
   playerMadeIllegalMove,
-  showGameStarterButtons,
   showUndoButton,
+  children,
   clickCallback,
-  onSelectSide,
   onUndoMove,
 }: Props): ReactElement {
   const { tiles, playerIdentity } = board;
@@ -67,22 +65,7 @@ export default function GameCard({
         {!playerCanMove && <div className={styles.Overlay} />}
         <BoardGrid tiles={tiles} lastMove={board.lastMove} clickCallback={clickCallback} />
       </div>
-      {showGameStarterButtons && (
-        <div className="card__footer">
-          <button
-            className="button button--outline button--primary"
-            onClick={() => onSelectSide(1)}
-          >
-            Play as Black
-          </button>
-          <button
-            className="button button--outline button--primary"
-            onClick={() => onSelectSide(-1)}
-          >
-            Play as White
-          </button>
-        </div>
-      )}
+      {children}
       {showUndoButton && (
         <div className="card__footer">
           <button className="button button--outline button--primary" onClick={onUndoMove}>
