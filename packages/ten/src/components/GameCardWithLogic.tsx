@@ -53,7 +53,7 @@ export default function GameCardWithLogic({
     setPlayerMadeIllegalMove(false);
     setGameStates((previousState) => ({
       previousState,
-      currentState: { board: newBoard, highlightedCell: move },
+      currentState: { board: newBoard },
     }));
     if (otherPlayerResponder == null) return;
     setPlayerCanMove(false);

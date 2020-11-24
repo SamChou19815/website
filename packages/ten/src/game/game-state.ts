@@ -2,7 +2,6 @@ import type { Board } from './board';
 
 export type GameState = {
   readonly board: Board;
-  readonly highlightedCell?: readonly [number, number];
   readonly aiInfo?: { readonly winningPercentage: number; readonly simulationCounter: number };
 };
 

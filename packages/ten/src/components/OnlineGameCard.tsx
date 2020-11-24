@@ -106,10 +106,7 @@ export default function OnlineGameCard(): ReactElement {
       .set({ board, move, moveIndex: resolveOtherPlayerMoveRef.current.moveIndex });
     return new Promise((resolve) => {
       resolveOtherPlayerMoveRef.current.resolver = (newBoardAfterAI) => {
-        resolve({
-          board: newBoardAfterAI,
-          highlightedCell: move,
-        });
+        resolve({ board: newBoardAfterAI });
         resolveOtherPlayerMoveRef.current.resolver = undefined;
       };
     });

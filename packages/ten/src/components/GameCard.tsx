@@ -35,7 +35,7 @@ type Props = {
 };
 
 export default function GameCard({
-  gameState: { board, highlightedCell, aiInfo },
+  gameState: { board, aiInfo },
   playerCanMove,
   playerMadeIllegalMove,
   showGameStarterButtons,
@@ -65,7 +65,7 @@ export default function GameCard({
       {aiInfoNode}
       <div className={`card__body ${styles.GameCells}`}>
         {!playerCanMove && <div className={styles.Overlay} />}
-        <BoardGrid tiles={tiles} highlightedCell={highlightedCell} clickCallback={clickCallback} />
+        <BoardGrid tiles={tiles} lastMove={board.lastMove} clickCallback={clickCallback} />
       </div>
       {showGameStarterButtons && (
         <div className="card__footer">

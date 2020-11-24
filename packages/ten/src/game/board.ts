@@ -21,6 +21,8 @@ export type Board = {
   readonly winningCounter: readonly [number, number];
   /** The identity of the current player. Either 1 or -1. */
   readonly playerIdentity: 1 | -1;
+  /** The last move made by a player. */
+  readonly lastMove?: Move;
 };
 
 export const emptyBoard: Board = {
@@ -138,6 +140,7 @@ export function makeMoveWithoutCheck(board: Board, move: Move): Board {
     bigSquareToPick,
     winningCounter,
     playerIdentity,
+    lastMove: move,
   };
 }
 

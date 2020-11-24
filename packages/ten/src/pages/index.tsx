@@ -13,11 +13,7 @@ const aiResponder = (board: Board): Promise<GameState> =>
     .then((json) => {
       const { move, winningPercentage, simulationCounter } = json;
       const newBoardAfterAI = makeMoveWithoutCheck(board, move);
-      return {
-        board: newBoardAfterAI,
-        highlightedCell: move,
-        aiInfo: { winningPercentage, simulationCounter },
-      };
+      return { board: newBoardAfterAI, aiInfo: { winningPercentage, simulationCounter } };
     });
 
 export default function Index(): ReactElement {
