@@ -10,7 +10,6 @@ export type FirestoreOnlineGameData = {
   readonly blackPlayerEmail: string;
   readonly whitePlayerEmail: string;
   readonly board: Board;
-  readonly moveIndex: number;
 };
 
 const gameDataCollection = firebase
@@ -50,9 +49,12 @@ export const startFirestoreOnlineTENGame = (
     blackPlayerEmail,
     whitePlayerEmail,
     board: makeMoveWithoutCheck(emptyBoard, [4, 4]),
-    moveIndex: 0,
   };
   const document = gameDataCollection.doc();
   document.set(gameData);
   return { ...gameData, gameID: document.id };
+};
+
+export const makeMoveInFirestoreOnlineTENGame = (gameID: string, board: Board): void => {
+  gameDataCollection.doc(gameID).update({ board });
 };

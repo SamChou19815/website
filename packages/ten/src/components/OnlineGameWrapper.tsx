@@ -1,7 +1,7 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
+import OnlineGameCard from './OnlineGameCard';
 import {
-  FirestoreOnlineGameData,
   startFirestoreOnlineTENGame,
   useFirestoreOnlineGameData,
 } from './online-multiplayer-firestore';
@@ -11,11 +11,7 @@ import LoadingOverlay from 'lib-react/LoadingOverlay';
 const getGameID = () =>
   location.hash.startsWith('#game-') ? location.hash.substring(6) : undefined;
 
-type Props = {
-  readonly OnlineGameCard: (props: { readonly gameData: FirestoreOnlineGameData }) => ReactElement;
-};
-
-export default function OnlineGameWrapper({ OnlineGameCard }: Props): ReactElement {
+export default function OnlineGameWrapper(): ReactElement {
   const [gameID, setGameID] = useState<string | undefined>(getGameID());
 
   const gameData = useFirestoreOnlineGameData(gameID);
