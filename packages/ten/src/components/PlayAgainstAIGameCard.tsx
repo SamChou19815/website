@@ -74,7 +74,7 @@ export default function PlayAgainstAIGameCard(): ReactElement {
     <GameCard
       gameState={gameStates.currentState}
       playerIdentity={playerIdentity}
-      playerCanMove={playerCanMove}
+      playerCanMove={playerCanMove && getGameStatus(gameStates.currentState.board) === 0}
       playerMadeIllegalMove={playerMadeIllegalMove}
       showUndoButton={playerCanMove && gameStates.previousState != null}
       clickCallback={(a, b) => clickCellCallback(gameStates.currentState.board, [a, b])}
