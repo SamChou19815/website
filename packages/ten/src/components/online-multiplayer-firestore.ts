@@ -6,6 +6,7 @@ import { Board, emptyBoard, makeMoveWithoutCheck } from '../game/board';
 import { getAppUser } from './authentication';
 
 export type FirestoreOnlineGameData = {
+  readonly gameID: string;
   readonly blackPlayerEmail: string;
   readonly whitePlayerEmail: string;
   readonly board: Board;
@@ -15,20 +16,26 @@ export type FirestoreOnlineGameData = {
 const gameDataCollection = firebase
   .firestore()
   .collection('ten-app-games')
-  .withConverter<FirestoreOnlineGameData>({
-    toFirestore(data: FirestoreOnlineGameData) {
+  .withConverter<Omit<FirestoreOnlineGameData, 'gameID'>>({
+    toFirestore(data: Omit<FirestoreOnlineGameData, 'gameID'>) {
       return data;
     },
     fromFirestore(snapshot) {
-      return snapshot.data() as FirestoreOnlineGameData;
+      return snapshot.data() as Omit<FirestoreOnlineGameData, 'gameID'>;
     },
   });
 
-export const useFirestoreOnlineGameData = (gameID: string): FirestoreOnlineGameData | undefined => {
+export const useFirestoreOnlineGameData = (
+  gameID?: string
+): FirestoreOnlineGameData | undefined => {
   const [gameData, setGameData] = useState<FirestoreOnlineGameData | undefined>();
 
   useEffect(() => {
-    return gameDataCollection.doc(gameID).onSnapshot((snapshot) => setGameData(snapshot.data()));
+    if (gameID == null) return () => {};
+    return gameDataCollection.doc(gameID).onSnapshot((snapshot) => {
+      const data = snapshot.data();
+      setGameData(data == null ? undefined : { ...data, gameID });
+    });
   }, [gameID]);
 
   return gameData;
