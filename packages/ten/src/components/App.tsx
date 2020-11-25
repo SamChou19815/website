@@ -18,6 +18,9 @@ export default function App({ children }: { readonly children: ReactNode }): Rea
       <Link className="navbar__item navbar__link" to="/local">
         Play locally
       </Link>
+      <Link className="navbar__item navbar__link" to="/online">
+        Play online
+      </Link>
       <Link className="navbar__item navbar__link" to="/rules">
         Rules
       </Link>
