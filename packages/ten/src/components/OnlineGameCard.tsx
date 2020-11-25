@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
-import { makeMove } from '../game/board';
+import { getGameStatus, makeMove } from '../game/board';
 import GameCard from './GameCard';
 import { getAppUser } from './authentication';
 import {
@@ -30,7 +30,7 @@ export default function OnlineGameCard({ gameData }: Props): ReactElement {
     <GameCard
       gameState={{ board: gameData.board }}
       playerIdentity={playerIdentity}
-      playerCanMove={playerIdentity === boardIdentity}
+      playerCanMove={playerIdentity === boardIdentity && getGameStatus(gameData.board) === 0}
       playerMadeIllegalMove={playerMadeIllegalMove}
       showUndoButton={false}
       clickCallback={clickCallback}

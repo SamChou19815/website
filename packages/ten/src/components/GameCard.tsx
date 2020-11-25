@@ -13,7 +13,7 @@ const getMessage = (
   switch (getGameStatus(board)) {
     case 0:
       if (!playerCanMove) {
-        return 'Waiting for AI move.';
+        return "Waiting for other player's move.";
       }
       return playerMadeIllegalMove ? 'Illegal move!' : 'Waiting for your move.';
     case 1:

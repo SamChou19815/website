@@ -34,7 +34,8 @@ export default function OnlineGameWrapper(): ReactElement {
               // eslint-disable-next-line no-alert
               const whitePlayerEmail = prompt("Your friend's email");
               if (whitePlayerEmail == null) return;
-              startFirestoreOnlineTENGame(whitePlayerEmail);
+              const data = startFirestoreOnlineTENGame(whitePlayerEmail);
+              location.hash = `game-${data.gameID}`;
             }}
           >
             Create a new game as black
