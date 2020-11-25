@@ -44,6 +44,7 @@ export default function GameCardWithLogic({
   return (
     <GameCard
       gameState={gameStates.currentState}
+      playerIdentity="Black"
       playerCanMove={playerCanMove}
       playerMadeIllegalMove={playerMadeIllegalMove}
       showUndoButton={playerCanMove && gameStates.previousState != null}

@@ -38,10 +38,11 @@ const aiResponder = (board: Board): Promise<GameState> =>
       return { board: newBoardAfterAI, aiInfo: { winningPercentage, simulationCounter } };
     });
 
-export default function GameCardWithLogic(): ReactElement {
+export default function PlayAgainstAIGameCard(): ReactElement {
   const [gameStates, setGameStates] = useState<GameStates>({
     currentState: { board: emptyBoard },
   });
+  const [playerIdentity, setPlayerIdentity] = useState<'Black' | 'White'>('Black');
   const [playerCanMove, setPlayerCanMove] = useState(true);
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 
@@ -63,14 +64,16 @@ export default function GameCardWithLogic(): ReactElement {
     });
   };
 
-  const onSelectSide = (id: 1 | -1) => {
-    const newBoard = id === 1 ? emptyBoard : makeMoveWithoutCheck(emptyBoard, [4, 4]);
+  const onSelectSide = (id: 'Black' | 'White') => {
+    const newBoard = id === 'Black' ? emptyBoard : makeMoveWithoutCheck(emptyBoard, [4, 4]);
+    setPlayerIdentity(id);
     setGameStates({ currentState: { board: newBoard } });
   };
 
   return (
     <GameCard
       gameState={gameStates.currentState}
+      playerIdentity={playerIdentity}
       playerCanMove={playerCanMove}
       playerMadeIllegalMove={playerMadeIllegalMove}
       showUndoButton={playerCanMove && gameStates.previousState != null}
@@ -83,13 +86,13 @@ export default function GameCardWithLogic(): ReactElement {
         <div className="card__footer">
           <button
             className="button button--outline button--primary"
-            onClick={() => onSelectSide(1)}
+            onClick={() => onSelectSide('Black')}
           >
             Play as Black
           </button>
           <button
             className="button button--outline button--primary"
-            onClick={() => onSelectSide(-1)}
+            onClick={() => onSelectSide('White')}
           >
             Play as White
           </button>

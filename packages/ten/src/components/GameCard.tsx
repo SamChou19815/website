@@ -25,6 +25,7 @@ const getMessage = (
 
 type Props = {
   readonly gameState: GameState;
+  readonly playerIdentity: 'Black' | 'White';
   readonly playerCanMove: boolean;
   readonly playerMadeIllegalMove: boolean;
   readonly showUndoButton: boolean;
@@ -35,6 +36,7 @@ type Props = {
 
 export default function GameCard({
   gameState: { board, aiInfo },
+  playerIdentity,
   playerCanMove,
   playerMadeIllegalMove,
   showUndoButton,
@@ -42,7 +44,7 @@ export default function GameCard({
   clickCallback,
   onUndoMove,
 }: Props): ReactElement {
-  const { tiles, playerIdentity } = board;
+  const { tiles } = board;
   let aiInfoNode: ReactElement | null;
   if (aiInfo == null) {
     aiInfoNode = null;
@@ -57,9 +59,7 @@ export default function GameCard({
   return (
     <div className="card">
       <div className="card__body">{getMessage(board, playerCanMove, playerMadeIllegalMove)}</div>
-      <div className="card__body">
-        {`Your Identity: ${playerIdentity === 1 ? 'Black' : 'White'}`}
-      </div>
+      <div className="card__body">{`Your Identity: ${playerIdentity}`}</div>
       {aiInfoNode}
       <div className={`card__body ${styles.GameCells}`}>
         {!playerCanMove && <div className={styles.Overlay} />}
