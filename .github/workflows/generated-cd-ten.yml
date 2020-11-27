@@ -7,6 +7,7 @@ on:
       - 'packages/lib-common/**'
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
+      - 'packages/lib-firebase/**'
       - 'packages/ten/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-ten.yml'
