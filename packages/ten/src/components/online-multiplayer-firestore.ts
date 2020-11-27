@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import firebase from 'firebase/app';
 
-import { Board, emptyBoard, makeMoveWithoutCheck } from '../game/board';
+import { Board, emptyBoard } from '../game/board';
 
 import { getAppUser } from 'lib-firebase/authentication';
 
@@ -49,7 +49,7 @@ export const startFirestoreOnlineTENGame = (
   const gameData = {
     blackPlayerEmail,
     whitePlayerEmail,
-    board: makeMoveWithoutCheck(emptyBoard, [4, 4]),
+    board: emptyBoard,
   };
   const document = gameDataCollection.doc();
   document.set(gameData);
