@@ -7,7 +7,7 @@ import LoadingOverlay from 'lib-react/LoadingOverlay';
 
 // Lazy import is necessary for conditional execution below,
 // since firebase/app code cannot be executed in SSR environments.
-const FirebaseLoginAppBarrier = lazy(() => import('../app/FirebaseLoginAppBarrier'));
+const FirebaseLoginAppBarrier = lazy(() => import('lib-firebase/FirebaseLoginAppBarrier'));
 const App = lazy(() => import('../app/App'));
 
 export default function InternTierAccessEntryPoint(): ReactElement {

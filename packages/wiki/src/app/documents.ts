@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 
 import firebase from 'firebase/app';
 
-import { getAppUser, isAdminUser } from './authentication';
+import { isAdminUser } from './authentication';
+
+import { getAppUser } from 'lib-firebase/authentication';
 
 export type WikiPrivateDocumentMetadata = {
   readonly documentID: string;

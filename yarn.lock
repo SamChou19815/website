@@ -12399,6 +12399,22 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
+"lib-firebase@0.1.0, lib-firebase@workspace:packages/lib-firebase":
+  version: 0.0.0-use.local
+  resolution: "lib-firebase@workspace:packages/lib-firebase"
+  dependencies:
+    "@types/node": ^14.14.9
+    "@types/react": ^17.0.0
+    firebase: ^8.1.1
+    lib-react: 0.1.0
+    rxjs: ^6.6.3
+    typescript: ^4.1.2
+  peerDependencies:
+    firebase: ^8.1.1
+    react: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "lib-in-memory-filesystem@0.1.0, lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem":
   version: 0.0.0-use.local
   resolution: "lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem"
@@ -18639,6 +18655,7 @@ fsevents@^1.2.7:
     firebase: ^8.1.1
     infima: 0.2.0-alpha.12
     lib-common: 0.0.1
+    lib-firebase: 0.1.0
     lib-react: 0.1.0
     react: ^17.0.0
     react-dom: ^17.0.0
@@ -20165,6 +20182,7 @@ typescript@^4.1.2:
     firebase: ^8.1.1
     lib-common: 0.0.1
     lib-docusaurus-plugin: 0.1.0
+    lib-firebase: 0.1.0
     lib-react: 0.1.0
     prism-react-renderer: ^1.1.1
     react: ^17.0.0

@@ -8,6 +8,7 @@ on:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
       - 'packages/lib-docusaurus-plugin/**'
+      - 'packages/lib-firebase/**'
       - 'packages/wiki/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-wiki.yml'

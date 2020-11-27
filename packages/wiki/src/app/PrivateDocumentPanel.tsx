@@ -5,13 +5,15 @@ import clsx from 'clsx';
 import MarkdownBlock from './MarkdownBlock';
 import PrivateDocumentContentEditorModal from './PrivateDocumentContentEditorModal';
 import PrivateDocumentMetadataEditor from './PrivateDocumentMetadataEditor';
-import { isAdminUser, getAppUser } from './authentication';
+import { isAdminUser } from './authentication';
 import {
   WikiPrivateDocumentMetadata,
   deleteWikiPrivateDocument,
   useWikiPrivateDocumentContent,
   createWikiPrivateDocument,
 } from './documents';
+
+import { getAppUser } from 'lib-firebase/authentication';
 
 const PrivateDocumentPanelWithMetadata = ({
   metadata,

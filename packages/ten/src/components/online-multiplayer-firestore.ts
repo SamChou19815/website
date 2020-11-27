@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 
 import { Board, emptyBoard, makeMoveWithoutCheck } from '../game/board';
-import { getAppUser } from './authentication';
+
+import { getAppUser } from 'lib-firebase/authentication';
 
 export type FirestoreOnlineGameData = {
   readonly gameID: string;

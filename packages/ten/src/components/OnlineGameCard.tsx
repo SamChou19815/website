@@ -2,11 +2,12 @@ import React, { ReactElement, useState } from 'react';
 
 import { getGameStatus, makeMove } from '../game/board';
 import GameCard from './GameCard';
-import { getAppUser } from './authentication';
 import {
   FirestoreOnlineGameData,
   makeMoveInFirestoreOnlineTENGame,
 } from './online-multiplayer-firestore';
+
+import { getAppUser } from 'lib-firebase/authentication';
 
 type Props = { readonly gameData: FirestoreOnlineGameData };
 
