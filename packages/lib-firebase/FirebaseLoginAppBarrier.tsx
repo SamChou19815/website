@@ -3,6 +3,7 @@ import React, { ReactElement, useState, useEffect } from 'react';
 import './firebase-initializer';
 import firebase from 'firebase/app';
 
+import styles from './FirebaseLoginAppBarrier.module.css';
 import { appUser$, hasAppUser } from './authentication';
 
 import LoadingOverlay from 'lib-react/LoadingOverlay';
@@ -41,7 +42,7 @@ const FirebaseLoginAppBarrier = ({ children }: Props): ReactElement => {
   switch (appStatus) {
     case 'LANDING':
       return (
-        <div className="simple-page-center">
+        <div className={styles.SimplePageCenter}>
           <button className="button button--primary" onClick={onLoginClick}>
             Login
           </button>
