@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import AboutSection from './AboutSection';
 import styles from './App.module.css';

@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-
 import { renderToString } from 'react-dom/server';
 import * as remarkable from 'remarkable';
 

@@ -5,9 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { ReactElement } from 'react';
-
 import Layout from '@theme/Layout';
+import React, { ReactElement } from 'react';
 
 import LanguageDemo from '../language-demo';
 

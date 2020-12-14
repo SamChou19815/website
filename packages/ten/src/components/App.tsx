@@ -1,9 +1,8 @@
-import React, { ReactElement, ReactNode } from 'react';
-
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import React, { ReactElement, ReactNode } from 'react';
 
 export default function App({ children }: { readonly children: ReactNode }): ReactElement {
   const { siteConfig = {} } = useDocusaurusContext();

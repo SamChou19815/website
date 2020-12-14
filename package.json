@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@dev-sam/codegen-cli": "workspace:^0.0.2",
-    "@dev-sam/eslint-config-common": "workspace:^0.17.0",
+    "@dev-sam/eslint-config-common": "workspace:^0.19.0",
     "@dev-sam/monorail": "workspace:packages/monorail",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",

@@ -78,8 +78,6 @@ module.exports = (
       'error',
       {
         groups: ['builtin', 'external', ['parent', 'sibling', 'index']],
-        // Make React always appear first.
-        pathGroups: [{ pattern: 'react?(-dom)', group: 'external', position: 'before' }],
         pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
         alphabetize: { order: 'asc', caseInsensitive: false },
@@ -133,9 +131,10 @@ module.exports = (
     ...(react
       ? {
           'react/jsx-filename-extension': 'off', // Already covered by TypeScript
-          'react/prop-types': 'off', // Already covered by TypeScript
           'react/jsx-indent': 'off', // Already covered by Prettier
           'react/jsx-one-expression-per-line': 'off', // Already covered by Prettier
+          'react/prop-types': 'off', // Already covered by TypeScript
+          'react/react-in-jsx-scope': 'off', // no longer required after TS 4.1
         }
       : {}),
     ...(reactHooks

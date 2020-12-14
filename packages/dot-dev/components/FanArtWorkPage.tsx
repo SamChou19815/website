@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React, { ReactElement } from 'react';
-
 import Head from 'next/head';
 import Link from 'next/link';
+import type { ReactElement } from 'react';
 
 import FanArtWorkCard from '../components/FanArtWorkCard';
 import type { FanArtWork } from '../components/data';

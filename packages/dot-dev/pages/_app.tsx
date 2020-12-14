@@ -1,7 +1,6 @@
-import React, { ReactElement, useEffect } from 'react';
-
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ReactElement, useEffect } from 'react';
 import ReactGA from 'react-ga';
 
 import 'infima/dist/css/default/default.min.css';

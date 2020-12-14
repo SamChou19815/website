@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { ReactNode, ReactElement } from 'react';
-
 import CodeBlock from '@theme/CodeBlock';
 import clsx from 'clsx';
+import React, { ReactNode, ReactElement } from 'react';
 
 import DemoStyles from './LanguageDemo.module.css';
 import ResultStyles from './ResultCard.module.css';

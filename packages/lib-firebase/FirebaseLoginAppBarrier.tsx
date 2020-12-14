@@ -1,7 +1,6 @@
-import React, { ReactElement, useState, useEffect } from 'react';
-
 import './firebase-initializer';
 import firebase from 'firebase/app';
+import React, { ReactElement, useState, useEffect } from 'react';
 
 import styles from './FirebaseLoginAppBarrier.module.css';
 import { appUser$, hasAppUser } from './authentication';

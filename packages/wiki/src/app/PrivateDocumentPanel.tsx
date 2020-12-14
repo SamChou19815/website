@@ -1,6 +1,5 @@
-import React, { ReactElement, useState } from 'react';
-
 import clsx from 'clsx';
+import React, { ReactElement, useState } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
 import PrivateDocumentContentEditorModal from './PrivateDocumentContentEditorModal';

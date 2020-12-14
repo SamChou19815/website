@@ -1,6 +1,5 @@
-import React, { ReactElement, Suspense, lazy } from 'react';
-
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import React, { ReactElement, Suspense, lazy } from 'react';
 
 import App from '../components/App';
 
