@@ -252,7 +252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.12.9, @babel/core@npm:^7.7.5":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.7.5":
   version: 7.12.9
   resolution: "@babel/core@npm:7.12.9"
   dependencies:
@@ -276,6 +276,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/core@npm:^7.12.10":
+  version: 7.12.10
+  resolution: "@babel/core@npm:7.12.10"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/generator": ^7.12.10
+    "@babel/helper-module-transforms": ^7.12.1
+    "@babel/helpers": ^7.12.5
+    "@babel/parser": ^7.12.10
+    "@babel/template": ^7.12.7
+    "@babel/traverse": ^7.12.10
+    "@babel/types": ^7.12.10
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.1
+    json5: ^2.1.2
+    lodash: ^4.17.19
+    semver: ^5.4.1
+    source-map: ^0.5.0
+  checksum: 4d7b892764009b80ac36b193ee37dd27a04244113dfa7510a937e81999e4b0f8ad3237f809792975abab5e07b44a7f7c36bb21e6f9957cdf54cd91cbf149c411
+  languageName: node
+  linkType: hard
+
 "@babel/generator@npm:^7.11.6, @babel/generator@npm:^7.12.5":
   version: 7.12.5
   resolution: "@babel/generator@npm:7.12.5"
@@ -284,6 +307,17 @@ __metadata:
     jsesc: ^2.5.1
     source-map: ^0.5.0
   checksum: 7706cb3d29060e6dfcdbc982ded9a02f0bda36329cc35aabc6b3f9f30ef7b3b3bcaba51c24714663f3ea9529994cd3461ab8a664b26398208b9b9a96476bf43c
+  languageName: node
+  linkType: hard
+
+"@babel/generator@npm:^7.12.10":
+  version: 7.12.10
+  resolution: "@babel/generator@npm:7.12.10"
+  dependencies:
+    "@babel/types": ^7.12.10
+    jsesc: ^2.5.1
+    source-map: ^0.5.0
+  checksum: ddd59efc33e328c6b2c042d14d86b6d8e391bf6512195cce62361bfaf1b74ed15f98b69223b9bc33ac4b1e33557c31675bcc1fb8255de640f1506c7a6e88be2a
   languageName: node
   linkType: hard
 
@@ -572,6 +606,15 @@ __metadata:
   bin:
     parser: ./bin/babel-parser.js
   checksum: 12daf20ffe364116f94a50411d02e42144439b66f9948f2e84950ac943e75cfb1f61dbc14f01c9c037f112e3deefd2f9779b6a213fb9c9b6a506066c6527a665
+  languageName: node
+  linkType: hard
+
+"@babel/parser@npm:^7.12.10":
+  version: 7.12.10
+  resolution: "@babel/parser@npm:7.12.10"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: b21b51c2c5b6da559b70337a9fa0cf77da52f9ba70755bed5e41d04fa4b7d043a51a58ff6c0cb110ff80f5e204310afec0596dd8f841542ac3c41d6a1cf0bd0d
   languageName: node
   linkType: hard
 
@@ -1599,6 +1642,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/traverse@npm:^7.12.10":
+  version: 7.12.10
+  resolution: "@babel/traverse@npm:7.12.10"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/generator": ^7.12.10
+    "@babel/helper-function-name": ^7.10.4
+    "@babel/helper-split-export-declaration": ^7.11.0
+    "@babel/parser": ^7.12.10
+    "@babel/types": ^7.12.10
+    debug: ^4.1.0
+    globals: ^11.1.0
+    lodash: ^4.17.19
+  checksum: 63e8500aed71da6fba8058751298c3bc1b54628585fb27047cbf2c0ed66df03f19e6b0fa9a8809bbb5131c27464b4ce950753479ef4333759fe5a400ae954956
+  languageName: node
+  linkType: hard
+
 "@babel/types@npm:7.8.3":
   version: 7.8.3
   resolution: "@babel/types@npm:7.8.3"
@@ -1618,6 +1678,17 @@ __metadata:
     lodash: ^4.17.19
     to-fast-properties: ^2.0.0
   checksum: 153635079722927a7ac35ae6c10d091e9f86fcf8411c56a2bff17befc20f53b3c1883f67f33b59d8896d65f4aed7e9aa535d24262838d0a8250f2e2ef0d9327f
+  languageName: node
+  linkType: hard
+
+"@babel/types@npm:^7.12.10":
+  version: 7.12.10
+  resolution: "@babel/types@npm:7.12.10"
+  dependencies:
+    "@babel/helper-validator-identifier": ^7.10.4
+    lodash: ^4.17.19
+    to-fast-properties: ^2.0.0
+  checksum: 4f791b6788397d38eba9d4ee7e019e2f88ab337ae331da69d6f4d5d5b26d40c25a47a92f2b0c2025cf856455728fa9d9a79bb046f6f998c491375453822ae2ea
   languageName: node
   linkType: hard
 
@@ -1651,7 +1722,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/bundler@workspace:packages/sam-bundler"
   dependencies:
-    "@types/node": ^14.14.11
+    "@types/node": ^14.14.13
     "@vercel/ncc": ^0.24.0
   bin:
     sam-bundle: ./index.js
@@ -1663,13 +1734,13 @@ __metadata:
   resolution: "@dev-sam/codegen-cli@workspace:packages/codegen-cli"
   dependencies:
     "@dev-sam/bundler": "workspace:^0.0.1"
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
     "@vercel/ncc": ^0.24.0
     lib-changed-files: "workspace:^0.0.1"
     lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   bin:
     sam-codegen: ./bin/index
   languageName: unknown
@@ -1679,7 +1750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
   dependencies:
-    "@types/node": ^14.14.11
+    "@types/node": ^14.14.13
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": "*"
@@ -1704,12 +1775,12 @@ __metadata:
   dependencies:
     "@dev-sam/bundler": "workspace:^0.0.1"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
     lib-changed-files: "workspace:^0.0.1"
     lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   bin:
     monorail: ./bin/monorail
   languageName: unknown
@@ -1727,12 +1798,12 @@ __metadata:
   resolution: "@dev-sam/watcher-server@workspace:packages/sam-watcher-server"
   dependencies:
     "@types/express": ^4.17.7
-    "@types/node": ^14.14.11
+    "@types/node": ^14.14.13
     "@vercel/ncc": ^0.24.0
     chokidar: ^3.4.2
     express: ^4.17.1
     lib-common: 0.0.1
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   bin:
     sam-watch-server: build/index.js
   languageName: unknown
@@ -3555,13 +3626,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^26.0.17":
-  version: 26.0.17
-  resolution: "@types/jest@npm:26.0.17"
+"@types/jest@npm:^26.0.19":
+  version: 26.0.19
+  resolution: "@types/jest@npm:26.0.19"
   dependencies:
     jest-diff: ^26.0.0
     pretty-format: ^26.0.0
-  checksum: 025af4f5b584e15097c96ff1b1873a75f785a3c4f7700609ed131ca1a74f05c94c08f112a2b5a0585c753e9163d26346d459f10c10f9d600e1d23e92cde65e9e
+  checksum: 98c8daaf89ca79823461818c1c22d337354e250a135e0314ba1a49e615620c8e2f54c5b900ba8554bf853919c97538f9a38b5af00cea83fd715ee2e6d75e04b8
   languageName: node
   linkType: hard
 
@@ -3653,10 +3724,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.11":
-  version: 14.14.11
-  resolution: "@types/node@npm:14.14.11"
-  checksum: aa09069a4914819692278da742c11f629ce61ff40682e13afbc4421d0647107bffb6bcb8929d1cf8da22821779164078ae86a382f61324c9df7e1af8eaed567b
+"@types/node@npm:^14.14.13":
+  version: 14.14.13
+  resolution: "@types/node@npm:14.14.13"
+  checksum: a879dae2e047e75055b0f4fb217aac31e905e49f921054f6425e8494e7a75dec82d351770b1a0e79a00322345896646a4dadc5fa27c857e392d6909e54cdba9e
   languageName: node
   linkType: hard
 
@@ -3855,12 +3926,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^4.9.1":
-  version: 4.9.1
-  resolution: "@typescript-eslint/eslint-plugin@npm:4.9.1"
+"@typescript-eslint/eslint-plugin@npm:^4.10.0":
+  version: 4.10.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:4.10.0"
   dependencies:
-    "@typescript-eslint/experimental-utils": 4.9.1
-    "@typescript-eslint/scope-manager": 4.9.1
+    "@typescript-eslint/experimental-utils": 4.10.0
+    "@typescript-eslint/scope-manager": 4.10.0
     debug: ^4.1.1
     functional-red-black-tree: ^1.0.1
     regexpp: ^3.0.0
@@ -3872,66 +3943,66 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 8de2705aaf40252c16e0408e3eee5e04c2048608ab2a3e3a40d65057e7abd185c7fad33b3d586836dd670452ec008edcbb00055a565ce86e6621f3ea71f6ef24
+  checksum: 7c9ef88c112ad81b75697023f3e8df0bb69c33d130868003b55e02416a620ad0e95341576b10050d16d4e04a4c87b1721d762ad5367bc9c2d305a23ab4f94505
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:4.9.1":
-  version: 4.9.1
-  resolution: "@typescript-eslint/experimental-utils@npm:4.9.1"
+"@typescript-eslint/experimental-utils@npm:4.10.0":
+  version: 4.10.0
+  resolution: "@typescript-eslint/experimental-utils@npm:4.10.0"
   dependencies:
     "@types/json-schema": ^7.0.3
-    "@typescript-eslint/scope-manager": 4.9.1
-    "@typescript-eslint/types": 4.9.1
-    "@typescript-eslint/typescript-estree": 4.9.1
+    "@typescript-eslint/scope-manager": 4.10.0
+    "@typescript-eslint/types": 4.10.0
+    "@typescript-eslint/typescript-estree": 4.10.0
     eslint-scope: ^5.0.0
     eslint-utils: ^2.0.0
   peerDependencies:
     eslint: "*"
-  checksum: fee1f272addbcd453a8f477cd31bb62c6f445b0e7b642e99cb134aa3cfc72a691e51e5aacc5b70cc6f8f18d234f4c8bf1772d3abc683befa0d82f1efd6474cd0
+  checksum: 20dad7bdb6e0694cf6b89edd35d9568ac91e76f7ad84bb052a7e79c764a84ebfc32ecd14d924c34e5c0d9e07961d27cdc209858a7861199c771f10eb77bc801e
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^4.9.1":
-  version: 4.9.1
-  resolution: "@typescript-eslint/parser@npm:4.9.1"
+"@typescript-eslint/parser@npm:^4.10.0":
+  version: 4.10.0
+  resolution: "@typescript-eslint/parser@npm:4.10.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 4.9.1
-    "@typescript-eslint/types": 4.9.1
-    "@typescript-eslint/typescript-estree": 4.9.1
+    "@typescript-eslint/scope-manager": 4.10.0
+    "@typescript-eslint/types": 4.10.0
+    "@typescript-eslint/typescript-estree": 4.10.0
     debug: ^4.1.1
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 61fc1b3e9bfd5056b46337bbea333eb0b86391232ff63669a4e5c08766e041f2cf05ab769374a1b8fde25728646e5b4441d992476cc66abab2a72289cdabfc5a
+  checksum: 8968583d8c789a2b3f33d9acc258297ddafc083eb339322f87402e21690a3e0b9c32926d3729a38b5c143af2702bda9d7d0531469ac11da068cf4004689c8e48
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:4.9.1":
-  version: 4.9.1
-  resolution: "@typescript-eslint/scope-manager@npm:4.9.1"
+"@typescript-eslint/scope-manager@npm:4.10.0":
+  version: 4.10.0
+  resolution: "@typescript-eslint/scope-manager@npm:4.10.0"
   dependencies:
-    "@typescript-eslint/types": 4.9.1
-    "@typescript-eslint/visitor-keys": 4.9.1
-  checksum: 352c9c2dd8057210376a65aa753e330d3b6ed670a8686905acbd81d118062d4f0a5043b28bedf6340d6e29a386b58c8e9bee7732fca1d21fdab69dea1554b9db
+    "@typescript-eslint/types": 4.10.0
+    "@typescript-eslint/visitor-keys": 4.10.0
+  checksum: c320c086637a532400ce6e34aedb66e443b0e5ab725e814093a585419053f8e404aab8f7ea890f0866c2137fe7108b34f9c9216d8a74f4908f17b263d5086dd9
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:4.9.1":
-  version: 4.9.1
-  resolution: "@typescript-eslint/types@npm:4.9.1"
-  checksum: e7c5094ce054e2443c4304b6fa35cae8937ffa04f32b0f32db71738671e0ec94a54f29e820745079067fdafa0061a58846b5cde4390f0a9804d5ca7075e89f76
+"@typescript-eslint/types@npm:4.10.0":
+  version: 4.10.0
+  resolution: "@typescript-eslint/types@npm:4.10.0"
+  checksum: e82f04695b11792e49c8b9fc60e289f337f7c31b68d04a6f2405163b8a85462eff683ad62e2694368432024f18cdc4d592fe048372774b6cb65057715e9c3105
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:4.9.1":
-  version: 4.9.1
-  resolution: "@typescript-eslint/typescript-estree@npm:4.9.1"
+"@typescript-eslint/typescript-estree@npm:4.10.0":
+  version: 4.10.0
+  resolution: "@typescript-eslint/typescript-estree@npm:4.10.0"
   dependencies:
-    "@typescript-eslint/types": 4.9.1
-    "@typescript-eslint/visitor-keys": 4.9.1
+    "@typescript-eslint/types": 4.10.0
+    "@typescript-eslint/visitor-keys": 4.10.0
     debug: ^4.1.1
     globby: ^11.0.1
     is-glob: ^4.0.1
@@ -3941,17 +4012,17 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: cb5ce82696ac4d7d8ce63a54dd522511d3231193d07be44b2456d9f22890c6cdbb03e531ec889629081d9e4a2c322566424246da02e2d82c80625eb346b91006
+  checksum: fbc87779af4fa59a5caae47a9429a2229303066c760db46e824d8bdb6d437e1c887d82e9bc85f89570189aacb899875f9b677cadd6b28fa47364ddd2b8f92268
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:4.9.1":
-  version: 4.9.1
-  resolution: "@typescript-eslint/visitor-keys@npm:4.9.1"
+"@typescript-eslint/visitor-keys@npm:4.10.0":
+  version: 4.10.0
+  resolution: "@typescript-eslint/visitor-keys@npm:4.10.0"
   dependencies:
-    "@typescript-eslint/types": 4.9.1
+    "@typescript-eslint/types": 4.10.0
     eslint-visitor-keys: ^2.0.0
-  checksum: 1b059e2ffd0432f588d13160a8f7d64dff30a8727e0c3c5c0235db1be8b13f08544b2eab8374157b8fbc77ad8f58e768ae3c5266d61275f275dc2cda8aad6717
+  checksum: e8d8057632a4aa5595769da14d41a19cbc4a6c02539e5c882b218b2f347445a397f9ef28ffc8b9eefa4d271bed39aa9e3adb182416840f1c73ecf59a0abac876
   languageName: node
   linkType: hard
 
@@ -7603,8 +7674,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dot-dev@workspace:packages/dot-dev"
   dependencies:
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     infima: 0.2.0-alpha.18
@@ -7612,7 +7683,7 @@ __metadata:
     react: ^17.0.1
     react-dom: ^17.0.1
     react-ga: ^3.3.0
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -9270,7 +9341,7 @@ fsevents@^1.2.7:
   dependencies:
     "@sendgrid/mail": ^7.2.6
     "@types/luxon": ^1.25.0
-    "@types/node": ^14.14.11
+    "@types/node": ^14.14.13
     "@vercel/ncc": ^0.24.1
     dotenv: ^8.2.0
     firebase-admin: ^9.2.0
@@ -9279,7 +9350,7 @@ fsevents@^1.2.7:
     graphql-request: 1.8.2
     lib-common: 0.0.1
     luxon: ^1.25.0
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -10162,9 +10233,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"husky@npm:^4.3.5":
-  version: 4.3.5
-  resolution: "husky@npm:4.3.5"
+"husky@npm:^4.3.6":
+  version: 4.3.6
+  resolution: "husky@npm:4.3.6"
   dependencies:
     chalk: ^4.0.0
     ci-info: ^2.0.0
@@ -10179,7 +10250,7 @@ fsevents@^1.2.7:
   bin:
     husky-run: bin/run.js
     husky-upgrade: lib/upgrader/bin.js
-  checksum: d15ccb44da39432bb5db1cd0c81eb169be25863bd4ff998c9ecf0c4e769e7d3fb547ed5044ae8b77050303841264bbe48aedf066afb1ee394bcbea4469e2d684
+  checksum: 3c8708887822c93094c4af22608df00a3bdd74784172d13cd08c5d1ed3e7a602f6016bce9982de206f060661f1ea801362edf5658c18fc4a3866d605c47ecaf9
   languageName: node
   linkType: hard
 
@@ -12008,10 +12079,10 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-changed-files@workspace:packages/lib-changed-files"
   dependencies:
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
     lib-common: 0.0.1
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -12019,9 +12090,9 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-codegen@workspace:packages/lib-codegen"
   dependencies:
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
-    typescript: ^4.1.2
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -12029,7 +12100,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-common@workspace:packages/lib-common"
   dependencies:
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -12040,7 +12111,7 @@ fsevents@^1.2.7:
     "@docusaurus/types": 2.0.0-alpha.69
     lib-prism-extended: "workspace:0.1.0"
     lib-react: "workspace:0.1.0"
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   peerDependencies:
     prism-react-renderer: ^1.1.1
   peerDependenciesMeta:
@@ -12053,8 +12124,8 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-find-monorepo-root@workspace:packages/lib-find-monorepo-root"
   dependencies:
-    "@types/node": ^14.14.11
-    typescript: ^4.1.2
+    "@types/node": ^14.14.13
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -12062,12 +12133,12 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
-    "@types/node": ^14.14.11
+    "@types/node": ^14.14.13
     "@types/react": ^17.0.0
     firebase: ^8.1.1
     lib-react: 0.1.0
     rxjs: ^6.6.3
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   peerDependencies:
     firebase: ^8.1.1
     react: ^17.0.1
@@ -12078,9 +12149,9 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem"
   dependencies:
-    "@types/jest": ^26.0.17
+    "@types/jest": ^26.0.19
     lib-common: 0.0.1
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -12088,9 +12159,9 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-incremental@workspace:packages/lib-incremental"
   dependencies:
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
-    typescript: ^4.1.2
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -12111,7 +12182,7 @@ fsevents@^1.2.7:
     lib-prism-extended: "workspace:0.1.0"
     prism-react-renderer: ^1.1.1
     react: ^17.0.1
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   peerDependencies:
     prism-react-renderer: ^1.1.1
     react: ^17.0.0
@@ -12122,12 +12193,12 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "lib-web-terminal@workspace:packages/lib-web-terminal"
   dependencies:
-    "@types/jest": ^26.0.17
+    "@types/jest": ^26.0.19
     "@types/react": ^17.0.0
     lib-common: 0.0.1
     lib-in-memory-filesystem: 0.1.0
     react: ^17.0.1
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   peerDependencies:
     react: ^17.0.0
   languageName: unknown
@@ -16460,12 +16531,12 @@ fsevents@^1.2.7:
   dependencies:
     "@dev-sam/bundler": "workspace:^0.0.1"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
     "@vercel/ncc": ^0.24.0
     lib-codegen: "workspace:0.0.1"
     lib-common: "workspace:0.0.1"
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -16756,12 +16827,12 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@babel/core": ^7.12.9
+    "@babel/core": ^7.12.10
     "@dev-sam/codegen-cli": "workspace:^0.0.2"
     "@dev-sam/eslint-config-common": "workspace:^0.19.0"
     "@dev-sam/monorail": "workspace:packages/monorail"
-    "@typescript-eslint/eslint-plugin": ^4.9.1
-    "@typescript-eslint/parser": ^4.9.1
+    "@typescript-eslint/eslint-plugin": ^4.10.0
+    "@typescript-eslint/parser": ^4.10.0
     babel-jest: ^26.6.3
     eslint: ^7.15.0
     eslint-import-resolver-node: ^0.3.4
@@ -16769,13 +16840,13 @@ fsevents@^1.2.7:
     eslint-plugin-jsx-a11y: ^6.4.1
     eslint-plugin-react: ^7.21.5
     eslint-plugin-react-hooks: ^4.2.0
-    husky: ^4.3.5
+    husky: ^4.3.6
     jest: ^26.6.3
     lint-staged: ^10.5.3
     next: ^10.0.3
     prettier: ^2.2.1
     repo-codegen-services: "workspace:^0.0.1"
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   peerDependencies:
     react: ^17.0.1
   dependenciesMeta:
@@ -16876,7 +16947,7 @@ fsevents@^1.2.7:
     prism-react-renderer: ^1.1.1
     react: ^17.0.1
     react-dom: ^17.0.1
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -18248,7 +18319,7 @@ fsevents@^1.2.7:
     "@docusaurus/core": 2.0.0-alpha.69
     "@docusaurus/module-type-aliases": 2.0.0-alpha.69
     "@docusaurus/plugin-content-pages": 2.0.0-alpha.69
-    "@types/node": ^14.14.11
+    "@types/node": ^14.14.13
     "@types/react": ^17.0.0
     firebase: ^8.1.1
     infima: 0.2.0-alpha.18
@@ -18258,7 +18329,7 @@ fsevents@^1.2.7:
     react: ^17.0.1
     react-dom: ^17.0.1
     rxjs: ^6.6.3
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -18756,23 +18827,23 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-typescript@^4.1.2:
-  version: 4.1.2
-  resolution: "typescript@npm:4.1.2"
+typescript@^4.1.3:
+  version: 4.1.3
+  resolution: "typescript@npm:4.1.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: d2ac373b469e973448c7287d0fbc732dbd34d00d07911b9506bbf81469a80db6613361fc9293d021da357cb7c7da2ee32f56d8ef76446361231374200cd6aee9
+  checksum: 4f7ab1506ea22c7a1c313ec5b4285e93ce08d709ad6086d02d3096adb399ca339972ee56d1e578213c51dd0fb7b0fad50283c2d3c39642405644458ae29774f8
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.1.2#builtin<compat/typescript>":
-  version: 4.1.2
-  resolution: "typescript@patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=cc6730"
+"typescript@patch:typescript@^4.1.3#builtin<compat/typescript>":
+  version: 4.1.3
+  resolution: "typescript@patch:typescript@npm%3A4.1.3#builtin<compat/typescript>::version=4.1.3&hash=cc6730"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 001ab09bb8f597aab1ec43476aedb91b5d547749219273c232bf34cf5a2209d18fa782e64475755115f0907598bb9b503f5e1c0fed06c3651cac584fc88a8172
+  checksum: 017af992148346e671d5b83b041773825888e9c94db8d2b9472cdbb6d6f0ee85927817473121524d319f8be6ffe5a6904d27ff6ef21356d2274fcadd52e17938
   languageName: node
   linkType: hard
 
@@ -19302,7 +19373,7 @@ typescript@^4.1.2:
   resolution: "vscode-disable-generated-files-edit@workspace:packages/vscode-disable-generated-files-edit"
   dependencies:
     "@types/vscode": 1.47.0
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -19765,7 +19836,7 @@ typescript@^4.1.2:
     "@docusaurus/preset-classic": 2.0.0-alpha.69
     "@docusaurus/theme-classic": 2.0.0-alpha.69
     "@mdx-js/react": ^1.6.4
-    "@types/node": ^14.14.11
+    "@types/node": ^14.14.13
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     "@types/remarkable": 1.7.4
@@ -19780,7 +19851,7 @@ typescript@^4.1.2:
     react-dom: ^17.0.1
     remarkable: ^2.0.1
     rxjs: ^6.6.3
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
@@ -19878,8 +19949,8 @@ typescript@^4.1.2:
   version: 0.0.0-use.local
   resolution: "www@workspace:packages/www"
   dependencies:
-    "@types/jest": ^26.0.17
-    "@types/node": ^14.14.11
+    "@types/jest": ^26.0.19
+    "@types/node": ^14.14.13
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     clsx: ^1.1.1
@@ -19894,7 +19965,7 @@ typescript@^4.1.2:
     react-dom-confetti: ^0.2.0
     react-ga: ^3.3.0
     recoil: ^0.1.2
-    typescript: ^4.1.2
+    typescript: ^4.1.3
   languageName: unknown
   linkType: soft
 
