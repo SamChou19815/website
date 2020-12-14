@@ -4,9 +4,6 @@
     "**/*.ts",
     "**/*.tsx"
   ],
-  "compilerOptions": {
-    "jsx": "preserve"
-  },
   "exclude": [
     "node_modules"
   ]
