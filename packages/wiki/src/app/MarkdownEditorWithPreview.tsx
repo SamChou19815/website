@@ -1,6 +1,5 @@
-import React, { useState, ReactElement } from 'react';
-
 import clsx from 'clsx';
+import React, { useState, ReactElement } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
 import styles from './MarkdownEditorWithPreview.module.css';

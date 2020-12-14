@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState, ReactElement } from 'react';
-
 import usePrismTheme from '@theme/hooks/usePrismTheme';
 import clsx from 'clsx';
+import React, { useState, ReactElement } from 'react';
 
 import styles from './LanguageDemo.module.css';
 import { initialText } from './demo';

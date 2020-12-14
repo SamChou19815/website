@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
-
 import clsx from 'clsx';
+import type { ReactElement } from 'react';
 
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { useTimelinePillsState } from '../global-states';

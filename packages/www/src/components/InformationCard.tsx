@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
-
 import clsx from 'clsx';
+import type { ReactElement } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import ButtonLink from './Common/ButtonLink';

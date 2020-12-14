@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import React, { ReactElement } from 'react';
-
 import Link from 'next/link';
+import type { ReactElement } from 'react';
 
 import type { FanArtWork } from './data';
 

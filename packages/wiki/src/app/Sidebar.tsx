@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
-
 import DocSidebar from '@theme/DocSidebar';
+import React, { ReactElement } from 'react';
 
 import type { WikiPrivateDocumentMetadata } from './documents';
 

@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-
 import firebase from 'firebase/app';
+import { useState, useEffect } from 'react';
 
 import { isAdminUser } from './authentication';
 

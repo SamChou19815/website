@@ -1,6 +1,5 @@
-import React, { ReactElement, useState } from 'react';
-
 import clsx from 'clsx';
+import { ReactElement, useState } from 'react';
 import Confetti from 'react-dom-confetti';
 
 import styles from './ProfilePicture.module.css';

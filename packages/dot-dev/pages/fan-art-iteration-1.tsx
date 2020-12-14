@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import FanArtWorkPage from '../components/FanArtWorkPage';
 import { FAN_ART_ITERATION_1 } from '../components/data';

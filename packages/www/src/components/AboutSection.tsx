@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import styles from './AboutSection.module.css';
 import ButtonLink from './Common/ButtonLink';

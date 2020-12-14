@@ -1,8 +1,7 @@
-import React, { ReactElement, CSSProperties } from 'react';
-
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
 // @ts-expect-error: no type definition
 import Prism from 'prism-react-renderer/prism';
+import React, { ReactElement, CSSProperties } from 'react';
 
 import theme from './prism-theme.json';
 

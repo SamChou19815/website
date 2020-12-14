@@ -1,7 +1,6 @@
-import React, { ReactElement, Suspense, lazy } from 'react';
-
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Layout from '@theme/Layout';
+import React, { ReactElement, Suspense, lazy } from 'react';
 
 import LoadingOverlay from 'lib-react/LoadingOverlay';
 

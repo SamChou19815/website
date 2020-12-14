@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react';
-
 import clsx from 'clsx';
+import type { ReactElement } from 'react';
 
 import DATASET_TECH_TALKS from '../data/tech-talks';
 import CardHeader from './Common/CardHeader';

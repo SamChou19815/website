@@ -1,7 +1,6 @@
-import React, { ReactElement } from 'react';
-
 import usePrismTheme from '@theme/hooks/usePrismTheme';
 import clsx from 'clsx';
+import React, { ReactElement } from 'react';
 
 import styles from './MarkdownInputCard.module.css';
 
