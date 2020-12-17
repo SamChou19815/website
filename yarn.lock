@@ -1718,12 +1718,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/bundler@workspace:^0.0.1, @dev-sam/bundler@workspace:packages/sam-bundler":
+"@dev-sam/bundler@workspace:^0.0.2, @dev-sam/bundler@workspace:packages/sam-bundler":
   version: 0.0.0-use.local
   resolution: "@dev-sam/bundler@workspace:packages/sam-bundler"
   dependencies:
     "@types/node": ^14.14.13
-    "@vercel/ncc": ^0.24.0
+    "@vercel/ncc": ^0.26.0
   bin:
     sam-bundle: ./index.js
   languageName: unknown
@@ -1733,7 +1733,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/codegen-cli@workspace:packages/codegen-cli"
   dependencies:
-    "@dev-sam/bundler": "workspace:^0.0.1"
+    "@dev-sam/bundler": "workspace:^0.0.2"
     "@types/jest": ^26.0.19
     "@types/node": ^14.14.13
     "@vercel/ncc": ^0.24.0
@@ -1773,7 +1773,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/monorail@workspace:packages/monorail"
   dependencies:
-    "@dev-sam/bundler": "workspace:^0.0.1"
+    "@dev-sam/bundler": "workspace:^0.0.2"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
     "@types/jest": ^26.0.19
     "@types/node": ^14.14.13
@@ -4034,6 +4034,17 @@ __metadata:
   bin:
     ncc: dist/ncc/cli.js
   checksum: 25baa24d38035dbee374169b1cdeb183b6694692724e8437f4cdd275c8424458b70518e66e245bf2eb14f00f568ca753994e8e92da2dc91ae435afc47aa2419d
+  languageName: node
+  linkType: hard
+
+"@vercel/ncc@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "@vercel/ncc@npm:0.26.0"
+  dependencies:
+    node-gyp: latest
+  bin:
+    ncc: dist/ncc/cli.js
+  checksum: fc2fdd7da4ac63ff353bbf5202735a2be5ec288bb81ab3e1b205a99d3d5203131d7c656d36f8cf0773fd6b33296b203afdfe49cb5d4a33a5821b42b1228cdfd2
   languageName: node
   linkType: hard
 
@@ -16529,7 +16540,7 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "repo-codegen-services@workspace:packages/repo-codegen-services"
   dependencies:
-    "@dev-sam/bundler": "workspace:^0.0.1"
+    "@dev-sam/bundler": "workspace:^0.0.2"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
     "@types/jest": ^26.0.19
     "@types/node": ^14.14.13
