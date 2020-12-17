@@ -9,8 +9,8 @@
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.69",
-    "@docusaurus/plugin-content-pages": "2.0.0-alpha.69",
+    "@docusaurus/core": "2.0.0-alpha.70",
+    "@docusaurus/plugin-content-pages": "2.0.0-alpha.70",
     "firebase": "^8.1.1",
     "infima": "0.2.0-alpha.18",
     "lib-common": "0.0.1",
@@ -21,7 +21,7 @@
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-alpha.69",
+    "@docusaurus/module-type-aliases": "2.0.0-alpha.70",
     "@types/node": "^14.14.13",
     "@types/react": "^17.0.0",
     "typescript": "^4.1.3"
