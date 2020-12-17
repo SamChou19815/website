@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2019-present, Developer Sam.
+ * Copyright (c) 2020-present, Developer Sam.
  *
  * This source code is licensed under the AGPLv3 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,6 +30,11 @@ module.exports = {
           position: 'right',
         },
       ],
+    },
+    footer: {
+      style: 'dark',
+      links: [],
+      copyright: `Copyright © 2020-${new Date().getFullYear()} Developer Sam.`,
     },
   },
   presets: [
