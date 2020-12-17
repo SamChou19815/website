@@ -14,7 +14,7 @@
     "lib-incremental": "workspace:^0.0.1"
   },
   "devDependencies": {
-    "@dev-sam/bundler": "workspace:^0.0.1",
+    "@dev-sam/bundler": "workspace:^0.0.2",
     "@dev-sam/yarn-workspaces-json-types": "0.0.1",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.13",
