@@ -13,8 +13,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
     name: 'samlang',
     type: 'Programming Language',
     media: '/projects/samlang.png',
-    description:
-      'A statically-typed functional programming language with full type inference. A research programming language developed by Sam.',
+    description: 'A statically-typed functional programming language with full type inference.',
     links: [
       { text: 'Docs', href: 'https://samlang.io' },
       { text: 'Demo', href: 'https://samlang.io/demo' },
@@ -26,7 +25,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
     type: 'Open source contributions',
     media: '/projects/docusaurus.png',
     description:
-      'A static documentation site generator developed by Facebook open source. I am one of the top 10 contributors.',
+      "A static docs site generator created by FB open source. I'm one of the top 10 contributors.",
     links: [
       { text: 'Docs', href: 'https://v2.docusaurus.io' },
       { text: 'GitHub', href: 'https://github.com/facebook/docusaurus' },
