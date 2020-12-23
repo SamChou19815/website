@@ -83,10 +83,10 @@ a:active {
 .card-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1296px;
 }
 
 @media screen and (max-width: 800px) {
