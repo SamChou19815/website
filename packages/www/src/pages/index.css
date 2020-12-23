@@ -79,3 +79,26 @@ a:active {
   background: var(--ifm-pills-color-active);
   color: white;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 800px) {
+  .responsive-card {
+    margin: 1em auto;
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .responsive-card {
+    margin: 1em;
+    width: 400px;
+  }
+}

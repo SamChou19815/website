@@ -1,14 +1,12 @@
-import clsx from 'clsx';
 import type { ReactElement } from 'react';
 
 import DATASET_TECH_TALKS from '../data/tech-talks';
 import CardHeader from './Common/CardHeader';
-import styles from './TechTalkSection.module.css';
 
 const TechTalkSection = (): ReactElement => (
-  <div className={styles.TechTalkContainer}>
+  <div className="card-container">
     {DATASET_TECH_TALKS.map(({ title, type, description, link }) => (
-      <div key={title} className={clsx('card', styles.TechTalkCard)}>
+      <div key={title} className="card responsive-card">
         <CardHeader title={title} subheader={type} />
         <div className="card__body">{description}</div>
         <div className="card__footer">

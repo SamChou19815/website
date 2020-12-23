@@ -1,16 +1,14 @@
-import clsx from 'clsx';
 import type { ReactElement } from 'react';
 
 import DATASET_PROJECTS from '../data/projects';
 import ButtonLink from './Common/ButtonLink';
 import CardHeader from './Common/CardHeader';
 import LazyCardMedia from './Common/LazyCardMedia';
-import styles from './ProjectsSection.module.css';
 
 const ProjectsSection = (): ReactElement => (
-  <div className={styles.ProjectContainer}>
+  <div className="card-container">
     {DATASET_PROJECTS.map(({ name, type, media, description, links }) => (
-      <div key={name} className={clsx('card', styles.ProjectCard)}>
+      <div key={name} className="card responsive-card">
         <LazyCardMedia image={media} title={name} />
         <CardHeader title={name} subheader={type} />
         <div className="card__body">{description}</div>
