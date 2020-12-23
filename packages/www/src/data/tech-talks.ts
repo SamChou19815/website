@@ -32,6 +32,13 @@ const DATASET_TECH_TALKS: readonly TechTalkDataEntry[] = [
       'A tutorial of making a simplified React runtime with support for useState and useEffect hooks.',
     link: '/build-simplified-react.pdf',
   },
+  {
+    title: 'CoursePlan Requirement Computation',
+    type: 'DevSesh',
+    description:
+      'An overview of the challanges and solutions of college requirement fulfillment computation.',
+    link: '/courseplan-requirement.pdf',
+  },
 ];
 
 export default DATASET_TECH_TALKS;
