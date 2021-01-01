@@ -26,18 +26,3 @@ export const createJsonCodegenService = <T>(
   sourceFileIsRelevant,
   run: (sourceFilename, source) => run(sourceFilename, JSON.parse(source)),
 });
-
-export const createJSCodegenService = <T>(
-  name: string,
-  sourceFileIsRelevant: (sourceFilename: string) => boolean,
-  run: (sourceFilename: string, evaluatedSource: T) => readonly CodegenServiceFileOutput[]
-): CodegenService => ({
-  name,
-  sourceFileIsRelevant,
-  run: (sourceFilename, source) => {
-    const wrappedModuleCodeForEval = `((exports) => { ${source} return exports; })({})`;
-    // eslint-disable-next-line no-eval
-    const evaluatedSource = eval(wrappedModuleCodeForEval);
-    return run(sourceFilename, evaluatedSource);
-  },
-});

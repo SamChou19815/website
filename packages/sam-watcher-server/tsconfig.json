@@ -1,8 +1,0 @@
-{
-  "extends": "../../configuration/tsconfig.lib.json",
-  "compilerOptions": {
-    "module": "CommonJS",
-    "outDir": "build"
-  },
-  "include": ["src"]
-}

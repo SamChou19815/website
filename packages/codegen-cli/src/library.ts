@@ -159,7 +159,7 @@ export const runCodegenServicesIncrementally = async (
     needRerun: async () => ['codegen'],
     rerun: async (_, lastestKnownGoodRunTimes) => {
       const since = lastestKnownGoodRunTimes['codegen'] ?? 0;
-      const { changedFiles, deletedFiles } = await queryChangedFilesSince(since);
+      const { changedFiles, deletedFiles } = queryChangedFilesSince(since);
       runCodegenServicesAccordingToFilesystemEvents(
         changedFiles,
         deletedFiles,

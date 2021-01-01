@@ -1821,22 +1821,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/watcher-server@workspace:packages/sam-watcher-server":
-  version: 0.0.0-use.local
-  resolution: "@dev-sam/watcher-server@workspace:packages/sam-watcher-server"
-  dependencies:
-    "@types/express": ^4.17.7
-    "@types/node": ^14.14.17
-    "@vercel/ncc": ^0.24.0
-    chokidar: ^3.4.2
-    express: ^4.17.1
-    lib-common: 0.0.1
-    typescript: ^4.1.3
-  bin:
-    sam-watch-server: build/index.js
-  languageName: unknown
-  linkType: soft
-
 "@dev-sam/yarn-workspaces-json-types@npm:0.0.1":
   version: 0.0.1
   resolution: "@dev-sam/yarn-workspaces-json-types@npm:0.0.1"
@@ -3572,18 +3556,6 @@ __metadata:
     "@types/express-serve-static-core": "*"
     "@types/serve-static": "*"
   checksum: aeb57af48f97f334e8611b9b2f87a993e3de267b7836b15774575fc75ff6be424b61435076927ed34007c713792d632625b83a3b556e4b2d928f990d2a77f3fe
-  languageName: node
-  linkType: hard
-
-"@types/express@npm:^4.17.7":
-  version: 4.17.9
-  resolution: "@types/express@npm:4.17.9"
-  dependencies:
-    "@types/body-parser": "*"
-    "@types/express-serve-static-core": "*"
-    "@types/qs": "*"
-    "@types/serve-static": "*"
-  checksum: 80cd74784e9b40495b683b6b285be58bd7515f3b86923a72483fb8a6dec15ef159e651c460a215e9ad4e9620deec7345020fe33535c4eb12d81152b74b0278d0
   languageName: node
   linkType: hard
 
@@ -5895,7 +5867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:3.4.3, chokidar@npm:^3.3.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.2, chokidar@npm:^3.4.3":
+"chokidar@npm:3.4.3, chokidar@npm:^3.3.0, chokidar@npm:^3.4.1, chokidar@npm:^3.4.3":
   version: 3.4.3
   resolution: "chokidar@npm:3.4.3"
   dependencies:
@@ -12134,10 +12106,8 @@ fsevents@^1.2.7:
   resolution: "lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin"
   dependencies:
     "@docusaurus/types": 2.0.0-alpha.70
-    "@types/node": ^14.14.17
     lib-prism-extended: "workspace:0.1.0"
     lib-react: "workspace:0.1.0"
-    typescript: ^4.1.3
   peerDependencies:
     prism-react-renderer: ^1.1.1
   peerDependenciesMeta:

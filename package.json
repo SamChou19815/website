@@ -7,9 +7,9 @@
     "lint": "eslint . --cache",
     "test": "jest",
     "bump": "yarn up @types/jest @types/node @types/react @types/react-dom typescript prettier jest babel-jest husky lint-staged @babel/core eslint \"@typescript-eslint/*\" \"eslint-*\"",
-    "bundle": "./packages/monorail/bin/index bundle",
+    "bundle": "yarn workspaces foreach run bundle",
     "codegen": "yarn sam-codegen repo-codegen-services",
-    "compile": "./packages/monorail/bin/index compile"
+    "compile": "./packages/monorail/bin/index"
   },
   "workspaces": [
     "packages/*"
@@ -39,7 +39,6 @@
   "peerDependencies": {
     "react": "^17.0.1"
   },
-  "resolve": {},
   "dependenciesMeta": {
     "@ampproject/toolbox-optimizer": {
       "built": false

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { spawn } from 'child_process';
-import { existsSync, readFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 
 import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
@@ -21,15 +21,13 @@ const workspaceHasChangedFilesExcludingBundledBinaries = async (
     dirname(filename) !==
     join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'bin');
 
-  const files = await Promise.all(
-    (workspacesJson.information[workspaceName]?.dependencyChain ?? []).map(async (item) => {
-      const { changedFiles, deletedFiles } = await queryChangedFilesSince(
-        latestKnownGoodRerunTime[item] ?? 0,
-        workspacesJson.information[item]?.workspaceLocation ?? '.'
-      );
-      return changedFiles.some(isNotBundledBinary) || deletedFiles.some(isNotBundledBinary);
-    })
-  );
+  const files = (workspacesJson.information[workspaceName]?.dependencyChain ?? []).map((item) => {
+    const { changedFiles, deletedFiles } = queryChangedFilesSince(
+      latestKnownGoodRerunTime[item] ?? 0,
+      workspacesJson.information[item]?.workspaceLocation ?? '.'
+    );
+    return changedFiles.some(isNotBundledBinary) || deletedFiles.some(isNotBundledBinary);
+  });
   return files.some((it) => it);
 };
 
@@ -99,24 +97,11 @@ const runIncrementalWorkspacesTasks = async (
   throw new Error(`[x] [${failedWorkspacesRuns.join(', ')}] failed to exit with 0`);
 };
 
-export const incrementalCompile = async (): Promise<void> =>
+const incrementalCompile = async (): Promise<void> =>
   runIncrementalWorkspacesTasks(
     'compile',
     () => false,
     () => true
   );
 
-export const incrementalBundle = async (): Promise<void> =>
-  runIncrementalWorkspacesTasks(
-    'bundle',
-    (workspacesJson, workspaceName) =>
-      !existsSync(
-        join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'bin', 'index.js')
-      ),
-    (workspacesJson, workspaceName) => {
-      const packageJson = readJson(
-        join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'package.json')
-      );
-      return packageJson?.scripts?.bundle != null;
-    }
-  );
+export default incrementalCompile;
