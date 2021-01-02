@@ -3,25 +3,20 @@ import { join } from 'path';
 
 import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
 
-import {
-  githubActionWorkflowToString,
-  githubActionJobActionStep,
-  githubActionJobRunStep,
-} from './github-actions-ast';
-
-const yarnWorkspaceBoilterplateSetupSteps = [
-  githubActionJobActionStep('actions/checkout@v2', {
-    'fetch-depth': '2',
-  }),
-  githubActionJobActionStep('actions/setup-node@v2-beta'),
-  githubActionJobActionStep('actions/cache@v2', {
-    path: '.yarn/cache\\n.pnp.js',
-    // eslint-disable-next-line no-template-curly-in-string
-    key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}",
-    'restore-keys': 'yarn-berry-',
-  }),
-  githubActionJobRunStep('Yarn Install', 'yarn install --immutable'),
-];
+const yarnWorkspaceBoilterplateSetupString = `
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: "2"
+      - uses: actions/setup-node@v2-beta
+      - uses: actions/cache@v2
+        with:
+          path: ".yarn/cache\\n.pnp.js"
+          key: "yarn-berry-\${{ hashFiles('**/yarn.lock') }}"
+          restore-keys: "yarn-berry-"
+      - name: Yarn Install
+        run: yarn install --immutable`;
 
 const hasScript = (
   workspacesJson: YarnWorkspacesJson,
@@ -41,73 +36,66 @@ const githubActionsCodegenService = (): readonly (readonly [string, string])[] =
   return [
     [
       '.github/workflows/generated-general.yml',
-      githubActionWorkflowToString({
-        workflowName: 'General',
-        workflowJobs: [
-          [
-            'lint',
-            [
-              ...yarnWorkspaceBoilterplateSetupSteps,
-              githubActionJobRunStep('Format Check', 'yarn format:check'),
-              githubActionJobRunStep('Lint', 'yarn lint'),
-            ],
-          ],
-          [
-            'build',
-            [
-              ...yarnWorkspaceBoilterplateSetupSteps,
-              githubActionJobRunStep('Build', 'yarn compile'),
-            ],
-          ],
-          [
-            'validate',
-            [
-              ...yarnWorkspaceBoilterplateSetupSteps,
-              githubActionJobRunStep('Check Codegen', 'yarn codegen'),
-              githubActionJobRunStep(
-                'Check changed',
-                'if [[ `git status --porcelain` ]]; then exit 1; fi'
-              ),
-            ],
-          ],
-          [
-            'test',
-            [...yarnWorkspaceBoilterplateSetupSteps, githubActionJobRunStep('Test', 'yarn test')],
-          ],
-        ],
-      }),
+      `# @${'generated'}
+
+name: General
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  lint:${yarnWorkspaceBoilterplateSetupString}
+      - name: Format Check
+        run: yarn format:check
+      - name: Lint
+        run: yarn lint
+  build:${yarnWorkspaceBoilterplateSetupString}
+      - name: Compile
+        run: yarn compile
+  validate:${yarnWorkspaceBoilterplateSetupString}
+      - name: Codegen
+        run: yarn codegen
+      - name: Check changed
+        run: if [[ \`git status --porcelain\` ]]; then exit 1; fi
+  test:${yarnWorkspaceBoilterplateSetupString}
+      - name: Test
+        run: yarn test
+`,
     ] as const,
     ...workspacesJson.topologicallyOrdered
       .filter((name) => hasScript(workspacesJson, name, 'deploy'))
       .map((workspace) => {
         const name = `cd-${workspace}`;
+
         return [
           `.github/workflows/generated-${name}.yml`,
-          githubActionWorkflowToString({
-            workflowName: `CD ${workspace}`,
-            workflowMasterBranchOnlyTriggerPaths: [
-              ...(workspacesJson.information[workspace]?.dependencyChain ?? []).map(
-                (workspaceDependency: string) =>
-                  `${workspacesJson.information[workspaceDependency]?.workspaceLocation}/**`
-              ),
-              'configuration/**',
-              `.github/workflows/generated-*-${workspace}.yml`,
-            ],
-            workflowJobs: [
-              [
-                'deploy',
-                [
-                  ...yarnWorkspaceBoilterplateSetupSteps,
-                  githubActionJobRunStep('Build', `yarn workspace ${workspace} build`),
-                  githubActionJobRunStep('Install firebase', 'sudo npm install -g firebase-tools'),
-                  githubActionJobRunStep(
-                    'Deploy',
-                    `FIREBASE_TOKEN=\${{ secrets.FIREBASE_TOKEN }} yarn workspace ${workspace} deploy`
-                  ),
-                ],
-              ],
-            ],
-          }),
+          `# @${'generated'}
+
+name: CD ${workspace}
+on:
+  push:
+    paths:${(workspacesJson.information[workspace]?.dependencyChain ?? [])
+      .map(
+        (workspaceDependency: string) =>
+          `\n      - '${workspacesJson.information[workspaceDependency]?.workspaceLocation}/**'`
+      )
+      .join('')}
+      - 'configuration/**'
+      - '.github/workflows/generated-*-${workspace}.yml'
+    branches:
+      - master
+
+jobs:
+  deploy:${yarnWorkspaceBoilterplateSetupString}
+      - name: Build
+        run: yarn workspace ${workspace} build
+      - name: Install Firebase
+        run: sudo npm install -g firebase-tools
+      - name: Deploy
+        run: FIREBASE_TOKEN=\${{ secrets.FIREBASE_TOKEN }} yarn workspace ${workspace} deploy
+`,
         ] as const;
       }),
   ];
