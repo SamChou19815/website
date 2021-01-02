@@ -1,13 +1,6 @@
 {
-  "name": "@dev-sam/codegen-cli",
-  "description": "Developer Sam's codegen CLI.",
-  "version": "0.0.2",
-  "files": [
-    "bin"
-  ],
-  "bin": {
-    "sam-codegen": "./bin/index"
-  },
+  "name": "codegen-cli",
+  "version": "0.0.1",
   "scripts": {
     "bundle": "node build.js",
     "compile": "tsc --noEmit"
