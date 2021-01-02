@@ -27,7 +27,7 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn workspace dot-dev build
-      - name: Install firebase
+      - name: Install Firebase
         run: sudo npm install -g firebase-tools
       - name: Deploy
         run: FIREBASE_TOKEN=${{ secrets.FIREBASE_TOKEN }} yarn workspace dot-dev deploy
