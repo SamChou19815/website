@@ -1,9 +1,0 @@
-{
-  "extends": "../../configuration/tsconfig.lib.json",
-  "compilerOptions": {
-    "allowJs": true,
-    "module": "CommonJS",
-    "noEmit": true
-  },
-  "include": ["index.js"]
-}

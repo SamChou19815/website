@@ -9,15 +9,14 @@
     "sam-codegen": "./bin/index"
   },
   "scripts": {
-    "bundle": "sam-bundle",
+    "bundle": "node build.js",
     "compile": "tsc --noEmit"
   },
   "devDependencies": {
-    "@dev-sam/bundler": "workspace:^0.0.2",
     "@dev-sam/yarn-workspaces-json-types": "0.0.1",
     "@types/jest": "^26.0.19",
-    "@types/node": "^14.14.17",
-    "@vercel/ncc": "^0.24.0",
+    "@types/node": "^14.14.19",
+    "@vercel/ncc": "^0.26.1",
     "typescript": "^4.1.3"
   }
 }
