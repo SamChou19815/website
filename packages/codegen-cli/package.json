@@ -18,7 +18,6 @@
     "@types/node": "^14.14.17",
     "@vercel/ncc": "^0.24.0",
     "lib-changed-files": "workspace:^0.0.1",
-    "lib-find-monorepo-root": "workspace:^0.0.1",
     "lib-incremental": "workspace:^0.0.1",
     "repo-codegen-services": "workspace:^0.0.1",
     "typescript": "^4.1.3"

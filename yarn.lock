@@ -1766,7 +1766,6 @@ __metadata:
     "@types/node": ^14.14.17
     "@vercel/ncc": ^0.24.0
     lib-changed-files: "workspace:^0.0.1"
-    lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
     repo-codegen-services: "workspace:^0.0.1"
     typescript: ^4.1.3
@@ -1807,7 +1806,6 @@ __metadata:
     "@types/jest": ^26.0.19
     "@types/node": ^14.14.17
     lib-changed-files: "workspace:^0.0.1"
-    lib-find-monorepo-root: "workspace:^0.0.1"
     lib-incremental: "workspace:^0.0.1"
     typescript: ^4.1.3
   bin:
@@ -12117,15 +12115,6 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"lib-find-monorepo-root@workspace:^0.0.1, lib-find-monorepo-root@workspace:packages/lib-find-monorepo-root":
-  version: 0.0.0-use.local
-  resolution: "lib-find-monorepo-root@workspace:packages/lib-find-monorepo-root"
-  dependencies:
-    "@types/node": ^14.14.17
-    typescript: ^4.1.3
-  languageName: unknown
-  linkType: soft
-
 "lib-firebase@0.1.0, lib-firebase@workspace:packages/lib-firebase":
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
@@ -16526,11 +16515,9 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "repo-codegen-services@workspace:packages/repo-codegen-services"
   dependencies:
-    "@dev-sam/bundler": "workspace:^0.0.2"
     "@dev-sam/yarn-workspaces-json-types": 0.0.1
     "@types/jest": ^26.0.19
     "@types/node": ^14.14.17
-    "@vercel/ncc": ^0.24.0
     lib-codegen: "workspace:0.0.1"
     lib-common: "workspace:0.0.1"
     typescript: ^4.1.3

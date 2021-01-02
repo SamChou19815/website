@@ -2,11 +2,8 @@
 
 import incrementalCompile from './workspace-incremental';
 
-import { switchToMonorepoRoot } from 'lib-find-monorepo-root';
-
 const main = async (): Promise<void> => {
   try {
-    switchToMonorepoRoot();
     await incrementalCompile();
   } catch (error) {
     // eslint-disable-next-line no-console
