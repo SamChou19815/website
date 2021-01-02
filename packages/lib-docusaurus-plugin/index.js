@@ -1,7 +1,5 @@
-// @ts-check
 const path = require('path');
 
-/** @returns {import('@docusaurus/types').Plugin<void>} */
 const setupPlugin = () => ({
   name: 'lib-docusaurus-plugin',
   getThemePath() {
