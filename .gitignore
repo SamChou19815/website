@@ -24,8 +24,6 @@
 # framework generated files
 **/.firebase
 **/.next
-.monorail
-.codegen
 .vscode/pnpify
 .docusaurus
 .cache-loader
