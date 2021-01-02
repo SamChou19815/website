@@ -7,7 +7,7 @@
     "lint": "eslint . --cache",
     "test": "jest",
     "bump": "yarn up @types/jest @types/node @types/react @types/react-dom typescript ts-node prettier jest babel-jest husky lint-staged @babel/core eslint \"@typescript-eslint/*\" \"eslint-*\"",
-    "codegen": "yarn sam-codegen",
+    "codegen": "./packages/codegen-cli/bin/index",
     "compile": "ts-node-script incremental-compile.ts"
   },
   "workspaces": [
@@ -15,7 +15,6 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@dev-sam/codegen-cli": "workspace:^0.0.2",
     "@dev-sam/eslint-config-common": "workspace:^0.19.0",
     "@dev-sam/yarn-workspaces-json-types": "0.0.1",
     "@types/node": "^14.14.19",
