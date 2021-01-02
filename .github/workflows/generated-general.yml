@@ -56,8 +56,6 @@ jobs:
           restore-keys: "yarn-berry-"
       - name: Yarn Install
         run: yarn install --immutable
-      - name: Codegen
-        run: yarn codegen
       - name: Check changed
         run: if [[ `git status --porcelain` ]]; then exit 1; fi
   test:

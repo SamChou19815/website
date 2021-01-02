@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
@@ -31,8 +31,9 @@ const hasScript = (
   );
 };
 
-const githubActionsCodegenService = (): readonly (readonly [string, string])[] => {
-  const workspacesJson: YarnWorkspacesJson = JSON.parse(readFileSync('workspaces.json').toString());
+const githubActionsCodegenService = (
+  workspacesJson: YarnWorkspacesJson
+): readonly (readonly [string, string])[] => {
   return [
     [
       '.github/workflows/generated-general.yml',
@@ -55,8 +56,6 @@ jobs:
       - name: Compile
         run: yarn compile
   validate:${yarnWorkspaceBoilterplateSetupString}
-      - name: Codegen
-        run: yarn codegen
       - name: Check changed
         run: if [[ \`git status --porcelain\` ]]; then exit 1; fi
   test:${yarnWorkspaceBoilterplateSetupString}
@@ -101,4 +100,25 @@ jobs:
   ];
 };
 
-export default githubActionsCodegenService;
+const GITHUB_WORKFLOWS_PATH = join('.github', 'workflows');
+
+const runCodegen = async (workspacesJson: YarnWorkspacesJson): Promise<void> => {
+  // Step 1: Cleanup potentially old stale files
+  if (existsSync(GITHUB_WORKFLOWS_PATH)) {
+    readdirSync(GITHUB_WORKFLOWS_PATH).forEach((it) => {
+      if (it.startsWith('generated-')) {
+        unlinkSync(join(GITHUB_WORKFLOWS_PATH, it));
+      }
+    });
+  }
+
+  // Step 2: Create directory for generated workflows.
+  mkdirSync(GITHUB_WORKFLOWS_PATH, { recursive: true });
+
+  // Step 3: Write generated files.
+  githubActionsCodegenService(workspacesJson).forEach(([outputFilename, outputContent]) => {
+    writeFileSync(outputFilename, outputContent);
+  });
+};
+
+export default runCodegen;
