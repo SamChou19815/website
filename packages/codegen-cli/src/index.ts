@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readdirSync, unlinkSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-import codegenServices from 'repo-codegen-services';
+import githubActionsCodegenService from './github-actions-codegen-service';
 
 const GITHUB_WORKFLOWS_PATH = join('.github', 'workflows');
 
@@ -22,12 +22,8 @@ const main = async (): Promise<void> => {
     mkdirSync(GITHUB_WORKFLOWS_PATH, { recursive: true });
 
     // Step 3: Write generated files.
-    codegenServices.forEach(({ run }) => {
-      run('workspaces.json', readFileSync('workspaces.json').toString()).forEach(
-        ({ outputFilename, outputContent }) => {
-          writeFileSync(outputFilename, outputContent);
-        }
-      );
+    githubActionsCodegenService().forEach(([outputFilename, outputContent]) => {
+      writeFileSync(outputFilename, outputContent);
     });
   } catch (error) {
     // eslint-disable-next-line no-console
