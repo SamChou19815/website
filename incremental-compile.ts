@@ -9,11 +9,20 @@ import { dirname, join } from 'path';
 import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
 
 const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
-  const queryFromGitDiffResult = (base: string, head?: string) =>
-    spawnSync('git', ['diff', base, ...(head ? [head] : []), '--name-only', '--', pathPrefix])
+  const queryFromGitDiffResult = (base: string, head?: string) => {
+    const trimmed = spawnSync('git', [
+      'diff',
+      base,
+      ...(head ? [head] : []),
+      '--name-only',
+      '--',
+      pathPrefix,
+    ])
       .stdout.toString()
-      .trim()
-      .split('\n');
+      .trim();
+
+    return trimmed === '' ? [] : trimmed.split('\n');
+  };
 
   if (process.env.CI) {
     return queryFromGitDiffResult('HEAD^', 'HEAD');
@@ -32,11 +41,12 @@ const workspaceHasChangedFilesExcludingBundledBinaries = (
     dirname(filename) !==
     join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'bin');
 
-  return (workspacesJson.information[workspaceName]?.dependencyChain ?? []).some((item) =>
-    queryChangedFilesSince(workspacesJson.information[item]?.workspaceLocation ?? '.').some(
-      isNotBundledBinary
-    )
-  );
+  const dependencyChain = workspacesJson.information[workspaceName]?.dependencyChain ?? [];
+  return dependencyChain.some((item) => {
+    const dependencyWorkspaceName = workspacesJson.information[item]?.workspaceLocation ?? '.';
+    const changedFiles = queryChangedFilesSince(dependencyWorkspaceName);
+    return changedFiles.some(isNotBundledBinary);
+  });
 };
 
 const workspacesTargetDeterminator = (
