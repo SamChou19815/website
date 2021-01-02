@@ -1,26 +1,12 @@
 #!/usr/bin/env node
 
-import Module from 'module';
-import { join } from 'path';
+import { runCodegenServicesIncrementally } from './library';
 
-import { CodegenService, runCodegenServicesIncrementally } from './library';
-
-import { findMonorepoRoot, switchToMonorepoRoot } from 'lib-find-monorepo-root';
-
-const run = async (): Promise<void> => {
-  const servicesModule = process.argv[2];
-  if (servicesModule == null) throw new Error('No codegen service module path provided!');
-
-  switchToMonorepoRoot();
-
-  const importer = Module.createRequire(join(findMonorepoRoot(), 'package.json'));
-  const services: readonly CodegenService[] = importer(servicesModule);
-  await runCodegenServicesIncrementally(services, /* shouldLog */ true);
-};
+import services from 'repo-codegen-services';
 
 const main = async (): Promise<void> => {
   try {
-    await run();
+    await runCodegenServicesIncrementally(services, /* shouldLog */ true);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);

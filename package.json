@@ -8,7 +8,7 @@
     "test": "jest",
     "bump": "yarn up @types/jest @types/node @types/react @types/react-dom typescript prettier jest babel-jest husky lint-staged @babel/core eslint \"@typescript-eslint/*\" \"eslint-*\"",
     "bundle": "yarn workspaces foreach run bundle",
-    "codegen": "yarn sam-codegen repo-codegen-services",
+    "codegen": "yarn sam-codegen",
     "compile": "./packages/monorail/bin/index"
   },
   "workspaces": [

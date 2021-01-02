@@ -5,7 +5,6 @@
   "private": true,
   "main": "./bin/index",
   "scripts": {
-    "bundle": "sam-bundle",
     "compile": "tsc --noEmit"
   },
   "dependencies": {

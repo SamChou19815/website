@@ -1,7 +1,3 @@
 {
-  "extends": "../../configuration/tsconfig.lib.json",
-  "compilerOptions": {
-    "module": "CommonJS"
-  },
-  "include": ["src"]
+  "extends": "../../configuration/tsconfig.lib.json"
 }
