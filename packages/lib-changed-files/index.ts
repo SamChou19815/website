@@ -41,7 +41,7 @@ export const parseGitDiffWithStatus_EXPOSED_FOR_TESTING = (
   return { changedFiles, deletedFiles };
 };
 
-const queryChangedFilesSince = (since: number, pathPrefix = '.'): ChangedFilesQueryResults => {
+const queryChangedFilesSince = (pathPrefix = '.'): ChangedFilesQueryResults => {
   const queryFromGitDiffResult = (base: string, head?: string): ChangedFilesQueryResults => {
     const gitDiffResponse = spawnSync('git', [
       'diff',

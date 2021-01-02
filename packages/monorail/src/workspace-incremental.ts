@@ -14,8 +14,7 @@ const readJson = (path: string): any => JSON.parse(readFileSync(path).toString()
 
 const workspaceHasChangedFilesExcludingBundledBinaries = async (
   workspacesJson: YarnWorkspacesJson,
-  workspaceName: string,
-  latestKnownGoodRerunTime: Readonly<Record<string, number | undefined>>
+  workspaceName: string
 ): Promise<boolean> => {
   const isNotBundledBinary = (filename: string): boolean =>
     dirname(filename) !==
@@ -23,7 +22,6 @@ const workspaceHasChangedFilesExcludingBundledBinaries = async (
 
   const files = (workspacesJson.information[workspaceName]?.dependencyChain ?? []).map((item) => {
     const { changedFiles, deletedFiles } = queryChangedFilesSince(
-      latestKnownGoodRerunTime[item] ?? 0,
       workspacesJson.information[item]?.workspaceLocation ?? '.'
     );
     return changedFiles.some(isNotBundledBinary) || deletedFiles.some(isNotBundledBinary);
@@ -33,7 +31,6 @@ const workspaceHasChangedFilesExcludingBundledBinaries = async (
 
 const workspacesTargetDeterminator = async (
   workspacesJson: YarnWorkspacesJson,
-  latestKnownGoodRerunTime: Readonly<Record<string, number | undefined>>,
   needUnconditionalRerun: (json: YarnWorkspacesJson, workspaceName: string) => boolean,
   prereqChecker: (json: YarnWorkspacesJson, workspaceName: string) => boolean
 ): Promise<readonly string[]> => {
@@ -47,8 +44,7 @@ const workspacesTargetDeterminator = async (
       }
       const needRebuild = await workspaceHasChangedFilesExcludingBundledBinaries(
         workspacesJson,
-        workspaceName,
-        latestKnownGoodRerunTime
+        workspaceName
       );
       return [workspaceName, needRebuild] as const;
     })
@@ -67,10 +63,9 @@ const runIncrementalWorkspacesTasks = async (
   const failedWorkspacesRuns = await runIncrementalTasks({
     lastestKnownGoodRunTimeFilename: join('.monorail', `${command}-cache.json`),
 
-    needRerun: async (latestKnownGoodRerunTime) => {
+    needRerun: async () => {
       const targets = await workspacesTargetDeterminator(
         workspacesJson,
-        latestKnownGoodRerunTime,
         needUnconditionalRerun,
         prereqChecker
       );

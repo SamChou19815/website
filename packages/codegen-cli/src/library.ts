@@ -1,9 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 
 import queryChangedFilesSince from 'lib-changed-files';
-import { findMonorepoRoot } from 'lib-find-monorepo-root';
-import runIncrementalTasks from 'lib-incremental';
 
 type CodegenServiceFileOutput = {
   /** Needed to output file and delete it when the source is gone */
@@ -150,24 +148,16 @@ export const runCodegenServicesAccordingToFilesystemEvents = (
   return sortedUpdatedFiles;
 };
 
-export const runCodegenServicesIncrementally = async (
+export const runCodegenServicesIncrementally = (
   codegenServices: readonly CodegenService[],
   shouldLog = false
-): Promise<void> => {
-  await runIncrementalTasks({
-    lastestKnownGoodRunTimeFilename: join(findMonorepoRoot(), '.codegen', 'cache.json'),
-    needRerun: async () => ['codegen'],
-    rerun: async (_, lastestKnownGoodRunTimes) => {
-      const since = lastestKnownGoodRunTimes['codegen'] ?? 0;
-      const { changedFiles, deletedFiles } = queryChangedFilesSince(since);
-      runCodegenServicesAccordingToFilesystemEvents(
-        changedFiles,
-        deletedFiles,
-        codegenServices,
-        CodegenRealFilesystem,
-        shouldLog
-      );
-      return true;
-    },
-  });
+): void => {
+  const { changedFiles, deletedFiles } = queryChangedFilesSince();
+  runCodegenServicesAccordingToFilesystemEvents(
+    changedFiles,
+    deletedFiles,
+    codegenServices,
+    CodegenRealFilesystem,
+    shouldLog
+  );
 };
