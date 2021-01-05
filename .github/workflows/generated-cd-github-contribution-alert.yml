@@ -4,7 +4,6 @@ name: CD github-contribution-alert
 on:
   push:
     paths:
-      - 'packages/lib-common/**'
       - 'packages/github-contribution-alert/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-github-contribution-alert.yml'

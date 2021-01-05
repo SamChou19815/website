@@ -10238,7 +10238,6 @@ fsevents@^1.2.7:
     firebase-functions: ^3.11.0
     graphql: ^15.3.0
     graphql-request: 1.8.2
-    lib-common: 0.0.1
     luxon: ^1.25.0
     typescript: ^4.1.3
   languageName: unknown

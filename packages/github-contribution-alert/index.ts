@@ -7,8 +7,6 @@ import * as functions from 'firebase-functions';
 import { GraphQLClient } from 'graphql-request';
 import { DateTime } from 'luxon';
 
-import { assertNotNull } from 'lib-common';
-
 dotEnv.config();
 admin.initializeApp();
 SendGridMail.setApiKey(functions.config().github_contribution_alert.sendgrid_api_key);
@@ -132,36 +130,18 @@ export const SendGitHubContributionAlertWhenNecessary = functions.pubsub
       return;
     }
 
-    // Format: user1-github,user1-nickname,user1-email;user2-github,user2-nickname,user2-email
-    const usersFromConfig: string = functions.config().github_contribution_alert.users;
-    const users = usersFromConfig
-      .trim()
-      .split(';')
-      .map((userInformationCommaSeparated) => {
-        const [githubID, name, email] = userInformationCommaSeparated.split(',');
-        assertNotNull(githubID);
-        assertNotNull(name);
-        assertNotNull(email);
-        return { githubID, name, email };
-      });
-
-    await Promise.all(
-      users.map(async ({ githubID, name, email }) => {
-        const contributions = await fetchContributionsCollection(githubID);
-        const count = sumContributions(contributions);
-        console.log(`${name}'s number of contributions: ${count}.`);
-        console.log(`Raw data: ${JSON.stringify(contributions)}`);
-        if (count > 0) {
-          return null;
-        }
-        await SendGridMail.send({
-          to: email,
-          from: 'bot@developersam.com',
-          subject: "[github-contribution-alert] You still don't have a contribution for today!",
-          text: `Hi ${name}. Looks like you still don't have a **safe** contribution for today :sad-octocat:.
-(Reply back if you think it is a false alert.)`,
-        });
-        console.log(`Sent alert email to ${email} (${name})`);
-      })
-    );
+    const contributions = await fetchContributionsCollection('SamChou19815');
+    const count = sumContributions(contributions);
+    console.log(`Sam's number of contributions: ${count}.`);
+    console.log(`Raw data: ${JSON.stringify(contributions)}`);
+    if (count > 0) {
+      return null;
+    }
+    await SendGridMail.send({
+      to: 'sam@developersam.com',
+      from: 'bot@developersam.com',
+      subject: "[github-contribution-alert] You still don't have a contribution for today!",
+      text: `Looks like you still don't have a **safe** contribution for today. :sad-octocat:`,
+    });
+    console.log(`Sent alert email to Sam.`);
   });
