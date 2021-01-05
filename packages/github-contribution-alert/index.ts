@@ -17,7 +17,6 @@ const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
 
 type TotalCount = { readonly totalCount: number };
 type ContributionsCollection = {
-  readonly restrictedContributionsCount: number;
   readonly issueContributions: TotalCount;
   readonly pullRequestContributions: TotalCount;
   readonly pullRequestReviewContributions: {
@@ -50,7 +49,6 @@ const fetchContributionsCollection = async (
     `query {
   user(login: "${githubUser}") {
     contributionsCollection(from: "${todayInNYStart.toISO()}", to: "${todayInNYEnd.toISO()}") {
-      restrictedContributionsCount
       issueContributions {
         totalCount
       }
@@ -91,14 +89,12 @@ const fetchContributionsCollection = async (
 };
 
 const sumContributions = ({
-  restrictedContributionsCount,
   issueContributions,
   pullRequestContributions,
   pullRequestReviewContributions,
   repositoryContributions,
   commitContributionsByRepository,
 }: ContributionsCollection): number =>
-  restrictedContributionsCount +
   issueContributions.totalCount +
   pullRequestContributions.totalCount +
   pullRequestReviewContributions.nodes.reduce(
