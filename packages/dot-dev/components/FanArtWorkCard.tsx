@@ -13,10 +13,7 @@ const FanArtWorkCard = ({
 }: FanArtWork): ReactElement => (
   <div className="card">
     <div className="card__image">
-      <picture>
-        <source srcSet={`${link.split('.')[0]}.webp`} type="image/webp" />
-        <img src={link} alt={description} title={description} loading="lazy" />
-      </picture>
+      <img src={link} alt={description} title={description} loading="lazy" />
     </div>
     <div className="card__header">
       <h3>{description}</h3>
