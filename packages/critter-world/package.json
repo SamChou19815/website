@@ -5,7 +5,8 @@
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "compile": "tsc"
+    "compile": "tsc",
+    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:critter-world"
   },
   "dependencies": {
     "clsx": "^1.1.1",

@@ -17,6 +17,17 @@
       ]
     },
     {
+      "target": "critter-world",
+      "public": "packages/critter-world/out",
+      "ignore": ["**/.*"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "dot-dev",
       "public": "packages/dot-dev/out",
       "ignore": ["**/.*"],
