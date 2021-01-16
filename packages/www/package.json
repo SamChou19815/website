@@ -22,8 +22,8 @@
     "recoil": "^0.1.2"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.19",
-    "@types/node": "^14.14.19",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.21",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "next-transpile-modules": "^4.1.0",
