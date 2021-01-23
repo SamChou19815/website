@@ -27,10 +27,10 @@ const JSBlock = ({ children }: { readonly children: string }): ReactElement => (
   </div>
 );
 
-const AssemblyBlock = ({ children }: { readonly children: string }): ReactElement => (
+const LLVMBlock = ({ children }: { readonly children: string }): ReactElement => (
   <div className={`${ResultStyles.ColoredResult} ${ResultStyles.NeutralResult}`}>
-    <h3>Optimized Assembly:</h3>
-    <CodeBlock>{children.trim()}</CodeBlock>
+    <h3>Optimized LLVM Code:</h3>
+    <CodeBlock className="llvm">{children.trim()}</CodeBlock>
   </div>
 );
 
@@ -49,7 +49,7 @@ export default function ResultCard({ response }: Props): ReactElement {
       </div>
     );
   } else {
-    const { interpreterPrinted, prettyPrintedProgram, jsString, assemblyString, errors } = response;
+    const { interpreterPrinted, prettyPrintedProgram, jsString, llvmString, errors } = response;
     children = (
       <div>
         {interpreterPrinted && (
@@ -65,7 +65,7 @@ export default function ResultCard({ response }: Props): ReactElement {
           </div>
         )}
         {jsString && <JSBlock>{jsString}</JSBlock>}
-        {assemblyString && <AssemblyBlock>{assemblyString}</AssemblyBlock>}
+        {llvmString && <LLVMBlock>{llvmString}</LLVMBlock>}
         {errors.length > 0 && <ErrorDetail>{errors}</ErrorDetail>}
       </div>
     );
