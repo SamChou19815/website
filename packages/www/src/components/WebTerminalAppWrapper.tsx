@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect } from 'react';
+import { ReactElement, ReactNode, useEffect, useState } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import { TimelineItemType, getFilteredTimeline } from '../data/timeline';
@@ -74,7 +74,40 @@ const timeline = (...args: string[]): readonly string[] | void => {
   return getFilteredTimeline(types).map(({ title, time }) => `${time}: ${title}`);
 };
 
-const devMegan = (): ReactElement => <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>;
+const DevMegan = (): ReactElement => {
+  const [timeUntilBack, setTimeUntilBack] = useState(0);
+
+  useEffect(() => {
+    setInterval(() => {
+      const backTime = new Date('2021-01-25T15:00:00-0500').getTime();
+      const timeDifferenceInMilliSeconds = Math.floor((backTime - new Date().getTime()) / 1000);
+      setTimeUntilBack(timeDifferenceInMilliSeconds);
+    }, 100);
+  }, []);
+
+  const days = Math.floor(timeUntilBack / 86400);
+  const dayString = days === 0 ? '' : '1 day, ';
+  const hours = Math.floor((timeUntilBack % 86400) / 3600);
+  const hourString = hours === 1 ? '1 hour' : `${hours} hours`;
+  const minutes = Math.floor((timeUntilBack % 3600) / 60);
+  const minuteString = minutes === 1 ? '1 minute' : `${minutes} minutes`;
+  const seconds = timeUntilBack % 60;
+  const secondString = seconds === 1 ? '1 second' : `${seconds} seconds`;
+
+  return (
+    <div>
+      <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>
+      {timeUntilBack > 0 && (
+        <div>
+          Megan will be back in {dayString}
+          {hourString}, {minuteString}, and {secondString}!
+        </div>
+      )}
+    </div>
+  );
+};
+
+const devMegan = (): ReactElement => <DevMegan />;
 
 const ForceBirthdayDummyComponent = (): ReactElement => {
   const setForceOnBirthday = useSetTerminalForceOnBirthday();
