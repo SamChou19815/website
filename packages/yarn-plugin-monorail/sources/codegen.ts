@@ -1,8 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
-
 const yarnWorkspaceBoilterplateSetupString = `
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +41,7 @@ name: General
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
@@ -54,7 +52,7 @@ jobs:
         run: yarn lint
   build:${yarnWorkspaceBoilterplateSetupString}
       - name: Compile
-        run: yarn compile
+        run: yarn c
   validate:${yarnWorkspaceBoilterplateSetupString}
       - name: Check changed
         run: if [[ \`git status --porcelain\` ]]; then exit 1; fi
@@ -84,7 +82,7 @@ on:
       - 'configuration/**'
       - '.github/workflows/generated-*-${workspace}.yml'
     branches:
-      - master
+      - main
 
 jobs:
   deploy:${yarnWorkspaceBoilterplateSetupString}

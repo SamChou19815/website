@@ -1,9 +1,19 @@
 import { writeFileSync } from 'fs';
 
-import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
 import type { Plugin } from '@yarnpkg/core';
+import { Command } from 'clipanion';
 
 import runCodegen from './codegen';
+import incrementalCompile from './compile';
+
+class CompileCommand extends Command {
+  // eslint-disable-next-line class-methods-use-this
+  async execute(): Promise<number> {
+    return (await incrementalCompile()) ? 0 : 1;
+  }
+}
+
+CompileCommand.addPath('c');
 
 const plugin: Plugin = {
   hooks: {
@@ -14,7 +24,8 @@ const plugin: Plugin = {
       runCodegen(workspacesJson);
     },
   },
-  commands: [],
+  // @ts-expect-error: version discrepancy?
+  commands: [CompileCommand],
 };
 
 export default plugin;

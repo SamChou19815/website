@@ -8,7 +8,7 @@ on:
       - 'configuration/**'
       - '.github/workflows/generated-*-github-contribution-alert.yml'
     branches:
-      - master
+      - main
 
 jobs:
   deploy:

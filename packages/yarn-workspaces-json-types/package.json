@@ -1,9 +1,0 @@
-{
-  "name": "@dev-sam/yarn-workspaces-json-types",
-  "version": "0.0.1",
-  "types": "index.d.ts",
-  "license": "AGPLv3",
-  "scripts": {
-    "compile": "exit 0"
-  }
-}
