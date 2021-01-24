@@ -85,12 +85,10 @@ const DevMegan = (): ReactElement => {
     }, 100);
   }, []);
 
-  const days = Math.floor(timeUntilBack / 86400);
-  const dayString = days === 0 ? '' : '1 day, ';
-  const hours = Math.floor((timeUntilBack % 86400) / 3600);
-  const hourString = hours === 1 ? '1 hour' : `${hours} hours`;
+  const hours = Math.floor(timeUntilBack / 3600);
+  const hourString = hours === 0 ? '' : hours === 1 ? '1 hour, ' : `${hours} hours, `;
   const minutes = Math.floor((timeUntilBack % 3600) / 60);
-  const minuteString = minutes === 1 ? '1 minute' : `${minutes} minutes`;
+  const minuteString = minutes === 0 ? '' : minutes === 1 ? '1 minute, ' : `${minutes} minutes, `;
   const seconds = timeUntilBack % 60;
   const secondString = seconds === 1 ? '1 second' : `${seconds} seconds`;
 
@@ -98,10 +96,7 @@ const DevMegan = (): ReactElement => {
     <div>
       <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>
       {timeUntilBack > 0 && (
-        <div>
-          Megan will be back in {dayString}
-          {hourString}, {minuteString}, and {secondString}!
-        </div>
+        <div>Megan will be back in {`${hourString}${minuteString}${secondString}`}!</div>
       )}
     </div>
   );
