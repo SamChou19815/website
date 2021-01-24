@@ -1,12 +1,8 @@
-#!/usr/bin/env node
-
 /* eslint-disable no-console */
 
 import { spawn, spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
-
-import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
 
 const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
   const queryFromGitDiffResult = (base: string, head?: string) => {
@@ -27,7 +23,7 @@ const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
   if (process.env.CI) {
     return queryFromGitDiffResult('HEAD^', 'HEAD');
   }
-  return queryFromGitDiffResult('origin/master');
+  return queryFromGitDiffResult('origin/main');
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,19 +45,9 @@ const workspaceHasChangedFilesExcludingBundledBinaries = (
   });
 };
 
-const workspacesTargetDeterminator = (
-  workspacesJson: YarnWorkspacesJson,
-  needUnconditionalRerun: (json: YarnWorkspacesJson, workspaceName: string) => boolean,
-  prereqChecker: (json: YarnWorkspacesJson, workspaceName: string) => boolean
-): readonly string[] => {
+const workspacesTargetDeterminator = (workspacesJson: YarnWorkspacesJson): readonly string[] => {
   return workspacesJson.topologicallyOrdered
     .map((workspaceName) => {
-      if (!prereqChecker(workspacesJson, workspaceName)) {
-        return [workspaceName, false] as const;
-      }
-      if (needUnconditionalRerun(workspacesJson, workspaceName)) {
-        return [workspaceName, true] as const;
-      }
       const needRebuild = workspaceHasChangedFilesExcludingBundledBinaries(
         workspacesJson,
         workspaceName
@@ -109,30 +95,25 @@ const runIncrementalTasks = async (
   return failed;
 };
 
-const runIncrementalWorkspacesTasks = async (
-  command: string,
-  needUnconditionalRerun: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean,
-  prereqChecker: (workspacesJson: YarnWorkspacesJson, workspaceName: string) => boolean
-): Promise<void> => {
+const incrementalCompile = async (): Promise<boolean> => {
   const workspacesJson: YarnWorkspacesJson = readJson('workspaces.json');
 
   const failedWorkspacesRuns = await runIncrementalTasks({
     needRerun: () => {
-      const targets = workspacesTargetDeterminator(
-        workspacesJson,
-        needUnconditionalRerun,
-        prereqChecker
-      );
+      const targets = workspacesTargetDeterminator(workspacesJson);
 
       if (targets.length !== 0) {
-        console.log(`[${targets.join(', ')}] needs to be ${command}d!`);
+        console.log(`[${targets.join(', ')}] needs to be compiled!`);
       }
       return targets;
     },
 
     rerun: async (workspace) => {
-      console.log(`Running \`yarn workspace ${workspace} ${command}\`...`);
-      const childProcess = spawn('yarn', ['workspace', workspace, command]);
+      console.log(`Running \`yarn workspace ${workspace} compile\`...`);
+      const childProcess = spawn('yarn', ['workspace', workspace, 'compile'], {
+        shell: true,
+        stdio: 'inherit',
+      });
       return await new Promise<boolean>((resolve) => {
         childProcess.on('exit', (code) => resolve(code === 0));
       });
@@ -140,27 +121,11 @@ const runIncrementalWorkspacesTasks = async (
   });
 
   if (failedWorkspacesRuns.length === 0) {
-    console.log(`[✓] All workspaces have been successfully ${command}d!`);
-    return;
+    console.log(`[✓] All workspaces have been successfully compiled!`);
+    return true;
   }
-  throw new Error(`[x] [${failedWorkspacesRuns.join(', ')}] failed to exit with 0`);
+  console.error(`[x] [${failedWorkspacesRuns.join(', ')}] failed to exit with 0`);
+  return false;
 };
 
-const incrementalCompile = async (): Promise<void> =>
-  runIncrementalWorkspacesTasks(
-    'compile',
-    () => false,
-    () => true
-  );
-
-const main = async (): Promise<void> => {
-  try {
-    await incrementalCompile();
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
-    process.exit(1);
-  }
-};
-
-main();
+export default incrementalCompile;

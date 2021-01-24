@@ -11,7 +11,7 @@ on:
       - 'configuration/**'
       - '.github/workflows/generated-*-critter-world.yml'
     branches:
-      - master
+      - main
 
 jobs:
   deploy:

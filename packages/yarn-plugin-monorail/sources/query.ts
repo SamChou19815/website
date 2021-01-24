@@ -1,7 +1,5 @@
 import { spawnSync } from 'child_process';
 
-import type { YarnWorkspacesJson } from '@dev-sam/yarn-workspaces-json-types';
-
 type SingleWorkspaceInformationFromYarn = {
   readonly workspaceLocation: string;
   readonly dependencies: readonly string[];

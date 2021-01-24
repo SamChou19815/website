@@ -8,7 +8,7 @@ on:
       - 'configuration/**'
       - '.github/workflows/generated-*-dot-dev.yml'
     branches:
-      - master
+      - main
 
 jobs:
   deploy:

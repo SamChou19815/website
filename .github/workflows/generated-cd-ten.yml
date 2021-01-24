@@ -12,7 +12,7 @@ on:
       - 'configuration/**'
       - '.github/workflows/generated-*-ten.yml'
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
