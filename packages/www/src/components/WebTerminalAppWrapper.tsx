@@ -79,15 +79,13 @@ const DevMegan = (): ReactElement => {
 
   useEffect(() => {
     setInterval(() => {
-      const backTime = new Date('2021-01-25T15:00:00-0500').getTime();
+      const backTime = new Date('2021-01-25T15:30:00-0500').getTime();
       const timeDifferenceInMilliSeconds = Math.floor((backTime - new Date().getTime()) / 1000);
       setTimeUntilBack(timeDifferenceInMilliSeconds);
     }, 100);
   }, []);
 
-  const hours = Math.floor(timeUntilBack / 3600);
-  const hourString = hours === 0 ? '' : hours === 1 ? '1 hour, ' : `${hours} hours, `;
-  const minutes = Math.floor((timeUntilBack % 3600) / 60);
+  const minutes = Math.floor(timeUntilBack / 60);
   const minuteString = minutes === 0 ? '' : minutes === 1 ? '1 minute, ' : `${minutes} minutes, `;
   const seconds = timeUntilBack % 60;
   const secondString = seconds === 1 ? '1 second' : `${seconds} seconds`;
@@ -95,9 +93,7 @@ const DevMegan = (): ReactElement => {
   return (
     <div>
       <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>
-      {timeUntilBack > 0 && (
-        <div>Megan will be back in {`${hourString}${minuteString}${secondString}`}!</div>
-      )}
+      {timeUntilBack > 0 && <div>Megan will be back in {`${minuteString}${secondString}`}!</div>}
     </div>
   );
 };
