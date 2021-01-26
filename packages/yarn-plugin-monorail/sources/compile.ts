@@ -4,6 +4,14 @@ import { spawn, spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 
+import {
+  redTerminalSection,
+  greenTerminalSection,
+  yellowTerminalSection,
+  blueTerminalSection,
+  magentaTerminalSection,
+} from './fancy-terminal';
+
 const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
   const queryFromGitDiffResult = (base: string, head?: string) => {
     const trimmed = spawnSync('git', [
@@ -58,73 +66,63 @@ const workspacesTargetDeterminator = (workspacesJson: YarnWorkspacesJson): reado
     .map(([workspace]) => workspace);
 };
 
-interface IncrementalTaskSpecification {
-  /**
-   * @returns a list of task ID that needs to be rerun.
-   * Usually, implementation of this function will consider the set of changed files.
-   */
-  readonly needRerun: () => readonly string[];
-  /** Run the job and returns whether a run is successful. */
-  readonly rerun: (taskID: string) => Promise<boolean>;
-}
-
-/**
- * The incremental task running framework.
- * It doesn't care about which tasks to rerun and how to rerun them. These information is provided by
- * the `specification` object.
- * Instead, it will maintain latest known good run time to help decide rerunning jobs.
- *
- * @param specification
- * @returns task IDs of failed jobs.
- */
-const runIncrementalTasks = async (
-  specification: IncrementalTaskSpecification
-): Promise<readonly string[]> => {
-  const tasksToRun = specification.needRerun();
-  const statusList = await Promise.all(
-    tasksToRun.map(async (taskID) => [taskID, await specification.rerun(taskID)] as const)
+const compilingPrinting = (): NodeJS.Timeout => {
+  let iteration = 0;
+  const startTime = new Date().getTime();
+  const spinner = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
+  return setInterval(
+    () => {
+      const passedTime = ((new Date().getTime() - startTime) / 1000).toFixed(1);
+      const frame = spinner[iteration % 10];
+      process.stderr.write(yellowTerminalSection(`[?] Compiling (${passedTime}s) ${frame}\r`));
+      iteration += 1;
+    },
+    process.stderr.isTTY ? 50 : 1000
   );
-
-  const failed: string[] = [];
-  statusList.forEach(([taskID, successful]) => {
-    if (!successful) {
-      failed.push(taskID);
-    }
-  });
-
-  return failed;
 };
 
 const incrementalCompile = async (): Promise<boolean> => {
   const workspacesJson: YarnWorkspacesJson = readJson('workspaces.json');
+  const tasksToRun = workspacesTargetDeterminator(workspacesJson);
 
-  const failedWorkspacesRuns = await runIncrementalTasks({
-    needRerun: () => {
-      const targets = workspacesTargetDeterminator(workspacesJson);
-
-      if (targets.length !== 0) {
-        console.log(`[${targets.join(', ')}] needs to be compiled!`);
-      }
-      return targets;
-    },
-
-    rerun: async (workspace) => {
-      console.log(`Running \`yarn workspace ${workspace} compile\`...`);
-      const childProcess = spawn('yarn', ['workspace', workspace, 'compile'], {
-        shell: true,
-        stdio: 'inherit',
-      });
-      return await new Promise<boolean>((resolve) => {
-        childProcess.on('exit', (code) => resolve(code === 0));
-      });
-    },
+  tasksToRun.forEach((workspace) => {
+    console.error(blueTerminalSection(`[i] \`${workspace}\` needs to be recompiled.`));
   });
 
+  const compilingMessageInterval = compilingPrinting();
+  const statusAndStdErrorListPromises = Promise.all(
+    tasksToRun.map((workspace) => {
+      const childProcess = spawn('yarn', ['workspace', workspace, 'compile'], {
+        shell: true,
+        stdio: ['ignore', 'pipe', 'ignore'],
+      });
+      let collector = '';
+
+      childProcess.stdout.on('data', (chunk) => {
+        collector += chunk.toString();
+      });
+      return new Promise<readonly [string, boolean, string]>((resolve) => {
+        childProcess.on('exit', (code) => resolve([workspace, code === 0, collector]));
+      });
+    })
+  );
+
+  const statusAndStdErrorList = await statusAndStdErrorListPromises;
+  clearInterval(compilingMessageInterval);
+
+  const globalStdErrorCollector = statusAndStdErrorList.map((it) => it[2]).join('');
+  const failedWorkspacesRuns = statusAndStdErrorList.filter((it) => !it[1]).map((it) => it[0]);
+
   if (failedWorkspacesRuns.length === 0) {
-    console.log(`[✓] All workspaces have been successfully compiled!`);
+    console.error(greenTerminalSection(`[✓] All workspaces have been successfully compiled!`));
     return true;
   }
-  console.error(`[x] [${failedWorkspacesRuns.join(', ')}] failed to exit with 0`);
+  console.error(magentaTerminalSection('[!] Compilation finished with some errors.'));
+  console.error(globalStdErrorCollector.trim());
+  failedWorkspacesRuns.forEach((workspace) => {
+    console.error(redTerminalSection(`[x] \`${workspace}\` failed to exit with 0.`));
+  });
+
   return false;
 };
 
