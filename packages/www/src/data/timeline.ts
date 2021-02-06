@@ -28,6 +28,17 @@ export type TimelineItem = {
 
 const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
+    title: 'samlang emits LLVM code',
+    type: 'project',
+    time: 'January 2021',
+    links: [
+      {
+        name: 'Blog Post',
+        url: 'https://blog.developersam.com/2021/01/24/samlang-llvm-backend',
+      },
+    ],
+  },
+  {
     title: '💕',
     type: 'event',
     time: 'October 2020',
@@ -54,7 +65,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     ],
   },
   {
-    title: 'samlang Rewritten in TypeScript',
+    title: 'samlang rewritten in TypeScript',
     type: 'project',
     time: 'August 2020',
     links: [
