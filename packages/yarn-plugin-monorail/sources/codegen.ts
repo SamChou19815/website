@@ -7,7 +7,7 @@ const yarnWorkspaceBoilterplateSetupString = `
       - uses: actions/checkout@v2
         with:
           fetch-depth: "2"
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
       - uses: actions/cache@v2
         with:
           path: ".yarn/cache\\n.pnp.js"
