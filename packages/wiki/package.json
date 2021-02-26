@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-alpha.70",
-    "@types/node": "^14.14.28",
+    "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/remarkable": "1.7.4",
