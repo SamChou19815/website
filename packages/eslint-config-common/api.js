@@ -21,14 +21,8 @@ module.exports = (
   /** @type {string} */ resolvedTypescriptESLintParserModulePath,
   /** @type {string} */ resolvedESlintImportResolverNodeModulePath
 ) => ({
-  env: {
-    browser: true,
-    node: true,
-    jest: true,
-  },
-  globals: {
-    Deno: 'readonly',
-  },
+  env: { browser: true, node: true, jest: true },
+  globals: { Deno: 'readonly' },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -42,12 +36,7 @@ module.exports = (
     '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
-      {
-        args: 'after-used',
-        ignoreRestSiblings: true,
-        vars: 'all',
-        varsIgnorePattern: '_',
-      },
+      { args: 'after-used', ignoreRestSiblings: true, vars: 'all', varsIgnorePattern: '_' },
     ],
     complexity: 'off',
     'class-methods-use-this': 'error',
@@ -90,6 +79,7 @@ module.exports = (
     'no-empty-function': 'off',
     'no-eq-null': 'off',
     'no-eval': 'error',
+    'no-fallthrough': 'off', // TypeScript can already check this
     'no-implicit-coercion': ['off', { boolean: false, number: true, string: true, allow: [] }],
     'no-implied-eval': 'error',
     'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
@@ -118,7 +108,7 @@ module.exports = (
     'no-throw-literal': 'error',
     'no-underscore-dangle': 'off',
     'no-useless-constructor': 'off',
-    'no-useless-return': 'error',
+    'no-useless-return': 'off',
     'no-use-before-define': 'off', // Already covered by TypeScript
     'no-unused-expressions': 'off', // Already covered by typescript-eslint
     'no-var': 'error',

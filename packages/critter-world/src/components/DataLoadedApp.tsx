@@ -144,7 +144,6 @@ const DataLoadedApp = ({ worldState }: Props): ReactElement => {
         }
         sendDeleteCritterRequest(tile.id);
         setClickHexMode('INSPECT');
-        // eslint-disable-next-line no-useless-return
         return;
       }
     }
