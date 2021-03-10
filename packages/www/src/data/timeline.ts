@@ -1,5 +1,5 @@
-const MiniReact = '/projects/mini-react.png';
-const SAMLANG = '/projects/samlang.png';
+const MiniReact = '/projects/mini-react.webp';
+const SAMLANG = '/projects/samlang.webp';
 const Samwise = '/projects/samwise.png';
 const TEN = '/projects/ten.png';
 const ChunkReader = '/timeline/chunk-reader.jpg';

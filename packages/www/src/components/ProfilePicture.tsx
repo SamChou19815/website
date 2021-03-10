@@ -19,7 +19,7 @@ const confettiConfig = {
 const normalProfilePicture = (
   <img
     className="avatar__photo"
-    src="/sam-by-megan-3-square.png"
+    src="/sam-by-megan-3-square.webp"
     alt="dev-sam fan art by dev-megan"
   />
 );
@@ -28,7 +28,7 @@ const BirthdayProfilePicture = ({ onClick }: { readonly onClick: () => void }) =
   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
   <img
     className={clsx('avatar__photo', styles.BirthdayProfilePicture)}
-    src="/birthday-sam-by-megan-square.jpg"
+    src="/birthday-sam-by-megan-square.webp"
     alt="birthday-sam fan art by dev-megan"
     onClick={onClick}
     onKeyDown={(e) => {

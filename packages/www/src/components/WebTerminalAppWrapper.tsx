@@ -99,7 +99,7 @@ const commands: Commands = {
     fn: devMegan,
     description: (
       <img
-        src="/emojis/devmegan.png"
+        src="/emojis/devmegan.webp"
         width={20}
         height={20}
         style={{ marginBottom: '-4px' }}
