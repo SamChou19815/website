@@ -12,7 +12,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
   {
     name: 'samlang',
     type: 'Programming Language',
-    media: '/projects/samlang.png',
+    media: '/projects/samlang.webp',
     description: 'A statically-typed functional programming language with full type inference.',
     links: [
       { text: 'Docs', href: 'https://samlang.io' },
@@ -23,7 +23,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
   {
     name: 'Docusaurus',
     type: 'Open source contributions',
-    media: '/projects/docusaurus.png',
+    media: '/projects/docusaurus.webp',
     description:
       "A static docs site generator created by FB open source. I'm one of the top 10 contributors.",
     links: [
@@ -34,7 +34,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
   {
     name: 'mini-react',
     type: 'Framework',
-    media: '/projects/mini-react.png',
+    media: '/projects/mini-react.webp',
     description:
       'A simplified version of React runtime with useState and useEffect hook, built from Scratch.',
     links: [
