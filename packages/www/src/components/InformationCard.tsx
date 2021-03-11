@@ -22,7 +22,7 @@ const IconLine = ({ iconName, children }: IconLineProps): ReactElement => (
 
 const InformationCard = ({ className }: { readonly className?: string }): ReactElement => (
   <div className={clsx('card', className)}>
-    <LazyCardMedia image="/timeline/fb-hacker-way.jpg" title="Facebook @ 1 Hacker Way" />
+    <LazyCardMedia image="/timeline/fb-hacker-way.webp" title="Facebook @ 1 Hacker Way" />
     <div className="card__header">
       <div className="avatar">
         <ProfilePicture />

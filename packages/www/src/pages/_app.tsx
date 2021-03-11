@@ -55,7 +55,7 @@ const MaterialUIApp = (props: AppProps): ReactElement => {
         <meta property="og:title" content="Developer Sam" />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://developersam.com/" />
-        <meta property="og:image" content="https://developersam.com/sam-by-megan-3-square.png" />
+        <meta property="og:image" content="https://developersam.com/sam-by-megan-3-square.webp" />
         <meta property="og:description" content={description} />
         <meta name="author" content="Developer Sam" />
         <link rel="canonical" href="https://developersam.com/" />

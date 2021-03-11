@@ -46,7 +46,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
   {
     name: 'Samwise',
     type: 'Web App',
-    media: '/projects/samwise.png',
+    media: '/projects/samwise.webp',
     description:
       'A Student Planner for Everyone. Designed, developed and maintained by Cornell DTI.',
     links: [
@@ -57,7 +57,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
   {
     name: 'Wiki',
     type: 'Web App',
-    media: '/projects/wiki.png',
+    media: '/projects/wiki.webp',
     description: 'Documentation for this monoropo and notes from Developer Sam.',
     links: [
       { text: 'Website', href: 'https://wiki.developersam.com' },
@@ -70,7 +70,7 @@ const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
   {
     name: 'TEN',
     type: 'Game AI',
-    media: '/projects/ten.png',
+    media: '/projects/ten.webp',
     description: 'Interesting board game with simple rules. Powered by an MCTS AI.',
     links: [
       { text: 'Demo', href: 'https://ten.developersam.com' },
