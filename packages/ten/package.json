@@ -12,7 +12,7 @@
     "@docusaurus/core": "2.0.0-alpha.71",
     "@docusaurus/plugin-content-pages": "2.0.0-alpha.71",
     "firebase": "^8.1.1",
-    "infima": "0.2.0-alpha.18",
+    "infima": "0.2.0-alpha.20",
     "lib-common": "0.0.1",
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
