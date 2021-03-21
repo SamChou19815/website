@@ -12,7 +12,7 @@
     "compile": "exit 0"
   },
   "dependencies": {
-    "@docusaurus/types": "2.0.0-alpha.71",
+    "@docusaurus/types": "2.0.0-alpha.72",
     "esbuild-loader": "^2.9.2",
     "lib-prism-extended": "workspace:0.1.0",
     "lib-react": "workspace:0.1.0",
