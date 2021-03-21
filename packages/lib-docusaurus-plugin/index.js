@@ -16,8 +16,10 @@ const withEsbuildMinify = (config) => {
 const withEsbuildLoader = (config) => {
   const jsLoader = config.module.rules.find((rule) => rule.test && rule.test.test('.js'));
   if (jsLoader) {
-    jsLoader.use.loader = require.resolve('esbuild-loader');
-    jsLoader.use.options = { loader: 'tsx', target: 'es2017' };
+    jsLoader.use[1] = {
+      loader: require.resolve('esbuild-loader'),
+      options: { loader: 'tsx', format: 'cjs', target: 'es2015' },
+    };
   }
 };
 
