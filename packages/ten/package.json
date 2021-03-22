@@ -16,13 +16,13 @@
     "lib-common": "0.0.1",
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-alpha.72",
-    "@types/node": "^14.14.33",
+    "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
     "typescript": "^4.2.3"
   }

@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { ProvidePlugin } = require('webpack');
 
 const withEsbuildMinify = (config) => {
@@ -9,7 +9,11 @@ const withEsbuildMinify = (config) => {
     (minimizer) => minimizer.constructor.name === 'TerserPlugin'
   );
   if (terserIndex > -1) {
-    config.optimization.minimizer.splice(terserIndex, 1, new ESBuildMinifyPlugin());
+    config.optimization.minimizer.splice(
+      terserIndex,
+      1,
+      new ESBuildMinifyPlugin({ target: 'es2017' })
+    );
   }
 };
 
@@ -18,7 +22,7 @@ const withEsbuildLoader = (config) => {
   if (jsLoader) {
     jsLoader.use[1] = {
       loader: require.resolve('esbuild-loader'),
-      options: { loader: 'tsx', format: 'cjs', target: 'es2015' },
+      options: { loader: 'tsx', format: 'cjs', target: 'es2017' },
     };
   }
 };
@@ -32,7 +36,7 @@ const setupPlugin = () => ({
     return [require.resolve('lib-react/PrismCodeBlock.css')];
   },
   configureWebpack(config) {
-    config.plugins.push(new ESBuildPlugin(), new ProvidePlugin({ React: 'react' }));
+    config.plugins.push(new ProvidePlugin({ React: 'react' }));
     withEsbuildMinify(config);
     withEsbuildLoader(config);
     return true;
