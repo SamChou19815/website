@@ -21,14 +21,14 @@
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
     "prism-react-renderer": "^1.1.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "remarkable": "^2.0.1",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-alpha.72",
-    "@types/node": "^14.14.33",
+    "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "@types/remarkable": "1.7.4",
