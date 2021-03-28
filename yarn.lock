@@ -10141,28 +10141,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-loader@npm:^2.9.2":
-  version: 2.9.2
-  resolution: "esbuild-loader@npm:2.9.2"
+"esbuild-loader@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "esbuild-loader@npm:2.11.0"
   dependencies:
-    esbuild: ^0.8.42
-    joycon: ^2.2.5
+    esbuild: ^0.10.2
+    joycon: ^3.0.1
     json5: ^2.2.0
     loader-utils: ^2.0.0
-    type-fest: ^0.20.2
+    type-fest: ^1.0.1
     webpack-sources: ^2.2.0
   peerDependencies:
     webpack: ^4.40.0 || ^5.0.0
-  checksum: a1251dab1ed72f68ce9b50a2b58ffef83594627f1bbf8fc53a098525166d1413f22374eeb966bac2848bc61fbf9f593f170c44e23786ae38f64ff5e5a5ff6724
+  checksum: 9ac1c05329c7e8976548f452292d3ca77107a6273f2e66309f41a3fb9e2085e04a5fc1bec2fae150a20ee5e1e8ab32f0c7fa2faad0fb8d54172337953bbd6109
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.8.42":
-  version: 0.8.57
-  resolution: "esbuild@npm:0.8.57"
+"esbuild@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "esbuild@npm:0.10.2"
   bin:
     esbuild: bin/esbuild
-  checksum: 0942950a21a30b57a324380cfedcb425cc1245412e720593415afa0d4f1b7c5f931aa6330937dc1353c754d45c1e5ff7dbc52eb514f54d85517114971300b454
+  checksum: 54bb44ea101f8dedea286b321c71b9ba2c739e6979b06696009da0bdd4fc8cf61a452e055ddef5b458c25e6c7ce353ba09e56b592b2beaaffaa72b13ed9b4d6c
   languageName: node
   linkType: hard
 
@@ -13868,6 +13868,13 @@ fsevents@~2.3.1:
   version: 2.2.5
   resolution: "joycon@npm:2.2.5"
   checksum: 7908f551e05aa754d1068053ec1304c12f3abc9c812f7c5a58bef7d35d247c3b1da14e508970bd411191099949756e2190e24c24b3382f818e7cda83e8ea1899
+  languageName: node
+  linkType: hard
+
+"joycon@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "joycon@npm:3.0.1"
+  checksum: db64c93cf05d6f99ea832708ac9ec10e8bbb92d767e3cc38f8c5111b513dbce4b1419b0fe42620e664998639b455dd943e8dd493d8753c5034837501f8e823c4
   languageName: node
   linkType: hard
 
@@ -20982,6 +20989,13 @@ resolve@^1.14.2:
   languageName: node
   linkType: hard
 
+"type-fest@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "type-fest@npm:1.0.1"
+  checksum: 3bd90161148674da21a3fc74cc784163b9b3e577fe70c0f110a456e6140109251a7b3ef4a4b07d10839fda8c119484a13c8b5d4c3984ba6c9aeb89cbf6eecbde
+  languageName: node
+  linkType: hard
+
 "type-is@npm:~1.6.17, type-is@npm:~1.6.18":
   version: 1.6.18
   resolution: "type-is@npm:1.6.18"
@@ -22294,7 +22308,7 @@ typescript@^4.2.3:
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.2
     clsx: ^1.1.1
-    esbuild-loader: ^2.9.2
+    esbuild-loader: ^2.11.0
     infima: 0.2.0-alpha.20
     lib-common: 0.0.1
     lib-in-memory-filesystem: 0.1.0
