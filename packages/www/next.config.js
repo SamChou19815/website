@@ -1,4 +1,4 @@
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 
 const withEsbuildMinify = (config, options) => {
   const terserIndex = config.optimization.minimizer.findIndex(
@@ -24,8 +24,8 @@ module.exports = require('next-transpile-modules')([
   'lib-react',
 ])({
   webpack: (config, { webpack }) => {
-    config.plugins.push(new ESBuildPlugin(), new webpack.ProvidePlugin({ React: 'react' }));
-    withEsbuildMinify(config);
+    config.plugins.push(new webpack.ProvidePlugin({ React: 'react' }));
+    withEsbuildMinify(config, { target: 'es2017' });
     withEsbuildLoader(config, { loader: 'tsx', target: 'es2017' });
     return config;
   },
