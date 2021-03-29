@@ -7,6 +7,7 @@ on:
       - 'packages/lib-common/**'
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
+      - 'packages/lib-next-with-esbuild/**'
       - 'packages/critter-world/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-critter-world.yml'
