@@ -8782,6 +8782,7 @@ __metadata:
     clsx: ^1.1.1
     infima: 0.2.0-alpha.20
     lib-common: 0.0.1
+    lib-next-with-esbuild: 0.1.0
     lib-react: 0.1.0
     next: ^10.0.8
     next-transpile-modules: ^6.3.0
@@ -9755,6 +9756,7 @@ __metadata:
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.2
     infima: 0.2.0-alpha.20
+    lib-next-with-esbuild: 0.1.0
     next: ^10.0.8
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -14356,6 +14358,14 @@ fsevents@~2.3.1:
     "@types/jest": ^26.0.21
     lib-common: 0.0.1
     typescript: ^4.2.3
+  languageName: unknown
+  linkType: soft
+
+"lib-next-with-esbuild@0.1.0, lib-next-with-esbuild@workspace:packages/lib-next-with-esbuild":
+  version: 0.0.0-use.local
+  resolution: "lib-next-with-esbuild@workspace:packages/lib-next-with-esbuild"
+  dependencies:
+    esbuild-loader: ^2.11.0
   languageName: unknown
   linkType: soft
 
@@ -22294,10 +22304,10 @@ typescript@^4.2.3:
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.2
     clsx: ^1.1.1
-    esbuild-loader: ^2.11.0
     infima: 0.2.0-alpha.20
     lib-common: 0.0.1
     lib-in-memory-filesystem: 0.1.0
+    lib-next-with-esbuild: 0.1.0
     lib-react: 0.1.0
     lib-web-terminal: 0.1.0
     next: ^10.0.8

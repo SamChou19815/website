@@ -1,0 +1,17 @@
+{
+  "name": "lib-next-with-esbuild",
+  "version": "0.1.0",
+  "description": "Configuring next.js config to compile with esbuild",
+  "main": "index.js",
+  "author": "Developer Sam",
+  "license": "AGPL-3.0",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "compile": "exit 0"
+  },
+  "dependencies": {
+    "esbuild-loader": "^2.11.0"
+  }
+}
