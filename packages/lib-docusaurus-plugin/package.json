@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@docusaurus/types": "2.0.0-alpha.72",
-    "esbuild-loader": "^2.10.0",
     "lib-prism-extended": "workspace:0.1.0",
     "lib-react": "workspace:0.1.0",
     "webpack": "^4.46.0"

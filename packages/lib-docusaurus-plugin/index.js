@@ -1,31 +1,6 @@
 const path = require('path');
 
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const { ProvidePlugin } = require('webpack');
-
-const withEsbuildMinify = (config) => {
-  if (!config.optimization.minimizer) return;
-  const terserIndex = config.optimization.minimizer.findIndex(
-    (minimizer) => minimizer.constructor.name === 'TerserPlugin'
-  );
-  if (terserIndex > -1) {
-    config.optimization.minimizer.splice(
-      terserIndex,
-      1,
-      new ESBuildMinifyPlugin({ target: 'es2017' })
-    );
-  }
-};
-
-const withEsbuildLoader = (config) => {
-  const jsLoader = config.module.rules.find((rule) => rule.test && rule.test.test('.js'));
-  if (jsLoader) {
-    jsLoader.use[1] = {
-      loader: require.resolve('esbuild-loader'),
-      options: { loader: 'tsx', format: 'cjs', target: 'es2017' },
-    };
-  }
-};
 
 const setupPlugin = () => ({
   name: 'lib-docusaurus-plugin',
@@ -37,8 +12,6 @@ const setupPlugin = () => ({
   },
   configureWebpack(config) {
     config.plugins.push(new ProvidePlugin({ React: 'react' }));
-    withEsbuildMinify(config);
-    withEsbuildLoader(config);
     return true;
   },
 });
