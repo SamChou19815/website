@@ -198,6 +198,4 @@ function nestedBlocks(): int = {
 }
 ```
 
-You may write `function a(): unit = { val _ = 3; unit }`. There is a syntactic sugar for this
-use-case: `function a(): unit = { val _ = 3; }`. Therefore, you can also create a `unit` value by
-`{}`.
+You can create a `unit` value by `{}`.
