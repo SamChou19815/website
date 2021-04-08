@@ -4243,23 +4243,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:10.1.2":
-  version: 10.1.2
-  resolution: "@next/env@npm:10.1.2"
-  checksum: 1a4c337d8d9ab97dc8a2b9a2ad657de805bc20e9c65b272153693292c7e3bc7b398deaad391f721f5c94d139b3f112c3b1a932109d6029a09dc65668a635e662
+"@next/env@npm:10.1.3":
+  version: 10.1.3
+  resolution: "@next/env@npm:10.1.3"
+  checksum: 2177aecf6b493299aa9db0c160165e771e8fe11a9c31a591344721c68df6cd384c6dee52feae90bb5b34d36f02d7f34b26afd4167c7d7f63ff455a73f0b838f2
   languageName: node
   linkType: hard
 
-"@next/polyfill-module@npm:10.1.2":
-  version: 10.1.2
-  resolution: "@next/polyfill-module@npm:10.1.2"
-  checksum: bf1e32780a0b2b1cd436b6e44b22f93e8bcd7e676674ead32c24468b8f9395491746ba7c8bca8310a3ced3fcc633642160db1f836844b01ae3161bb0972ac2bf
+"@next/polyfill-module@npm:10.1.3":
+  version: 10.1.3
+  resolution: "@next/polyfill-module@npm:10.1.3"
+  checksum: 072eed3b567f8a43a98077907ac218a1df845ab8235f069ad5147285103b891e24ef175bc581b65a7612176b6d311fbe1d9a1ae19e691ec3e306155d306537df
   languageName: node
   linkType: hard
 
-"@next/react-dev-overlay@npm:10.1.2":
-  version: 10.1.2
-  resolution: "@next/react-dev-overlay@npm:10.1.2"
+"@next/react-dev-overlay@npm:10.1.3":
+  version: 10.1.3
+  resolution: "@next/react-dev-overlay@npm:10.1.3"
   dependencies:
     "@babel/code-frame": 7.12.11
     anser: 1.4.9
@@ -4275,20 +4275,20 @@ __metadata:
   peerDependencies:
     react: ^16.9.0 || ^17
     react-dom: ^16.9.0 || ^17
-  checksum: 8bfe3f69256f8ded8204654ec6740e7a4ea41ab3936c3c6671b78f736bec274ada9e88259fbc4e0129c12ceb872b621b8124a17f6d8f2eb6c47a8bca2eb51799
+  checksum: e18bfb1a422c92c0bfb0fb7d89720d433ff5243d964a12ceb9e9a890275d588c35f598490066894bcdb6f4255de4b69ddbcb573b64cd7b08762c347ef9840e79
   languageName: node
   linkType: hard
 
-"@next/react-refresh-utils@npm:10.1.2":
-  version: 10.1.2
-  resolution: "@next/react-refresh-utils@npm:10.1.2"
+"@next/react-refresh-utils@npm:10.1.3":
+  version: 10.1.3
+  resolution: "@next/react-refresh-utils@npm:10.1.3"
   peerDependencies:
     react-refresh: 0.8.3
     webpack: ^4 || ^5
   peerDependenciesMeta:
     webpack:
       optional: true
-  checksum: e9b00b9d4c1fd0fd68c0c50cb4d7a13331de0c0da9c1af8e5bed63ddf22a78e5a3b6cd73a70e820e25e685dc9f9f7e103c6e37892281288adad095cf9808a8a6
+  checksum: 2fd2039c8378847c69d73b39ac64b15139bf2ca78551ebd42ddaa95e47b6cdcb5bcf049b257014fb6ef361b1af7b17ca7ceb7fba2fa68c45c9428f407e1ca300
   languageName: node
   linkType: hard
 
@@ -8835,8 +8835,8 @@ __metadata:
     lib-common: 0.0.1
     lib-next-with-esbuild: 0.1.0
     lib-react: 0.1.0
-    next: ^10.1.2
-    next-transpile-modules: ^6.3.0
+    next: ^10.1.3
+    next-transpile-modules: ^6.4.0
     react: ^17.0.2
     react-dom: ^17.0.2
     typescript: ^4.2.3
@@ -9815,7 +9815,7 @@ __metadata:
     "@types/react-dom": ^17.0.3
     infima: 0.2.0-alpha.20
     lib-next-with-esbuild: 0.1.0
-    next: ^10.1.2
+    next: ^10.1.3
     react: ^17.0.2
     react-dom: ^17.0.2
     react-ga: ^3.3.0
@@ -15708,26 +15708,26 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"next-transpile-modules@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "next-transpile-modules@npm:6.3.0"
+"next-transpile-modules@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "next-transpile-modules@npm:6.4.0"
   dependencies:
     enhanced-resolve: ^5.7.0
     escalade: ^3.1.1
-  checksum: 023cf40d6b69df738e9835a84b075032928dc15fe939e0c66106335ac7016c0a693b8e2fe8ea49a9e602ca5189a897e9d2b58e29d25b837dd45b4d209847addd
+  checksum: 0173c649d696f0de8b4225706efeff9bb38da9ea6fcfdbb4f5bdb6528072fbc5ff4d9252a8b3d3fb71f970fb00118f202c88c11fad02f953df5007f934b04604
   languageName: node
   linkType: hard
 
-"next@npm:^10.1.2":
-  version: 10.1.2
-  resolution: "next@npm:10.1.2"
+"next@npm:^10.1.3":
+  version: 10.1.3
+  resolution: "next@npm:10.1.3"
   dependencies:
     "@babel/runtime": 7.12.5
     "@hapi/accept": 5.0.1
-    "@next/env": 10.1.2
-    "@next/polyfill-module": 10.1.2
-    "@next/react-dev-overlay": 10.1.2
-    "@next/react-refresh-utils": 10.1.2
+    "@next/env": 10.1.3
+    "@next/polyfill-module": 10.1.3
+    "@next/react-dev-overlay": 10.1.3
+    "@next/react-refresh-utils": 10.1.3
     "@opentelemetry/api": 0.14.0
     assert: 2.0.0
     ast-types: 0.13.2
@@ -15787,7 +15787,7 @@ fsevents@~2.3.1:
       optional: true
   bin:
     next: dist/bin/next
-  checksum: 97ce484973812e9fc69474d55ca57a982964fd62494868f9184b5a10f214edfd552aa3fc6ec32e855a8f170ce6b40220d88c3a04aa0711a8f8e7dc5f23814c3c
+  checksum: 7e12ae9ea2dfa663950af4ff0eb62060524e8509167744d2bff3fd74bc3847805b5efce7ba8a6ee6df2a1abb2a8f329c3d9032cbbd4b4923c02c2847d6ffb77a
   languageName: node
   linkType: hard
 
@@ -22675,8 +22675,8 @@ typescript@^4.2.3:
     lib-next-with-esbuild: 0.1.0
     lib-react: 0.1.0
     lib-web-terminal: 0.1.0
-    next: ^10.1.2
-    next-transpile-modules: ^6.3.0
+    next: ^10.1.3
+    next-transpile-modules: ^6.4.0
     react: ^17.0.2
     react-dom: ^17.0.2
     react-dom-confetti: ^0.2.0
