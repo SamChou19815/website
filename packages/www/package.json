@@ -15,7 +15,7 @@
     "lib-in-memory-filesystem": "0.1.0",
     "lib-react": "0.1.0",
     "lib-web-terminal": "0.1.0",
-    "next": "^10.1.2",
+    "next": "^10.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-dom-confetti": "^0.2.0",
@@ -28,7 +28,7 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "lib-next-with-esbuild": "0.1.0",
-    "next-transpile-modules": "^6.3.0",
+    "next-transpile-modules": "^6.4.0",
     "typescript": "^4.2.3"
   }
 }
