@@ -1,0 +1,64 @@
+.board-cell {
+  width: 23px;
+  height: 23px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.board-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.board-vertical-line {
+  background-color: #333333;
+  width: 1px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+}
+
+.board-horizontal-line {
+  background-color: #333333;
+  width: 300px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+}
+
+.board-vertical-line-1 {
+  left: 103px;
+}
+
+.board-vertical-line-2 {
+  left: 197px;
+}
+
+.board-horizontal-line-1 {
+  top: 99px;
+}
+
+.board-horizontal-line-2 {
+  top: 199px;
+}
+
+.game-cell {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+}

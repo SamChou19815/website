@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 
 import BoardCell from './BoardCell';
-import styles from './BoardGrid.module.css';
 
 import { checkNotNull } from 'lib-common';
 
@@ -38,12 +37,12 @@ export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): Re
     }
   }
   return (
-    <div className={styles.Grid}>
+    <div className="board-grid">
       {children}
-      <div className={`${styles.HorizontalLine} ${styles.HorizontalLine1}`} />
-      <div className={`${styles.HorizontalLine} ${styles.HorizontalLine2}`} />
-      <div className={`${styles.VerticalLine} ${styles.VerticalLine1}`} />
-      <div className={`${styles.VerticalLine} ${styles.VerticalLine2}`} />
+      <div className="board-horizontal-line board-horizontal-line-1" />
+      <div className="board-horizontal-line board-horizontal-line-2" />
+      <div className="board-vertical-line board-vertical-line-1" />
+      <div className="board-vertical-line board-vertical-line-2" />
     </div>
   );
 }
