@@ -14,7 +14,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@dev-sam/eslint-config-common": "workspace:^0.20.0",
+    "@dev-sam/eslint-config-common": "workspace:^0.21.0",
     "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",

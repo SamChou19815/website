@@ -45,7 +45,7 @@ module.exports = (
     eqeqeq: ['error', 'always', { null: 'ignore' }],
     'guard-for-in': 'error',
     'import/first': 'error',
-    'import/prefer-default-export': 'error',
+    'import/prefer-default-export': 'warn',
     'import/no-absolute-path': 'error',
     'import/no-anonymous-default-export': 'error',
     'import/no-duplicates': 'error',
@@ -53,11 +53,7 @@ module.exports = (
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: [
-          '**/__tests__/**', // jest pattern
-          '**/*{.,_}{test,spec}.{ts,tsx}', // tests where the extension or filename suffix denotes that it is a test
-          '**/*.js', // Most code is in TS. JS code is usually for devDependencies
-        ],
+        devDependencies: true,
         peerDependencies: true,
         optionalDependencies: false,
       },
@@ -72,19 +68,19 @@ module.exports = (
         alphabetize: { order: 'asc', caseInsensitive: false },
       },
     ],
-    'no-alert': 'warn',
+    'no-alert': 'off',
     'no-await-in-loop': 'error',
     'no-console': 'warn',
-    'no-constant-condition': 'warn',
+    'no-constant-condition': ['error', { checkLoops: false }],
     'no-empty-function': 'off',
     'no-eq-null': 'off',
     'no-eval': 'error',
     'no-fallthrough': 'off', // TypeScript can already check this
     'no-implicit-coercion': ['off', { boolean: false, number: true, string: true, allow: [] }],
     'no-implied-eval': 'error',
-    'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
-    'no-lone-blocks': 'error',
-    'no-param-reassign': ['error', { props: true }],
+    'no-labels': ['error', { allowLoop: true, allowSwitch: true }],
+    'no-lone-blocks': 'off',
+    'no-param-reassign': ['error', { props: false }],
     'no-proto': 'error',
     'no-restricted-properties': [
       'error',
