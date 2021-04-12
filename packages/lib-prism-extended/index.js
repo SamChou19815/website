@@ -1,5 +1,4 @@
 const initialize = (Prism) => {
-  // eslint-disable-next-line no-param-reassign
   Prism.languages.samlang = {
     comment: [
       {
@@ -31,7 +30,6 @@ const initialize = (Prism) => {
     operator: /-|\+|\*|\/|%|&&|\|\|/,
     function: /[a-z][A-Za-z0-9]*\s*(?=\()/,
   };
-  // eslint-disable-next-line no-param-reassign
   Prism.languages.llvm = {
     comment: /;.*/,
     string: {
