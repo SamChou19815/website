@@ -3,7 +3,6 @@ import React, { ReactElement, ReactNode } from 'react';
 import { Board, getGameStatus } from '../game/board';
 import type { GameState } from '../game/game-state';
 import BoardGrid from './BoardGrid';
-import styles from './GameCard.module.css';
 
 const getMessage = (
   board: Board,
@@ -61,8 +60,8 @@ export default function GameCard({
       <div className="card__body">{getMessage(board, playerCanMove, playerMadeIllegalMove)}</div>
       <div className="card__body">{`Your Identity: ${playerIdentity}`}</div>
       {aiInfoNode}
-      <div className={`card__body ${styles.GameCells}`}>
-        {!playerCanMove && <div className={styles.Overlay} />}
+      <div className="card__body game-cell">
+        {!playerCanMove && <div className="game-overlay" />}
         <BoardGrid tiles={tiles} lastMove={board.lastMove} clickCallback={clickCallback} />
       </div>
       {children}
