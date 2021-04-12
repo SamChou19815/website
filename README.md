@@ -1,9 +1,5 @@
 # website
 
-![GitHub](https://img.shields.io/github/license/SamChou19815/website.svg)
-![code style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-![3.3.0](https://img.shields.io/badge/version-3.3.0-blue.svg)
-
 This is a monorepo of Sam's [website](https://developersam.com).
 
 ## Documentation
