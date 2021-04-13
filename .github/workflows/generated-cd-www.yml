@@ -9,6 +9,7 @@ on:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
       - 'packages/lib-web-terminal/**'
+      - 'packages/lib-colorful-terminal/**'
       - 'packages/lib-esbuild-scripts/**'
       - 'packages/www/**'
       - 'configuration/**'

@@ -61,9 +61,6 @@ const workspacesTargetDeterminator = (workspacesJson: YarnWorkspacesJson): reado
     .map(([workspace]) => workspace);
 };
 
-const compilingPrinting = (): NodeJS.Timeout =>
-  startSpinnerProgress((passedTime) => `[?] Compiling (${passedTime})`);
-
 const incrementalCompile = async (): Promise<boolean> => {
   const workspacesJson: YarnWorkspacesJson = readJson('workspaces.json');
   const tasksToRun = workspacesTargetDeterminator(workspacesJson);
@@ -72,7 +69,9 @@ const incrementalCompile = async (): Promise<boolean> => {
     console.error(BLUE(`[i] \`${workspace}\` needs to be recompiled.`));
   });
 
-  const compilingMessageInterval = compilingPrinting();
+  const compilingMessageInterval = startSpinnerProgress(
+    (passedTime) => `[?] Compiling (${passedTime})`
+  );
   const statusAndStdErrorListPromises = Promise.all(
     tasksToRun.map((workspace) => {
       const childProcess = spawn('yarn', ['workspace', workspace, 'compile'], {
