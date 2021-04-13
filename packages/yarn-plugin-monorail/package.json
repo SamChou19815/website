@@ -13,6 +13,7 @@
     "@yarnpkg/builder": "^2.1.3",
     "@yarnpkg/core": "^2.4.0",
     "clipanion": "2.6.2",
+    "lib-colorful-terminal": "workspace:0.1.0",
     "typescript": "^4.2.4"
   }
 }
