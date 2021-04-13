@@ -4,13 +4,8 @@ import { spawn, spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 
-import {
-  redTerminalSection,
-  greenTerminalSection,
-  yellowTerminalSection,
-  blueTerminalSection,
-  magentaTerminalSection,
-} from './fancy-terminal';
+import { RED, GREEN, BLUE, MAGENTA } from 'lib-colorful-terminal/colors';
+import startSpinnerProgress from 'lib-colorful-terminal/progress';
 
 const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
   const queryFromGitDiffResult = (base: string, head?: string) => {
@@ -66,27 +61,15 @@ const workspacesTargetDeterminator = (workspacesJson: YarnWorkspacesJson): reado
     .map(([workspace]) => workspace);
 };
 
-const compilingPrinting = (): NodeJS.Timeout => {
-  let iteration = 0;
-  const startTime = new Date().getTime();
-  const spinner = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
-  return setInterval(
-    () => {
-      const passedTime = ((new Date().getTime() - startTime) / 1000).toFixed(1);
-      const frame = spinner[iteration % 10];
-      process.stderr.write(yellowTerminalSection(`[?] Compiling (${passedTime}s) ${frame}\r`));
-      iteration += 1;
-    },
-    process.stderr.isTTY ? 50 : 1000
-  );
-};
+const compilingPrinting = (): NodeJS.Timeout =>
+  startSpinnerProgress((passedTime) => `[?] Compiling (${passedTime})`);
 
 const incrementalCompile = async (): Promise<boolean> => {
   const workspacesJson: YarnWorkspacesJson = readJson('workspaces.json');
   const tasksToRun = workspacesTargetDeterminator(workspacesJson);
 
   tasksToRun.forEach((workspace) => {
-    console.error(blueTerminalSection(`[i] \`${workspace}\` needs to be recompiled.`));
+    console.error(BLUE(`[i] \`${workspace}\` needs to be recompiled.`));
   });
 
   const compilingMessageInterval = compilingPrinting();
@@ -114,13 +97,13 @@ const incrementalCompile = async (): Promise<boolean> => {
   const failedWorkspacesRuns = statusAndStdErrorList.filter((it) => !it[1]).map((it) => it[0]);
 
   if (failedWorkspacesRuns.length === 0) {
-    console.error(greenTerminalSection(`[✓] All workspaces have been successfully compiled!`));
+    console.error(GREEN(`[✓] All workspaces have been successfully compiled!`));
     return true;
   }
-  console.error(magentaTerminalSection('[!] Compilation finished with some errors.'));
+  console.error(MAGENTA('[!] Compilation finished with some errors.'));
   console.error(globalStdErrorCollector.trim());
   failedWorkspacesRuns.forEach((workspace) => {
-    console.error(redTerminalSection(`[x] \`${workspace}\` failed to exit with 0.`));
+    console.error(RED(`[x] \`${workspace}\` failed to exit with 0.`));
   });
 
   return false;
