@@ -21,6 +21,7 @@ build({
           resolvedPath.includes('esbuild-npm') ||
           resolvedPath.includes('fs-extra-npm') ||
           resolvedPath.includes('node-html-parser-npm') ||
+          resolvedPath.includes('html-minifier-npm') ||
           resolvedPath.includes('@yarnpkg-esbuild-plugin-pnp')
         ) {
           return { external: true };

@@ -1,5 +1,6 @@
 import { createHash } from 'crypto';
 
+import { minify } from 'html-minifier';
 import { parse } from 'node-html-parser';
 
 const md5 = (data: string) =>
@@ -8,7 +9,7 @@ const md5 = (data: string) =>
 type Attachment = {
   readonly type: 'js' | 'css';
   readonly originalFilename: string;
-  readonly content: string;
+  readonly content?: string;
 };
 
 const htmlWithElementsAttached = (
@@ -23,26 +24,22 @@ const htmlWithElementsAttached = (
   root.querySelector('#root').innerHTML = ssrContent;
 
   attachments.forEach(({ type, originalFilename, content }) => {
-    const href = `/${originalFilename}?h=${md5(content)}`;
+    const href =
+      content == null ? `/${originalFilename}` : `/${originalFilename}?h=${md5(content)}`;
     if (type === 'js') {
-      const scriptNode = document.createElement('script');
-      scriptNode.src = href;
       body.appendChild(parse(`<script src="${href}"></script>`));
-
-      const preloadLinkNode = document.createElement('link');
-      preloadLinkNode.rel = 'preload';
-      preloadLinkNode.href = href;
       head.appendChild(parse(`<link rel="preload" href="${href}" as="script" />`));
     } else {
-      const linkNode = document.createElement('link');
-      linkNode.rel = 'stylesheet';
-      linkNode.href = href;
       head.appendChild(parse(`<link rel="stylesheet" href="${href}" />`));
     }
   });
 
-  root.removeWhitespace();
-  return root.toString();
+  return minify(root.toString(), {
+    minifyCSS: false,
+    minifyJS: false,
+    collapseWhitespace: true,
+    collapseInlineTagWhitespace: true,
+  });
 };
 
 export default htmlWithElementsAttached;

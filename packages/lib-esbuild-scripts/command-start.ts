@@ -4,15 +4,29 @@ import { createServer, request } from 'http';
 import { join } from 'path';
 
 import { serve } from 'esbuild';
+import { readFile } from 'fs-extra';
 
 import { CLIENT_ENTRY } from './constants';
 import baseESBuildConfig from './esbuild-config';
+import htmlWithElementsAttached from './html-rewriter';
 
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
+import startSpinnerProgress from 'lib-colorful-terminal/progress';
 
 export default async function startCommand(): Promise<void> {
+  const startingProgressInterval = startSpinnerProgress(
+    (time) => `[i] Starting dev server (${time})...`
+  );
+
+  const htmlForServe = htmlWithElementsAttached(
+    (await readFile(join('public', 'index.html'))).toString(),
+    '',
+    { type: 'js', originalFilename: 'app.js' },
+    { type: 'css', originalFilename: 'app.css' }
+  );
+
   const esbuildServer = await serve(
-    { servedir: 'public', port: 3456 },
+    { servedir: 'public', port: 19815 },
     {
       ...baseESBuildConfig({}),
       entryPoints: [CLIENT_ENTRY],
@@ -20,12 +34,19 @@ export default async function startCommand(): Promise<void> {
       outfile: join('public', 'app.js'),
     }
   );
+  clearInterval(startingProgressInterval);
   console.error(
     BLUE(`[i] ESBuild Server started on http://${esbuildServer.host}:${esbuildServer.port}.`)
   );
 
   // Then start a proxy server on port 3000
   const proxyServer = createServer((req, res) => {
+    if (req.url === '/') {
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(htmlForServe);
+      return;
+    }
+
     const options = {
       hostname: esbuildServer.host,
       port: esbuildServer.port,
@@ -38,8 +59,8 @@ export default async function startCommand(): Promise<void> {
     const proxyReq = request(options, (proxyRes) => {
       // If esbuild returns "not found", send a custom 404 page
       if (proxyRes.statusCode === 404) {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end('<h1>404</h1>');
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(htmlForServe);
         return;
       }
 
