@@ -1,8 +1,6 @@
-import clsx from 'clsx';
-import { ReactElement, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import Confetti from 'react-dom-confetti';
 
-import styles from './ProfilePicture.module.css';
 import { useDeveloperSamOnBirthday } from './global-states';
 
 const confettiConfig = {
@@ -27,7 +25,7 @@ const normalProfilePicture = (
 const BirthdayProfilePicture = ({ onClick }: { readonly onClick: () => void }) => (
   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
   <img
-    className={clsx('avatar__photo', styles.BirthdayProfilePicture)}
+    className="avatar__photo birthday-profile-picture"
     src="/birthday-sam-by-megan-square.webp"
     alt="birthday-sam fan art by dev-megan"
     onClick={onClick}

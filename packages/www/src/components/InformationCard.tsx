@@ -1,24 +1,11 @@
 import clsx from 'clsx';
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import ButtonLink from './Common/ButtonLink';
-import WwwSvgIcon, { WwwSvgIconName } from './Common/Icons';
+import WwwSvgIcon from './Common/Icons';
 import LazyCardMedia from './Common/LazyCardMedia';
-import styles from './InformationCard.module.css';
 import ProfilePicture from './ProfilePicture';
-
-type IconLineProps = {
-  readonly iconName: WwwSvgIconName;
-  readonly children: string;
-};
-
-const IconLine = ({ iconName, children }: IconLineProps): ReactElement => (
-  <div className={styles.IconLine}>
-    <WwwSvgIcon iconName={iconName} />
-    <span className={styles.IconLineText}>{children}</span>
-  </div>
-);
 
 const InformationCard = ({ className }: { readonly className?: string }): ReactElement => (
   <div className={clsx('card', className)}>
@@ -31,21 +18,22 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
         </div>
       </div>
     </div>
-    <div className={clsx('card__body', styles.IconLines)}>
+    <div className="card__body info-card-icon-lines">
       {DATASET_ABOUT.facts.map(({ text, iconName }) => (
-        <IconLine key={text} iconName={iconName}>
-          {text}
-        </IconLine>
+        <div key={text} className="info-card-icon-line">
+          <WwwSvgIcon iconName={iconName} />
+          <span className="info-card-icon-line-text">{text}</span>
+        </div>
       ))}
     </div>
-    <div className={clsx('card__footer', styles.Links)}>
+    <div className="card__footer horizontal-center">
       <div className="button-group button-group--block">
         {DATASET_ABOUT.links.map(({ href, text }) => (
-          <ButtonLink key={text} href={href} className={styles.Link}>
+          <ButtonLink key={text} href={href} className="info-card-link">
             {text}
           </ButtonLink>
         ))}
-        <ButtonLink href="/resume.pdf" className={styles.Link}>
+        <ButtonLink href="/resume.pdf" className="info-card-link">
           Resume
         </ButtonLink>
       </div>

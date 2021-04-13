@@ -1,7 +1,6 @@
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import AboutSection from './AboutSection';
-import styles from './App.module.css';
 import ConsoleSection from './Common/ConsoleSection';
 import ProjectsSection from './ProjectsSection';
 import StickyCodeBlock from './StickyCodeBlock';
@@ -43,11 +42,11 @@ const App = (): ReactElement => {
 
   return (
     <WebTerminalAppWrapper>
-      <div className={styles.MainLayout}>
-        <div className={styles.SideBar}>
+      <div className="app-main-layout">
+        <div className="app-side-bar">
           <StickyCodeBlock />
         </div>
-        <div className={styles.ContentBlock}>
+        <div className="app-content-block">
           <AboutSection />
           <ConsoleSection id="projects" title="dev-sam projects">
             <ProjectsSection />

@@ -1,10 +1,9 @@
 import clsx from 'clsx';
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import { TimelineItemType, getFilteredTimeline } from '../../data/timeline';
 import { useTimelinePillsState } from '../global-states';
 import TimelineItemCard from './TimelineItemCard';
-import styles from './index.module.css';
 
 type CheckboxProps = {
   readonly label: string;
@@ -43,8 +42,8 @@ export const TimelineSection = (): ReactElement => {
 
   return (
     <>
-      <div className={styles.ControlSection}>
-        <h3 className={styles.ControlSectionTitle}>Filters:</h3>
+      <div className="timeline-controls">
+        <h3 className="timeline-controls-title">Filters:</h3>
         <ul className="pills">
           <ControlledCheckbox
             label="Work & Interns"
@@ -59,8 +58,8 @@ export const TimelineSection = (): ReactElement => {
           <ControlledCheckbox label="Events" checked={eventsChecked} onChange={eventsOnChange} />
         </ul>
       </div>
-      <div className={styles.TimelineSection}>
-        <div className={styles.VerticalBar} />
+      <div className="timeline-section">
+        <div className="timeline-section-vertical-bar" />
         {filteredItems.map((item) => (
           <TimelineItemCard key={`${item.title}-${item.time}`} item={item} />
         ))}

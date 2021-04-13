@@ -1,4 +1,51 @@
-.TerminalContainer {
+/* outside */
+.web-terminal-trigger-button {
+  position: fixed;
+  z-index: 10;
+  bottom: 1em;
+  right: 1em;
+  outline: 0;
+  cursor: pointer;
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border: 1px solid var(--ifm-font-color-base);
+  background-color: var(--ifm-code-background-color);
+}
+
+@media screen and (max-width: 800px) {
+  .web-terminal-trigger-button {
+    display: none;
+  }
+}
+
+.web-terminal-trigger-button:hover {
+  background-color: var(--ifm-background-color);
+}
+
+.web-terminal-first-edge {
+  display: block;
+  width: 2px;
+  height: 6px;
+  transform: skew(45deg);
+  background: var(--ifm-font-color-base);
+}
+
+.web-terminal-second-edge {
+  display: block;
+  width: 2px;
+  height: 6px;
+  transform: skew(-45deg);
+  background: var(--ifm-font-color-base);
+}
+
+.web-terminal-text {
+  color: transparent;
+}
+
+/* inside */
+.web-terminal-container {
   position: fixed;
   z-index: 1;
   bottom: 0;
@@ -10,13 +57,13 @@
   background-color: var(--ifm-background-color);
 }
 
-.TerminalTitle {
+.web-terminal-title {
   padding: 8px;
   text-align: center;
   border-bottom: 1px solid #ccc;
 }
 
-.Terminal {
+.web-terminal-body {
   min-width: 100%;
   max-width: 100%;
   min-height: 500px;
@@ -27,7 +74,7 @@
   background-color: var(--ifm-background-color);
 }
 
-.TerminalContent {
+.web-terminal-content {
   padding: 20px;
   height: 100%;
   font-size: 15px;
@@ -35,23 +82,23 @@
   font-family: 'Roboto Mono', 'Source Code Pro', 'monospace';
 }
 
-.TerminalInputArea {
+.web-terminal-input-area {
   display: inline-flex;
   justify-content: center;
   width: 100%;
 }
 
-.TerminalMessage {
+.web-terminal-message {
   margin: 0;
   line-height: 21px;
 }
 
-.TerminalPromptLabel {
+.web-terminal-prompt-label {
   color: #3e7ae2;
   padding: 3px 10px 3px 0;
 }
 
-.TerminalInput {
+.web-terminal-input {
   border: 0;
   margin: 0;
   padding: 0;

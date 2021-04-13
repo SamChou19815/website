@@ -1,6 +1,5 @@
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
-import styles from './AboutSection.module.css';
 import ButtonLink from './Common/ButtonLink';
 import ConsoleSection from './Common/ConsoleSection';
 import WwwSvgIcon from './Common/Icons';
@@ -10,11 +9,11 @@ const AboutSection = (): ReactElement => (
   <ConsoleSection
     id="about"
     title="dev-sam about"
-    className={styles.AboutSection}
-    titleClassName={styles.Title}
+    className="about-section"
+    titleClassName="about-section-title"
   >
-    <InformationCard className={styles.InfoCard} />
-    <ButtonLink className={styles.ReadMore} href="#projects">
+    <InformationCard className="about-section-info-card" />
+    <ButtonLink className="about-section-read-more" href="#projects">
       READ MORE
       <WwwSvgIcon iconName="expand-more" />
     </ButtonLink>

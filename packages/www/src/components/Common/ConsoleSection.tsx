@@ -1,7 +1,5 @@
 import clsx from 'clsx';
-import type { ReactElement, ReactNode } from 'react';
-
-import styles from './ConsoleSection.module.css';
+import React, { ReactElement, ReactNode } from 'react';
 
 type Props = {
   readonly id: string;
@@ -19,7 +17,7 @@ const ConsoleSection = ({
   children,
 }: Props): ReactElement => (
   <section id={id} className={className}>
-    <h3 className={clsx(styles.Title, titleClassName)}>
+    <h3 className={clsx('console-section-title', titleClassName)}>
       <code>
         $&nbsp;
         {title}

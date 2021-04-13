@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect } from 'react';
+import React, { ReactElement, ReactNode, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import { TimelineItemType, getFilteredTimeline } from '../data/timeline';
