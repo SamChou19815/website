@@ -16,7 +16,7 @@ const devSam = (
   command: string,
   ...commandArguments: readonly string[]
 ): readonly ReactNode[] | ReactNode | void => {
-  const information = `Copyright (C) 2015–${new Date().getFullYear()} Developer Sam. All rights reserved.`;
+  const information = `Copyright (C) 2015-${new Date().getFullYear()} Developer Sam. All rights reserved.`;
   switch (command) {
     case 'about':
       return [
@@ -74,8 +74,45 @@ const timeline = (...args: string[]): readonly string[] | void => {
   return getFilteredTimeline(types).map(({ title, time }) => `${time}: ${title}`);
 };
 
+const TIME_OF_OCT_14_2020_7PM = 1602630000000;
+
 const DevMegan = (): ReactElement => {
-  return <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>;
+  return (
+    <>
+      <div>
+        Time together: {Math.floor((new Date().getTime() - TIME_OF_OCT_14_2020_7PM) / 86400000)}{' '}
+        days.
+      </div>
+      <div>{"Sam loves Megan's drawings. 💕"}</div>
+      <div>
+        <img
+          src="https://samzhou.dev/fan-arts/dev-sam-birthday-edition.webp"
+          height={200}
+          alt="@dev-sam/fan-art Birthday Edition"
+          title="@dev-sam/fan-art Birthday Edition"
+        />
+        <img
+          src="https://samzhou.dev/fan-arts/dev-sam-fan-art-3.webp"
+          height={200}
+          alt="@dev-sam/fan-art Iteration 3"
+          title="@dev-sam/fan-art Iteration 3"
+        />
+        <img
+          src="https://samzhou.dev/fan-arts/dev-sam-fan-art-2.webp"
+          height={200}
+          alt="@dev-sam/fan-art Iteration 2"
+          title="@dev-sam/fan-art Iteration 2"
+        />
+        <img
+          src="https://samzhou.dev/fan-arts/dev-sam-fan-art-1.webp"
+          height={200}
+          alt="@dev-sam/fan-art Iteration 1"
+          title="@dev-sam/fan-art Iteration 1"
+        />
+      </div>
+      <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>
+    </>
+  );
 };
 
 const devMegan = (): ReactElement => <DevMegan />;
