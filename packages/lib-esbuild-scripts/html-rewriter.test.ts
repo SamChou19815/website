@@ -21,9 +21,9 @@ it('htmlWithElementsAttached works', () => {
     '<!DOCTYPE html>' +
       '<html lang="en">' +
       '<head>' +
-      '<meta charset="utf-8" >' +
-      '<link rel="preload" href="/app.js?h=4124bc0a" as="script" >' +
-      '<link rel="stylesheet" href="/app.css?h=4124bc0a" >' +
+      '<meta charset="utf-8">' +
+      '<link rel="preload" href="/app.js?h=4124bc0a" as="script">' +
+      '<link rel="stylesheet" href="/app.css?h=4124bc0a">' +
       '</head>' +
       '<body>' +
       '<div id="root">foo bar</div>' +
