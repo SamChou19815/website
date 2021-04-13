@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 type Props = {
   readonly href: string;

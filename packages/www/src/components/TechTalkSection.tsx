@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import DATASET_TECH_TALKS from '../data/tech-talks';
 import CardHeader from './Common/CardHeader';

@@ -1,20 +1,18 @@
-import clsx from 'clsx';
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import type { TimelineItem } from '../../data/timeline';
 import ButtonLink from '../Common/ButtonLink';
 import CardHeader from '../Common/CardHeader';
 import LazyCardMedia from '../Common/LazyCardMedia';
-import styles from './index.module.css';
 
 type Props = { readonly item: TimelineItem };
 
 const TimelineItemCard = ({ item: { title, time, image, detail, links } }: Props): ReactElement => {
   return (
-    <div className={styles.CardContainer}>
-      <div className={styles.ContentWrapper}>
-        <span className={styles.ConnectorDot} />
-        <div className={clsx('card', styles.Card)}>
+    <div className="timeline-section-card-container">
+      <div className="timeline-section-content-wrapper">
+        <span className="timeline-section-connector-dot" />
+        <div className="card timeline-section-card">
           {image != null && <LazyCardMedia image={image} title={title} />}
           <CardHeader title={title} subheader={time} />
           {detail != null && <div className="card__body">{detail}</div>}

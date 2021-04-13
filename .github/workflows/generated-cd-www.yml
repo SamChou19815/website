@@ -9,7 +9,7 @@ on:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
       - 'packages/lib-web-terminal/**'
-      - 'packages/lib-next-with-esbuild/**'
+      - 'packages/lib-esbuild-scripts/**'
       - 'packages/www/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-www.yml'

@@ -7,7 +7,7 @@
     },
     {
       "target": "www",
-      "public": "packages/www/out",
+      "public": "packages/www/build",
       "ignore": ["**/.*"],
       "rewrites": [
         {

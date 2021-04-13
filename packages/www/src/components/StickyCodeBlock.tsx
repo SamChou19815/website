@@ -1,6 +1,4 @@
-import type { ReactElement } from 'react';
-
-import styles from './StickyCodeBlock.module.css';
+import React, { ReactElement } from 'react';
 
 import CodeBlock, { flexibleTheme } from 'lib-react/PrismCodeBlock';
 
@@ -42,7 +40,7 @@ const patchedTheme = {
 
 const StickyCodeBlock = (): ReactElement => {
   return (
-    <CodeBlock language="samlang" theme={patchedTheme} className={styles.Block}>
+    <CodeBlock language="samlang" theme={patchedTheme} className="sticky-code-block">
       {code}
     </CodeBlock>
   );

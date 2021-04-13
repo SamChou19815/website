@@ -1,6 +1,5 @@
 import React, { ReactElement, KeyboardEvent, RefObject, useState, useEffect } from 'react';
 
-import styles from './Terminal.module.css';
 import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 import autoComplete from './auto-complete';
 
@@ -48,12 +47,12 @@ const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElemen
   }, [terminalInput, line, justProcessedArrowKey]);
 
   return (
-    <div className={styles.TerminalInputArea}>
-      <span className={styles.TerminalPromptLabel}>$</span>
+    <div className="web-terminal-input-area">
+      <span className="web-terminal-prompt-label">$</span>
       <input
         name="terminal-input"
         ref={terminalInput}
-        className={styles.TerminalInput}
+        className="web-terminal-input"
         value={line}
         onChange={(event) => setLine(event.currentTarget.value)}
         onKeyDown={onKeyDown}

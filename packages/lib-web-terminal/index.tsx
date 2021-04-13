@@ -1,7 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 
 import StatefulTerminal from './StatefulTerminal';
-import styles from './index.module.css';
 
 const memoizedTerminal = <StatefulTerminal />;
 
@@ -11,10 +10,10 @@ const HiddenByDefaultWebTerminal = (): ReactElement => {
 
   return (
     <>
-      <button type="button" onClick={toggle} className={styles.TriggerButton}>
-        <span className={styles.FirstEdge} />
-        <span className={styles.SecondEdge} />
-        <span className={styles.Text}>Terminal Toggle</span>
+      <button type="button" onClick={toggle} className="web-terminal-trigger-button">
+        <span className="web-terminal-first-edge" />
+        <span className="web-terminal-second-edge" />
+        <span className="web-terminal-text">Terminal Toggle</span>
       </button>
       {isTerminalShown && memoizedTerminal}
     </>
