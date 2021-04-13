@@ -3,27 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "start": "esbuild-scripts start",
+    "build": "esbuild-scripts build",
     "compile": "tsc",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.72",
-    "@docusaurus/plugin-content-pages": "2.0.0-alpha.72",
-    "firebase": "^8.1.1",
-    "infima": "0.2.0-alpha.20",
     "lib-common": "0.0.1",
-    "lib-firebase": "0.1.0",
-    "lib-react": "0.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "rxjs": "^6.6.3"
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.0.0-alpha.72",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
+    "lib-esbuild-scripts": "workspace:0.1.0",
     "typescript": "^4.2.4"
   }
 }
