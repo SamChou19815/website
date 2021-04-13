@@ -4,7 +4,7 @@ name: CD dot-dev
 on:
   push:
     paths:
-      - 'packages/lib-next-with-esbuild/**'
+      - 'packages/lib-esbuild-scripts/**'
       - 'packages/dot-dev/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-dot-dev.yml'

@@ -1,20 +1,18 @@
-import Head from 'next/head';
 import React, { ReactElement } from 'react';
 
-import FanArtWorkCard from '../components/FanArtWorkCard';
+import FanArtWorkCard from './FanArtWorkCard';
 import {
   FAN_ART_ITERATION_0,
   FAN_ART_ITERATION_1,
   FAN_ART_ITERATION_2,
   FAN_ART_ITERATION_3,
   FAN_ART_BIRTHDAY_EDITION,
-} from '../components/data';
+} from './data';
+
+import './index.css';
 
 const ArtsPage = (): ReactElement => (
   <div>
-    <Head>
-      <title>Fan Arts | Random@dev-sam</title>
-    </Head>
     <nav className="navbar">
       <div className="navbar__inner">
         <div className="navbar__items">
