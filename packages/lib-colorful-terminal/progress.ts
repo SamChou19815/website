@@ -18,7 +18,7 @@ const startSpinnerProgress = (getMessage: (passedTime: string) => string): NodeJ
       process.stderr.write(YELLOW(`${message} ${frame}\r`));
       iteration += 1;
     },
-    process.stderr.isTTY ? 50 : 1000
+    process.stderr.isTTY ? 40 : 1000
   );
 };
 

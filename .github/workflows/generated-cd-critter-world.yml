@@ -7,6 +7,7 @@ on:
       - 'packages/lib-common/**'
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
+      - 'packages/lib-colorful-terminal/**'
       - 'packages/lib-esbuild-scripts/**'
       - 'packages/critter-world/**'
       - 'configuration/**'
