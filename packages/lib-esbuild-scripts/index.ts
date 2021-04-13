@@ -5,13 +5,13 @@ import { join, resolve } from 'path';
 
 import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
 import { build, BuildOptions, serve } from 'esbuild';
-import { copy, mkdir, readFile, remove, stat, writeFile } from 'fs-extra';
+import { copy, readFile, remove, stat, writeFile } from 'fs-extra';
 
 import { RED, GREEN, BLUE } from 'lib-colorful-terminal/colors';
 import startSpinnerProgress from 'lib-colorful-terminal/progress';
 
-const CLIENT_ENTRY = join('build', 'client.js');
-const SERVER_ENTRY = join('build', 'server.js');
+const CLIENT_ENTRY = join(__dirname, 'client.js');
+const SERVER_ENTRY = join(__dirname, 'server.js');
 const SSR_JS_PATH = join('build', 'ssr.js');
 const SSR_CSS_PATH = join('build', 'ssr.css');
 const BUILD_HTML_PATH = join('build', 'index.html');
@@ -27,19 +27,21 @@ const getCommonESBuildConfig = (isServer: boolean, isProd: boolean): BuildOption
   minify: false,
   target: 'es2017',
   logLevel: 'error',
-  plugins: [pnpPlugin()],
+  plugins: [
+    {
+      name: 'EntryPointResolvePlugin',
+      setup(buildConfig) {
+        buildConfig.onResolve({ filter: /USER_DEFINED_APP_ENTRY_POINT/ }, () => {
+          return { path: resolve(join('src', 'App.tsx')) };
+        });
+      },
+    },
+    pnpPlugin(),
+  ],
 });
 
 const md5 = (data: string) =>
   createHash('md5').update(data).digest().toString('hex').substring(0, 8);
-
-async function copyTemplate() {
-  await mkdir('build', { recursive: true });
-  await Promise.all([
-    copy(join(__dirname, 'client.js'), CLIENT_ENTRY),
-    copy(join(__dirname, 'server.js'), SERVER_ENTRY),
-  ]);
-}
 
 async function attachSSRResult(rootHTML: string) {
   const [htmlFile, jsFile, cssFile] = await Promise.all([
@@ -63,7 +65,6 @@ async function attachSSRResult(rootHTML: string) {
 async function runner(command: string) {
   switch (command) {
     case 'start': {
-      await copyTemplate();
       const server = await serve(
         { servedir: 'public', host: '127.0.0.1', port: 3000 },
         {
@@ -81,7 +82,6 @@ async function runner(command: string) {
     case 'build': {
       const bundlingProgressInterval = startSpinnerProgress(() => `[i] Bundling...`);
       const startTime = new Date().getTime();
-      await copyTemplate();
       await Promise.all([
         build({
           ...getCommonESBuildConfig(false, true),
@@ -112,12 +112,7 @@ async function runner(command: string) {
         rootHTML = '';
         return false;
       } finally {
-        await Promise.all([
-          remove(CLIENT_ENTRY),
-          remove(SERVER_ENTRY),
-          remove(SSR_JS_PATH),
-          remove(SSR_CSS_PATH),
-        ]);
+        await Promise.all([remove(SSR_JS_PATH), remove(SSR_CSS_PATH)]);
       }
 
       await copy('public', 'build');
