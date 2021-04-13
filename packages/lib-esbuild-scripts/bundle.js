@@ -9,15 +9,21 @@ build({
   bundle: true,
   minify: true,
   platform: 'node',
-  target: 'node12',
+  target: 'es2019',
   format: 'iife',
   outfile: 'index.js',
   banner: { js: `#!/usr/bin/env node\n/* eslint-disable */\n// prettier-ignore` },
   plugins: [
     pnpPlugin({
       async onResolve(_, resolvedPath) {
-        if (resolvedPath == null) return { external: true };
-        if (resolvedPath.includes('esbuild-npm')) return { external: true };
+        if (
+          resolvedPath == null ||
+          resolvedPath.includes('esbuild-npm') ||
+          resolvedPath.includes('fs-extra-npm') ||
+          resolvedPath.includes('@yarnpkg-esbuild-plugin-pnp')
+        ) {
+          return { external: true };
+        }
         return { namespace: `pnp`, path: resolvedPath };
       },
     }),

@@ -1,145 +1,41 @@
 /* eslint-disable no-console */
 
-import { createHash } from 'crypto';
-import { join, resolve } from 'path';
+import buildCommand from './command-build';
+import startCommand from './command-start';
 
-import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
-import { build, BuildOptions, serve } from 'esbuild';
-import { copy, readFile, remove, stat, writeFile } from 'fs-extra';
+import { RED, BLUE } from 'lib-colorful-terminal/colors';
 
-import { RED, GREEN, BLUE } from 'lib-colorful-terminal/colors';
-import startSpinnerProgress from 'lib-colorful-terminal/progress';
-
-const CLIENT_ENTRY = join(__dirname, 'client.js');
-const SERVER_ENTRY = join(__dirname, 'server.js');
-const SSR_JS_PATH = join('build', 'ssr.js');
-const SSR_CSS_PATH = join('build', 'ssr.css');
-const BUILD_HTML_PATH = join('build', 'index.html');
-const BUILD_APP_JS_PATH = join('build', 'app.js');
-const BUILD_APP_CSS_PATH = join('build', 'app.css');
-
-const getCommonESBuildConfig = (isServer: boolean, isProd: boolean): BuildOptions => ({
-  define: {
-    __SERVER__: String(isServer),
-    'process.env.NODE_ENV': isProd ? '"production"' : '"development"',
-  },
-  bundle: true,
-  minify: false,
-  target: 'es2017',
-  logLevel: 'error',
-  plugins: [
-    {
-      name: 'EntryPointResolvePlugin',
-      setup(buildConfig) {
-        buildConfig.onResolve({ filter: /USER_DEFINED_APP_ENTRY_POINT/ }, () => {
-          return { path: resolve(join('src', 'App.tsx')) };
-        });
-      },
-    },
-    pnpPlugin(),
-  ],
-});
-
-const md5 = (data: string) =>
-  createHash('md5').update(data).digest().toString('hex').substring(0, 8);
-
-async function attachSSRResult(rootHTML: string) {
-  const [htmlFile, jsFile, cssFile] = await Promise.all([
-    readFile(BUILD_HTML_PATH),
-    readFile(BUILD_APP_JS_PATH),
-    readFile(BUILD_APP_CSS_PATH),
-  ]);
-  const htmlContent = htmlFile.toString();
-  const jsHash = md5(jsFile.toString());
-  const cssHash = md5(cssFile.toString());
-
-  const finalHTML = htmlContent
-    .replace('href="/app.css"', `href="/app.css?h=${cssHash}"`)
-    .replace('"/app.js"', `"/app.js?h=${jsHash}"`)
-    .replace('"/app.js"', `"/app.js?h=${jsHash}"`)
-    .replace('<div id="root"></div>', `<div id="root">${rootHTML}</div>`);
-
-  await writeFile(BUILD_HTML_PATH, finalHTML);
+function help() {
+  console.error(BLUE('Usage:'));
+  console.error('- esbuild start: start the devserver.');
+  console.error('- esbuild build: generate production build.');
+  console.error('- esbuild help: display command line usages.');
 }
 
 async function runner(command: string) {
   switch (command) {
-    case 'start': {
-      const server = await serve(
-        { servedir: 'public', host: '127.0.0.1', port: 3000 },
-        {
-          ...getCommonESBuildConfig(false, false),
-          entryPoints: [CLIENT_ENTRY],
-          outfile: join('public', 'app.js'),
-        }
-      );
-      console.error(GREEN('Server started.'));
-      console.error(`Serving at ${BLUE(`http://${server.host}:${server.port}`)}`);
-      await server.wait;
+    case 'start':
+      await startCommand();
       return true;
-    }
-
-    case 'build': {
-      const bundlingProgressInterval = startSpinnerProgress(() => `[i] Bundling...`);
-      const startTime = new Date().getTime();
-      await Promise.all([
-        build({
-          ...getCommonESBuildConfig(false, true),
-          entryPoints: [CLIENT_ENTRY],
-          minify: true,
-          outfile: BUILD_APP_JS_PATH,
-        }),
-        build({
-          ...getCommonESBuildConfig(true, true),
-          entryPoints: [SERVER_ENTRY],
-          platform: 'node',
-          format: 'cjs',
-          outfile: SSR_JS_PATH,
-        }),
-      ]);
-      clearInterval(bundlingProgressInterval);
-
-      let rootHTML: string;
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports, import/no-dynamic-require
-        rootHTML = require(resolve(SSR_JS_PATH));
-      } catch {
-        console.error(
-          RED(
-            'Unable to perform server side rendering since the server bundle is not correctly generated.'
-          )
-        );
-        rootHTML = '';
-        return false;
-      } finally {
-        await Promise.all([remove(SSR_JS_PATH), remove(SSR_CSS_PATH)]);
-      }
-
-      await copy('public', 'build');
-      const [, jsStat, cssStat] = await Promise.all([
-        attachSSRResult(rootHTML),
-        stat(BUILD_APP_JS_PATH),
-        stat(BUILD_APP_CSS_PATH),
-      ]);
-      const totalTime = new Date().getTime() - startTime;
-      console.error(GREEN(`Build success in ${totalTime}ms.`));
-      console.error(BLUE(`Minified JS Size: ${Math.ceil(jsStat.size / 1024)}k.`));
-      console.error(BLUE(`Minified CSS Size: ${Math.ceil(cssStat.size / 1024)}k.`));
+    case 'build':
+      return buildCommand();
+    case 'help':
+    case '--help':
+      help();
       return true;
-    }
-
     default:
       console.error(RED(`Unknown command: '${command}'`));
+      help();
       return false;
   }
 }
 
 async function main() {
   try {
-    if (!(await runner(process.argv[2] || ''))) process.exit(1);
+    if (!(await runner(process.argv[2] || ''))) process.exitCode = 1;
   } catch (error) {
     console.error(RED(error));
-    process.exit(1);
+    process.exitCode = 1;
   }
 }
 
