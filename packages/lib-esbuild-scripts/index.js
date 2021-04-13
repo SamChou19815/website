@@ -8,7 +8,7 @@ const { join, resolve } = require('path');
 
 const { build, serve } = require('esbuild');
 const pnpPlugin = require('esbuild-plugin-pnp');
-const { copy, mkdir, readFile, remove, writeFile } = require('fs-extra');
+const { copy, mkdir, readFile, remove, stat, writeFile } = require('fs-extra');
 
 const CLIENT_ENTRY = join('build', 'client.js');
 const SERVER_ENTRY = join('build', 'server.js');
@@ -91,6 +91,7 @@ async function runner(/** @type {string} */ command) {
     }
 
     case 'build': {
+      const startTime = new Date().getTime();
       await copyTemplate();
       await Promise.all([
         build({
@@ -117,8 +118,15 @@ async function runner(/** @type {string} */ command) {
         remove(SSR_CSS_PATH),
       ]);
       await copy('public', 'build');
-      await attachSSRResult(rootHTML);
-      console.error(greenTerminalSection('Build success.'));
+      const [, jsStat, cssStat] = await Promise.all([
+        attachSSRResult(rootHTML),
+        stat(BUILD_APP_JS_PATH),
+        stat(BUILD_APP_CSS_PATH),
+      ]);
+      const totalTime = new Date().getTime() - startTime;
+      console.error(greenTerminalSection(`Build success in ${totalTime}ms.`));
+      console.error(blueTerminalSection(`Minified JS Size: ${Math.ceil(jsStat.size / 1024)}k.`));
+      console.error(blueTerminalSection(`Minified CSS Size: ${Math.ceil(cssStat.size / 1024)}k.`));
       return true;
     }
 

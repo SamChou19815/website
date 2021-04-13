@@ -1,9 +1,15 @@
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
-import App from '../components/App';
-import LoginBarrier from '../components/LoginBarrier';
+import AppBody from './components/App';
+import LoginBarrier from './components/LoginBarrier';
+import { initializeWindowSizeHooksListeners } from './utils/window-size-hook';
 
-const IndexPage = (): ReactElement => {
+import './index.css';
+import './app.css';
+
+if (!__SERVER__) initializeWindowSizeHooksListeners();
+
+const App = (): ReactElement => {
   return (
     <div>
       <nav className="navbar">
@@ -21,10 +27,10 @@ const IndexPage = (): ReactElement => {
         </div>
       </nav>
       <LoginBarrier>
-        <App />
+        <AppBody />
       </LoginBarrier>
     </div>
   );
 };
 
-export default IndexPage;
+export default App;

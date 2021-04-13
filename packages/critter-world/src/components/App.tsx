@@ -1,5 +1,5 @@
 /* eslint-disable no-await-in-loop */
-import { ReactElement, useState, useEffect } from 'react';
+import React, { ReactElement, useState, useEffect } from 'react';
 
 import { sendGetWorldRequest } from '../utils/http';
 import DataLoadedApp from './DataLoadedApp';

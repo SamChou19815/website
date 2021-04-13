@@ -1,7 +1,4 @@
-import clsx from 'clsx';
-import { ReactElement, useState } from 'react';
-
-import styles from './LoginCard.module.css';
+import React, { ReactElement, useState } from 'react';
 
 type Props = {
   readonly onSubmit: (url: string, accessLevel: AccessLevel, password: string) => void;
@@ -13,7 +10,7 @@ const LoginCard = ({ onSubmit }: Props): ReactElement => {
   const [password, setPassword] = useState('');
 
   return (
-    <div className={clsx('card', 'vertical-margin-1em', styles.Card)}>
+    <div className="card vertical-margin-1em login-card">
       <div className="card__header">
         <h2>Login</h2>
       </div>
@@ -29,7 +26,7 @@ const LoginCard = ({ onSubmit }: Props): ReactElement => {
       </div>
       <div className="card__body">
         <h3>Access Level</h3>
-        <div className={styles.AccessLevelControl}>
+        <div className="login-access-control">
           <label htmlFor="access-level-read">Read</label>
           <input
             type="radio"
@@ -40,7 +37,7 @@ const LoginCard = ({ onSubmit }: Props): ReactElement => {
             onChange={() => setAccessLevel('READ')}
           />
         </div>
-        <div className={styles.AccessLevelControl}>
+        <div className="login-access-control">
           <label htmlFor="access-level-write">Write</label>
           <input
             type="radio"
@@ -51,7 +48,7 @@ const LoginCard = ({ onSubmit }: Props): ReactElement => {
             onChange={() => setAccessLevel('WRITE')}
           />
         </div>
-        <div className={styles.AccessLevelControl}>
+        <div className="login-access-control">
           <label htmlFor="access-level-admin">Admin</label>
           <input
             type="radio"

@@ -1,3 +1,5 @@
+/// <reference types="lib-esbuild-scripts/types" />
+
 type AccessLevel = 'READ' | 'WRITE' | 'ADMIN';
 
 type TileLocation = { readonly row: number; readonly column: number };

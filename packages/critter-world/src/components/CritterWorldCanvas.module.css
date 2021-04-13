@@ -1,8 +1,0 @@
-.CritterWorldCanvasContainer {
-  overflow: scroll;
-  background-color: white;
-}
-
-.CritterWorldCanvas {
-  position: relative;
-}
