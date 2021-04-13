@@ -1,7 +1,6 @@
 /* eslint-disable no-alert */
 
-import clsx from 'clsx';
-import { ReactElement, useState, useEffect, useRef } from 'react';
+import React, { ReactElement, useState, useEffect, useRef } from 'react';
 
 import {
   getAccessLevel,
@@ -16,10 +15,9 @@ import {
 import { useWindowSize } from '../utils/window-size-hook';
 import CritterInspectionCard from './CritterInspectionCard';
 import CritterWorldCanvas from './CritterWorldCanvas';
-import styles from './DataLoadedApp.module.css';
 
-const buttonClassname = clsx('button', 'button--primary', styles.ControlButton);
-const smallButtonClassname = clsx('button', 'button--primary', styles.SmallControlButton);
+const buttonClassname = 'button button--primary app-control-button';
+const smallButtonClassname = 'button button--primary app-control-button-small';
 
 type Props = { readonly worldState: WorldState };
 
@@ -165,15 +163,15 @@ const DataLoadedApp = ({ worldState }: Props): ReactElement => {
         onHexClick={onClickHex}
       />
       {critterToInspect && isInspectionCardOn && <CritterInspectionCard tile={critterToInspect} />}
-      <footer className={styles.HorizontalCenter}>
-        <div className={styles.ControlBigSection}>
+      <footer className="horizontal-center">
+        <div className="app-control-big-section">
           <div style={{ textAlign: 'center' }}>
             <div>Name: {worldState.name}</div>
             <div>Steps: {worldState.timestamp}</div>
             <div>Critters: {worldState.population}</div>
           </div>
-          <div className={styles.HorizontalCenter}>
-            <div className={styles.ControlSmallSection}>
+          <div className="horizontal-center">
+            <div className="app-control-small-section">
               <button
                 className={smallButtonClassname}
                 disabled={hexRadius === 32}
@@ -195,16 +193,11 @@ const DataLoadedApp = ({ worldState }: Props): ReactElement => {
           </div>
         </div>
         <div>
-          <img
-            width={400}
-            className={styles.Logo}
-            alt="Critter World Logo"
-            src="/critter_world.png"
-          />
+          <img width={400} className="app-logo" alt="Critter World Logo" src="/critter_world.png" />
         </div>
-        <div className={styles.ControlBigSection}>
-          <div className={styles.HorizontalCenter}>
-            <div className={styles.ControlSmallSection}>
+        <div className="app-control-big-section">
+          <div className="horizontal-center">
+            <div className="app-control-small-section">
               <div>Simulation Rate: {rate}</div>
               <input
                 disabled={getAccessLevel() === 'READ' || worldState.rate > 0}
@@ -218,7 +211,7 @@ const DataLoadedApp = ({ worldState }: Props): ReactElement => {
                 }}
               />
             </div>
-            <div className={styles.ControlSmallSection}>
+            <div className="app-control-small-section">
               <button
                 className={buttonClassname}
                 disabled={getAccessLevel() === 'READ'}
@@ -242,7 +235,7 @@ const DataLoadedApp = ({ worldState }: Props): ReactElement => {
             </div>
           </div>
           <div>
-            <div className={clsx(styles.HorizontalCenter, styles.FourButtonRow)}>
+            <div className="horizontal-center app-four-button-row">
               <button
                 className={buttonClassname}
                 disabled={getAccessLevel() !== 'ADMIN' || worldState.rate > 0}
@@ -275,7 +268,7 @@ const DataLoadedApp = ({ worldState }: Props): ReactElement => {
                 Put Food
               </button>
             </div>
-            <div className={clsx(styles.HorizontalCenter, styles.FourButtonRow)}>
+            <div className="horizontal-center app-four-button-row">
               <button
                 className={buttonClassname}
                 disabled={getAccessLevel() === 'READ' || worldState.rate > 0}

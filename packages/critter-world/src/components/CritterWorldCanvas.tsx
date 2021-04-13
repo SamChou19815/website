@@ -1,6 +1,5 @@
-import type { ReactElement, Ref } from 'react';
+import React, { ReactElement, Ref } from 'react';
 
-import styles from './CritterWorldCanvas.module.css';
 import PrimitiveHex from './PrimitiveHex';
 
 const hashString = (s: string): number => {
@@ -238,12 +237,12 @@ const CritterWorldCanvas = ({
 
   return (
     <div
-      className={styles.CritterWorldCanvasContainer}
+      className="critter-world-canvas-container"
       style={{ width: canvasWidth, height: canvasHeight }}
       ref={critterWorldCanvasRef}
     >
       <div
-        className={styles.CritterWorldCanvas}
+        className="critter-world-canvas"
         style={{ width: fullWorldPixelWidth, height: fullWorldPixelHeight }}
       >
         {tiles}

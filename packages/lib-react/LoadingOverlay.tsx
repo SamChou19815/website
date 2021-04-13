@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react';
 
-import styles from './LoadingOverlay.module.css';
+import './LoadingOverlay.css';
 
 const LoadingOverlay = (): ReactElement => (
-  <div className={styles.LoadingOverlay}>
-    <div className={styles.LoadingRing}>
+  <div className="loading-overlay">
+    <div className="loading-ring">
       <div />
       <div />
       <div />

@@ -1,13 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
-import clsx from 'clsx';
-import type { ReactElement, CSSProperties, ReactNode } from 'react';
-
-import styles from './PrimitiveHex.module.css';
+import React, { ReactElement, CSSProperties, ReactNode } from 'react';
 
 type Props = {
-  readonly className?: string;
   readonly style?: CSSProperties;
   readonly color: string;
   readonly borderColor?: string;
@@ -17,7 +13,6 @@ type Props = {
 };
 
 const PrimitiveHex = ({
-  className,
   style,
   radius,
   color,
@@ -26,13 +21,13 @@ const PrimitiveHex = ({
   children,
 }: Props): ReactElement => (
   <div
-    className={clsx(styles.PrimitiveHex, className)}
+    className="primitive-hex"
     // @ts-expect-error: custom css variable
     style={{ '--hex-radius': `${radius}px`, '--hex-color': borderColor, ...style }}
     onClick={onClick}
   >
     <div
-      className={clsx(styles.PrimitiveHex, styles.PrimitiveHexInner, className)}
+      className="primitive-hex primitive-hex-inner"
       // @ts-expect-error: custom css variable
       style={{ '--hex-radius': `${radius - 0.6}px`, '--hex-color': color }}
     >

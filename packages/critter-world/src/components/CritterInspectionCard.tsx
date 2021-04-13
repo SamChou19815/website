@@ -1,7 +1,4 @@
-import clsx from 'clsx';
-import type { ReactElement } from 'react';
-
-import styles from './CritterInspetionCard.module.css';
+import React, { ReactElement } from 'react';
 
 type Props = { readonly tile: TileCritter };
 
@@ -9,7 +6,7 @@ const CritterInspectionCard = ({
   tile: { id, species, memory, program, recentRuleID },
 }: Props): ReactElement => {
   return (
-    <div className={clsx('card', styles.Card)}>
+    <div className="card critter-inspection-card">
       <div className="card__header">
         <h2>
           Critter {id} of species {species}

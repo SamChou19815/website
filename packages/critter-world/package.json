@@ -3,17 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "next",
-    "build": "next build && next export",
+    "start": "esbuild-scripts start",
+    "build": "esbuild-scripts build",
     "compile": "tsc",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:critter-world"
   },
   "dependencies": {
-    "clsx": "^1.1.1",
-    "infima": "0.2.0-alpha.20",
     "lib-common": "0.0.1",
     "lib-react": "0.1.0",
-    "next": "^10.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -21,8 +18,7 @@
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "lib-next-with-esbuild": "0.1.0",
-    "next-transpile-modules": "^6.4.0",
+    "lib-esbuild-scripts": "0.1.0",
     "typescript": "^4.2.4"
   }
 }

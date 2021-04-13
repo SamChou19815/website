@@ -4,7 +4,7 @@ export type WindowSize = { readonly width: number; readonly height: number };
 type Listener = (windowSize: WindowSize) => void;
 
 const getWindowSize = (): WindowSize => {
-  if (!process.browser) {
+  if (__SERVER__) {
     return { width: 1024, height: 768 };
   }
   return {
