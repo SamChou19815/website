@@ -1,7 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
-import Link from 'next/link';
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 import type { FanArtWork } from './data';
 
@@ -9,7 +6,6 @@ const FanArtWorkCard = ({
   link,
   author: { authorName, authorWebsite },
   description,
-  pageLink,
 }: FanArtWork): ReactElement => (
   <div className="card">
     <div className="card__image">
@@ -25,9 +21,6 @@ const FanArtWorkCard = ({
           <a className="button button--link" href={authorWebsite}>
             {`${authorName}'s website`}
           </a>
-          <Link href={pageLink}>
-            <a className="button button--link">Go to art page</a>
-          </Link>
         </div>
       </div>
     )}

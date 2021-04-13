@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import type { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 
 export default class MyDocument extends Document {
   // eslint-disable-next-line class-methods-use-this
