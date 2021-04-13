@@ -9,10 +9,12 @@ const baseESBuildConfig = ({
 }: {
   readonly isServer?: boolean;
   readonly isProd?: boolean;
+  readonly noThemeSwitch?: boolean;
 }): BuildOptions => ({
   define: {
     __SERVER__: String(isServer),
     'process.env.NODE_ENV': isProd ? '"production"' : '"development"',
+    __THEME_SWITCH__: String(!process.env.NO_THEME_SWITCH),
   },
   bundle: true,
   minify: false,
@@ -20,8 +22,9 @@ const baseESBuildConfig = ({
   logLevel: 'error',
   plugins: [
     {
-      name: 'EntryPointResolvePlugin',
+      name: 'WebAppResolvePlugin',
       setup(buildConfig) {
+        buildConfig.onResolve({ filter: /data:/ }, () => ({ external: true }));
         buildConfig.onResolve({ filter: /USER_DEFINED_APP_ENTRY_POINT/ }, () => ({
           path: resolve(join('src', 'App.tsx')),
         }));

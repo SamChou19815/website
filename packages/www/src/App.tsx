@@ -2,6 +2,7 @@ import React, { ReactElement, useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { RecoilRoot } from 'recoil';
 
+import 'infima/dist/css/default/default.min.css';
 import 'lib-react/PrismCodeBlock.css';
 import 'lib-web-terminal/styles.css';
 import './index.css';

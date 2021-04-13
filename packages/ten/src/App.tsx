@@ -4,6 +4,7 @@ import { BrowserRouter, StaticRouter, Switch, Route, Link } from 'react-router-d
 import LocalGameCard from './components/LocalGameCard';
 import PlayAgainstAIGameCard from './components/PlayAgainstAIGameCard';
 
+import 'infima/dist/css/default/default.min.css';
 import './index.css';
 import './components/game.css';
 

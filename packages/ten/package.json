@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "esbuild-scripts start",
-    "build": "esbuild-scripts build",
+    "start": "NO_THEME_SWITCH=true esbuild-scripts start",
+    "build": "NO_THEME_SWITCH=true esbuild-scripts build",
     "compile": "tsc",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:ten"
   },
   "dependencies": {
+    "infima": "0.2.0-alpha.21",
     "lib-common": "0.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

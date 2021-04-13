@@ -6,23 +6,9 @@
     <link rel="shortcut icon" href="https://developersam.com/favicon.ico" />
     <meta name="description" content="Random stuff about Developer Sam" />
     <meta name="author" content="Developer Sam" />
-    <script type="text/javascript">
-      (() => {
-        const t = (tm) => document.documentElement.setAttribute('data-theme', tm);
-        if (window.matchMedia('(prefers-color-scheme: light)').matches) t('');
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) t('dark');
-        window
-          .matchMedia('(prefers-color-scheme: dark)')
-          .addListener(({ matches: m }) => t(m ? 'dark' : ''));
-      })();
-    </script>
     <title>Fan Arts | Random@dev-sam</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/infima@0.2.0-alpha.21/dist/css/default/default.min.css"
-    />
     <link rel="stylesheet" href="/app.css" />
     <link rel="preload" href="/app.js" as="script" />
   </head>
