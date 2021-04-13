@@ -1,7 +1,9 @@
+/* eslint-disable import/order */
+
 import { createElement } from 'react';
 import { hydrate, render } from 'react-dom';
 
-import App from '../src/App';
+import App from 'USER_DEFINED_APP_ENTRY_POINT';
 
 const rootElement = document.getElementById('root');
 if (rootElement == null) throw new Error('root element is not found in index.html');
