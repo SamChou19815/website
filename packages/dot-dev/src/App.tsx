@@ -9,6 +9,7 @@ import {
   FAN_ART_BIRTHDAY_EDITION,
 } from './data';
 
+import 'infima/dist/css/default/default.min.css';
 import './index.css';
 
 const ArtsPage = (): ReactElement => (

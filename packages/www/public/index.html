@@ -48,16 +48,6 @@
         ]
       }
     </script>
-    <script type="text/javascript">
-      (() => {
-        const t = (tm) => document.documentElement.setAttribute('data-theme', tm);
-        if (window.matchMedia('(prefers-color-scheme: light)').matches) t('');
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) t('dark');
-        window
-          .matchMedia('(prefers-color-scheme: dark)')
-          .addListener(({ matches: m }) => t(m ? 'dark' : ''));
-      })();
-    </script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/infima@0.2.0-alpha.21/dist/css/default/default.min.css"

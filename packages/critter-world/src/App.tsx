@@ -4,6 +4,7 @@ import AppBody from './components/App';
 import LoginBarrier from './components/LoginBarrier';
 import { initializeWindowSizeHooksListeners } from './utils/window-size-hook';
 
+import 'infima/dist/css/default/default.min.css';
 import './index.css';
 import './app.css';
 

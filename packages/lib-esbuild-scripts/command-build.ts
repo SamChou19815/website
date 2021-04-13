@@ -41,41 +41,43 @@ async function attachSSRResult(rootHTML: string) {
   await writeFile(BUILD_HTML_PATH, finalHTML);
 }
 
-export default async function buildCommand(): Promise<boolean> {
-  const bundlingProgressInterval = startSpinnerProgress(() => `[i] Bundling...`);
-  const startTime = new Date().getTime();
-  await Promise.all([
-    build({
-      ...baseESBuildConfig({ isProd: true }),
-      entryPoints: [CLIENT_ENTRY],
-      minify: true,
-      outfile: BUILD_APP_JS_PATH,
-    }),
-    build({
-      ...baseESBuildConfig({ isServer: true, isProd: true }),
-      entryPoints: [SERVER_ENTRY],
-      platform: 'node',
-      format: 'cjs',
-      outfile: SSR_JS_PATH,
-    }),
-  ]);
-  clearInterval(bundlingProgressInterval);
-
-  let rootHTML: string;
+async function performSSR(): Promise<string | null> {
+  await build({
+    ...baseESBuildConfig({ isServer: true, isProd: true }),
+    entryPoints: [SERVER_ENTRY],
+    platform: 'node',
+    format: 'cjs',
+    outfile: SSR_JS_PATH,
+  });
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports, import/no-dynamic-require
-    rootHTML = require(resolve(SSR_JS_PATH));
+    return require(resolve(SSR_JS_PATH));
   } catch {
     console.error(
       RED(
         'Unable to perform server side rendering since the server bundle is not correctly generated.'
       )
     );
-    rootHTML = '';
-    return false;
+    return null;
   } finally {
     await Promise.all([remove(SSR_JS_PATH), remove(SSR_CSS_PATH)]);
   }
+}
+
+export default async function buildCommand(): Promise<boolean> {
+  const bundlingProgressInterval = startSpinnerProgress(() => `[i] Bundling...`);
+  const startTime = new Date().getTime();
+  const [, rootHTML] = await Promise.all([
+    build({
+      ...baseESBuildConfig({ isProd: true }),
+      entryPoints: [CLIENT_ENTRY],
+      minify: true,
+      outfile: BUILD_APP_JS_PATH,
+    }),
+    performSSR(),
+  ]);
+  clearInterval(bundlingProgressInterval);
+  if (rootHTML == null) return false;
 
   await copy('public', 'build');
   const [, jsStat, cssStat] = await Promise.all([
