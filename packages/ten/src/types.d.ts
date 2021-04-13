@@ -1,1 +1,1 @@
-/// <reference types="@docusaurus/module-type-aliases" />
+/// <reference types="lib-esbuild-scripts/types" />
