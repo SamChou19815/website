@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "common:firebase": "firebase",
+    "common:netlify": "NODE_NO_WARNINGS=1 netlify",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
     "lint": "eslint . --cache",
@@ -28,13 +28,11 @@
     "husky": "^6.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
+    "netlify-cli": "^3.17.2",
     "prettier": "^2.2.1",
     "typescript": "^4.2.4"
   },
   "dependenciesMeta": {
-    "@ampproject/toolbox-optimizer": {
-      "built": false
-    },
     "core-js": {
       "built": false
     },
@@ -42,6 +40,9 @@
       "built": false
     },
     "ejs": {
+      "built": false
+    },
+    "netlify-cli": {
       "built": false
     }
   },

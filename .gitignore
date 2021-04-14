@@ -39,3 +39,6 @@ packages/github-contribution-alert/deployment-template/*
 !packages/github-contribution-alert/deployment-template/.firebaserc
 !packages/github-contribution-alert/deployment-template/firebase.json
 packages/yarn-plugin-monorail/bundles
+
+# Local Netlify folder
+.netlify
