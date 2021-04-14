@@ -38,10 +38,8 @@ const getTimelineTitle = (
 const App = (): ReactElement => {
   const [{ workChecked, projectsChecked, eventsChecked }] = useTimelinePillsState();
 
-  const timelineSectionTitle = getTimelineTitle(workChecked, projectsChecked, eventsChecked);
-
   return (
-    <WebTerminalAppWrapper>
+    <>
       <div className="app-main-layout">
         <div className="side-bar">
           <StickyCodeBlock />
@@ -54,12 +52,16 @@ const App = (): ReactElement => {
           <ConsoleSection id="tech-talks" title="dev-sam tech-talks">
             <TechTalkSection />
           </ConsoleSection>
-          <ConsoleSection id="timeline" title={timelineSectionTitle}>
+          <ConsoleSection
+            id="timeline"
+            title={getTimelineTitle(workChecked, projectsChecked, eventsChecked)}
+          >
             <TimelineSection />
           </ConsoleSection>
         </div>
       </div>
-    </WebTerminalAppWrapper>
+      <WebTerminalAppWrapper />
+    </>
   );
 };
 

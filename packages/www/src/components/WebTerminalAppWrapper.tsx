@@ -150,9 +150,8 @@ const commands: Commands = {
   },
 };
 
-const WebTerminalAppWrapper = ({ children }: { readonly children: ReactNode }): ReactElement => (
+const WebTerminalAppWrapper = (): ReactElement => (
   <WebTerminalCommandsContextProvider value={commands}>
-    {children}
     <WebTerminal />
   </WebTerminalCommandsContextProvider>
 );
