@@ -3,7 +3,7 @@
 import { resolve } from 'path';
 
 import { build } from 'esbuild';
-import { copy, emptyDir, ensureDir, readFile, remove, stat, writeFile } from 'fs-extra';
+import { copy, emptyDir, ensureDir, readFile, remove, writeFile } from 'fs-extra';
 
 import {
   BUILD_APP_JS_PATH,
@@ -17,8 +17,7 @@ import {
 import baseESBuildConfig from './esbuild-config';
 import htmlWithElementsAttached from './html-rewriter';
 
-import { RED, GREEN, BLUE } from 'lib-colorful-terminal/colors';
-import startSpinnerProgress from 'lib-colorful-terminal/progress';
+import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
 async function generateBundle() {
   await build({
@@ -27,7 +26,6 @@ async function generateBundle() {
     minify: true,
     outfile: BUILD_APP_JS_PATH,
   });
-  return Promise.all([stat(BUILD_APP_JS_PATH), stat(BUILD_APP_CSS_PATH)]);
 }
 
 async function performSSR(): Promise<string | null> {
@@ -36,6 +34,7 @@ async function performSSR(): Promise<string | null> {
     entryPoints: [SERVER_ENTRY],
     platform: 'node',
     format: 'cjs',
+    logLevel: 'error',
     outfile: SSR_JS_PATH,
   });
   try {
@@ -71,19 +70,16 @@ async function attachResults(rootHTML: string) {
 }
 
 export default async function buildCommand(): Promise<boolean> {
+  console.error(YELLOW('[i] Bundling...'));
   await ensureDir('build');
   await emptyDir('build');
   await copy('public', 'build');
-  const bundlingProgressInterval = startSpinnerProgress(() => `[i] Bundling...`);
   const startTime = new Date().getTime();
-  const [[jsStat, cssStat], rootHTML] = await Promise.all([generateBundle(), performSSR()]);
-  clearInterval(bundlingProgressInterval);
+  const [, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
   if (rootHTML == null) return false;
 
   await attachResults(rootHTML);
   const totalTime = new Date().getTime() - startTime;
-  console.error(GREEN(`Build success in ${totalTime}ms.`));
-  console.error(BLUE(`Minified JS Size: ${Math.ceil(jsStat.size / 1024)}k.`));
-  console.error(BLUE(`Minified CSS Size: ${Math.ceil(cssStat.size / 1024)}k.`));
+  console.error(`⚡ ${GREEN(`Build success in ${totalTime}ms.`)}`);
   return true;
 }

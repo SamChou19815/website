@@ -1,12 +1,8 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 import ReactGA from 'react-ga';
 import { RecoilRoot } from 'recoil';
 
-import AppBody from './components/App';
-import {
-  useSetDeveloperSamOnBirthday,
-  useTerminalForceOnBirthday,
-} from './components/global-states';
+import AppContent from './components/AppContent';
 
 import initializeThemeSwitching from 'lib-react/theme-switcher-initializer';
 
@@ -24,22 +20,6 @@ if (process.env.NODE_ENV === 'production' && !__SERVER__) {
 if (!__SERVER__) {
   initializeThemeSwitching();
 }
-
-const AppContent = (): ReactElement => {
-  const setOnBirthday = useSetDeveloperSamOnBirthday();
-  const terminalForceOnBirthday = useTerminalForceOnBirthday();
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const today = new Date();
-      const onBirthday = today.getMonth() === 10 && today.getDate() === 15;
-      setOnBirthday(terminalForceOnBirthday || onBirthday);
-    }, 200);
-    return () => clearInterval(interval);
-  }, [terminalForceOnBirthday, setOnBirthday]);
-
-  return <AppBody />;
-};
 
 const App = (): ReactElement => (
   <RecoilRoot>

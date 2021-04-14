@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import DATASET_PROJECTS from '../data/projects';
@@ -12,6 +12,7 @@ import LazyCardMedia from './LazyCardMedia';
 import ProfilePicture from './ProfilePicture';
 import StickyCodeBlock from './StickyCodeBlock';
 import WebTerminalAppWrapper from './WebTerminalAppWrapper';
+import { useSetDeveloperSamOnBirthday, useTerminalForceOnBirthday } from './global-states';
 
 const aboutSection = (
   <ConsoleSection id="about" title="dev-sam about" className="about-section" titleClassName="title">
@@ -123,21 +124,35 @@ const timelineSection = (
   </ConsoleSection>
 );
 
-const App = (): ReactElement => (
-  <>
-    <div className="app-main-layout">
-      <div className="side-bar">
-        <StickyCodeBlock />
-      </div>
-      <div className="content-block">
-        {aboutSection}
-        {projectSection}
-        {techTalkSection}
-        {timelineSection}
-      </div>
-    </div>
-    <WebTerminalAppWrapper />
-  </>
-);
+const AppContent = (): ReactElement => {
+  const setOnBirthday = useSetDeveloperSamOnBirthday();
+  const terminalForceOnBirthday = useTerminalForceOnBirthday();
 
-export default App;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const today = new Date();
+      const onBirthday = today.getMonth() === 10 && today.getDate() === 15;
+      setOnBirthday(terminalForceOnBirthday || onBirthday);
+    }, 200);
+    return () => clearInterval(interval);
+  }, [terminalForceOnBirthday, setOnBirthday]);
+
+  return (
+    <>
+      <div className="app-main-layout">
+        <div className="side-bar">
+          <StickyCodeBlock />
+        </div>
+        <div className="content-block">
+          {aboutSection}
+          {projectSection}
+          {techTalkSection}
+          {timelineSection}
+        </div>
+      </div>
+      <WebTerminalAppWrapper />
+    </>
+  );
+};
+
+export default AppContent;
