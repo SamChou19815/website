@@ -11,12 +11,6 @@
         "samlang": [
           "developer-sam-samlang-docs"
         ],
-        "ten": [
-          "developer-sam-ten-web"
-        ],
-        "wiki": [
-          "developer-sam-wiki"
-        ],
         "www": [
           "developer-sam"
         ]

@@ -7,7 +7,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "compile": "tsc",
-    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:wiki"
+    "deploy": "yarn common:netlify deploy -d packages/wiki/build -s wiki.developersam.com --prod"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.72",

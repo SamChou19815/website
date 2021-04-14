@@ -30,7 +30,10 @@ const computeCanShowGameStarterButtons = (
 };
 
 const aiResponder = (board: Board): Promise<GameState> =>
-  fetch('/api/respond', { method: 'POST', body: JSON.stringify(boardToJson(board)) })
+  fetch('https://us-central1-developer-sam.cloudfunctions.net/HandleTenAIMoveRequest', {
+    method: 'POST',
+    body: JSON.stringify(boardToJson(board)),
+  })
     .then((resp): Promise<MctsResponse> => resp.json())
     .then((json) => {
       const { move, winningPercentage, simulationCounter } = json;

@@ -7,16 +7,6 @@
       "ignore": ["**/.*"],
       "rewrites": [{ "source": "**", "destination": "/index.html" }]
     },
-    { "target": "samlang", "public": "packages/samlang/build", "ignore": ["**/.*"] },
-    {
-      "target": "ten",
-      "public": "packages/ten/build",
-      "ignore": ["**/.*"],
-      "rewrites": [
-        { "source": "/api/respond", "function": "HandleTenAIMoveRequest" },
-        { "source": "**", "destination": "/index.html" }
-      ]
-    },
-    { "target": "wiki", "public": "packages/wiki/build", "ignore": ["**/.*"] }
+    { "target": "samlang", "public": "packages/samlang/build", "ignore": ["**/.*"] }
   ]
 }
