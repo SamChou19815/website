@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React, { ReactElement, ReactNode } from 'react';
 
 type Props = {
@@ -17,7 +16,11 @@ const ConsoleSection = ({
   children,
 }: Props): ReactElement => (
   <section id={id} className={className}>
-    <h3 className={clsx('console-section-title', titleClassName)}>
+    <h3
+      className={
+        titleClassName == null ? 'console-section-title' : `console-section-title ${titleClassName}`
+      }
+    >
       <code>
         $&nbsp;
         {title}

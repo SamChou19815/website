@@ -1,4 +1,4 @@
-import type { WwwSvgIconName } from '../components/Common/Icons';
+import type { WwwSvgIconName } from '../components/Icons';
 
 type AboutSectionFact = { readonly iconName: WwwSvgIconName; readonly text: string };
 type AboutSectionLink = { readonly href: string; readonly text: string };

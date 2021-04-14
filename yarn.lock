@@ -26547,7 +26547,6 @@ typescript@^3.8.3:
     "@types/node": ^14.14.37
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
-    clsx: ^1.1.1
     infima: 0.2.0-alpha.21
     lib-common: 0.0.1
     lib-esbuild-scripts: "workspace:0.1.0"
