@@ -11,13 +11,8 @@ import baseESBuildConfig from './esbuild-config';
 import htmlWithElementsAttached from './html-rewriter';
 
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
-import startSpinnerProgress from 'lib-colorful-terminal/progress';
 
 export default async function startCommand(): Promise<void> {
-  const startingProgressInterval = startSpinnerProgress(
-    (time) => `[i] Starting dev server (${time})...`
-  );
-
   const htmlForServe = htmlWithElementsAttached(
     (await readFile(join('public', 'index.html'))).toString(),
     '',
@@ -34,7 +29,6 @@ export default async function startCommand(): Promise<void> {
       outfile: join('public', 'app.js'),
     }
   );
-  clearInterval(startingProgressInterval);
   console.error(
     BLUE(`[i] ESBuild Server started on http://${esbuildServer.host}:${esbuildServer.port}.`)
   );
