@@ -1,6 +1,6 @@
 import htmlWithElementsAttached from './html-rewriter';
 
-it('htmlWithElementsAttached works', () => {
+it('htmlWithElementsAttached works 1', () => {
   expect(
     htmlWithElementsAttached(
       `<!DOCTYPE html>
@@ -14,20 +14,53 @@ it('htmlWithElementsAttached works', () => {
   </html>
   `,
       'foo bar',
-      { type: 'js', originalFilename: 'app.js', content: 'aa' },
-      { type: 'css', originalFilename: 'app.css', content: 'aa' }
+      true,
+      ['app.js', 'app.css']
     )
   ).toBe(
     '<!DOCTYPE html>' +
       '<html lang="en">' +
       '<head>' +
       '<meta charset="utf-8">' +
-      '<link rel="preload" href="/app.js?h=4124bc0a" as="script">' +
-      '<link rel="stylesheet" href="/app.css?h=4124bc0a">' +
+      '<link rel="modulepreload" href="/app.js">' +
+      '<link rel="stylesheet" href="/app.css">' +
       '</head>' +
       '<body>' +
       '<div id="root">foo bar</div>' +
-      '<script src="/app.js?h=4124bc0a"></script>' +
+      '<script type="module" src="/app.js"></script>' +
+      '</body>' +
+      '</html>'
+  );
+});
+
+it('htmlWithElementsAttached works 2', () => {
+  expect(
+    htmlWithElementsAttached(
+      `<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+    </head>
+    <body>
+      <div id="root"></div>
+    </body>
+  </html>
+  `,
+      'foo bar',
+      false,
+      ['app.js', 'app.css']
+    )
+  ).toBe(
+    '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<link rel="preload" href="/app.js">' +
+      '<link rel="stylesheet" href="/app.css">' +
+      '</head>' +
+      '<body>' +
+      '<div id="root">foo bar</div>' +
+      '<script src="/app.js"></script>' +
       '</body>' +
       '</html>'
   );

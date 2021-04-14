@@ -16,8 +16,8 @@ export default async function startCommand(): Promise<void> {
   const htmlForServe = htmlWithElementsAttached(
     (await readFile(join('public', 'index.html'))).toString(),
     '',
-    { type: 'js', originalFilename: 'app.js' },
-    { type: 'css', originalFilename: 'app.css' }
+    false,
+    ['app.js', 'app.css']
   );
 
   const esbuildServer = await serve(
