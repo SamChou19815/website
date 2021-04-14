@@ -6,7 +6,7 @@
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts build",
     "compile": "tsc",
-    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:www"
+    "deploy": "yarn common:netlify deploy -d packages/www/build -s developersam.com --prod"
   },
   "dependencies": {
     "clsx": "^1.1.1",

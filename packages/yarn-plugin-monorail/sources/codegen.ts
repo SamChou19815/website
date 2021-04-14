@@ -84,15 +84,12 @@ on:
     branches:
       - main
 env:
-  FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
   NETLIFY_AUTH_TOKEN: \${{ secrets.NETLIFY_AUTH_TOKEN }}
 
 jobs:
   deploy:${yarnWorkspaceBoilterplateSetupString}
       - name: Build
         run: yarn workspace ${workspace} build
-      - name: Install Firebase
-        run: sudo npm install -g firebase-tools
       - name: Deploy
         run: yarn workspace ${workspace} deploy
 `,
