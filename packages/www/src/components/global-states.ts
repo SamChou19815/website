@@ -10,21 +10,6 @@ const TerminalForceOnBirthdayAtom = atom({
   default: false,
 });
 
-type TimelinePills = {
-  readonly workChecked: boolean;
-  readonly projectsChecked: boolean;
-  readonly eventsChecked: boolean;
-};
-
-const TimelinePillsAtom = atom<TimelinePills>({
-  key: 'timeline-pills',
-  default: {
-    workChecked: true,
-    projectsChecked: true,
-    eventsChecked: true,
-  },
-});
-
 export const useDeveloperSamOnBirthday = (): boolean =>
   useRecoilState(DeveloperSamOnBirthdayAtom)[0];
 
@@ -36,6 +21,3 @@ export const useTerminalForceOnBirthday = (): boolean =>
 
 export const useSetTerminalForceOnBirthday = (): SetterOrUpdater<boolean> =>
   useRecoilState(TerminalForceOnBirthdayAtom)[1];
-
-export const useTimelinePillsState = (): readonly [TimelinePills, SetterOrUpdater<TimelinePills>] =>
-  useRecoilState(TimelinePillsAtom);

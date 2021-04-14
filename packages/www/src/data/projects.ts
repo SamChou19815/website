@@ -1,11 +1,9 @@
-type ProjectLink = { readonly text: string; readonly href: string };
-
 type ProjectDataEntry = {
   readonly name: string;
   readonly type: string;
   readonly media: string;
   readonly description: string;
-  readonly links: readonly ProjectLink[];
+  readonly links: readonly { readonly text: string; readonly href: string }[];
 };
 
 const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
