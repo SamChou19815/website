@@ -1,21 +1,17 @@
 import React, { ReactElement, ReactNode, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
-import { TimelineItemType, getFilteredTimeline } from '../data/timeline';
-import ProjectsSection from './ProjectsSection';
-import TechTalkSection from './TechTalkSection';
+import DATASET_PROJECTS from '../data/projects';
+import DATASET_TECH_TALKS from '../data/tech-talks';
+import DATASET_TIMELINE from '../data/timeline';
 import { useSetTerminalForceOnBirthday } from './global-states';
 
-import { checkNotNull } from 'lib-common';
 import WebTerminal from 'lib-web-terminal';
 import { WebTerminalCommandsContextProvider } from 'lib-web-terminal/WebTerminalCommandsContext';
 import baseCommands from 'lib-web-terminal/base-commands';
 import type { Commands } from 'lib-web-terminal/types';
 
-const devSam = (
-  command: string,
-  ...commandArguments: readonly string[]
-): readonly ReactNode[] | ReactNode | void => {
+const devSam = (command: string): readonly ReactNode[] | ReactNode | void => {
   const information = `Copyright (C) 2015-${new Date().getFullYear()} Developer Sam. All rights reserved.`;
   switch (command) {
     case 'about':
@@ -26,52 +22,27 @@ const devSam = (
         ...DATASET_ABOUT.links.map(({ href, text }) => `- [${text}](${href})`),
       ];
     case 'projects':
-      return <ProjectsSection />;
+    case 'project':
+      return DATASET_PROJECTS.flatMap(({ name, type, description, links }) => [
+        `${type} ${name}`,
+        `- ${description}`,
+        '- Links:',
+        ...links.map(({ text, href }) => `  - [${text}](${href})`),
+      ]);
     case 'tech-talks':
-      return <TechTalkSection />;
+    case 'tech-talk':
+      return DATASET_TECH_TALKS.flatMap(({ title, description, link }) => [
+        title,
+        `- ${description}`,
+        `- Slide: ${link}`,
+      ]);
     case 'timeline':
-      return timeline(...commandArguments);
+      return DATASET_TIMELINE.map(({ title, time }) => `${time}: ${title}`);
     case undefined:
       return [information];
     default:
-      return [`Supported commands: about, projects, tech-talk, timeline.\n${information}`];
+      return [`Supported commands: about, projects, tech-talks, timeline.\n${information}`];
   }
-};
-
-const timeline = (...args: string[]): readonly string[] | void => {
-  if (args.length === 0) {
-    return getFilteredTimeline(['work', 'project', 'event']).map(
-      ({ title, time }) => `${time}: ${title}`
-    );
-  }
-  if (args.length === 1 && args[0] === '--none') {
-    return undefined;
-  }
-  if (args[0] !== '--only') {
-    return ['Invalid command.'];
-  }
-  const invalidArguments: string[] = [];
-  const types: TimelineItemType[] = [];
-  for (let i = 1; i < args.length; i += 1) {
-    const argument = checkNotNull(args[i]);
-    switch (argument) {
-      case 'work':
-        types.push('work');
-        break;
-      case 'projects':
-        types.push('project');
-        break;
-      case 'events':
-        types.push('event');
-        break;
-      default:
-        invalidArguments.push(argument);
-    }
-  }
-  if (invalidArguments.length > 0) {
-    return [`Bad argument(s) for --only: ${invalidArguments.join(', ')}`];
-  }
-  return getFilteredTimeline(types).map(({ title, time }) => `${time}: ${title}`);
 };
 
 const TIME_OF_OCT_14_2020_7PM = 1602630000000;
