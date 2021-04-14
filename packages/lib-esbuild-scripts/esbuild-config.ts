@@ -17,7 +17,7 @@ const baseESBuildConfig = ({
   },
   bundle: true,
   minify: false,
-  target: 'es2017',
+  target: 'es2019',
   logLevel: 'error',
   plugins: [
     {
