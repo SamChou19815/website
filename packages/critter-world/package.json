@@ -5,7 +5,8 @@
   "scripts": {
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts build",
-    "compile": "tsc"
+    "compile": "tsc",
+    "deploy": "yarn common:netlify deploy -d packages/critter-world/build -s critter-world.developersam.com --prod"
   },
   "dependencies": {
     "infima": "0.2.0-alpha.21",
