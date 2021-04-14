@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { lazy, ReactElement, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import DATASET_PROJECTS from '../data/projects';
@@ -11,8 +11,11 @@ import WwwSvgIcon from './Icons';
 import LazyCardMedia from './LazyCardMedia';
 import ProfilePicture from './ProfilePicture';
 import StickyCodeBlock from './StickyCodeBlock';
-import WebTerminalAppWrapper from './WebTerminalAppWrapper';
 import { useSetDeveloperSamOnBirthday, useTerminalForceOnBirthday } from './global-states';
+
+import SSRSuspense from 'lib-esbuild-scripts/SSRSuspense';
+
+const WebTerminalAppWrapper = lazy(() => import('./WebTerminalAppWrapper'));
 
 const aboutSection = (
   <ConsoleSection id="about" title="dev-sam about" className="about-section" titleClassName="title">
@@ -150,7 +153,9 @@ const AppContent = (): ReactElement => {
           {timelineSection}
         </div>
       </div>
-      <WebTerminalAppWrapper />
+      <SSRSuspense fallback={null}>
+        <WebTerminalAppWrapper />
+      </SSRSuspense>
     </>
   );
 };

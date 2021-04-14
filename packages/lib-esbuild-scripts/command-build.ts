@@ -1,13 +1,11 @@
 /* eslint-disable no-console */
 
-import { resolve } from 'path';
+import { dirname, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
 import { copy, emptyDir, ensureDir, readFile, remove, writeFile } from 'fs-extra';
 
 import {
-  BUILD_APP_JS_PATH,
-  BUILD_APP_CSS_PATH,
   BUILD_HTML_PATH,
   CLIENT_ENTRY,
   SERVER_ENTRY,
@@ -20,12 +18,26 @@ import htmlWithElementsAttached from './html-rewriter';
 import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
 async function generateBundle() {
-  await build({
+  const { outputFiles } = await build({
     ...baseESBuildConfig({ isProd: true }),
     entryPoints: [CLIENT_ENTRY],
+    assetNames: 'assets/[name]-[hash]',
+    chunkNames: 'chunks/[name]-[hash]',
+    entryNames: '[dir]/[name]-[hash]',
     minify: true,
-    outfile: BUILD_APP_JS_PATH,
+    format: 'esm',
+    splitting: true,
+    write: false,
+    outdir: 'build',
   });
+  const absoluteBuildDirectory = resolve('build');
+  await Promise.all(
+    outputFiles.map(async (file) => {
+      await ensureDir(dirname(file.path));
+      await writeFile(file.path, file.contents, {});
+    })
+  );
+  return outputFiles.map(({ path }) => relative(absoluteBuildDirectory, path));
 }
 
 async function performSSR(): Promise<string | null> {
@@ -52,20 +64,9 @@ async function performSSR(): Promise<string | null> {
   }
 }
 
-async function attachResults(rootHTML: string) {
-  const [htmlFile, jsFile, cssFile] = await Promise.all([
-    readFile(BUILD_HTML_PATH),
-    readFile(BUILD_APP_JS_PATH),
-    readFile(BUILD_APP_CSS_PATH),
-  ]);
-
-  const finalHTML = htmlWithElementsAttached(
-    htmlFile.toString(),
-    rootHTML,
-    { type: 'js', originalFilename: 'app.js', content: jsFile.toString() },
-    { type: 'css', originalFilename: 'app.css', content: cssFile.toString() }
-  );
-
+async function attachResults(rootHTML: string, files: readonly string[]) {
+  const htmlFile = await readFile(BUILD_HTML_PATH);
+  const finalHTML = htmlWithElementsAttached(htmlFile.toString(), rootHTML, true, files);
   await writeFile(BUILD_HTML_PATH, finalHTML);
 }
 
@@ -75,10 +76,10 @@ export default async function buildCommand(): Promise<boolean> {
   await emptyDir('build');
   await copy('public', 'build');
   const startTime = new Date().getTime();
-  const [, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
+  const [outputFiles, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
   if (rootHTML == null) return false;
 
-  await attachResults(rootHTML);
+  await attachResults(rootHTML, outputFiles);
   const totalTime = new Date().getTime() - startTime;
   console.error(`⚡ ${GREEN(`Build success in ${totalTime}ms.`)}`);
   return true;
