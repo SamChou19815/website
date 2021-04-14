@@ -5,8 +5,7 @@
   "scripts": {
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts build",
-    "compile": "tsc",
-    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:critter-world"
+    "compile": "tsc"
   },
   "dependencies": {
     "infima": "0.2.0-alpha.21",

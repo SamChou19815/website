@@ -8,12 +8,6 @@
       "rewrites": [{ "source": "**", "destination": "/index.html" }]
     },
     {
-      "target": "critter-world",
-      "public": "packages/critter-world/build",
-      "ignore": ["**/.*"],
-      "rewrites": [{ "source": "**", "destination": "/index.html" }]
-    },
-    {
       "target": "samzhou-dev",
       "public": "packages/dot-dev/build",
       "ignore": ["**/.*"],
