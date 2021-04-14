@@ -9,7 +9,6 @@
     "deploy": "yarn common:netlify deploy -d packages/www/build -s developersam.com --prod"
   },
   "dependencies": {
-    "clsx": "^1.1.1",
     "infima": "0.2.0-alpha.21",
     "lib-common": "0.0.1",
     "lib-in-memory-filesystem": "0.1.0",

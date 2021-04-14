@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import CodeBlock, { flexibleTheme } from 'lib-react/PrismCodeBlock';
 
 const code = `/**
- * Copyright (C) 2015–${new Date().getFullYear()} Developer Sam.
+ * Copyright (C) 2015-${new Date().getFullYear()} Developer Sam.
  *
  * @author sam
  */

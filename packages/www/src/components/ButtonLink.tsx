@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React, { ReactElement, ReactNode } from 'react';
 
 type Props = {
@@ -8,7 +7,10 @@ type Props = {
 };
 
 const ButtonLink = ({ href, children, className }: Props): ReactElement => (
-  <a className={clsx('button', 'button--link', className)} href={href}>
+  <a
+    className={className == null ? 'button button--link' : `button button--link ${className}`}
+    href={href}
+  >
     {typeof children === 'string' ? children.toLocaleUpperCase() : children}
   </a>
 );
