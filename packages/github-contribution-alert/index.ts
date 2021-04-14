@@ -2,13 +2,11 @@
 
 import SendGridMail from '@sendgrid/mail';
 import dotEnv from 'dotenv';
-import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 import { GraphQLClient } from 'graphql-request';
 import { DateTime } from 'luxon';
 
 dotEnv.config();
-admin.initializeApp();
 SendGridMail.setApiKey(functions.config().github_contribution_alert.sendgrid_api_key);
 
 const graphQLClient = new GraphQLClient('https://api.github.com/graphql', {
