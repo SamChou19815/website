@@ -14,7 +14,7 @@ import 'infima/dist/css/default/default.min.css';
 import 'lib-react/PrismCodeBlock.css';
 import 'lib-web-terminal/styles.css';
 import './index.css';
-import './app.css';
+import './app.scss';
 
 if (process.env.NODE_ENV === 'production' && !__SERVER__) {
   ReactGA.initialize('UA-140662756-1');

@@ -43,10 +43,10 @@ const App = (): ReactElement => {
   return (
     <WebTerminalAppWrapper>
       <div className="app-main-layout">
-        <div className="app-side-bar">
+        <div className="side-bar">
           <StickyCodeBlock />
         </div>
-        <div className="app-content-block">
+        <div className="content-block">
           <AboutSection />
           <ConsoleSection id="projects" title="dev-sam projects">
             <ProjectsSection />

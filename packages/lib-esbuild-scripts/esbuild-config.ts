@@ -1,7 +1,6 @@
-import { join, resolve } from 'path';
-
-import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
 import type { BuildOptions } from 'esbuild';
+
+import esbuildPlugins from './esbuild-plugins';
 
 const baseESBuildConfig = ({
   isServer = false,
@@ -19,18 +18,7 @@ const baseESBuildConfig = ({
   minify: false,
   target: 'es2019',
   logLevel: 'error',
-  plugins: [
-    {
-      name: 'WebAppResolvePlugin',
-      setup(buildConfig) {
-        buildConfig.onResolve({ filter: /data:/ }, () => ({ external: true }));
-        buildConfig.onResolve({ filter: /USER_DEFINED_APP_ENTRY_POINT/ }, () => ({
-          path: resolve(join('src', 'App.tsx')),
-        }));
-      },
-    },
-    pnpPlugin(),
-  ],
+  plugins: esbuildPlugins,
 });
 
 export default baseESBuildConfig;

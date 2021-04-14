@@ -20,6 +20,7 @@ const DATASET_ABOUT: AboutDataEntry = {
   links: [
     { href: 'https://blog.developersam.com', text: 'Blog' },
     { href: 'https://github.com/SamChou19815', text: 'GitHub' },
+    { href: '/resume.pdf', text: 'Resume' },
   ],
 };
 

@@ -8,7 +8,7 @@ import LazyCardMedia from './Common/LazyCardMedia';
 import ProfilePicture from './ProfilePicture';
 
 const InformationCard = ({ className }: { readonly className?: string }): ReactElement => (
-  <div className={clsx('card', className)}>
+  <div className={clsx('card', 'info-card', className)}>
     <LazyCardMedia image="/timeline/fb-hacker-way.webp" title="Facebook @ 1 Hacker Way" />
     <div className="card__header">
       <div className="avatar">
@@ -18,24 +18,21 @@ const InformationCard = ({ className }: { readonly className?: string }): ReactE
         </div>
       </div>
     </div>
-    <div className="card__body info-card-icon-lines">
+    <div className="card__body icon-lines">
       {DATASET_ABOUT.facts.map(({ text, iconName }) => (
-        <div key={text} className="info-card-icon-line">
+        <div key={text} className="line">
           <WwwSvgIcon iconName={iconName} />
-          <span className="info-card-icon-line-text">{text}</span>
+          <span className="text">{text}</span>
         </div>
       ))}
     </div>
     <div className="card__footer horizontal-center">
       <div className="button-group button-group--block">
         {DATASET_ABOUT.links.map(({ href, text }) => (
-          <ButtonLink key={text} href={href} className="info-card-link">
+          <ButtonLink key={text} href={href} className="link">
             {text}
           </ButtonLink>
         ))}
-        <ButtonLink href="/resume.pdf" className="info-card-link">
-          Resume
-        </ButtonLink>
       </div>
     </div>
   </div>
