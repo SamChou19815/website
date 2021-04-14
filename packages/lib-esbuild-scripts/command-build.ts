@@ -3,7 +3,7 @@
 import { resolve } from 'path';
 
 import { build } from 'esbuild';
-import { copy, emptyDir, readFile, remove, stat, writeFile } from 'fs-extra';
+import { copy, emptyDir, ensureDir, readFile, remove, stat, writeFile } from 'fs-extra';
 
 import {
   BUILD_APP_JS_PATH,
@@ -30,7 +30,7 @@ async function generateBundle() {
   return Promise.all([stat(BUILD_APP_JS_PATH), stat(BUILD_APP_CSS_PATH)]);
 }
 
-async function performSSR(): Promise<boolean> {
+async function performSSR(): Promise<string | null> {
   await build({
     ...baseESBuildConfig({ isServer: true, isProd: true }),
     entryPoints: [SERVER_ENTRY],
@@ -38,21 +38,22 @@ async function performSSR(): Promise<boolean> {
     format: 'cjs',
     outfile: SSR_JS_PATH,
   });
-  let rootHTML: string;
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports, import/no-dynamic-require
-    rootHTML = require(resolve(SSR_JS_PATH));
+    return require(resolve(SSR_JS_PATH));
   } catch {
     console.error(
       RED(
         'Unable to perform server side rendering since the server bundle is not correctly generated.'
       )
     );
-    return false;
+    return null;
   } finally {
     await Promise.all([remove(SSR_JS_PATH), remove(SSR_CSS_PATH)]);
   }
+}
 
+async function attachResults(rootHTML: string) {
   const [htmlFile, jsFile, cssFile] = await Promise.all([
     readFile(BUILD_HTML_PATH),
     readFile(BUILD_APP_JS_PATH),
@@ -67,18 +68,19 @@ async function performSSR(): Promise<boolean> {
   );
 
   await writeFile(BUILD_HTML_PATH, finalHTML);
-  return true;
 }
 
 export default async function buildCommand(): Promise<boolean> {
+  await ensureDir('build');
   await emptyDir('build');
   await copy('public', 'build');
   const bundlingProgressInterval = startSpinnerProgress(() => `[i] Bundling...`);
   const startTime = new Date().getTime();
-  const [[jsStat, cssStat], ssrSuccess] = await Promise.all([generateBundle(), performSSR()]);
+  const [[jsStat, cssStat], rootHTML] = await Promise.all([generateBundle(), performSSR()]);
   clearInterval(bundlingProgressInterval);
-  if (!ssrSuccess) return false;
+  if (rootHTML == null) return false;
 
+  await attachResults(rootHTML);
   const totalTime = new Date().getTime() - startTime;
   console.error(GREEN(`Build success in ${totalTime}ms.`));
   console.error(BLUE(`Minified JS Size: ${Math.ceil(jsStat.size / 1024)}k.`));
