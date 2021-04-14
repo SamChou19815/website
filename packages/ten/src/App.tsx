@@ -6,7 +6,7 @@ import PlayAgainstAIGameCard from './components/PlayAgainstAIGameCard';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';
-import './components/game.css';
+import './game.css';
 
 function SSRLink({ to, children }: Readonly<{ to: string; children: string }>): ReactElement {
   if (__SERVER__) {
