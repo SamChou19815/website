@@ -15,7 +15,6 @@ title: Introduction
 
 - Frontend
   - Build System: Yarn V2 with pnp
-  - Monorepo Tool: Sam's [monorail](./website-repo.md#monorail-monorepo-tool).
   - Language: TypeScript
   - Library: React
   - UI: Infima

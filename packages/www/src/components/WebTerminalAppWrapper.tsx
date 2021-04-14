@@ -83,33 +83,33 @@ const DevMegan = (): ReactElement => {
         Time together: {Math.floor((new Date().getTime() - TIME_OF_OCT_14_2020_7PM) / 86400000)}{' '}
         days.
       </div>
-      {/* <div>{"Sam loves Megan's drawings. 💕"}</div>
+      <div>{"Sam loves Megan's drawings. 💕"}</div>
       <div>
         <img
-          src="https://samzhou.dev/fan-arts/dev-sam-birthday-edition.webp"
+          src="/fan-arts/dev-sam-birthday-edition.webp"
           height={200}
           alt="@dev-sam/fan-art Birthday Edition"
           title="@dev-sam/fan-art Birthday Edition"
         />
         <img
-          src="https://samzhou.dev/fan-arts/dev-sam-fan-art-3.webp"
+          src="/fan-arts/dev-sam-fan-art-3.webp"
           height={200}
           alt="@dev-sam/fan-art Iteration 3"
           title="@dev-sam/fan-art Iteration 3"
         />
         <img
-          src="https://samzhou.dev/fan-arts/dev-sam-fan-art-2.webp"
+          src="/fan-arts/dev-sam-fan-art-2.webp"
           height={200}
           alt="@dev-sam/fan-art Iteration 2"
           title="@dev-sam/fan-art Iteration 2"
         />
         <img
-          src="https://samzhou.dev/fan-arts/dev-sam-fan-art-1.webp"
+          src="/fan-arts/dev-sam-fan-art-1.webp"
           height={200}
           alt="@dev-sam/fan-art Iteration 1"
           title="@dev-sam/fan-art Iteration 1"
         />
-      </div> */}
+      </div>
       <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>
     </>
   );
