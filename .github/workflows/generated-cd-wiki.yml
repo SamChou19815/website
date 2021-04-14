@@ -14,6 +14,9 @@ on:
       - '.github/workflows/generated-*-wiki.yml'
     branches:
       - main
+env:
+  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
 jobs:
   deploy:
@@ -35,4 +38,4 @@ jobs:
       - name: Install Firebase
         run: sudo npm install -g firebase-tools
       - name: Deploy
-        run: FIREBASE_TOKEN=${{ secrets.FIREBASE_TOKEN }} yarn workspace wiki deploy
+        run: yarn workspace wiki deploy

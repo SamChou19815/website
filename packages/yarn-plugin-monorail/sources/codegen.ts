@@ -83,6 +83,9 @@ on:
       - '.github/workflows/generated-*-${workspace}.yml'
     branches:
       - main
+env:
+  FIREBASE_TOKEN: \${{ secrets.FIREBASE_TOKEN }}
+  NETLIFY_AUTH_TOKEN: \${{ secrets.NETLIFY_AUTH_TOKEN }}
 
 jobs:
   deploy:${yarnWorkspaceBoilterplateSetupString}
@@ -91,7 +94,7 @@ jobs:
       - name: Install Firebase
         run: sudo npm install -g firebase-tools
       - name: Deploy
-        run: FIREBASE_TOKEN=\${{ secrets.FIREBASE_TOKEN }} yarn workspace ${workspace} deploy
+        run: yarn workspace ${workspace} deploy
 `,
         ] as const;
       }),
