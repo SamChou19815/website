@@ -14,7 +14,6 @@ const baseESBuildConfig = ({
   define: {
     __SERVER__: String(isServer),
     'process.env.NODE_ENV': isProd ? '"production"' : '"development"',
-    __THEME_SWITCH__: String(!process.env.NO_THEME_SWITCH),
   },
   bundle: true,
   minify: false,

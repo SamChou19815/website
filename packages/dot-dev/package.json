@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "infima": "0.2.0-alpha.21",
+    "lib-react": "0.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.0"
@@ -12,7 +13,7 @@
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts build",
     "compile": "tsc",
-    "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:dot-dev"
+    "deploy": "firebase deploy --non-interactive --only hosting:samzhou-dev"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",

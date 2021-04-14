@@ -1,67 +1,34 @@
 {
   "hosting": [
-    {
-      "target": "blog",
-      "public": "packages/blog/build",
-      "ignore": ["**/.*"]
-    },
+    { "target": "blog", "public": "packages/blog/build", "ignore": ["**/.*"] },
     {
       "target": "www",
       "public": "packages/www/build",
       "ignore": ["**/.*"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
+      "rewrites": [{ "source": "**", "destination": "/index.html" }]
     },
     {
       "target": "critter-world",
       "public": "packages/critter-world/build",
       "ignore": ["**/.*"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
+      "rewrites": [{ "source": "**", "destination": "/index.html" }]
     },
     {
-      "target": "dot-dev",
+      "target": "samzhou-dev",
       "public": "packages/dot-dev/build",
       "ignore": ["**/.*"],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
+      "rewrites": [{ "source": "**", "destination": "/index.html" }]
     },
-    {
-      "target": "samlang",
-      "public": "packages/samlang/build",
-      "ignore": ["**/.*"]
-    },
+    { "target": "samlang", "public": "packages/samlang/build", "ignore": ["**/.*"] },
     {
       "target": "ten",
       "public": "packages/ten/build",
       "ignore": ["**/.*"],
       "rewrites": [
-        {
-          "source": "/api/respond",
-          "function": "HandleTenAIMoveRequest"
-        },
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
+        { "source": "/api/respond", "function": "HandleTenAIMoveRequest" },
+        { "source": "**", "destination": "/index.html" }
       ]
     },
-    {
-      "target": "wiki",
-      "public": "packages/wiki/build",
-      "ignore": ["**/.*"]
-    }
+    { "target": "wiki", "public": "packages/wiki/build", "ignore": ["**/.*"] }
   ]
 }

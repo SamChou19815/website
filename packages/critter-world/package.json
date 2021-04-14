@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "NO_THEME_SWITCH=true esbuild-scripts start",
-    "build": "NO_THEME_SWITCH=true esbuild-scripts build",
+    "start": "esbuild-scripts start",
+    "build": "esbuild-scripts build",
     "compile": "tsc",
     "deploy": "firebase deploy --token=$FIREBASE_TOKEN --non-interactive --only hosting:critter-world"
   },
