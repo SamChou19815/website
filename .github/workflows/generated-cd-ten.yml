@@ -6,7 +6,7 @@ on:
     paths:
       - 'packages/lib-common/**'
       - 'packages/lib-colorful-terminal/**'
-      - 'packages/lib-esbuild-scripts/**'
+      - 'packages/esbuild-scripts/**'
       - 'packages/ten/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-ten.yml'

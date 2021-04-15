@@ -8,7 +8,7 @@ on:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-react/**'
       - 'packages/lib-colorful-terminal/**'
-      - 'packages/lib-esbuild-scripts/**'
+      - 'packages/esbuild-scripts/**'
       - 'packages/critter-world/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-critter-world.yml'

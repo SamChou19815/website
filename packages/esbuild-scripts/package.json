@@ -1,12 +1,10 @@
 {
-  "name": "lib-esbuild-scripts",
+  "name": "esbuild-scripts",
   "version": "0.1.0",
   "description": "Scripts to enable esbuild-powered static site generation",
   "author": "Developer Sam",
   "license": "AGPL-3.0",
-  "bin": {
-    "esbuild-scripts": "index.js"
-  },
+  "bin": "index.js",
   "scripts": {
     "bundle": "node bundle.js",
     "compile": "tsc"

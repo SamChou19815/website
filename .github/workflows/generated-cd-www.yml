@@ -10,7 +10,7 @@ on:
       - 'packages/lib-react/**'
       - 'packages/lib-web-terminal/**'
       - 'packages/lib-colorful-terminal/**'
-      - 'packages/lib-esbuild-scripts/**'
+      - 'packages/esbuild-scripts/**'
       - 'packages/www/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-www.yml'

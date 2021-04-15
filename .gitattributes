@@ -1,6 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 .github/workflows/generated-*.yml linguist-generated=true
-packages/lib-esbuild-scripts/index.js linguist-generated=true
+packages/esbuild-scripts/index.js linguist-generated=true
 .yarn/** linguist-generated=true
 **/bin/** linguist-generated=true
