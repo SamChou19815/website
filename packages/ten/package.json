@@ -6,7 +6,7 @@
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts build",
     "compile": "tsc",
-    "deploy": "yarn common:netlify deploy -d packages/ten/build -s ten.developersam.com --prod"
+    "deploy": "npx -p netlify-cli netlify deploy -d build -s ten.developersam.com --prod"
   },
   "dependencies": {
     "infima": "0.2.0-alpha.21",
