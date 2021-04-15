@@ -20,7 +20,7 @@ Then add `types.d.ts` with the following content to a folder that is included in
 `tsconfig.json`:
 
 ```typescript
-/// <reference types="esbuild-scripts/types" />
+/// <reference types="esbuild-scripts" />
 ```
 
 After that, add your entrypoint React component in `src/App.tsx`:
@@ -93,6 +93,10 @@ import './app.scss';
 ```
 
 ## FAQ
+
+Q: Why is it fast?
+
+A: It's using esbuild under the hood, instead of writing the entire toolchain in JS.
 
 Q: Can you add more customization ability?
 
