@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "esbuild-scripts start",
-    "build": "esbuild-scripts build",
+    "build": "esbuild-scripts ssg --no-js",
     "compile": "tsc",
     "deploy": "yarn common:netlify deploy -d packages/dot-dev/build -s samzhou.dev --prod"
   },

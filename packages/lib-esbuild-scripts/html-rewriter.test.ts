@@ -1,23 +1,18 @@
 import htmlWithElementsAttached from './html-rewriter';
 
+const html = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+`;
+
 it('htmlWithElementsAttached works 1', () => {
-  expect(
-    htmlWithElementsAttached(
-      `<!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-    </head>
-    <body>
-      <div id="root"></div>
-    </body>
-  </html>
-  `,
-      'foo bar',
-      true,
-      ['app.js', 'app.css']
-    )
-  ).toBe(
+  expect(htmlWithElementsAttached(html, 'foo bar', ['app.js', 'app.css'], { esModule: true })).toBe(
     '<!DOCTYPE html>' +
       '<html lang="en">' +
       '<head>' +
@@ -35,21 +30,7 @@ it('htmlWithElementsAttached works 1', () => {
 
 it('htmlWithElementsAttached works 2', () => {
   expect(
-    htmlWithElementsAttached(
-      `<!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-    </head>
-    <body>
-      <div id="root"></div>
-    </body>
-  </html>
-  `,
-      'foo bar',
-      false,
-      ['app.js', 'app.css']
-    )
+    htmlWithElementsAttached(html, 'foo bar', ['app.js', 'app.css'], { esModule: false })
   ).toBe(
     '<!DOCTYPE html>' +
       '<html lang="en">' +

@@ -52,34 +52,46 @@ async function performSSR(): Promise<string | null> {
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports, import/no-dynamic-require
     return require(resolve(SSR_JS_PATH));
-  } catch {
+  } catch (error) {
     console.error(
       RED(
         'Unable to perform server side rendering since the server bundle is not correctly generated.'
       )
     );
+    console.error(RED(error));
     return null;
   } finally {
     await Promise.all([remove(SSR_JS_PATH), remove(SSR_CSS_PATH)]);
   }
 }
 
-async function attachResults(rootHTML: string, files: readonly string[]) {
+async function attachResults(rootHTML: string | null, files: readonly string[], noJS: boolean) {
   const htmlFile = await readFile(BUILD_HTML_PATH);
-  const finalHTML = htmlWithElementsAttached(htmlFile.toString(), rootHTML, true, files);
+  const finalHTML = htmlWithElementsAttached(htmlFile.toString(), rootHTML, files, {
+    esModule: true,
+    noJS,
+  });
   await writeFile(BUILD_HTML_PATH, finalHTML);
 }
 
-export default async function buildCommand(): Promise<boolean> {
+export default async function buildCommand({
+  staticSiteGeneration,
+  noJS,
+}: Readonly<{ staticSiteGeneration: boolean; noJS: boolean }>): Promise<boolean> {
   console.error(YELLOW('[i] Bundling...'));
   await ensureDir('build');
   await emptyDir('build');
   await copy('public', 'build');
   const startTime = new Date().getTime();
-  const [outputFiles, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
-  if (rootHTML == null) return false;
+  if (staticSiteGeneration) {
+    const [outputFiles, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
+    if (rootHTML == null) return false;
+    await attachResults(rootHTML, outputFiles, noJS);
+  } else {
+    const outputFiles = await generateBundle();
+    await attachResults(null, outputFiles, noJS);
+  }
 
-  await attachResults(rootHTML, outputFiles);
   const totalTime = new Date().getTime() - startTime;
   console.error(`⚡ ${GREEN(`Build success in ${totalTime}ms.`)}`);
   return true;

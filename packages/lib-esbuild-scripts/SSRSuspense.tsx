@@ -1,10 +1,11 @@
-import React, { ReactElement, ReactNode, Suspense } from 'react';
+import { ReactElement, ReactNode, Suspense } from 'react';
 
-type Props = { readonly fallback: ReactElement | null; readonly children: ReactNode };
+type SuspenseType = (props: {
+  readonly fallback: ReactElement | null;
+  readonly children: ReactNode;
+}) => ReactElement | null;
 
 declare const __SERVER__: boolean;
 
-const SSRSuspense = ({ fallback, children }: Props): ReactElement | null =>
-  __SERVER__ ? fallback : <Suspense fallback={fallback}>{children}</Suspense>;
-
+const SSRSuspense: SuspenseType = __SERVER__ ? ({ fallback }) => fallback : Suspense;
 export default SSRSuspense;

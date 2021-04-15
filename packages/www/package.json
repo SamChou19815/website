@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "esbuild-scripts start",
-    "build": "esbuild-scripts build",
+    "build": "esbuild-scripts ssg",
     "compile": "tsc",
     "deploy": "yarn common:netlify deploy -d packages/www/build -s developersam.com --prod"
   },
