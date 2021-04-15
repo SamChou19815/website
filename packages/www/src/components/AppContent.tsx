@@ -13,7 +13,7 @@ import ProfilePicture from './ProfilePicture';
 import StickyCodeBlock from './StickyCodeBlock';
 import { useSetDeveloperSamOnBirthday, useTerminalForceOnBirthday } from './global-states';
 
-import SSRSuspense from 'lib-esbuild-scripts/SSRSuspense';
+import SSRSuspense from 'esbuild-scripts/SSRSuspense';
 
 const WebTerminalAppWrapper = lazy(() => import('./WebTerminalAppWrapper'));
 

@@ -1,4 +1,4 @@
-/// <reference types="lib-esbuild-scripts/types" />
+/// <reference types="esbuild-scripts/types" />
 
 type AccessLevel = 'READ' | 'WRITE' | 'ADMIN';
 
