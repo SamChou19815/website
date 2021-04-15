@@ -13,7 +13,7 @@
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts ssg --no-js",
     "compile": "tsc",
-    "deploy": "npx -p netlify-cli netlify deploy -d build -s samzhou.dev --prod"
+    "deploy": "netlify deploy -d build -s samzhou.dev --prod"
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",
