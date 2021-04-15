@@ -1,10 +1,19 @@
 {
   "name": "esbuild-scripts",
-  "version": "0.1.0",
-  "description": "Scripts to enable esbuild-powered static site generation",
+  "version": "0.1.1",
+  "description": "A fast, opinioned web development toolkit for building React based websites.",
   "author": "Developer Sam",
   "license": "AGPL-3.0",
   "bin": "index.js",
+  "types": "types.d.ts",
+  "keywords": [
+    "esbuild"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamChou19815/website.git",
+    "directory": "packages/esbuild-scripts"
+  },
   "scripts": {
     "bundle": "node bundle.js",
     "compile": "tsc"
