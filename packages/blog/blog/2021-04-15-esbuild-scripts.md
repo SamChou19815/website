@@ -1,6 +1,7 @@
 ---
 title: 'Achieving 20x Build Speedup: Introducing esbuild-scripts'
 tags: [design-choices]
+image: /img/2021-04-15-esbuild-scripts/build-time-ci.png
 ---
 
 Since the release of [esbuild](https://esbuild.github.io) that gives a theoretical 100x speedup, I
