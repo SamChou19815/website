@@ -78,11 +78,11 @@ export default async function buildCommand({
   staticSiteGeneration,
   noJS,
 }: Readonly<{ staticSiteGeneration: boolean; noJS: boolean }>): Promise<boolean> {
+  const startTime = new Date().getTime();
   console.error(YELLOW('[i] Bundling...'));
   await ensureDir('build');
   await emptyDir('build');
   await copy('public', 'build');
-  const startTime = new Date().getTime();
   if (staticSiteGeneration) {
     const [outputFiles, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
     if (rootHTML == null) return false;
