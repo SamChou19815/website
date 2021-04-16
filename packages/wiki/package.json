@@ -10,9 +10,9 @@
     "deploy": "netlify deploy -d build -s wiki.developersam.com --prod"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.72",
-    "@docusaurus/preset-classic": "2.0.0-alpha.72",
-    "@docusaurus/theme-classic": "2.0.0-alpha.72",
+    "@docusaurus/core": "2.0.0-alpha.73",
+    "@docusaurus/preset-classic": "2.0.0-alpha.73",
+    "@docusaurus/theme-classic": "2.0.0-alpha.73",
     "@mdx-js/react": "^1.6.4",
     "clsx": "^1.1.1",
     "firebase": "^8.1.1",
@@ -27,8 +27,8 @@
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-alpha.72",
-    "@types/node": "^14.14.37",
+    "@docusaurus/module-type-aliases": "2.0.0-alpha.73",
+    "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/remarkable": "1.7.4",
