@@ -4,10 +4,10 @@ import { createServer, request } from 'http';
 import { join } from 'path';
 
 import { serve } from 'esbuild';
-import { readFile } from 'fs-extra';
 
 import { CLIENT_ENTRY } from './constants';
 import baseESBuildConfig from './esbuild-config';
+import { readFile } from './fs-promise';
 import htmlWithElementsAttached from './html-rewriter';
 
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';

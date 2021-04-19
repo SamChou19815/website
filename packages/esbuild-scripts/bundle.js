@@ -19,7 +19,6 @@ build({
         if (
           resolvedPath == null ||
           resolvedPath.includes('esbuild-npm') ||
-          resolvedPath.includes('fs-extra-npm') ||
           resolvedPath.includes('node-html-parser-npm') ||
           resolvedPath.includes('html-minifier-npm') ||
           resolvedPath.includes('esbuild-plugin-sass-npm') ||
