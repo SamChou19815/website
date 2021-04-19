@@ -1,3 +1,8 @@
+import { extname } from 'path';
+
+import { PAGES_PATH } from './constants';
+import { ensureDirectory, readDirectory } from './fs-promise';
+
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
 export const getClientTemplate = (path: string): string => `${GENERATED_COMMENT}
@@ -34,3 +39,27 @@ module.exports = (path) => {
   return renderToString(<Document><Page /></Document>);
 };
 `;
+
+/**
+ * @returns a list of entry point paths under `src/pages`.
+ * Extensions are removed and the paths will be relativized against `src/pages`.
+ */
+export const getEntryPoints = async (): Promise<readonly string[]> => {
+  await ensureDirectory(PAGES_PATH);
+  const allPaths = await readDirectory(PAGES_PATH, true);
+  return allPaths
+    .map((it) => {
+      const extension = extname(it);
+      switch (extension) {
+        case '.js':
+        case '.jsx':
+        case '.ts':
+        case '.tsx':
+          break;
+        default:
+          return null;
+      }
+      return it.substring(0, it.lastIndexOf('.'));
+    })
+    .filter((it): it is string => it != null && it !== '_document');
+};

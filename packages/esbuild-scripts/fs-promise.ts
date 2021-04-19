@@ -10,17 +10,29 @@ import {
   readFile as readFileCallback,
   writeFile as writeFileCallback,
 } from 'fs';
-import { join } from 'path';
+import { join, relative } from 'path';
 
 const createNoParamCallback = (
   resolve: () => void,
   reject: (error: unknown) => void
 ): NoParamCallback => (error) => (error ? reject(error) : resolve());
 
-const readDirectory = (path: string): Promise<readonly string[]> =>
+const readDirectoryPrimitive = (path: string): Promise<string[]> =>
   new Promise((resolve, reject) =>
     readdir(path, (error, files) => (error ? reject(error) : resolve(files)))
   );
+
+const readDirectoryRecursive = async (path: string): Promise<string[]> =>
+  Promise.all(
+    (await readDirectoryPrimitive(path)).flatMap(async (it) => {
+      const fullPath = join(path, it);
+      if (await isDirectory(fullPath)) {
+        return [fullPath, ...(await readDirectoryRecursive(fullPath))];
+      } else {
+        return [fullPath];
+      }
+    })
+  ).then((it) => it.flat());
 
 export const copyDirectoryContent = async (
   sourceDirectory: string,
@@ -30,7 +42,7 @@ export const copyDirectoryContent = async (
   emptyDirectory(targetDirectory);
 
   await Promise.all(
-    (await readDirectory(sourceDirectory)).map(async (file) => {
+    (await readDirectoryPrimitive(sourceDirectory)).map(async (file) => {
       const fullSourcePath = join(sourceDirectory, file);
       const fullDestinationPath = join(targetDirectory, file);
       if (await isDirectory(fullSourcePath)) {
@@ -45,7 +57,7 @@ export const copyDirectoryContent = async (
 };
 
 export const emptyDirectory = async (path: string): Promise<void> => {
-  const files = await readDirectory(path);
+  const files = await readDirectoryPrimitive(path);
   await Promise.all(files.map((it) => remove(join(path, it))));
 };
 
@@ -58,6 +70,16 @@ export const isDirectory = (path: string): Promise<boolean> =>
   new Promise((resolve, reject) =>
     lstat(path, (error, stats) => (error ? reject(error) : resolve(stats.isDirectory())))
   );
+
+export const readDirectory = async (
+  path: string,
+  recursive: boolean
+): Promise<readonly string[]> => {
+  if (!recursive) return readDirectoryPrimitive(path);
+  return (await readDirectoryRecursive(path))
+    .map((it) => relative(path, it))
+    .sort((a, b) => a.localeCompare(b));
+};
 
 export const readFile = (path: string): Promise<string> =>
   new Promise((resolve, reject) =>
