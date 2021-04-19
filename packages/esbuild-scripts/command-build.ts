@@ -3,7 +3,6 @@
 import { dirname, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
-import { copy, emptyDir, ensureDir, readFile, remove, writeFile } from 'fs-extra';
 
 import {
   BUILD_HTML_PATH,
@@ -13,6 +12,7 @@ import {
   SSR_JS_PATH,
 } from './constants';
 import baseESBuildConfig from './esbuild-config';
+import { copyDirectoryContent, ensureDirectory, readFile, remove, writeFile } from './fs-promise';
 import htmlWithElementsAttached from './html-rewriter';
 
 import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
@@ -33,8 +33,8 @@ async function generateBundle() {
   const absoluteBuildDirectory = resolve('build');
   await Promise.all(
     outputFiles.map(async (file) => {
-      await ensureDir(dirname(file.path));
-      await writeFile(file.path, file.contents, {});
+      await ensureDirectory(dirname(file.path));
+      await writeFile(file.path, file.contents);
     })
   );
   return outputFiles.map(({ path }) => relative(absoluteBuildDirectory, path));
@@ -80,9 +80,7 @@ export default async function buildCommand({
 }: Readonly<{ staticSiteGeneration: boolean; noJS: boolean }>): Promise<boolean> {
   const startTime = new Date().getTime();
   console.error(YELLOW('[i] Bundling...'));
-  await ensureDir('build');
-  await emptyDir('build');
-  await copy('public', 'build');
+  await copyDirectoryContent('public', 'build');
   if (staticSiteGeneration) {
     const [outputFiles, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
     if (rootHTML == null) return false;
