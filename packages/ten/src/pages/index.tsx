@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { BrowserRouter, StaticRouter, Switch, Route, Link } from 'react-router-dom';
 
-import LocalGameCard from './components/LocalGameCard';
-import PlayAgainstAIGameCard from './components/PlayAgainstAIGameCard';
+import LocalGameCard from '../components/LocalGameCard';
+import PlayAgainstAIGameCard from '../components/PlayAgainstAIGameCard';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';

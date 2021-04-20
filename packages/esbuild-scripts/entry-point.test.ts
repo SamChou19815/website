@@ -5,18 +5,18 @@ const GENERATED_COMMENT = `// ${'@'}generated`;
 it('getClientTemplate works', () => {
   expect(getClientTemplate('foo/bar')).toBe(`${GENERATED_COMMENT}
 
-import React from React;
+import React from 'react';
 import { hydrate, render } from 'react-dom';
 
-import Document from '../../src/pages/_document.tsx';
-import Page from '../../src/pages/foo/bar';
+import Document from '../src/pages/_document.tsx';
+import Page from '../src/pages/foo/bar';
 
-const element = <Document><App /></Document>;
+const element = <Document><Page /></Document>;
 const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) {
-  hydrate(rootElement, rootElement);
+  hydrate(element, rootElement);
 } else {
-  render(rootElement, rootElement);
+  render(element, rootElement);
 }
 `);
 });
@@ -24,12 +24,13 @@ if (rootElement.hasChildNodes()) {
 it('getServerTemplate works', () => {
   expect(getServerTemplate(['foo/bar', 'bar/baz'])).toBe(`${GENERATED_COMMENT}
 
-import React from React;
+import React from 'react';
 import { renderToString } from 'react-dom/server';
+import Helmet from 'esbuild-scripts/Head'
 
-import Document from '../../src/pages/_document.tsx';
-import Page0 from '../../src/pages/foo/bar';
-import Page1 from '../../src/pages/bar/baz';
+import Document from '../src/pages/_document.tsx';
+import Page0 from '../src/pages/foo/bar';
+import Page1 from '../src/pages/bar/baz';
 
 const components = {
   'foo/bar': Page0,
@@ -38,7 +39,9 @@ const components = {
 
 module.exports = (path) => {
   const Page = components[path];
-  return renderToString(<Document><Page /></Document>);
+  const divHTML = renderToString(<Document><Page /></Document>);
+  const helmet = Helmet.renderStatic();
+  return { divHTML, helmet };
 };
 `);
 });

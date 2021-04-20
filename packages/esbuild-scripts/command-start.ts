@@ -5,39 +5,46 @@ import { join } from 'path';
 
 import { serve } from 'esbuild';
 
-import { CLIENT_ENTRY } from './constants';
+import { TEMP_PATH } from './constants';
+import { CLIENT_STARTER_HTML, createEntryPointsGeneratedFiles } from './entry-points';
 import baseESBuildConfig from './esbuild-config';
-import { readFile } from './fs-promise';
-import htmlWithElementsAttached from './html-rewriter';
+import getGeneratedHTML from './html-generator';
 
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
+const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
+  if (url == null || !url.startsWith('/')) return undefined;
+  const path = url.substring(1);
+  return entryPoints.find((entryPoint) => {
+    if (entryPoint.endsWith('index')) {
+      return [entryPoint, entryPoint.substring(0, entryPoint.length - 5)].includes(path);
+    }
+    return entryPoint === path;
+  });
+};
+
+const getHTML = (entryPoint: string) =>
+  getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], { esModule: false });
+
 export default async function startCommand(): Promise<void> {
-  const htmlForServe = htmlWithElementsAttached(
-    (await readFile(join('public', 'index.html'))).toString(),
-    '',
-    ['app.js', 'app.css'],
-    { esModule: false }
-  );
+  const entryPoints = await createEntryPointsGeneratedFiles();
 
   const esbuildServer = await serve(
     { servedir: 'public', port: 19815 },
     {
       ...baseESBuildConfig({}),
-      entryPoints: [CLIENT_ENTRY],
+      entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
       sourcemap: 'inline',
-      outfile: join('public', 'app.js'),
+      outdir: 'public',
     }
-  );
-  console.error(
-    BLUE(`[i] ESBuild Server started on http://${esbuildServer.host}:${esbuildServer.port}.`)
   );
 
   // Then start a proxy server on port 3000
   const proxyServer = createServer((req, res) => {
-    if (req.url === '/') {
+    const relatedEntryPoint = getEntryPoint(entryPoints, req.url);
+    if (relatedEntryPoint != null) {
       res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end(htmlForServe);
+      res.end(getHTML(relatedEntryPoint));
       return;
     }
 
@@ -54,7 +61,7 @@ export default async function startCommand(): Promise<void> {
       // If esbuild returns "not found", send a custom 404 page
       if (proxyRes.statusCode === 404) {
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(htmlForServe);
+        res.end(getHTML('index'));
         return;
       }
 
@@ -67,7 +74,6 @@ export default async function startCommand(): Promise<void> {
     req.pipe(proxyReq, { end: true });
   }).listen(3000);
 
-  console.error(BLUE('[i] Proxy Server started.'));
   console.error(`${GREEN('Serving at')} ${BLUE('http://localhost:3000')}`);
 
   await esbuildServer.wait;

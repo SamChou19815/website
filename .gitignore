@@ -24,6 +24,7 @@
 # framework generated files
 **/.firebase
 **/.next
+**/.temp
 .vscode/pnpify
 .docusaurus
 .cache-loader

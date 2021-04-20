@@ -12,7 +12,9 @@ build({
   target: 'es2019',
   format: 'iife',
   outfile: 'index.js',
-  banner: { js: `#!/usr/bin/env node\n/* eslint-disable */\n// prettier-ignore` },
+  banner: {
+    js: `#!/usr/bin/env node --unhandled-rejections=strict\n/* eslint-disable */\n// prettier-ignore`,
+  },
   plugins: [
     pnpPlugin({
       async onResolve(_, resolvedPath) {
@@ -21,7 +23,7 @@ build({
           resolvedPath.includes('esbuild-npm') ||
           resolvedPath.includes('node-html-parser-npm') ||
           resolvedPath.includes('html-minifier-npm') ||
-          resolvedPath.includes('esbuild-plugin-sass-npm') ||
+          resolvedPath.includes('sass-npm') ||
           resolvedPath.includes('@yarnpkg-esbuild-plugin-pnp')
         ) {
           return { external: true };

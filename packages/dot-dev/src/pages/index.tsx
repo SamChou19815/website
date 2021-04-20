@@ -1,14 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import initializeThemeSwitching from 'lib-react/theme-switcher-initializer';
-
-import 'infima/dist/css/default/default.min.css';
-import './index.css';
-
-if (!__SERVER__) {
-  initializeThemeSwitching();
-}
-
 type Author = { readonly authorName: string; readonly authorWebsite: string };
 
 type FanArtWork = {
