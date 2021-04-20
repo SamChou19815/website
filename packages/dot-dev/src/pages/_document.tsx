@@ -4,7 +4,7 @@ import Head from 'esbuild-scripts/components/Head';
 import initializeThemeSwitching from 'lib-react/theme-switcher-initializer';
 
 import 'infima/dist/css/default/default.min.css';
-import './index.css';
+import './index.scss';
 
 if (!__SERVER__) {
   initializeThemeSwitching();
