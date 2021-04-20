@@ -34,8 +34,6 @@ const startCommand = async (): Promise<void> => {
     {
       ...baseESBuildConfig({}),
       entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
-      publicPath: '/',
-      assetNames: 'assets/[name]-[hash]',
       sourcemap: 'inline',
       outdir: 'public',
     }
