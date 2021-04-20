@@ -8277,7 +8277,7 @@ __metadata:
     "@types/node": ^14.14.41
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
-    esbuild-scripts: "workspace:0.1.1"
+    esbuild-scripts: "workspace:0.2.0"
     infima: 0.2.0-alpha.21
     lib-common: 0.0.1
     lib-react: 0.1.0
@@ -9140,7 +9140,7 @@ __metadata:
     "@types/node": ^14.14.41
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
-    esbuild-scripts: "workspace:0.1.1"
+    esbuild-scripts: "workspace:0.2.0"
     infima: 0.2.0-alpha.21
     lib-react: 0.1.0
     react: ^17.0.2
@@ -9492,7 +9492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-scripts@workspace:0.1.1, esbuild-scripts@workspace:packages/esbuild-scripts":
+"esbuild-scripts@workspace:0.2.0, esbuild-scripts@workspace:packages/esbuild-scripts":
   version: 0.0.0-use.local
   resolution: "esbuild-scripts@workspace:packages/esbuild-scripts"
   dependencies:
@@ -18968,7 +18968,7 @@ resolve@^2.0.0-next.3:
     "@types/node": ^14.14.41
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
-    esbuild-scripts: "workspace:0.1.1"
+    esbuild-scripts: "workspace:0.2.0"
     infima: 0.2.0-alpha.21
     lib-common: 0.0.1
     react: ^17.0.2
@@ -20739,7 +20739,7 @@ typescript@^4.2.4:
     "@types/node": ^14.14.41
     "@types/react": ^17.0.3
     "@types/react-dom": ^17.0.3
-    esbuild-scripts: "workspace:0.1.1"
+    esbuild-scripts: "workspace:0.2.0"
     infima: 0.2.0-alpha.21
     lib-common: 0.0.1
     lib-in-memory-filesystem: 0.1.0
