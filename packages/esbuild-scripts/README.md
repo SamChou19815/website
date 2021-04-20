@@ -4,7 +4,7 @@ A fast, opinioned web development toolkit for building React based websites.
 
 ## Features
 
-- Building single-page applications in React
+- Building multi-page applications in React with automatic routing.
 - Generating static website with React
 - Generating static website without JS
 
@@ -16,43 +16,17 @@ Installing by
 yarn add esbuild-scripts
 ```
 
-Then add `types.d.ts` with the following content to a folder that is included in your
-`tsconfig.json`:
-
-```typescript
-/// <reference types="esbuild-scripts" />
-```
-
-After that, add your entrypoint React component in `src/App.tsx`:
-
-```typescript
-import React from 'react';
-
-export default function App() {
-  return <div>I am the entry point!</div>;
-}
-```
-
-Finally, create a `public` folder and add in your HTML:
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>React App</title>
-  </head>
-  <body>
-    <!-- The following line is absolutely needed! -->
-    <div id="root"></div>
-  </body>
-</html>
-```
+Then run `yarn esbuild-scripts init`, which will bootstrap your app.
 
 ## Commands
 
+### `esbuild-scripts init`
+
+Bootstraps an `esbuild-scripts`-powered React app.
+
 ### `esbuild-scripts start`
 
-Starts a devserver at http://localhost:3000.
+Starts a devserver at `http://localhost:3000`.
 
 ### `esbuild-scripts build`
 
@@ -65,6 +39,11 @@ Generate a static site saturated with pre-rendered HTML.
 If `--no-js` flag is passed, then no JavaScript will be attached to the HTML.
 
 ## Guides
+
+### Filesystem-based Routing
+
+Every JS/TS file inside `src/pages` is treated as a routable page. `src/pages/_document` serves as a
+general template for all pages.
 
 ### Client/Server only code
 
@@ -91,6 +70,21 @@ import './app.scss';
 // Unfortunately, css modules are not supported.
 // import styles from './App.module.css';
 ```
+
+## Components
+
+### `Head`
+
+Ex-exports of `react-helmet`'s `Helmet` component. It allows you to customize your `head` part of
+HTML. It works with server-side rendering.
+
+### `Link`
+
+Ex-exports of `react-router-dom`'s `Link` component. It allows you to transition to another route.
+
+### `SSRSuspense`
+
+A wrapper around React's `Suspense`, but works under server-side rendering.
 
 ## FAQ
 

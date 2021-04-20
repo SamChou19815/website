@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import { createServer, request } from 'http';
 import { join } from 'path';
 
@@ -74,6 +72,7 @@ const startCommand = async (): Promise<void> => {
     req.pipe(proxyReq, { end: true });
   }).listen(3000);
 
+  // eslint-disable-next-line no-console
   console.error(`${GREEN('Serving at')} ${BLUE('http://localhost:3000')}`);
 
   await esbuildServer.wait;

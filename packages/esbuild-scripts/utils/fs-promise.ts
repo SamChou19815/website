@@ -1,12 +1,12 @@
 import {
   NoParamCallback,
-  copyFile,
   lstat,
   mkdir,
   readdir,
   rm,
   rmdir,
   unlink,
+  copyFile as copyFileCallback,
   readFile as readFileCallback,
   writeFile as writeFileCallback,
 } from 'fs';
@@ -48,13 +48,16 @@ export const copyDirectoryContent = async (
       if (await isDirectory(fullSourcePath)) {
         await copyDirectoryContent(fullSourcePath, fullDestinationPath);
       } else {
-        await new Promise<void>((resolve, reject) =>
-          copyFile(fullSourcePath, fullDestinationPath, createNoParamCallback(resolve, reject))
-        );
+        await copyFile(fullSourcePath, fullDestinationPath);
       }
     })
   );
 };
+
+export const copyFile = (sourceFile: string, destinationFile: string): Promise<void> =>
+  new Promise((resolve, reject) =>
+    copyFileCallback(sourceFile, destinationFile, createNoParamCallback(resolve, reject))
+  );
 
 export const emptyDirectory = async (path: string): Promise<void> => {
   const files = await readDirectoryPrimitive(path);

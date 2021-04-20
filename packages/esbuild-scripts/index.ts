@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 
 import buildCommand from './command-build';
+import initCommand from './command-init';
 import startCommand from './command-start';
 
 import { RED, BLUE } from 'lib-colorful-terminal/colors';
@@ -17,6 +18,9 @@ function help() {
 async function runner() {
   const command = process.argv[2] || '';
   switch (command) {
+    case 'init':
+      await initCommand();
+      return true;
     case 'start':
       await startCommand();
       return true;
