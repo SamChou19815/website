@@ -21,8 +21,7 @@ build({
         if (
           resolvedPath == null ||
           resolvedPath.includes('esbuild-npm') ||
-          resolvedPath.includes('sass-npm') ||
-          resolvedPath.includes('@yarnpkg-esbuild-plugin-pnp')
+          resolvedPath.includes('sass-npm')
         ) {
           return { external: true };
         }
