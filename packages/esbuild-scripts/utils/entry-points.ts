@@ -26,7 +26,7 @@ export const getServerTemplate = (paths: readonly string[]): string => `${GENERA
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import Helmet from 'esbuild-scripts/Head'
+import Helmet from 'esbuild-scripts/components/Head'
 
 import Document from '../src/pages/_document.tsx';
 ${paths.map((path, i) => `import Page${i} from '../src/pages/${path}';`).join('\n')}

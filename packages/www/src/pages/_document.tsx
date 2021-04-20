@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import ReactGA from 'react-ga';
 import { RecoilRoot } from 'recoil';
 
-import Head from 'esbuild-scripts/Head';
+import Head from 'esbuild-scripts/components/Head';
 import initializeThemeSwitching from 'lib-react/theme-switcher-initializer';
 
 import 'infima/dist/css/default/default.min.css';

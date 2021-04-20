@@ -4,17 +4,17 @@ import { dirname, join, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
 
+import baseESBuildConfig from './esbuild/esbuild-config';
 import {
   TEMP_SERVER_ENTRY_PATH,
   SSR_CSS_PATH,
   SSR_JS_PATH,
   TEMP_PATH,
   BUILD_PATH,
-} from './constants';
-import { createEntryPointsGeneratedFiles } from './entry-points';
-import baseESBuildConfig from './esbuild-config';
-import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './fs-promise';
-import getGeneratedHTML, { SSRResult } from './html-generator';
+} from './utils/constants';
+import { createEntryPointsGeneratedFiles } from './utils/entry-points';
+import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './utils/fs-promise';
+import getGeneratedHTML, { SSRResult } from './utils/html-generator';
 
 import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 

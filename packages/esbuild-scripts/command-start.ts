@@ -5,10 +5,10 @@ import { join } from 'path';
 
 import { serve } from 'esbuild';
 
-import { TEMP_PATH } from './constants';
-import { createEntryPointsGeneratedFiles } from './entry-points';
-import baseESBuildConfig from './esbuild-config';
-import getGeneratedHTML from './html-generator';
+import baseESBuildConfig from './esbuild/esbuild-config';
+import { TEMP_PATH } from './utils/constants';
+import { createEntryPointsGeneratedFiles } from './utils/entry-points';
+import getGeneratedHTML from './utils/html-generator';
 
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 

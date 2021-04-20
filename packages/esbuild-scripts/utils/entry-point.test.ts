@@ -26,7 +26,7 @@ it('getServerTemplate works', () => {
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import Helmet from 'esbuild-scripts/Head'
+import Helmet from 'esbuild-scripts/components/Head'
 
 import Document from '../src/pages/_document.tsx';
 import Page0 from '../src/pages/foo/bar';
