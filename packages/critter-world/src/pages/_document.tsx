@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 
-import Head from 'esbuild-scripts/Head';
+import Head from 'esbuild-scripts/components/Head';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';

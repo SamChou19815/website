@@ -1,87 +1,106 @@
-import React, { ReactElement } from 'react';
-import { BrowserRouter, StaticRouter, Switch, Route, Link } from 'react-router-dom';
+import React, { ReactElement, useState } from 'react';
 
-import LocalGameCard from '../components/LocalGameCard';
-import PlayAgainstAIGameCard from '../components/PlayAgainstAIGameCard';
+import GameCard from '../components/GameCard';
+import {
+  Move,
+  Board,
+  emptyBoard,
+  getGameStatus,
+  makeMove,
+  makeMoveWithoutCheck,
+  boardToJson,
+} from '../game/board';
+import type { GameState, GameStates } from '../game/game-state';
+import type { MctsResponse } from '../game/mcts';
 
-import 'infima/dist/css/default/default.min.css';
-import './index.css';
-import './game.css';
+import { checkNotNull } from 'lib-common';
 
-function SSRLink({ to, children }: Readonly<{ to: string; children: string }>): ReactElement {
-  if (__SERVER__) {
-    return (
-      <a className="navbar__item navbar__link" href={to}>
-        {children}
-      </a>
-    );
+const computeCanShowGameStarterButtons = (
+  gameStates: GameStates,
+  playerCanMove: boolean
+): boolean => {
+  switch (getGameStatus(gameStates.currentState.board)) {
+    case 0:
+      if (playerCanMove) return gameStates.previousState == null;
+      return false;
+    case 1:
+    case -1:
+      return true;
   }
-  return (
-    <Link className="navbar__item navbar__link" to={to}>
-      {children}
-    </Link>
-  );
-}
+};
 
-function Rules(): ReactElement {
-  return (
-    <div className="card">
-      <div className="card__header">Rules</div>
-      <div className="card__body">
-        The rules are mostly the same with the original&nbsp;
-        <a href="https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe">
-          TEN game (Ultimate tic-tac-toe)
-        </a>
-        , except that a draw is a win for white in this game. AI thinking time is 1.5s.
-      </div>
-    </div>
-  );
-}
+const aiResponder = (board: Board): Promise<GameState> =>
+  fetch('https://us-central1-developer-sam.cloudfunctions.net/HandleTenAIMoveRequest', {
+    method: 'POST',
+    body: JSON.stringify(boardToJson(board)),
+  })
+    .then((resp): Promise<MctsResponse> => resp.json())
+    .then((json) => {
+      const { move, winningPercentage, simulationCounter } = json;
+      const newBoardAfterAI = makeMoveWithoutCheck(board, move);
+      return { board: newBoardAfterAI, aiInfo: { winningPercentage, simulationCounter } };
+    });
 
-function Body(): ReactElement {
+export default function PlayAgainstAIGameCard(): ReactElement {
+  const [gameStates, setGameStates] = useState<GameStates>({
+    currentState: { board: emptyBoard },
+  });
+  const [playerIdentity, setPlayerIdentity] = useState<'Black' | 'White'>('Black');
+  const [playerCanMove, setPlayerCanMove] = useState(true);
+  const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
+
+  const clickCellCallback = (board: Board, move: Move): void => {
+    const newBoard = makeMove(board, move);
+    if (newBoard === null) {
+      setPlayerMadeIllegalMove(true);
+      return;
+    }
+    setPlayerMadeIllegalMove(false);
+    setGameStates((previousState) => ({
+      previousState,
+      currentState: { board: newBoard },
+    }));
+    setPlayerCanMove(false);
+    aiResponder(newBoard).then((currentState) => {
+      setPlayerCanMove(true);
+      setGameStates((previousState) => ({ ...previousState, currentState }));
+    });
+  };
+
+  const onSelectSide = (id: 'Black' | 'White') => {
+    const newBoard = id === 'Black' ? emptyBoard : makeMoveWithoutCheck(emptyBoard, [4, 4]);
+    setPlayerIdentity(id);
+    setGameStates({ currentState: { board: newBoard } });
+  };
+
   return (
-    <div>
-      <nav className="navbar">
-        <div className="navbar__inner">
-          <div className="navbar__items">
-            <a className="navbar__brand" href="/">
-              <img className="navbar__logo" src="/logo.png" alt="TEN App logo" />
-              <strong className="navbar__title">TEN</strong>
-            </a>
-          </div>
-          <div className="navbar__items navbar__items--right">
-            <SSRLink to="/">Play against AI</SSRLink>
-            <SSRLink to="/local">Play locally</SSRLink>
-            <SSRLink to="/rules">Rules</SSRLink>
-            <a className="navbar__item navbar__link" href="https://developersam.com">
-              Home
-            </a>
-          </div>
+    <GameCard
+      gameState={gameStates.currentState}
+      playerIdentity={playerIdentity}
+      playerCanMove={playerCanMove && getGameStatus(gameStates.currentState.board) === 0}
+      playerMadeIllegalMove={playerMadeIllegalMove}
+      showUndoButton={playerCanMove && gameStates.previousState != null}
+      clickCallback={(a, b) => clickCellCallback(gameStates.currentState.board, [a, b])}
+      onUndoMove={() => {
+        setGameStates((currentState) => checkNotNull(currentState.previousState));
+      }}
+    >
+      {computeCanShowGameStarterButtons(gameStates, playerCanMove) && (
+        <div className="card__footer">
+          <button
+            className="button button--outline button--primary"
+            onClick={() => onSelectSide('Black')}
+          >
+            Play as Black
+          </button>
+          <button
+            className="button button--outline button--primary"
+            onClick={() => onSelectSide('White')}
+          >
+            Play as White
+          </button>
         </div>
-      </nav>
-      <Switch>
-        <Route path="/local">
-          <LocalGameCard />
-        </Route>
-        <Route path="/rules">
-          <Rules />
-        </Route>
-        <Route path="/">
-          <PlayAgainstAIGameCard />
-        </Route>
-      </Switch>
-    </div>
-  );
-}
-
-export default function App(): ReactElement {
-  return __SERVER__ ? (
-    <StaticRouter location="/">
-      <Body />
-    </StaticRouter>
-  ) : (
-    <BrowserRouter>
-      <Body />
-    </BrowserRouter>
+      )}
+    </GameCard>
   );
 }

@@ -5,10 +5,10 @@ import { join } from 'path';
 
 import { serve } from 'esbuild';
 
-import { TEMP_PATH } from './constants';
-import { createEntryPointsGeneratedFiles } from './entry-points';
-import baseESBuildConfig from './esbuild-config';
-import getGeneratedHTML from './html-generator';
+import baseESBuildConfig from './esbuild/esbuild-config';
+import { TEMP_PATH } from './utils/constants';
+import { createEntryPointsGeneratedFiles } from './utils/entry-points';
+import getGeneratedHTML from './utils/html-generator';
 
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
@@ -26,7 +26,7 @@ const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
 const getHTML = (entryPoint: string) =>
   getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], { esModule: false });
 
-export default async function startCommand(): Promise<void> {
+const startCommand = async (): Promise<void> => {
   const entryPoints = await createEntryPointsGeneratedFiles();
 
   const esbuildServer = await serve(
@@ -80,4 +80,6 @@ export default async function startCommand(): Promise<void> {
 
   await esbuildServer.wait;
   proxyServer.close();
-}
+};
+
+export default startCommand;
