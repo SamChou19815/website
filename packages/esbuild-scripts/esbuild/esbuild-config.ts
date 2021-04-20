@@ -17,7 +17,7 @@ const baseESBuildConfig = ({
   bundle: true,
   minify: false,
   target: 'es2019',
-  logLevel: 'warning',
+  logLevel: 'error',
   loader: {
     '.jpg': 'file',
     '.jpeg': 'file',

@@ -9,11 +9,18 @@ export const getClientTemplate = (path: string): string => `${GENERATED_COMMENT}
 
 import React from 'react';
 import { hydrate, render } from 'react-dom';
+import BrowserRouter from 'esbuild-scripts/__internal-components__/BrowserRouter';
 
 import Document from '../src/pages/_document.tsx';
 import Page from '../src/pages/${path}';
 
-const element = <Document><Page /></Document>;
+const element = (
+  <BrowserRouter>
+    <Document>
+      <Page />
+    </Document>
+  </BrowserRouter>
+);
 const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) {
   hydrate(element, rootElement);

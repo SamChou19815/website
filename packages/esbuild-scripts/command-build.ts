@@ -50,7 +50,6 @@ async function getSSRFunction(): Promise<SSRFunction | null> {
     entryPoints: [TEMP_SERVER_ENTRY_PATH],
     platform: 'node',
     format: 'cjs',
-    logLevel: 'error',
     outfile: SSR_JS_PATH,
   });
   try {
