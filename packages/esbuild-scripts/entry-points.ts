@@ -5,16 +5,6 @@ import { emptyDirectory, ensureDirectory, readDirectory, writeFile } from './fs-
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
-export const CLIENT_STARTER_HTML = `<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-</html>
-`;
-
 export const getClientTemplate = (path: string): string => `${GENERATED_COMMENT}
 
 import React from 'react';
@@ -57,7 +47,7 @@ module.exports = (path) => {
  * @returns a list of entry point paths under `src/pages`.
  * The paths will be relativized against `src/pages` and with extensions removed.
  */
-export const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
+const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
   await ensureDirectory(PAGES_PATH);
   const allPaths = await readDirectory(PAGES_PATH, true);
   return allPaths

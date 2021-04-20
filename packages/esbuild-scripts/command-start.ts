@@ -6,7 +6,7 @@ import { join } from 'path';
 import { serve } from 'esbuild';
 
 import { TEMP_PATH } from './constants';
-import { CLIENT_STARTER_HTML, createEntryPointsGeneratedFiles } from './entry-points';
+import { createEntryPointsGeneratedFiles } from './entry-points';
 import baseESBuildConfig from './esbuild-config';
 import getGeneratedHTML from './html-generator';
 
@@ -34,6 +34,8 @@ export default async function startCommand(): Promise<void> {
     {
       ...baseESBuildConfig({}),
       entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
+      publicPath: '/',
+      assetNames: 'assets/[name]-[hash]',
       sourcemap: 'inline',
       outdir: 'public',
     }
