@@ -39,10 +39,10 @@ export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): Re
   return (
     <div className="board-grid">
       {children}
-      <div className="board-horizontal-line board-horizontal-line-1" />
-      <div className="board-horizontal-line board-horizontal-line-2" />
-      <div className="board-vertical-line board-vertical-line-1" />
-      <div className="board-vertical-line board-vertical-line-2" />
+      <div className="h-line l1" />
+      <div className="h-line l2" />
+      <div className="v-line l1" />
+      <div className="v-line l2" />
     </div>
   );
 }

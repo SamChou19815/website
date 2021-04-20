@@ -8,7 +8,7 @@ import initializeThemeSwitching from 'lib-react/theme-switcher-initializer';
 import 'infima/dist/css/default/default.min.css';
 import 'lib-react/PrismCodeBlock.css';
 import 'lib-web-terminal/styles.css';
-import './index.css';
+import './index.scss';
 import './app.scss';
 
 if (process.env.NODE_ENV === 'production' && !__SERVER__) {
