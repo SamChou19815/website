@@ -26,7 +26,7 @@ const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
 const getHTML = (entryPoint: string) =>
   getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], { esModule: false });
 
-export default async function startCommand(): Promise<void> {
+const startCommand = async (): Promise<void> => {
   const entryPoints = await createEntryPointsGeneratedFiles();
 
   const esbuildServer = await serve(
@@ -80,4 +80,6 @@ export default async function startCommand(): Promise<void> {
 
   await esbuildServer.wait;
   proxyServer.close();
-}
+};
+
+export default startCommand;

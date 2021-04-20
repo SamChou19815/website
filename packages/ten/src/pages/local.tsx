@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 
+import GameCard from '../components/GameCard';
 import { Move, Board, emptyBoard, makeMove } from '../game/board';
 import type { GameStates } from '../game/game-state';
-import GameCard from './GameCard';
 
 import { checkNotNull } from 'lib-common';
 

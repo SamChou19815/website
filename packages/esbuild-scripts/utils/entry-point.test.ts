@@ -3,19 +3,29 @@ import { getClientTemplate, getServerTemplate } from './entry-points';
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
 it('getClientTemplate works', () => {
-  expect(getClientTemplate('foo/bar')).toBe(`${GENERATED_COMMENT}
+  expect(getClientTemplate('index', ['foo/bar', 'bar/baz', 'index', 'baz/index']))
+    .toBe(`${GENERATED_COMMENT}
 
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { hydrate, render } from 'react-dom';
-import BrowserRouter from 'esbuild-scripts/__internal-components__/BrowserRouter';
+import { BrowserRouter, Route, Switch } from 'esbuild-scripts/__internal-components__/react-router';
 
 import Document from '../src/pages/_document.tsx';
-import Page from '../src/pages/foo/bar';
+import Page from '../src/pages/';
+
+const Component0 = lazy(() => import('../src/pages/foo/bar'));
+const Component1 = lazy(() => import('../src/pages/bar/baz'));
+const Component2 = lazy(() => import('../src/pages/baz'));
 
 const element = (
   <BrowserRouter>
     <Document>
-      <Page />
+      <Switch>
+        <Route exact path="/"><Page /></Route>
+        <Route exact path="/foo/bar"><Suspense fallback={null}><Component0 /></Suspense></Route>
+        <Route exact path="/bar/baz"><Suspense fallback={null}><Component1 /></Suspense></Route>
+        <Route exact path="/baz"><Suspense fallback={null}><Component2 /></Suspense></Route>
+      </Switch>
     </Document>
   </BrowserRouter>
 );

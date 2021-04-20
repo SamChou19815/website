@@ -7,12 +7,6 @@ import 'infima/dist/css/default/default.min.css';
 import './index.css';
 import './game.css';
 
-const SSRLink = ({ to, children }: Readonly<{ to: string; children: string }>) => (
-  <Link className="navbar__item navbar__link" to={to}>
-    {children}
-  </Link>
-);
-
 const Document = ({ children }: { readonly children: ReactNode }): ReactElement => (
   <>
     <Head>
@@ -33,9 +27,15 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
           </a>
         </div>
         <div className="navbar__items navbar__items--right">
-          <SSRLink to="/">Play against AI</SSRLink>
-          <SSRLink to="/local">Play locally</SSRLink>
-          <SSRLink to="/rules">Rules</SSRLink>
+          <Link className="navbar__item navbar__link" to="/">
+            Play against AI
+          </Link>
+          <Link className="navbar__item navbar__link" to="/local">
+            Play locally
+          </Link>
+          <Link className="navbar__item navbar__link" to="/rules">
+            Rules
+          </Link>
           <a className="navbar__item navbar__link" href="https://developersam.com">
             Home
           </a>

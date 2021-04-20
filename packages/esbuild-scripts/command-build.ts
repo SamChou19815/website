@@ -18,7 +18,7 @@ import getGeneratedHTML, { SSRResult } from './utils/html-generator';
 
 import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
-async function generateBundle(entryPoints: readonly string[]) {
+const generateBundle = async (entryPoints: readonly string[]): Promise<readonly string[]> => {
   const { outputFiles } = await build({
     ...baseESBuildConfig({ isProd: true }),
     entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
@@ -40,11 +40,11 @@ async function generateBundle(entryPoints: readonly string[]) {
     })
   );
   return outputFiles.map(({ path }) => relative(absoluteBuildDirectory, path));
-}
+};
 
 type SSRFunction = (path: string) => SSRResult;
 
-async function getSSRFunction(): Promise<SSRFunction | null> {
+const getSSRFunction = async (): Promise<SSRFunction | null> => {
   await build({
     ...baseESBuildConfig({ isServer: true, isProd: true }),
     entryPoints: [TEMP_SERVER_ENTRY_PATH],
@@ -66,12 +66,12 @@ async function getSSRFunction(): Promise<SSRFunction | null> {
   } finally {
     await Promise.all([remove(SSR_JS_PATH), remove(SSR_CSS_PATH)]);
   }
-}
+};
 
-export default async function buildCommand({
+const buildCommand = async ({
   staticSiteGeneration,
   noJS,
-}: Readonly<{ staticSiteGeneration: boolean; noJS: boolean }>): Promise<boolean> {
+}: Readonly<{ staticSiteGeneration: boolean; noJS: boolean }>): Promise<boolean> => {
   const startTime = new Date().getTime();
   console.error(YELLOW('[i] Bundling...'));
   const entryPoints = await createEntryPointsGeneratedFiles();
@@ -112,4 +112,6 @@ export default async function buildCommand({
   const totalTime = new Date().getTime() - startTime;
   console.error(`⚡ ${GREEN(`Build success in ${totalTime}ms.`)}`);
   return true;
-}
+};
+
+export default buildCommand;

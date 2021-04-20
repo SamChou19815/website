@@ -5,19 +5,40 @@ import { emptyDirectory, ensureDirectory, readDirectory, writeFile } from './fs-
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
-export const getClientTemplate = (path: string): string => `${GENERATED_COMMENT}
+const rewriteEntryPointPathForRouting = (path: string): string => {
+  if (!path.endsWith('index')) return path;
+  return path.substring(0, path.length - (path.endsWith('/index') ? 6 : 5));
+};
 
-import React from 'react';
+export const getClientTemplate = (path: string, paths: readonly string[]): string => {
+  const normalizedSelfPath = rewriteEntryPointPathForRouting(path);
+  const normalizedPaths = paths.filter((it) => it !== path).map(rewriteEntryPointPathForRouting);
+
+  return `${GENERATED_COMMENT}
+
+import React, { Suspense, lazy } from 'react';
 import { hydrate, render } from 'react-dom';
-import BrowserRouter from 'esbuild-scripts/__internal-components__/BrowserRouter';
+import { BrowserRouter, Route, Switch } from 'esbuild-scripts/__internal-components__/react-router';
 
 import Document from '../src/pages/_document.tsx';
-import Page from '../src/pages/${path}';
+import Page from '../src/pages/${normalizedSelfPath}';
+
+${normalizedPaths
+  .map((otherPath, i) => `const Component${i} = lazy(() => import('../src/pages/${otherPath}'));`)
+  .join('\n')}
 
 const element = (
   <BrowserRouter>
     <Document>
-      <Page />
+      <Switch>
+        <Route exact path="/${normalizedSelfPath}"><Page /></Route>
+${normalizedPaths
+  .map(
+    (otherPath, i) =>
+      `        <Route exact path="/${otherPath}"><Suspense fallback={null}><Component${i} /></Suspense></Route>`
+  )
+  .join('\n')}
+      </Switch>
     </Document>
   </BrowserRouter>
 );
@@ -28,6 +49,7 @@ if (rootElement.hasChildNodes()) {
   render(element, rootElement);
 }
 `;
+};
 
 export const getServerTemplate = (paths: readonly string[]): string => `${GENERATED_COMMENT}
 
@@ -82,7 +104,7 @@ export const createEntryPointsGeneratedFiles = async (): Promise<readonly string
     ...entryPoints.map(async (path) => {
       const fullPath = join(TEMP_PATH, `${path}.jsx`);
       await ensureDirectory(dirname(fullPath));
-      await writeFile(fullPath, getClientTemplate(path));
+      await writeFile(fullPath, getClientTemplate(path, entryPoints));
     }),
     writeFile(TEMP_SERVER_ENTRY_PATH, getServerTemplate(entryPoints)),
   ]);
