@@ -38,8 +38,8 @@ export const copyDirectoryContent = async (
   sourceDirectory: string,
   targetDirectory: string
 ): Promise<void> => {
-  ensureDirectory(targetDirectory);
-  emptyDirectory(targetDirectory);
+  await ensureDirectory(targetDirectory);
+  await emptyDirectory(targetDirectory);
 
   await Promise.all(
     (await readDirectoryPrimitive(sourceDirectory)).map(async (file) => {

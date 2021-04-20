@@ -1,19 +1,34 @@
-import { join, resolve } from 'path';
+import { dirname, resolve } from 'path';
 
 import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
 import type { Plugin } from 'esbuild';
-import sassPlugin from 'esbuild-plugin-sass';
+import { Result as SassResult, render } from 'sass';
 
 const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',
   setup(buildConfig) {
     buildConfig.onResolve({ filter: /data:/ }, () => ({ external: true }));
-    buildConfig.onResolve({ filter: /USER_DEFINED_APP_ENTRY_POINT/ }, () => ({
-      path: resolve(join('src', 'App.tsx')),
-    }));
   },
 };
 
-const esbuildPlugins: Plugin[] = [webAppResolvePlugin, sassPlugin(), pnpPlugin()];
+const sassPlugin: Plugin = {
+  name: 'sass',
+  setup(buildConfig) {
+    buildConfig.onResolve({ filter: /.\.(scss|sass)$/ }, async (args) => ({
+      path: resolve(dirname(args.importer), args.path),
+    }));
+
+    buildConfig.onLoad({ filter: /.\.(scss|sass)$/ }, async (args) => {
+      const { css } = await new Promise<SassResult>((promiseResolve, reject) => {
+        render({ file: args.path }, (error, result) => {
+          error ? reject(error) : promiseResolve(result);
+        });
+      });
+      return { contents: css.toString(), loader: 'css', watchFiles: [args.path] };
+    });
+  },
+};
+
+const esbuildPlugins: Plugin[] = [webAppResolvePlugin, sassPlugin, pnpPlugin()];
 
 export default esbuildPlugins;

@@ -1,26 +1,27 @@
 /* eslint-disable no-console */
 
-import { dirname, resolve, relative } from 'path';
+import { dirname, join, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
 
 import {
-  BUILD_HTML_PATH,
-  CLIENT_ENTRY,
-  SERVER_ENTRY,
+  TEMP_SERVER_ENTRY_PATH,
   SSR_CSS_PATH,
   SSR_JS_PATH,
+  TEMP_PATH,
+  BUILD_PATH,
 } from './constants';
+import { createEntryPointsGeneratedFiles } from './entry-points';
 import baseESBuildConfig from './esbuild-config';
-import { copyDirectoryContent, ensureDirectory, readFile, remove, writeFile } from './fs-promise';
-import htmlWithElementsAttached from './html-rewriter';
+import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './fs-promise';
+import getGeneratedHTML, { SSRResult } from './html-generator';
 
 import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
-async function generateBundle() {
+async function generateBundle(entryPoints: readonly string[]) {
   const { outputFiles } = await build({
     ...baseESBuildConfig({ isProd: true }),
-    entryPoints: [CLIENT_ENTRY],
+    entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
     assetNames: 'assets/[name]-[hash]',
     chunkNames: 'chunks/[name]-[hash]',
     entryNames: '[dir]/[name]-[hash]',
@@ -40,10 +41,12 @@ async function generateBundle() {
   return outputFiles.map(({ path }) => relative(absoluteBuildDirectory, path));
 }
 
-async function performSSR(): Promise<string | null> {
+type SSRFunction = (path: string) => SSRResult;
+
+async function getSSRFunction(): Promise<SSRFunction | null> {
   await build({
     ...baseESBuildConfig({ isServer: true, isProd: true }),
-    entryPoints: [SERVER_ENTRY],
+    entryPoints: [TEMP_SERVER_ENTRY_PATH],
     platform: 'node',
     format: 'cjs',
     logLevel: 'error',
@@ -65,30 +68,46 @@ async function performSSR(): Promise<string | null> {
   }
 }
 
-async function attachResults(rootHTML: string | null, files: readonly string[], noJS: boolean) {
-  const htmlFile = await readFile(BUILD_HTML_PATH);
-  const finalHTML = htmlWithElementsAttached(htmlFile.toString(), rootHTML, files, {
-    esModule: true,
-    noJS,
-  });
-  await writeFile(BUILD_HTML_PATH, finalHTML);
-}
-
 export default async function buildCommand({
   staticSiteGeneration,
   noJS,
 }: Readonly<{ staticSiteGeneration: boolean; noJS: boolean }>): Promise<boolean> {
   const startTime = new Date().getTime();
   console.error(YELLOW('[i] Bundling...'));
+  const entryPoints = await createEntryPointsGeneratedFiles();
   await copyDirectoryContent('public', 'build');
+
+  let outputFiles: readonly string[];
+  let ssrFunction: SSRFunction | null;
   if (staticSiteGeneration) {
-    const [outputFiles, rootHTML] = await Promise.all([generateBundle(), performSSR()]);
-    if (rootHTML == null) return false;
-    await attachResults(rootHTML, outputFiles, noJS);
+    [outputFiles, ssrFunction] = await Promise.all([generateBundle(entryPoints), getSSRFunction()]);
+    if (ssrFunction == null) return false;
   } else {
-    const outputFiles = await generateBundle();
-    await attachResults(null, outputFiles, noJS);
+    outputFiles = await generateBundle(entryPoints);
+    ssrFunction = null;
   }
+  const generatedHTMLs = entryPoints.map((entryPoint) => {
+    const relevantOutputFiles = outputFiles.filter(
+      (it) => it.startsWith('chunk') || it.startsWith(entryPoint)
+    );
+    const html = getGeneratedHTML(ssrFunction?.(entryPoint), relevantOutputFiles, {
+      esModule: true,
+      noJS,
+    });
+    return { entryPoint, html };
+  });
+  await Promise.all(
+    generatedHTMLs.map(async ({ entryPoint, html }) => {
+      let path: string;
+      if (entryPoint.endsWith('index')) {
+        path = join(BUILD_PATH, `${entryPoint}.html`);
+      } else {
+        path = join(BUILD_PATH, entryPoint, 'index.html');
+      }
+      await ensureDirectory(dirname(path));
+      await writeFile(path, html);
+    })
+  );
 
   const totalTime = new Date().getTime() - startTime;
   console.error(`⚡ ${GREEN(`Build success in ${totalTime}ms.`)}`);
