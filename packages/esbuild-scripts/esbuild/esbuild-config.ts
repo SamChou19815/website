@@ -18,14 +18,6 @@ const baseESBuildConfig = ({
   minify: false,
   target: 'es2019',
   logLevel: 'error',
-  loader: {
-    '.jpg': 'file',
-    '.jpeg': 'file',
-    '.gif': 'file',
-    '.png': 'file',
-    '.webp': 'file',
-    '.pdf': 'file',
-  },
   plugins: esbuildPlugins,
 });
 

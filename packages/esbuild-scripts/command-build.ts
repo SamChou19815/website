@@ -22,7 +22,6 @@ const generateBundle = async (entryPoints: readonly string[]): Promise<readonly 
   const { outputFiles } = await build({
     ...baseESBuildConfig({ isProd: true }),
     entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
-    publicPath: '/',
     assetNames: 'assets/[name]-[hash]',
     chunkNames: 'chunks/[name]-[hash]',
     entryNames: '[dir]/[name]-[hash]',
