@@ -14,62 +14,33 @@ export const getClientTemplate = (path: string, paths: readonly string[]): strin
   const normalizedSelfPath = rewriteEntryPointPathForRouting(path);
   const normalizedPaths = paths.filter((it) => it !== path).map(rewriteEntryPointPathForRouting);
 
+  const lazyImports = normalizedPaths
+    .map((otherPath, i) => `const Component${i} = lazy(() => import('../src/pages/${otherPath}'));`)
+    .join('');
+  const lazyLoadedRoutes = normalizedPaths
+    .map(
+      (otherPath, i) =>
+        `<Route exact path="/${otherPath}"><Suspense fallback={null}><Component${i} /></Suspense></Route>`
+    )
+    .join('');
+  const routes = `<Switch><Route exact path="/${normalizedSelfPath}"><Page /></Route>${lazyLoadedRoutes}</Switch>`;
+
   return `${GENERATED_COMMENT}
-
-import React, { Suspense, lazy } from 'react';
-import { hydrate, render } from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'esbuild-scripts/__internal-components__/react-router';
-
-import Document from '../src/pages/_document.tsx';
-import Page from '../src/pages/${normalizedSelfPath}';
-
-${normalizedPaths
-  .map((otherPath, i) => `const Component${i} = lazy(() => import('../src/pages/${otherPath}'));`)
-  .join('\n')}
-
-const element = (
-  <BrowserRouter>
-    <Document>
-      <Switch>
-        <Route exact path="/${normalizedSelfPath}"><Page /></Route>
-${normalizedPaths
-  .map(
-    (otherPath, i) =>
-      `        <Route exact path="/${otherPath}"><Suspense fallback={null}><Component${i} /></Suspense></Route>`
-  )
-  .join('\n')}
-      </Switch>
-    </Document>
-  </BrowserRouter>
-);
-const rootElement = document.getElementById('root');
-if (rootElement.hasChildNodes()) {
-  hydrate(element, rootElement);
-} else {
-  render(element, rootElement);
-}
+import React,{Suspense,lazy}from'react';import{hydrate,render}from'react-dom';
+import {BrowserRouter,Route,Switch}from'esbuild-scripts/__internal-components__/react-router';
+import Document from '../src/pages/_document.tsx';import Page from '../src/pages/${normalizedSelfPath}';${lazyImports}
+const element = <BrowserRouter><Document>${routes}</Document></BrowserRouter>;const rootElement = document.getElementById('root');
+if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(element, rootElement);
 `;
 };
 
 export const getServerTemplate = (paths: readonly string[]): string => `${GENERATED_COMMENT}
-
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import Helmet from 'esbuild-scripts/components/Head'
-
-import Document from '../src/pages/_document.tsx';
-${paths.map((path, i) => `import Page${i} from '../src/pages/${path}';`).join('\n')}
-
-const components = {
-${paths.map((path, i) => `  '${path}': Page${i},`).join('\n')}
-};
-
-module.exports = (path) => {
-  const Page = components[path];
-  const divHTML = renderToString(<Document><Page /></Document>);
-  const helmet = Helmet.renderStatic();
-  return { divHTML, helmet };
-};
+import{createElement as h}from'react';import{renderToString}from'react-dom/server';import Helmet from 'esbuild-scripts/components/Head';
+import Document from '../src/pages/_document.tsx';${paths
+  .map((path, i) => `import Page${i} from '../src/pages/${path}';`)
+  .join('')}
+const map = { ${paths.map((path, i) => `'${path}': Page${i}`).join(', ')} };
+module.exports = (path) => ({ divHTML: renderToString(h(Document, {}, h(map[path]))), helmet: Helmet.renderStatic() });
 `;
 
 /**
