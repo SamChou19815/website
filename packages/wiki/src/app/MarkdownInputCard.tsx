@@ -1,10 +1,10 @@
-import usePrismTheme from '@theme/hooks/usePrismTheme';
 import clsx from 'clsx';
 import React, { ReactElement } from 'react';
 
 import styles from './MarkdownInputCard.module.css';
 
 import PrismCodeEditor from 'lib-react/PrismCodeEditor';
+import theme from 'lib-react/prism-theme.json';
 
 type Props = {
   readonly title: string;
@@ -25,8 +25,6 @@ const MarkdownInputCard = ({
   onCodeChange,
   onSubmit,
 }: Props): ReactElement => {
-  const theme = usePrismTheme();
-
   return (
     <div className={clsx('card', className)}>
       <div className="card__header">

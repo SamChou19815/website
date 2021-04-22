@@ -1,7 +1,5 @@
 const path = require('path');
 
-const { ProvidePlugin } = require('webpack');
-
 const setupPlugin = () => ({
   name: 'lib-docusaurus-plugin',
   getThemePath() {
@@ -9,10 +7,6 @@ const setupPlugin = () => ({
   },
   getClientModules() {
     return [require.resolve('lib-react/PrismCodeBlock.css')];
-  },
-  configureWebpack(config) {
-    config.plugins.push(new ProvidePlugin({ React: 'react' }));
-    return true;
   },
 });
 

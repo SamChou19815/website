@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React, { ReactElement, useState } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
+import PermissionViewer from './PermissionViewer';
 import PrivateDocumentContentEditorModal from './PrivateDocumentContentEditorModal';
 import PrivateDocumentMetadataEditor from './PrivateDocumentMetadataEditor';
 import { isAdminUser } from './authentication';
@@ -76,13 +77,17 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
     return (
       <main className={clsx('container', className)}>
         <h1>Hello {getAppUser().displayName}</h1>
-        {!isAdmin ? (
-          <div>Select a document on the left</div>
-        ) : (
+        {isAdmin && (
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
             Create new document
           </button>
         )}
+        {isAdmin && (
+          <div className="vertical-margin-1em">
+            <PermissionViewer />
+          </div>
+        )}
+        {!isAdmin && <div>Select a document on the left</div>}
       </main>
     );
   }
