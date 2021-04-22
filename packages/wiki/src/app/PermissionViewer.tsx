@@ -20,11 +20,7 @@ const PermissionViewer = (): ReactElement => {
     )
     .join('');
 
-  return (
-    <div className="container">
-      <MarkdownBlock markdownCode={`# Permission Viewer\n\n${body}`} />
-    </div>
-  );
+  return <MarkdownBlock markdownCode={`## Permissions List\n\n${body}`} />;
 };
 
 export default PermissionViewer;

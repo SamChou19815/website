@@ -14,8 +14,7 @@
   "dependencies": {
     "@docusaurus/types": "2.0.0-alpha.73",
     "lib-prism-extended": "workspace:0.1.0",
-    "lib-react": "workspace:0.1.0",
-    "webpack": "^4.46.0"
+    "lib-react": "workspace:0.1.0"
   },
   "peerDependencies": {
     "prism-react-renderer": "^1.1.1"

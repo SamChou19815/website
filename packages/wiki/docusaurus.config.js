@@ -15,6 +15,10 @@ module.exports = {
   favicon: 'https://developersam.com/favicon.ico',
   themeConfig: {
     prism: { theme },
+    colorMode: {
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     navbar: {
       title: 'Wiki',
       logo: {
