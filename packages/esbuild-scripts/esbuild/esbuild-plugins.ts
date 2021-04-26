@@ -1,8 +1,9 @@
 import { dirname, resolve } from 'path';
 
-import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
 import type { Plugin } from 'esbuild';
 import { Result as SassResult, render } from 'sass';
+
+import pnpPlugin from './esbuild-pnp-plugin';
 
 const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',

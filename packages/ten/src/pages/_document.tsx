@@ -33,6 +33,9 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
           <Link className="navbar__item navbar__link" to="/local">
             Play locally
           </Link>
+          <Link className="navbar__item navbar__link" to="/online">
+            Play online
+          </Link>
           <Link className="navbar__item navbar__link" to="/rules">
             Rules
           </Link>
