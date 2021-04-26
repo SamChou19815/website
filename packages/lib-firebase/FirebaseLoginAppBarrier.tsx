@@ -2,10 +2,11 @@ import './firebase-initializer';
 import firebase from 'firebase/app';
 import React, { ReactElement, useState, useEffect } from 'react';
 
-import styles from './FirebaseLoginAppBarrier.module.css';
 import { appUser$, hasAppUser } from './authentication';
 
 import LoadingOverlay from 'lib-react/LoadingOverlay';
+
+import './FirebaseLoginAppBarrier.css';
 
 const firebaseLoginProvider = new firebase.auth.GithubAuthProvider();
 
@@ -41,7 +42,7 @@ const FirebaseLoginAppBarrier = ({ children }: Props): ReactElement => {
   switch (appStatus) {
     case 'LANDING':
       return (
-        <div className={styles.SimplePageCenter}>
+        <div className="firebase-login-app-barrier-button">
           <button className="button button--primary" onClick={onLoginClick}>
             Login
           </button>

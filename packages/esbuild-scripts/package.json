@@ -36,6 +36,7 @@
     "@types/html-minifier": "^4.0.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.0",
+    "@types/pnpapi": "^0.0.1",
     "@types/sass": "^1.16.0",
     "@yarnpkg/esbuild-plugin-pnp": "^1.0.0-rc.2",
     "lib-colorful-terminal": "workspace:0.1.0",

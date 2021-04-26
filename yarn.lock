@@ -4730,6 +4730,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/pnpapi@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@types/pnpapi@npm:0.0.1"
+  checksum: dacd29efe47a3e47950b50a08d43e0276863e2b3b56d0fb2e5ff75ddac0c1df954b72d4a21bc30cbd3469d8efb78085a167ed7e25f48e86b43fde022fcb7bb6d
+  languageName: node
+  linkType: hard
+
 "@types/prettier@npm:^2.0.0":
   version: 2.1.5
   resolution: "@types/prettier@npm:2.1.5"
@@ -9512,6 +9519,7 @@ __metadata:
     "@types/html-minifier": ^4.0.0
     "@types/jest": ^26.0.23
     "@types/node": ^15.0.0
+    "@types/pnpapi": ^0.0.1
     "@types/react": ^17.0.4
     "@types/react-dom": ^17.0.3
     "@types/react-helmet": ^6.1.1
