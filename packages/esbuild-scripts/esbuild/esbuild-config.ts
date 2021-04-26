@@ -16,6 +16,8 @@ const baseESBuildConfig = ({
   },
   bundle: true,
   minify: false,
+  legalComments: 'linked',
+  platform: 'browser',
   target: 'es2019',
   logLevel: 'error',
   plugins: esbuildPlugins,
