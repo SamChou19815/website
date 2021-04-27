@@ -1,9 +1,17 @@
-import firebase from 'firebase/app';
+import {
+  FirestoreDataConverter,
+  collection,
+  doc,
+  onSnapshot,
+  updateDoc,
+  setDoc,
+} from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 
 import { Board, emptyBoard } from '../game/board';
 
 import { getAppUser } from 'lib-firebase/authentication';
+import firestore from 'lib-firebase/database';
 
 export type FirestoreOnlineGameData = {
   readonly gameID: string;
@@ -12,17 +20,21 @@ export type FirestoreOnlineGameData = {
   readonly board: Board;
 };
 
-const gameDataCollection = firebase
-  .firestore()
-  .collection('ten-app-games')
-  .withConverter<Omit<FirestoreOnlineGameData, 'gameID'>>({
-    toFirestore(data: Omit<FirestoreOnlineGameData, 'gameID'>) {
-      return data;
-    },
-    fromFirestore(snapshot) {
-      return snapshot.data() as Omit<FirestoreOnlineGameData, 'gameID'>;
-    },
-  });
+const converter: FirestoreDataConverter<Omit<FirestoreOnlineGameData, 'gameID'>> = {
+  toFirestore(data: Omit<FirestoreOnlineGameData, 'gameID'>) {
+    return data;
+  },
+  fromFirestore(snapshot) {
+    return snapshot.data() as Omit<FirestoreOnlineGameData, 'gameID'>;
+  },
+};
+
+const gameDataCollection = collection(firestore, 'ten-app-games').withConverter(converter);
+
+const gameDoc = (gameID?: string) =>
+  gameID == null
+    ? doc(gameDataCollection).withConverter(converter)
+    : doc(gameDataCollection, gameID).withConverter(converter);
 
 export const useFirestoreOnlineGameData = (
   gameID?: string
@@ -31,7 +43,7 @@ export const useFirestoreOnlineGameData = (
 
   useEffect(() => {
     if (gameID == null) return () => {};
-    return gameDataCollection.doc(gameID).onSnapshot((snapshot) => {
+    return onSnapshot(gameDoc(gameID), (snapshot) => {
       const data = snapshot.data();
       setGameData(data == null ? undefined : { ...data, gameID });
     });
@@ -50,11 +62,11 @@ export const startFirestoreOnlineTENGame = (
     whitePlayerEmail,
     board: emptyBoard,
   };
-  const document = gameDataCollection.doc();
-  document.set(gameData);
+  const document = gameDoc();
+  setDoc(document, gameData);
   return { ...gameData, gameID: document.id };
 };
 
 export const makeMoveInFirestoreOnlineTENGame = (gameID: string, board: Board): void => {
-  gameDataCollection.doc(gameID).update({ board });
+  updateDoc(gameDoc(gameID), { board });
 };

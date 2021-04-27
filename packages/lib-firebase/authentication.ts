@@ -1,5 +1,7 @@
-import firebase from 'firebase/app';
+import { Auth, User, getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { Observable } from 'rxjs';
+
+import firebaseApp from './firebase-initializer';
 
 export type AppUser = {
   readonly uid: string;
@@ -14,7 +16,7 @@ export type AppUser = {
  * @param firebaseUser a raw firebase user or null.
  * @return the promise of an app user or null if there is no such user..
  */
-export const toAppUser = async (firebaseUser: firebase.User | null): Promise<AppUser | null> => {
+export const toAppUser = async (firebaseUser: User | null): Promise<AppUser | null> => {
   if (firebaseUser == null) {
     return null;
   }
@@ -46,9 +48,9 @@ export const getAppUser = (): AppUser => {
   throw new Error('App is not initialized.');
 };
 
-const firebaseAuth = firebase.auth();
+export const firebaseAuth: Auth = getAuth(firebaseApp);
 
-const appUserAsyncProcessor = async (user: firebase.User | null) => {
+const appUserAsyncProcessor = async (user: User | null) => {
   const appUserOptional = await toAppUser(user);
   if (appUserOptional != null) {
     cacheAppUser(appUserOptional);
@@ -58,7 +60,7 @@ const appUserAsyncProcessor = async (user: firebase.User | null) => {
 
 /** @returns a globally cached app user obserable, directly from firebase auth. */
 export const appUser$: Observable<AppUser | null> = new Observable((subscriber) => {
-  const unsubscribe = firebaseAuth.onAuthStateChanged(async (user) => {
+  const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
     const appUserOptional = await appUserAsyncProcessor(user);
     subscriber.next(appUserOptional);
   });
@@ -67,8 +69,5 @@ export const appUser$: Observable<AppUser | null> = new Observable((subscriber) 
 
 /** Sign out from firebase auth. */
 export const firebaseSignOut = (): void => {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {});
+  signOut(firebaseAuth).then(() => {});
 };

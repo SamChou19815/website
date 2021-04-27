@@ -9,7 +9,7 @@
     "deploy": "netlify deploy -d build -s ten.developersam.com --prod"
   },
   "dependencies": {
-    "firebase": "^8.4.2",
+    "firebase": "^9.0.0-beta.1",
     "infima": "0.2.0-alpha.22",
     "lib-common": "0.0.1",
     "lib-firebase": "0.1.0",

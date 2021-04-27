@@ -1,17 +1,16 @@
-import './firebase-initializer';
-import firebase from 'firebase/app';
+import { GithubAuthProvider, signInWithPopup } from 'firebase/auth';
 import React, { ReactElement, useState, useEffect } from 'react';
 
-import { appUser$, hasAppUser } from './authentication';
+import { appUser$, firebaseAuth, hasAppUser } from './authentication';
 
 import LoadingOverlay from 'lib-react/LoadingOverlay';
 
 import './FirebaseLoginAppBarrier.css';
 
-const firebaseLoginProvider = new firebase.auth.GithubAuthProvider();
+const firebaseLoginProvider = new GithubAuthProvider();
 
 const onLoginClick = () => {
-  firebase.auth().signInWithPopup(firebaseLoginProvider);
+  signInWithPopup(firebaseAuth, firebaseLoginProvider);
 };
 
 type Props = {
