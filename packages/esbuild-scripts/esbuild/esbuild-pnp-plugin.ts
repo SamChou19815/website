@@ -1,24 +1,16 @@
 // Forked from https://github.com/yarnpkg/berry/blob/master/packages/esbuild-plugin-pnp/sources/index.ts
 
 import * as fs from 'fs';
-import { join } from 'path';
 
 import type { OnLoadArgs, Plugin, PluginBuild } from 'esbuild';
 import type PnpApi from 'pnpapi';
 
+import resolveRequest from './pnp-resolution';
+
 const matchAll = /()/;
-const extensions = ['.tsx', '.ts', '.jsx', '.mjs', '.cjs', '.js', '.css', '.json'];
-
-const read = async (path: string) => fs.promises.readFile(path, 'utf8');
-
-const isRootPackagePath = (path: string) => {
-  if (path.startsWith('.')) return false;
-  const pathWithoutNamespace = path.startsWith('@') ? path.substring(path.indexOf('/') + 1) : path;
-  return !pathWithoutNamespace.includes('/');
-};
 
 const pnpPlugin = (): Plugin => ({
-  name: '@yarnpkg/esbuild-plugin-pnp',
+  name: 'esbuild-scripts-esbuild-plugin-pnp',
   setup(build: PluginBuild) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
     const { findPnpApi } = require('module');
@@ -32,25 +24,14 @@ const pnpPlugin = (): Plugin => ({
       // Path isn't controlled by PnP so delegate to the next resolver in the chain
       if (!pnpApi) return undefined;
 
-      const pnpResolvedPath = pnpApi.resolveRequest(args.path, effectiveImporter, {
-        considerBuiltins: true,
-        extensions,
-      });
+      const pnpResolvedPath = resolveRequest(
+        args.path,
+        effectiveImporter,
+        pnpApi,
+        build.initialOptions.platform !== 'node'
+      );
       if (pnpResolvedPath == null) return { external: true };
 
-      if (build.initialOptions.platform === 'browser' && isRootPackagePath(args.path)) {
-        // Source path is a package. We want to ensure we are using the browser field.
-        const packageLocator = pnpApi.findPackageLocator(pnpResolvedPath);
-        if (packageLocator != null) {
-          const packagePath = pnpApi.getPackageInformation(packageLocator).packageLocation;
-          const { browser }: { browser?: string } = await read(
-            join(packagePath, 'package.json')
-          ).then((it) => JSON.parse(it));
-          if (typeof browser === 'string') {
-            return { namespace: 'pnp', path: join(packagePath, browser) };
-          }
-        }
-      }
       return { namespace: 'pnp', path: pnpResolvedPath };
     });
 
@@ -59,7 +40,7 @@ const pnpPlugin = (): Plugin => ({
     // the zip archives.
     if (build.onLoad !== null) {
       build.onLoad({ filter: matchAll }, async (args: OnLoadArgs) => ({
-        contents: await read(args.path),
+        contents: await fs.promises.readFile(args.path, 'utf8'),
         loader: 'default',
       }));
     }
