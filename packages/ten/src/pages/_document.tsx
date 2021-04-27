@@ -3,6 +3,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import Head from 'esbuild-scripts/components/Head';
 import Link from 'esbuild-scripts/components/Link';
 
+import 'lib-firebase/firebase-initializer';
 import 'infima/dist/css/default/default.min.css';
 import './index.scss';
 import './game.scss';
