@@ -10,11 +10,11 @@
     "deploy": "netlify deploy -d build -s blog.developersam.com --prod"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.73",
-    "@docusaurus/plugin-google-analytics": "2.0.0-alpha.73",
-    "@docusaurus/plugin-google-gtag": "2.0.0-alpha.73",
-    "@docusaurus/plugin-sitemap": "2.0.0-alpha.73",
-    "@docusaurus/preset-classic": "2.0.0-alpha.73",
+    "@docusaurus/core": "2.0.0-alpha.74",
+    "@docusaurus/plugin-google-analytics": "2.0.0-alpha.74",
+    "@docusaurus/plugin-google-gtag": "2.0.0-alpha.74",
+    "@docusaurus/plugin-sitemap": "2.0.0-alpha.74",
+    "@docusaurus/preset-classic": "2.0.0-alpha.74",
     "@mdx-js/react": "^1.6.4",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-react": "0.1.0",

@@ -9,7 +9,7 @@
     "deploy": "netlify deploy -d build -s developersam.com --prod"
   },
   "dependencies": {
-    "infima": "0.2.0-alpha.22",
+    "infima": "0.2.0-alpha.23",
     "lib-common": "0.0.1",
     "lib-in-memory-filesystem": "0.1.0",
     "lib-react": "0.1.0",

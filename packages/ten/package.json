@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "firebase": "^9.0.0-beta.1",
-    "infima": "0.2.0-alpha.22",
+    "infima": "0.2.0-alpha.23",
     "lib-common": "0.0.1",
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
