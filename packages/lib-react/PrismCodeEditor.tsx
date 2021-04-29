@@ -8,12 +8,11 @@
 // Credit: Adapted from https://github.com/satya164/react-simple-code-editor/blob/master/src/index.js
 
 import autosize from 'autosize';
-import clsx from 'clsx';
 import type { PrismTheme } from 'prism-react-renderer';
 import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import CodeBlock from './PrismCodeBlock';
-import styles from './PrismCodeEditor.module.css';
+import './PrismCodeEditor.css';
 
 import { checkNotNull } from 'lib-common';
 
@@ -227,10 +226,10 @@ const PrismCodeEditor = ({
   };
 
   return (
-    <div className={styles.EditorContainer}>
+    <div className="prism-code-editor-container">
       <textarea
         ref={inputRef}
-        className={clsx(styles.Editor, styles.TextArea)}
+        className="prism-code-editor text-area"
         value={code}
         onChange={(event) => onCodeChange(event.currentTarget.value)}
         onKeyDown={handleKeyDown}
@@ -242,7 +241,7 @@ const PrismCodeEditor = ({
       />
       <CodeBlock
         language={language}
-        className={`${styles.Editor} ${styles.CodeBlock}`}
+        className={`prism-code-editor code-block`}
         theme={theme}
         style={{ height: codeBlockHeight + 16 }}
       >

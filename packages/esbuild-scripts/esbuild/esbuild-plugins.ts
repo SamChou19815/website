@@ -19,7 +19,8 @@ const webAppResolvePlugin: Plugin = {
     buildConfig.onLoad(
       { filter: /NODE_BUILTIN_STREAM/, namespace: 'shimmed-node-builtin' },
       () => ({
-        contents: 'export function Readable(){};export function Writable(){};',
+        contents:
+          'export function Readable(){};export function Writable(){};export default {Readable,Writable};',
       })
     );
 

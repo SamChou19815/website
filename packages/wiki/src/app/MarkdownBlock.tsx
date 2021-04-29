@@ -1,19 +1,18 @@
 import React, { ReactElement } from 'react';
 import { renderToString } from 'react-dom/server';
-import * as remarkable from 'remarkable';
+import { Remarkable } from 'remarkable';
 
 import PrismCodeBlock from 'lib-react/PrismCodeBlock';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore: TypeScript type definition has problems. :(
-const markdownRenderer: Remarkable = new remarkable.Remarkable({
-  typeGrapher: true,
-  highlight: (code: string, language: string): string =>
-    renderToString(
+const markdownRenderer: Remarkable = new Remarkable({
+  typographer: true,
+  highlight: (code: string, language: string): string => {
+    return renderToString(
       <PrismCodeBlock language={language} excludeWrapper>
-        {code}
+        {code.trim()}
       </PrismCodeBlock>
-    ),
+    );
+  },
 });
 
 type Props = { readonly className?: string; readonly markdownCode: string };

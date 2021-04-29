@@ -1,7 +1,4 @@
----
-id: resources-cs
-title: CS Resources
----
+# CS Resources
 
 ## Learning CS
 

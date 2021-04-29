@@ -1,7 +1,4 @@
----
-id: oss-roadmap-2020-h2
-title: Open Source Roadmap 2020 H2
----
+# Open Source Roadmap 2020 H2
 
 ## samlang
 

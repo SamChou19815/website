@@ -31,6 +31,7 @@ const PrismCodeBlock = ({
   return (
     <Highlight
       {...defaultProps}
+      Prism={Prism}
       theme={userDefinedTheme || flexibleTheme}
       code={children}
       language={language as Language}

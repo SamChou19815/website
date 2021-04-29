@@ -4738,6 +4738,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/highlight.js@npm:^9.7.0":
+  version: 9.12.4
+  resolution: "@types/highlight.js@npm:9.12.4"
+  checksum: 3aea09c0961ea5054be8ea4756d8936756b2c72e568b45a4a5cc8ab7aa8eaf1e9090bf9bc00f12c1b15ba71b3450a9068b6e6e768fad8ef072f2c864d75c922e
+  languageName: node
+  linkType: hard
+
 "@types/history@npm:*":
   version: 4.7.8
   resolution: "@types/history@npm:4.7.8"
@@ -5002,10 +5009,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/remarkable@npm:1.7.4":
-  version: 1.7.4
-  resolution: "@types/remarkable@npm:1.7.4"
-  checksum: 5ba1ca461a44cac5a324490d633db05db229072a481e77e1f968bb84e0bbb3e5d44ff89d8b0217f35c183022c877a47a47f431c7872c99e5d9b48ae9fbe74df2
+"@types/remarkable@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@types/remarkable@npm:2.0.1"
+  dependencies:
+    "@types/highlight.js": ^9.7.0
+    highlight.js: ^9.7.0
+  checksum: 9f05c03fb1c86ee28655a09de1e82d7766df025ec06d146a10341528312ca9432b8e05800455934824821bd623b9e0e3884ecd741706404df0119818b3564b4c
   languageName: node
   linkType: hard
 
@@ -11639,6 +11649,13 @@ fsevents@~2.3.1:
   version: 1.1.0
   resolution: "hex-color-regex@npm:1.1.0"
   checksum: 89899f5f74cdef884e352fe8791018f2f112c338b97f3b486f7d5f4760a9c58181f688eb147937f9f2dd69c976a7296b53d1509c9a0871903eeb26a8382e486c
+  languageName: node
+  linkType: hard
+
+"highlight.js@npm:^9.7.0":
+  version: 9.18.5
+  resolution: "highlight.js@npm:9.18.5"
+  checksum: dea74c216cec83604e35cd3187aa9fa7a7da4876d1da6519a7bb1b635566e6525fcb3a3d8f2158a11e930499acee9506c710c5121ce30d328342af2e49fe59da
   languageName: node
   linkType: hard
 
@@ -20905,22 +20922,18 @@ typescript@^4.2.4:
   version: 0.0.0-use.local
   resolution: "wiki@workspace:packages/wiki"
   dependencies:
-    "@docusaurus/core": 2.0.0-alpha.74
-    "@docusaurus/module-type-aliases": 2.0.0-alpha.74
-    "@docusaurus/preset-classic": 2.0.0-alpha.74
-    "@docusaurus/theme-classic": 2.0.0-alpha.74
-    "@mdx-js/react": ^1.6.4
     "@types/node": ^15.0.0
     "@types/react": ^17.0.4
     "@types/react-dom": ^17.0.3
-    "@types/remarkable": 1.7.4
+    "@types/remarkable": 2.0.1
     clsx: ^1.1.1
+    esbuild-scripts: "workspace:0.2.1"
     firebase: ^9.0.0-beta.1
+    infima: 0.2.0-alpha.23
     lib-common: 0.0.1
     lib-docusaurus-plugin: 0.1.0
     lib-firebase: 0.1.0
     lib-react: 0.1.0
-    prism-react-renderer: ^1.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
     remarkable: ^2.0.1

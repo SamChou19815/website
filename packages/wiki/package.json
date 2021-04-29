@@ -3,35 +3,30 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
+    "start": "esbuild-scripts start",
+    "build": "esbuild-scripts ssg",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s wiki.developersam.com --prod"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.74",
-    "@docusaurus/preset-classic": "2.0.0-alpha.74",
-    "@docusaurus/theme-classic": "2.0.0-alpha.74",
-    "@mdx-js/react": "^1.6.4",
     "clsx": "^1.1.1",
     "firebase": "^9.0.0-beta.1",
+    "infima": "0.2.0-alpha.23",
     "lib-common": "0.0.1",
     "lib-docusaurus-plugin": "0.1.0",
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
-    "prism-react-renderer": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remarkable": "^2.0.1",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-alpha.74",
     "@types/node": "^15.0.0",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
-    "@types/remarkable": "1.7.4",
+    "@types/remarkable": "2.0.1",
+    "esbuild-scripts": "workspace:0.2.1",
     "typescript": "^4.2.4"
   },
   "browserslist": {

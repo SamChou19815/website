@@ -1,21 +1,8 @@
-import clsx from 'clsx';
 import React, { useState, ReactElement } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
-import styles from './MarkdownEditorWithPreview.module.css';
 import MarkdownInputCard from './MarkdownInputCard';
 import { isAdminUser } from './authentication';
-
-const MarkdownPreviewCard = ({ markdownCode }: { readonly markdownCode: string }): ReactElement => {
-  return (
-    <div className={clsx('card', styles.ParallelCard)}>
-      <div className="card__header">
-        <h2>Markdown Preview</h2>
-      </div>
-      <MarkdownBlock className="card__body" markdownCode={markdownCode} />
-    </div>
-  );
-};
 
 type Props = {
   readonly initialTitle: string;
@@ -32,17 +19,22 @@ const MarkdownEditorWithPreview = ({
   const [code, setCode] = useState(initialMarkdownCode);
 
   return (
-    <div className={styles.MarkdownEditorWithPreview}>
+    <div className="markdown-editor-with-preview">
       <MarkdownInputCard
         title={title}
         code={code}
-        className={styles.ParallelCard}
+        className="parallel-card"
         showSaveButton={isAdminUser()}
         onTitleChange={setTitle}
         onCodeChange={setCode}
         onSubmit={onSubmit}
       />
-      <MarkdownPreviewCard markdownCode={`# ${title}\n\n${code}`} />
+      <div className="card parallel-card">
+        <div className="card__header">
+          <h2>Markdown Preview</h2>
+        </div>
+        <MarkdownBlock className="card__body" markdownCode={`# ${title}\n\n${code}`} />
+      </div>
     </div>
   );
 };
