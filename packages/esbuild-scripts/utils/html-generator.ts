@@ -1,8 +1,10 @@
 import type { HelmetData } from 'react-helmet';
 
-export type SSRResult = { readonly divHTML: string; readonly helmet: HelmetData };
-
-type IncludeFilesConfig = { readonly esModule: boolean; readonly noJS?: boolean };
+export type SSRResult = {
+  readonly divHTML: string;
+  readonly noJS: boolean;
+  readonly helmet: HelmetData;
+};
 
 const scriptElement = (href: string, esModule: boolean) =>
   esModule ? `<script type="module" src="/${href}"></script>` : `<script src="/${href}"></script>`;
@@ -10,7 +12,7 @@ const scriptElement = (href: string, esModule: boolean) =>
 const linkScriptElement = (href: string, esModule: boolean) =>
   `<link rel="${esModule ? 'modulepreload' : 'preload'}" href="/${href}" />`;
 
-const getLinks = (files: readonly string[], { esModule, noJS }: IncludeFilesConfig) => {
+const getLinks = (files: readonly string[], esModule: boolean, noJS?: boolean) => {
   const jsFiles: string[] = [];
   const cssFiles: string[] = [];
   files.forEach((filename) => {
@@ -43,9 +45,9 @@ const getHeadHTML = (headLinks: string, helmet?: HelmetData) => {
 const getGeneratedHTML = (
   ssrResult: SSRResult | undefined,
   files: readonly string[],
-  config: IncludeFilesConfig
+  esModule: boolean
 ): string => {
-  const { headLinks, bodyScriptLinks } = getLinks(files, config);
+  const { headLinks, bodyScriptLinks } = getLinks(files, esModule, ssrResult?.noJS);
   if (ssrResult == null) {
     const head = getHeadHTML(headLinks);
     const body = `<body><div id="root"></div>${bodyScriptLinks}</body>`;

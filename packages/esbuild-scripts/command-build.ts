@@ -67,10 +67,7 @@ const getSSRFunction = async (): Promise<SSRFunction | null> => {
   }
 };
 
-const buildCommand = async ({
-  staticSiteGeneration,
-  noJS,
-}: Readonly<{ staticSiteGeneration: boolean; noJS: boolean }>): Promise<boolean> => {
+const buildCommand = async (staticSiteGeneration: boolean): Promise<boolean> => {
   const startTime = new Date().getTime();
   console.error(YELLOW('[i] Bundling...'));
   const entryPoints = await createEntryPointsGeneratedFiles();
@@ -89,10 +86,7 @@ const buildCommand = async ({
     const relevantOutputFiles = outputFiles.filter(
       (it) => it.startsWith('chunk') || it.startsWith(entryPoint)
     );
-    const html = getGeneratedHTML(ssrFunction?.(entryPoint), relevantOutputFiles, {
-      esModule: true,
-      noJS,
-    });
+    const html = getGeneratedHTML(ssrFunction?.(entryPoint), relevantOutputFiles, true);
     return { entryPoint, html };
   });
   await Promise.all(
