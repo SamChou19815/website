@@ -22,7 +22,7 @@ const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
 };
 
 const getHTML = (entryPoint: string) =>
-  getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], { esModule: false });
+  getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], false);
 
 const startCommand = async (): Promise<void> => {
   const entryPoints = await createEntryPointsGeneratedFiles();

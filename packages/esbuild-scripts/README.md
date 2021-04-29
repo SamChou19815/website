@@ -32,11 +32,9 @@ Starts a devserver at `http://localhost:3000`.
 
 Bundle a SPA and output the result in `build` folder.
 
-### `esbuild-scripts ssg [--no-js]`
+### `esbuild-scripts ssg`
 
 Generate a static site saturated with pre-rendered HTML.
-
-If `--no-js` flag is passed, then no JavaScript will be attached to the HTML.
 
 ## Guides
 
@@ -58,6 +56,23 @@ if (__SERVER__) {
   alert('HAHA I AM IN BROWSER!');
 }
 ```
+
+### Disable JS
+
+You can disable JS on specific pages by adding `noJS = true` attribute on your exported React
+component. For example,
+
+```typescript
+import React from 'react';
+
+const IndexPage = () => <div />;
+IndexPage.noJS = true;
+
+export default IndexPage;
+```
+
+This is only available in `ssg` mode. In addition, `esbuild-scripts` will not attempt to check
+whether excluding the JS will results in broken site.
 
 ### CSS
 

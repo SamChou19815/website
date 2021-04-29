@@ -89,4 +89,6 @@ const ArtsPage = (): ReactElement => (
   </div>
 );
 
+ArtsPage.noJS = true;
+
 export default ArtsPage;

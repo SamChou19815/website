@@ -25,9 +25,9 @@ async function runner() {
       await startCommand();
       return true;
     case 'ssg':
-      return buildCommand({ staticSiteGeneration: true, noJS: process.argv.includes('--no-js') });
+      return buildCommand(true);
     case 'build':
-      return buildCommand({ staticSiteGeneration: false, noJS: false });
+      return buildCommand(false);
     case 'help':
     case '--help':
       help();

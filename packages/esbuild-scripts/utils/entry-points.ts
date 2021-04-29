@@ -40,7 +40,7 @@ import Document from '../src/pages/_document.tsx';${paths
   .map((path, i) => `import Page${i} from '../src/pages/${path}';`)
   .join('')}
 const map = { ${paths.map((path, i) => `'${path}': Page${i}`).join(', ')} };
-module.exports = (path) => ({ divHTML: renderToString(h(Document, {}, h(map[path]))), helmet: Helmet.renderStatic() });
+module.exports = (path) => ({ divHTML: renderToString(h(Document, {}, h(map[path]))), noJS: map[path].noJS, helmet: Helmet.renderStatic() });
 `;
 
 /**
