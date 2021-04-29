@@ -21,7 +21,8 @@ build({
         if (
           resolvedPath == null ||
           resolvedPath.includes('esbuild-npm') ||
-          resolvedPath.includes('sass-npm')
+          resolvedPath.includes('sass-npm') ||
+          resolvedPath.includes('mdx-js')
         ) {
           return { external: true };
         }
