@@ -1,8 +1,8 @@
-.App {
+.intern-app {
   display: flex;
 }
 
-.DocumentSidebarContainer {
+.intern-app-sidebar-container {
   border-right: 1px solid var(--ifm-toc-border-color);
   box-sizing: border-box;
   width: 300px;
@@ -10,7 +10,7 @@
   margin-top: calc(-1 * var(--ifm-navbar-height));
 }
 
-.DocumentMainContainer {
+.intern-app-document-container {
   flex-grow: 1;
   padding: 1em;
 }

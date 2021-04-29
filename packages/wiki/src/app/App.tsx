@@ -1,6 +1,5 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
-import styles from './App.module.css';
 import PrivateDocumentPanel from './PrivateDocumentPanel';
 import Sidebar from './Sidebar';
 import { useWikiPrivateDocumentsMetadata } from './documents';
@@ -28,15 +27,15 @@ const App = (): ReactElement => {
   );
 
   return (
-    <div className={styles.App}>
+    <div className="intern-app">
       <Sidebar
-        className={styles.DocumentSidebarContainer}
+        className="intern-app-sidebar-container"
         selectedDocumentID={documentID}
         documentMetadataList={documentMetadataList}
       />
       <PrivateDocumentPanel
         key={documentMetadata?.documentID ?? ''}
-        className={styles.DocumentMainContainer}
+        className="intern-app-document-container"
         documentMetadata={documentMetadata}
       />
     </div>

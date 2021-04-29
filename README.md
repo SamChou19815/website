@@ -2,10 +2,6 @@
 
 This is a monorepo of Sam's [website](https://developersam.com).
 
-## Documentation
-
-See [Wiki](https://wiki.developersam.com).
-
 ## License
 
 All the source code is licensed under [AGPL-v3](./LICENSE).
