@@ -4,6 +4,8 @@ import React, { ReactElement, Suspense, lazy } from 'react';
 
 import LoadingOverlay from 'lib-react/LoadingOverlay';
 
+import '../css/app.css';
+
 // Lazy import is necessary for conditional execution below,
 // since firebase/app code cannot be executed in SSR environments.
 const FirebaseLoginAppBarrier = lazy(() => import('lib-firebase/FirebaseLoginAppBarrier'));

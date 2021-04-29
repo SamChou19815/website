@@ -38,3 +38,22 @@ pre {
 .vertical-margin-1em {
   margin: 1em 0;
 }
+
+.index-hero-banner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 966px) {
+  .index-hero-banner {
+    padding: 2rem;
+  }
+}
+
+.index-page-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
