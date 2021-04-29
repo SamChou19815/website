@@ -1,4 +1,4 @@
-import { dirname, extname, join } from 'path';
+import { dirname, extname, join, relative } from 'path';
 
 import { PAGES_PATH, TEMP_PATH, TEMP_SERVER_ENTRY_PATH } from './constants';
 import { emptyDirectory, ensureDirectory, readDirectory, writeFile } from './fs-promise';
@@ -13,9 +13,13 @@ const rewriteEntryPointPathForRouting = (path: string): string => {
 export const getClientTemplate = (path: string, paths: readonly string[]): string => {
   const normalizedSelfPath = rewriteEntryPointPathForRouting(path);
   const normalizedPaths = paths.filter((it) => it !== path).map(rewriteEntryPointPathForRouting);
+  const importPageBase = join(relative(dirname(path), '..'), 'src', 'pages');
 
   const lazyImports = normalizedPaths
-    .map((otherPath, i) => `const Component${i} = lazy(() => import('../src/pages/${otherPath}'));`)
+    .map(
+      (otherPath, i) =>
+        `const Component${i} = lazy(() => import('${importPageBase}/${otherPath}'));`
+    )
     .join('');
   const lazyLoadedRoutes = normalizedPaths
     .map(
@@ -28,7 +32,7 @@ export const getClientTemplate = (path: string, paths: readonly string[]): strin
   return `${GENERATED_COMMENT}
 import React,{Suspense,lazy}from'react';import{hydrate,render}from'react-dom';
 import {BrowserRouter,Route,Switch}from'esbuild-scripts/__internal-components__/react-router';
-import Document from '../src/pages/_document.tsx';import Page from '../src/pages/${normalizedSelfPath}';${lazyImports}
+import Document from '${importPageBase}/_document.tsx';import Page from '${importPageBase}/${normalizedSelfPath}';${lazyImports}
 const element = <BrowserRouter><Document>${routes}</Document></BrowserRouter>;const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(element, rootElement);
 `;
