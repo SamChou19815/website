@@ -1,6 +1,6 @@
-import DocSidebar from '@theme/DocSidebar';
 import React, { ReactElement } from 'react';
 
+import DocSidebar, { SidebarItem } from './DocSidebar';
 import type { WikiPrivateDocumentMetadata } from './documents';
 
 import { checkNotNull } from 'lib-common';
@@ -11,21 +11,12 @@ type Props = {
   readonly documentMetadataList: readonly WikiPrivateDocumentMetadata[];
 };
 
-type SideBarEntry =
-  | { readonly type: 'link'; readonly label: string; readonly href: string }
-  | {
-      readonly type: 'category';
-      readonly label: string;
-      readonly collapsed: true;
-      readonly items: SideBarEntry[];
-    };
-
 const treeifySingleDocumentMedatada = ({
   documentID,
   filename,
-}: WikiPrivateDocumentMetadata): SideBarEntry => {
+}: WikiPrivateDocumentMetadata): SidebarItem => {
   const filenameSegments = filename.split('/');
-  let entry: SideBarEntry = {
+  let entry: SidebarItem = {
     type: 'link',
     label: checkNotNull(filenameSegments[filenameSegments.length - 1]),
     href: `/intern#doc-${documentID}`,
@@ -34,14 +25,13 @@ const treeifySingleDocumentMedatada = ({
     entry = {
       type: 'category',
       label: checkNotNull(filenameSegments[i]),
-      collapsed: true,
       items: [entry],
     };
   }
   return entry;
 };
 
-const mergeTrees = (existingTrees: SideBarEntry[], entry: SideBarEntry): void => {
+const mergeTrees = (existingTrees: SidebarItem[], entry: SidebarItem): void => {
   if (entry.type === 'link') {
     existingTrees.push(entry);
     return;
@@ -59,24 +49,18 @@ const mergeTrees = (existingTrees: SideBarEntry[], entry: SideBarEntry): void =>
 
 const treeifyDocumentMetadata = (
   documentMetadataList: readonly WikiPrivateDocumentMetadata[]
-): readonly SideBarEntry[] => {
-  const mergedEntries: SideBarEntry[] = [];
+): readonly SidebarItem[] => {
+  const mergedEntries: SidebarItem[] = [];
   documentMetadataList
     .map(treeifySingleDocumentMedatada)
     .forEach((entry) => mergeTrees(mergedEntries, entry));
   return mergedEntries;
 };
 
-const Sidebar = ({ className, selectedDocumentID, documentMetadataList }: Props): ReactElement => {
+const Sidebar = ({ className, documentMetadataList }: Props): ReactElement => {
   return (
     <div className={className} role="complementary">
-      <DocSidebar
-        sidebar={treeifyDocumentMetadata(documentMetadataList)}
-        path={`/intern${selectedDocumentID == null ? '' : `#doc-${selectedDocumentID}`}`}
-        sidebarCollapsible
-        isHidden={false}
-        onCollapse={() => {}}
-      />
+      <DocSidebar sidebar={treeifyDocumentMetadata(documentMetadataList)} />
     </div>
   );
 };

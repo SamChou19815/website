@@ -10,6 +10,23 @@
   margin-top: calc(-1 * var(--ifm-navbar-height));
 }
 
+.intern-app-sidebar {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  padding-top: var(--ifm-navbar-height);
+  width: var(--doc-sidebar-width);
+  transition: opacity 50ms ease;
+}
+
+.intern-app-sidebar-menu {
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
 .intern-app-document-container {
   flex-grow: 1;
   padding: 1em;
