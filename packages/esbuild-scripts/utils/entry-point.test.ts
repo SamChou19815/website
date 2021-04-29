@@ -13,6 +13,17 @@ if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(elem
 `);
 });
 
+it('getClientTemplate works', () => {
+  expect(getClientTemplate('docs/foo/bar', ['foo/bar', 'bar/baz', 'docs/foo/bar', 'baz/index']))
+    .toBe(`${GENERATED_COMMENT}
+import React,{Suspense,lazy}from'react';import{hydrate,render}from'react-dom';
+import {BrowserRouter,Route,Switch}from'esbuild-scripts/__internal-components__/react-router';
+import Document from '../../../src/pages/_document.tsx';import Page from '../../../src/pages/docs/foo/bar';const Component0 = lazy(() => import('../../../src/pages/foo/bar'));const Component1 = lazy(() => import('../../../src/pages/bar/baz'));const Component2 = lazy(() => import('../../../src/pages/baz'));
+const element = <BrowserRouter><Document><Switch><Route exact path="/docs/foo/bar"><Page /></Route><Route exact path="/foo/bar"><Suspense fallback={null}><Component0 /></Suspense></Route><Route exact path="/bar/baz"><Suspense fallback={null}><Component1 /></Suspense></Route><Route exact path="/baz"><Suspense fallback={null}><Component2 /></Suspense></Route></Switch></Document></BrowserRouter>;const rootElement = document.getElementById('root');
+if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(element, rootElement);
+`);
+});
+
 it('getServerTemplate works', () => {
   expect(getServerTemplate(['foo/bar', 'bar/baz'])).toBe(`${GENERATED_COMMENT}
 import{createElement as h}from'react';import{renderToString}from'react-dom/server';import Helmet from 'esbuild-scripts/components/Head';
