@@ -9,6 +9,8 @@ on:
       - 'packages/lib-react/**'
       - 'packages/lib-docusaurus-plugin/**'
       - 'packages/lib-firebase/**'
+      - 'packages/lib-colorful-terminal/**'
+      - 'packages/esbuild-scripts/**'
       - 'packages/wiki/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-wiki.yml'

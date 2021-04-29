@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import React, { ReactElement } from 'react';
 
-import styles from './MarkdownInputCard.module.css';
-
 import PrismCodeEditor from 'lib-react/PrismCodeEditor';
 import theme from 'lib-react/prism-theme.json';
 
@@ -40,7 +38,7 @@ const MarkdownInputCard = ({
         />
       </div>
       <div
-        className={clsx('card__body', styles.EditorCardContainer)}
+        className="card__body markdown-input-card-container"
         style={{ backgroundColor: 'var(--prism-code-block-background-color)' }}
       >
         <PrismCodeEditor

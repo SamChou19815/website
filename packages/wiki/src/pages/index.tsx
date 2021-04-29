@@ -1,10 +1,14 @@
-import Link from '@docusaurus/Link';
-import Layout from '@theme/Layout';
 import React from 'react';
+
+import Head from 'esbuild-scripts/components/Head';
+import Link from 'esbuild-scripts/components/Link';
 
 export default function Home(): JSX.Element {
   return (
-    <Layout title="Wiki" description="Developer Sam's Wiki">
+    <>
+      <Head>
+        <title>Wiki</title>
+      </Head>
       <header className="hero hero--primary index-hero-banner">
         <div className="container">
           <h1 className="hero__title">Wiki</h1>
@@ -17,6 +21,6 @@ export default function Home(): JSX.Element {
         </div>
       </header>
       <main />
-    </Layout>
+    </>
   );
 }

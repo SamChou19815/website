@@ -4,9 +4,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-no-comment-textnodes */
 
-import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import React, { useState, ReactElement } from 'react';
+
+import Link from 'esbuild-scripts/components/Link';
 
 type SidebarItemLink = {
   readonly type: 'link';
@@ -52,15 +53,15 @@ const DocSidebarItemCategory = ({ items, label }: Omit<SidebarItemCategory, 'typ
 
 const DocSidebarItemLink = ({ href, label }: Omit<SidebarItemLink, 'type'>) => (
   <li className="menu__list-item">
-    <Link className="menu__link" to={href} isNavLink exact>
+    <Link className="menu__link" to={href}>
       {label}
     </Link>
   </li>
 );
 
 const DocSidebar = ({ sidebar }: { readonly sidebar: readonly SidebarItem[] }): ReactElement => (
-  <div className="intern-app-sidebar">
-    <div className="menu menu--responsive thin-scrollbar intern-app-sidebar-menu">
+  <div className="doc-sidebar">
+    <div className="menu menu--responsive thin-scrollbar">
       <ul className="menu__list">{renderSidebarItems(sidebar)}</ul>
     </div>
   </div>

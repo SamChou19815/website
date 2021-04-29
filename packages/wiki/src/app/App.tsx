@@ -27,15 +27,15 @@ const App = (): ReactElement => {
   );
 
   return (
-    <div className="intern-app">
+    <div className="top-level">
       <Sidebar
-        className="intern-app-sidebar-container"
+        className="sidebar-container"
         selectedDocumentID={documentID}
         documentMetadataList={documentMetadataList}
       />
       <PrivateDocumentPanel
         key={documentMetadata?.documentID ?? ''}
-        className="intern-app-document-container"
+        className="document-container"
         documentMetadata={documentMetadata}
       />
     </div>

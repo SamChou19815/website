@@ -1,7 +1,4 @@
----
-id: oss-roadmap-2021
-title: Open Source Roadmap 2021
----
+# Open Source Roadmap 2021
 
 ## samlang
 

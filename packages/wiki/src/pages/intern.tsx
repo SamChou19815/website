@@ -1,10 +1,8 @@
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
-import Layout from '@theme/Layout';
-import React, { ReactElement, Suspense, lazy } from 'react';
+import React, { ReactElement, lazy } from 'react';
 
+import Head from 'esbuild-scripts/components/Head';
+import SSRSuspense from 'esbuild-scripts/components/SSRSuspense';
 import LoadingOverlay from 'lib-react/LoadingOverlay';
-
-import '../css/app.css';
 
 // Lazy import is necessary for conditional execution below,
 // since firebase/app code cannot be executed in SSR environments.
@@ -13,16 +11,17 @@ const App = lazy(() => import('../app/App'));
 
 export default function InternTierAccessEntryPoint(): ReactElement {
   return (
-    <Layout title="internals@dev-sam" description="Restricted-access internal portal">
-      {ExecutionEnvironment.canUseDOM ? (
-        <Suspense fallback={<LoadingOverlay />}>
-          <FirebaseLoginAppBarrier>
-            <App />
-          </FirebaseLoginAppBarrier>
-        </Suspense>
-      ) : (
-        <div />
-      )}
-    </Layout>
+    <>
+      <Head>
+        <title>internals@dev-sam | Wiki</title>
+        <meta name="description" content="Restricted-access internal portal" />
+        <meta property="og:description" content="Restricted-access internal portal" />
+      </Head>
+      <SSRSuspense fallback={<LoadingOverlay />}>
+        <FirebaseLoginAppBarrier>
+          <App />
+        </FirebaseLoginAppBarrier>
+      </SSRSuspense>
+    </>
   );
 }

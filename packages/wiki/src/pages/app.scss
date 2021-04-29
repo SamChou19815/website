@@ -1,0 +1,82 @@
+.top-level {
+  display: flex;
+
+  .sidebar-container {
+    border-right: 1px solid var(--ifm-toc-border-color);
+    box-sizing: border-box;
+    width: 300px;
+    position: relative;
+    margin-top: calc(-1 * var(--ifm-navbar-height));
+  }
+
+  .document-container {
+    flex-grow: 1;
+    padding: 1em;
+  }
+}
+
+.doc-sidebar {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  padding-top: var(--ifm-navbar-height);
+  width: var(--doc-sidebar-width);
+  transition: opacity 50ms ease;
+
+  .menu {
+    flex-grow: 1;
+    padding: 0.5rem;
+  }
+}
+
+.markdown-input-card-container {
+  position: relative;
+  width: 100%;
+  padding: 0 !important;
+  margin-top: 1em;
+}
+
+.markdown-editor-with-preview {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+
+  @media only screen and (min-width: 800px) {
+    flex-direction: row;
+
+    .parallel-card {
+      width: 48%;
+      margin: 1em;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+
+    .parallel-card {
+      width: 90vw;
+      margin: 1em auto;
+    }
+  }
+}
+
+.private-document-content-editor-modal {
+  position: fixed;
+  background-color: var(--prism-code-block-background-color);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1em;
+  overflow: scroll;
+  z-index: 1000;
+
+  .float-right-button-container {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

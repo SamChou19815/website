@@ -1,7 +1,4 @@
----
-id: intro
-title: Introduction
----
+# Introduction
 
 ## Included Sites
 

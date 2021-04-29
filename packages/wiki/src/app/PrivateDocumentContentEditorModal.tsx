@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 
 import MarkdownEditorWithPreview from './MarkdownEditorWithPreview';
-import styles from './PrivateDocumentContentEditorModal.module.css';
 import { WikiPrivateDocumentContent, updateWikiPrivateDocumentContent } from './documents';
 
 type Props = {
@@ -11,8 +10,8 @@ type Props = {
 
 const PrivateDocumentContentEditorModal = ({ content, onClose }: Props): ReactElement => {
   return (
-    <div className={styles.PrivateDocumentContentEditorModal}>
-      <div className={styles.FloatRightButtonContainer}>
+    <div className="private-document-content-editor-modal">
+      <div className="float-right-button-container">
         <button className="button button--primary" onClick={onClose}>
           Close
         </button>
