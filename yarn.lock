@@ -9383,7 +9383,7 @@ __metadata:
     "@types/react-dom": ^17.0.3
     esbuild-scripts: "workspace:0.2.1"
     infima: 0.2.0-alpha.23
-    lib-react: 0.1.0
+    lib-theme-switcher: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
     react-ga: ^3.3.0
@@ -13834,7 +13834,7 @@ fsevents@~2.3.1:
     "@types/node": ^15.0.0
     "@types/react": ^17.0.4
     firebase: ^9.0.0-beta.1
-    lib-react: 0.1.0
+    lib-react-loading: 0.1.0
     rxjs: ^6.6.3
     typescript: ^4.2.4
   peerDependencies:
@@ -13859,6 +13859,18 @@ fsevents@~2.3.1:
   languageName: unknown
   linkType: soft
 
+"lib-react-loading@0.1.0, lib-react-loading@workspace:packages/lib-react-loading":
+  version: 0.0.0-use.local
+  resolution: "lib-react-loading@workspace:packages/lib-react-loading"
+  dependencies:
+    "@types/react": ^17.0.4
+    react: ^17.0.2
+    typescript: ^4.2.4
+  peerDependencies:
+    react: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "lib-react@0.1.0, lib-react@workspace:0.1.0, lib-react@workspace:packages/lib-react":
   version: 0.0.0-use.local
   resolution: "lib-react@workspace:packages/lib-react"
@@ -13874,6 +13886,14 @@ fsevents@~2.3.1:
   peerDependencies:
     prism-react-renderer: ^1.1.1
     react: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"lib-theme-switcher@0.1.0, lib-theme-switcher@workspace:packages/lib-theme-switcher":
+  version: 0.0.0-use.local
+  resolution: "lib-theme-switcher@workspace:packages/lib-theme-switcher"
+  dependencies:
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 
@@ -19337,7 +19357,7 @@ resolve@^2.0.0-next.3:
     infima: 0.2.0-alpha.23
     lib-common: 0.0.1
     lib-firebase: 0.1.0
-    lib-react: 0.1.0
+    lib-react-loading: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
     typescript: ^4.2.4
@@ -20934,6 +20954,7 @@ typescript@^4.2.4:
     lib-docusaurus-plugin: 0.1.0
     lib-firebase: 0.1.0
     lib-react: 0.1.0
+    lib-react-loading: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
     remarkable: ^2.0.1
@@ -21071,6 +21092,7 @@ typescript@^4.2.4:
     lib-common: 0.0.1
     lib-in-memory-filesystem: 0.1.0
     lib-react: 0.1.0
+    lib-theme-switcher: 0.1.0
     lib-web-terminal: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2

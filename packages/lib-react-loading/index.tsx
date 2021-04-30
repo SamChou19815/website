@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import './LoadingOverlay.css';
+import './styles.css';
 
 const LoadingOverlay = (): ReactElement => (
   <div className="loading-overlay">

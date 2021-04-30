@@ -4,7 +4,7 @@ import PrivateDocumentPanel from './PrivateDocumentPanel';
 import Sidebar from './Sidebar';
 import { useWikiPrivateDocumentsMetadata } from './documents';
 
-import LoadingOverlay from 'lib-react/LoadingOverlay';
+import LoadingOverlay from 'lib-react-loading';
 
 const App = (): ReactElement => {
   const [documentID, setDocumentID] = useState<string | null>(null);

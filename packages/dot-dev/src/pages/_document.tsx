@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 
 import Head from 'esbuild-scripts/components/Head';
-import initializeThemeSwitching from 'lib-react/theme-switcher-initializer';
+import initializeThemeSwitching from 'lib-theme-switcher';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.scss';

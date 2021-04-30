@@ -16,6 +16,7 @@
     "lib-docusaurus-plugin": "0.1.0",
     "lib-firebase": "0.1.0",
     "lib-react": "0.1.0",
+    "lib-react-loading": "0.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remarkable": "^2.0.1",

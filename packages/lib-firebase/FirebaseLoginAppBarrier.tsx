@@ -3,7 +3,7 @@ import React, { ReactElement, useState, useEffect } from 'react';
 
 import { appUser$, firebaseAuth, hasAppUser } from './authentication';
 
-import LoadingOverlay from 'lib-react/LoadingOverlay';
+import LoadingOverlay from 'lib-react-loading';
 
 import './FirebaseLoginAppBarrier.css';
 

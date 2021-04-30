@@ -6,7 +6,7 @@ import {
   useFirestoreOnlineGameData,
 } from './online-multiplayer-firestore';
 
-import LoadingOverlay from 'lib-react/LoadingOverlay';
+import LoadingOverlay from 'lib-react-loading';
 
 const getGameID = () =>
   location.hash.startsWith('#game-') ? location.hash.substring(6) : undefined;
