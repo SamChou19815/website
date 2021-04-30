@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react';
 import MarkdownBlock from './MarkdownBlock';
 import { useWikiPrivateDocumentsMetadata } from './documents';
 
-import LoadingOverlay from 'lib-react/LoadingOverlay';
+import LoadingOverlay from 'lib-react-loading';
 
 const PermissionViewer = (): ReactElement => {
   const documentMetadataList = useWikiPrivateDocumentsMetadata();

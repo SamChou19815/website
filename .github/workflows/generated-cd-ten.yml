@@ -5,8 +5,7 @@ on:
   push:
     paths:
       - 'packages/lib-common/**'
-      - 'packages/lib-prism-extended/**'
-      - 'packages/lib-react/**'
+      - 'packages/lib-react-loading/**'
       - 'packages/lib-firebase/**'
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'

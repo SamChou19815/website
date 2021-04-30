@@ -4,9 +4,7 @@ name: CD dot-dev
 on:
   push:
     paths:
-      - 'packages/lib-common/**'
-      - 'packages/lib-prism-extended/**'
-      - 'packages/lib-react/**'
+      - 'packages/lib-theme-switcher/**'
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/dot-dev/**'

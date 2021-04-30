@@ -1,0 +1,16 @@
+{
+  "name": "lib-theme-switcher",
+  "version": "0.1.0",
+  "author": "Developer Sam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamChou19815/website.git"
+  },
+  "private": true,
+  "scripts": {
+    "compile": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}

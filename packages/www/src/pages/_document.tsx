@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import { RecoilRoot } from 'recoil';
 
 import Head from 'esbuild-scripts/components/Head';
-import initializeThemeSwitching from 'lib-react/theme-switcher-initializer';
+import initializeThemeSwitching from 'lib-theme-switcher';
 
 import 'infima/dist/css/default/default.min.css';
 import 'lib-react/PrismCodeBlock.css';
