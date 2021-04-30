@@ -23,46 +23,65 @@ type SidebarItemCategory = {
 
 export type SidebarItem = SidebarItemLink | SidebarItemCategory;
 
-const renderSidebarItems = (items: readonly SidebarItem[]) =>
-  items.map((item, index) => <DocSidebarItem key={index} item={item} />);
+const isActiveSidebarItem = (item: SidebarItem, activePath: string): boolean => {
+  if (item.type === 'link') return item.href === activePath;
+  if (item.type === 'category') {
+    return item.items.some((subItem) => isActiveSidebarItem(subItem, activePath));
+  }
+  return false;
+};
 
-const DocSidebarItem = ({ item }: { readonly item: SidebarItem }) =>
+const renderSidebarItems = (items: readonly SidebarItem[], activePath: string) =>
+  items.map((item, index) => <DocSidebarItem key={index} item={item} activePath={activePath} />);
+
+type ItemWithactivePath<T> = { readonly item: T; readonly activePath: string };
+
+const DocSidebarItem = ({ item, activePath }: ItemWithactivePath<SidebarItem>) =>
   item.type === 'category' ? (
-    <DocSidebarItemCategory items={item.items} label={item.label} />
+    <DocSidebarItemCategory item={item} activePath={activePath} />
   ) : (
-    <DocSidebarItemLink href={item.href} label={item.label} />
+    <DocSidebarItemLink item={item} activePath={activePath} />
   );
 
-const DocSidebarItemCategory = ({ items, label }: Omit<SidebarItemCategory, 'type'>) => {
+const DocSidebarItemCategory = ({ item, activePath }: ItemWithactivePath<SidebarItemCategory>) => {
+  const { items, label } = item;
+  const isActive = isActiveSidebarItem(item, activePath);
   const [collapsed, setCollapsed] = useState(true);
 
   return (
     <li className={clsx('menu__list-item', collapsed && 'menu__list-item--collapsed')}>
       <a
-        className="menu__link menu__link--sublist"
+        className={clsx('menu__link menu__link--sublist', isActive && 'menu__link--active')}
         tabIndex={0}
         role="button"
         onClick={() => setCollapsed((state) => !state)}
       >
         {label}
       </a>
-      <ul className="menu__list">{renderSidebarItems(items)}</ul>
+      <ul className="menu__list">{renderSidebarItems(items, activePath)}</ul>
     </li>
   );
 };
 
-const DocSidebarItemLink = ({ href, label }: Omit<SidebarItemLink, 'type'>) => (
-  <li className="menu__list-item">
-    <Link className="menu__link" to={href}>
-      {label}
-    </Link>
-  </li>
-);
+const DocSidebarItemLink = ({ item, activePath }: ItemWithactivePath<SidebarItemLink>) => {
+  const { href, label } = item;
+  const isActive = isActiveSidebarItem(item, activePath);
 
-const DocSidebar = ({ sidebar }: { readonly sidebar: readonly SidebarItem[] }): ReactElement => (
+  return (
+    <li className="menu__list-item">
+      <Link className={clsx('menu__link', isActive && 'menu__link--active')} to={href}>
+        {label}
+      </Link>
+    </li>
+  );
+};
+
+type Props = { readonly sidebar: readonly SidebarItem[]; readonly activePath: string };
+
+const DocSidebar = ({ sidebar, activePath }: Props): ReactElement => (
   <div className="doc-sidebar">
     <div className="menu menu--responsive thin-scrollbar">
-      <ul className="menu__list">{renderSidebarItems(sidebar)}</ul>
+      <ul className="menu__list">{renderSidebarItems(sidebar, activePath)}</ul>
     </div>
   </div>
 );
