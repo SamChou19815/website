@@ -1,4 +1,4 @@
-import type { SidebarItemLink } from '../app/DocSidebar';
+import type { SidebarItemLink } from 'lib-react-docs/DocSidebar';
 
 const documentSideBars: readonly SidebarItemLink[] = [
   { type: 'link', label: 'Introduction', href: '/docs/intro' },

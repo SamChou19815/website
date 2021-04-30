@@ -1,7 +1,6 @@
 {
-  "name": "lib-react",
+  "name": "lib-react-prism",
   "version": "0.1.0",
-  "description": "The common React code used across Developer Sam's website.",
   "author": "Developer Sam",
   "repository": {
     "type": "git",

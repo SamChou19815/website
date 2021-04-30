@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React, { ReactElement, useState } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
@@ -67,7 +66,7 @@ type Props = {
   readonly documentMetadata?: WikiPrivateDocumentMetadata;
 };
 
-const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElement => {
+const PrivateDocumentPanel = ({ documentMetadata }: Props): ReactElement => {
   const [showEditorModal, setShowEditorModal] = useState(false);
   const [showMetadata, setShowMetadata] = useState(false);
 
@@ -75,7 +74,7 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
 
   if (documentMetadata == null) {
     return (
-      <main className={clsx('container', className)}>
+      <>
         <h1>Hello {getAppUser().displayName}</h1>
         {isAdmin && (
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
@@ -88,12 +87,12 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
           </div>
         )}
         {!isAdmin && <div>Select a document on the left</div>}
-      </main>
+      </>
     );
   }
 
   return (
-    <main className={clsx('container', className)}>
+    <>
       {isAdmin ? (
         <div className="button-group button-group--block vertical-margin-1em">
           <button className="button button--primary" onClick={createWikiPrivateDocument}>
@@ -132,7 +131,7 @@ const PrivateDocumentPanel = ({ className, documentMetadata }: Props): ReactElem
         showEditorModal={showEditorModal}
         onEditorClose={() => setShowEditorModal(false)}
       />
-    </main>
+    </>
   );
 };
 

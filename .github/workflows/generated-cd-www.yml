@@ -7,7 +7,7 @@ on:
       - 'packages/lib-common/**'
       - 'packages/lib-in-memory-filesystem/**'
       - 'packages/lib-prism-extended/**'
-      - 'packages/lib-react/**'
+      - 'packages/lib-react-prism/**'
       - 'packages/lib-theme-switcher/**'
       - 'packages/lib-web-terminal/**'
       - 'packages/lib-colorful-terminal/**'

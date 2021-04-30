@@ -1,15 +1,7 @@
-import React, { ReactElement } from 'react';
-
-import DocSidebar, { SidebarItem } from './DocSidebar';
 import type { WikiPrivateDocumentMetadata } from './documents';
 
 import { checkNotNull } from 'lib-common';
-
-type Props = {
-  readonly className?: string;
-  readonly selectedDocumentID: string | null;
-  readonly documentMetadataList: readonly WikiPrivateDocumentMetadata[];
-};
+import type { SidebarItem } from 'lib-react-docs/DocSidebar';
 
 const treeifySingleDocumentMedatada = ({
   documentID,
@@ -57,15 +49,4 @@ const treeifyDocumentMetadata = (
   return mergedEntries;
 };
 
-const Sidebar = ({ className, selectedDocumentID, documentMetadataList }: Props): ReactElement => {
-  return (
-    <div className={className} role="complementary">
-      <DocSidebar
-        sidebar={treeifyDocumentMetadata(documentMetadataList)}
-        activePath={`/intern${selectedDocumentID == null ? '' : `#doc-${selectedDocumentID}`}`}
-      />
-    </div>
-  );
-};
-
-export default Sidebar;
+export default treeifyDocumentMetadata;

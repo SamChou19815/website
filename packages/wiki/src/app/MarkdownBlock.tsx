@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { renderToString } from 'react-dom/server';
 import { Remarkable } from 'remarkable';
 
-import PrismCodeBlock from 'lib-react/PrismCodeBlock';
+import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 
 const markdownRenderer: Remarkable = new Remarkable({
   typographer: true,

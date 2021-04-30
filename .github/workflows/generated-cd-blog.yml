@@ -6,7 +6,7 @@ on:
     paths:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-common/**'
-      - 'packages/lib-react/**'
+      - 'packages/lib-react-prism/**'
       - 'packages/lib-docusaurus-plugin/**'
       - 'packages/blog/**'
       - 'configuration/**'

@@ -11,7 +11,7 @@ import Layout from '@theme/Layout';
 import usePrismTheme from '@theme/hooks/usePrismTheme';
 import React, { useState } from 'react';
 
-import PrismCodeEditor from 'lib-react/PrismCodeEditor';
+import PrismCodeEditor from 'lib-react-prism/PrismCodeEditor';
 
 type Response = ReturnType<typeof runSamlangDemo>;
 
