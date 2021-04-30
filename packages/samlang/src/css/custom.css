@@ -5,13 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #3e7ae2;
   --ifm-color-primary-dark: #3e7ae2;
@@ -35,4 +28,96 @@ pre {
 
 .token-line {
   line-height: 1.35;
+}
+
+/* Homepage */
+.index-page-hero-banner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 966px) {
+  .index-page-hero-banner {
+    padding: 2rem;
+  }
+}
+
+.index-page-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.index-page-features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.index-page-features.index-page-code-block-wrapper {
+  margin-bottom: 1em;
+}
+
+/* Language Demo */
+
+.language-demo {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.editor-card-container {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 60px);
+  padding: 0 !important;
+}
+
+.editor-card {
+  min-width: 660px;
+}
+
+@media only screen and (min-width: 800px) {
+  .language-demo {
+    flex-direction: row;
+  }
+
+  .parallel-card {
+    width: 48%;
+    margin: 1em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .parallel-card {
+    width: 90vw;
+    margin: 1em auto;
+  }
+
+  .language-demo {
+    flex-direction: column;
+  }
+}
+
+.colored-result {
+  padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-left-style: solid;
+  border-left-width: 2px;
+}
+
+.good-result {
+  border-left-color: green;
+}
+
+.bad-result {
+  border-left-color: red;
+}
+
+.neutral-result {
+  border-left-color: gray;
 }
