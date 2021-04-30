@@ -6,14 +6,9 @@
  */
 
 import Link from '@docusaurus/Link';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import CodeBlock from '@theme/CodeBlock';
 import Layout from '@theme/Layout';
-import clsx from 'clsx';
 import React, { ReactElement } from 'react';
-
-import styles from './styles.module.css';
 
 const HELLO_WORLD_CODE = `class Main {
   function main(): string = "Hello World"
@@ -56,61 +51,42 @@ const TYPE_INFERENCE_CODE = `class TypeInference {
 `;
 
 const features = [
-  {
-    title: 'Hello World',
-    code: HELLO_WORLD_CODE,
-  },
-  {
-    title: '42',
-    code: FOURTY_TWO_CODE,
-  },
-  {
-    title: 'Pattern Matching',
-    code: PATTERN_MATCHING_CODE,
-  },
-  {
-    title: 'Type Inference',
-    code: TYPE_INFERENCE_CODE,
-  },
+  { title: 'Hello World', code: HELLO_WORLD_CODE },
+  { title: '42', code: FOURTY_TWO_CODE },
+  { title: 'Pattern Matching', code: PATTERN_MATCHING_CODE },
+  { title: 'Type Inference', code: TYPE_INFERENCE_CODE },
 ];
 
 function Home(): ReactElement {
-  const context = useDocusaurusContext();
-  const { siteConfig = {} } = context;
   return (
-    <Layout title={siteConfig.title} description={siteConfig.tagline}>
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <Layout title="samlang" description="Sam's Programming Language">
+      <header className="hero hero--primary index-page-hero-banner">
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx('button button--secondary button--lg', styles.getStarted)}
-              to={useBaseUrl('docs/introduction')}
-            >
+          <h1 className="hero__title">samlang</h1>
+          <p className="hero__subtitle">{"Sam's Programming Language"}</p>
+          <div className="index-page-buttons">
+            <Link className="button button--secondary button--lg" to="/docs/introduction">
               Get Started
             </Link>
           </div>
         </div>
       </header>
       <main>
-        {features && features.length && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map(({ title, code }) => (
-                  <div
-                    key={title}
-                    className={clsx('col col--6', styles.feature, styles.CodeBlockWrapper)}
-                  >
-                    <h3>{title}</h3>
-                    <CodeBlock className="samlang">{code}</CodeBlock>
-                  </div>
-                ))}
-              </div>
+        <section className="index-page-features">
+          <div className="container">
+            <div className="row">
+              {features.map(({ title, code }) => (
+                <div
+                  key={title}
+                  className="col col--6 index-page-features index-page-code-block-wrapper"
+                >
+                  <h3>{title}</h3>
+                  <CodeBlock className="samlang">{code}</CodeBlock>
+                </div>
+              ))}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
       </main>
     </Layout>
   );
