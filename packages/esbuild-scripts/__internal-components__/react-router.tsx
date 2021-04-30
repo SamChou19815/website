@@ -1,3 +1,3 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, StaticRouter, Route, Switch } from 'react-router-dom';
 
-export { BrowserRouter, Route, Switch };
+export { BrowserRouter, StaticRouter, Route, Switch };
