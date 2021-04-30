@@ -20,12 +20,19 @@ export const resolvePackageEntry = (
 ): string | null => {
   const exportedPath = resolve(packageJsonContent, entry, { browser, require: !browser });
   if (exportedPath != null) return exportedPath;
-  if (entry !== '.') return null;
   const legacyPath = legacy(
     packageJsonContent,
     browser ? { browser } : { browser: false, fields: ['main', 'module'] }
   );
-  return typeof legacyPath === 'string' ? legacyPath : null;
+  if (typeof legacyPath === 'string') return entry === '.' ? legacyPath : null;
+  if (!legacyPath) return null;
+  return (
+    legacyPath[entry] ||
+    legacyPath[`${entry}.js`] ||
+    legacyPath[`./${entry}`] ||
+    legacyPath[`./${entry}.js`] ||
+    null
+  );
 };
 
 const pathContains = (pathFrom: string, pathTo: string): string | null => {

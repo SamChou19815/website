@@ -12,26 +12,6 @@ const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',
   setup(buildConfig) {
     buildConfig.onResolve({ filter: /data:/ }, () => ({ external: true }));
-
-    buildConfig.onResolve({ filter: /stream/ }, () => ({
-      path: 'NODE_BUILTIN_STREAM',
-      namespace: 'shimmed-node-builtin',
-    }));
-    buildConfig.onLoad(
-      { filter: /NODE_BUILTIN_STREAM/, namespace: 'shimmed-node-builtin' },
-      () => ({
-        contents:
-          'export function Readable(){};export function Writable(){};export default {Readable,Writable};',
-      })
-    );
-
-    buildConfig.onResolve({ filter: /fs/ }, () => ({
-      path: 'NODE_BUILTIN_FS',
-      namespace: 'shimmed-node-builtin',
-    }));
-    buildConfig.onLoad({ filter: /NODE_BUILTIN_FS/, namespace: 'shimmed-node-builtin' }, () => ({
-      contents: 'export {};',
-    }));
   },
 };
 
