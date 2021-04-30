@@ -27,14 +27,14 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
     <nav className="navbar navbar--fixed-top">
       <div className="navbar__inner">
         <div className="navbar__items">
-          <a className="navbar__brand" href="/">
+          <Link className="navbar__brand" to="/">
             <img
               className="navbar__logo"
               src="https://developersam.com/logo.png"
               alt="Developer Sam logo"
             />
             <strong className="navbar__title">Wiki</strong>
-          </a>
+          </Link>
           <Link className="navbar__item navbar__link" to="/docs/intro">
             Docs
           </Link>

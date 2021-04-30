@@ -1,6 +1,6 @@
-import type { SidebarItem } from '../app/DocSidebar';
+import type { SidebarItemLink } from '../app/DocSidebar';
 
-const documentSideBars: readonly SidebarItem[] = [
+const documentSideBars: readonly SidebarItemLink[] = [
   { type: 'link', label: 'Introduction', href: '/docs/intro' },
   { type: 'link', label: 'Open Source Roadmap 2020 H2', href: '/docs/oss-roadmap-2020-h2' },
   { type: 'link', label: 'Open Source Roadmap 2021', href: '/docs/oss-roadmap-2021' },

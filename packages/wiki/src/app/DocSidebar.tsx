@@ -9,13 +9,13 @@ import React, { useState, ReactElement } from 'react';
 
 import Link from 'esbuild-scripts/components/Link';
 
-type SidebarItemLink = {
+export type SidebarItemLink = {
   readonly type: 'link';
   readonly href: string;
   readonly label: string;
 };
 
-type SidebarItemCategory = {
+export type SidebarItemCategory = {
   readonly type: 'category';
   readonly label: string;
   readonly items: SidebarItem[];
