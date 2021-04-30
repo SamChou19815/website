@@ -8,6 +8,7 @@ import baseESBuildConfig from './esbuild/esbuild-config';
 import {
   TEMP_SERVER_ENTRY_PATH,
   SSR_CSS_PATH,
+  SSR_LICENSE_PATH,
   SSR_JS_PATH,
   TEMP_PATH,
   BUILD_PATH,
@@ -63,7 +64,7 @@ const getSSRFunction = async (): Promise<SSRFunction | null> => {
     console.error(RED(error));
     return null;
   } finally {
-    await Promise.all([remove(SSR_JS_PATH), remove(SSR_CSS_PATH)]);
+    await Promise.all([remove(SSR_JS_PATH), remove(SSR_LICENSE_PATH), remove(SSR_CSS_PATH)]);
   }
 };
 

@@ -39,12 +39,22 @@ if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(elem
 };
 
 export const getServerTemplate = (paths: readonly string[]): string => `${GENERATED_COMMENT}
-import{createElement as h}from'react';import{renderToString}from'react-dom/server';import Helmet from 'esbuild-scripts/components/Head';
-import Document from '../src/pages/_document.tsx';${paths
-  .map((path, i) => `import Page${i} from '../src/pages/${path}';`)
-  .join('')}
+import React from 'react';
+import {renderToString} from'react-dom/server';
+import Helmet from 'esbuild-scripts/components/Head';
+import {StaticRouter}from'esbuild-scripts/__internal-components__/react-router';
+import Document from '../src/pages/_document.tsx';
+${paths.map((path, i) => `import Page${i} from '../src/pages/${path}';`).join('\n')}
 const map = { ${paths.map((path, i) => `'${path}': Page${i}`).join(', ')} };
-module.exports = (path) => ({ divHTML: renderToString(h(Document, {}, h(map[path]))), noJS: map[path].noJS, helmet: Helmet.renderStatic() });
+module.exports = (path) => ({
+  divHTML: renderToString(
+    <StaticRouter location={'/'+path}>
+      <Document>{React.createElement(map[path])}</Document>
+    </StaticRouter>
+  ),
+  noJS: map[path].noJS,
+  helmet: Helmet.renderStatic(),
+});
 `;
 
 /**
