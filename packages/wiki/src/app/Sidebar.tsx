@@ -57,10 +57,13 @@ const treeifyDocumentMetadata = (
   return mergedEntries;
 };
 
-const Sidebar = ({ className, documentMetadataList }: Props): ReactElement => {
+const Sidebar = ({ className, selectedDocumentID, documentMetadataList }: Props): ReactElement => {
   return (
     <div className={className} role="complementary">
-      <DocSidebar sidebar={treeifyDocumentMetadata(documentMetadataList)} />
+      <DocSidebar
+        sidebar={treeifyDocumentMetadata(documentMetadataList)}
+        activePath={`/intern${selectedDocumentID == null ? '' : `#doc-${selectedDocumentID}`}`}
+      />
     </div>
   );
 };
