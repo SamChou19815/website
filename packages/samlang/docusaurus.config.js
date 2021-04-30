@@ -17,25 +17,14 @@ module.exports = {
   projectName: 'samlang',
   themeConfig: {
     prism: { theme },
-    algolia: {
-      apiKey: '1406f5568da6a64e7791f113bbf9148e',
-      indexName: 'developersam_samllang',
-    },
+    algolia: { apiKey: '1406f5568da6a64e7791f113bbf9148e', indexName: 'developersam_samllang' },
     navbar: {
       title: 'samlang',
-      logo: {
-        alt: 'samlang logo',
-        src: 'img/logo.svg',
-      },
+      logo: { alt: 'samlang logo', src: 'img/logo.svg' },
       items: [
         { to: 'docs/introduction', label: 'Docs', position: 'left' },
         { to: 'demo', label: 'Demo', position: 'left' },
-        { to: 'blog', label: 'Blog', position: 'left' },
-        {
-          href: 'https://github.com/SamChou19815/samlang',
-          label: 'GitHub',
-          position: 'right',
-        },
+        { href: 'https://github.com/SamChou19815/samlang', label: 'GitHub', position: 'right' },
       ],
     },
     footer: {
@@ -44,40 +33,22 @@ module.exports = {
         {
           title: 'Docs',
           items: [
-            {
-              label: 'Introduction',
-              to: 'docs/introduction',
-            },
-            {
-              label: 'Expressions',
-              to: 'docs/expressions',
-            },
+            { label: 'Introduction', to: 'docs/introduction' },
+            { label: 'Expressions', to: 'docs/expressions' },
           ],
         },
         {
           title: 'GitHub',
           items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/SamChou19815/samlang',
-            },
-            {
-              label: 'GitHub Issues',
-              href: 'https://github.com/SamChou19815/samlang/issues',
-            },
+            { label: 'GitHub', href: 'https://github.com/SamChou19815/samlang' },
+            { label: 'GitHub Issues', href: 'https://github.com/SamChou19815/samlang/issues' },
           ],
         },
         {
           title: 'Relevent Links',
           items: [
-            {
-              label: 'Demo',
-              to: 'demo',
-            },
-            {
-              label: 'Developer Sam',
-              href: 'https://developersam.com',
-            },
+            { label: 'Demo', to: 'demo' },
+            { label: 'Developer Sam', href: 'https://developersam.com' },
           ],
         },
       ],
@@ -90,17 +61,9 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.json'),
-          editUrl: 'https://github.com/SamChou19815/website/edit/master/packages/samlang/',
+          editUrl: 'https://github.com/SamChou19815/website/edit/main/packages/samlang/',
         },
-        blog: {
-          feedOptions: {
-            type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Developer Sam.`,
-          },
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
+        theme: { customCss: require.resolve('./src/css/custom.css') },
       },
     ],
   ],
