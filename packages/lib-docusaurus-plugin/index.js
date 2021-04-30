@@ -6,7 +6,7 @@ const setupPlugin = () => ({
     return path.join(__dirname, 'theme');
   },
   getClientModules() {
-    return [require.resolve('lib-react/PrismCodeBlock.css')];
+    return [require.resolve('lib-react-prism/PrismCodeBlock.css')];
   },
 });
 

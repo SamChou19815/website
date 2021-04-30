@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const theme = require('lib-react/prism-theme.json');
+const theme = require('lib-react-prism/prism-theme.json');
 
 module.exports = {
   title: 'Blog',

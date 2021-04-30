@@ -79,7 +79,7 @@ const DocSidebarItemLink = ({ item, activePath }: ItemWithactivePath<SidebarItem
 type Props = { readonly sidebar: readonly SidebarItem[]; readonly activePath: string };
 
 const DocSidebar = ({ sidebar, activePath }: Props): ReactElement => (
-  <div className="doc-sidebar">
+  <div className="lib-react-docs-sidebar">
     <div className="menu menu--responsive thin-scrollbar">
       <ul className="menu__list">{renderSidebarItems(sidebar, activePath)}</ul>
     </div>

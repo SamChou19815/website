@@ -1,9 +1,10 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 
 import PrivateDocumentPanel from './PrivateDocumentPanel';
-import Sidebar from './Sidebar';
 import { useWikiPrivateDocumentsMetadata } from './documents';
+import treeifyDocumentMetadata from './generate-sidebar';
 
+import DocLayout from 'lib-react-docs/DocLayout';
 import LoadingOverlay from 'lib-react-loading';
 
 const App = (): ReactElement => {
@@ -27,18 +28,15 @@ const App = (): ReactElement => {
   );
 
   return (
-    <div className="top-level">
-      <Sidebar
-        className="sidebar-container"
-        selectedDocumentID={documentID}
-        documentMetadataList={documentMetadataList}
-      />
+    <DocLayout
+      sidebar={treeifyDocumentMetadata(documentMetadataList)}
+      activePath={`/intern${documentID == null ? '' : `#doc-${documentID}`}`}
+    >
       <PrivateDocumentPanel
         key={documentMetadata?.documentID ?? ''}
-        className="document-container"
         documentMetadata={documentMetadata}
       />
-    </div>
+    </DocLayout>
   );
 };
 

@@ -4,7 +4,8 @@ import Head from 'esbuild-scripts/components/Head';
 import Link from 'esbuild-scripts/components/Link';
 
 import 'infima/dist/css/default/default.min.css';
-import 'lib-react/PrismCodeBlock.css';
+import 'lib-react-prism/PrismCodeBlock.css';
+import 'lib-react-docs/styles.scss';
 import './index.css';
 import './app.scss';
 

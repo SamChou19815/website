@@ -1,0 +1,26 @@
+{
+  "name": "lib-react-docs",
+  "version": "0.1.0",
+  "author": "Developer Sam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamChou19815/website.git"
+  },
+  "private": true,
+  "scripts": {
+    "compile": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^1.1.1"
+  },
+  "peerDependencies": {
+    "esbuild-scripts": "*",
+    "react": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.4",
+    "esbuild-scripts": "workspace:0.2.1",
+    "react": "^17.0.2",
+    "typescript": "^4.2.4"
+  }
+}

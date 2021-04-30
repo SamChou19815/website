@@ -1,3 +1,4 @@
+import { createRequire } from 'module';
 import { dirname, resolve } from 'path';
 
 import mdx from '@mdx-js/mdx';
@@ -37,9 +38,10 @@ const webAppResolvePlugin: Plugin = {
 const sassPlugin: Plugin = {
   name: 'sass',
   setup(buildConfig) {
-    buildConfig.onResolve({ filter: /.\.(scss|sass)$/ }, async (args) => ({
-      path: resolve(dirname(args.importer), args.path),
-    }));
+    buildConfig.onResolve({ filter: /.\.(scss|sass)$/ }, async (args) => {
+      if (args.path.startsWith('.')) return { path: resolve(dirname(args.importer), args.path) };
+      return { path: createRequire(args.importer).resolve(args.path) };
+    });
 
     buildConfig.onLoad({ filter: /.\.(scss|sass)$/ }, async (args) => {
       const { css } = await new Promise<SassResult>((promiseResolve, reject) => {
