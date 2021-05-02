@@ -1,12 +1,14 @@
 import React, { ReactElement } from 'react';
 
-import DocsPage from '../../docs/DocsPage';
+import documentSideBars from '../../docs/document-sidebars';
 import Content from '../../docs/intro.md';
 
+import DocPage from 'lib-react-docs/DocPage';
+
 const DocsPageRoute = (): ReactElement => (
-  <DocsPage>
+  <DocPage siteTitle="Wiki" sidebar={documentSideBars}>
     <Content />
-  </DocsPage>
+  </DocPage>
 );
 
 export default DocsPageRoute;
