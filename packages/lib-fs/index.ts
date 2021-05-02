@@ -83,6 +83,7 @@ export const readDirectory = async (
   recursive: boolean
 ): Promise<readonly string[]> => {
   if (!recursive) return readDirectoryPrimitive(path);
+  if (!(await exists(path))) return [];
   return (await readDirectoryRecursive(path))
     .map((it) => relative(path, it))
     .sort((a, b) => a.localeCompare(b));
