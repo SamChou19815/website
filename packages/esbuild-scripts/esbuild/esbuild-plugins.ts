@@ -5,8 +5,9 @@ import mdx from '@mdx-js/mdx';
 import type { Plugin } from 'esbuild';
 import { Result as SassResult, render } from 'sass';
 
-import { readFile } from '../utils/fs-promise';
 import pnpPlugin from './esbuild-pnp-plugin';
+
+import { readFile } from 'lib-fs';
 
 const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',

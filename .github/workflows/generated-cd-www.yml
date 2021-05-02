@@ -11,6 +11,7 @@ on:
       - 'packages/lib-theme-switcher/**'
       - 'packages/lib-web-terminal/**'
       - 'packages/lib-colorful-terminal/**'
+      - 'packages/lib-fs/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/www/**'
       - 'configuration/**'

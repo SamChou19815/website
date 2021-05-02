@@ -9733,6 +9733,7 @@ __metadata:
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.2
     esbuild: ^0.11.15
     lib-colorful-terminal: "workspace:0.1.0"
+    lib-fs: "workspace:0.1.0"
     react-helmet: ^6.1.0
     react-router-dom: ^5.2.0
     resolve.exports: ^1.0.2
@@ -13833,6 +13834,15 @@ fsevents@~2.3.1:
   peerDependencies:
     firebase: "*"
     react: ^17.0.1
+  languageName: unknown
+  linkType: soft
+
+"lib-fs@workspace:0.1.0, lib-fs@workspace:packages/lib-fs":
+  version: 0.0.0-use.local
+  resolution: "lib-fs@workspace:packages/lib-fs"
+  dependencies:
+    "@types/node": ^15.0.0
+    typescript: ^4.2.4
   languageName: unknown
   linkType: soft
 

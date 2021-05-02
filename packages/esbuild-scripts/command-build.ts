@@ -14,10 +14,10 @@ import {
   BUILD_PATH,
 } from './utils/constants';
 import { createEntryPointsGeneratedFiles } from './utils/entry-points';
-import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './utils/fs-promise';
 import getGeneratedHTML, { SSRResult } from './utils/html-generator';
 
 import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
+import { copyDirectoryContent, ensureDirectory, remove, writeFile } from 'lib-fs';
 
 const generateBundle = async (entryPoints: readonly string[]): Promise<readonly string[]> => {
   const { outputFiles } = await build({
