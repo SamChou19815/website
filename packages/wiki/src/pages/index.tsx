@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
           <h1 className="hero__title">Wiki</h1>
           <p className="hero__subtitle">Documentation for dev-sam</p>
           <div className="index-page-buttons">
-            <Link className="button button--outline button--secondary button--lg" to="docs/intro">
+            <Link className="button button--secondary button--lg" to="docs/intro">
               Get Started
             </Link>
           </div>
