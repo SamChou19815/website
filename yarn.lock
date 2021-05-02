@@ -19360,6 +19360,7 @@ resolve@^2.0.0-next.3:
     "@types/node": ^15.0.0
     "@types/react": ^17.0.4
     "@types/react-dom": ^17.0.3
+    clsx: ^1.1.1
     esbuild-scripts: "workspace:0.2.1"
     firebase: ^9.0.0-beta.1
     infima: 0.2.0-alpha.23
