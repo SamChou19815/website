@@ -13866,9 +13866,11 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "lib-react-docs@workspace:packages/lib-react-docs"
   dependencies:
+    "@types/node": ^15.0.0
     "@types/react": ^17.0.4
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.2.1"
+    lib-fs: "workspace:0.1.0"
     react: ^17.0.2
     typescript: ^4.2.4
   peerDependencies:
