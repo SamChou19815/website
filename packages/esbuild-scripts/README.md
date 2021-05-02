@@ -43,6 +43,20 @@ Generate a static site saturated with pre-rendered HTML.
 Every JS/TS file inside `src/pages` is treated as a routable page. `src/pages/_document` serves as a
 general template for all pages.
 
+You can also generate pages inside `src/generated-pages`. You can use the following hook to run some
+generator code before running `esbuild-scripts`:
+
+```js
+// hook.js
+const esbuildScriptsRunner = require('esbuild-scripts/run');
+
+esbuildScriptsRunner(async () => {
+  // Generate pages into src/generated-pages...
+});
+```
+
+Then you can run `node hook.js <esbuild arguments>` to run normal esbuild commands as usual.
+
 ### Client/Server only code
 
 If you want to execute some SSR/client-side only code, you can guard your code with `__SERVER__`.
