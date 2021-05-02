@@ -2,7 +2,7 @@ import { dirname, extname, join, relative } from 'path';
 
 import { PAGES_PATH, GENERATED_PAGES_PATH, TEMP_PATH, TEMP_SERVER_ENTRY_PATH } from './constants';
 
-import { emptyDirectory, ensureDirectory, exists, readDirectory, writeFile } from 'lib-fs';
+import { emptyDirectory, ensureDirectory, readDirectory, writeFile } from 'lib-fs';
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
@@ -58,9 +58,6 @@ module.exports = (path) => ({
 });
 `;
 
-const recursivelyReadDirectoryAllowNonExist = async (path: string) =>
-  (await exists(path)) ? readDirectory(path, true) : [];
-
 /**
  * @returns a list of entry point paths under `src/pages`.
  * The paths will be relativized against `src/pages` and with extensions removed.
@@ -68,8 +65,8 @@ const recursivelyReadDirectoryAllowNonExist = async (path: string) =>
 const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
   await ensureDirectory(PAGES_PATH);
   const [pagesPath, generatedPagesPath] = await Promise.all([
-    recursivelyReadDirectoryAllowNonExist(PAGES_PATH),
-    recursivelyReadDirectoryAllowNonExist(GENERATED_PAGES_PATH),
+    readDirectory(PAGES_PATH, true),
+    readDirectory(GENERATED_PAGES_PATH, true),
   ]);
   const allPaths = [...pagesPath, ...generatedPagesPath];
   return allPaths
