@@ -46,7 +46,7 @@ const DocSidebarItem = ({ item, activePath }: ItemWithactivePath<SidebarItem>) =
 const DocSidebarItemCategory = ({ item, activePath }: ItemWithactivePath<SidebarItemCategory>) => {
   const { items, label } = item;
   const isActive = isActiveSidebarItem(item, activePath);
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(!isActive);
 
   return (
     <li className={clsx('menu__list-item', collapsed && 'menu__list-item--collapsed')}>
