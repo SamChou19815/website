@@ -1,5 +1,6 @@
 import {
   NoParamCallback,
+  access,
   lstat,
   mkdir,
   readdir,
@@ -68,6 +69,9 @@ export const ensureDirectory = (path: string): Promise<void> =>
   new Promise((resolve, reject) =>
     mkdir(path, { recursive: true }, createNoParamCallback(resolve, reject))
   );
+
+export const exists = (path: string): Promise<boolean> =>
+  new Promise((resolve) => access(path, undefined, (e) => resolve(e == null)));
 
 export const isDirectory = (path: string): Promise<boolean> =>
   new Promise((resolve, reject) =>
