@@ -13,6 +13,8 @@ import {
 } from './documents';
 
 import { getAppUser } from 'lib-firebase/authentication';
+import DocTableOfContents from 'lib-react-docs/DocTableOfContents';
+import parseMarkdownHeaderTree from 'lib-react-docs/markdown-header-parser';
 
 const PrivateDocumentPanelWithMetadata = ({
   metadata,
@@ -26,13 +28,19 @@ const PrivateDocumentPanelWithMetadata = ({
   const content = useWikiPrivateDocumentContent(metadata.documentID);
   if (content == null) return <>Loading...</>;
 
+  const markdownCode = `# ${content.title}\n\n${content.markdownContent}`;
   return (
-    <>
-      <MarkdownBlock markdownCode={`# ${content.title}\n\n${content.markdownContent}`} />
-      {showEditorModal && (
-        <PrivateDocumentContentEditorModal content={content} onClose={onEditorClose} />
-      )}
-    </>
+    <div className="row">
+      <div className="col">
+        <MarkdownBlock markdownCode={markdownCode} />
+        {showEditorModal && (
+          <PrivateDocumentContentEditorModal content={content} onClose={onEditorClose} />
+        )}
+      </div>
+      <div className="col col--3">
+        <DocTableOfContents toc={parseMarkdownHeaderTree(markdownCode).children} hasLink={false} />
+      </div>
+    </div>
   );
 };
 
