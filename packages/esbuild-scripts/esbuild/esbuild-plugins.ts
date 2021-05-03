@@ -1,18 +1,42 @@
 import { createRequire } from 'module';
-import { dirname, resolve } from 'path';
+import { dirname, join, relative, resolve } from 'path';
 
 import mdx from '@mdx-js/mdx';
 import type { Plugin } from 'esbuild';
 import { Result as SassResult, render } from 'sass';
 
+import { PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants';
 import pnpPlugin from './esbuild-pnp-plugin';
 
-import { readFile } from 'lib-fs';
+import { exists, readFile } from 'lib-fs';
 
 const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',
   setup(buildConfig) {
-    buildConfig.onResolve({ filter: /data:/ }, () => ({ external: true }));
+    buildConfig.onResolve({ filter: /^data:/ }, () => ({ external: true }));
+
+    buildConfig.onResolve({ filter: /^esbuild-scripts-internal\/page\// }, async (args) => {
+      const relativePath = relative(join('esbuild-scripts-internal', 'page'), args.path);
+      const candidates = [
+        join(PAGES_PATH, `${relativePath}.js`),
+        join(PAGES_PATH, `${relativePath}.jsx`),
+        join(PAGES_PATH, `${relativePath}.ts`),
+        join(PAGES_PATH, `${relativePath}.tsx`),
+        join(GENERATED_PAGES_PATH, `${relativePath}.js`),
+        join(GENERATED_PAGES_PATH, `${relativePath}.jsx`),
+        join(GENERATED_PAGES_PATH, `${relativePath}.ts`),
+        join(GENERATED_PAGES_PATH, `${relativePath}.tsx`),
+      ];
+      for (const candidate of candidates) {
+        // eslint-disable-next-line no-await-in-loop
+        if (await exists(candidate)) {
+          return { path: resolve(candidate) };
+        }
+      }
+      throw new Error(
+        `Cannot found page at ${relativePath}. Candidates considered:\n${candidates.join('\n')}`
+      );
+    });
   },
 };
 
@@ -41,7 +65,7 @@ const mdxPlugin: Plugin = {
     buildConfig.onLoad({ filter: /\.mdx?$/ }, async (args) => {
       const text = await readFile(args.path);
       const contents = `import React from'react';
-import mdx from'esbuild-scripts/__internal-components__/mdx';
+import mdx from 'esbuild-scripts/__internal-components__/mdx';
 ${await mdx(text)}`;
       return { contents, loader: 'jsx' };
     });
