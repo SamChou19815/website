@@ -25,6 +25,7 @@
 **/.firebase
 **/.next
 **/.temp
+**/generated-pages
 .vscode/pnpify
 .docusaurus
 .cache-loader

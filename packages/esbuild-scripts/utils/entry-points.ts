@@ -1,4 +1,4 @@
-import { dirname, extname, join, relative } from 'path';
+import { dirname, extname, join } from 'path';
 
 import { PAGES_PATH, GENERATED_PAGES_PATH, TEMP_PATH, TEMP_SERVER_ENTRY_PATH } from './constants';
 
@@ -13,15 +13,15 @@ const rewriteEntryPointPathForRouting = (path: string): string => {
 
 export const getClientTemplate = (path: string, paths: readonly string[]): string => {
   const normalizedSelfPath = rewriteEntryPointPathForRouting(path);
-  const normalizedPaths = paths.filter((it) => it !== path).map(rewriteEntryPointPathForRouting);
-  const importPageBase = join(relative(dirname(path), '..'), 'src', 'pages');
+  const otherPaths = paths.filter((it) => it !== path);
+  const normalizedPaths = otherPaths.map(rewriteEntryPointPathForRouting);
 
-  const lazyImports = normalizedPaths
+  const lazyImports = otherPaths
     .map(
       (otherPath, i) =>
-        `const Component${i} = lazy(() => import('${importPageBase}/${otherPath}'));`
+        `const Component${i} = lazy(() => import('esbuild-scripts-internal/page/${otherPath}'));`
     )
-    .join('');
+    .join('\n');
   const lazyLoadedRoutes = normalizedPaths
     .map(
       (otherPath, i) =>
@@ -31,9 +31,12 @@ export const getClientTemplate = (path: string, paths: readonly string[]): strin
   const routes = `<Switch><Route exact path="/${normalizedSelfPath}"><Page /></Route>${lazyLoadedRoutes}</Switch>`;
 
   return `${GENERATED_COMMENT}
-import React,{Suspense,lazy}from'react';import{hydrate,render}from'react-dom';
-import {BrowserRouter,Route,Switch}from'esbuild-scripts/__internal-components__/react-router';
-import Document from '${importPageBase}/_document.tsx';import Page from '${importPageBase}/${normalizedSelfPath}';${lazyImports}
+import React,{Suspense,lazy} from 'react';
+import {hydrate,render} from 'react-dom';
+import {BrowserRouter,Route,Switch} from 'esbuild-scripts/__internal-components__/react-router';
+import Document from 'esbuild-scripts-internal/page/_document';
+import Page from 'esbuild-scripts-internal/page/${path}';
+${lazyImports}
 const element = <BrowserRouter><Document>${routes}</Document></BrowserRouter>;const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(element, rootElement);
 `;
@@ -41,11 +44,13 @@ if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(elem
 
 export const getServerTemplate = (paths: readonly string[]): string => `${GENERATED_COMMENT}
 import React from 'react';
-import {renderToString} from'react-dom/server';
+import {renderToString} from 'react-dom/server';
 import Helmet from 'esbuild-scripts/components/Head';
-import {StaticRouter}from'esbuild-scripts/__internal-components__/react-router';
-import Document from '../src/pages/_document.tsx';
-${paths.map((path, i) => `import Page${i} from '../src/pages/${path}';`).join('\n')}
+import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router';
+import Document from 'esbuild-scripts-internal/page/_document';
+${paths
+  .map((path, i) => `import Page${i} from 'esbuild-scripts-internal/page/${path}';`)
+  .join('\n')}
 const map = { ${paths.map((path, i) => `'${path}': Page${i}`).join(', ')} };
 module.exports = (path) => ({
   divHTML: renderToString(
