@@ -28,6 +28,7 @@
     "esbuild": "^0.11.15",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
+    "remark-slug": "^6.0.0",
     "sass": "^1.32.11"
   },
   "peerDependencies": {

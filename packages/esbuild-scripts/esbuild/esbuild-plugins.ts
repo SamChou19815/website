@@ -3,6 +3,7 @@ import { dirname, join, relative, resolve } from 'path';
 
 import mdx from '@mdx-js/mdx';
 import type { Plugin } from 'esbuild';
+import remarkSlugs from 'remark-slug';
 import { Result as SassResult, render } from 'sass';
 
 import { DOCS_PATH, PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants';
@@ -70,7 +71,7 @@ const mdxPlugin: Plugin = {
       const text = await readFile(args.path);
       const contents = `import React from'react';
 import mdx from 'esbuild-scripts/__internal-components__/mdx';
-${await mdx(text)}`;
+${await mdx(text, { remarkPlugins: [remarkSlugs] })}`;
       return { contents, loader: 'jsx' };
     });
   },

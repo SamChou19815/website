@@ -2,6 +2,12 @@
 
 ## samlang
 
+```samlang
+class Roadmap2021 {
+  function main(): unit = println("Work Harder")
+}
+```
+
 ### Pretty Print with Comments
 
 samlang AST should keep track of comments and pretty print them, so that the pretty printing step

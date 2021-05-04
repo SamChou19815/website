@@ -9,7 +9,7 @@ import extendLibPrism from 'lib-prism-extended';
 
 extendLibPrism(Prism);
 
-type Props = {
+export type Props = {
   readonly language: string;
   readonly children: string;
   readonly className?: string;
