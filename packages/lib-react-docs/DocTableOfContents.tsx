@@ -4,7 +4,7 @@ import type { MarkdownTablesOfContentsElement } from './markdown-header-parser';
 
 import './DocTableOfContents.css';
 
-const generateMarkdownHeaderID = (label: string) => label.toLowerCase().split(/s/).join('-');
+const generateMarkdownHeaderID = (label: string) => label.toLowerCase().split(/\s+/).join('-');
 
 type HeadingsProps = {
   readonly toc: readonly MarkdownTablesOfContentsElement[];

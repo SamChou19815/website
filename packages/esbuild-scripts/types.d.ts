@@ -7,3 +7,5 @@ declare module '*.md' {
 declare module '*.mdx' {
   export default function MarkdownComponent(): JSX.Element;
 }
+
+declare module '@mdx-js/react';
