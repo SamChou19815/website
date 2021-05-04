@@ -1,7 +1,4 @@
----
-id: introduction
-title: Introduction
----
+# Introduction
 
 samlang is a statically-typed functional programming language designed and implemented by Sam Zhou.
 The language is still under development so the syntax and semantics may be changed at any time.

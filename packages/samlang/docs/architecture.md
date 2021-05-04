@@ -1,7 +1,4 @@
----
-id: architecture
-title: Architecture
----
+# Architecture
 
 ## Introduction
 

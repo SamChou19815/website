@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build:esbuild-scripts": "yarn workspace esbuild-scripts bundle && yarn workspace dot-dev build && yarn workspace ten build && yarn workspace wiki build && yarn workspace www build",
+    "build:esbuild-scripts": "yarn workspace esbuild-scripts bundle && yarn workspace dot-dev build && yarn workspace samlang build && yarn workspace ten build && yarn workspace wiki build && yarn workspace www build",
     "common:netlify": "NODE_NO_WARNINGS=1 netlify",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",

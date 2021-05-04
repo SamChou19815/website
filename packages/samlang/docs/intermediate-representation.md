@@ -1,7 +1,4 @@
----
-id: intermediate-representation
-title: Intermediate Representation
----
+# Intermediate Representation
 
 samlang follows the standard compiler approach. We don't compile the source level samlang directly
 into assembly. Instead, we construct different IRs (intermediate representation) to gradually

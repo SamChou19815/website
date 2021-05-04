@@ -1,7 +1,4 @@
----
-id: type-inference
-title: Type Inference
----
+# Type Inference
 
 The only required type annotated happens at the top-level module function and method level. The
 type-checker can infer most of the types at the local level.

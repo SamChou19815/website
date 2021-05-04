@@ -3122,13 +3122,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/module-type-aliases@npm:2.0.0-alpha.74":
-  version: 2.0.0-alpha.74
-  resolution: "@docusaurus/module-type-aliases@npm:2.0.0-alpha.74"
-  checksum: 6c8e5196e6c2572f014cceded2bee6d85e050d956df2b82d0150a274998f3bf3abd377ffc96bf4a18aba03f1bff03fd7a072de2c43b33881334655d84fce5f02
-  languageName: node
-  linkType: hard
-
 "@docusaurus/plugin-content-blog@npm:2.0.0-alpha.74":
   version: 2.0.0-alpha.74
   resolution: "@docusaurus/plugin-content-blog@npm:2.0.0-alpha.74"
@@ -18104,16 +18097,12 @@ resolve@^2.0.0-next.3:
   resolution: "samlang@workspace:packages/samlang"
   dependencies:
     "@dev-sam/samlang-demo": ^0.4.2
-    "@docusaurus/core": 2.0.0-alpha.74
-    "@docusaurus/module-type-aliases": 2.0.0-alpha.74
-    "@docusaurus/preset-classic": 2.0.0-alpha.74
-    "@docusaurus/theme-classic": 2.0.0-alpha.74
-    "@mdx-js/react": ^1.6.4
     "@types/react": ^17.0.4
     clsx: ^1.1.1
-    lib-docusaurus-plugin: 0.1.0
+    esbuild-scripts: "workspace:0.2.1"
+    infima: 0.2.0-alpha.23
+    lib-react-docs: 0.1.0
     lib-react-prism: 0.1.0
-    prism-react-renderer: ^1.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
     typescript: ^4.2.4

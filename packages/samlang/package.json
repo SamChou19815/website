@@ -3,40 +3,23 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
+    "start": "node scripts.js start",
+    "build": "node scripts.js ssg",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s samlang.io --prod"
   },
   "dependencies": {
     "@dev-sam/samlang-demo": "^0.4.2",
-    "@docusaurus/core": "2.0.0-alpha.74",
-    "@docusaurus/preset-classic": "2.0.0-alpha.74",
-    "@docusaurus/theme-classic": "2.0.0-alpha.74",
-    "@mdx-js/react": "^1.6.4",
     "clsx": "^1.1.1",
-    "lib-docusaurus-plugin": "0.1.0",
+    "infima": "0.2.0-alpha.23",
+    "lib-react-docs": "0.1.0",
     "lib-react-prism": "0.1.0",
-    "prism-react-renderer": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-alpha.74",
     "@types/react": "^17.0.4",
+    "esbuild-scripts": "workspace:0.2.1",
     "typescript": "^4.2.4"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }

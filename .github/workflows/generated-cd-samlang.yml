@@ -4,10 +4,13 @@ name: CD samlang
 on:
   push:
     paths:
-      - 'packages/lib-prism-extended/**'
       - 'packages/lib-common/**'
+      - 'packages/lib-fs/**'
+      - 'packages/lib-prism-extended/**'
       - 'packages/lib-react-prism/**'
-      - 'packages/lib-docusaurus-plugin/**'
+      - 'packages/lib-colorful-terminal/**'
+      - 'packages/esbuild-scripts/**'
+      - 'packages/lib-react-docs/**'
       - 'packages/samlang/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-samlang.yml'
