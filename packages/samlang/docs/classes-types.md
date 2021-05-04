@@ -1,7 +1,4 @@
----
-id: classes-types
-title: Classes & Types
----
+# Classes Types
 
 ## Utility Class
 

@@ -6,12 +6,12 @@
  */
 
 import runSamlangDemo from '@dev-sam/samlang-demo';
-import CodeBlock from '@theme/CodeBlock';
-import Layout from '@theme/Layout';
-import usePrismTheme from '@theme/hooks/usePrismTheme';
 import React, { useState } from 'react';
 
+import Head from 'esbuild-scripts/components/Head';
+import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import PrismCodeEditor from 'lib-react-prism/PrismCodeEditor';
+import theme from 'lib-react-prism/prism-theme.json';
 
 type Response = ReturnType<typeof runSamlangDemo>;
 
@@ -33,7 +33,6 @@ const getResponse = (programString: string): Response | string => {
 };
 
 const LanguageDemo = () => {
-  const theme = usePrismTheme();
   const [text, setText] = useState(initialText);
   const [response, setResponse] = useState(() => getResponse(initialText));
 
@@ -42,7 +41,7 @@ const LanguageDemo = () => {
       <div className="card parallel-card editor-card">
         <div
           className="card__body editor-card-container"
-          style={{ backgroundColor: theme.plain.backgroundColor }}
+          style={{ backgroundColor: (theme.plain as Record<string, string>).backgroundColor }}
         >
           <PrismCodeEditor language="samlang" code={text} theme={theme} onCodeChange={setText} />
         </div>
@@ -70,31 +69,33 @@ const LanguageDemo = () => {
               {response.interpreterPrinted && (
                 <div className="colored-result good-result">
                   <h3>Program Standard Out:</h3>
-                  <CodeBlock>{response.interpreterPrinted}</CodeBlock>
+                  <PrismCodeBlock language="">{response.interpreterPrinted}</PrismCodeBlock>
                 </div>
               )}
               {response.prettyPrintedProgram && (
                 <div className="colored-result good-result">
                   <h3>Pretty Printed Program:</h3>
-                  <CodeBlock className="samlang">{response.prettyPrintedProgram.trim()}</CodeBlock>
+                  <PrismCodeBlock language="samlang">
+                    {response.prettyPrintedProgram.trim()}
+                  </PrismCodeBlock>
                 </div>
               )}
               {response.jsString && (
                 <div className="colored-result neutral-result">
                   <h3>Compiled JS:</h3>
-                  <CodeBlock className="javascript">{response.jsString.trim()}</CodeBlock>
+                  <PrismCodeBlock language="javascript">{response.jsString.trim()}</PrismCodeBlock>
                 </div>
               )}
               {response.llvmString && (
                 <div className="colored-result neutral-result">
                   <h3>Optimized LLVM Code:</h3>
-                  <CodeBlock className="llvm">{response.llvmString.trim()}</CodeBlock>
+                  <PrismCodeBlock language="llvm">{response.llvmString.trim()}</PrismCodeBlock>
                 </div>
               )}
               {response.errors.length > 0 && (
                 <div className="colored-result bad-result">
                   <h3>Compile Time Errors:</h3>
-                  <CodeBlock>{response.errors.join('\n')}</CodeBlock>
+                  <PrismCodeBlock language="">{response.errors.join('\n')}</PrismCodeBlock>
                 </div>
               )}
             </div>
@@ -105,15 +106,15 @@ const LanguageDemo = () => {
   );
 };
 
-function Demo(): JSX.Element {
+const Demo = (): JSX.Element => {
   return (
-    <Layout
-      title="samlang Demo"
-      description="A web-based samlang demo with type checker, interpreter, and compiler running in browser."
-    >
+    <>
+      <Head>
+        <title>samlang Demo</title>
+      </Head>
       <LanguageDemo />
-    </Layout>
+    </>
   );
-}
+};
 
 export default Demo;

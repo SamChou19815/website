@@ -11,6 +11,7 @@ const baseESBuildConfig = ({
   readonly noThemeSwitch?: boolean;
 }): BuildOptions => ({
   define: {
+    __dirname: '""',
     __SERVER__: String(isServer),
     'process.env.NODE_ENV': isProd ? '"production"' : '"development"',
   },

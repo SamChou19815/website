@@ -1,7 +1,4 @@
----
-id: expressions
-title: Expressions
----
+# Expressions
 
 The expressions are listed in order of precedence so you know where to add parenthesis.
 
