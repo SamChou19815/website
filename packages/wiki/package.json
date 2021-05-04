@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "esbuild-scripts start",
-    "build": "esbuild-scripts ssg",
+    "start": "node scripts.js start",
+    "build": "node scripts.js ssg",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s wiki.developersam.com --prod"
   },

@@ -5,7 +5,7 @@ import mdx from '@mdx-js/mdx';
 import type { Plugin } from 'esbuild';
 import { Result as SassResult, render } from 'sass';
 
-import { PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants';
+import { DOCS_PATH, PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants';
 import pnpPlugin from './esbuild-pnp-plugin';
 
 import { exists, readFile } from 'lib-fs';
@@ -14,6 +14,10 @@ const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',
   setup(buildConfig) {
     buildConfig.onResolve({ filter: /^data:/ }, () => ({ external: true }));
+
+    buildConfig.onResolve({ filter: /^esbuild-scripts-internal\/docs\// }, (args) => ({
+      path: resolve(join(DOCS_PATH, relative(join('esbuild-scripts-internal', 'docs'), args.path))),
+    }));
 
     buildConfig.onResolve({ filter: /^esbuild-scripts-internal\/page\// }, async (args) => {
       const relativePath = relative(join('esbuild-scripts-internal', 'page'), args.path);
