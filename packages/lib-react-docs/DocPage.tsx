@@ -61,9 +61,9 @@ const MDXComponents = {
   pre: (props: ComponentProps<'pre'>) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const stringOrComponentChildren = props.children as any;
-    const { className, children } = (isValidElement(stringOrComponentChildren)
-      ? stringOrComponentChildren?.props
-      : props) as { className: string; readonly children: string };
+    const { className, children } = (
+      isValidElement(stringOrComponentChildren) ? stringOrComponentChildren?.props : props
+    ) as { className: string; readonly children: string };
     return (
       <PrismCodeBlock language={className.replace(/language-/, '')}>
         {children.trim()}

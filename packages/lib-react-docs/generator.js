@@ -104,7 +104,7 @@ var ne = (0, c.join)('.temp', '__server__.jsx'),
   le = (0, c.join)('build', '__ssr.css');
 var o = w(require('fs')),
   m = w(require('path')),
-  u = (e, r) => (t) => (t ? r(t) : e()),
+  u = (e, r) => (t) => t ? r(t) : e(),
   g = (e) => new Promise((r, t) => (0, o.readdir)(e, (n, i) => (n ? t(n) : r(i)))),
   _ = async (e) =>
     Promise.all(
