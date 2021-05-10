@@ -13,10 +13,10 @@ import {
 } from 'fs';
 import { join, relative } from 'path';
 
-const createNoParamCallback = (
-  resolve: () => void,
-  reject: (error: unknown) => void
-): NoParamCallback => (error) => (error ? reject(error) : resolve());
+const createNoParamCallback =
+  (resolve: () => void, reject: (error: unknown) => void): NoParamCallback =>
+  (error) =>
+    error ? reject(error) : resolve();
 
 const readDirectoryPrimitive = (path: string): Promise<string[]> =>
   new Promise((resolve, reject) =>
@@ -43,7 +43,9 @@ export const copyDirectoryContent = async (
   await emptyDirectory(targetDirectory);
 
   await Promise.all(
-    (await readDirectoryPrimitive(sourceDirectory)).map(async (file) => {
+    (
+      await readDirectoryPrimitive(sourceDirectory)
+    ).map(async (file) => {
       const fullSourcePath = join(sourceDirectory, file);
       const fullDestinationPath = join(targetDirectory, file);
       if (await isDirectory(fullSourcePath)) {
