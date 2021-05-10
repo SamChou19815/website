@@ -1671,6 +1671,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@dev-sam/jest-esbuild-transformer@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@dev-sam/jest-esbuild-transformer@npm:0.2.0"
+  peerDependencies:
+    esbuild: "*"
+  checksum: 8af0f8f8f3ff6987794b04ed97504eada50625af4c4593ab531ddf34738c8f8cd7a90b9c89b2c9eb435fff941bcc3994ac4539a20639fcb037e305a0e3926998
+  languageName: node
+  linkType: hard
+
 "@dev-sam/samlang-demo@npm:^0.4.3":
   version: 0.4.3
   resolution: "@dev-sam/samlang-demo@npm:0.4.3"
@@ -8107,19 +8116,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-runner@npm:^1.3.2":
-  version: 1.3.2
-  resolution: "esbuild-runner@npm:1.3.2"
-  dependencies:
-    esbuild: ^0.8.20
-    source-map-support: ^0.5.19
-    tslib: ^2.0.3
-  bin:
-    esr: bin/esr.js
-  checksum: ab16a3dccd147a4d896fe5dbcd748b97990304a7f13ed32a58cb06c92de824f734b92fcaab9f05bbf442f4cf9bf7fdc96adbcf93819a12551548147899334cac
-  languageName: node
-  linkType: hard
-
 "esbuild-scripts@workspace:0.2.1, esbuild-scripts@workspace:packages/esbuild-scripts":
   version: 0.0.0-use.local
   resolution: "esbuild-scripts@workspace:packages/esbuild-scripts"
@@ -8153,7 +8149,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"esbuild@npm:0.11.20":
+"esbuild@npm:^0.11.20":
   version: 0.11.20
   resolution: "esbuild@npm:0.11.20"
   bin:
@@ -16169,10 +16165,11 @@ resolve@^2.0.0-next.3:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@dev-sam/eslint-config-common": "workspace:^0.21.0"
+    "@dev-sam/jest-esbuild-transformer": 0.2.0
     "@types/node": ^15.0.2
     "@typescript-eslint/eslint-plugin": ^4.23.0
     "@typescript-eslint/parser": ^4.23.0
-    esbuild-runner: ^1.3.2
+    esbuild: ^0.11.20
     eslint: ^7.26.0
     eslint-import-resolver-node: ^0.3.4
     eslint-plugin-import: ^2.22.1
@@ -16921,7 +16918,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.19, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.19":
+"source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.19":
   version: 0.5.19
   resolution: "source-map-support@npm:0.5.19"
   dependencies:

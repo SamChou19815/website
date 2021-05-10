@@ -16,10 +16,11 @@
   ],
   "devDependencies": {
     "@dev-sam/eslint-config-common": "workspace:^0.21.0",
+    "@dev-sam/jest-esbuild-transformer": "0.2.0",
     "@types/node": "^15.0.2",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
-    "esbuild-runner": "^1.3.2",
+    "esbuild": "^0.11.20",
     "eslint": "^7.26.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-import": "^2.22.1",
@@ -43,9 +44,6 @@
       "built": false
     }
   },
-  "resolutions": {
-    "esbuild": "0.11.20"
-  },
   "eslintConfig": {
     "extends": [
       "@dev-sam/common"
@@ -63,7 +61,7 @@
       "/.next/"
     ],
     "transform": {
-      "^.+\\.(js|jsx|ts|tsx)$": "esbuild-runner/jest"
+      "^.+\\.(js|jsx|ts|tsx)$": "@dev-sam/jest-esbuild-transformer"
     },
     "transformIgnorePatterns": [
       "^.+\\.module\\.(css|sass|scss)$"
