@@ -11356,6 +11356,7 @@ fsevents@^1.2.7:
     lib-fs: "workspace:0.1.0"
     lib-markdown-header-parser: "workspace:0.1.0"
     lib-react-mdx-components: "workspace:0.1.0"
+    lib-react-toc: "workspace:0.1.0"
     react: ^17.0.2
     typescript: ^4.2.4
   peerDependencies:
@@ -11406,6 +11407,20 @@ fsevents@^1.2.7:
     typescript: ^4.2.4
   peerDependencies:
     prism-react-renderer: ^1.2.0
+    react: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"lib-react-toc@workspace:0.1.0, lib-react-toc@workspace:packages/lib-react-toc":
+  version: 0.0.0-use.local
+  resolution: "lib-react-toc@workspace:packages/lib-react-toc"
+  dependencies:
+    "@types/node": ^15.0.2
+    "@types/react": ^17.0.5
+    lib-markdown-header-parser: "workspace:0.1.0"
+    react: ^17.0.2
+    typescript: ^4.2.4
+  peerDependencies:
     react: ^17.0.0
   languageName: unknown
   linkType: soft
@@ -18005,6 +18020,7 @@ typescript@^4.2.4:
     lib-react-docs: "workspace:0.1.0"
     lib-react-loading: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
+    lib-react-toc: "workspace:0.1.0"
     react: ^17.0.2
     react-dom: ^17.0.2
     remarkable: ^2.0.1
