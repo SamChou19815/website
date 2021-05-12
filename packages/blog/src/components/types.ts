@@ -1,5 +1,6 @@
 import type { MarkdownTablesOfContentsElement } from 'lib-markdown-header-parser';
 
+export type BlogPaginationItem = { readonly title: string; readonly permalink: string };
 export type FrontMatter = { readonly title: string };
 
 export type Metadata = {
@@ -8,8 +9,8 @@ export type Metadata = {
   readonly formattedDate: string;
   readonly permalink: string;
   readonly truncated?: string;
-  readonly nextItem?: { readonly title: string; readonly permalink: string };
-  readonly prevItem?: { readonly title: string; readonly permalink: string };
+  readonly nextItem?: BlogPaginationItem;
+  readonly prevItem?: BlogPaginationItem;
 };
 
 export type Content = {
