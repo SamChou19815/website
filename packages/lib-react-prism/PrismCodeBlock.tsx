@@ -7,6 +7,8 @@ import theme from './prism-theme.json';
 
 import extendLibPrism from 'lib-prism-extended';
 
+import './PrismCodeBlock.css';
+
 extendLibPrism(Prism);
 
 export type Props = {
