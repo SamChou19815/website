@@ -5363,6 +5363,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "blog@workspace:packages/blog"
   dependencies:
+    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@docusaurus/core": 2.0.0-beta.0
     "@docusaurus/plugin-google-analytics": 2.0.0-beta.0
     "@docusaurus/plugin-google-gtag": 2.0.0-beta.0
@@ -5374,10 +5375,13 @@ __metadata:
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.2.1"
     file-loader: ^6.2.0
+    lib-common: "workspace:0.0.1"
+    lib-fs: "workspace:0.1.0"
     lib-markdown-header-parser: "workspace:0.1.0"
     lib-prism-extended: "workspace:0.1.0"
     lib-react-mdx-components: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
+    lib-react-toc: "workspace:0.1.0"
     prism-react-renderer: ^1.2.0
     react: ^17.0.2
     react-dom: ^17.0.2

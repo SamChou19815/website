@@ -26,6 +26,7 @@
 **/.next
 **/.temp
 **/generated-pages
+**/generated-blog
 .vscode/pnpify
 .docusaurus
 .cache-loader
