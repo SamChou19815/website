@@ -1,6 +1,6 @@
-// @ts-check
+import generate from 'lib-react-docs/generator';
 
-require('lib-react-docs/generator').default({
+generate({
   siteTitle: 'samlang',
   sideBarItems: {
     'Language Basics': ['/introduction', '/classes-types', '/expressions', '/type-inference'],

@@ -1660,12 +1660,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dev-sam/jest-esbuild-transformer@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@dev-sam/jest-esbuild-transformer@npm:0.2.0"
+"@dev-sam/jest-esbuild-transformer@npm:0.4.0":
+  version: 0.4.0
+  resolution: "@dev-sam/jest-esbuild-transformer@npm:0.4.0"
   peerDependencies:
     esbuild: "*"
-  checksum: 8af0f8f8f3ff6987794b04ed97504eada50625af4c4593ab531ddf34738c8f8cd7a90b9c89b2c9eb435fff941bcc3994ac4539a20639fcb037e305a0e3926998
+  bin:
+    esr: runner.js
+  checksum: 11fc9f3b60f91c3dacfd147784f1addeea4285f81b500598c8e066d50f4717a4a2f11bc0dff4d80aed34f2b7e9facdf6e6f5ce0dae651eae41a488e2ba3ad937
   languageName: node
   linkType: hard
 
@@ -15160,7 +15162,7 @@ resolve@^2.0.0-next.3:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@dev-sam/eslint-config-common": "workspace:^0.21.0"
-    "@dev-sam/jest-esbuild-transformer": 0.2.0
+    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/node": ^15.0.2
     "@typescript-eslint/eslint-plugin": ^4.23.0
     "@typescript-eslint/parser": ^4.23.0
@@ -15269,6 +15271,7 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "samlang@workspace:packages/samlang"
   dependencies:
+    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@dev-sam/samlang-demo": ^0.4.3
     "@types/react": ^17.0.5
     clsx: ^1.1.1
@@ -17986,6 +17989,7 @@ typescript@^4.2.4:
   version: 0.0.0-use.local
   resolution: "wiki@workspace:packages/wiki"
   dependencies:
+    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/node": ^15.0.2
     "@types/react": ^17.0.5
     "@types/react-dom": ^17.0.3

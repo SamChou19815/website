@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node scripts.js start",
-    "build": "node scripts.js ssg",
+    "start": "esr scripts.ts start",
+    "build": "esr scripts.ts ssg",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s samlang.io --prod"
   },
@@ -18,6 +18,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@dev-sam/jest-esbuild-transformer": "0.4.0",
     "@types/react": "^17.0.5",
     "esbuild-scripts": "workspace:0.2.1",
     "typescript": "^4.2.4"
