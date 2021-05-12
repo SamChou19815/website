@@ -1,6 +1,5 @@
 ---
 title: Nerd Pride
-tags: [tech-journey, review, thoughts]
 ---
 
 On the evening of December 8, 2016, exactly on 5:01 PM in Eastern Standard Time, the photons of
@@ -206,7 +205,7 @@ and applied mathematics.
 
 When my high school started two years ago, I was in a period of uncertainty. But when I was
 beginning to figure out I am indeed a nerd, I started to strive for being great: learning calculus
-before anyone else in the school, creating software better than anyone else’s in the school, doing
+before anyone else in the school, creating software better than anyone else's in the school, doing
 computer science research powerful than anyone else in the school had ever researched. The price
 could not be taken lightly: overly reliance on coffee, some white hairs, and a great disadvantage
 for college admission: a nerdy spirit that is virtually impossible to conceal. Yes, it is the time
@@ -232,7 +231,7 @@ Sciences, where none from my high school had ever been admitted into. While I fi
 research, my parent came up with a completely different idea: applying for NETS program in Penn
 Engineering. We all knew that Penn is significantly harder to get into. We also knew that I was
 willing to take the risk since I would be very comfortable to be admitted into UC Berkeley in case I
-failed the ED. Thus, it was not the choice between risk and safety. My mom’s message came in during
+failed the ED. Thus, it was not the choice between risk and safety. My mom's message came in during
 the last week of MathILy course. She cannot elaborate on her points simply by chat, so we all agreed
 to have it settled after those campus visit. Suddenly, the visiting, which was only supposed to be a
 confirmation when I initially chose Cornell, became a contest and a source of debate. The topic of

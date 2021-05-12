@@ -1,6 +1,5 @@
 ---
 title: Supporting the LLVM Backend for samlang
-tags: [design-choices]
 ---
 
 LLVM is a collection of compiler toolchain that allows you to target any instruction set from any

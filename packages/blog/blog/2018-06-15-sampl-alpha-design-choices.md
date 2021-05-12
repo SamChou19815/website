@@ -1,6 +1,5 @@
 ---
 title: Design Choice of SAMPL - Written After the First Alpha Release
-tags: [design-choices]
 ---
 
 ### Beginning
@@ -54,7 +53,7 @@ principle is similar to Facebook's Reason: write OCaml code in JS way.
 
 #### Type Inference and Type Checking
 
-It wasn’t hard to realize that if we don’t require type inference on functions, then type inference
+It wasn't hard to realize that if we don't require type inference on functions, then type inference
 was almost trivial to implement: a simple environment model will do the job. In addition, we have a
 good reason to explicitly specify types of functions at the top level.
 

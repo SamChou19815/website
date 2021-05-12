@@ -1,6 +1,5 @@
 ---
 title: Rewriting samlang in TypeScript
-tags: [design-choices]
 ---
 
 A lot has changed since my [last blog post](/2020/05/17/samlang-in-browser) on my effort to make

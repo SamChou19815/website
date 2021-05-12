@@ -1,6 +1,5 @@
 ---
 title: How to Implement Autocomplete
-tags: [design-choices]
 ---
 
 Implement autocomplete in 79 lines of code. Actually, it's not that easy.

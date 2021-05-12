@@ -1,6 +1,5 @@
 ---
 title: Making samlang Run in Browsers
-tags: [design-choices]
 ---
 
 ### Background

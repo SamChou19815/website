@@ -1,6 +1,5 @@
 ---
 title: Function Reference in SAMPL - A Design Mistake and the Fix
-tags: [design-choices]
 ---
 
 ### Background

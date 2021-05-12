@@ -1,6 +1,5 @@
 ---
 title: My Decade in Review
-tags: [tech-journey, review, thoughts]
 ---
 
 Following the lead of React and JavaScript god [Dan Abramov](https://overreacted.io/), I decided to
@@ -20,7 +19,7 @@ essential to understand the story.)
 
 People have different opinions on whether 2010 is in the decade that contains 2019 or the previous
 decade. I think there is no significant event for me in 2010, so it doesn't matter for the
-discussion. Therefore, let’s avoid the debate and go straight into 2011.
+discussion. Therefore, let's avoid the debate and go straight into 2011.
 
 ### 2011: Killing the Class BBS
 
@@ -44,9 +43,9 @@ banned further discussion.
 
 Initially, I decided to lead a boycott of the class BBS to protest this ban. Soon, I found a better
 approach: creating an alternative. On the same day, I relaunched my own BBS and publicly marketed it
-on the class BBS as the alternative that permits free speech. After a few hours, my own BBS’s
+on the class BBS as the alternative that permits free speech. After a few hours, my own BBS's
 popularity surpassed the official one, and by the end of the semester, my action turned the official
-class BBS into a ghost town. The success was short-lived. People’s passion for free speech and the
+class BBS into a ghost town. The success was short-lived. People's passion for free speech and the
 complete absence of regulation soon faded. At the end of the year, my BBS was effectively dead.
 
 Newer platforms of communication emerged. BBS, the technology of the last central, cannot survive
@@ -108,10 +107,10 @@ must be trustworthy and could never be interrogated by potential attackers.
 
 The origin of my intention to create such a system could be traced back to 2012. Our class teacher
 was replaced in October 2012, but the impact only began to reveal itself during this period. My
-classmates had been increasingly discontent with the new class teacher’s style of management. In
+classmates had been increasingly discontent with the new class teacher's style of management. In
 December 2012, there was an incident when a cell phone rang during a math class but no one admitted.
 Later, I happened to witness that the class teacher ordered some students to search for other
-students’ bags to investigate. I was deeply disturbed by this intrusive way of investigation, to an
+students' bags to investigate. I was deeply disturbed by this intrusive way of investigation, to an
 extent that the story eventually went into my college admission essay as a flashback.
 
 A deep sense of mistrust is growing and I started to think about what I could do with my knowledge
@@ -145,7 +144,7 @@ In my private note, I commented that the final graduation ceremony marked a poin
 civilization had gone with the wind. This was not a glorious civilization, but a deeply flawed and
 skewed one as a direct result of the Chinese educational system. Yet humanity still shines: unlike
 some stereotypical impression against the best exam-oriented school, friendship, and during some
-period, a common enemy did exist. It’s just not a result of the system, but because of the wonderful
+period, a common enemy did exist. It's just not a result of the system, but because of the wonderful
 people. Believes and dreams still refuse to die even under the bad system.
 
 Luckily, non-academic activities continued to exist. I did read Nineteen Eighty-four in this period
@@ -215,8 +214,8 @@ discrepancies, I decide to directly quote my words in my college admission essay
 > initially invited about 10 teachers to our platform; however, due to our slow progress in changing
 > the code, only three teachers remained. We wanted to make quick modifications to retain our
 > teacher users, but as a computer science guy, I was instantly aware that making this change would
-> require tracking users' scroll bars, which can be used to re-visualize exactly what’s happening on
-> a user's screen, almost equivalent to quietly installing malware to record our users’ screens when
+> require tracking users' scroll bars, which can be used to re-visualize exactly what's happening on
+> a user's screen, almost equivalent to quietly installing malware to record our users' screens when
 > they are using our platform.
 >
 > "You know, the students are making up excuses for not doing homework," the teacher said.
@@ -226,7 +225,7 @@ discrepancies, I decide to directly quote my words in my college admission essay
 > who it was, admit his or her error. There was no response. Later, the homeroom teacher ordered
 > some of my best friends to clandestinely search for the student's schoolbag in the suspected areas
 > of the ringing phone. All of my friends thought that was bad, but they still obeyed the order
-> because they were afraid of the teachers’ criticism. I don’t know if I had been chosen whether I
+> because they were afraid of the teachers' criticism. I don't know if I had been chosen whether I
 > would have challenged the teacher, but I think I would at least have chosen not to tell the
 > teacher if I did find evidence of which phone was ringing. If I was not brave enough to blatantly
 > reject the request, at least I could have resisted passively.
@@ -262,10 +261,10 @@ The event occurred around May 2015, before I became the club president. Since I 
 developer in the team, I had the de-facto veto power and invoked it.
 
 The event went through without any real repercussions, but its significance to me keeps getting
-bigger. It was the first time I said no to a teacher’s request. It was probably the first time in my
+bigger. It was the first time I said no to a teacher's request. It was probably the first time in my
 school when technology won over politics because the political side was too incompetent to implement
 the same thing on their own. It was my last chance for me to reverse my personality to lead the
-project to greater success. I’m **glad** that I missed it.
+project to greater success. I'm **glad** that I missed it.
 
 When I stepped down in 12th grade, the platform looks like the following screenshot. As you can see
 technical improvements and change of user interface did not move things to much.
@@ -273,16 +272,16 @@ technical improvements and change of user interface did not move things to much.
 ![SAM Screenshot 2016](/img/2020-01-07-my-decade-in-review/sam-later.png)
 
 Another big ongoing struggle in that year was my fight with the student union. Although never
-succeeded, I designed our platform to be a drop-in replacement for student unions’ publicity
+succeeded, I designed our platform to be a drop-in replacement for student unions' publicity
 channel, only to find out later that at least in my year, other students used neither. I planned and
-executed our recruitment ahead of the student union’s recruitment to steal the pool of talent, only
+executed our recruitment ahead of the student union's recruitment to steal the pool of talent, only
 to find out that we could only get one good CS student during recruitment.
 
 More importantly, I tried to make Computerization anything that is not the student union. I was the
 master hacker instead of the work distributor. I wanted to step down from the position of president
 to focus more on technical aspects, although the attempt failed since no one else wanted to be club
 president. I also strived for independence for the club very hard, using my own money from
-scholarships to fund it instead of asking for the school’s assistance. I am not claiming these are
+scholarships to fund it instead of asking for the school's assistance. I am not claiming these are
 good leadership characteristics. Some of them are not. For example, being the master hacker resulted
 in a period of chaos when I entered the 12th grade and no longer had time to do the hacker work.
 
@@ -311,13 +310,13 @@ Nerds are discriminated against, prosecuted, yet they remain who they are.
 I have already discussed the impact on the article on me in the post
 [Computer Science in High Schools](/2018/12/31/cs-in-high-schools/), so I will omit further analysis
 here. What has not been mentioned before is that I happened to find this article and read it right
-before our school’s trip to Inner Mongolia for a week of relief and cultural understanding. To be
+before our school's trip to Inner Mongolia for a week of relief and cultural understanding. To be
 fair, I still did not understand what was the actual point of the trip, so the above statement is
 just my best-effort guess.
 
-I correctly conjectured that I won’t enjoy the trip, so I pre-downloaded a lot of machine learning
+I correctly conjectured that I won't enjoy the trip, so I pre-downloaded a lot of machine learning
 lecture videos and brought a linear algebra book with me. During a week there, I was reading classic
-ML papers and watching Andrew Ng’s videos to figure out _why the heck my classifier's training
+ML papers and watching Andrew Ng's videos to figure out _why the heck my classifier's training
 accuracy stuck at 40%_, while other students were playing board games at night. Against the wishes
 of anyone who wanted to convert me into a more “well-rounded” person, I was very proud of this
 openly nerdy act of defiance and even mentioned it in my graduation ceremony speech.
@@ -334,24 +333,24 @@ the Nerds essay:
 On Wednesday night, I recalled that there was a ceremony for being grown up. Now I almost forgot
 everything about those random poems and songs, but only a student film that showed the life of one
 nerdy student, that eventually became more socially natural. I was not sure whether it was a satire
-against me, but I no longer cared. I enjoyed watching it because it’s fun to see it getting so
+against me, but I no longer cared. I enjoyed watching it because it's fun to see it getting so
 wrong. I thought that there would be a day that my six-figure salary would render all these talks
 futile.
 
-Of course, I didn’t get a six-figure salary that year, nor there was any evidence that I was on
+Of course, I didn't get a six-figure salary that year, nor there was any evidence that I was on
 track at that time. However, I did come back from Inner Mongolia with a resolution to remain nerdy
 and a workable idea to fix my neural network models. I did learn something profound about myself,
 which could make the event organizer happy since it probably was one of the goal of the trip,
 although it was in an opposite direction that people might hope.
 
-In August 2016, I had a tour around various US Universities’ campuses. When the tour was planned
+In August 2016, I had a tour around various US Universities' campuses. When the tour was planned
 around May, its original purpose was to learn the culture and background of different universities
 to help me to decide which one to apply for early decision. Things had changed. In June, I already
 locked myself to Cornell after some initial research on the CS courses offered by some universities.
-In July, my Mom insisted that Penn was better and sent me a list of graduation reports of Penn’s CS
+In July, my Mom insisted that Penn was better and sent me a list of graduation reports of Penn's CS
 department with quite a lot of graduates entering Google. Cornell did a bad job on publishing these
 stats and it would take me a while to find a slightly outdated and incomplete version of Cornell one
-to show that it’s not worse. Things were in a stalemate and the tour was the key to break the
+to show that it's not worse. Things were in a stalemate and the tour was the key to break the
 balance.
 
 Fortunately, Cornell organized the tour by colleges and I was attracted by the college of
@@ -361,8 +360,8 @@ same traits. My decision was made. _In the Paxos protocol, a process named `sam`
 messages from a majority of its internal acceptors and decided to put `'Cornell'` into slot `ZERO`
 and it's now up to the learners to figure out the acceptors' decision._
 
-Regardless of anyone’s personal feelings, it was an extremely risky decision. No one even in my high
-school had successfully entered an Ivy League’s engineering school. _If college admission were a
+Regardless of anyone's personal feelings, it was an extremely risky decision. No one even in my high
+school had successfully entered an Ivy League's engineering school. _If college admission were a
 machine learning optimization game, my decision would be overridden with only one epoch of gradient
 descent, given a big pile of historical data against me._ Yet I recklessly went ahead, gambled and
 triumphed. However, it was a little sad to learn that the same story could not be replicated by
@@ -371,7 +370,7 @@ later students from my high school.
 ### 2017: An Actual Year of No Significance
 
 In 2017, nothing significant happened. I entered Cornell, but the decision came out last year. I got
-rejected by Google without an interview, but it’s a result of all previous years' ignorance on how
+rejected by Google without an interview, but it's a result of all previous years' ignorance on how
 to be good at software engineering.
 
 I reckoned whether my high school experience would be the peak of my career. Fortunately, events in
@@ -408,7 +407,7 @@ linter and type checker to my subteam to help improve the code quality, and was 
 master hacker in the team. In the spring, I became the technical project manager for the team and
 then spent more time improving the infrastructure of the project. In the fall, I became one of the
 two developer leads and pushed the same infrastructure improvements to the entire team. Learning
-from my experience, I did not seek any non-technical role within the team: I know I won’t like it,
+from my experience, I did not seek any non-technical role within the team: I know I won't like it,
 and I am more willing to accept the alternative of being a developer all the time. Thinking about
 the future, I plan to step down to be a developer again once my developer lead term ends. I am ready
 to be the master hacker yet again.
@@ -443,9 +442,9 @@ log. I would expect disagreements because they make this article meaningful rath
 of some axioms or fake axioms that everyone is supposed to agree with.
 
 Contrary to your expectations, there is no concluding section. I would not classify these
-experiences as good or bad, but unique. I believe it’s so unique so that you are bound to mess up if
-you to imitate my path without thinking anything. It’s like pushing code from StackOverflow directly
-into production without even reading it, so don’t do it.
+experiences as good or bad, but unique. I believe it's so unique so that you are bound to mess up if
+you to imitate my path without thinking anything. It's like pushing code from StackOverflow directly
+into production without even reading it, so don't do it.
 
 Despite putting some of my potentially biased thoughts into this post, I still welcome your open
 interpretation. Again, treat this as a piece of random code written by some unknown guy, understand

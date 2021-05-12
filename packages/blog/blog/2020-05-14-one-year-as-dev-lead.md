@@ -1,6 +1,5 @@
 ---
 title: One Year as Developer Lead
-tags: [tech-journey, review, thoughts]
 ---
 
 Almost a year ago, I started to perform developer lead responsibilities at

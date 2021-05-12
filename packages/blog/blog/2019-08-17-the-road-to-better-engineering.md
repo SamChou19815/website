@@ -1,12 +1,11 @@
 ---
 title: The Road to Better Engineering
-tags: [design-choices, review, thoughts]
 ---
 
 ### The Start
 
 About three years ago, a student club welcomes the largest influx of new members in its entire
-existence. It is considered as a milestone: it’s a de facto recognition that it’s becoming
+existence. It is considered as a milestone: it's a de facto recognition that it's becoming
 prominent. By that time, its product covers over 40% of the student base and the club is the place
 for future software engineers to go. The former president of the club publicly celebrated this, and
 he was thinking about how the club can continue to move fast without any overhead of bureaucracy.
@@ -31,8 +30,8 @@ JavaScript with jQuery. It has all the problems that a modern compiler and linte
 ban. For the sake of completeness, I will list some problems and responses that should have been
 given:
 
-- Mixing HTML and backend code in PHP: strictly banned by Hack’s type checker;
-- Zero type declarations in top-level and class functions: strictly banned by Hack’s type checker;
+- Mixing HTML and backend code in PHP: strictly banned by Hack's type checker;
+- Zero type declarations in top-level and class functions: strictly banned by Hack's type checker;
 - Using poorly designed PHP5 features: should be spotted by good linter and make it impossible to
   pass code review;
 - Poor efficiency with database access: should be spotted early in code review, if it exists;
@@ -49,7 +48,7 @@ abandoned a year ago.
 
 While I was the president, the quality of the codebase was the last thing I cared about. Other "more
 important" issues in my mind cause the idea of cleaning the codebase to be immediately garbage
-collected after it’s born. The thing I cared most about is how to convince more users to use our
+collected after it's born. The thing I cared most about is how to convince more users to use our
 platform so that I can put these stupid numbers on college admission forms. I also need to come up
 with new ideas so that we can keep innovating, or at least make it appear that innovation is still
 happening. Besides that, I have to handle all the logistics overhead to prepare for club fest, write
@@ -92,7 +91,7 @@ conventional success. But I was not. In my heart I know there exists something m
 know these things include secure applications, well-designed abstractions, and scalable
 infrastructure. Random numbers are not on the list.
 
-I don’t feel pride when I am finally putting those numbers in my application, but I do feel pride
+I don't feel pride when I am finally putting those numbers in my application, but I do feel pride
 when I was writing about my work. The deep inconsistency between conventional wisdom and my personal
 belief builds up emotional conflict, and it eventually bursts into an almost yelling declaration in
 my college application essay: “I love math and science! I love problem-solving!” No more leadership
@@ -137,7 +136,7 @@ pushing the limit of what we can achieve with better infrastructure.
 ### A Decision
 
 From there, a question naturally arises: is this the unavoidable fate? As a proud engineer, my
-answer to this question will always be no. When life gives us lemons, we don’t follow the
+answer to this question will always be no. When life gives us lemons, we don't follow the
 conventional wisdom to make lemons. Instead, we build
 [combustible lemons](https://www.youtube.com/watch?v=Dt6iTwVIiMM) and fire them back. At least for
 the code quality problem, there are engineering solutions. With sufficient invents and care, we can
@@ -207,7 +206,7 @@ increases the platform usage by 5% is a no-op to the sponsorship. As a result, o
 numbers gives you only numbers, but optimizing for better engineering can enable you to do more
 great things.
 
-The current setup might make you believe that I’m intentionally guiding Computerization to
+The current setup might make you believe that I'm intentionally guiding Computerization to
 implementing something completely useless. For example, writing a good compiler will lead to the
 greatest reward under the sponsorship terms. While the compiler case is true, it is not my
 intention. This setup will probably slow things down by a month, but engineers will waste more time
@@ -224,6 +223,6 @@ TypeScript/JavaScript, and my repositories are moving to adopt the latest GitHub
 
 ![New GitHub Actions Workflow](/img/2019-08-17-the-road-to-better-engineering/github-actions.png)
 
-The road to better engineering does not end here. We the computer scientists still don’t know the
+The road to better engineering does not end here. We the computer scientists still don't know the
 best approach to beat Turing-complete problems with scalable static analysis, but we all know the
 next small step: stop talking, start to write better code, and **ship it**.
