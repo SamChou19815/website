@@ -4,7 +4,6 @@ import Head from 'esbuild-scripts/components/Head';
 import DocNavBar from 'lib-react-docs/DocNavBar';
 
 import 'infima/dist/css/default/default.min.css';
-import 'lib-react-prism/PrismCodeBlock.css';
 import 'lib-react-docs/styles.scss';
 import './custom.css';
 
