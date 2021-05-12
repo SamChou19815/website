@@ -5649,8 +5649,8 @@ __metadata:
     "@docusaurus/plugin-sitemap": 2.0.0-alpha.74
     "@docusaurus/preset-classic": 2.0.0-alpha.74
     "@mdx-js/react": ^1.6.22
-    lib-docusaurus-plugin: 0.1.0
-    lib-react-prism: 0.1.0
+    lib-prism-extended: "workspace:0.1.0"
+    lib-react-prism: "workspace:0.1.0"
     prism-react-renderer: ^1.2.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -12016,21 +12016,6 @@ fsevents@^1.2.7:
   resolution: "lib-common@workspace:packages/lib-common"
   dependencies:
     typescript: ^4.2.4
-  languageName: unknown
-  linkType: soft
-
-"lib-docusaurus-plugin@0.1.0, lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin":
-  version: 0.0.0-use.local
-  resolution: "lib-docusaurus-plugin@workspace:packages/lib-docusaurus-plugin"
-  dependencies:
-    "@docusaurus/types": 2.0.0-alpha.74
-    lib-prism-extended: "workspace:0.1.0"
-    lib-react-prism: "workspace:0.1.0"
-  peerDependencies:
-    prism-react-renderer: ^1.2.0
-  peerDependenciesMeta:
-    prism-react-renderer:
-      optional: true
   languageName: unknown
   linkType: soft
 
@@ -19189,7 +19174,6 @@ typescript@^4.2.4:
     firebase: ^9.0.0-beta.1
     infima: 0.2.0-alpha.23
     lib-common: 0.0.1
-    lib-docusaurus-plugin: 0.1.0
     lib-firebase: 0.1.0
     lib-react-docs: 0.1.0
     lib-react-loading: 0.1.0

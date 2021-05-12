@@ -71,5 +71,5 @@ module.exports = {
       },
     ],
   ],
-  plugins: [require.resolve('lib-docusaurus-plugin')].filter(Boolean),
+  plugins: [require.resolve('./plugin')],
 };

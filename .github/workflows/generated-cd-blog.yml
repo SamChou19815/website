@@ -7,7 +7,6 @@ on:
       - 'packages/lib-prism-extended/**'
       - 'packages/lib-common/**'
       - 'packages/lib-react-prism/**'
-      - 'packages/lib-docusaurus-plugin/**'
       - 'packages/blog/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-blog.yml'
