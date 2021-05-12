@@ -68,3 +68,11 @@ h2.margin-bottom--sm {
   font-family: 'Roboto', BlinkMacSystemFont, 'Ubuntu', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 2em;
 }
+
+.blog-post-title {
+  font-size: 3rem;
+}
+
+.blog-post-date {
+  font-size: 0.9rem;
+}

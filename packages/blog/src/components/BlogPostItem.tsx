@@ -1,0 +1,54 @@
+import React from 'react';
+
+import type { FrontMatter, Metadata } from './types';
+
+import Link from 'esbuild-scripts/components/Link';
+import MDXProvider from 'esbuild-scripts/components/MDXProvider';
+import MDXComponents from 'lib-react-mdx-components';
+
+type Props = {
+  readonly frontMatter: FrontMatter;
+  readonly metadata: Metadata;
+  readonly truncated?: string | boolean;
+  readonly isBlogPostPage?: boolean;
+  readonly children: JSX.Element;
+};
+
+export default function BlogPostItem(props: Props): JSX.Element {
+  const { children, frontMatter, metadata, truncated, isBlogPostPage = false } = props;
+  const { date, formattedDate, permalink } = metadata;
+  const { title } = frontMatter;
+
+  const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
+
+  return (
+    <>
+      <article className={!isBlogPostPage ? 'margin-bottom--xl' : undefined}>
+        <header>
+          <TitleHeading className="margin-bottom--sm blog-post-title">
+            {isBlogPostPage ? title : <Link to={permalink}>{title}</Link>}
+          </TitleHeading>
+          <div className="margin-vert--md">
+            <time dateTime={date} className="blog-post-date">
+              {formattedDate}
+            </time>
+          </div>
+        </header>
+        <div className="markdown">
+          <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+        </div>
+        {truncated && (
+          <footer className="row margin-vert--lg">
+            {truncated && (
+              <div className="col text--right">
+                <Link to={metadata.permalink} aria-label={`Read more about ${title}`}>
+                  <strong>Read More</strong>
+                </Link>
+              </div>
+            )}
+          </footer>
+        )}
+      </article>
+    </>
+  );
+}
