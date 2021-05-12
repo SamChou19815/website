@@ -11339,7 +11339,7 @@ fsevents@^1.2.7:
     esbuild-scripts: "workspace:0.2.1"
     lib-common: "workspace:0.0.1"
     lib-fs: "workspace:0.1.0"
-    lib-react-prism: "workspace:0.1.0"
+    lib-react-mdx-components: "workspace:0.1.0"
     react: ^17.0.2
     typescript: ^4.2.4
   peerDependencies:
@@ -11356,6 +11356,22 @@ fsevents@^1.2.7:
     react: ^17.0.2
     typescript: ^4.2.4
   peerDependencies:
+    react: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"lib-react-mdx-components@workspace:0.1.0, lib-react-mdx-components@workspace:packages/lib-react-mdx-components":
+  version: 0.0.0-use.local
+  resolution: "lib-react-mdx-components@workspace:packages/lib-react-mdx-components"
+  dependencies:
+    "@types/node": ^15.0.2
+    "@types/react": ^17.0.5
+    esbuild-scripts: "workspace:0.2.1"
+    lib-react-prism: "workspace:0.1.0"
+    react: ^17.0.2
+    typescript: ^4.2.4
+  peerDependencies:
+    esbuild-scripts: "*"
     react: ^17.0.0
   languageName: unknown
   linkType: soft

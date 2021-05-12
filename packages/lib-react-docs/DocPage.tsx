@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/display-name */
 
-import React, { ReactNode, ComponentProps, isValidElement } from 'react';
+import React, { ReactNode } from 'react';
 
 import DocLayout from './DocLayout';
 import DocPaginator from './DocPaginator';
@@ -11,13 +11,10 @@ import DocTableOfContents from './DocTableOfContents';
 import type { MarkdownTablesOfContentsElement } from './markdown-header-parser';
 
 import Head from 'esbuild-scripts/components/Head';
-import Link from 'esbuild-scripts/components/Link';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import { checkNotNull } from 'lib-common';
-import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
-
-import './DocPage.css';
+import MDXComponents from 'lib-react-mdx-components';
 
 const flattenDocs = (items: readonly SidebarItem[]) => {
   const collector: SidebarItemLink[] = [];
@@ -32,50 +29,6 @@ const flattenDocs = (items: readonly SidebarItem[]) => {
 
   items.forEach(visit);
   return collector;
-};
-
-const Heading = (Tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'): ((props: Props) => JSX.Element) =>
-  function TargetComponent({ id, children, ...props }: ComponentProps<typeof Tag>) {
-    if (!id) return <Tag {...props}>{children}</Tag>;
-
-    return (
-      <Tag {...props}>
-        <a aria-hidden="true" tabIndex={-1} className="anchor" id={id} />
-        {children}
-        <a className="hash-link" href={`#${id}`} title="Direct link to heading">
-          #
-        </a>
-      </Tag>
-    );
-  };
-
-const MDXComponents = {
-  code: (props: ComponentProps<'code'>) => <code {...props} />,
-  a: ({ href, ...props }: ComponentProps<'a'>) => {
-    if (href?.startsWith('http')) {
-      // eslint-disable-next-line jsx-a11y/anchor-has-content
-      return <a href={href} {...props} />;
-    }
-    return <Link {...props} to={href ?? ''} />;
-  },
-  pre: (props: ComponentProps<'pre'>) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const stringOrComponentChildren = props.children as any;
-    const { className, children } = (
-      isValidElement(stringOrComponentChildren) ? stringOrComponentChildren?.props : props
-    ) as { className: string; readonly children: string };
-    return (
-      <PrismCodeBlock language={className.replace(/language-/, '')}>
-        {children.trim()}
-      </PrismCodeBlock>
-    );
-  },
-  h1: Heading('h1'),
-  h2: Heading('h2'),
-  h3: Heading('h3'),
-  h4: Heading('h4'),
-  h5: Heading('h5'),
-  h6: Heading('h6'),
 };
 
 type Props = {
