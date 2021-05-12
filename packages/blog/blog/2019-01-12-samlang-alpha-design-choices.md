@@ -2,7 +2,7 @@
 title: Design Choice of samlang in Alpha
 ---
 
-### Background
+## Background
 
 In the last summer, I developed my first programming language SAMPL. Measured against my technical
 skills at that time, it was a clear success. I was able to implement an interpreter and a compiler
@@ -27,7 +27,7 @@ repo, open sourced the new language's repo on [GitHub](https://github.com/SamCho
 published its [official documentation](http://samlang-docs.developersam.com). Now it's the time to
 discuss some of my design choices.
 
-### Influence of Design Choices and My Justification
+## Influence of Design Choices and My Justification
 
 In the past fall semester, I worked as a frontend developer in Cornell Design & Tech Initiative. I
 introduced Flow to my subteam to help type-check the frontend React and JavaScript code. I enjoyed
@@ -70,7 +70,7 @@ the typing rule consistent, same applies to variant type. I personally think thi
 simplification, since it's also a bad practice to expose the fields publicly in other programming
 languages.
 
-### Implementation
+## Implementation
 
 The greatest challenge is type inference.
 [Cornell's course notes](https://www.cs.cornell.edu/courses/cs4110/2018fa/lectures/slides23.pdf) say
@@ -114,7 +114,7 @@ function useRandom(): void {
 The random function clearly has a problem: it defines a generic type that is never used. If we
 complain when `random` is called, the user can catch his/her mistake.
 
-### Current Status
+## Current Status
 
 Right now I only implemented a type-checker, an interpreter, and a pretty-printer. I will try to do
 some IR lowering in the near future to support easy compilation to Java and JavaScript. I'm also

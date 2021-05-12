@@ -11,7 +11,7 @@ language [samlang](https://samlang.developersam.com) as an example.
 
 <!--truncate-->
 
-### Background
+## Background
 
 First, let's understand what is the autocomplete that I'm talking about. Here are some examples:
 
@@ -30,7 +30,7 @@ expression, and a list of available fields and methods for that object will popu
 build the same feature for dynamic programming languages, but the lack of type information can
 decrease the quality of completion results.
 
-### Compiler 101
+## Compiler 101
 
 _Feel free to skip this section if you already know what are ASTs and compiler stages._
 
@@ -123,7 +123,7 @@ ModuleReference("console")    memberName="log"   Literal("Hello World")
 
 Analyzing types for expressions and statements is the job of _type checking_ stage.
 
-### Type Query is Easy
+## Type Query is Easy
 
 Autocomplete is not trivial to implement. You don't see all VSCode extensions for a certain
 programming language providing autocomplete services. To understand what it is hard, let's first see
@@ -155,7 +155,7 @@ function typeQuery(cursorLocation: Location): Type {
 }
 ```
 
-### Autocomplete is Hard
+## Autocomplete is Hard
 
 After you have read the type query implementation above, you might think autocompletion is easy,
 because we can implement `autocomplete` by `typeQuery`. Namely, we look at the expression before the
@@ -207,7 +207,7 @@ When we press dot after `new ABC("")`, we would expect field `foo` to popup. How
 program does not type check since `ABC` is not assignable to `String`. Thus, type checking stage
 will throw and we end up having only an untyped AST that we cannot extract type information from.
 
-### A Clever But Flaky Hack
+## A Clever But Flaky Hack
 
 Can we hack? Yes, we can!
 
@@ -243,9 +243,9 @@ function autoComplete(dotLocation: Location, programWithDot: string): Completion
 However, the solution is very flaky. Some random results might popup when we press dot in a random
 position. Also, it's sad to have a solution that only works in limited situations.
 
-### The Real Solution
+## The Real Solution
 
-#### The Grand Strategy
+### The Grand Strategy
 
 You can observe that we are limited by the design decision that we immediate throw an exception and
 die when we encounter _any_ problem in the program. This strategy is very easy to follow, but
@@ -253,7 +253,7 @@ becomes a bottleneck for autocomplete. Therefore, we will first remove these bad
 that, we will figure out how we can tweak our parser and type checker so that we can work with an
 imperfect AST.
 
-#### Recovery Type Checking
+### Recovery Type Checking
 
 Although parsing precedes type checking in compiler stages, it's actually easier to fix the type
 checker first. Here is a quick observation:
@@ -307,7 +307,7 @@ errors while the type inference engine is still exploring different possibilitie
 the end of type checking, we must make the AST fully typed instead of leaving out some unresolved
 types during type checking.
 
-#### Recovery Parsing
+### Recovery Parsing
 
 It's harder to do recovery parsing, since parsing errors can be fatal. For example, how can you
 parse this nonsensical program with recovery:
@@ -334,7 +334,7 @@ Give-up Example for Parsing
 ![Dummy Value Example for Parsing](/img/2020-01-09-implement-autocomplete/recovery-parsing-dummy.png)
 Dummy Value Example for Parsing
 
-#### Autocomplete with Imperfect AST
+### Autocomplete with Imperfect AST
 
 Now that we have parsing and type checking with recovery, we still have a typed AST with locations
 even if we have partial expressions like `console.`. With the new infrastructure, the partial
@@ -353,7 +353,7 @@ we are supposed to fill in.
 The expression `console.`'s type depends on the context, but we still know the type of `console` is
 a module and thus we can fetch the module's type definition to find a list of members.
 
-#### Optional: Incremental Parsing and Type Checking for Performance
+### Optional: Incremental Parsing and Type Checking for Performance
 
 If you implement the above strategy in a naive way, autocompletion will be extremely expensive. You
 have to re-parse and recheck every single file whenever the user presses a dot. If you have a
@@ -385,13 +385,13 @@ reverse dependencies) must be rechecked.
 Therefore, we have to maintain a reverse dependency table and incrementally update it based on
 re-parsing results. Then we use the table to find all the files that have to be rechecked.
 
-#### Final Autocomplete Code
+### Final Autocomplete Code
 
 With all the infrastructure setup, autocomplete is actually not very hard to implement. It only
 takes me 79 lines of code to get it done:
 [link](https://github.com/SamChou19815/samlang/blob/9212e81fb6678b48a5949325265ec10a72caebf3/src/main/kotlin/samlang/lsp/LanguageServerServices.kt#L18-L96).
 
-### My Journey
+## My Journey
 
 I organized this blog post in the approximate order I implemented various stages. I first came up
 with the clever hack while I was interning at Facebook. The code is still
@@ -404,7 +404,7 @@ cleaned up the code and added module system in the summer, and finally introduce
 checking and various IDE feature support in this winter. I wanted autocomplete for my language for a
 long time, now it's finally there!
 
-### Amazing Results
+## Amazing Results
 
 ![Autocomplete for samlang](/img/2020-01-09-implement-autocomplete/autocomplete-samlang.png)
 ![Autocomplete for samlang 2](/img/2020-01-09-implement-autocomplete/autocomplete-samlang-2.png)

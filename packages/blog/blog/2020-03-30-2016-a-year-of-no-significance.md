@@ -19,7 +19,7 @@ Let's start with something small.
 
 <!--truncate-->
 
-### The Themed Showcase
+## The Themed Showcase
 
 According to my memory, there will be a club showcase every spring semester in the school. Clubs are
 supposed to show what they did during the annual event. This event seems to serve several purposes.
@@ -87,7 +87,7 @@ attached-string being remaining independent. I reaffirmed my commitment last yea
 strengthened it even more this year with even
 [more generous conditions](https://github.com/sam-foundation/computerization-sponsorship/pull/7).
 
-### The Student Union
+## The Student Union
 
 On May 13, 2016, student delegates from both the middle school and high school divisions convened to
 elect the new 10 leaders of the student union. To the contenders, this was a significant day: they
@@ -149,7 +149,7 @@ discipline.
 
 Yes, the world is beautiful and the big brother is awesome.
 
-### A Failed Group Activity
+## A Failed Group Activity
 
 The high school has a quite diverse student body. Unlike most of the traditional high schools in
 China, where every student's stated goal is to enter XYZ university. Instead, its students have a
@@ -192,7 +192,7 @@ was published on the school's website, claiming that the event was a huge succes
 The school's decisions are always correct. We should blame the weather instead. No compromises are
 given. Period.
 
-### Aftermath
+## Aftermath
 
 I eventually faded away from active club management in the later half of 2016, and I was unable to
 make the newer generation resist the school's authoritarian control. The student union held another
@@ -212,7 +212,7 @@ gradually degenerating itself into a traditional Chinese high school ruled by ar
 coercion and tyranny. Thus our story has reached a sad end. The chances of gradual reform are
 starting to slip away and a major crisis is almost bound to happen.
 
-### Final Thoughts
+## Final Thoughts
 
 The post is an indirect personal response to the IB final exam cancellation controversy. I would
 summarize the controversies as follows: IB decided to cancel final exams globally due to the

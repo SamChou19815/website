@@ -10,7 +10,7 @@ still helps.
 
 <!--truncate-->
 
-### 1. The Story
+## 1. The Story
 
 I came into my high school with a declared intention to major in computer science in college.
 Ironically, my computer science related activities only had a good start at the second semester in
@@ -157,7 +157,7 @@ machine learning model on the dataset provided by the department. I even started
 transform Computerization into a tech-company-like organization to provide advanced platforms and
 solutions. But now it was the real time to step down, as an honored battle-scarred service member.
 
-### 2. Aftermath
+## 2. Aftermath
 
 In the first semester of my senior year, I helped the new president to recruit new members. We got
 over 20. It was a huge step compared to where I started. A year ago when I was doing recruitment as
@@ -214,7 +214,7 @@ I don't really believe CS education before college had any real improvement rece
 the context of my high school. Feeling the same as the anxious parents, I want an answer. I want to
 know why life seems to be so hard for computer science students in high school.
 
-### 3. Why Nerds are Unpopular
+## 3. Why Nerds are Unpopular
 
 In the recent days I got ill, so I didn't have enough energy to do advance type inference in my
 programming language. But it gave an opportunity to reflect. I started to review many documents
@@ -222,9 +222,9 @@ archived securely in my Google Drive. More importantly, I read again Paul Graham
 _[Why Nerds are Unpopular](http://www.paulgraham.com/nerds.html)_ again. It was an essay that shaped
 my voice for my college admission essay.
 
-> “We sat at a D table, as low as you could get without looking physically different. We were not
+> "We sat at a D table, as low as you could get without looking physically different. We were not
 > being especially candid to grade ourselves as D. It would have taken a deliberate lie to say
-> otherwise. Everyone in the school knew exactly how popular everyone else was, including us.”
+> otherwise. Everyone in the school knew exactly how popular everyone else was, including us."
 
 Well, IQ and school grades definitely matter more than in the US, so I could give myself a C. It was
 the same grade I would give to assess the popularity of computer science in our high school.
@@ -239,9 +239,9 @@ although that alone could weed out many people. One or two lectures from success
 parents advice didn't change the fact much. However, computer science is also something that needs a
 critical mass to accelerate forward. In a small-sized high school, it was almost impossible.
 
-> “And that, I think, is the root of the problem. Nerds serve two masters. They want to be popular,
+> "And that, I think, is the root of the problem. Nerds serve two masters. They want to be popular,
 > certainly, but they want even more to be smart. And popularity is not something you can do in your
-> spare time, not in the fiercely competitive environment of an American secondary school.”
+> spare time, not in the fiercely competitive environment of an American secondary school."
 
 Computer science requires IQ, but not necessarily popularity. If you examine things more closely,
 you may find that success in computer science was almost orthogonal to success in college admission.
@@ -260,8 +260,8 @@ impact, so other students can use your product. In my summary, they probably exp
 who happens to know how to write a few lines of code, because that's probably what they could
 understand.
 
-> “The stated purpose of schools is to educate the kids. But there is no external pressure to do
-> this well.”
+> "The stated purpose of schools is to educate the kids. But there is no external pressure to do
+> this well."
 
 If you are unlucky, you may encounter administrators who want to replace a free, silicon-valley-like
 environment with a highly regulated one. They have their own agenda, and their understanding of
@@ -275,7 +275,7 @@ and the activities degenerate into college admission preparation.
 
 There are more.
 
-### 4. Final Comments
+## 4. Final Comments
 
 My story is mostly about failure. You may think that at least the development is not a failure. No.
 Judging from my current standard, I would say the code I wrote at that time was complete trash, and
@@ -312,6 +312,6 @@ myself the reputation to be an exception.
 
 <br />
 
-Maybe one day all the Computerization ‘losers' would come back and visit the past victors with our
+Maybe one day all the Computerization 'losers' would come back and visit the past victors with our
 six-figure salary in silicon valley. But it's not about money, it's about choice. I've made my
 choice regarding my career in computer science during high school, and I think you can, too.

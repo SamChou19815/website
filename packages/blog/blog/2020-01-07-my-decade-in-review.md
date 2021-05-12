@@ -15,13 +15,13 @@ essential to understand the story.)
 
 <!--truncate-->
 
-### 2010: Nothing Big
+## 2010: Nothing Big
 
 People have different opinions on whether 2010 is in the decade that contains 2019 or the previous
 decade. I think there is no significant event for me in 2010, so it doesn't matter for the
 discussion. Therefore, let's avoid the debate and go straight into 2011.
 
-### 2011: Killing the Class BBS
+## 2011: Killing the Class BBS
 
 I was enrolled in Huayu Middle School during 2010FA to 2014SP. To my non-Shanghainese friends, it
 was the best middle school in Shanghai, judging from raw scores and high school admission. To my US
@@ -52,7 +52,7 @@ Newer platforms of communication emerged. BBS, the technology of the last centra
 the wave. However, I am still proud that it appeared to be the case that I killed the class BBS, not
 the force of the era.
 
-### 2012: An Almost Failed Attempt to Learn Programming
+## 2012: An Almost Failed Attempt to Learn Programming
 
 If you knew me, you might not be surprised to read that I created a BBS in the last section. You
 might be surprised to see a class teacher who magically created a BBS. If you understand computer
@@ -83,7 +83,7 @@ In this period, I created a lot of useless web applications. In the process, I l
 JavaScript, and Java. These random activities probably gave me 5000 to 10000 lines of code
 experience. The code was terrible and thankfully forever lost, but it was a necessary first step.
 
-### 2013: DEFCON 1 amid a Period of Hostility
+## 2013: DEFCON 1 amid a Period of Hostility
 
 DEFCON 1 could be the status I used to describe that period, but it was a system developed by me at
 the time, in response to events that I would classify as DEFCON 1.
@@ -128,7 +128,7 @@ In hindsight, I might have built something way more powerful and complex than ne
 glad that I learned some system design and basic cryptography along the way. This was also my first
 attempt to fight the big brother with technology.
 
-### 2014: A Year of No Significance
+## 2014: A Year of No Significance
 
 This year of no significance could be divided into two boring halves: the middle school half and the
 high school half. Two halves both led to a dead-end somehow.
@@ -192,7 +192,7 @@ skills". However, it was not as depressing as the year 1587 for the Ming dynasty
 simple: going back to the root and follow my passion. As a result, a new chapter would unfold in
 2015, the midway year.
 
-### 2015: Computerization
+## 2015: Computerization
 
 In February 2015, I was invited to join the club called Computerization that was just founded last
 semester. Computerization developed a platform for teachers to send and for students to receive
@@ -294,7 +294,7 @@ One later year, Computerization grew from a club of nowhere to an organization o
 recruited members, although many of them had little or zero programming experience that led to
 another disaster.
 
-### 2016: My Path to Cornell, as a Nerd
+## 2016: My Path to Cornell, as a Nerd
 
 In the first quarter of 2016, it became clear that the product of Computerization had reached
 another dead-end. I had no idea how to fix it since I was not a PM and never intended to be one. I
@@ -318,7 +318,7 @@ I correctly conjectured that I won't enjoy the trip, so I pre-downloaded a lot o
 lecture videos and brought a linear algebra book with me. During a week there, I was reading classic
 ML papers and watching Andrew Ng's videos to figure out _why the heck my classifier's training
 accuracy stuck at 40%_, while other students were playing board games at night. Against the wishes
-of anyone who wanted to convert me into a more “well-rounded” person, I was very proud of this
+of anyone who wanted to convert me into a more "well-rounded" person, I was very proud of this
 openly nerdy act of defiance and even mentioned it in my graduation ceremony speech.
 
 The week involved a lot of driving, and it was very uncomfortable to read the linear algebra book or
@@ -367,7 +367,7 @@ descent, given a big pile of historical data against me._ Yet I recklessly went 
 triumphed. However, it was a little sad to learn that the same story could not be replicated by
 later students from my high school.
 
-### 2017: An Actual Year of No Significance
+## 2017: An Actual Year of No Significance
 
 In 2017, nothing significant happened. I entered Cornell, but the decision came out last year. I got
 rejected by Google without an interview, but it's a result of all previous years' ignorance on how
@@ -376,7 +376,7 @@ to be good at software engineering.
 I reckoned whether my high school experience would be the peak of my career. Fortunately, events in
 the next year invalidated the conjecture.
 
-### 2018-Present: A Clean Reboot
+## 2018-Present: A Clean Reboot
 
 I did not have a happy experience in the summer of 2018. Before the summer, I was rejected by AppDev
 and even the web development subteam of ASCU, the CS student organization at Cornell that did not
@@ -435,7 +435,7 @@ Autocompletion for samlang
 I will not add any reflection for the past two years. It is too close to the present to derive any
 useful insights.
 
-### The End Of the Last Decade
+## The End Of the Last Decade
 
 I wrote down some of my previously unpublished stories, thoughts, jokes, and criticisms as a raw
 log. I would expect disagreements because they make this article meaningful rather than a repetition

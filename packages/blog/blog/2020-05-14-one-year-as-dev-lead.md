@@ -19,7 +19,7 @@ for future leads.
 
 <!--truncate-->
 
-### The grand plan
+## The grand plan
 
 On August 16, 2019, I finished my 12-week internship at Facebook. In the same month, our sibling
 team published a
@@ -35,7 +35,7 @@ turn my focus onto the [`cornell-dti`](https://github.com/cornell-dti) GitHub or
 belong and had to manage it soon. I want developers at DTI to _move fast on a stable
 infrastructure_.
 
-### Phase 1: Fall 2019
+## Phase 1: Fall 2019
 
 An initial scan of all the repositories produced some quite disappointing results. Out of the 6
 active projects at that time, only 2 projects enabled branch protection. Linter configurations have
@@ -105,7 +105,7 @@ So here comes the recurring theme in this blog post:
 I first heard about this sentence from my mentor during my Facebook internship. Now I started to
 live with it, and was about to make more compromises next semester.
 
-### Phase 2: Spring 2020
+## Phase 2: Spring 2020
 
 I performed an analysis over all pull requests made in fall 2019 in the winter break, and found two
 major issues:
@@ -143,7 +143,7 @@ The final result was not completely satisfactory. Although most of our pull requ
 under 500 lines of code, it is still far from industry's best practices to strive for diffs that are
 less than 200 LOCs.
 
-### Beyond DevOps and code quality
+## Beyond DevOps and code quality
 
 I was selected as a developer lead with a focus on DevOps, so my primary attention was on our
 infrastructure and code quality. Nevertheless, I still did quite a lot of development within DTI,
@@ -165,7 +165,7 @@ I also taught some optional DevSeshes on the topics I'm really passionate about:
 - [How to build your own programming language](https://developersam.com/build-your-own-programming-language.pdf)
 - [How to build a (simplified) React](https://developersam.com/build-simplified-react.pdf)
 
-### Received feedbacks and final thoughts
+## Received feedbacks and final thoughts
 
 Near the end of the 2019-2020 academic year, we sent out a developer survey and leads review form. I
 am glad to see that our developers liked the strictified setup and we completed the first step to

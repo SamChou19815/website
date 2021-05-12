@@ -2,7 +2,7 @@
 title: Function Reference in SAMPL - A Design Mistake and the Fix
 ---
 
-### Background
+## Background
 
 In most functional programming languages, a function IS a value. Therefore, it can be easily passed
 as a parameter for a function. For example, this is legal in OCaml:
@@ -32,7 +32,7 @@ const ignoreMe = test(f, '3');
 However, functions do not have first-class support on JVM. Although Java 8 and Kotlin have good and
 reasonable support for FP, function reference still need a special syntax like `::test` in Kotlin.
 
-### Initial Design Mistake
+## Initial Design Mistake
 
 When I'm first designing [SAMPL](/2018/06/15/sampl-alpha-design-choices/), I forgot there was an
 issue with this. SAMPL is functional, so I choose not to use the `::` in Java and Kotlin. Instead,
@@ -96,7 +96,7 @@ function abc(): number {
 
 This is not a good fix and it defeats the purpose of generating efficient and readable Kotlin code.
 
-### Later Fix
+## Later Fix
 
 If you followed carefully, you may find that the problem exists both in the environment and in the
 type-decorated AST. Firstly, the environment does not have enough information, so the problem
@@ -120,7 +120,7 @@ or a normal one. The second fix is to add an additional `isClassFunction` flag f
 expression in type-decorated AST. With this additional information, the compiler can now generate
 efficient code with functions on JVM.
 
-### One More Thing
+## One More Thing
 
 Second Alpha of SAMPL is released today. Now the error messages contain line numbers so it's easier
 to debug now. Still, I welcome your participation!

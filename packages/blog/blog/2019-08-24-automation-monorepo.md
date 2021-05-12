@@ -10,7 +10,7 @@ complete and the repository has reached a state that I am mostly satisfied with.
 
 <!--truncate-->
 
-### Background
+## Background
 
 The last large-scale architecture update happens almost a year ago.
 [This blog post](/2018/08/01/website-architecture-update) details the journey of moving the website
@@ -36,7 +36,7 @@ also rewrote TEN AI in Golang to move that part into Google Cloud Function. When
 appeared stable enough for me, I migrated my blog to Docusaurus and placed it inside the same
 monorepo.
 
-### Problems
+## Problems
 
 By the time I'm seriously thinking about cleaning the repository, it is in a crazy state:
 
@@ -59,9 +59,9 @@ It might appear to you that the repository is just fundamentally broken and ther
 rescue it. Nevertheless, after some analysis, I conclude that there are only two fundamental
 problems: duplication and lack of good automation. It **can** be fixed.
 
-### Better Engineering Efforts
+## Better Engineering Efforts
 
-#### Step 1: Manually Setup GitHub Actions
+### Step 1: Manually Setup GitHub Actions
 
 The ugliest part of the old workflow is this deployment
 [script](https://github.com/SamChou19815/website/blob/3796bc4ace83df5851515895e768c89581f00806/ci-deploy).
@@ -173,7 +173,7 @@ jobs:
           --token=$FIREBASE_TOKEN --non-interactive --only hosting:main-site
 ```
 
-#### Step 2: Deduplication
+### Step 2: Deduplication
 
 I could continue to seek ways to make the entire workflow maintenance process more automated, but
 given that I already have a much more robust development process setup, I can first start
@@ -297,7 +297,7 @@ dependencies will be trivial. To ensure that the workflow files do not become ou
 another CI job to automatically check running workflow generation jobs does not introduce new
 changes.
 
-#### Step 4: Profit
+### Step 4: Profit
 
 Even during the large refactoring time, I already started to notice a large reduction of build
 failures in master branch. In general, my website becomes harder to build and it becomes closer to
@@ -309,7 +309,7 @@ It's also visually pleasing to see so many checks passing in a pull request:
 
 ![Many checks passing](/img/2019-08-24-automation-monorepo/checks-passing.png)
 
-### Summary
+## Summary
 
 This summarizes my effort in this year to upgrade and modernize my website's tech stack. It mostly
 focuses on automation and code quality. I believe these efforts will eventually pay off when I try
