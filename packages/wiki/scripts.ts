@@ -1,6 +1,6 @@
-// @ts-check
+import generate from 'lib-react-docs/generator';
 
-require('lib-react-docs/generator').default({
+generate({
   siteTitle: 'Wiki',
   sideBarItems: {
     Documentation: ['/intro'],
