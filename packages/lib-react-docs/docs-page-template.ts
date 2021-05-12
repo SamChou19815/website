@@ -1,5 +1,6 @@
 import type { SidebarItem } from './DocSidebar';
-import type { MarkdownTablesOfContentsElement } from './markdown-header-parser';
+
+import type { MarkdownTablesOfContentsElement } from 'lib-markdown-header-parser';
 
 const getMarkdownDocsPageTemplate = (
   siteTitle: string,

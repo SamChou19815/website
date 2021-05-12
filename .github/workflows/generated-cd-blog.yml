@@ -10,6 +10,7 @@ on:
       - 'packages/lib-colorful-terminal/**'
       - 'packages/lib-fs/**'
       - 'packages/esbuild-scripts/**'
+      - 'packages/lib-react-mdx-components/**'
       - 'packages/blog/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-blog.yml'

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { MarkdownTablesOfContentsElement } from './markdown-header-parser';
+import type { MarkdownTablesOfContentsElement } from 'lib-markdown-header-parser';
 
 import './DocTableOfContents.css';
 
