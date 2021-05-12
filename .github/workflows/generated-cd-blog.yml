@@ -4,8 +4,9 @@ name: CD blog
 on:
   push:
     paths:
-      - 'packages/lib-prism-extended/**'
       - 'packages/lib-common/**'
+      - 'packages/lib-markdown-header-parser/**'
+      - 'packages/lib-prism-extended/**'
       - 'packages/lib-react-prism/**'
       - 'packages/lib-colorful-terminal/**'
       - 'packages/lib-fs/**'
