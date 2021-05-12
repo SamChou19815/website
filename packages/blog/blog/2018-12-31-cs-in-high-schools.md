@@ -1,9 +1,8 @@
 ---
 title: Computer Science in High Schools
-tags: [tech-journey, review, thoughts]
 ---
 
-This year, I got an intern with a resume that did not mention my high school’s CS project with a
+This year, I got an intern with a resume that did not mention my high school's CS project with a
 single word. Therefore, at this point, either success or failure in my high school CS career does
 not matter at all, so I can honestly reflect on it. I reviewed again all my computer science related
 records and writings to ensure the content in this article is as accurate as possible. I hope it
@@ -17,13 +16,13 @@ I came into my high school with a declared intention to major in computer scienc
 Ironically, my computer science related activities only had a good start at the second semester in
 tenth grade. Before that, I was in a club called CCC that mainly produced some arcade games and
 computer animations that we only internally share. The club was probably dismantled when I was in
-the twelfth grade. I was also briefly in the student union’s publicity department. I came in with a
+the twelfth grade. I was also briefly in the student union's publicity department. I came in with a
 glorious plan to improve many of their workflows in a silicon valley way, but my advice was praised
-and ignored. Luckily, I wasn’t assigned any time-consuming task in the period, so I didn’t waste too
+and ignored. Luckily, I wasn't assigned any time-consuming task in the period, so I didn't waste too
 much time. But there was one exception: they asked me to improve the official website for their
 charity event. I refreshed it with flat and responsive design with my best knowledge on CSS3, only
-to found that they didn’t use the website at all. The incident prompted me to resign from the
-student union (although it’s not the only reason). After all, if they didn’t care about tech, which
+to found that they didn't use the website at all. The incident prompted me to resign from the
+student union (although it's not the only reason). After all, if they didn't care about tech, which
 I knew a lot, why should I care about them?
 
 The real reason was: I was invited to join Computerization, a computer programming club that I
@@ -71,29 +70,29 @@ smoothly in that semester in general, and we had a good start.
 
 Now it was the junior year. The senior members retired from management of the club and I was passed
 the position of the club president. That was not the only implication. Junior year implied that
-college admission was only one year away, so I’d better produce some good statistics for this club.
+college admission was only one year away, so I'd better produce some good statistics for this club.
 The most important number is, of course, usage statistics. Soon, I found that I was fighting a
 battle that I was so unfamiliar.
 
 We continued to promote our product to teachers, but it seemed that 40% student coverage is a cap.
 The core user was still confined in math and physics classes, and other classes either did not have
 enough incentive or utterly had no interest in the usage of technology. We tried to improve our
-system’s usage, so we added more features. We enabled score recording for teachers the club activity
+system's usage, so we added more features. We enabled score recording for teachers the club activity
 recording and promotion for students. None of them was warmly received. Managing existing members
 were also not easy. I tried to distribute some easy programming task to them, but they were never
-able to complete them with acceptable code quality. Some simply didn’t run. It was the first time I
+able to complete them with acceptable code quality. Some simply didn't run. It was the first time I
 realized that I was not good at dealing with these non-technical issues. On the technical side, I
 was able to quickly implement the material design overhaul in a weekend and improved review among
 current users. On the marketing and management side, it was a total mess.
 
 Finally, failure in math modeling contest ended the semester. GPA-wise, it was better than ever. But
 everything else not related to school grades and pure computer science had spun out of control. It
-forced me to reflect. My reflection was that I was forced into this position that I didn’t actually
+forced me to reflect. My reflection was that I was forced into this position that I didn't actually
 enjoy, and I wanted to step down. It was the time when I started to recall the days when I was only
 a regular member in nostalgia: I only needed to be responsible for and worry about implementation
 and bugs, and that was nice and easy. I wrote a short document indicating my willingness to step
-down as club president and only intended to maintain the technical leadership. I asked club members’
-approval and let them decide who would be the new president. However, no one wanted to. I didn’t
+down as club president and only intended to maintain the technical leadership. I asked club members'
+approval and let them decide who would be the new president. However, no one wanted to. I didn't
 want Computerization to die so I must continue.
 
 <br />
@@ -104,11 +103,11 @@ when the leader was lost. Nevertheless, I knew it was not because we did a good 
 because we were the only computer programming club in the school. This kind of monopoly was not
 something I would be proud of.
 
-At the beginning of the second semester, I became so disillusioned so I didn’t develop more features
+At the beginning of the second semester, I became so disillusioned so I didn't develop more features
 on SAM. Instead, I tried to teach the existing and new members programming. It was another disaster
 because my teaching ability was close to zero. I would say it was at least not negative because I
 managed not to make people who know programming to be more confused. Near the middle of the
-semester, it seemed that the project and club had come to a dead end. People didn’t seem to have
+semester, it seemed that the project and club had come to a dead end. People didn't seem to have
 motivations and I had lost my confidence.
 
 Nonetheless, issues started to resolve themselves on my side. On March, my delayed SAT score finally
@@ -124,7 +123,7 @@ feature circulated very fast.
 <br />
 
 Around the same time, a member brought up that a student assistant of the dean of students affairs
-mentioned that our club was not liked by the school’s administrators. Now I would say they disliked
+mentioned that our club was not liked by the school's administrators. Now I would say they disliked
 us for good reasons. Of course, we didn't produce good statistics, and we didn't win contests to add
 up to school pride. More importantly, I constantly reject feature requests in a way they could not
 understand. I once rejected the request to merge our account system with the school's system used to
@@ -141,7 +140,7 @@ response, proclaiming that Computerization was not a conventional club and we wo
 those comments about worldly success. Starting from that moment, I began to slowly understand what
 drove me forward even when everything was in a mess. It was never about producing some good numbers
 to be put on the Common App. It was about an ideal. It's an ideal that software engineers took for
-granted to build great software. It was about Google’s line on its website: Google is not a
+granted to build great software. It was about Google's line on its website: Google is not a
 conventional company; we never intend to be. It was about Facebook's motto: move fast and break
 things. It was about that software engineers who love to build things can build great things to make
 a change. Regulation and authority were never part of this story, because we place correctness of
@@ -162,7 +161,7 @@ solutions. But now it was the real time to step down, as an honored battle-scarr
 
 In the first semester of my senior year, I helped the new president to recruit new members. We got
 over 20. It was a huge step compared to where I started. A year ago when I was doing recruitment as
-the club president, I had to put existing members’ names on the recruited member spreadsheet to make
+the club president, I had to put existing members' names on the recruited member spreadsheet to make
 things look less bad. Computerization did become prominent and computer science was no longer a
 negligible topic in the high school campus.
 
@@ -180,23 +179,23 @@ to do. It was almost the same sequence of breakdown, although a different one in
 <br />
 
 A few days before I graduated from my high school, I had a talk with the club president and asked
-why things went so wrong. He said it’s because they didn’t have enough time like I did. I didn’t
+why things went so wrong. He said it's because they didn't have enough time like I did. I didn't
 like the response, but it did explain a lot of things. The year when I was in charge was an
 exception rather than a norm. In my year, we could get things done not because I could effectively
-motivate and train the club members to do the job. It’s just because I could always do it all alone
+motivate and train the club members to do the job. It's just because I could always do it all alone
 when things got messed up. This pattern was nowhere close to the adjective sustainable, and the
 price was that I messed up almost all the other jobs related to club management, including training
 new members.
 
 Six months later when I came back from Cornell to visit my high school again, I heard that the new
 leadership threw away my independent stance and just implemented whatever features the student union
-asked them to implement, in my opinion, like an outsourcing company. I didn’t know what’s happening
+asked them to implement, in my opinion, like an outsourcing company. I didn't know what's happening
 right now, but whether they had fame or not, it was no longer the same club.
 
 I once thought I may continue to contribute to the codebase after my graduation. I never did. Not
 even the README. In the summer, a year after my graduation, I was designing my own programming
-language. You can say it’s some kind of PTSD. I completely stopped caring about usage statistics.
-Now I only care about the difficulty of the project. That’s how first-class functions, basic type
+language. You can say it's some kind of PTSD. I completely stopped caring about usage statistics.
+Now I only care about the difficulty of the project. That's how first-class functions, basic type
 inference and generics got soundly added to my programming language even if I had never taken any
 formal PL class.
 
@@ -204,22 +203,22 @@ formal PL class.
 
 In this fall, I went to the career fair and practiced a lot of LeetCode algorithm problems and
 finally got an intern. In the winter, I was back again and was invited to the alumni sharing event
-hosted by my high school, and I’m in the subsection about computer science. It was not unexpected
-that there was a large crowd: mostly anxious parents. Most of them didn’t really understand a lot
+hosted by my high school, and I'm in the subsection about computer science. It was not unexpected
+that there was a large crowd: mostly anxious parents. Most of them didn't really understand a lot
 about computer science. Of course, they know AI is now a buzz-word, but they probably also believe
 AlphaGo is going to destroy the human civilization due to its dangerous potential.
 
-After my talk, many parents stayed to ask me tips about learning computer science. I can’t really
+After my talk, many parents stayed to ask me tips about learning computer science. I can't really
 give any useful ones. My experience was so unique that it was not transferable at all. In addition,
-I don’t really believe CS education before college had any real improvement recently, at least in
+I don't really believe CS education before college had any real improvement recently, at least in
 the context of my high school. Feeling the same as the anxious parents, I want an answer. I want to
 know why life seems to be so hard for computer science students in high school.
 
 ### 3. Why Nerds are Unpopular
 
-In the recent days I got ill, so I didn’t have enough energy to do advance type inference in my
+In the recent days I got ill, so I didn't have enough energy to do advance type inference in my
 programming language. But it gave an opportunity to reflect. I started to review many documents
-archived securely in my Google Drive. More importantly, I read again Paul Graham’s long essay
+archived securely in my Google Drive. More importantly, I read again Paul Graham's long essay
 _[Why Nerds are Unpopular](http://www.paulgraham.com/nerds.html)_ again. It was an essay that shaped
 my voice for my college admission essay.
 
@@ -235,9 +234,9 @@ we only admit less than 50. We had six to seven subteams, all with talented soft
 high school, the situation was like we begged others to join, and the best we can have is to get one
 or two qualified and a heap of completely unqualified students.
 
-Computer science is hard because it’s not just about writing programs that run without crashing,
+Computer science is hard because it's not just about writing programs that run without crashing,
 although that alone could weed out many people. One or two lectures from successful people or
-parents advice didn’t change the fact much. However, computer science is also something that needs a
+parents advice didn't change the fact much. However, computer science is also something that needs a
 critical mass to accelerate forward. In a small-sized high school, it was almost impossible.
 
 > “And that, I think, is the root of the problem. Nerds serve two masters. They want to be popular,
@@ -247,18 +246,18 @@ critical mass to accelerate forward. In a small-sized high school, it was almost
 Computer science requires IQ, but not necessarily popularity. If you examine things more closely,
 you may find that success in computer science was almost orthogonal to success in college admission.
 You can probably get away if you write in your college admission essay that you want to use natural
-language processing to build better C compilers, but it’s definitely not OK to write that you build
-an optimizing OCaml compiler that nobody uses and you don’t care. College admission is a notorious
+language processing to build better C compilers, but it's definitely not OK to write that you build
+an optimizing OCaml compiler that nobody uses and you don't care. College admission is a notorious
 example of a contest without well-defined criteria, and it somewhat already degenerates into a
 popularity contest. To make it worse, it heavily guides how high school works.
 
 For a future computer science under this system, life was quite hard. You should first write good
-and correct programs to make yourselves happy, even if the admission officers don’t understand and
+and correct programs to make yourselves happy, even if the admission officers don't understand and
 care nothing about your GitHub repos. In addition, the program you write would better be something
 that the admission officer can understand, so it almost immediately rules out some options like
 compilers, assembly optimizations, etc. Furthermore, you want to demonstrate your leadership and
 impact, so other students can use your product. In my summary, they probably expect some businessman
-who happens to know how to write a few lines of code, because that’s probably what they could
+who happens to know how to write a few lines of code, because that's probably what they could
 understand.
 
 > “The stated purpose of schools is to educate the kids. But there is no external pressure to do
@@ -266,7 +265,7 @@ understand.
 
 If you are unlucky, you may encounter administrators who want to replace a free, silicon-valley-like
 environment with a highly regulated one. They have their own agenda, and their understanding of
-what’s needed for computer science ranges from uninformed to ignorant. The stated purpose is always
+what's needed for computer science ranges from uninformed to ignorant. The stated purpose is always
 to ensure clubs grow in a healthy and sustainable way, but there were no external forces to push
 them to ensure that all clubs are treated equally. Under the leadership of some stubborn nerds like
 me, it would be resisted to ensure that computer science clubs are actually doing things in a
@@ -280,10 +279,10 @@ There are more.
 
 My story is mostly about failure. You may think that at least the development is not a failure. No.
 Judging from my current standard, I would say the code I wrote at that time was complete trash, and
-it’s one of many reasons why I never touched the codebase after graduation.
+it's one of many reasons why I never touched the codebase after graduation.
 
 I said a lot of harsh things in this post, but really I want to send an optimistic message. The
-failure is related to code quality, but it’s a thing you can truly understand after you go to the
+failure is related to code quality, but it's a thing you can truly understand after you go to the
 college and industry, so the high school experience actually matters nothing. The failure is related
 to principles that got dropped due to the harsh reality, but that only happened after my graduation
 when things are completely out of my control. The biggest failure was probably about the popularity
@@ -291,21 +290,21 @@ of the platform that I tried so hard to obtain but never succeeded. I agree, but
 and it no longer matters.
 
 If you asked me at that time that whether I wanted my system to be popular, I would resolutely say
-YES. Nonetheless, I actually didn’t, at least not enough. There was something else I wanted more:
-live as a proud software engineer. It’s not just building a secure and correct system that I can be
-proud of. It’s about engineering pride, which means that you will still write nice code even if
-nobody cares. It’s about belief, the belief that we can move fast, break things, but eventually get
-things done in a great way. More importantly, sometimes it’s just about computer science, because
+YES. Nonetheless, I actually didn't, at least not enough. There was something else I wanted more:
+live as a proud software engineer. It's not just building a secure and correct system that I can be
+proud of. It's about engineering pride, which means that you will still write nice code even if
+nobody cares. It's about belief, the belief that we can move fast, break things, but eventually get
+things done in a great way. More importantly, sometimes it's just about computer science, because
 computer scientists love to build things, more than anything else.
 
 You need failure to have a profound understanding of a lot of things in computer science. For
 example, you probably would hate those accepted verbose design patterns, before you messed up a
-project where you do whatever you want and the complexity explodes. Therefore, I’m quite happy now
+project where you do whatever you want and the complexity explodes. Therefore, I'm quite happy now
 that this kind of failure happens in my high school CS career. It told me what I like and what I
 dislike. It prompted me to make decisions that further the failure but I would never regret. All the
 obstacles I encountered shaped my skills and my determination, especially when things went wrong.
 For instance, I would never fear that someone would threaten me not to do their fair share in a CS
-group project. OK. Then I’m on my own and I will do it fast and efficient, and still manage to get
+group project. OK. Then I'm on my own and I will do it fast and efficient, and still manage to get
 the highest score. The most important lesson is that these failures made me clearly aware that life
 as a young computer scientist was inherently hard. In some environment, it was even miserable. The
 fact that I led a club and made some non-negligible noise was already satisfying. I earned for
@@ -313,6 +312,6 @@ myself the reputation to be an exception.
 
 <br />
 
-Maybe one day all the Computerization ‘losers’ would come back and visit the past victors with our
-six-figure salary in silicon valley. But it’s not about money, it’s about choice. I’ve made my
+Maybe one day all the Computerization ‘losers' would come back and visit the past victors with our
+six-figure salary in silicon valley. But it's not about money, it's about choice. I've made my
 choice regarding my career in computer science during high school, and I think you can, too.

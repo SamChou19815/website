@@ -1,6 +1,5 @@
 ---
 title: Move Fast with Automation Powered Monorepo
-tags: [design-choices, tech-journey]
 ---
 
 In the last article [The Road to Better Engineering](/2019/08/17/the-road-to-better-engineering), I

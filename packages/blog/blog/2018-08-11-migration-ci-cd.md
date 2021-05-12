@@ -1,6 +1,5 @@
 ---
 title: Automation! Migration to CI/CD System for My Open-Source Projects
-tags: [tech-journey]
 ---
 
 Badges: ![Article Good](https://img.shields.io/badge/article-good-brightgreen.svg)

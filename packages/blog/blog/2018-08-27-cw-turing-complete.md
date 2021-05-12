@@ -1,6 +1,5 @@
 ---
 title: Critter World is Turing Complete - A Not-So-Rigorous Proof
-tags: [math]
 ---
 
 Critter World is Cornell's CS 2112's Final Project. It is a simulated hexagon world where critters,

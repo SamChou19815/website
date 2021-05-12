@@ -1,6 +1,5 @@
 ---
 title: 'Project DEFCON 1: A Confidential Data Storage System'
-tags: [design-choices]
 ---
 
 ### 1.Introduction

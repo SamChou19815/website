@@ -1,6 +1,5 @@
 ---
 title: '2016: A Year of No Significance'
-tags: [thoughts]
 ---
 
 In the year of 2016, a school in Shanghai celebrated its 20th founding anniversary. Beyond this

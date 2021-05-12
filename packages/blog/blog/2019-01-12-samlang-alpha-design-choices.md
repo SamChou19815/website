@@ -1,6 +1,5 @@
 ---
 title: Design Choice of samlang in Alpha
-tags: [design-choices]
 ---
 
 ### Background

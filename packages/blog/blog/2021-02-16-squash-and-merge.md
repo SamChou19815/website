@@ -1,6 +1,5 @@
 ---
 title: The Case for Squash and Merge
-tags: [thoughts]
 ---
 
 There are several things I have very passionate opinions on, like whether opening braces `{` should

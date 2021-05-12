@@ -1,6 +1,5 @@
 ---
 title: A Year of Change - Reflection on My Website's Architecture Update
-tags: [design-choices]
 ---
 
 ### Background
@@ -120,23 +119,23 @@ object SchedulerWriteItemService : StructuredInputService<SchedulerItemData>(
 
 However, several important transitions had been made.
 
-Firstly, I finally migrated my website’s legacy Java code to Kotlin. This is what enabled me to
-write the simple library with ease by Kotlin’s expressive type system. It also gave me a hands-on
-opportunity to learn the Kotlin language by concrete migration examples to demonstrate what’s
-available in Kotlin. Kotlin’s insistence of internal instead of package-private visibility forced me
-to gradually split my website’s code into modules.
+Firstly, I finally migrated my website's legacy Java code to Kotlin. This is what enabled me to
+write the simple library with ease by Kotlin's expressive type system. It also gave me a hands-on
+opportunity to learn the Kotlin language by concrete migration examples to demonstrate what's
+available in Kotlin. Kotlin's insistence of internal instead of package-private visibility forced me
+to gradually split my website's code into modules.
 
 Secondly, I started to use Gradle as the build tool instead of the IntelliJ configuration. It
 implied a much consistent IDE importing experience directly from source code.
 
-More importantly, I decided to use a modern frontend framework. Since I didn’t know the “correct”
+More importantly, I decided to use a modern frontend framework. Since I didn't know the “correct”
 way to write the frontend code that is scalable and maintainable, I chose Angular for its reputation
 of being like Java and imposing a strict style. My initial implementation was quite sketchy, but the
-overall structure remained the same under several re-structuring, thanks to Angular’s elegant
+overall structure remained the same under several re-structuring, thanks to Angular's elegant
 design.
 
 At the end of the winter holiday and the beginning of the new semester, I migrated the legacy Google
-User’s API that is specific to App Engine to Firebase Auth that allowed the simple design of Single
+User's API that is specific to App Engine to Firebase Auth that allowed the simple design of Single
 Page Application that Angular enforced.
 
 The frontend finally dropped the legacy JSTL and embrace the latest Angular stack, but the backend
