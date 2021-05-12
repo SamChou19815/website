@@ -8,12 +8,12 @@ import DocLayout from './DocLayout';
 import DocPaginator from './DocPaginator';
 import type { SidebarItem, SidebarItemLink } from './DocSidebar';
 import DocTableOfContents from './DocTableOfContents';
-import type { MarkdownTablesOfContentsElement } from './markdown-header-parser';
 
 import Head from 'esbuild-scripts/components/Head';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import { checkNotNull } from 'lib-common';
+import type { MarkdownTablesOfContentsElement } from 'lib-markdown-header-parser';
 import MDXComponents from 'lib-react-mdx-components';
 
 const flattenDocs = (items: readonly SidebarItem[]) => {

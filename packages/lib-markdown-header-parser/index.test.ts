@@ -1,4 +1,4 @@
-import parseMarkdownHeaderTree, { extractMarkdownHeaders } from './markdown-header-parser';
+import parseMarkdownHeaderTree, { extractMarkdownHeaders } from '.';
 
 const exampleDocument = `
 # h1

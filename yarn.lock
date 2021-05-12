@@ -5373,6 +5373,7 @@ __metadata:
     esbuild-scripts: "workspace:0.2.1"
     file-loader: ^6.2.0
     lib-prism-extended: "workspace:0.1.0"
+    lib-react-mdx-components: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
     prism-react-renderer: ^1.2.0
     react: ^17.0.2
@@ -11285,7 +11286,7 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"lib-firebase@0.1.0, lib-firebase@workspace:packages/lib-firebase":
+"lib-firebase@0.1.0, lib-firebase@workspace:0.1.0, lib-firebase@workspace:packages/lib-firebase":
   version: 0.0.0-use.local
   resolution: "lib-firebase@workspace:packages/lib-firebase"
   dependencies:
@@ -11320,13 +11321,24 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
+"lib-markdown-header-parser@workspace:0.1.0, lib-markdown-header-parser@workspace:packages/lib-markdown-header-parser":
+  version: 0.0.0-use.local
+  resolution: "lib-markdown-header-parser@workspace:packages/lib-markdown-header-parser"
+  dependencies:
+    "@types/jest": ^26.0.23
+    "@types/node": ^15.0.2
+    lib-common: "workspace:0.0.1"
+    typescript: ^4.2.4
+  languageName: unknown
+  linkType: soft
+
 "lib-prism-extended@workspace:0.1.0, lib-prism-extended@workspace:packages/lib-prism-extended":
   version: 0.0.0-use.local
   resolution: "lib-prism-extended@workspace:packages/lib-prism-extended"
   languageName: unknown
   linkType: soft
 
-"lib-react-docs@0.1.0, lib-react-docs@workspace:packages/lib-react-docs":
+"lib-react-docs@0.1.0, lib-react-docs@workspace:0.1.0, lib-react-docs@workspace:packages/lib-react-docs":
   version: 0.0.0-use.local
   resolution: "lib-react-docs@workspace:packages/lib-react-docs"
   dependencies:
@@ -11339,6 +11351,7 @@ fsevents@^1.2.7:
     esbuild-scripts: "workspace:0.2.1"
     lib-common: "workspace:0.0.1"
     lib-fs: "workspace:0.1.0"
+    lib-markdown-header-parser: "workspace:0.1.0"
     lib-react-mdx-components: "workspace:0.1.0"
     react: ^17.0.2
     typescript: ^4.2.4
@@ -11348,7 +11361,7 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"lib-react-loading@0.1.0, lib-react-loading@workspace:packages/lib-react-loading":
+"lib-react-loading@0.1.0, lib-react-loading@workspace:0.1.0, lib-react-loading@workspace:packages/lib-react-loading":
   version: 0.0.0-use.local
   resolution: "lib-react-loading@workspace:packages/lib-react-loading"
   dependencies:
@@ -17981,11 +17994,12 @@ typescript@^4.2.4:
     esbuild-scripts: "workspace:0.2.1"
     firebase: ^9.0.0-beta.1
     infima: 0.2.0-alpha.23
-    lib-common: 0.0.1
-    lib-firebase: 0.1.0
-    lib-react-docs: 0.1.0
-    lib-react-loading: 0.1.0
-    lib-react-prism: 0.1.0
+    lib-common: "workspace:0.0.1"
+    lib-firebase: "workspace:0.1.0"
+    lib-markdown-header-parser: "workspace:0.1.0"
+    lib-react-docs: "workspace:0.1.0"
+    lib-react-loading: "workspace:0.1.0"
+    lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
     react-dom: ^17.0.2
     remarkable: ^2.0.1

@@ -2,10 +2,10 @@ import { dirname, extname, join } from 'path';
 
 import type { SidebarItem } from './DocSidebar';
 import getMarkdownDocsPageTemplate from './docs-page-template';
-import parseMarkdownHeaderTree from './markdown-header-parser';
 
 import { GENERATED_PAGES_PATH } from 'esbuild-scripts/utils/constants';
 import { emptyDirectory, ensureDirectory, readDirectory, readFile, writeFile } from 'lib-fs';
+import parseMarkdownHeaderTree from 'lib-markdown-header-parser';
 
 type SimpleSidebarItems = readonly string[] | { readonly [category: string]: SimpleSidebarItems };
 

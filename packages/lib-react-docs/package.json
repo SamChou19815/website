@@ -15,6 +15,7 @@
     "clsx": "^1.1.1",
     "lib-common": "workspace:0.0.1",
     "lib-fs": "workspace:0.1.0",
+    "lib-markdown-header-parser": "workspace:0.1.0",
     "lib-react-mdx-components": "workspace:0.1.0"
   },
   "peerDependencies": {
