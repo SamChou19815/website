@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { MarkdownTablesOfContentsElement } from 'lib-markdown-header-parser';
 
-import './DocTableOfContents.css';
+import './index.css';
 
 const generateMarkdownHeaderID = (label: string) => label.toLowerCase().split(/\s+/).join('-');
 
@@ -35,10 +35,10 @@ type Props = {
   readonly hasLink?: boolean;
 };
 
-const DocTableOfContents = ({ toc, hasLink = true }: Props): JSX.Element => (
-  <div className="lib-react-docs-table-of-contents thin-scrollbar">
+const TOC = ({ toc, hasLink = true }: Props): JSX.Element => (
+  <div className="lib-react-table-of-contents thin-scrollbar">
     <Headings toc={toc} hasLink={hasLink} />
   </div>
 );
 
-export default DocTableOfContents;
+export default TOC;

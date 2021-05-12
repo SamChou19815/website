@@ -7,7 +7,6 @@ import React, { ReactNode } from 'react';
 import DocLayout from './DocLayout';
 import DocPaginator from './DocPaginator';
 import type { SidebarItem, SidebarItemLink } from './DocSidebar';
-import DocTableOfContents from './DocTableOfContents';
 
 import Head from 'esbuild-scripts/components/Head';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
@@ -15,6 +14,7 @@ import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import { checkNotNull } from 'lib-common';
 import type { MarkdownTablesOfContentsElement } from 'lib-markdown-header-parser';
 import MDXComponents from 'lib-react-mdx-components';
+import TOC from 'lib-react-toc';
 
 const flattenDocs = (items: readonly SidebarItem[]) => {
   const collector: SidebarItemLink[] = [];
@@ -66,7 +66,7 @@ const DocPage = ({ siteTitle, sidebar, toc, children }: Props): JSX.Element => {
             </div>
           </div>
           <div className="col col--3">
-            <DocTableOfContents toc={toc} hasLink />
+            <TOC toc={toc} hasLink />
           </div>
         </div>
       </div>

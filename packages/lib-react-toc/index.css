@@ -1,4 +1,4 @@
-.lib-react-docs-table-of-contents {
+.lib-react-table-of-contents {
   max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
   overflow-y: auto;
   position: sticky;
@@ -6,7 +6,7 @@
 }
 
 @media only screen and (max-width: 996px) {
-  .lib-react-docs-table-of-contents {
+  .lib-react-table-of-contents {
     display: none;
   }
 }

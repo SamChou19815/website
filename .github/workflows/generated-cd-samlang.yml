@@ -12,6 +12,7 @@ on:
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/lib-react-mdx-components/**'
+      - 'packages/lib-react-toc/**'
       - 'packages/lib-react-docs/**'
       - 'packages/samlang/**'
       - 'configuration/**'

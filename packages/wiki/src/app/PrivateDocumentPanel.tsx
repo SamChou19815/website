@@ -14,7 +14,7 @@ import {
 
 import { getAppUser } from 'lib-firebase/authentication';
 import parseMarkdownHeaderTree from 'lib-markdown-header-parser';
-import DocTableOfContents from 'lib-react-docs/DocTableOfContents';
+import TOC from 'lib-react-toc';
 
 const PrivateDocumentPanelWithMetadata = ({
   metadata,
@@ -38,7 +38,7 @@ const PrivateDocumentPanelWithMetadata = ({
         )}
       </div>
       <div className="col col--3">
-        <DocTableOfContents toc={parseMarkdownHeaderTree(markdownCode).children} hasLink={false} />
+        <TOC toc={parseMarkdownHeaderTree(markdownCode).children} hasLink={false} />
       </div>
     </div>
   );
