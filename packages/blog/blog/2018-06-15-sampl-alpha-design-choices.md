@@ -2,7 +2,7 @@
 title: Design Choice of SAMPL - Written After the First Alpha Release
 ---
 
-### Beginning
+## Beginning
 
 Starting from May 21, after I finished the algo final at Cornell, I started to develop my own
 programming language [SAMPL](https://github.com/SamChou19815/SAMPL). I decide to design a new
@@ -27,9 +27,9 @@ OOP and FP. I chose [ANTLR](http://www.antlr.org/) as the parser generator becau
 specification file's syntax was very easy to understand and work with. Also, ANTLR has good IDE
 support.
 
-### Design Choices
+## Design Choices
 
-#### Syntax Design
+### Syntax Design
 
 Without much thought, I started the language with an OCaml-like syntax, because according to my
 imagination it should be semantically similar to OCaml. Therefore, if you read the early history of
@@ -51,7 +51,7 @@ function declaration uses commas to separate arguments; function application nee
 generics use `<` and `>` instead of OCaml's `'a`; semicolon is used instead of `in`. The design
 principle is similar to Facebook's Reason: write OCaml code in JS way.
 
-#### Type Inference and Type Checking
+### Type Inference and Type Checking
 
 It wasn't hard to realize that if we don't require type inference on functions, then type inference
 was almost trivial to implement: a simple environment model will do the job. In addition, we have a
@@ -111,7 +111,7 @@ expression in my language, we have to introduce this ugly syntax:
 I hope I can improve this when I'm ready to introduce subtyping and use Kotlin's idea of the
 [Nothing type](https://kotlinlang.org/docs/reference/exceptions.html) to prettify the syntax.
 
-#### Code Generation and Compilation
+### Code Generation and Compilation
 
 After I finished type checking, I moved to the actual compiler part. At this stage the syntax of the
 language is almost fixed: it looks pretty similar to Kotlin. Initially, I thought it may be a good
@@ -133,7 +133,7 @@ the 100-characters limit.
 
 This step is quite straightforward thanks to the excellent FP support in Kotlin.
 
-#### Runtime Injection and Interpretation
+### Runtime Injection and Interpretation
 
 After the compiler part is done, the language can be considered as finished (if no bugs exist).
 However, it just can't do anything useful. I/O is not part of the language grammar. Without I/O,
@@ -150,7 +150,7 @@ Since the type system is sound (if the provided runtime library does not use any
 JVM platform), we do not need type information for interpretation. Therefore, the interpretation
 part is quite easy and I finished it in two nights.
 
-### End
+## End
 
 It's almost the end of this blog post, but it's only the beginning of this young language. The test
 coverage right now is very poor and I expect to see a lot of bugs. Before I'm able to fix these

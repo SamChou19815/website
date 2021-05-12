@@ -2,7 +2,7 @@
 title: Making samlang Run in Browsers
 ---
 
-### Background
+## Background
 
 [samlang](https://samlang.developersam.com) is my favorite and most sophisticated side project. It
 is a functional programming language with an optimizing compiler that targets the X86 instruction
@@ -23,7 +23,7 @@ The screenshot below shows you the result of the hard work:
 
 ![new samlang demo website](/img/2020-05-17-samlang-in-browser/samlang-demo.png)
 
-### The project rationale
+## The project rationale
 
 Almost 1.5 years ago, I cut the first open-source release of samlang. At that time, only the type
 checker and the interpreter have been implemented. There was no CLI support. However, I want to
@@ -52,7 +52,7 @@ There is only one way to prevent all these problems: make samlang run in browser
 more cold start, and the people who submit non-terminating programs will eat up their own resources
 instead.
 
-### A rough introduction to Kotlin multiplatform
+## A rough introduction to Kotlin multiplatform
 
 Kotlin multiplatform allows you to compile a single codebase into JVM bytecode, JavaScript and
 native code backed by LLVM toolchain. In case when platform-specific code is necessary, it gives you
@@ -65,7 +65,7 @@ code, everything becomes extremely painful.
 
 Here begins the Herculean effort of refactoring.
 
-### Stage 1: Reduce the amount of platform-dependent code
+## Stage 1: Reduce the amount of platform-dependent code
 
 To be clear, it is impossible to eliminate all platform-dependent code. On the desktop, the compiler
 needs to read source files and write compiled code into hard drive. On the web, we all know that you
@@ -138,9 +138,9 @@ graph:
 
 Now I need to fight the parser.
 
-### Stage 2: Fight the parser
+## Stage 2: Fight the parser
 
-#### Stage 2 Act 1: Choose a parser solution
+### Stage 2 Act 1: Choose a parser solution
 
 At this point, there are several potential solutions to the parser problem:
 
@@ -172,7 +172,7 @@ I eventually picked option 5 since I believe in the quality of the community-pow
 months ago, I used it to create [dti-lang](https://github.com/cornell-dti/dti-lang) for DevSesh, and
 it is both battle-tested by myself and students in the DevSesh.
 
-#### Stage 2 Act 2: Choose an interop solution
+### Stage 2 Act 2: Choose an interop solution
 
 Unfortunately, we are not quite there to jump to the implementation yet. The Kotlin/JS interop is
 not as seamless as Kotlin's interop with JVM. After all, Kotlin/JS was introduced 4 years after
@@ -224,7 +224,7 @@ Fine, at least now we know what to do:
 4. Declare the NPM package as a dependency, test it.
 5. If things go wrong, go back to 1 and start over.
 
-#### Stage 2 Act 3: Hooking the parser code together
+### Stage 2 Act 3: Hooking the parser code together
 
 There is one final twist. The parser doesn't just parse. We want the parser to produce something
 useful, namely the [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree). Therefore, we have to
@@ -261,7 +261,7 @@ actual fun buildModuleFromText(
   }
 ```
 
-### Stage 3: Create an NPM package build
+## Stage 3: Create an NPM package build
 
 At this stage, we already have a fully-functional multiplatform build of samlang that can run on JVM
 and JS platform. However, the JS one still needs some work. The compiled JS code is in a form of 10
@@ -317,7 +317,7 @@ declare const runDemo: (programString: string) => DemoResult;
 export = runDemo;
 ```
 
-### Final Result
+## Final Result
 
 All these hard work has resulted in this published
 [npm package](https://www.npmjs.com/package/@dev-sam/samlang-demo), and a revamped

@@ -2,7 +2,7 @@
 title: 'Project DEFCON 1: A Confidential Data Storage System'
 ---
 
-### 1.Introduction
+## 1.Introduction
 
 This short article is devoted to describe a data storage system that ensures data confidentiality
 even if you are interrogated under torture. I personally call the system Project DEFCON 1.
@@ -14,7 +14,7 @@ recommended to switch it on only when you feel imminent threat, as suggested by 
 
 <!--truncate-->
 
-### 2. Architecture
+## 2. Architecture
 
 The system will automatically generate a new random string as the second-step password, which only
 the person with admin access of the server can obtain. The person who wants to login must contact
@@ -40,7 +40,7 @@ In order for the system to be absolutely secure, Bob must be the only administra
 under threat at any time. Bob may be your friend in another country, or if you are a student who
 hates school surveillance, Bob can be a graduated alumni.
 
-### 3. My Comments
+## 3. My Comments
 
 The idea was developed and furnished almost four years ago but never openly published. I thought of
 the system after an indirect but severe data leak. The incident made me seriously question my data

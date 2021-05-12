@@ -29,7 +29,7 @@ can argue, or even protest, but before protests become effective, it is a fact, 
 an acceptable one. Now, it seems like the already bleak future of my college admission future was
 added another opaque layer of uncertainty.
 
-### 1. From Undecided to Determined
+## 1. From Undecided to Determined
 
 About the same time, it was also a time of decision and determination. After a semester of
 exploration in the school, I became a member of CCC, a programming club, and a member of the student
@@ -115,7 +115,7 @@ than Successful Participant, a prize that everyone excluding cheaters can obtain
 
 It is confirmed. Sam is a nerd, not the type of businessman favored by the school.
 
-### 2. From Silent to Outright
+## 2. From Silent to Outright
 
 With the nerdy spirit awakening, I found increasing uneasiness with my old ally-turned-opponent, the
 student union. The student union held its indirect election in May, via electoral college from
@@ -211,7 +211,7 @@ could not be taken lightly: overly reliance on coffee, some white hairs, and a g
 for college admission: a nerdy spirit that is virtually impossible to conceal. Yes, it is the time
 for college applications.
 
-### 3. From Quandary to Triumph
+## 3. From Quandary to Triumph
 
 On July 30, a five-week mathematics course at MathILy had ended; two days later, an eight-day
 college campus visiting trip started. The list of colleges to visit had been finalized in May, when
@@ -294,7 +294,7 @@ and science. I love problem-solving." The act of writing the essay itself and th
 essay perfectly demonstrated my determination, and more importantly, my Nerd Pride. There were no
 more debates. The decision was officially finalized.
 
-### 4. The End
+## 4. The End
 
 Three months later, at 0:01 AM in Beijing Time on December 9, six hours prior to the official
 release of Cornell's decision, I was still unable to sleep. I woke up from a bad sleep at 4 o'clock,

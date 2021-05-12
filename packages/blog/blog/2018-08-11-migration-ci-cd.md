@@ -14,7 +14,7 @@ my open source projects.
 
 <!--truncate-->
 
-### System Choice
+## System Choice
 
 I first started with [Circle CI](https://circleci.com/) because I saw their ads very often on
 Twitter. The config of Circle CI was relatively easy: the official docs covers most of the usage I
@@ -45,7 +45,7 @@ just some clicks on Service Account.)
 With these problems with existing systems and constraints of my own, I decided to split. I chose to
 setup Travis CI for my open source libraries. For my website repositories, I chose GCP Cloud Build.
 
-### Travis CI Setup
+## Travis CI Setup
 
 Many of my open source libraries were written in Kotlin and built with Gradle, so the setup is very
 straightforward: Travis CI's
@@ -62,7 +62,7 @@ A lot of failed builds:
 
 ![Failed CI Setup](/img/2018-08-11-migration-ci-cd/failed-ci-setup.png)
 
-### GCP Cloud Build Setup
+## GCP Cloud Build Setup
 
 Before setting up Cloud Build (and before Google announced it), I have already been using the
 now-deprecated Container Builder. Since I was unfamiliar with Docker and got very confused about the
@@ -129,7 +129,7 @@ With much more experience with CI, setup for my backend repository only took a s
 
 ![One time success](/img/2018-08-11-migration-ci-cd/one-time-success.png)
 
-### Future Work
+## Future Work
 
 Although CIs have been set up, my open source projects are missing a lot of tests. (That's why I
 don't put a test coverage badge. Shhhh!) I'm planning to add more tests, especially my programming

@@ -2,7 +2,7 @@
 title: The Road to Better Engineering
 ---
 
-### The Start
+## The Start
 
 About three years ago, a student club welcomes the largest influx of new members in its entire
 existence. It is considered as a milestone: it's a de facto recognition that it's becoming
@@ -19,7 +19,7 @@ That club is called Computerization and that dumb former president was me.
 
 <!--truncate-->
 
-### The Codebase
+## The Codebase
 
 I was still not an expert to say how the product management and engineering team training could
 become better, but now I can confidently and honestly assess the state of the codebase after working
@@ -44,7 +44,7 @@ given:
 By the end of 2016, it was evident that no one was actively maintaining the codebase that should be
 abandoned a year ago.
 
-### The School and the World
+## The School and the World
 
 While I was the president, the quality of the codebase was the last thing I cared about. Other "more
 important" issues in my mind cause the idea of cleaning the codebase to be immediately garbage
@@ -66,15 +66,15 @@ integral part of the developer workflow; statically typed programming languages 
 again...
 
 Back to school time, my development knowledge was frozen to 2014. However, the world as I knew in
-2014 was forever gone. “How could I be so ignorant of the surrounding world while still claiming I
-wanted to be a software engineer in the future?” I asked myself in 2017. It was a day before the
+2014 was forever gone. "How could I be so ignorant of the surrounding world while still claiming I
+wanted to be a software engineer in the future?" I asked myself in 2017. It was a day before the
 career fair. Of course, the next day did not end up well.
 
-### Premature Optimization is Better than the Deoptimization
+## Premature Optimization is Better than the Deoptimization
 
 The following sentence is repeated countlessly in university CS lectures:
 
-> “Premature optimization is the root of all evil.”
+> "Premature optimization is the root of all evil."
 
 Guided by similar principles, college admission and high school education do not focus on computer
 science. Although never stated, we all know that qualities like leadership are implicitly superior
@@ -94,7 +94,7 @@ infrastructure. Random numbers are not on the list.
 I don't feel pride when I am finally putting those numbers in my application, but I do feel pride
 when I was writing about my work. The deep inconsistency between conventional wisdom and my personal
 belief builds up emotional conflict, and it eventually bursts into an almost yelling declaration in
-my college application essay: “I love math and science! I love problem-solving!” No more leadership
+my college application essay: "I love math and science! I love problem-solving!" No more leadership
 cliche crap, just **be the nerd**.
 
 ![Be the nerd](/img/2019-08-17-the-road-to-better-engineering/be-the-nerd.jpg)
@@ -103,7 +103,7 @@ Eventually, I won. There was an upper limit where you need to spend your time in
 where the evaluation system is skewed. I entered college. It is time for something new, something I
 dreamed for a long time.
 
-### A Hard Reset
+## A Hard Reset
 
 It starts from my website, which is something has been set up since early 2015 but has been
 neglected for a long time. After a year of learning, refactoring, and exploring, it finally reached
@@ -133,7 +133,7 @@ It all comes after a hard reset. The reset changes the focus from fulfilling ran
 [challenging Turing](https://cacm.acm.org/magazines/2019/8/238344-scaling-static-analyses-at-facebook/fulltext),
 pushing the limit of what we can achieve with better infrastructure.
 
-### A Decision
+## A Decision
 
 From there, a question naturally arises: is this the unavoidable fate? As a proud engineer, my
 answer to this question will always be no. When life gives us lemons, we don't follow the
@@ -155,7 +155,7 @@ pride that we the nerd hold strong, sometimes bloodied but unbowed.
 
 Let there be solutions to end the hell, so there comes my sponsorship.
 
-### Engineering Problems Require Engineering Solutions
+## Engineering Problems Require Engineering Solutions
 
 To build something to be proud of, we need to start with a good codebase. An important prerequisite
 is an _independent_ engineering team. History has proved repeatedly that a mercurial boss that
@@ -213,7 +213,7 @@ intention. This setup will probably slow things down by a month, but engineers w
 if they create a codebase in hell that everyone hates and no one can fix. In the end, it is the
 stable infrastructure that ensures engineers to move fast, not unconstrained passions for numbers.
 
-### Back to the Future
+## Back to the Future
 
 By the time this blog post is published, the sponsorship agreement has been signed and in effect.
 

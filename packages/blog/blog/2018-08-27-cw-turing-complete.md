@@ -13,7 +13,7 @@ one step of a critter move. You can see the spec publicly
 Although the critter language is not Turing complete, a running critter world simulation, under some
 circumstances, can be used to simulate a Turing machine, thus making it Turing complete.
 
-### Assumptions and Modifications
+## Assumptions and Modifications
 
 For the convenience of proof, we will make some assumptions:
 
@@ -32,7 +32,7 @@ We need these modifications to make it Turing Complete:
 - Some useless actions of critters (in this settings e.g. bud) are interpreted as a yes halt, some
   as a no halt, some simply as a halt. The rest actions are useful.
 
-### Turing Machine Simulation
+## Turing Machine Simulation
 
 A Turing Machine is specified by an alphabet, a state set, and transition rules.
 
@@ -50,7 +50,7 @@ encode transition rules.
 
 Hence, critter world is Turing complete.
 
-### A Working Example
+## A Working Example
 
 I will demonstrate a very simple example, adding 1 to a binary number, ignoring overflow problems.
 We assume the number is given in little-endian format. (i.e. 2 is given as 01 instead of 10.)
