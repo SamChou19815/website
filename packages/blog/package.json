@@ -16,8 +16,8 @@
     "@docusaurus/plugin-sitemap": "2.0.0-alpha.74",
     "@docusaurus/preset-classic": "2.0.0-alpha.74",
     "@mdx-js/react": "^1.6.22",
-    "lib-docusaurus-plugin": "0.1.0",
-    "lib-react-prism": "0.1.0",
+    "lib-prism-extended": "workspace:0.1.0",
+    "lib-react-prism": "workspace:0.1.0",
     "prism-react-renderer": "^1.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
