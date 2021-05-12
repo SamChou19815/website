@@ -101,10 +101,6 @@ After several iterations, I was able to manually setup some workflows to intelli
 do build and deploy. Here are the CI and CD workflow configuration for my main site.
 
 ```yml
-# Source: https://github.com/SamChou19815/website/blob
-# /3d8fbc6f3fbfcc7a0a3e1c40d7c32e2f21a5129
-# /.github/workflows/ci-workflow-main-site-frontend.yml
-
 name: ci-main-site-frontend
 on:
   pull_request:
@@ -122,10 +118,8 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      # Build Dependencies
       - name: Build sam-highlighter
         run: yarn workspace sam-highlighter build
-      # Run Checks
       - name: Type Check
         run: yarn workspace main-site-frontend tsc
       - name: Lint
@@ -135,10 +129,6 @@ jobs:
 ```
 
 ```yaml
-# Source: https://github.com/SamChou19815/website/blob
-# /03d8fbc6f3fbfcc7a0a3e1c40d7c32e2f21a5129
-# /.github/workflows/cd-workflow-main-site-frontend.yml
-
 name: cd-main-site-frontend
 on:
   push:
@@ -158,13 +148,10 @@ jobs:
         uses: actions/setup-node@v1
       - name: Yarn Install
         run: yarn install
-      # Build Dependencies
       - name: Build sam-highlighter
         run: yarn workspace sam-highlighter build
-      # Build
       - name: Build
         run: yarn workspace main-site-frontend build
-      # Deploy
       - name: Deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
