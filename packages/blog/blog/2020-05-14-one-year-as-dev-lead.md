@@ -1,6 +1,4 @@
----
-title: One Year as Developer Lead
----
+# One Year as Developer Lead
 
 Almost a year ago, I started to perform developer lead responsibilities at
 [Cornell DTI](https://www.cornelldti.org). My first major task was to grade part of developers at

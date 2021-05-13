@@ -1,6 +1,4 @@
----
-title: '2016: A Year of No Significance'
----
+# 2016: A Year of No Significance
 
 In the year of 2016, a school in Shanghai celebrated its 20th founding anniversary. Beyond this
 ceremony in December, its high school division students have made record-breaking college admission

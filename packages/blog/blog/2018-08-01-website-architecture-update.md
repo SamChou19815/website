@@ -1,6 +1,4 @@
----
-title: A Year of Change - Reflection on My Website's Architecture Update
----
+# A Year of Change - Reflection on My Website's Architecture Update
 
 ## Background
 

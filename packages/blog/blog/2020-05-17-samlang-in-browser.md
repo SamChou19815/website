@@ -1,6 +1,4 @@
----
-title: Making samlang Run in Browsers
----
+# Making samlang Run in Browsers
 
 ## Background
 

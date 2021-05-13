@@ -4,7 +4,6 @@
 **/out/
 *.tsbuildinfo
 .eslintcache
-*.vsix
 
 # misc
 .DS_Store
@@ -23,24 +22,15 @@
 
 # framework generated files
 **/.firebase
-**/.next
 **/.temp
 **/generated-pages
-**/generated-blog
-.vscode/pnpify
-.docusaurus
-.cache-loader
+**/generated-components
 workspaces.json
 
 # env
 .env.local
 
 # project-specific ignores
-packages/github-contribution-alert/.env
-packages/github-contribution-alert/deployment-template/*
-!packages/github-contribution-alert/deployment-template/package.json
-!packages/github-contribution-alert/deployment-template/.firebaserc
-!packages/github-contribution-alert/deployment-template/firebase.json
 packages/yarn-plugin-monorail/bundles
 
 # Local Netlify folder

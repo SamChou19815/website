@@ -1,6 +1,4 @@
----
-title: Computer Science in High Schools
----
+# Computer Science in High Schools
 
 This year, I got an intern with a resume that did not mention my high school's CS project with a
 single word. Therefore, at this point, either success or failure in my high school CS career does

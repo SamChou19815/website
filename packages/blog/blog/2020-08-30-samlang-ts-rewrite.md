@@ -1,6 +1,4 @@
----
-title: Rewriting samlang in TypeScript
----
+# Rewriting samlang in TypeScript
 
 A lot has changed since my [last blog post](/2020/05/17/samlang-in-browser) on my effort to make
 samlang run in browsers. The samlang demo site has been merged into the samlang documentation site

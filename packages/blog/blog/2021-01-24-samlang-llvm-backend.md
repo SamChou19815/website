@@ -1,6 +1,4 @@
----
-title: Supporting the LLVM Backend for samlang
----
+# Supporting the LLVM Backend for samlang
 
 LLVM is a collection of compiler toolchain that allows you to target any instruction set from any
 source-level programming language. Once the source code has been lowered to LLVM IR, the LLVM

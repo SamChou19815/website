@@ -1,6 +1,4 @@
----
-title: 'Achieving 20x Build Speedup: Introducing esbuild-scripts'
----
+# Achieving 20x Build Speedup: Introducing esbuild-scripts
 
 Since the release of [esbuild](https://esbuild.github.io) that gives a theoretical 100x speedup, I
 always imagined adopting it to significantly improve the build time of my own websites. After some

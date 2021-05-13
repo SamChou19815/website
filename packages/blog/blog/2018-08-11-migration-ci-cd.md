@@ -1,6 +1,4 @@
----
-title: Automation! Migration to CI/CD System for My Open-Source Projects
----
+# Automation! Migration to CI/CD System for My Open-Source Projects
 
 Badges: ![Article Good](https://img.shields.io/badge/article-good-brightgreen.svg)
 ![Style Good](https://img.shields.io/badge/style-good-brightgreen.svg)

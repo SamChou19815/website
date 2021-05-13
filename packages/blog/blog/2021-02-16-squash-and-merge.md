@@ -1,6 +1,4 @@
----
-title: The Case for Squash and Merge
----
+# The Case for Squash and Merge
 
 There are several things I have very passionate opinions on, like whether opening braces `{` should
 be on a new line, etc. _(Answer: NO NO NO!)_ Merging in a pull request using squash and merge is
