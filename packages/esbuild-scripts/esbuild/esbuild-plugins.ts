@@ -1,12 +1,11 @@
 import { createRequire } from 'module';
 import { dirname, join, relative, resolve } from 'path';
 
-import mdx from '@mdx-js/mdx';
 import type { Plugin } from 'esbuild';
-import remarkSlugs from 'remark-slug';
 import { Result as SassResult, render } from 'sass';
 
 import { DOCS_PATH, PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants';
+import compileMarkdownToReact from '../utils/mdx';
 import pnpPlugin from './esbuild-pnp-plugin';
 
 import { exists, readFile } from 'lib-fs';
@@ -67,13 +66,10 @@ const sassPlugin: Plugin = {
 const mdxPlugin: Plugin = {
   name: 'mdx',
   setup(buildConfig) {
-    buildConfig.onLoad({ filter: /\.mdx?$/ }, async (args) => {
-      const text = await readFile(args.path);
-      const contents = `import React from'react';
-import mdx from 'esbuild-scripts/__internal-components__/mdx';
-${await mdx(text, { remarkPlugins: [remarkSlugs] })}`;
-      return { contents, loader: 'jsx' };
-    });
+    buildConfig.onLoad({ filter: /\.mdx?$/ }, async (args) => ({
+      contents: await compileMarkdownToReact(await readFile(args.path)),
+      loader: 'jsx',
+    }));
   },
 };
 
