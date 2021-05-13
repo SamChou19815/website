@@ -1,6 +1,4 @@
----
-title: Critter World is Turing Complete - A Not-So-Rigorous Proof
----
+# Critter World is Turing Complete - A Not-So-Rigorous Proof
 
 Critter World is Cornell's CS 2112's Final Project. It is a simulated hexagon world where critters,
 controled by programs, can move, eat, mate, bud, attack, etc. The programming language is very

@@ -1,6 +1,4 @@
----
-title: Design Choice of SAMPL - Written After the First Alpha Release
----
+# Design Choice of SAMPL - Written After the First Alpha Release
 
 ## Beginning
 

@@ -1,6 +1,4 @@
----
-title: Move Fast with Automation Powered Monorepo
----
+# Move Fast with Automation Powered Monorepo
 
 In the last article [The Road to Better Engineering](/2019/08/17/the-road-to-better-engineering), I
 promised that there will be a new post about my recent website re-architecturing effort. In the past

@@ -1,6 +1,4 @@
----
-title: 'Project DEFCON 1: A Confidential Data Storage System'
----
+# Project DEFCON 1: A Confidential Data Storage System
 
 ## 1.Introduction
 

@@ -1,6 +1,4 @@
----
-title: My Decade in Review
----
+# My Decade in Review
 
 Following the lead of React and JavaScript god [Dan Abramov](https://overreacted.io/), I decided to
 also publish my decade in review blog post.

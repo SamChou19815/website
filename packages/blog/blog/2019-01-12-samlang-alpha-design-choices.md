@@ -1,6 +1,4 @@
----
-title: Design Choice of samlang in Alpha
----
+# Design Choice of samlang in Alpha
 
 ## Background
 

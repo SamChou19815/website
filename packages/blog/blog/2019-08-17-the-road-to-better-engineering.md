@@ -1,6 +1,4 @@
----
-title: The Road to Better Engineering
----
+# The Road to Better Engineering
 
 ## The Start
 

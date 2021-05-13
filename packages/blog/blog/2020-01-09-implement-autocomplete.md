@@ -1,6 +1,4 @@
----
-title: How to Implement Autocomplete
----
+# How to Implement Autocomplete
 
 Implement autocomplete in 79 lines of code. Actually, it's not that easy.
 

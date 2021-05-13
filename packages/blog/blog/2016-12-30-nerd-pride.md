@@ -1,6 +1,4 @@
----
-title: Nerd Pride
----
+# Nerd Pride
 
 On the evening of December 8, 2016, exactly on 5:01 PM in Eastern Standard Time, the photons of
 Cornell Engineering acceptance letter struck my eyes. For me, it was a confirmation, a confirmation

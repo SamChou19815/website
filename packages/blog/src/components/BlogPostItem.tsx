@@ -1,13 +1,12 @@
 import React from 'react';
 
-import type { FrontMatter, Metadata } from './types';
+import type { Metadata } from './types';
 
 import Link from 'esbuild-scripts/components/Link';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
 import MDXComponents from 'lib-react-mdx-components';
 
 type Props = {
-  readonly frontMatter: FrontMatter;
   readonly metadata: Metadata;
   readonly truncated?: string | boolean;
   readonly isBlogPostPage?: boolean;
@@ -15,9 +14,8 @@ type Props = {
 };
 
 export default function BlogPostItem(props: Props): JSX.Element {
-  const { children, frontMatter, metadata, truncated, isBlogPostPage = false } = props;
-  const { date, formattedDate, permalink } = metadata;
-  const { title } = frontMatter;
+  const { children, metadata, truncated, isBlogPostPage = false } = props;
+  const { title, date, formattedDate, permalink } = metadata;
 
   const TitleHeading = isBlogPostPage ? 'h1' : 'h2';
 

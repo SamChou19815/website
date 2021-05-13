@@ -26,6 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #f7f7f7;
   color: #38484f;
+  overflow: visible;
 }
 
 code {
@@ -34,6 +35,12 @@ code {
 
 pre {
   margin-bottom: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .markdown > pre {
