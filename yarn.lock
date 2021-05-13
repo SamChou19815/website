@@ -3245,7 +3245,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "blog@workspace:packages/blog"
   dependencies:
-    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/node": ^15.0.2
     "@types/react": ^17.0.5
     clsx: ^1.1.1
@@ -7222,6 +7221,8 @@ __metadata:
   peerDependencies:
     esbuild-scripts: "*"
     react: ^17.0.0
+  bin:
+    esbuild-scripts-with-docs-generate: builder/generator.js
   languageName: unknown
   linkType: soft
 
@@ -9458,7 +9459,6 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "samlang@workspace:packages/samlang"
   dependencies:
-    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@dev-sam/samlang-demo": ^0.4.3
     "@types/react": ^17.0.5
     clsx: ^1.1.1
@@ -11280,7 +11280,6 @@ typescript@^4.2.4:
   version: 0.0.0-use.local
   resolution: "wiki@workspace:packages/wiki"
   dependencies:
-    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/node": ^15.0.2
     "@types/react": ^17.0.5
     "@types/react-dom": ^17.0.3

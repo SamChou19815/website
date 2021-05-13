@@ -3,10 +3,26 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "esr scripts.ts start",
-    "build": "esr scripts.ts ssg",
+    "start": "esbuild-scripts-with-docs-generate start",
+    "build": "esbuild-scripts-with-docs-generate ssg",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s wiki.developersam.com --prod"
+  },
+  "reactDocs": {
+    "type": "docs",
+    "siteTitle": "Wiki",
+    "sideBarItems": {
+      "Documentation": [
+        "/intro"
+      ],
+      "Roadmap": [
+        "/oss-roadmap-2020-h2",
+        "/oss-roadmap-2021"
+      ],
+      "Resources": [
+        "/resources-cs"
+      ]
+    }
   },
   "dependencies": {
     "clsx": "^1.1.1",
@@ -23,7 +39,6 @@
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@dev-sam/jest-esbuild-transformer": "0.4.0",
     "@types/node": "^15.0.2",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",

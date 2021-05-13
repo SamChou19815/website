@@ -5,7 +5,7 @@ import parseMarkdownHeaderTree, {
   MarkdownTablesOfContentsElement,
 } from '../utils/markdown-header-parser';
 
-import mainRunner, { constants, utils } from 'esbuild-scripts/api';
+import { constants, utils } from 'esbuild-scripts/api';
 import { checkNotNull } from 'lib-common';
 
 type BlogPostParsedData = {
@@ -185,29 +185,20 @@ export default Page;
   );
 };
 
-const generateBlogPages = (): Promise<void> =>
-  mainRunner(async () => {
-    const siteTitle = JSON.parse(await utils.readFile('package.json')).blogTitle || 'Blog';
-    if (typeof siteTitle !== 'string') {
-      // eslint-disable-next-line no-console
-      console.error(
-        `Invalid site title: ${siteTitle}. Expecting a string field blogTitle in package.json`
-      );
-      process.exit(1);
-    }
-    await utils.ensureDirectory(BLOG_DIRECTORY);
-    await utils.ensureDirectory(GENERATED_COMPONENTS_DIRECTORY);
-    await utils.emptyDirectory(GENERATED_COMPONENTS_DIRECTORY);
-    await utils.ensureDirectory(constants.GENERATED_PAGES_PATH);
-    await utils.emptyDirectory(constants.GENERATED_PAGES_PATH);
-    const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
-      b.original.localeCompare(a.original)
-    );
-    await Promise.all([
-      writeGeneratedReactComponents(blogPostParsedDataList),
-      writeGeneratedHomePage(siteTitle, blogPostParsedDataList),
-      writeGeneratedBlogPostPages(siteTitle, blogPostParsedDataList),
-    ]);
-  });
+const generateBlogPages = async (siteTitle: string): Promise<void> => {
+  await utils.ensureDirectory(BLOG_DIRECTORY);
+  await utils.ensureDirectory(GENERATED_COMPONENTS_DIRECTORY);
+  await utils.emptyDirectory(GENERATED_COMPONENTS_DIRECTORY);
+  await utils.ensureDirectory(constants.GENERATED_PAGES_PATH);
+  await utils.emptyDirectory(constants.GENERATED_PAGES_PATH);
+  const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
+    b.original.localeCompare(a.original)
+  );
+  await Promise.all([
+    writeGeneratedReactComponents(blogPostParsedDataList),
+    writeGeneratedHomePage(siteTitle, blogPostParsedDataList),
+    writeGeneratedBlogPostPages(siteTitle, blogPostParsedDataList),
+  ]);
+};
 
 export default generateBlogPages;

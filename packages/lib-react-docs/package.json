@@ -7,7 +7,11 @@
     "url": "https://github.com/SamChou19815/website.git"
   },
   "private": true,
+  "bin": {
+    "esbuild-scripts-with-docs-generate": "builder/generator.js"
+  },
   "scripts": {
+    "bundle": "node builder/bundle.js",
     "compile": "tsc --noEmit"
   },
   "dependencies": {
