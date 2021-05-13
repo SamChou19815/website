@@ -1,20 +1,21 @@
 import React from 'react';
 
 import BlogPostItem from './BlogPostItem';
-import type { Content } from './types';
+import type { Content } from './blog-types';
 
 import Head from 'esbuild-scripts/components/Head';
 
-const TITLE = 'Developer Sam Blog';
+type Props = {
+  readonly siteTitle: string;
+  readonly items: readonly { readonly content: Content }[];
+};
 
-type Props = { readonly items: readonly { readonly content: Content }[] };
-
-export default function BlogListPage({ items }: Props): JSX.Element {
+export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
   return (
     <div className="container margin-vert--lg">
       <Head>
-        <title>{TITLE}</title>
-        <meta property="og:title" content={TITLE} />
+        <title>{siteTitle}</title>
+        <meta property="og:title" content={siteTitle} />
       </Head>
       <div className="row">
         <div className="col col--2" />
@@ -29,7 +30,6 @@ export default function BlogListPage({ items }: Props): JSX.Element {
             </BlogPostItem>
           ))}
         </main>
-        <div className="col col--2" />
       </div>
     </div>
   );

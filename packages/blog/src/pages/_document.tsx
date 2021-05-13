@@ -4,7 +4,7 @@ import Head from 'esbuild-scripts/components/Head';
 import Link from 'esbuild-scripts/components/Link';
 
 import 'infima/dist/css/default/default.min.css';
-import '../css/custom.css';
+import './index.css';
 
 const Document = ({ children }: { readonly children: ReactNode }): ReactElement => {
   return (

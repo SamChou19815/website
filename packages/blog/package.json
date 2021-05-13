@@ -2,10 +2,10 @@
   "name": "blog",
   "version": "0.0.0",
   "private": true,
+  "blogTitle": "Developer Sam Blog",
   "scripts": {
     "start": "esr src/scripts/generator.ts start",
     "build": "esr src/scripts/generator.ts ssg",
-    "generate": "esr src/scripts/generator.ts --compile-only",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s blog.developersam.com --prod"
   },
@@ -13,10 +13,7 @@
     "clsx": "^1.1.1",
     "infima": "0.2.0-alpha.23",
     "lib-common": "workspace:0.0.1",
-    "lib-markdown-header-parser": "workspace:0.1.0",
-    "lib-react-mdx-components": "workspace:0.1.0",
-    "lib-react-prism": "workspace:0.1.0",
-    "lib-react-toc": "workspace:0.1.0",
+    "lib-react-docs": "workspace:0.1.0",
     "prism-react-renderer": "^1.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

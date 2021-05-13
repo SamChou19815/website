@@ -1,10 +1,10 @@
 import React, { ReactElement, ReactNode } from 'react';
 
 import Head from 'esbuild-scripts/components/Head';
-import DocNavBar from 'lib-react-docs/DocNavBar';
+import DocNavBar from 'lib-react-docs/components/DocNavBar';
 
 import 'infima/dist/css/default/default.min.css';
-import 'lib-react-docs/styles.scss';
+import 'lib-react-docs/components/docs-styles.scss';
 import './custom.css';
 
 const Document = ({ children }: { readonly children: ReactNode }): ReactElement => {

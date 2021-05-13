@@ -1,7 +1,7 @@
 import type { WikiPrivateDocumentMetadata } from './documents';
 
 import { checkNotNull } from 'lib-common';
-import type { SidebarItem } from 'lib-react-docs/DocSidebar';
+import type { SidebarItem } from 'lib-react-docs/components/DocSidebar';
 
 const treeifySingleDocumentMedatada = ({
   documentID,

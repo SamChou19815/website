@@ -1,10 +1,10 @@
 import React, { ReactElement, ReactNode } from 'react';
 
 import Head from 'esbuild-scripts/components/Head';
-import DocNavBar from 'lib-react-docs/DocNavBar';
+import DocNavBar from 'lib-react-docs/components/DocNavBar';
 
 import 'infima/dist/css/default/default.min.css';
-import 'lib-react-docs/styles.scss';
+import 'lib-react-docs/components/docs-styles.scss';
 import './index.css';
 import './app.scss';
 
@@ -19,10 +19,6 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
         <meta property="og:description" content="Developer Sam's Wiki" />
         <meta property="og:url" content="https://wiki.developersam.com/" />
         <meta name="author" content="Developer Sam" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
-        />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" />
       </Head>
       <DocNavBar

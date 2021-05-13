@@ -1,10 +1,10 @@
 import React from 'react';
 
-import type { Metadata } from './types';
+import MDXComponents from './MDXComponents';
+import type { Metadata } from './blog-types';
 
 import Link from 'esbuild-scripts/components/Link';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
-import MDXComponents from 'lib-react-mdx-components';
 
 type Props = {
   readonly metadata: Metadata;

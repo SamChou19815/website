@@ -4,7 +4,7 @@ import PrivateDocumentPanel from './PrivateDocumentPanel';
 import { useWikiPrivateDocumentsMetadata } from './documents';
 import treeifyDocumentMetadata from './generate-sidebar';
 
-import DocLayout from 'lib-react-docs/DocLayout';
+import DocLayout from 'lib-react-docs/components/DocLayout';
 import LoadingOverlay from 'lib-react-loading';
 
 const App = (): ReactElement => {
