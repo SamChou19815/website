@@ -1,6 +1,6 @@
 import React, { ReactElement, lazy } from 'react';
 
-import Head from 'esbuild-scripts/components/Head';
+import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import SSRSuspense from 'esbuild-scripts/components/SSRSuspense';
 import LoadingOverlay from 'lib-react-loading';
 
@@ -12,11 +12,7 @@ const App = lazy(() => import('../app/App'));
 export default function InternTierAccessEntryPoint(): ReactElement {
   return (
     <>
-      <Head>
-        <title>internals@dev-sam | Wiki</title>
-        <meta name="description" content="Restricted-access internal portal" />
-        <meta property="og:description" content="Restricted-access internal portal" />
-      </Head>
+      <HeadTitle title="internals@dev-sam | Wiki" />
       <SSRSuspense fallback={<LoadingOverlay />}>
         <FirebaseLoginAppBarrier>
           <App />

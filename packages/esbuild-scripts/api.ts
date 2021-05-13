@@ -3,8 +3,17 @@
 import buildCommand from './command-build';
 import initCommand from './command-init';
 import startCommand from './command-start';
+import * as constants from './utils/constants';
+import * as fs from './utils/fs';
+import compileMarkdownToReact from './utils/mdx';
 
 import { RED, BLUE } from 'lib-colorful-terminal/colors';
+
+export const utils = {
+  constants,
+  fs,
+  compileMarkdownToReact,
+};
 
 function help() {
   console.error(BLUE('Usage:'));

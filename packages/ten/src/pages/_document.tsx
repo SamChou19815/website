@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { ReactElement, ReactNode } from 'react';
 
-import Head from 'esbuild-scripts/components/Head';
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 
@@ -16,15 +16,12 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
     clsx('navbar__item', 'navbar__link', path === expectedPath && 'navbar__link--active');
   return (
     <>
-      <Head>
-        <html lang="en" />
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>TEN Game</title>
-        <meta property="og:title" content="TEN Game" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-      </Head>
+      <CommonHeader
+        title="TEN Game"
+        description="TEN Game"
+        shortcutIcon="/favicon.ico"
+        htmlLang="en"
+      />
       <nav className="navbar">
         <div className="navbar__inner">
           <div className="navbar__items">

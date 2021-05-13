@@ -3,7 +3,7 @@ import React from 'react';
 import BlogPostItem from './BlogPostItem';
 import type { Content } from './blog-types';
 
-import Head from 'esbuild-scripts/components/Head';
+import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 
 type Props = {
   readonly siteTitle: string;
@@ -13,10 +13,7 @@ type Props = {
 export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
   return (
     <div className="container margin-vert--lg">
-      <Head>
-        <title>{siteTitle}</title>
-        <meta property="og:title" content={siteTitle} />
-      </Head>
+      <HeadTitle title={siteTitle} />
       <div className="row">
         <div className="col col--2" />
         <main className="col col--8">

@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 
-import Head from 'esbuild-scripts/components/Head';
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import initializeThemeSwitching from 'lib-theme-switcher';
 
 import 'infima/dist/css/default/default.min.css';
@@ -12,19 +12,19 @@ if (!__SERVER__) {
 
 const Document = ({ children }: { readonly children: ReactNode }): ReactElement => (
   <>
-    <Head>
-      <meta name="viewport" content="width=device-width" />
-      <meta charSet="utf-8" />
-      <link rel="shortcut icon" href="https://developersam.com/favicon.ico" />
-      <meta name="description" content="Random stuff about Developer Sam" />
-      <meta name="author" content="Developer Sam" />
-      <title>Fan Arts | Random@dev-sam</title>
+    <CommonHeader
+      title="Fan Arts | Random@dev-sam"
+      description="Random stuff about Developer Sam"
+      shortcutIcon="https://developersam.com/favicon.ico"
+      htmlLang="en"
+      ogAuthor="Developer Sam"
+    >
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
       />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" />
-    </Head>
+    </CommonHeader>
     {children}
   </>
 );

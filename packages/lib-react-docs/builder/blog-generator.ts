@@ -1,20 +1,12 @@
 import { dirname, extname, join } from 'path';
 
-import mainRunner from 'esbuild-scripts/api';
-import { GENERATED_PAGES_PATH } from 'esbuild-scripts/utils/constants';
-import {
-  emptyDirectory,
-  ensureDirectory,
-  readDirectory,
-  readFile,
-  writeFile,
-} from 'esbuild-scripts/utils/fs';
-import compileMarkdownToReact from 'esbuild-scripts/utils/mdx';
-import { checkNotNull } from 'lib-common';
-import type { Metadata } from 'lib-react-docs/components/blog-types';
+import type { Metadata } from '../components/blog-types';
 import parseMarkdownHeaderTree, {
   MarkdownTablesOfContentsElement,
-} from 'lib-react-docs/utils/markdown-header-parser';
+} from '../utils/markdown-header-parser';
+
+import mainRunner, { utils } from 'esbuild-scripts/api';
+import { checkNotNull } from 'lib-common';
 
 type BlogPostParsedData = {
   readonly original: string;
@@ -36,7 +28,7 @@ const compileMarkdownToReactWithAttachedData = async (
   metadata: Metadata,
   toc: readonly MarkdownTablesOfContentsElement[]
 ) => {
-  const compiledReactCode = await compileMarkdownToReact(source);
+  const compiledReactCode = await utils.compileMarkdownToReact(source);
   return `${compiledReactCode}
 MDXContent.metadata = ${JSON.stringify(metadata, undefined, 2)};
 MDXContent.toc = ${JSON.stringify(toc, undefined, 2)};
@@ -46,7 +38,7 @@ MDXContent.toc = ${JSON.stringify(toc, undefined, 2)};
 const processBlogPosts = async (): Promise<BlogPostParsedData[]> =>
   await Promise.all(
     (
-      await readDirectory(BLOG_DIRECTORY, true)
+      await utils.fs.readDirectory(BLOG_DIRECTORY, true)
     )
       .filter((it) => {
         switch (extname(it)) {
@@ -68,7 +60,7 @@ const processBlogPosts = async (): Promise<BlogPostParsedData[]> =>
         const dateString = new Date(formattedDate).toISOString();
         const permalink = `/${year}/${month}/${date}/${titleSlug}`;
 
-        const content = await readFile(join('blog', original));
+        const content = await utils.fs.readFile(join('blog', original));
         try {
           const { label: title, children: toc } = parseMarkdownHeaderTree(content);
           return {
@@ -132,11 +124,11 @@ const writeGeneratedReactComponents = async (
         ),
       ]);
       await Promise.all([
-        writeFile(
+        utils.fs.writeFile(
           join(GENERATED_COMPONENTS_DIRECTORY, `${parsed.withOutExtension}__FULL.jsx`),
           fullReactComponentCode
         ),
-        writeFile(
+        utils.fs.writeFile(
           join(GENERATED_COMPONENTS_DIRECTORY, `${parsed.withOutExtension}__TRUNCATED.jsx`),
           truncatedReactComponentCode
         ),
@@ -169,7 +161,10 @@ ${contentProps}];
 const Page = () => <BlogListPage siteTitle=${JSON.stringify(siteTitle)} items={items} />;
 export default Page;
 `;
-  await writeFile(join(GENERATED_PAGES_PATH, `index.jsx`), homepageListCode);
+  await utils.fs.writeFile(
+    join(utils.constants.GENERATED_PAGES_PATH, `index.jsx`),
+    homepageListCode
+  );
 };
 
 const writeGeneratedBlogPostPages = async (
@@ -178,9 +173,9 @@ const writeGeneratedBlogPostPages = async (
 ) => {
   await Promise.all(
     blogPostParsedDataList.map(async (parsed) => {
-      const path = join(GENERATED_PAGES_PATH, `${parsed.path}.jsx`);
-      await ensureDirectory(dirname(path));
-      await writeFile(
+      const path = join(utils.constants.GENERATED_PAGES_PATH, `${parsed.path}.jsx`);
+      await utils.fs.ensureDirectory(dirname(path));
+      await utils.fs.writeFile(
         path,
         `import React from 'react';
 import BlogPostPage from 'lib-react-docs/components/BlogPostPage';
@@ -195,7 +190,7 @@ export default Page;
 
 const generateBlogPages = (): Promise<void> =>
   mainRunner(async () => {
-    const siteTitle = JSON.parse(await readFile('package.json')).blogTitle || 'Blog';
+    const siteTitle = JSON.parse(await utils.fs.readFile('package.json')).blogTitle || 'Blog';
     if (typeof siteTitle !== 'string') {
       // eslint-disable-next-line no-console
       console.error(
@@ -203,11 +198,11 @@ const generateBlogPages = (): Promise<void> =>
       );
       process.exit(1);
     }
-    await ensureDirectory(BLOG_DIRECTORY);
-    await ensureDirectory(GENERATED_COMPONENTS_DIRECTORY);
-    await emptyDirectory(GENERATED_COMPONENTS_DIRECTORY);
-    await ensureDirectory(GENERATED_PAGES_PATH);
-    await emptyDirectory(GENERATED_PAGES_PATH);
+    await utils.fs.ensureDirectory(BLOG_DIRECTORY);
+    await utils.fs.ensureDirectory(GENERATED_COMPONENTS_DIRECTORY);
+    await utils.fs.emptyDirectory(GENERATED_COMPONENTS_DIRECTORY);
+    await utils.fs.ensureDirectory(utils.constants.GENERATED_PAGES_PATH);
+    await utils.fs.emptyDirectory(utils.constants.GENERATED_PAGES_PATH);
     const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
       b.original.localeCompare(a.original)
     );
