@@ -1,8 +1,7 @@
 import { dirname, extname, join } from 'path';
 
 import { PAGES_PATH, GENERATED_PAGES_PATH, TEMP_PATH, TEMP_SERVER_ENTRY_PATH } from './constants';
-
-import { emptyDirectory, ensureDirectory, readDirectory, writeFile } from 'lib-fs';
+import { emptyDirectory, ensureDirectory, readDirectory, writeFile } from './fs';
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 

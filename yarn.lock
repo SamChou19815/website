@@ -3252,9 +3252,7 @@ __metadata:
     esbuild-scripts: "workspace:0.2.1"
     infima: 0.2.0-alpha.23
     lib-common: "workspace:0.0.1"
-    lib-fs: "workspace:0.1.0"
     lib-markdown-header-parser: "workspace:0.1.0"
-    lib-prism-extended: "workspace:0.1.0"
     lib-react-mdx-components: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
     lib-react-toc: "workspace:0.1.0"
@@ -4399,7 +4397,6 @@ __metadata:
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.2
     esbuild: ^0.11.20
     lib-colorful-terminal: "workspace:0.1.0"
-    lib-fs: "workspace:0.1.0"
     react-helmet: ^6.1.0
     react-router-dom: ^5.2.0
     remark-slug: ^6.0.0
@@ -7210,25 +7207,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"lib-fs@workspace:0.1.0, lib-fs@workspace:packages/lib-fs":
-  version: 0.0.0-use.local
-  resolution: "lib-fs@workspace:packages/lib-fs"
-  dependencies:
-    "@types/node": ^15.0.2
-    typescript: ^4.2.4
-  languageName: unknown
-  linkType: soft
-
-"lib-in-memory-filesystem@0.1.0, lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem":
-  version: 0.0.0-use.local
-  resolution: "lib-in-memory-filesystem@workspace:packages/lib-in-memory-filesystem"
-  dependencies:
-    "@types/jest": ^26.0.23
-    lib-common: 0.0.1
-    typescript: ^4.2.4
-  languageName: unknown
-  linkType: soft
-
 "lib-markdown-header-parser@workspace:0.1.0, lib-markdown-header-parser@workspace:packages/lib-markdown-header-parser":
   version: 0.0.0-use.local
   resolution: "lib-markdown-header-parser@workspace:packages/lib-markdown-header-parser"
@@ -7240,17 +7218,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"lib-prism-extended@workspace:0.1.0, lib-prism-extended@workspace:packages/lib-prism-extended":
-  version: 0.0.0-use.local
-  resolution: "lib-prism-extended@workspace:packages/lib-prism-extended"
-  languageName: unknown
-  linkType: soft
-
 "lib-react-docs@0.1.0, lib-react-docs@workspace:0.1.0, lib-react-docs@workspace:packages/lib-react-docs":
   version: 0.0.0-use.local
   resolution: "lib-react-docs@workspace:packages/lib-react-docs"
   dependencies:
-    "@types/jest": ^26.0.23
     "@types/node": ^15.0.2
     "@types/react": ^17.0.5
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.2
@@ -7258,7 +7229,6 @@ __metadata:
     esbuild: ^0.11.20
     esbuild-scripts: "workspace:0.2.1"
     lib-common: "workspace:0.0.1"
-    lib-fs: "workspace:0.1.0"
     lib-markdown-header-parser: "workspace:0.1.0"
     lib-react-mdx-components: "workspace:0.1.0"
     lib-react-toc: "workspace:0.1.0"
@@ -7306,7 +7276,6 @@ __metadata:
     autosize: ^4.0.2
     clsx: ^1.1.1
     lib-common: ^0.0.1
-    lib-prism-extended: "workspace:0.1.0"
     prism-react-renderer: ^1.2.0
     react: ^17.0.2
     typescript: ^4.2.4
@@ -7335,21 +7304,6 @@ __metadata:
   resolution: "lib-theme-switcher@workspace:packages/lib-theme-switcher"
   dependencies:
     typescript: ^4.2.4
-  languageName: unknown
-  linkType: soft
-
-"lib-web-terminal@0.1.0, lib-web-terminal@workspace:packages/lib-web-terminal":
-  version: 0.0.0-use.local
-  resolution: "lib-web-terminal@workspace:packages/lib-web-terminal"
-  dependencies:
-    "@types/jest": ^26.0.23
-    "@types/react": ^17.0.5
-    lib-common: 0.0.1
-    lib-in-memory-filesystem: 0.1.0
-    react: ^17.0.2
-    typescript: ^4.2.4
-  peerDependencies:
-    react: ^17.0.0
   languageName: unknown
   linkType: soft
 
@@ -11468,10 +11422,8 @@ typescript@^4.2.4:
     esbuild-scripts: "workspace:0.2.1"
     infima: 0.2.0-alpha.23
     lib-common: 0.0.1
-    lib-in-memory-filesystem: 0.1.0
     lib-react-prism: 0.1.0
     lib-theme-switcher: 0.1.0
-    lib-web-terminal: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
     react-dom-confetti: ^0.2.0

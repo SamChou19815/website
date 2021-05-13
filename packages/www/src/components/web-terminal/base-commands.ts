@@ -1,12 +1,6 @@
+import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../in-memory-fs';
 import { getFilesystemState, setFilesystemState } from './global-filesystem-state';
 import type { Commands } from './types';
-
-import {
-  currentDirectoryPath,
-  changeDirectory,
-  listFiles,
-  showFiles,
-} from 'lib-in-memory-filesystem';
 
 const baseCommands: Commands = {
   cat: {

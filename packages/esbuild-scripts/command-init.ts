@@ -1,9 +1,9 @@
 import { join } from 'path';
 
 import { TEMPLATE_PATH, PAGES_PATH } from './utils/constants';
+import { copyFile, ensureDirectory, writeFile } from './utils/fs';
 
 import { GREEN } from 'lib-colorful-terminal/colors';
-import { copyFile, ensureDirectory, writeFile } from 'lib-fs';
 
 const initCommand = async (): Promise<void> => {
   await ensureDirectory(PAGES_PATH);

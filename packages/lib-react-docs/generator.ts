@@ -5,7 +5,13 @@ import getMarkdownDocsPageTemplate from './docs-page-template';
 
 import mainRunner from 'esbuild-scripts/api';
 import { GENERATED_PAGES_PATH } from 'esbuild-scripts/utils/constants';
-import { emptyDirectory, ensureDirectory, readDirectory, readFile, writeFile } from 'lib-fs';
+import {
+  emptyDirectory,
+  ensureDirectory,
+  readDirectory,
+  readFile,
+  writeFile,
+} from 'esbuild-scripts/utils/fs';
 import parseMarkdownHeaderTree from 'lib-markdown-header-parser';
 
 type SimpleSidebarItems = readonly string[] | { readonly [category: string]: SimpleSidebarItems };

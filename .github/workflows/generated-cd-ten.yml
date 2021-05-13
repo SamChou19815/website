@@ -8,7 +8,6 @@ on:
       - 'packages/lib-react-loading/**'
       - 'packages/lib-firebase/**'
       - 'packages/lib-colorful-terminal/**'
-      - 'packages/lib-fs/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/ten/**'
       - 'configuration/**'
