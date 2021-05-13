@@ -39,7 +39,8 @@ async function runner() {
   }
 }
 
-async function main() {
+export default async function main(preRunHook?: () => Promise<void>): Promise<void> {
+  if (preRunHook) await preRunHook();
   try {
     if (!(await runner())) process.exitCode = 1;
   } catch (error) {
@@ -47,5 +48,3 @@ async function main() {
     process.exitCode = 1;
   }
 }
-
-main();

@@ -5,16 +5,22 @@ const { pnpPlugin } = require('@yarnpkg/esbuild-plugin-pnp');
 const { build } = require('esbuild');
 
 build({
-  entryPoints: ['index.ts'],
+  entryPoints: ['api.ts'],
   bundle: true,
   minify: true,
   platform: 'node',
   target: 'es2019',
-  format: 'iife',
-  outfile: 'index.js',
+  format: 'cjs',
+  outfile: 'api.js',
   banner: {
-    js: `#!/usr/bin/env node --unhandled-rejections=strict\n/* eslint-disable */\n// prettier-ignore`,
+    // Wrapping the cjs module with another iife,
+    // so that // prettier-ignore can be applied to the entire file.
+    js: `// @${'generated'}
+/* eslint-disable */
+// prettier-ignore
+(() => {`,
   },
+  footer: { js: '})();\n' },
   plugins: [
     pnpPlugin({
       async onResolve(_, resolvedPath) {
