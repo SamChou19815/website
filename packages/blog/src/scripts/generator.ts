@@ -2,6 +2,7 @@ import { dirname, extname, join } from 'path';
 
 import type { Metadata } from '../components/types';
 
+import mainRunner from 'esbuild-scripts/api';
 import { GENERATED_PAGES_PATH } from 'esbuild-scripts/utils/constants';
 import compileMarkdownToReact from 'esbuild-scripts/utils/mdx';
 import { checkNotNull } from 'lib-common';
@@ -199,10 +200,8 @@ const generateBlogPages = async () => {
   ]);
 };
 
-generateBlogPages().then(() => {
-  if (process.argv.includes('--compile-only')) {
-    return;
-  }
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  require('esbuild-scripts');
-});
+if (process.argv.includes('--compile-only')) {
+  generateBlogPages();
+} else {
+  mainRunner(() => generateBlogPages());
+}

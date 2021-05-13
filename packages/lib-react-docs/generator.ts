@@ -3,6 +3,7 @@ import { dirname, extname, join } from 'path';
 import type { SidebarItem } from './DocSidebar';
 import getMarkdownDocsPageTemplate from './docs-page-template';
 
+import mainRunner from 'esbuild-scripts/api';
 import { GENERATED_PAGES_PATH } from 'esbuild-scripts/utils/constants';
 import { emptyDirectory, ensureDirectory, readDirectory, readFile, writeFile } from 'lib-fs';
 import parseMarkdownHeaderTree from 'lib-markdown-header-parser';
@@ -78,11 +79,7 @@ const generateDocumentation = async ({ siteTitle, sideBarItems }: Configuration)
   );
 };
 
-const runnerWithGeneratedMarkdownDocsPages = (configuration: Configuration): void => {
-  generateDocumentation(configuration).then(() => {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('esbuild-scripts');
-  });
-};
+const runnerWithGeneratedMarkdownDocsPages = (configuration: Configuration): Promise<void> =>
+  mainRunner(() => generateDocumentation(configuration));
 
 export default runnerWithGeneratedMarkdownDocsPages;
