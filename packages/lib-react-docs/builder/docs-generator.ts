@@ -5,7 +5,7 @@ import parseMarkdownHeaderTree, {
   MarkdownTablesOfContentsElement,
 } from '../utils/markdown-header-parser';
 
-import mainRunner, { utils } from 'esbuild-scripts/api';
+import mainRunner, { constants, utils } from 'esbuild-scripts/api';
 
 type SimpleSidebarItems = readonly string[] | { readonly [category: string]: SimpleSidebarItems };
 
@@ -13,7 +13,7 @@ type Configuration = { readonly siteTitle: string; readonly sideBarItems: Simple
 
 const pathWithoutExtension = (path: string) => path.substring(0, path.lastIndexOf('.'));
 
-const GENERATED_DOCS_PAGE_PATH = join(utils.constants.GENERATED_PAGES_PATH, 'docs');
+const GENERATED_DOCS_PAGE_PATH = join(constants.GENERATED_PAGES_PATH, 'docs');
 
 const getMarkdownDocsPageTemplate = (
   siteTitle: string,
@@ -40,7 +40,7 @@ export default DocumentPage;
 };
 
 const generateDocumentation = async ({ siteTitle, sideBarItems }: Configuration) => {
-  const docsPaths = (await utils.fs.readDirectory('docs', true)).filter((it) => {
+  const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => {
     switch (extname(it)) {
       case '.md':
       case '.mdx':
@@ -49,12 +49,12 @@ const generateDocumentation = async ({ siteTitle, sideBarItems }: Configuration)
         return false;
     }
   });
-  await utils.fs.ensureDirectory(GENERATED_DOCS_PAGE_PATH);
-  await utils.fs.emptyDirectory(GENERATED_DOCS_PAGE_PATH);
+  await utils.ensureDirectory(GENERATED_DOCS_PAGE_PATH);
+  await utils.emptyDirectory(GENERATED_DOCS_PAGE_PATH);
 
   const docsWithTableOfContentItems = await Promise.all(
     docsPaths.map(async (documentPath) => {
-      const content = await utils.fs.readFile(join('docs', documentPath));
+      const content = await utils.readFile(join('docs', documentPath));
       return {
         documentPath,
         content,
@@ -93,8 +93,8 @@ const generateDocumentation = async ({ siteTitle, sideBarItems }: Configuration)
         GENERATED_DOCS_PAGE_PATH,
         `${pathWithoutExtension(documentPath)}.jsx`
       );
-      await utils.fs.ensureDirectory(dirname(generatedPagePath));
-      await utils.fs.writeFile(
+      await utils.ensureDirectory(dirname(generatedPagePath));
+      await utils.writeFile(
         generatedPagePath,
         getMarkdownDocsPageTemplate(siteTitle, sideBar, documentPath, tocItem.children)
       );

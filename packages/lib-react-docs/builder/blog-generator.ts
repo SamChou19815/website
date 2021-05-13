@@ -5,7 +5,7 @@ import parseMarkdownHeaderTree, {
   MarkdownTablesOfContentsElement,
 } from '../utils/markdown-header-parser';
 
-import mainRunner, { utils } from 'esbuild-scripts/api';
+import mainRunner, { constants, utils } from 'esbuild-scripts/api';
 import { checkNotNull } from 'lib-common';
 
 type BlogPostParsedData = {
@@ -38,7 +38,7 @@ MDXContent.toc = ${JSON.stringify(toc, undefined, 2)};
 const processBlogPosts = async (): Promise<BlogPostParsedData[]> =>
   await Promise.all(
     (
-      await utils.fs.readDirectory(BLOG_DIRECTORY, true)
+      await utils.readDirectory(BLOG_DIRECTORY, true)
     )
       .filter((it) => {
         switch (extname(it)) {
@@ -60,7 +60,7 @@ const processBlogPosts = async (): Promise<BlogPostParsedData[]> =>
         const dateString = new Date(formattedDate).toISOString();
         const permalink = `/${year}/${month}/${date}/${titleSlug}`;
 
-        const content = await utils.fs.readFile(join('blog', original));
+        const content = await utils.readFile(join('blog', original));
         try {
           const { label: title, children: toc } = parseMarkdownHeaderTree(content);
           return {
@@ -124,11 +124,11 @@ const writeGeneratedReactComponents = async (
         ),
       ]);
       await Promise.all([
-        utils.fs.writeFile(
+        utils.writeFile(
           join(GENERATED_COMPONENTS_DIRECTORY, `${parsed.withOutExtension}__FULL.jsx`),
           fullReactComponentCode
         ),
-        utils.fs.writeFile(
+        utils.writeFile(
           join(GENERATED_COMPONENTS_DIRECTORY, `${parsed.withOutExtension}__TRUNCATED.jsx`),
           truncatedReactComponentCode
         ),
@@ -161,10 +161,7 @@ ${contentProps}];
 const Page = () => <BlogListPage siteTitle=${JSON.stringify(siteTitle)} items={items} />;
 export default Page;
 `;
-  await utils.fs.writeFile(
-    join(utils.constants.GENERATED_PAGES_PATH, `index.jsx`),
-    homepageListCode
-  );
+  await utils.writeFile(join(constants.GENERATED_PAGES_PATH, `index.jsx`), homepageListCode);
 };
 
 const writeGeneratedBlogPostPages = async (
@@ -173,9 +170,9 @@ const writeGeneratedBlogPostPages = async (
 ) => {
   await Promise.all(
     blogPostParsedDataList.map(async (parsed) => {
-      const path = join(utils.constants.GENERATED_PAGES_PATH, `${parsed.path}.jsx`);
-      await utils.fs.ensureDirectory(dirname(path));
-      await utils.fs.writeFile(
+      const path = join(constants.GENERATED_PAGES_PATH, `${parsed.path}.jsx`);
+      await utils.ensureDirectory(dirname(path));
+      await utils.writeFile(
         path,
         `import React from 'react';
 import BlogPostPage from 'lib-react-docs/components/BlogPostPage';
@@ -190,7 +187,7 @@ export default Page;
 
 const generateBlogPages = (): Promise<void> =>
   mainRunner(async () => {
-    const siteTitle = JSON.parse(await utils.fs.readFile('package.json')).blogTitle || 'Blog';
+    const siteTitle = JSON.parse(await utils.readFile('package.json')).blogTitle || 'Blog';
     if (typeof siteTitle !== 'string') {
       // eslint-disable-next-line no-console
       console.error(
@@ -198,11 +195,11 @@ const generateBlogPages = (): Promise<void> =>
       );
       process.exit(1);
     }
-    await utils.fs.ensureDirectory(BLOG_DIRECTORY);
-    await utils.fs.ensureDirectory(GENERATED_COMPONENTS_DIRECTORY);
-    await utils.fs.emptyDirectory(GENERATED_COMPONENTS_DIRECTORY);
-    await utils.fs.ensureDirectory(utils.constants.GENERATED_PAGES_PATH);
-    await utils.fs.emptyDirectory(utils.constants.GENERATED_PAGES_PATH);
+    await utils.ensureDirectory(BLOG_DIRECTORY);
+    await utils.ensureDirectory(GENERATED_COMPONENTS_DIRECTORY);
+    await utils.emptyDirectory(GENERATED_COMPONENTS_DIRECTORY);
+    await utils.ensureDirectory(constants.GENERATED_PAGES_PATH);
+    await utils.emptyDirectory(constants.GENERATED_PAGES_PATH);
     const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
       b.original.localeCompare(a.original)
     );
