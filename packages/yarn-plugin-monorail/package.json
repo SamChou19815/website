@@ -6,7 +6,7 @@
   "license": "AGPLv3",
   "scripts": {
     "compile": "tsc --noEmit",
-    "build": "builder build plugin"
+    "bundle": "builder build plugin"
   },
   "dependencies": {
     "@types/node": "^15.0.2",
