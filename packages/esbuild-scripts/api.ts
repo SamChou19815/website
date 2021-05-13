@@ -9,11 +9,8 @@ import compileMarkdownToReact from './utils/mdx';
 
 import { RED, BLUE } from 'lib-colorful-terminal/colors';
 
-export const utils = {
-  constants,
-  fs,
-  compileMarkdownToReact,
-};
+const utils = { ...fs, compileMarkdownToReact };
+export { constants, utils };
 
 function help() {
   console.error(BLUE('Usage:'));
