@@ -4,9 +4,15 @@ import type { Metadata } from '../components/types';
 
 import mainRunner from 'esbuild-scripts/api';
 import { GENERATED_PAGES_PATH } from 'esbuild-scripts/utils/constants';
+import {
+  emptyDirectory,
+  ensureDirectory,
+  readDirectory,
+  readFile,
+  writeFile,
+} from 'esbuild-scripts/utils/fs';
 import compileMarkdownToReact from 'esbuild-scripts/utils/mdx';
 import { checkNotNull } from 'lib-common';
-import { emptyDirectory, ensureDirectory, readDirectory, readFile, writeFile } from 'lib-fs';
 import parseMarkdownHeaderTree, {
   MarkdownTablesOfContentsElement,
 } from 'lib-markdown-header-parser';

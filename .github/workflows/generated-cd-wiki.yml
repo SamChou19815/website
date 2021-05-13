@@ -8,8 +8,6 @@ on:
       - 'packages/lib-react-loading/**'
       - 'packages/lib-firebase/**'
       - 'packages/lib-markdown-header-parser/**'
-      - 'packages/lib-fs/**'
-      - 'packages/lib-prism-extended/**'
       - 'packages/lib-react-prism/**'
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'

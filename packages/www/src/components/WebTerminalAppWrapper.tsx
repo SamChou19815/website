@@ -5,11 +5,10 @@ import DATASET_PROJECTS from '../data/projects';
 import DATASET_TECH_TALKS from '../data/tech-talks';
 import DATASET_TIMELINE from '../data/timeline';
 import { useSetTerminalForceOnBirthday } from './global-states';
-
-import WebTerminal from 'lib-web-terminal';
-import { WebTerminalCommandsContextProvider } from 'lib-web-terminal/WebTerminalCommandsContext';
-import baseCommands from 'lib-web-terminal/base-commands';
-import type { Commands } from 'lib-web-terminal/types';
+import WebTerminal from './web-terminal';
+import { WebTerminalCommandsContextProvider } from './web-terminal/WebTerminalCommandsContext';
+import baseCommands from './web-terminal/base-commands';
+import type { Commands } from './web-terminal/types';
 
 const devSam = (command: string): readonly ReactNode[] | ReactNode | void => {
   const information = `Copyright (C) 2015-${new Date().getFullYear()} Developer Sam. All rights reserved.`;

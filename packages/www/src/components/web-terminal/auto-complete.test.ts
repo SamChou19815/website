@@ -1,7 +1,6 @@
+import { initialState } from '../in-memory-fs';
 import autoComplete, { autoCompleteCommand, autoCompleteFilename } from './auto-complete';
 import baseCommands from './base-commands';
-
-import { initialState } from 'lib-in-memory-filesystem';
 
 it('autoCompleteCommand works', () => {
   // One choice cases

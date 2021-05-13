@@ -6,7 +6,7 @@ import Head from 'esbuild-scripts/components/Head';
 import initializeThemeSwitching from 'lib-theme-switcher';
 
 import 'infima/dist/css/default/default.min.css';
-import 'lib-web-terminal/styles.css';
+import '../components/web-terminal/styles.css';
 import './index.scss';
 import './app.scss';
 

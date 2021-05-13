@@ -13,7 +13,6 @@
   "dependencies": {
     "clsx": "^1.1.1",
     "lib-common": "workspace:0.0.1",
-    "lib-fs": "workspace:0.1.0",
     "lib-markdown-header-parser": "workspace:0.1.0",
     "lib-react-mdx-components": "workspace:0.1.0",
     "lib-react-toc": "workspace:0.1.0"
@@ -23,7 +22,6 @@
     "react": "^17.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
     "@types/node": "^15.0.2",
     "@types/react": "^17.0.5",
     "@yarnpkg/esbuild-plugin-pnp": "^1.0.0-rc.2",

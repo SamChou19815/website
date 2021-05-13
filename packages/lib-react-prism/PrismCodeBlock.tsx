@@ -3,9 +3,8 @@ import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-rende
 import Prism from 'prism-react-renderer/prism';
 import React, { ReactElement, CSSProperties } from 'react';
 
+import extendLibPrism from './prism-extended';
 import theme from './prism-theme.json';
-
-import extendLibPrism from 'lib-prism-extended';
 
 import './PrismCodeBlock.css';
 
