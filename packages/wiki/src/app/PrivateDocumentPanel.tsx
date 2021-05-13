@@ -13,8 +13,8 @@ import {
 } from './documents';
 
 import { getAppUser } from 'lib-firebase/authentication';
-import parseMarkdownHeaderTree from 'lib-markdown-header-parser';
-import TOC from 'lib-react-toc';
+import TOC from 'lib-react-docs/components/TOC';
+import parseMarkdownHeaderTree from 'lib-react-docs/utils/markdown-header-parser';
 
 const PrivateDocumentPanelWithMetadata = ({
   metadata,

@@ -5,12 +5,9 @@ on:
   push:
     paths:
       - 'packages/lib-common/**'
-      - 'packages/lib-markdown-header-parser/**'
       - 'packages/lib-react-prism/**'
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'
-      - 'packages/lib-react-mdx-components/**'
-      - 'packages/lib-react-toc/**'
       - 'packages/lib-react-docs/**'
       - 'packages/samlang/**'
       - 'configuration/**'

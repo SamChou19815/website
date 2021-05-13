@@ -1,4 +1,4 @@
-import generate from 'lib-react-docs/generator';
+import generate from 'lib-react-docs/builder/docs-generator';
 
 generate({
   siteTitle: 'samlang',

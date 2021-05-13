@@ -1,7 +1,9 @@
 import { dirname, extname, join } from 'path';
 
-import type { SidebarItem } from './DocSidebar';
-import getMarkdownDocsPageTemplate from './docs-page-template';
+import type { SidebarItem } from '../components/DocSidebar';
+import parseMarkdownHeaderTree, {
+  MarkdownTablesOfContentsElement,
+} from '../utils/markdown-header-parser';
 
 import mainRunner from 'esbuild-scripts/api';
 import { GENERATED_PAGES_PATH } from 'esbuild-scripts/utils/constants';
@@ -12,7 +14,6 @@ import {
   readFile,
   writeFile,
 } from 'esbuild-scripts/utils/fs';
-import parseMarkdownHeaderTree from 'lib-markdown-header-parser';
 
 type SimpleSidebarItems = readonly string[] | { readonly [category: string]: SimpleSidebarItems };
 
@@ -21,6 +22,30 @@ type Configuration = { readonly siteTitle: string; readonly sideBarItems: Simple
 const pathWithoutExtension = (path: string) => path.substring(0, path.lastIndexOf('.'));
 
 const GENERATED_DOCS_PAGE_PATH = join(GENERATED_PAGES_PATH, 'docs');
+
+const getMarkdownDocsPageTemplate = (
+  siteTitle: string,
+  sidebar: readonly SidebarItem[],
+  markdownPath: string,
+  toc: readonly MarkdownTablesOfContentsElement[]
+): string => {
+  return `// ${'@'}generated
+import React from 'react';
+import DocPage from 'lib-react-docs/components/DocPage';
+import Content from 'esbuild-scripts-internal/docs/${markdownPath}';
+
+const DocumentPage = () => (
+  <DocPage
+    siteTitle={\`${siteTitle}\`}
+    sidebar={${JSON.stringify(sidebar)}}
+    toc={${JSON.stringify(toc)}}
+  >
+    <Content />
+  </DocPage>
+);
+export default DocumentPage;
+`;
+};
 
 const generateDocumentation = async ({ siteTitle, sideBarItems }: Configuration) => {
   const docsPaths = (await readDirectory('docs', true)).filter((it) => {

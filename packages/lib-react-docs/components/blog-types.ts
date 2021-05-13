@@ -1,4 +1,4 @@
-import type { MarkdownTablesOfContentsElement } from 'lib-markdown-header-parser';
+import type { MarkdownTablesOfContentsElement } from '../utils/markdown-header-parser';
 
 export type BlogPaginationItem = { readonly title: string; readonly permalink: string };
 

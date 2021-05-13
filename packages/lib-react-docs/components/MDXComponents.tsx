@@ -7,7 +7,7 @@ import React, { ComponentProps, isValidElement } from 'react';
 import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 
-import './index.css';
+import './MDXComponents.css';
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 type HeadingComponentType = (props: ComponentProps<HeadingTag>) => JSX.Element;

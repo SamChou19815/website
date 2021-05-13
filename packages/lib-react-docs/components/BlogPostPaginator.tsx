@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { BlogPaginationItem } from './types';
+import type { BlogPaginationItem } from './blog-types';
 
 import Link from 'esbuild-scripts/components/Link';
 
