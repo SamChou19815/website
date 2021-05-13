@@ -7,7 +7,6 @@
 
 import React from 'react';
 
-import Head from 'esbuild-scripts/components/Head';
 import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 
@@ -56,9 +55,6 @@ const features = [
 
 const Home = (): JSX.Element => (
   <>
-    <Head>
-      <title>samlang</title>
-    </Head>
     <header className="hero hero--primary index-page-hero-banner">
       <div className="container">
         <h1 className="hero__title">samlang</h1>

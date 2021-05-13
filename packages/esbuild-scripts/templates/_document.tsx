@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
 
 // The Head component lets you customize what goes into your head part of HTML.
-import Head from 'esbuild-scripts/components/Head';
+// import Head from 'esbuild-scripts/components/Head';
+// The CommonHeader component lets to customize most of the common head information.
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 
 import './index.css';
 
@@ -9,13 +11,12 @@ import './index.css';
 export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
   return (
     <>
-      <Head>
-        {/* You can also use the html tag to add attributes to your HTML parts. */}
-        <html lang="en" />
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>esbuild-scripts powered react app</title>
-      </Head>
+      <CommonHeader
+        title="esbuild-scripts powered react app"
+        description="I am a description"
+        shortcutIcon="fav icon link"
+        htmlLang="en"
+      />
       {children}
     </>
   );

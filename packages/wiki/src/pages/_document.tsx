@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react';
 
-import Head from 'esbuild-scripts/components/Head';
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import DocNavBar from 'lib-react-docs/components/DocNavBar';
 
 import 'infima/dist/css/default/default.min.css';
@@ -11,16 +11,14 @@ import './app.scss';
 const Document = ({ children }: { readonly children: ReactNode }): ReactElement => {
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width" />
-        <meta charSet="utf-8" />
-        <link rel="shortcut icon" href="https://developersam.com/favicon.ico" />
-        <meta name="description" content="Developer Sam's Wiki" />
-        <meta property="og:description" content="Developer Sam's Wiki" />
-        <meta property="og:url" content="https://wiki.developersam.com/" />
-        <meta name="author" content="Developer Sam" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" />
-      </Head>
+      <CommonHeader
+        title="Wiki"
+        description="Developer Sam's Wiki"
+        shortcutIcon="https://developersam.com/favicon.ico"
+        htmlLang="en"
+        ogAuthor="Developer Sam"
+        ogURL="https://wiki.developersam.com/"
+      />
       <DocNavBar
         title="Wiki"
         logo="https://developersam.com/logo.png"

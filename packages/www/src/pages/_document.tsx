@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode } from 'react';
 import ReactGA from 'react-ga';
 import { RecoilRoot } from 'recoil';
 
-import Head from 'esbuild-scripts/components/Head';
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import initializeThemeSwitching from 'lib-theme-switcher';
 
 import 'infima/dist/css/default/default.min.css';
@@ -21,26 +21,18 @@ if (!__SERVER__) {
 
 const Document = ({ children }: { readonly children: ReactNode }): ReactElement => (
   <>
-    <Head>
-      <html lang="en" />
-      <meta charSet="utf-8" />
-      <link rel="shortcut icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="theme-color" content="#F7F7F7" />
-      <meta name="keywords" content="Sam, Developer Sam, developer, web apps, open source" />
-      <meta
-        name="description"
-        content="Explore the portfolio and projects created and open sourced by Developer Sam."
-      />
-      <meta property="og:title" content="Developer Sam" />
-      <meta property="og:type" content="profile" />
-      <meta property="og:url" content="https://developersam.com/" />
-      <meta property="og:image" content="https://developersam.com/sam-by-megan-3-square.webp" />
-      <meta
-        property="og:description"
-        content="Explore the portfolio and projects created and open sourced by Developer Sam."
-      />
-      <meta name="author" content="Developer Sam" />
+    <CommonHeader
+      title="Developer Sam"
+      description="Explore the portfolio and projects created and open sourced by Developer Sam."
+      shortcutIcon="/favicon.ico"
+      htmlLang="en"
+      themeColor="#F7F7F7"
+      ogAuthor="Developer Sam"
+      ogKeywords="Sam, Developer Sam, developer, web apps, open source"
+      ogType="profile"
+      ogURL="https://developersam.com/"
+      ogImage="https://developersam.com/sam-by-megan-3-square.webp"
+    >
       <link rel="canonical" href="https://developersam.com/" />
       <link rel="manifest" href="/manifest.json" />
       <link
@@ -48,7 +40,6 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
       />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" />
-      <title>Developer Sam</title>
       <script type="application/ld+json">
         {`{"@context":"http://schema.org","@type":"Organization","url":"https://developersam.com","logo":"https://developersam.com/logo.png"}`}
       </script>
@@ -61,7 +52,7 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
 "https://github.com/SamChou19815",
 "https://www.linkedin.com/in/sam-zhou-30b91610b/"]}`}
       </script>
-    </Head>
+    </CommonHeader>
     <RecoilRoot>{children}</RecoilRoot>
   </>
 );

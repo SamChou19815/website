@@ -10,7 +10,7 @@ import DocPaginator from './DocPaginator';
 import type { SidebarItem, SidebarItemLink } from './DocSidebar';
 import MDXComponents from './MDXComponents';
 
-import Head from 'esbuild-scripts/components/Head';
+import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import { checkNotNull } from 'lib-common';
@@ -50,11 +50,7 @@ const DocPage = ({ siteTitle, sidebar, toc, children }: Props): JSX.Element => {
 
   return (
     <DocLayout sidebar={sidebar} activePath={activePath}>
-      <Head>
-        <title>
-          {item.label} | {siteTitle}
-        </title>
-      </Head>
+      <HeadTitle title={`${item.label} | ${siteTitle}`} />
       <div className="container padding-vert--lg">
         <div className="row">
           <div className="col">
