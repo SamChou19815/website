@@ -9,7 +9,7 @@
     "test": "jest",
     "bump": "yarn up @types/jest @types/node @types/react @types/react-dom typescript prettier jest husky lint-staged eslint \"@typescript-eslint/*\" \"eslint-*\"",
     "import-plugin": "yarn plugin import ./packages/yarn-plugin-monorail/bundles/@yarnpkg/plugin-monorail.js",
-    "setup-plugin": "yarn workspace @dev-sam/yarn-plugin-monorail build && yarn import-plugin"
+    "setup-plugin": "yarn workspace @dev-sam/yarn-plugin-monorail bundle && yarn import-plugin"
   },
   "workspaces": [
     "packages/*"
