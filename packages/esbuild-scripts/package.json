@@ -15,7 +15,7 @@
     "directory": "packages/esbuild-scripts"
   },
   "scripts": {
-    "bundle": "node bundle.js",
+    "bundle": "node bundler/bundle.js",
     "compile": "tsc"
   },
   "dependencies": {
