@@ -8,10 +8,10 @@ import DocLayout from './DocLayout';
 import DocPaginator from './DocPaginator';
 import type { SidebarItem, SidebarItemLink } from './DocSidebar';
 import MDXComponents from './MDXComponents';
+import useActivePath from './useActivePath';
 
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
-import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import { checkNotNull } from 'lib-common';
 import TOC from 'lib-react-docs/components/TOC';
 
@@ -37,7 +37,7 @@ type Props = {
 };
 
 const DocPage = ({ siteTitle, sidebar, content: Content }: Props): JSX.Element => {
-  const activePath = useLocation().pathname;
+  const activePath = useActivePath();
   const items = flattenDocs(sidebar);
 
   const index = items.findIndex((it) => it.href === activePath);

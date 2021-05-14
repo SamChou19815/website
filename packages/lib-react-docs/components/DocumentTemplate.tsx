@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import React, { FC, ReactNode } from 'react';
 
+import useActivePath from './useActivePath';
+
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
-import { useLocation } from 'esbuild-scripts/components/router-hooks';
 
 const NavLink = ({ name, to, active }: Readonly<{ name: string; to: string; active: boolean }>) => (
   <Link className={clsx('navbar__item', 'navbar__link', active && 'navbar__link--active')} to={to}>
@@ -33,7 +34,7 @@ const DocumentTemplate = ({
   copyright,
   children,
 }: Props & { readonly children: ReactNode }): JSX.Element => {
-  const path = useLocation().pathname;
+  const path = useActivePath();
   return (
     <>
       <CommonHeader
