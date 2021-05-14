@@ -32,9 +32,16 @@ export const extractMarkdownHeaders = (source: string): readonly MarkdownHeader[
   return headers;
 };
 
-export type MarkdownTablesOfContentsElement = {
-  readonly label: string;
-  readonly children: readonly MarkdownTablesOfContentsElement[];
+const extractAndValidateMarkdownHeaders = (source: string): readonly MarkdownHeader[] => {
+  const headers = extractMarkdownHeaders(source);
+  if (headers[0] == null) throw new Error('Lacking title.');
+  if (headers[0].level !== 1) {
+    throw new Error(`First heading must be h1, found: ${markdownHeaderToString(headers[0])}`);
+  }
+  if (headers.filter((it) => it.level === 1).length > 1) {
+    throw new Error('More than one h1.');
+  }
+  return headers;
 };
 
 const treeifyMarkdownHeaders = (
@@ -58,15 +65,11 @@ const treeifyMarkdownHeaders = (
 };
 
 const parseMarkdownHeaderTree = (source: string): MarkdownTablesOfContentsElement => {
-  const headers = extractMarkdownHeaders(source);
-  if (headers[0] == null) throw new Error('Lacking title.');
-  if (headers[0].level !== 1) {
-    throw new Error(`First heading must be h1, found: ${markdownHeaderToString(headers[0])}`);
-  }
-  if (headers.filter((it) => it.level === 1).length > 1) {
-    throw new Error('More than one h1.');
-  }
+  const headers = extractAndValidateMarkdownHeaders(source);
   return treeifyMarkdownHeaders(headers, 0).element;
 };
+
+export const parseMarkdownTitle = (source: string): string =>
+  checkNotNull(extractAndValidateMarkdownHeaders(source)[0]).label;
 
 export default parseMarkdownHeaderTree;

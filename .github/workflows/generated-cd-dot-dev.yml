@@ -6,6 +6,7 @@ on:
     paths:
       - 'packages/lib-theme-switcher/**'
       - 'packages/lib-colorful-terminal/**'
+      - 'packages/lib-common/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/dot-dev/**'
       - 'configuration/**'

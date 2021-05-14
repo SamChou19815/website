@@ -65,8 +65,15 @@ const sassPlugin: Plugin = {
 const mdxPlugin: Plugin = {
   name: 'mdx',
   setup(buildConfig) {
+    buildConfig.onLoad({ filter: /\.mdx?\?truncated=true$/ }, async (args) => ({
+      contents: await compileMarkdownToReact(
+        await readFile(args.path.substring(0, args.path.lastIndexOf('?'))),
+        true
+      ),
+      loader: 'jsx',
+    }));
     buildConfig.onLoad({ filter: /\.mdx?$/ }, async (args) => ({
-      contents: await compileMarkdownToReact(await readFile(args.path)),
+      contents: await compileMarkdownToReact(await readFile(args.path), false),
       loader: 'jsx',
     }));
   },

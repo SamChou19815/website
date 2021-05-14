@@ -2,9 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/display-name */
 
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-import type { MarkdownTablesOfContentsElement } from '../utils/markdown-header-parser';
 import DocLayout from './DocLayout';
 import DocPaginator from './DocPaginator';
 import type { SidebarItem, SidebarItemLink } from './DocSidebar';
@@ -34,11 +33,10 @@ const flattenDocs = (items: readonly SidebarItem[]) => {
 type Props = {
   readonly siteTitle: string;
   readonly sidebar: readonly SidebarItem[];
-  readonly toc: readonly MarkdownTablesOfContentsElement[];
-  readonly children: ReactNode;
+  readonly content: CompiledMarkdownComponent;
 };
 
-const DocPage = ({ siteTitle, sidebar, toc, children }: Props): JSX.Element => {
+const DocPage = ({ siteTitle, sidebar, content: Content }: Props): JSX.Element => {
   const activePath = useLocation().pathname;
   const items = flattenDocs(sidebar);
 
@@ -55,14 +53,17 @@ const DocPage = ({ siteTitle, sidebar, toc, children }: Props): JSX.Element => {
         <div className="row">
           <div className="col">
             <article>
-              <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+              <h1>{Content.toc.label}</h1>
+              <MDXProvider components={MDXComponents}>
+                <Content />
+              </MDXProvider>
             </article>
             <div className="margin-vert--lg">
               <DocPaginator previous={previous} next={next} />
             </div>
           </div>
           <div className="col col--3">
-            <TOC toc={toc} hasLink />
+            <TOC toc={Content.toc.children} hasLink />
           </div>
         </div>
       </div>

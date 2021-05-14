@@ -1,7 +1,5 @@
 import React from 'react';
 
-import type { MarkdownTablesOfContentsElement } from '../utils/markdown-header-parser';
-
 import './TOC.css';
 
 const generateMarkdownHeaderID = (label: string) => label.toLowerCase().split(/\s+/).join('-');

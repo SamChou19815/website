@@ -24,15 +24,20 @@ const pnpPlugin = (): Plugin => ({
       // Path isn't controlled by PnP so delegate to the next resolver in the chain
       if (!pnpApi) return undefined;
 
+      const queryIndex = args.path.lastIndexOf('?');
+      const pathForPnp = queryIndex === -1 ? args.path : args.path.substring(0, queryIndex);
       const pnpResolvedPath = resolveRequest(
-        args.path,
+        pathForPnp,
         effectiveImporter,
         pnpApi,
         build.initialOptions.platform !== 'node'
       );
       if (pnpResolvedPath == null) return { external: true };
 
-      return { namespace: 'pnp', path: pnpResolvedPath };
+      return {
+        namespace: 'pnp',
+        path: `${pnpResolvedPath}${queryIndex === -1 ? '' : args.path.substring(queryIndex)}`,
+      };
     });
 
     // We register on the build to prevent ESBuild from reading the files

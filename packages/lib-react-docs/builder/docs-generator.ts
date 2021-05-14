@@ -1,9 +1,6 @@
 import { dirname, extname, join } from 'path';
 
 import type { SidebarItem } from '../components/DocSidebar';
-import parseMarkdownHeaderTree, {
-  MarkdownTablesOfContentsElement,
-} from '../utils/markdown-header-parser';
 
 import { constants, utils } from 'esbuild-scripts/api';
 
@@ -21,8 +18,7 @@ const GENERATED_DOCS_PAGE_PATH = join(constants.GENERATED_PAGES_PATH, 'docs');
 const getMarkdownDocsPageTemplate = (
   siteTitle: string,
   sidebar: readonly SidebarItem[],
-  markdownPath: string,
-  toc: readonly MarkdownTablesOfContentsElement[]
+  markdownPath: string
 ): string => {
   return `// ${'@'}generated
 import React from 'react';
@@ -33,7 +29,7 @@ const DocumentPage = () => (
   <DocPage
     siteTitle={\`${siteTitle}\`}
     sidebar={${JSON.stringify(sidebar)}}
-    toc={${JSON.stringify(toc)}}
+    content={Content}
   >
     <Content />
   </DocPage>
@@ -58,31 +54,23 @@ const generateDocumentation = async ({
   await utils.ensureDirectory(GENERATED_DOCS_PAGE_PATH);
   await utils.emptyDirectory(GENERATED_DOCS_PAGE_PATH);
 
-  const docsWithTableOfContentItems = await Promise.all(
-    docsPaths.map(async (documentPath) => {
-      const content = await utils.readFile(join('docs', documentPath));
-      return {
-        documentPath,
-        content,
-        tocItem: parseMarkdownHeaderTree(content),
-      };
-    })
+  const docsWithTitles = await Promise.all(
+    docsPaths.map(async (documentPath) => ({
+      documentPath,
+      title: utils.parseMarkdownTitle(await utils.readFile(join('docs', documentPath))),
+    }))
   );
 
   const expandSideBar = (items: SimpleSidebarItems): SidebarItem[] => {
     if (Array.isArray(items)) {
       return items.map((item: string) => {
-        const relevantDocs = docsWithTableOfContentItems.find(
+        const relevantDocs = docsWithTitles.find(
           ({ documentPath }) => `/${pathWithoutExtension(documentPath)}` === item
         );
         if (relevantDocs == null) {
           throw new Error(`No document with href ${item} found on disk.`);
         }
-        return {
-          type: 'link',
-          href: `/docs${item}`,
-          label: relevantDocs.tocItem.label,
-        };
+        return { type: 'link', href: `/docs${item}`, label: relevantDocs.title };
       });
     }
     return Object.entries(items).map(([label, nested]) => ({
@@ -94,7 +82,7 @@ const generateDocumentation = async ({
   const sideBar = expandSideBar(sideBarItems);
 
   await Promise.all(
-    docsWithTableOfContentItems.map(async ({ documentPath, tocItem }) => {
+    docsWithTitles.map(async ({ documentPath }) => {
       const generatedPagePath = join(
         GENERATED_DOCS_PAGE_PATH,
         `${pathWithoutExtension(documentPath)}.jsx`
@@ -102,7 +90,7 @@ const generateDocumentation = async ({
       await utils.ensureDirectory(dirname(generatedPagePath));
       await utils.writeFile(
         generatedPagePath,
-        getMarkdownDocsPageTemplate(siteTitle, sideBar, documentPath, tocItem.children)
+        getMarkdownDocsPageTemplate(siteTitle, sideBar, documentPath)
       );
     })
   );

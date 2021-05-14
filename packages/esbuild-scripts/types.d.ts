@@ -1,7 +1,20 @@
 declare const __SERVER__: boolean;
 
+type MarkdownTablesOfContentsElement = {
+  readonly label: string;
+  readonly children: readonly MarkdownTablesOfContentsElement[];
+};
+
+type CompiledMarkdownComponent = {
+  readonly isMDXComponent: true;
+  readonly truncated: boolean;
+  readonly toc: readonly MarkdownTablesOfContentsElement;
+  (): JSX.Element;
+};
+
 declare module '*.md' {
-  export default function MarkdownComponent(): JSX.Element;
+  const MarkdownComponent: CompiledMarkdownComponent;
+  export default MarkdownComponent;
 }
 
 declare module '*.mdx' {
