@@ -70,6 +70,8 @@ Dockerfile copy the compiled jar and run it.
 Here is the original awkward script:
 
 ```bash
+#!/bin/bash
+
 set -x
 
 ./gradlew build
