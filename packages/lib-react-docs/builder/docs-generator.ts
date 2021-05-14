@@ -5,11 +5,14 @@ import parseMarkdownHeaderTree, {
   MarkdownTablesOfContentsElement,
 } from '../utils/markdown-header-parser';
 
-import mainRunner, { constants, utils } from 'esbuild-scripts/api';
+import { constants, utils } from 'esbuild-scripts/api';
 
 type SimpleSidebarItems = readonly string[] | { readonly [category: string]: SimpleSidebarItems };
 
-type Configuration = { readonly siteTitle: string; readonly sideBarItems: SimpleSidebarItems };
+export type DocsSiteConfiguration = {
+  readonly siteTitle: string;
+  readonly sideBarItems: SimpleSidebarItems;
+};
 
 const pathWithoutExtension = (path: string) => path.substring(0, path.lastIndexOf('.'));
 
@@ -39,7 +42,7 @@ export default DocumentPage;
 `;
 };
 
-const generateDocumentation = async ({ siteTitle, sideBarItems }: Configuration) => {
+const generateDocumentation = async ({ siteTitle, sideBarItems }: DocsSiteConfiguration) => {
   const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => {
     switch (extname(it)) {
       case '.md':
@@ -102,7 +105,4 @@ const generateDocumentation = async ({ siteTitle, sideBarItems }: Configuration)
   );
 };
 
-const runnerWithGeneratedMarkdownDocsPages = (configuration: Configuration): Promise<void> =>
-  mainRunner(() => generateDocumentation(configuration));
-
-export default runnerWithGeneratedMarkdownDocsPages;
+export default generateDocumentation;
