@@ -14,8 +14,7 @@ type Props = {
   readonly title: string;
   readonly logo: string;
   readonly logoName: string;
-  readonly githubLink: string;
-  readonly firstDocumentLink: string;
+  readonly firstDocumentLink?: string;
   readonly otherLinks: readonly { readonly name: string; readonly link: string }[];
 };
 
@@ -23,7 +22,6 @@ const DocNavBar = ({
   title,
   logo,
   logoName,
-  githubLink,
   firstDocumentLink,
   otherLinks,
 }: Props): JSX.Element => {
@@ -36,20 +34,29 @@ const DocNavBar = ({
             <img className="navbar__logo" src={logo} alt={logoName} />
             <strong className="navbar__title">{title}</strong>
           </Link>
-          <NavLink name="Docs" to={firstDocumentLink} active={path.startsWith('/docs')} />
-          {otherLinks.map(({ name, link }) => (
-            <NavLink key={link} name={name} to={link} active={path === link} />
-          ))}
+          {firstDocumentLink && (
+            <NavLink name="Docs" to={firstDocumentLink} active={path.startsWith('/docs')} />
+          )}
+          {otherLinks
+            .filter((it) => !it.link.startsWith('http'))
+            .map(({ name, link }) => (
+              <NavLink key={link} name={name} to={link} active={path === link} />
+            ))}
         </div>
         <div className="navbar__items navbar__items--right">
-          <a
-            className="navbar__item navbar__link"
-            href={githubLink}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
+          {otherLinks
+            .filter((it) => it.link.startsWith('http'))
+            .map(({ name, link }) => (
+              <a
+                key={link}
+                className="navbar__item navbar__link"
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {name}
+              </a>
+            ))}
         </div>
       </div>
     </nav>

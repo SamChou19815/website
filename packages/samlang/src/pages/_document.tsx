@@ -21,9 +21,11 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
         title="samlang"
         logo="/img/logo.svg"
         logoName="samlang logo"
-        githubLink="https://github.com/SamChou19815/samlang"
         firstDocumentLink="/docs/introduction"
-        otherLinks={[{ name: 'Demo', link: '/demo' }]}
+        otherLinks={[
+          { name: 'Demo', link: '/demo' },
+          { name: 'GitHub', link: 'https://github.com/SamChou19815/samlang' },
+        ]}
       />
       <div className="main-wrapper">{children}</div>
     </>
