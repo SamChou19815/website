@@ -2,16 +2,24 @@ import React from 'react';
 
 import BlogPostItem from './BlogPostItem';
 import BlogPostPaginator from './BlogPostPaginator';
-import type { Content } from './blog-types';
+import type { Metadata } from './blog-types';
 
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import TOC from 'lib-react-docs/components/TOC';
 
-type Props = { readonly siteTitle: string; readonly content: Content };
+type Props = {
+  readonly siteTitle: string;
+  readonly content: CompiledMarkdownComponent;
+  readonly metadata: Metadata;
+};
 
-export default function BlogPostPage({ siteTitle, content: BlogPostContents }: Props): JSX.Element {
-  const { metadata } = BlogPostContents;
-  const { title, nextItem, prevItem } = metadata;
+export default function BlogPostPage({
+  siteTitle,
+  content: BlogPostContents,
+  metadata,
+}: Props): JSX.Element {
+  const { nextItem, prevItem } = metadata;
+  const title = BlogPostContents.toc.label;
 
   return (
     <div className="container margin-vert--lg">
@@ -19,7 +27,7 @@ export default function BlogPostPage({ siteTitle, content: BlogPostContents }: P
       <div className="row">
         <div className="col col--2" />
         <main className="col col--8">
-          <BlogPostItem metadata={metadata} isBlogPostPage>
+          <BlogPostItem title={title} metadata={metadata} truncated={BlogPostContents.truncated}>
             <BlogPostContents />
           </BlogPostItem>
           {(nextItem || prevItem) && (
@@ -29,7 +37,7 @@ export default function BlogPostPage({ siteTitle, content: BlogPostContents }: P
           )}
         </main>
         <div className="col col--2">
-          <TOC toc={BlogPostContents.toc} />
+          <TOC toc={BlogPostContents.toc.children} />
         </div>
       </div>
     </div>

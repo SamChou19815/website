@@ -1,13 +1,16 @@
 import React from 'react';
 
 import BlogPostItem from './BlogPostItem';
-import type { Content } from './blog-types';
+import type { Metadata } from './blog-types';
 
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 
 type Props = {
   readonly siteTitle: string;
-  readonly items: readonly { readonly content: Content }[];
+  readonly items: readonly {
+    readonly content: CompiledMarkdownComponent;
+    readonly metadata: Metadata;
+  }[];
 };
 
 export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
@@ -17,11 +20,12 @@ export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
       <div className="row">
         <div className="col col--2" />
         <main className="col col--8">
-          {items.map(({ content: BlogPostContent }) => (
+          {items.map(({ content: BlogPostContent, metadata }) => (
             <BlogPostItem
-              key={BlogPostContent.metadata.permalink}
-              metadata={BlogPostContent.metadata}
-              truncated={BlogPostContent.metadata.truncated}
+              key={metadata.permalink}
+              title={BlogPostContent.toc.label}
+              metadata={metadata}
+              truncated={BlogPostContent.truncated}
             >
               <BlogPostContent />
             </BlogPostItem>

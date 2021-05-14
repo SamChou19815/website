@@ -12,9 +12,9 @@ import {
   createWikiPrivateDocument,
 } from './documents';
 
+import parseMarkdownHeaderTree from 'esbuild-scripts/utils/markdown-header-parser';
 import { getAppUser } from 'lib-firebase/authentication';
 import TOC from 'lib-react-docs/components/TOC';
-import parseMarkdownHeaderTree from 'lib-react-docs/utils/markdown-header-parser';
 
 const PrivateDocumentPanelWithMetadata = ({
   metadata,

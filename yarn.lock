@@ -4394,6 +4394,7 @@ __metadata:
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.2
     esbuild: ^0.11.20
     lib-colorful-terminal: "workspace:0.1.0"
+    lib-common: "workspace:0.0.1"
     react-helmet: ^6.1.0
     react-router-dom: ^5.2.0
     remark-slug: ^6.0.0
