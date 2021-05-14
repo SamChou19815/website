@@ -23,9 +23,11 @@ const Document = ({ children }: { readonly children: ReactNode }): ReactElement 
         title="Wiki"
         logo="https://developersam.com/logo.png"
         logoName="Developer Sam logo"
-        githubLink="https://github.com/SamChou19815/website"
         firstDocumentLink="/docs/intro"
-        otherLinks={[{ name: 'internals@dev-sam', link: '/intern' }]}
+        otherLinks={[
+          { name: 'internals@dev-sam', link: '/intern' },
+          { name: 'GitHub', link: 'https://github.com/SamChou19815/website' },
+        ]}
       />
       <div className="main-wrapper">{children}</div>
     </>
