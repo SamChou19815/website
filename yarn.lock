@@ -3252,6 +3252,7 @@ __metadata:
     infima: 0.2.0-alpha.23
     lib-common: "workspace:0.0.1"
     lib-react-docs: "workspace:0.1.0"
+    lib-react-ga: "workspace:0.1.0"
     prism-react-renderer: ^1.2.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -7226,6 +7227,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"lib-react-ga@workspace:0.1.0, lib-react-ga@workspace:packages/lib-react-ga":
+  version: 0.0.0-use.local
+  resolution: "lib-react-ga@workspace:packages/lib-react-ga"
+  dependencies:
+    "@types/node": ^15.0.2
+    "@types/react": ^17.0.5
+    esbuild-scripts: "workspace:0.2.1"
+    react: ^17.0.2
+    react-ga: ^3.3.0
+    typescript: ^4.2.4
+  peerDependencies:
+    esbuild-scripts: "*"
+    react: ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "lib-react-loading@0.1.0, lib-react-loading@workspace:0.1.0, lib-react-loading@workspace:packages/lib-react-loading":
   version: 0.0.0-use.local
   resolution: "lib-react-loading@workspace:packages/lib-react-loading"
@@ -7255,7 +7272,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"lib-theme-switcher@0.1.0, lib-theme-switcher@workspace:packages/lib-theme-switcher":
+"lib-theme-switcher@0.1.0, lib-theme-switcher@workspace:0.1.0, lib-theme-switcher@workspace:packages/lib-theme-switcher":
   version: 0.0.0-use.local
   resolution: "lib-theme-switcher@workspace:packages/lib-theme-switcher"
   dependencies:
@@ -11373,13 +11390,13 @@ typescript@^4.2.4:
     "@types/react": ^17.0.5
     esbuild-scripts: "workspace:0.2.1"
     infima: 0.2.0-alpha.23
-    lib-common: 0.0.1
-    lib-react-prism: 0.1.0
-    lib-theme-switcher: 0.1.0
+    lib-common: "workspace:0.0.1"
+    lib-react-ga: "workspace:0.1.0"
+    lib-react-prism: "workspace:0.1.0"
+    lib-theme-switcher: "workspace:0.1.0"
     react: ^17.0.2
     react-dom: ^17.0.2
     react-dom-confetti: ^0.2.0
-    react-ga: ^3.3.0
     recoil: ^0.2.0
     typescript: ^4.2.4
   languageName: unknown

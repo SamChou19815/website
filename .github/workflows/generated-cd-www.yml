@@ -5,10 +5,11 @@ on:
   push:
     paths:
       - 'packages/lib-common/**'
-      - 'packages/lib-react-prism/**'
-      - 'packages/lib-theme-switcher/**'
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'
+      - 'packages/lib-react-ga/**'
+      - 'packages/lib-react-prism/**'
+      - 'packages/lib-theme-switcher/**'
       - 'packages/www/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-www.yml'
