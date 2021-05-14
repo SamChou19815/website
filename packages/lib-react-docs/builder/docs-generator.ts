@@ -42,7 +42,10 @@ export default DocumentPage;
 `;
 };
 
-const generateDocumentation = async ({ siteTitle, sideBarItems }: DocsSiteConfiguration) => {
+const generateDocumentation = async ({
+  siteTitle,
+  sideBarItems,
+}: DocsSiteConfiguration): Promise<void> => {
   const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => {
     switch (extname(it)) {
       case '.md':
