@@ -100,20 +100,46 @@ import './app.scss';
 // import styles from './App.module.css';
 ```
 
+### Markdown
+
+You can import markdown files as React components. This is powered by `mdx-js`.
+
+```typescript
+import MyDocs1 from './docs.md';
+import MyDocs2 from './docs.mdx';
+```
+
 ## Components
+
+### `CommonHeader`
+
+A component that lets you configure most of the common `head` elements. Useful for SEO.
 
 ### `Head`
 
-Ex-exports of `react-helmet`'s `Helmet` component. It allows you to customize your `head` part of
+Re-exports of `react-helmet`'s `Helmet` component. It allows you to customize your `head` part of
 HTML. It works with server-side rendering.
+
+### `HeadTitle`
+
+Let you change the title of the document.
 
 ### `Link`
 
-Ex-exports of `react-router-dom`'s `Link` component. It allows you to transition to another route.
+Re-exports of `react-router-dom`'s `Link` component. It allows you to transition to another route.
+
+### `MDXProvider`
+
+Re-exports of `@mdx-js/react`'s `MDXProvider`. It allows you to provide contet for markdown
+rendering produced from `mdx`.
 
 ### `SSRSuspense`
 
 A wrapper around React's `Suspense`, but works under server-side rendering.
+
+### `router-hooks`
+
+Re-exports `useLocation` and `useHistory` from React Router.
 
 ## FAQ
 
