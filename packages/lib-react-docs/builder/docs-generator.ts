@@ -42,15 +42,7 @@ const generateDocumentation = async ({
   siteTitle,
   sideBarItems,
 }: DocsSiteConfiguration): Promise<void> => {
-  const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => {
-    switch (extname(it)) {
-      case '.md':
-      case '.mdx':
-        return true;
-      default:
-        return false;
-    }
-  });
+  const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => extname(it) === '.md');
   await utils.ensureDirectory(GENERATED_DOCS_PAGE_PATH);
   await utils.emptyDirectory(GENERATED_DOCS_PAGE_PATH);
 
