@@ -7,7 +7,15 @@ const markdownHeaderToString = ({ level, label }: MarkdownHeader): string =>
 
 export const extractMarkdownHeaders = (source: string): readonly MarkdownHeader[] => {
   const headers: MarkdownHeader[] = [];
-  source.split('\n').forEach((line) => {
+  let insideCodeBlock = false;
+  const linesWithoutCodeBlock = source.split('\n').filter((line) => {
+    if (line.startsWith('```')) {
+      insideCodeBlock = !insideCodeBlock;
+    } else {
+      return !insideCodeBlock;
+    }
+  });
+  linesWithoutCodeBlock.forEach((line) => {
     const trimmed = line.trim();
     if (!trimmed.startsWith('#')) return;
     let level = 0;
