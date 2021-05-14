@@ -1,9 +1,12 @@
+import React, { FC } from 'react';
+
 import createDocumentComponent from 'lib-react-docs/components/DocumentTemplate';
+import usePageTracking from 'lib-react-ga';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';
 
-export default createDocumentComponent({
+const Document = createDocumentComponent({
   title: "Developer Sam's Blog",
   description: "Developer Sam's Blog",
   logo: 'https://developersam.com/logo.png',
@@ -15,3 +18,10 @@ export default createDocumentComponent({
   ],
   copyright: 'Copyright © 2016-2021 Developer Sam.',
 });
+
+const DocumentWrapper: FC = ({ children }) => {
+  usePageTracking();
+  return <Document>{children}</Document>;
+};
+
+export default DocumentWrapper;

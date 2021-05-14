@@ -9,6 +9,7 @@ on:
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/lib-react-docs/**'
+      - 'packages/lib-react-ga/**'
       - 'packages/blog/**'
       - 'configuration/**'
       - '.github/workflows/generated-*-blog.yml'
