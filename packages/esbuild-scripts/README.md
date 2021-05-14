@@ -105,8 +105,7 @@ import './app.scss';
 You can import markdown files as React components. This is powered by `mdx-js`.
 
 ```typescript
-import MyDocs1 from './docs.md';
-import MyDocs2 from './docs.mdx';
+import MyDocs from './docs.md';
 ```
 
 The imported markdown file is required to start with title `# Your title`, and with correct subtitle

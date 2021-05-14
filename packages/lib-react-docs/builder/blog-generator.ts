@@ -12,15 +12,7 @@ const processBlogPostsPerFile = async () =>
     (
       await utils.readDirectory(BLOG_DIRECTORY, true)
     )
-      .filter((it) => {
-        switch (extname(it)) {
-          case '.md':
-          case '.mdx':
-            return true;
-          default:
-            return false;
-        }
-      })
+      .filter((it) => extname(it) === '.md')
       .map(async (original) => {
         const withOutExtension = original.substring(0, original.lastIndexOf('.'));
         const segments = withOutExtension.split('-');
