@@ -7,7 +7,7 @@ import 'infima/dist/css/default/default.min.css';
 import './index.css';
 
 const Document = createDocumentComponent({
-  title: "Developer Sam's Blog",
+  title: 'Developer Sam Blog',
   description: "Developer Sam's Blog",
   logo: 'https://developersam.com/logo.png',
   author: 'Developer Sam',
