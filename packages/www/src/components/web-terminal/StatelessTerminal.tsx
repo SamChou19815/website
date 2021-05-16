@@ -1,6 +1,6 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
-import React, { ReactElement, RefObject } from 'react';
+import React, { RefObject } from 'react';
 
 import TerminalInput from './TerminalInput';
 import type { TerminalHistory } from './types';
@@ -9,7 +9,7 @@ const TerminalHistoryLine = ({
   history: { isCommand, line },
 }: {
   readonly history: TerminalHistory;
-}): ReactElement => {
+}): JSX.Element => {
   if (!isCommand) {
     if (typeof line === 'string') return <p className="web-terminal-message">{line}</p>;
     return <div className="web-terminal-message">{line}</div>;
@@ -38,7 +38,7 @@ const StatelessTerminal = ({
   focusTerminal,
   onArrow,
   processCommand,
-}: Props): ReactElement => (
+}: Props): JSX.Element => (
   <div className="web-terminal-container">
     <div className="web-terminal-title">Terminal</div>
     <div

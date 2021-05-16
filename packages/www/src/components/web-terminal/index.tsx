@@ -1,10 +1,10 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 
 import StatefulTerminal from './StatefulTerminal';
 
 const memoizedTerminal = <StatefulTerminal />;
 
-const HiddenByDefaultWebTerminal = (): ReactElement => {
+const HiddenByDefaultWebTerminal = (): JSX.Element => {
   const [isTerminalShown, setIsTerminalShown] = useState(false);
   const toggle = (): void => setIsTerminalShown((isShown) => !isShown);
 

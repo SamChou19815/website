@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 import { Board, getGameStatus } from '../game/board';
 import type { GameState } from '../game/game-state';
@@ -42,9 +42,9 @@ export default function GameCard({
   children,
   clickCallback,
   onUndoMove,
-}: Props): ReactElement {
+}: Props): JSX.Element {
   const { tiles } = board;
-  let aiInfoNode: ReactElement | null;
+  let aiInfoNode: JSX.Element | null;
   if (aiInfo == null) {
     aiInfoNode = null;
   } else {

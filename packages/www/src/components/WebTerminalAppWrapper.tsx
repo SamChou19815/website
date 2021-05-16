@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import DATASET_PROJECTS from '../data/projects';
@@ -46,7 +46,7 @@ const devSam = (command: string): readonly ReactNode[] | ReactNode | void => {
 
 const TIME_OF_OCT_14_2020_7PM = 1602630000000;
 
-const DevMegan = (): ReactElement => {
+const DevMegan = (): JSX.Element => {
   return (
     <>
       <div>
@@ -85,9 +85,9 @@ const DevMegan = (): ReactElement => {
   );
 };
 
-const devMegan = (): ReactElement => <DevMegan />;
+const devMegan = (): JSX.Element => <DevMegan />;
 
-const ForceBirthdayDummyComponent = (): ReactElement => {
+const ForceBirthdayDummyComponent = (): JSX.Element => {
   const setForceOnBirthday = useSetTerminalForceOnBirthday();
 
   useEffect(() => {
@@ -97,7 +97,7 @@ const ForceBirthdayDummyComponent = (): ReactElement => {
   return <>Toggled birthday state!</>;
 };
 
-const forceBirthday = (): ReactElement => <ForceBirthdayDummyComponent />;
+const forceBirthday = (): JSX.Element => <ForceBirthdayDummyComponent />;
 
 const commands: Commands = {
   ...baseCommands,
@@ -120,7 +120,7 @@ const commands: Commands = {
   },
 };
 
-const WebTerminalAppWrapper = (): ReactElement => (
+const WebTerminalAppWrapper = (): JSX.Element => (
   <WebTerminalCommandsContextProvider value={commands}>
     <WebTerminal />
   </WebTerminalCommandsContextProvider>

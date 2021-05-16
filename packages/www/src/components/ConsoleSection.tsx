@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 type Props = {
   readonly id: string;
@@ -8,13 +8,7 @@ type Props = {
   readonly children: ReactNode;
 };
 
-const ConsoleSection = ({
-  id,
-  title,
-  className,
-  titleClassName,
-  children,
-}: Props): ReactElement => (
+const ConsoleSection = ({ id, title, className, titleClassName, children }: Props): JSX.Element => (
   <section id={id} className={className}>
     <h3
       className={

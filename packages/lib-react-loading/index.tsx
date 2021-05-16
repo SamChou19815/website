@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import './styles.css';
 
-const LoadingOverlay = (): ReactElement => (
+const LoadingOverlay = (): JSX.Element => (
   <div className="loading-overlay">
     <div className="loading-ring">
       <div />

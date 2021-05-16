@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
 import PermissionViewer from './PermissionViewer';
@@ -24,7 +24,7 @@ const PrivateDocumentPanelWithMetadata = ({
   readonly metadata: WikiPrivateDocumentMetadata;
   readonly showEditorModal: boolean;
   readonly onEditorClose: () => void;
-}): ReactElement => {
+}): JSX.Element => {
   const content = useWikiPrivateDocumentContent(metadata.documentID);
   if (content == null) return <>Loading...</>;
 
@@ -48,7 +48,7 @@ const PrivateDocumentMetadataCard = ({
   metadata,
 }: {
   readonly metadata: WikiPrivateDocumentMetadata;
-}): ReactElement => (
+}): JSX.Element => (
   <div className="card vertical-margin-1em">
     <div className="card__header">
       <h2>Document Metadata</h2>
@@ -74,7 +74,7 @@ type Props = {
   readonly documentMetadata?: WikiPrivateDocumentMetadata;
 };
 
-const PrivateDocumentPanel = ({ documentMetadata }: Props): ReactElement => {
+const PrivateDocumentPanel = ({ documentMetadata }: Props): JSX.Element => {
   const [showEditorModal, setShowEditorModal] = useState(false);
   const [showMetadata, setShowMetadata] = useState(false);
 

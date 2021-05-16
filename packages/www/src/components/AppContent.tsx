@@ -1,4 +1,4 @@
-import React, { lazy, ReactElement, useEffect } from 'react';
+import React, { lazy, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
 import DATASET_PROJECTS from '../data/projects';
@@ -110,7 +110,7 @@ const timelineSection = (
               {item.links != null && (
                 <div className="card__footer">
                   {item.links.map(
-                    ({ name, url }, index): ReactElement => (
+                    ({ name, url }, index): JSX.Element => (
                       // eslint-disable-next-line react/no-array-index-key
                       <ButtonLink key={index} href={url}>
                         {name}
@@ -127,7 +127,7 @@ const timelineSection = (
   </ConsoleSection>
 );
 
-const AppContent = (): ReactElement => {
+const AppContent = (): JSX.Element => {
   const setOnBirthday = useSetDeveloperSamOnBirthday();
   const terminalForceOnBirthday = useTerminalForceOnBirthday();
 

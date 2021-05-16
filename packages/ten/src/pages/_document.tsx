@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
@@ -9,7 +9,7 @@ import 'infima/dist/css/default/default.min.css';
 import './index.scss';
 import './game.scss';
 
-const Document = ({ children }: { readonly children: ReactNode }): ReactElement => {
+const Document = ({ children }: { readonly children: ReactNode }): JSX.Element => {
   const path = useLocation().pathname;
 
   const activeNavClass = (expectedPath: string) =>

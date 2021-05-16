@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
 import MarkdownInputCard from './MarkdownInputCard';
@@ -14,7 +14,7 @@ const MarkdownEditorWithPreview = ({
   initialTitle,
   initialMarkdownCode,
   onSubmit,
-}: Props): ReactElement => {
+}: Props): JSX.Element => {
   const [title, setTitle] = useState(initialTitle);
   const [code, setCode] = useState(initialMarkdownCode);
 

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 type Props = {
   readonly tileStatus: number;
@@ -6,7 +6,7 @@ type Props = {
   readonly onClick: () => void;
 };
 
-export default function BoardCell({ tileStatus, doesNeedHighlight, onClick }: Props): ReactElement {
+export default function BoardCell({ tileStatus, doesNeedHighlight, onClick }: Props): JSX.Element {
   let backgroundColor: string;
   if (tileStatus === 1) {
     backgroundColor = 'black';

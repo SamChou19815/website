@@ -1,6 +1,6 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
-import React, { ReactElement, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 import StatelessTerminal from './StatelessTerminal';
 import { useWebTerminalCommands } from './WebTerminalCommandsContext';
@@ -40,7 +40,7 @@ const getNewHistory = (commands: Commands, inputLine: string): readonly Terminal
   return newHistoryItems;
 };
 
-const Terminal = (): ReactElement => {
+const Terminal = (): JSX.Element => {
   const commands = useWebTerminalCommands();
   const [history, setHistory] = useState(initialHistory);
   const terminalRoot = useRef<HTMLDivElement>(null);

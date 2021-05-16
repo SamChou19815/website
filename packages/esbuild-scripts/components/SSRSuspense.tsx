@@ -1,9 +1,9 @@
-import { ReactElement, ReactNode, Suspense } from 'react';
+import { ReactNode, Suspense } from 'react';
 
 type SuspenseType = (props: {
-  readonly fallback: ReactElement | null;
+  readonly fallback: JSX.Element | null;
   readonly children: ReactNode;
-}) => ReactElement | null;
+}) => JSX.Element | null;
 
 declare const __SERVER__: boolean;
 

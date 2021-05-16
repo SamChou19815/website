@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 
 import GameCard from '../components/GameCard';
 import { Move, Board, emptyBoard, makeMove } from '../game/board';
@@ -6,7 +6,7 @@ import type { GameStates } from '../game/game-state';
 
 import { checkNotNull } from 'lib-common';
 
-export default function LocalGameCard(): ReactElement {
+export default function LocalGameCard(): JSX.Element {
   const [gameStates, setGameStates] = useState<GameStates>({ currentState: { board: emptyBoard } });
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 

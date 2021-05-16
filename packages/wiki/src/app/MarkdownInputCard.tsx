@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import PrismCodeEditor from 'lib-react-prism/PrismCodeEditor';
 import theme from 'lib-react-prism/prism-theme.json';
@@ -22,7 +22,7 @@ const MarkdownInputCard = ({
   onTitleChange,
   onCodeChange,
   onSubmit,
-}: Props): ReactElement => {
+}: Props): JSX.Element => {
   return (
     <div className={clsx('card', className)}>
       <div className="card__header">

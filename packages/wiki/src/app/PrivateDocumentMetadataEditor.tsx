@@ -1,10 +1,10 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 
 import { WikiPrivateDocumentMetadata, updateWikiPrivateDocumentMetadata } from './documents';
 
 type Props = { readonly metadata: WikiPrivateDocumentMetadata };
 
-const PrivateDocumentMetadataEditor = ({ metadata }: Props): ReactElement => {
+const PrivateDocumentMetadataEditor = ({ metadata }: Props): JSX.Element => {
   const [filename, setFilename] = useState(metadata.filename);
   const [sharedWithString, setSharedWithString] = useState(metadata.sharedWith.join(','));
 

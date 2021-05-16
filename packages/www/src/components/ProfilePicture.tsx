@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 import Confetti from 'react-dom-confetti';
 
 import { useDeveloperSamOnBirthday } from './global-states';
@@ -35,7 +35,7 @@ const BirthdayProfilePicture = ({ onClick }: { readonly onClick: () => void }) =
   />
 );
 
-const ProfilePicture = (): ReactElement => {
+const ProfilePicture = (): JSX.Element => {
   const onBirthday = useDeveloperSamOnBirthday();
 
   const [active, setActive] = useState(false);

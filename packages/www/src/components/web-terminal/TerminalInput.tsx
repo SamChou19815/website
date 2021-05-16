@@ -1,4 +1,4 @@
-import React, { ReactElement, KeyboardEvent, RefObject, useState, useEffect } from 'react';
+import React, { KeyboardEvent, RefObject, useState, useEffect } from 'react';
 
 import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 import autoComplete from './auto-complete';
@@ -9,7 +9,7 @@ type Props = {
   readonly onSubmit: (line: string) => void;
 };
 
-const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): ReactElement => {
+const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): JSX.Element => {
   const commands = useWebTerminalCommands();
   const [line, setLine] = useState('');
   const [justProcessedArrowKey, setJustProcessedArrowKey] = useState(false);
