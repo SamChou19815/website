@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 type Author = { readonly authorName: string; readonly authorWebsite: string };
 
@@ -41,7 +41,7 @@ const FanArtWorkCard = ({
   filename,
   author: { authorName, authorWebsite },
   description,
-}: FanArtWork): ReactElement => (
+}: FanArtWork): JSX.Element => (
   <div className="card">
     <div className="card__image">
       <img
@@ -65,7 +65,7 @@ const FanArtWorkCard = ({
   </div>
 );
 
-const ArtsPage = (): ReactElement => (
+const ArtsPage = (): JSX.Element => (
   <div>
     <nav className="navbar">
       <div className="navbar__inner">

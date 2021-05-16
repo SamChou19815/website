@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import BoardCell from './BoardCell';
 
@@ -10,7 +10,7 @@ type Props = {
   readonly clickCallback: (a: number, b: number) => void;
 };
 
-export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): ReactElement {
+export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): JSX.Element {
   const children = [];
   for (let i = 0; i < 9; i += 1) {
     for (let j = 0; j < 9; j += 1) {

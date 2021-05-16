@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 
 import GameCard from '../components/GameCard';
 import {
@@ -41,7 +41,7 @@ const aiResponder = (board: Board): Promise<GameState> =>
       return { board: newBoardAfterAI, aiInfo: { winningPercentage, simulationCounter } };
     });
 
-export default function PlayAgainstAIGameCard(): ReactElement {
+export default function PlayAgainstAIGameCard(): JSX.Element {
   const [gameStates, setGameStates] = useState<GameStates>({
     currentState: { board: emptyBoard },
   });

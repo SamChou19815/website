@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 type Props = {
   readonly href: string;
@@ -6,7 +6,7 @@ type Props = {
   readonly children: ReactNode;
 };
 
-const ButtonLink = ({ href, children, className }: Props): ReactElement => (
+const ButtonLink = ({ href, children, className }: Props): JSX.Element => (
   <a
     className={className == null ? 'button button--link' : `button button--link ${className}`}
     href={href}

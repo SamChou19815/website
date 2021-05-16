@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import CodeBlock, { flexibleTheme } from 'lib-react-prism/PrismCodeBlock';
 
@@ -38,7 +38,7 @@ const patchedTheme = {
   plain: { ...flexibleTheme.plain, backgroundColor: 'var(--ifm-background-color)' },
 };
 
-const StickyCodeBlock = (): ReactElement => {
+const StickyCodeBlock = (): JSX.Element => {
   return (
     <CodeBlock language="samlang" theme={patchedTheme} className="sticky-code-block">
       {code}

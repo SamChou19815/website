@@ -1,7 +1,7 @@
 import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-renderer';
 // @ts-expect-error: no type definition
 import Prism from 'prism-react-renderer/prism';
-import React, { ReactElement, CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 
 import extendLibPrism from './prism-extended';
 import theme from './prism-theme.json';
@@ -28,7 +28,7 @@ const PrismCodeBlock = ({
   style: userDefinedStyles,
   theme: userDefinedTheme,
   excludeWrapper,
-}: Props): ReactElement => {
+}: Props): JSX.Element => {
   return (
     <Highlight
       {...defaultProps}

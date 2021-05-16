@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 export type WwwSvgIconName =
   | 'code'
@@ -48,7 +48,7 @@ const svgIcons = {
   ),
 } as const;
 
-const WwwSvgIcon = ({ iconName }: { readonly iconName: WwwSvgIconName }): ReactElement =>
+const WwwSvgIcon = ({ iconName }: { readonly iconName: WwwSvgIconName }): JSX.Element =>
   svgIcons[iconName];
 
 export default WwwSvgIcon;

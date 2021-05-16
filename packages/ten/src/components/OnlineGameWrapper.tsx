@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import OnlineGameCard from './OnlineGameCard';
 import {
@@ -11,7 +11,7 @@ import LoadingOverlay from 'lib-react-loading';
 const getGameID = () =>
   location.hash.startsWith('#game-') ? location.hash.substring(6) : undefined;
 
-export default function OnlineGameWrapper(): ReactElement {
+export default function OnlineGameWrapper(): JSX.Element {
   const [gameID, setGameID] = useState<string | undefined>(getGameID());
 
   const gameData = useFirestoreOnlineGameData(gameID);

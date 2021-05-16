@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 type Props = { readonly title: string; readonly subheader?: string };
 
-const CardHeader = ({ title, subheader }: Props): ReactElement => {
+const CardHeader = ({ title, subheader }: Props): JSX.Element => {
   return (
     <div className="card__header">
       <div className="avatar">

@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 
 import { getGameStatus, makeMove } from '../game/board';
 import GameCard from './GameCard';
@@ -11,7 +11,7 @@ import { getAppUser } from 'lib-firebase/authentication';
 
 type Props = { readonly gameData: FirestoreOnlineGameData };
 
-export default function OnlineGameCard({ gameData }: Props): ReactElement {
+export default function OnlineGameCard({ gameData }: Props): JSX.Element {
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 
   const playerIdentity = gameData.blackPlayerEmail === getAppUser().email ? 'Black' : 'White';

@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 
-const Rules = (): ReactElement => (
+const Rules = (): JSX.Element => (
   <div className="card">
     <div className="card__header">Rules</div>
     <div className="card__body">

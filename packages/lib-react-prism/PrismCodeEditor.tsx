@@ -9,7 +9,7 @@
 
 import autosize from 'autosize';
 import type { PrismTheme } from 'prism-react-renderer';
-import React, { ReactElement, KeyboardEvent, useState, useRef, useEffect } from 'react';
+import React, { KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import CodeBlock from './PrismCodeBlock';
 import './PrismCodeEditor.css';
@@ -36,7 +36,7 @@ const PrismCodeEditor = ({
   tabSize = 2,
   theme,
   onCodeChange,
-}: Props): ReactElement => {
+}: Props): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const inputRef = useRef<HTMLTextAreaElement>(undefined!);
   const [codeBlockHeight, setCodeBlockHeight] = useState(0);

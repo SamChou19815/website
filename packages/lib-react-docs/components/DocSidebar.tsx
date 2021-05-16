@@ -5,7 +5,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 
 import clsx from 'clsx';
-import React, { useState, ReactElement } from 'react';
+import React, { useState } from 'react';
 
 import Link from 'esbuild-scripts/components/Link';
 
@@ -78,7 +78,7 @@ const DocSidebarItemLink = ({ item, activePath }: ItemWithactivePath<SidebarItem
 
 type Props = { readonly sidebar: readonly SidebarItem[]; readonly activePath: string };
 
-const DocSidebar = ({ sidebar, activePath }: Props): ReactElement => (
+const DocSidebar = ({ sidebar, activePath }: Props): JSX.Element => (
   <div className="lib-react-docs-sidebar">
     <div className="menu menu--responsive thin-scrollbar">
       <ul className="menu__list">{renderSidebarItems(sidebar, activePath)}</ul>

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Remarkable } from 'remarkable';
 
@@ -17,7 +17,7 @@ const markdownRenderer: Remarkable = new Remarkable({
 
 type Props = { readonly className?: string; readonly markdownCode: string };
 
-const MarkdownBlock = ({ className, markdownCode }: Props): ReactElement => {
+const MarkdownBlock = ({ className, markdownCode }: Props): JSX.Element => {
   return (
     <div
       className={className}

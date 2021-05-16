@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import initializeThemeSwitching from 'lib-theme-switcher';
@@ -10,7 +10,7 @@ if (!__SERVER__) {
   initializeThemeSwitching();
 }
 
-const Document = ({ children }: { readonly children: ReactNode }): ReactElement => (
+const Document = ({ children }: { readonly children: ReactNode }): JSX.Element => (
   <>
     <CommonHeader
       title="Fan Arts | Random@dev-sam"

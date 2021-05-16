@@ -1,5 +1,5 @@
 import { GithubAuthProvider, signInWithPopup } from 'firebase/auth';
-import React, { ReactElement, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { appUser$, firebaseAuth, hasAppUser } from './authentication';
 
@@ -15,7 +15,7 @@ const onLoginClick = () => {
 
 type Props = {
   /** The child to render when the barrier is cleared. */
-  readonly children: ReactElement;
+  readonly children: JSX.Element;
 };
 type AppStatus = 'INIT_LOADING' | 'LANDING' | 'APP';
 
@@ -23,7 +23,7 @@ type AppStatus = 'INIT_LOADING' | 'LANDING' | 'APP';
  * The barrier to enter the main app.
  * It can help to enforce that all necessary information is loaded before entering the main app.
  */
-const FirebaseLoginAppBarrier = ({ children }: Props): ReactElement => {
+const FirebaseLoginAppBarrier = ({ children }: Props): JSX.Element => {
   const [appStatus, setAppStatus] = useState<AppStatus>(hasAppUser() ? 'APP' : 'INIT_LOADING');
 
   // Listen for auth state changes in effect hooks.
