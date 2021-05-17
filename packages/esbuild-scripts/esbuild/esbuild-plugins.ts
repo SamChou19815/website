@@ -7,6 +7,7 @@ import { DOCS_PATH, PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants'
 import { exists, readFile } from '../utils/fs';
 import compileMarkdownToReact from '../utils/mdx';
 import pnpPlugin from './esbuild-pnp-plugin';
+import virtualPathResolvePlugin, { VirtualPathMappings } from './esbuild-virtual-path-plugin';
 
 import type { Plugin } from 'esbuild';
 
@@ -80,6 +81,12 @@ const mdxPlugin: Plugin = {
   },
 };
 
-const esbuildPlugins: Plugin[] = [webAppResolvePlugin, sassPlugin, mdxPlugin, pnpPlugin()];
+const esbuildPlugins = (virtualPathMappings: VirtualPathMappings): Plugin[] => [
+  webAppResolvePlugin,
+  virtualPathResolvePlugin(virtualPathMappings),
+  sassPlugin,
+  mdxPlugin,
+  pnpPlugin(),
+];
 
 export default esbuildPlugins;

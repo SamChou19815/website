@@ -1,12 +1,10 @@
 import { createServer, request } from 'http';
-import { join } from 'path';
 
 import { serve } from 'esbuild';
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
-import { TEMP_PATH } from './utils/constants';
-import { createEntryPointsGeneratedFiles } from './utils/entry-points';
+import { createEntryPointsGeneratedVirtualFiles } from './utils/entry-points';
 import getGeneratedHTML from './utils/html-generator';
 
 const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
@@ -24,13 +22,14 @@ const getHTML = (entryPoint: string) =>
   getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], false);
 
 const startCommand = async (): Promise<void> => {
-  const entryPoints = await createEntryPointsGeneratedFiles();
+  const { entryPointsWithoutExtension, entryPointVirtualFiles } =
+    await createEntryPointsGeneratedVirtualFiles();
 
   const esbuildServer = await serve(
     { servedir: 'public', port: 19815 },
     {
-      ...baseESBuildConfig({}),
-      entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
+      ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles }),
+      entryPoints: Object.keys(entryPointVirtualFiles),
       sourcemap: 'inline',
       outdir: 'public',
     }
@@ -38,7 +37,7 @@ const startCommand = async (): Promise<void> => {
 
   // Then start a proxy server on port 3000
   const proxyServer = createServer((req, res) => {
-    const relatedEntryPoint = getEntryPoint(entryPoints, req.url);
+    const relatedEntryPoint = getEntryPoint(entryPointsWithoutExtension, req.url);
     if (relatedEntryPoint != null) {
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(getHTML(relatedEntryPoint));

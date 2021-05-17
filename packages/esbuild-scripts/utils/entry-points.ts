@@ -1,7 +1,14 @@
-import { dirname, extname, join } from 'path';
+import { extname } from 'path';
 
-import { PAGES_PATH, GENERATED_PAGES_PATH, TEMP_PATH, TEMP_SERVER_ENTRY_PATH } from './constants';
-import { emptyDirectory, ensureDirectory, readDirectory, writeFile } from './fs';
+import {
+  PAGES_PATH,
+  GENERATED_PAGES_PATH,
+  VIRTUAL_PATH_PREFIX,
+  VIRTUAL_SERVER_ENTRY_PATH,
+} from './constants';
+import { ensureDirectory, readDirectory } from './fs';
+
+import type { VirtualPathMappings } from '../esbuild/esbuild-virtual-path-plugin';
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
@@ -90,17 +97,19 @@ const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
     .filter((it): it is string => it != null && !it.startsWith('_document'));
 };
 
-export const createEntryPointsGeneratedFiles = async (): Promise<readonly string[]> => {
-  const entryPoints = await getEntryPointsWithoutExtension();
-  await ensureDirectory(TEMP_PATH);
-  await emptyDirectory(TEMP_PATH);
-  await Promise.all([
-    ...entryPoints.map(async (path) => {
-      const fullPath = join(TEMP_PATH, `${path}.jsx`);
-      await ensureDirectory(dirname(fullPath));
-      await writeFile(fullPath, getClientTemplate(path, entryPoints));
-    }),
-    writeFile(TEMP_SERVER_ENTRY_PATH, getServerTemplate(entryPoints)),
-  ]);
-  return entryPoints;
+export const createEntryPointsGeneratedVirtualFiles = async (): Promise<{
+  readonly entryPointsWithoutExtension: readonly string[];
+  readonly entryPointVirtualFiles: VirtualPathMappings;
+}> => {
+  const entryPointsWithoutExtension = await getEntryPointsWithoutExtension();
+  const entryPointVirtualFiles = Object.fromEntries(
+    entryPointsWithoutExtension.map((path) => [
+      `${VIRTUAL_PATH_PREFIX}${path}.jsx`,
+      getClientTemplate(path, entryPointsWithoutExtension),
+    ])
+  );
+  entryPointVirtualFiles[VIRTUAL_SERVER_ENTRY_PATH] = getServerTemplate(
+    entryPointsWithoutExtension
+  );
+  return { entryPointsWithoutExtension, entryPointVirtualFiles };
 };
