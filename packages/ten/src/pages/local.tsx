@@ -1,10 +1,10 @@
+import { checkNotNull } from 'lib-common';
 import React, { useState } from 'react';
 
 import GameCard from '../components/GameCard';
 import { Move, Board, emptyBoard, makeMove } from '../game/board';
-import type { GameStates } from '../game/game-state';
 
-import { checkNotNull } from 'lib-common';
+import type { GameStates } from '../game/game-state';
 
 export default function LocalGameCard(): JSX.Element {
   const [gameStates, setGameStates] = useState<GameStates>({ currentState: { board: emptyBoard } });

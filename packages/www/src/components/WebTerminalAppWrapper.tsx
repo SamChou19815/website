@@ -8,6 +8,7 @@ import { useSetTerminalForceOnBirthday } from './global-states';
 import WebTerminal from './web-terminal';
 import { WebTerminalCommandsContextProvider } from './web-terminal/WebTerminalCommandsContext';
 import baseCommands from './web-terminal/base-commands';
+
 import type { Commands } from './web-terminal/types';
 
 const devSam = (command: string): readonly ReactNode[] | ReactNode | void => {

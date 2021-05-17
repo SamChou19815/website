@@ -1,6 +1,5 @@
-import React from 'react';
-
 import CodeBlock, { flexibleTheme } from 'lib-react-prism/PrismCodeBlock';
+import React from 'react';
 
 const code = `/**
  * Copyright (C) 2015-${new Date().getFullYear()} Developer Sam.

@@ -50,14 +50,8 @@ module.exports = (
     'import/no-anonymous-default-export': 'error',
     'import/no-duplicates': 'error',
     'import/no-dynamic-require': 'error',
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: true,
-        peerDependencies: true,
-        optionalDependencies: false,
-      },
-    ],
+    // TODO: waiting on the bug to be fixed.
+    'import/no-extraneous-dependencies': ['off'],
     'import/no-named-default': 'error',
     'import/order': [
       'error',

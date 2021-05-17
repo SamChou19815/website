@@ -1,7 +1,8 @@
-import { changeDirectory, peek } from './stack';
-import type { Directory, FileSystemState } from './types';
-
 import { checkNotNull } from 'lib-common';
+
+import { changeDirectory, peek } from './stack';
+
+import type { Directory, FileSystemState } from './types';
 
 export const listFilesInDirectory = (directory: Directory): readonly string[] =>
   directory.children.map(([filename, file]) =>

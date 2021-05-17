@@ -6,12 +6,11 @@ import {
   updateDoc,
   setDoc,
 } from 'firebase/firestore';
+import { getAppUser } from 'lib-firebase/authentication';
+import firestore from 'lib-firebase/database';
 import { useState, useEffect } from 'react';
 
 import { Board, emptyBoard } from '../game/board';
-
-import { getAppUser } from 'lib-firebase/authentication';
-import firestore from 'lib-firebase/database';
 
 export type FirestoreOnlineGameData = {
   readonly gameID: string;

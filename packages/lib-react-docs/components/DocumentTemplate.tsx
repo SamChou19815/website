@@ -1,10 +1,9 @@
 import clsx from 'clsx';
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
+import Link from 'esbuild-scripts/components/Link';
 import React, { FC, ReactNode } from 'react';
 
 import useActivePath from './useActivePath';
-
-import CommonHeader from 'esbuild-scripts/components/CommonHeader';
-import Link from 'esbuild-scripts/components/Link';
 
 const NavLink = ({ name, to, active }: Readonly<{ name: string; to: string; active: boolean }>) => (
   <Link className={clsx('navbar__item', 'navbar__link', active && 'navbar__link--active')} to={to}>

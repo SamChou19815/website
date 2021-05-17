@@ -1,3 +1,4 @@
+import SSRSuspense from 'esbuild-scripts/components/SSRSuspense';
 import React, { lazy, useEffect } from 'react';
 
 import DATASET_ABOUT from '../data/about';
@@ -12,8 +13,6 @@ import LazyCardMedia from './LazyCardMedia';
 import ProfilePicture from './ProfilePicture';
 import StickyCodeBlock from './StickyCodeBlock';
 import { useSetDeveloperSamOnBirthday, useTerminalForceOnBirthday } from './global-states';
-
-import SSRSuspense from 'esbuild-scripts/components/SSRSuspense';
 
 const WebTerminalAppWrapper = lazy(() => import('./WebTerminalAppWrapper'));
 

@@ -1,11 +1,10 @@
+import DocLayout from 'lib-react-docs/components/DocLayout';
+import LoadingOverlay from 'lib-react-loading';
 import React, { useState, useEffect } from 'react';
 
 import PrivateDocumentPanel from './PrivateDocumentPanel';
 import { useWikiPrivateDocumentsMetadata } from './documents';
 import treeifyDocumentMetadata from './generate-sidebar';
-
-import DocLayout from 'lib-react-docs/components/DocLayout';
-import LoadingOverlay from 'lib-react-loading';
 
 const App = (): JSX.Element => {
   const [documentID, setDocumentID] = useState<string | null>(null);

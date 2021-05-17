@@ -3,6 +3,7 @@ import listFiles, {
   listFilesInDirectoryWithRelativePath,
   listFilesInDirectory,
 } from './list-files';
+
 import type { Directory } from './types';
 
 it('listFilesInDirectory works', () => {

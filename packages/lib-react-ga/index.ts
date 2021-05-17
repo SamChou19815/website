@@ -1,7 +1,6 @@
+import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import { useEffect } from 'react';
 import ReactGA from 'react-ga';
-
-import { useLocation } from 'esbuild-scripts/components/router-hooks';
 
 if (process.env.NODE_ENV === 'production' && !__SERVER__) {
   ReactGA.initialize('UA-140662756-1');

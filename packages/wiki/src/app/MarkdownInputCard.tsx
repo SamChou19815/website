@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import React from 'react';
-
 import PrismCodeEditor from 'lib-react-prism/PrismCodeEditor';
 import theme from 'lib-react-prism/prism-theme.json';
+import React from 'react';
 
 type Props = {
   readonly title: string;

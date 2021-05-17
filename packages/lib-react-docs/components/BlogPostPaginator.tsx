@@ -1,8 +1,7 @@
+import Link from 'esbuild-scripts/components/Link';
 import React from 'react';
 
 import type { BlogPaginationItem } from './blog-types';
-
-import Link from 'esbuild-scripts/components/Link';
 
 export type Props = {
   readonly nextItem?: BlogPaginationItem;

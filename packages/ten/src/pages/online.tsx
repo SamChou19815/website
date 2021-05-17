@@ -1,6 +1,5 @@
-import React, { lazy, Suspense } from 'react';
-
 import FirebaseLoginAppBarrier from 'lib-firebase/FirebaseLoginAppBarrier';
+import React, { lazy, Suspense } from 'react';
 
 const OnlineGameWrapper = lazy(() => import('../components/OnlineGameWrapper'));
 

@@ -1,6 +1,6 @@
-import type { BuildOptions } from 'esbuild';
-
 import esbuildPlugins from './esbuild-plugins';
+
+import type { BuildOptions } from 'esbuild';
 
 const baseESBuildConfig = ({
   isServer = false,

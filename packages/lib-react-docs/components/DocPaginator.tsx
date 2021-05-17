@@ -1,9 +1,8 @@
 // Forked from
 // https://github.com/facebook/docusaurus/blob/master/packages/docusaurus-theme-classic/src/theme/DocPaginator/index.tsx
 
-import React from 'react';
-
 import Link from 'esbuild-scripts/components/Link';
+import React from 'react';
 
 type Item = { readonly label: string; readonly href: string };
 

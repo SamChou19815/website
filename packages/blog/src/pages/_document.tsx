@@ -1,7 +1,6 @@
-import React, { FC } from 'react';
-
 import createDocumentComponent from 'lib-react-docs/components/DocumentTemplate';
 import usePageTracking from 'lib-react-ga';
+import React, { FC } from 'react';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';

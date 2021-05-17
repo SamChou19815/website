@@ -1,9 +1,9 @@
 import { dirname, extname, join, resolve } from 'path';
 
-import type { Metadata } from '../components/blog-types';
-
 import { constants, utils } from 'esbuild-scripts/api';
 import { checkNotNull } from 'lib-common';
+
+import type { Metadata } from '../components/blog-types';
 
 const BLOG_DIRECTORY = 'blog';
 

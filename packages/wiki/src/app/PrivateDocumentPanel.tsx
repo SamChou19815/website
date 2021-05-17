@@ -1,3 +1,6 @@
+import parseMarkdownHeaderTree from 'esbuild-scripts/utils/markdown-header-parser';
+import { getAppUser } from 'lib-firebase/authentication';
+import TOC from 'lib-react-docs/components/TOC';
 import React, { useState } from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
@@ -11,10 +14,6 @@ import {
   useWikiPrivateDocumentContent,
   createWikiPrivateDocument,
 } from './documents';
-
-import parseMarkdownHeaderTree from 'esbuild-scripts/utils/markdown-header-parser';
-import { getAppUser } from 'lib-firebase/authentication';
-import TOC from 'lib-react-docs/components/TOC';
 
 const PrivateDocumentPanelWithMetadata = ({
   metadata,

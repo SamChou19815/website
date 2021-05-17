@@ -1,9 +1,8 @@
 import { GithubAuthProvider, signInWithPopup } from 'firebase/auth';
+import LoadingOverlay from 'lib-react-loading';
 import React, { useState, useEffect } from 'react';
 
 import { appUser$, firebaseAuth, hasAppUser } from './authentication';
-
-import LoadingOverlay from 'lib-react-loading';
 
 import './FirebaseLoginAppBarrier.css';
 

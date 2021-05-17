@@ -1,8 +1,8 @@
 import { dirname, extname, join } from 'path';
 
-import type { SidebarItem } from '../components/DocSidebar';
-
 import { constants, utils } from 'esbuild-scripts/api';
+
+import type { SidebarItem } from '../components/DocSidebar';
 
 type SimpleSidebarItems = readonly string[] | { readonly [category: string]: SimpleSidebarItems };
 

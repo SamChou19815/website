@@ -1,8 +1,7 @@
+import { assertNotNull, checkNotNull } from 'lib-common';
 import React, { ReactNode, Provider, createContext, useContext } from 'react';
 
 import type { Commands } from './types';
-
-import { assertNotNull, checkNotNull } from 'lib-common';
 
 const WebTerminalCommandsContext = createContext<Commands | null>(null);
 

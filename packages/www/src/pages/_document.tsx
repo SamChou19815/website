@@ -1,9 +1,8 @@
-import React, { ReactNode } from 'react';
-import { RecoilRoot } from 'recoil';
-
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import usePageTracking from 'lib-react-ga';
 import initializeThemeSwitching from 'lib-theme-switcher';
+import React, { ReactNode } from 'react';
+import { RecoilRoot } from 'recoil';
 
 import 'infima/dist/css/default/default.min.css';
 import '../components/web-terminal/styles.css';

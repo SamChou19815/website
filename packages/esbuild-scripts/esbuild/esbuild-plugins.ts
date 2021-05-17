@@ -1,13 +1,14 @@
 import { createRequire } from 'module';
 import { dirname, join, relative, resolve } from 'path';
 
-import type { Plugin } from 'esbuild';
 import { Result as SassResult, render } from 'sass';
 
 import { DOCS_PATH, PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants';
 import { exists, readFile } from '../utils/fs';
 import compileMarkdownToReact from '../utils/mdx';
 import pnpPlugin from './esbuild-pnp-plugin';
+
+import type { Plugin } from 'esbuild';
 
 const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',

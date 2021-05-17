@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
-
 import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
+import React from 'react';
 
 const HELLO_WORLD_CODE = `class Main {
   function main(): string = "Hello World"
