@@ -1,8 +1,7 @@
+import { checkNotNull } from 'lib-common';
 import React from 'react';
 
 import BoardCell from './BoardCell';
-
-import { checkNotNull } from 'lib-common';
 
 type Props = {
   readonly tiles: readonly number[];

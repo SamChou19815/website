@@ -1,7 +1,7 @@
+import mainRunner, { utils } from 'esbuild-scripts/api';
+
 import generateBlogPages from './blog-generator';
 import generateDocumentation, { DocsSiteConfiguration } from './docs-generator';
-
-import mainRunner, { utils } from 'esbuild-scripts/api';
 
 type Configuration =
   | ({ readonly type: 'docs' } & DocsSiteConfiguration)

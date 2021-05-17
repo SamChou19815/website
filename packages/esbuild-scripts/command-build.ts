@@ -3,6 +3,7 @@
 import { dirname, join, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
+import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
 import {
@@ -16,8 +17,6 @@ import {
 import { createEntryPointsGeneratedFiles } from './utils/entry-points';
 import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './utils/fs';
 import getGeneratedHTML, { SSRResult } from './utils/html-generator';
-
-import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
 const generateBundle = async (entryPoints: readonly string[]): Promise<readonly string[]> => {
   const { outputFiles } = await build({

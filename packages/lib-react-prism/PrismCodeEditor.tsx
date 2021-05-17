@@ -8,13 +8,14 @@
 // Credit: Adapted from https://github.com/satya164/react-simple-code-editor/blob/master/src/index.js
 
 import autosize from 'autosize';
-import type { PrismTheme } from 'prism-react-renderer';
+import { checkNotNull } from 'lib-common';
 import React, { KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import CodeBlock from './PrismCodeBlock';
-import './PrismCodeEditor.css';
 
-import { checkNotNull } from 'lib-common';
+import type { PrismTheme } from 'prism-react-renderer';
+
+import './PrismCodeEditor.css';
 
 type Record = {
   readonly value: string;

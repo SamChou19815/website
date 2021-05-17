@@ -2,10 +2,9 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/display-name */
 
-import React, { ComponentProps, isValidElement } from 'react';
-
 import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
+import React, { ComponentProps, isValidElement } from 'react';
 
 import './MDXComponents.css';
 

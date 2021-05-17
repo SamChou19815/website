@@ -1,8 +1,7 @@
-import React, { lazy } from 'react';
-
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import SSRSuspense from 'esbuild-scripts/components/SSRSuspense';
 import LoadingOverlay from 'lib-react-loading';
+import React, { lazy } from 'react';
 
 // Lazy import is necessary for conditional execution below,
 // since firebase/app code cannot be executed in SSR environments.

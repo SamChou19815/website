@@ -1,6 +1,5 @@
-import React from 'react';
-
 import Link from 'esbuild-scripts/components/Link';
+import React from 'react';
 
 export default function Home(): JSX.Element {
   return (

@@ -1,3 +1,4 @@
+import LoadingOverlay from 'lib-react-loading';
 import React, { useState, useEffect } from 'react';
 
 import OnlineGameCard from './OnlineGameCard';
@@ -5,8 +6,6 @@ import {
   startFirestoreOnlineTENGame,
   useFirestoreOnlineGameData,
 } from './online-multiplayer-firestore';
-
-import LoadingOverlay from 'lib-react-loading';
 
 const getGameID = () =>
   location.hash.startsWith('#game-') ? location.hash.substring(6) : undefined;

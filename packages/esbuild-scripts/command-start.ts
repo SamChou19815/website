@@ -2,13 +2,12 @@ import { createServer, request } from 'http';
 import { join } from 'path';
 
 import { serve } from 'esbuild';
+import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
 import { TEMP_PATH } from './utils/constants';
 import { createEntryPointsGeneratedFiles } from './utils/entry-points';
 import getGeneratedHTML from './utils/html-generator';
-
-import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
 const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
   if (url == null || !url.startsWith('/')) return undefined;

@@ -9,12 +9,11 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import { getAppUser } from 'lib-firebase/authentication';
+import firestore from 'lib-firebase/database';
 import { useState, useEffect } from 'react';
 
 import { isAdminUser } from './authentication';
-
-import { getAppUser } from 'lib-firebase/authentication';
-import firestore from 'lib-firebase/database';
 
 export type WikiPrivateDocumentMetadata = {
   readonly documentID: string;

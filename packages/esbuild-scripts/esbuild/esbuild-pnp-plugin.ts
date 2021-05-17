@@ -2,10 +2,10 @@
 
 import * as fs from 'fs';
 
+import resolveRequest from './pnp-resolution';
+
 import type { OnLoadArgs, Plugin, PluginBuild } from 'esbuild';
 import type PnpApi from 'pnpapi';
-
-import resolveRequest from './pnp-resolution';
 
 const matchAll = /()/;
 

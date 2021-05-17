@@ -1,8 +1,9 @@
+import { checkNotNull } from 'lib-common';
+
 import initialState from './initial-state';
 import { normalize, join, currentDirectoryPath } from './path';
-import type { Directory, FileSystemState } from './types';
 
-import { checkNotNull } from 'lib-common';
+import type { Directory, FileSystemState } from './types';
 
 /**
  * @param state the current filesystem state of the terminal.

@@ -1,3 +1,4 @@
+import { checkNotNull } from 'lib-common';
 import React, { useState } from 'react';
 
 import GameCard from '../components/GameCard';
@@ -10,10 +11,9 @@ import {
   makeMoveWithoutCheck,
   boardToJson,
 } from '../game/board';
+
 import type { GameState, GameStates } from '../game/game-state';
 import type { MctsResponse } from '../game/mcts';
-
-import { checkNotNull } from 'lib-common';
 
 const computeCanShowGameStarterButtons = (
   gameStates: GameStates,

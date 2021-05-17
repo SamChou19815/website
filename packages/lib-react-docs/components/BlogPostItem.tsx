@@ -1,10 +1,10 @@
+import Link from 'esbuild-scripts/components/Link';
+import MDXProvider from 'esbuild-scripts/components/MDXProvider';
 import React from 'react';
 
 import MDXComponents from './MDXComponents';
-import type { Metadata } from './blog-types';
 
-import Link from 'esbuild-scripts/components/Link';
-import MDXProvider from 'esbuild-scripts/components/MDXProvider';
+import type { Metadata } from './blog-types';
 
 type Props = {
   readonly title: string;

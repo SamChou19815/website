@@ -2,17 +2,17 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable react/display-name */
 
+import HeadTitle from 'esbuild-scripts/components/HeadTitle';
+import MDXProvider from 'esbuild-scripts/components/MDXProvider';
+import { checkNotNull } from 'lib-common';
 import React from 'react';
 
 import DocLayout from './DocLayout';
 import DocPaginator from './DocPaginator';
-import type { SidebarItem, SidebarItemLink } from './DocSidebar';
 import MDXComponents from './MDXComponents';
 import useActivePath from './useActivePath';
 
-import HeadTitle from 'esbuild-scripts/components/HeadTitle';
-import MDXProvider from 'esbuild-scripts/components/MDXProvider';
-import { checkNotNull } from 'lib-common';
+import type { SidebarItem, SidebarItemLink } from './DocSidebar';
 import TOC from 'lib-react-docs/components/TOC';
 
 const flattenDocs = (items: readonly SidebarItem[]) => {

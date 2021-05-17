@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 
+import { RED, BLUE } from 'lib-colorful-terminal/colors';
+
 import buildCommand from './command-build';
 import initCommand from './command-init';
 import startCommand from './command-start';
@@ -7,8 +9,6 @@ import * as constants from './utils/constants';
 import * as fs from './utils/fs';
 import parseMarkdownHeaderTree, { parseMarkdownTitle } from './utils/markdown-header-parser';
 import compileMarkdownToReact from './utils/mdx';
-
-import { RED, BLUE } from 'lib-colorful-terminal/colors';
 
 const utils = { ...fs, parseMarkdownHeaderTree, parseMarkdownTitle, compileMarkdownToReact };
 export { constants, utils };

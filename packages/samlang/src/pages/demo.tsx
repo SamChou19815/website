@@ -6,12 +6,11 @@
  */
 
 import runSamlangDemo from '@dev-sam/samlang-demo';
-import React, { useState } from 'react';
-
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import PrismCodeEditor from 'lib-react-prism/PrismCodeEditor';
 import theme from 'lib-react-prism/prism-theme.json';
+import React, { useState } from 'react';
 
 type Response = ReturnType<typeof runSamlangDemo>;
 

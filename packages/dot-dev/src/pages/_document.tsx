@@ -1,7 +1,6 @@
-import React, { ReactNode } from 'react';
-
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import initializeThemeSwitching from 'lib-theme-switcher';
+import React, { ReactNode } from 'react';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.scss';

@@ -5,9 +5,8 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 
 import clsx from 'clsx';
-import React, { useState } from 'react';
-
 import Link from 'esbuild-scripts/components/Link';
+import React, { useState } from 'react';
 
 export type SidebarItemLink = {
   readonly type: 'link';

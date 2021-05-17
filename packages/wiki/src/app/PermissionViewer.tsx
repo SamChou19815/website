@@ -1,9 +1,8 @@
+import LoadingOverlay from 'lib-react-loading';
 import React from 'react';
 
 import MarkdownBlock from './MarkdownBlock';
 import { useWikiPrivateDocumentsMetadata } from './documents';
-
-import LoadingOverlay from 'lib-react-loading';
 
 const PermissionViewer = (): JSX.Element => {
   const documentMetadataList = useWikiPrivateDocumentsMetadata();

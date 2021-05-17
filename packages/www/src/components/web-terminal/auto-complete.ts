@@ -1,10 +1,11 @@
+import { checkNotNull } from 'lib-common';
+
 import { changeDirectory, listFiles } from '../in-memory-fs';
 import { normalize, getParent, getLast, join } from '../in-memory-fs/path';
-import type { FileSystemState } from '../in-memory-fs/types';
 import { getFilesystemState } from './global-filesystem-state';
-import type { Commands } from './types';
 
-import { checkNotNull } from 'lib-common';
+import type { FileSystemState } from '../in-memory-fs/types';
+import type { Commands } from './types';
 
 /**
  * @param sources a list of strings that can be used to expand the prefix.
