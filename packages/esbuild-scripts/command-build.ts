@@ -7,21 +7,24 @@ import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
 import {
-  TEMP_SERVER_ENTRY_PATH,
   SSR_CSS_PATH,
   SSR_LICENSE_PATH,
   SSR_JS_PATH,
-  TEMP_PATH,
   BUILD_PATH,
+  VIRTUAL_SERVER_ENTRY_PATH,
 } from './utils/constants';
-import { createEntryPointsGeneratedFiles } from './utils/entry-points';
+import { createEntryPointsGeneratedVirtualFiles } from './utils/entry-points';
 import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './utils/fs';
 import getGeneratedHTML, { SSRResult } from './utils/html-generator';
 
-const generateBundle = async (entryPoints: readonly string[]): Promise<readonly string[]> => {
+import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
+
+const generateBundle = async (
+  entryPointVirtualFiles: VirtualPathMappings
+): Promise<readonly string[]> => {
   const { outputFiles } = await build({
-    ...baseESBuildConfig({ isProd: true }),
-    entryPoints: entryPoints.map((it) => join(TEMP_PATH, `${it}.jsx`)),
+    ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles, isProd: true }),
+    entryPoints: Object.keys(entryPointVirtualFiles),
     assetNames: 'assets/[name]-[hash]',
     chunkNames: 'chunks/[name]-[hash]',
     entryNames: '[dir]/[name]-[hash]',
@@ -43,10 +46,16 @@ const generateBundle = async (entryPoints: readonly string[]): Promise<readonly 
 
 type SSRFunction = (path: string) => SSRResult;
 
-const getSSRFunction = async (): Promise<SSRFunction | null> => {
+const getSSRFunction = async (
+  entryPointVirtualFiles: VirtualPathMappings
+): Promise<SSRFunction | null> => {
   await build({
-    ...baseESBuildConfig({ isServer: true, isProd: true }),
-    entryPoints: [TEMP_SERVER_ENTRY_PATH],
+    ...baseESBuildConfig({
+      virtualPathMappings: entryPointVirtualFiles,
+      isServer: true,
+      isProd: true,
+    }),
+    entryPoints: [VIRTUAL_SERVER_ENTRY_PATH],
     platform: 'node',
     format: 'cjs',
     outfile: SSR_JS_PATH,
@@ -70,19 +79,23 @@ const getSSRFunction = async (): Promise<SSRFunction | null> => {
 const buildCommand = async (staticSiteGeneration: boolean): Promise<boolean> => {
   const startTime = new Date().getTime();
   console.error(YELLOW('[i] Bundling...'));
-  const entryPoints = await createEntryPointsGeneratedFiles();
+  const { entryPointsWithoutExtension, entryPointVirtualFiles } =
+    await createEntryPointsGeneratedVirtualFiles();
   await copyDirectoryContent('public', 'build');
 
   let outputFiles: readonly string[];
   let ssrFunction: SSRFunction | null;
   if (staticSiteGeneration) {
-    [outputFiles, ssrFunction] = await Promise.all([generateBundle(entryPoints), getSSRFunction()]);
+    [outputFiles, ssrFunction] = await Promise.all([
+      generateBundle(entryPointVirtualFiles),
+      getSSRFunction(entryPointVirtualFiles),
+    ]);
     if (ssrFunction == null) return false;
   } else {
-    outputFiles = await generateBundle(entryPoints);
+    outputFiles = await generateBundle(entryPointVirtualFiles);
     ssrFunction = null;
   }
-  const generatedHTMLs = entryPoints.map((entryPoint) => {
+  const generatedHTMLs = entryPointsWithoutExtension.map((entryPoint) => {
     const relevantOutputFiles = outputFiles.filter(
       (it) => it.startsWith('chunk') || it.startsWith(entryPoint)
     );

@@ -1,11 +1,14 @@
 import esbuildPlugins from './esbuild-plugins';
 
+import type { VirtualPathMappings } from './esbuild-virtual-path-plugin';
 import type { BuildOptions } from 'esbuild';
 
 const baseESBuildConfig = ({
+  virtualPathMappings,
   isServer = false,
   isProd = false,
 }: {
+  readonly virtualPathMappings: VirtualPathMappings;
   readonly isServer?: boolean;
   readonly isProd?: boolean;
   readonly noThemeSwitch?: boolean;
@@ -21,7 +24,7 @@ const baseESBuildConfig = ({
   platform: 'browser',
   target: 'es2019',
   logLevel: 'error',
-  plugins: esbuildPlugins,
+  plugins: esbuildPlugins(virtualPathMappings),
 });
 
 export default baseESBuildConfig;
