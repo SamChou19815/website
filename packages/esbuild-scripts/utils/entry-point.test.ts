@@ -3,12 +3,12 @@ import { getClientTemplate, getServerTemplate } from './entry-points';
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
 it('getClientTemplate works', () => {
-  expect(getClientTemplate('index', ['foo/bar', 'bar/baz', 'index', 'baz/index']))
+  expect(getClientTemplate('absolute-root', 'index', ['foo/bar', 'bar/baz', 'index', 'baz/index']))
     .toBe(`${GENERATED_COMMENT}
 import React,{Suspense,lazy} from 'react';
 import {hydrate,render} from 'react-dom';
 import {BrowserRouter,Route,Switch} from 'esbuild-scripts/__internal-components__/react-router';
-import Document from 'esbuild-scripts-internal/page/_document';
+import Document from 'absolute-root/src/pages/_document';
 import Page from 'esbuild-scripts-internal/page/index';
 const Component0 = lazy(() => import('esbuild-scripts-internal/page/foo/bar'));
 const Component1 = lazy(() => import('esbuild-scripts-internal/page/bar/baz'));
@@ -19,12 +19,18 @@ if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(elem
 });
 
 it('getClientTemplate works', () => {
-  expect(getClientTemplate('docs/foo/bar', ['foo/bar', 'bar/baz', 'docs/foo/bar', 'baz/index']))
-    .toBe(`${GENERATED_COMMENT}
+  expect(
+    getClientTemplate('absolute-root', 'docs/foo/bar', [
+      'foo/bar',
+      'bar/baz',
+      'docs/foo/bar',
+      'baz/index',
+    ])
+  ).toBe(`${GENERATED_COMMENT}
 import React,{Suspense,lazy} from 'react';
 import {hydrate,render} from 'react-dom';
 import {BrowserRouter,Route,Switch} from 'esbuild-scripts/__internal-components__/react-router';
-import Document from 'esbuild-scripts-internal/page/_document';
+import Document from 'absolute-root/src/pages/_document';
 import Page from 'esbuild-scripts-internal/page/docs/foo/bar';
 const Component0 = lazy(() => import('esbuild-scripts-internal/page/foo/bar'));
 const Component1 = lazy(() => import('esbuild-scripts-internal/page/bar/baz'));
@@ -35,12 +41,12 @@ if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(elem
 });
 
 it('getServerTemplate works', () => {
-  expect(getServerTemplate(['foo/bar', 'bar/baz'])).toBe(`${GENERATED_COMMENT}
+  expect(getServerTemplate('absolute-root', ['foo/bar', 'bar/baz'])).toBe(`${GENERATED_COMMENT}
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import Helmet from 'esbuild-scripts/components/Head';
 import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router';
-import Document from 'esbuild-scripts-internal/page/_document';
+import Document from 'absolute-root/src/pages/_document';
 import Page0 from 'esbuild-scripts-internal/page/foo/bar';
 import Page1 from 'esbuild-scripts-internal/page/bar/baz';
 const map = { 'foo/bar': Page0, 'bar/baz': Page1 };

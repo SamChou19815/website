@@ -1,4 +1,4 @@
-import { extname } from 'path';
+import { extname, resolve } from 'path';
 
 import {
   PAGES_PATH,
@@ -17,7 +17,11 @@ const rewriteEntryPointPathForRouting = (path: string): string => {
   return path.substring(0, path.length - (path.endsWith('/index') ? 6 : 5));
 };
 
-export const getClientTemplate = (path: string, paths: readonly string[]): string => {
+export const getClientTemplate = (
+  absoluteProjectPath: string,
+  path: string,
+  paths: readonly string[]
+): string => {
   const normalizedSelfPath = rewriteEntryPointPathForRouting(path);
   const otherPaths = paths.filter((it) => it !== path);
   const normalizedPaths = otherPaths.map(rewriteEntryPointPathForRouting);
@@ -40,7 +44,7 @@ export const getClientTemplate = (path: string, paths: readonly string[]): strin
 import React,{Suspense,lazy} from 'react';
 import {hydrate,render} from 'react-dom';
 import {BrowserRouter,Route,Switch} from 'esbuild-scripts/__internal-components__/react-router';
-import Document from 'esbuild-scripts-internal/page/_document';
+import Document from '${absoluteProjectPath}/src/pages/_document';
 import Page from 'esbuild-scripts-internal/page/${path}';
 ${lazyImports}
 const element = <BrowserRouter><Document>${routes}</Document></BrowserRouter>;const rootElement = document.getElementById('root');
@@ -48,12 +52,15 @@ if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(elem
 `;
 };
 
-export const getServerTemplate = (paths: readonly string[]): string => `${GENERATED_COMMENT}
+export const getServerTemplate = (
+  absoluteProjectPath: string,
+  paths: readonly string[]
+): string => `${GENERATED_COMMENT}
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import Helmet from 'esbuild-scripts/components/Head';
 import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router';
-import Document from 'esbuild-scripts-internal/page/_document';
+import Document from '${absoluteProjectPath}/src/pages/_document';
 ${paths
   .map((path, i) => `import Page${i} from 'esbuild-scripts-internal/page/${path}';`)
   .join('\n')}
@@ -101,14 +108,16 @@ export const createEntryPointsGeneratedVirtualFiles = async (): Promise<{
   readonly entryPointsWithoutExtension: readonly string[];
   readonly entryPointVirtualFiles: VirtualPathMappings;
 }> => {
+  const absoluteProjectPath = resolve('.');
   const entryPointsWithoutExtension = await getEntryPointsWithoutExtension();
   const entryPointVirtualFiles = Object.fromEntries(
     entryPointsWithoutExtension.map((path) => [
       `${VIRTUAL_PATH_PREFIX}${path}.jsx`,
-      getClientTemplate(path, entryPointsWithoutExtension),
+      getClientTemplate(absoluteProjectPath, path, entryPointsWithoutExtension),
     ])
   );
   entryPointVirtualFiles[VIRTUAL_SERVER_ENTRY_PATH] = getServerTemplate(
+    absoluteProjectPath,
     entryPointsWithoutExtension
   );
   return { entryPointsWithoutExtension, entryPointVirtualFiles };
