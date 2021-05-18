@@ -1,6 +1,6 @@
-import { dirname, extname, join } from 'path';
+import { extname, join, resolve } from 'path';
 
-import { constants, utils } from 'esbuild-scripts/api';
+import { utils } from 'esbuild-scripts/api';
 
 import type { SidebarItem } from '../components/DocSidebar';
 
@@ -13,9 +13,8 @@ export type DocsSiteConfiguration = {
 
 const pathWithoutExtension = (path: string) => path.substring(0, path.lastIndexOf('.'));
 
-const GENERATED_DOCS_PAGE_PATH = join(constants.GENERATED_PAGES_PATH, 'docs');
-
 const getMarkdownDocsPageTemplate = (
+  absoluteProjectRoot: string,
   siteTitle: string,
   sidebar: readonly SidebarItem[],
   markdownPath: string
@@ -23,7 +22,7 @@ const getMarkdownDocsPageTemplate = (
   return `// ${'@'}generated
 import React from 'react';
 import DocPage from 'lib-react-docs/components/DocPage';
-import Content from 'esbuild-scripts-internal/docs/${markdownPath}';
+import Content from '${absoluteProjectRoot}/docs/${markdownPath}';
 
 const DocumentPage = () => (
   <DocPage
@@ -38,13 +37,11 @@ export default DocumentPage;
 `;
 };
 
-const generateDocumentation = async ({
+const generateDocumentationVirtualEntryComponents = async ({
   siteTitle,
   sideBarItems,
-}: DocsSiteConfiguration): Promise<void> => {
+}: DocsSiteConfiguration): Promise<Readonly<Record<string, string>>> => {
   const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => extname(it) === '.md');
-  await utils.ensureDirectory(GENERATED_DOCS_PAGE_PATH);
-  await utils.emptyDirectory(GENERATED_DOCS_PAGE_PATH);
 
   const docsWithTitles = await Promise.all(
     docsPaths.map(async (documentPath) => ({
@@ -73,19 +70,15 @@ const generateDocumentation = async ({
   };
   const sideBar = expandSideBar(sideBarItems);
 
-  await Promise.all(
-    docsWithTitles.map(async ({ documentPath }) => {
-      const generatedPagePath = join(
-        GENERATED_DOCS_PAGE_PATH,
-        `${pathWithoutExtension(documentPath)}.jsx`
-      );
-      await utils.ensureDirectory(dirname(generatedPagePath));
-      await utils.writeFile(
-        generatedPagePath,
-        getMarkdownDocsPageTemplate(siteTitle, sideBar, documentPath)
-      );
+  const absoluteProjectRoot = resolve('.');
+  return Object.fromEntries(
+    docsWithTitles.map(({ documentPath }) => {
+      return [
+        `docs/${pathWithoutExtension(documentPath)}`,
+        getMarkdownDocsPageTemplate(absoluteProjectRoot, siteTitle, sideBar, documentPath),
+      ];
     })
   );
 };
 
-export default generateDocumentation;
+export default generateDocumentationVirtualEntryComponents;

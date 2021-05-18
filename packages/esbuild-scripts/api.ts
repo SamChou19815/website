@@ -10,6 +10,8 @@ import * as fs from './utils/fs';
 import parseMarkdownHeaderTree, { parseMarkdownTitle } from './utils/markdown-header-parser';
 import compileMarkdownToReact from './utils/mdx';
 
+import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
+
 const utils = { ...fs, parseMarkdownHeaderTree, parseMarkdownTitle, compileMarkdownToReact };
 export { constants, utils };
 
@@ -22,19 +24,19 @@ function help() {
   console.error('- esbuild-script help: display command line usages.');
 }
 
-async function runner() {
+async function runner(virtualEntryComponents: VirtualPathMappings) {
   const command = process.argv[2] || '';
   switch (command) {
     case 'init':
       await initCommand();
       return true;
     case 'start':
-      await startCommand();
+      await startCommand(virtualEntryComponents);
       return true;
     case 'ssg':
-      return buildCommand(true);
+      return buildCommand(virtualEntryComponents, true);
     case 'build':
-      return buildCommand(false);
+      return buildCommand(virtualEntryComponents, false);
     case 'help':
     case '--help':
       help();
@@ -46,10 +48,14 @@ async function runner() {
   }
 }
 
-export default async function main(preRunHook?: () => Promise<void>): Promise<void> {
-  if (preRunHook) await preRunHook();
+export default async function main(
+  generateVirtualEntryComponents?: () => Promise<VirtualPathMappings>
+): Promise<void> {
+  const virtualEntryComponents = generateVirtualEntryComponents
+    ? await generateVirtualEntryComponents()
+    : {};
   try {
-    if (!(await runner())) process.exitCode = 1;
+    if (!(await runner(virtualEntryComponents))) process.exitCode = 1;
   } catch (error) {
     console.error(RED(error));
     process.exitCode = 1;

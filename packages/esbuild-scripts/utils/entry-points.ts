@@ -2,8 +2,8 @@ import { extname, resolve } from 'path';
 
 import {
   PAGES_PATH,
-  GENERATED_PAGES_PATH,
   VIRTUAL_PATH_PREFIX,
+  VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX,
   VIRTUAL_SERVER_ENTRY_PATH,
 } from './constants';
 import { ensureDirectory, readDirectory } from './fs';
@@ -17,54 +17,88 @@ const rewriteEntryPointPathForRouting = (path: string): string => {
   return path.substring(0, path.length - (path.endsWith('/index') ? 6 : 5));
 };
 
+const getPathForImport = (absoluteProjectPath: string, path: string, isRealPath: boolean) =>
+  isRealPath ? `${absoluteProjectPath}/src/pages/${path}` : `${VIRTUAL_PATH_PREFIX}${path}`;
+
 export const getClientTemplate = (
   absoluteProjectPath: string,
   path: string,
-  paths: readonly string[]
+  isRealPath: boolean,
+  realPaths: readonly string[],
+  virtualPaths: readonly string[]
 ): string => {
-  const normalizedSelfPath = rewriteEntryPointPathForRouting(path);
-  const otherPaths = paths.filter((it) => it !== path);
-  const normalizedPaths = otherPaths.map(rewriteEntryPointPathForRouting);
+  const otherRealPaths = realPaths.filter((it) => it !== path);
+  const otherVirtualPaths = virtualPaths.filter((it) => it !== path);
 
-  const lazyImports = otherPaths
-    .map(
+  const importPath = (p: string, real: boolean) => getPathForImport(absoluteProjectPath, p, real);
+
+  const lazyImports = [
+    ...otherRealPaths.map(
       (otherPath, i) =>
-        `const Component${i} = lazy(() => import('esbuild-scripts-internal/page/${otherPath}'));`
-    )
-    .join('\n');
-  const lazyLoadedRoutes = normalizedPaths
-    .map(
+        `const RealComponent${i} = lazy(() => import('${importPath(otherPath, true)}'));`
+    ),
+    ...otherVirtualPaths.map(
       (otherPath, i) =>
-        `<Route exact path="/${otherPath}"><Suspense fallback={null}><Component${i} /></Suspense></Route>`
-    )
-    .join('');
-  const routes = `<Switch><Route exact path="/${normalizedSelfPath}"><Page /></Route>${lazyLoadedRoutes}</Switch>`;
+        `const VirtualComponent${i} = lazy(() => import('${importPath(otherPath, false)}'));`
+    ),
+  ].join('\n');
+  const currentPageImportPath = importPath(path, isRealPath);
+  const lazyLoadedRoutes = [
+    ...otherRealPaths.map((otherPath, i) => {
+      const routePath = rewriteEntryPointPathForRouting(otherPath);
+      return `        <Route exact path="/${routePath}"><Suspense fallback={null}><RealComponent${i} /></Suspense></Route>`;
+    }),
+    ...otherVirtualPaths.map((otherPath, i) => {
+      const routePath = rewriteEntryPointPathForRouting(otherPath);
+      return `        <Route exact path="/${routePath}"><Suspense fallback={null}><VirtualComponent${i} /></Suspense></Route>`;
+    }),
+  ].join('\n');
 
   return `${GENERATED_COMMENT}
 import React,{Suspense,lazy} from 'react';
 import {hydrate,render} from 'react-dom';
 import {BrowserRouter,Route,Switch} from 'esbuild-scripts/__internal-components__/react-router';
 import Document from '${absoluteProjectPath}/src/pages/_document';
-import Page from 'esbuild-scripts-internal/page/${path}';
+import Page from '${currentPageImportPath}';
 ${lazyImports}
-const element = <BrowserRouter><Document>${routes}</Document></BrowserRouter>;const rootElement = document.getElementById('root');
+const element = (
+  <BrowserRouter>
+    <Document>
+      <Switch>
+        <Route exact path="/${rewriteEntryPointPathForRouting(path)}"><Page /></Route>
+${lazyLoadedRoutes}
+      </Switch>
+    </Document>
+  </BrowserRouter>
+);
+const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(element, rootElement);
 `;
 };
 
 export const getServerTemplate = (
   absoluteProjectPath: string,
-  paths: readonly string[]
-): string => `${GENERATED_COMMENT}
+  realPaths: readonly string[],
+  virtualPaths: readonly string[]
+): string => {
+  const importPath = (p: string, real: boolean) => getPathForImport(absoluteProjectPath, p, real);
+
+  const pageImports = [
+    ...realPaths.map((path, i) => `import RealPage${i} from '${importPath(path, true)}';`),
+    ...virtualPaths.map((path, i) => `import VirtualPage${i} from '${importPath(path, false)}';`),
+  ].join('\n');
+  const mappingObjectInner = [
+    ...realPaths.map((path, i) => `'${path}': RealPage${i}`),
+    ...virtualPaths.map((path, i) => `'${path}': VirtualPage${i}`),
+  ].join(', ');
+  return `${GENERATED_COMMENT}
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import Helmet from 'esbuild-scripts/components/Head';
 import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router';
 import Document from '${absoluteProjectPath}/src/pages/_document';
-${paths
-  .map((path, i) => `import Page${i} from 'esbuild-scripts-internal/page/${path}';`)
-  .join('\n')}
-const map = { ${paths.map((path, i) => `'${path}': Page${i}`).join(', ')} };
+${pageImports}
+const map = { ${mappingObjectInner} };
 module.exports = (path) => ({
   divHTML: renderToString(
     <StaticRouter location={'/'+path}>
@@ -75,6 +109,7 @@ module.exports = (path) => ({
   helmet: Helmet.renderStatic(),
 });
 `;
+};
 
 /**
  * @returns a list of entry point paths under `src/pages`.
@@ -82,12 +117,7 @@ module.exports = (path) => ({
  */
 const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
   await ensureDirectory(PAGES_PATH);
-  const [pagesPath, generatedPagesPath] = await Promise.all([
-    readDirectory(PAGES_PATH, true),
-    readDirectory(GENERATED_PAGES_PATH, true),
-  ]);
-  const allPaths = [...pagesPath, ...generatedPagesPath];
-  return allPaths
+  return (await readDirectory(PAGES_PATH, true))
     .map((it) => {
       const extension = extname(it);
       switch (extension) {
@@ -104,21 +134,50 @@ const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
     .filter((it): it is string => it != null && !it.startsWith('_document'));
 };
 
-export const createEntryPointsGeneratedVirtualFiles = async (): Promise<{
+export const virtualEntryComponentsToVirtualPathMappings = (
+  virtualEntryComponents: VirtualPathMappings
+): VirtualPathMappings =>
+  Object.fromEntries(
+    Object.entries(virtualEntryComponents).map(([key, value]) => [
+      `${VIRTUAL_PATH_PREFIX}${key}`,
+      value,
+    ])
+  );
+
+export const createEntryPointsGeneratedVirtualFiles = async (
+  virtualEntryPointsWithoutExtension: readonly string[]
+): Promise<{
   readonly entryPointsWithoutExtension: readonly string[];
   readonly entryPointVirtualFiles: VirtualPathMappings;
 }> => {
   const absoluteProjectPath = resolve('.');
   const entryPointsWithoutExtension = await getEntryPointsWithoutExtension();
-  const entryPointVirtualFiles = Object.fromEntries(
-    entryPointsWithoutExtension.map((path) => [
-      `${VIRTUAL_PATH_PREFIX}${path}.jsx`,
-      getClientTemplate(absoluteProjectPath, path, entryPointsWithoutExtension),
-    ])
-  );
+  const entryPointVirtualFiles = Object.fromEntries([
+    ...entryPointsWithoutExtension.map((path) => [
+      `${VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX}${path}.jsx`,
+      getClientTemplate(
+        absoluteProjectPath,
+        path,
+        true,
+        entryPointsWithoutExtension,
+        virtualEntryPointsWithoutExtension
+      ),
+    ]),
+    ...virtualEntryPointsWithoutExtension.map((path) => [
+      `${VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX}${path}.jsx`,
+      getClientTemplate(
+        absoluteProjectPath,
+        path,
+        false,
+        entryPointsWithoutExtension,
+        virtualEntryPointsWithoutExtension
+      ),
+    ]),
+  ]);
   entryPointVirtualFiles[VIRTUAL_SERVER_ENTRY_PATH] = getServerTemplate(
     absoluteProjectPath,
-    entryPointsWithoutExtension
+    entryPointsWithoutExtension,
+    virtualEntryPointsWithoutExtension
   );
   return { entryPointsWithoutExtension, entryPointVirtualFiles };
 };

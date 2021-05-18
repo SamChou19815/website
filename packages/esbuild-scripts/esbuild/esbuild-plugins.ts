@@ -1,10 +1,9 @@
 import { createRequire } from 'module';
-import { dirname, join, relative, resolve } from 'path';
+import { dirname, resolve } from 'path';
 
 import { Result as SassResult, render } from 'sass';
 
-import { DOCS_PATH, PAGES_PATH, GENERATED_PAGES_PATH } from '../utils/constants';
-import { exists, readFile } from '../utils/fs';
+import { readFile } from '../utils/fs';
 import compileMarkdownToReact from '../utils/mdx';
 import pnpPlugin from './esbuild-pnp-plugin';
 import virtualPathResolvePlugin, { VirtualPathMappings } from './esbuild-virtual-path-plugin';
@@ -15,33 +14,6 @@ const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',
   setup(buildConfig) {
     buildConfig.onResolve({ filter: /^data:/ }, () => ({ external: true }));
-
-    buildConfig.onResolve({ filter: /^esbuild-scripts-internal\/docs\// }, (args) => ({
-      path: resolve(join(DOCS_PATH, relative(join('esbuild-scripts-internal', 'docs'), args.path))),
-    }));
-
-    buildConfig.onResolve({ filter: /^esbuild-scripts-internal\/page\// }, async (args) => {
-      const relativePath = relative(join('esbuild-scripts-internal', 'page'), args.path);
-      const candidates = [
-        join(PAGES_PATH, `${relativePath}.js`),
-        join(PAGES_PATH, `${relativePath}.jsx`),
-        join(PAGES_PATH, `${relativePath}.ts`),
-        join(PAGES_PATH, `${relativePath}.tsx`),
-        join(GENERATED_PAGES_PATH, `${relativePath}.js`),
-        join(GENERATED_PAGES_PATH, `${relativePath}.jsx`),
-        join(GENERATED_PAGES_PATH, `${relativePath}.ts`),
-        join(GENERATED_PAGES_PATH, `${relativePath}.tsx`),
-      ];
-      for (const candidate of candidates) {
-        // eslint-disable-next-line no-await-in-loop
-        if (await exists(candidate)) {
-          return { path: resolve(candidate) };
-        }
-      }
-      throw new Error(
-        `Cannot found page at ${relativePath}. Candidates considered:\n${candidates.join('\n')}`
-      );
-    });
   },
 };
 

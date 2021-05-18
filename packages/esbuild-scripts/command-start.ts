@@ -4,8 +4,13 @@ import { serve } from 'esbuild';
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
-import { createEntryPointsGeneratedVirtualFiles } from './utils/entry-points';
+import {
+  virtualEntryComponentsToVirtualPathMappings,
+  createEntryPointsGeneratedVirtualFiles,
+} from './utils/entry-points';
 import getGeneratedHTML from './utils/html-generator';
+
+import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
 
 const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
   if (url == null || !url.startsWith('/')) return undefined;
@@ -21,14 +26,22 @@ const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
 const getHTML = (entryPoint: string) =>
   getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], false);
 
-const startCommand = async (): Promise<void> => {
+const startCommand = async (virtualEntryComponents: VirtualPathMappings): Promise<void> => {
   const { entryPointsWithoutExtension, entryPointVirtualFiles } =
-    await createEntryPointsGeneratedVirtualFiles();
+    await createEntryPointsGeneratedVirtualFiles(Object.keys(virtualEntryComponents));
 
+  const allVirtualPathMappings = {
+    ...entryPointVirtualFiles,
+    ...virtualEntryComponentsToVirtualPathMappings(virtualEntryComponents),
+  };
+  const allEntryPointsWithoutExtension = [
+    ...entryPointsWithoutExtension,
+    ...Object.keys(virtualEntryComponents),
+  ];
   const esbuildServer = await serve(
     { servedir: 'public', port: 19815 },
     {
-      ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles }),
+      ...baseESBuildConfig({ virtualPathMappings: allVirtualPathMappings }),
       entryPoints: Object.keys(entryPointVirtualFiles),
       sourcemap: 'inline',
       outdir: 'public',
@@ -37,7 +50,7 @@ const startCommand = async (): Promise<void> => {
 
   // Then start a proxy server on port 3000
   const proxyServer = createServer((req, res) => {
-    const relatedEntryPoint = getEntryPoint(entryPointsWithoutExtension, req.url);
+    const relatedEntryPoint = getEntryPoint(allEntryPointsWithoutExtension, req.url);
     if (relatedEntryPoint != null) {
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(getHTML(relatedEntryPoint));
