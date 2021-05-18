@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "infima": "0.2.0-alpha.23",
-    "lib-common": "workspace:0.0.1",
     "lib-react-ga": "workspace:0.1.0",
     "lib-react-prism": "workspace:0.1.0",
     "lib-theme-switcher": "workspace:0.1.0",

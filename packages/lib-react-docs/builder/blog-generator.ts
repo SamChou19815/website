@@ -1,7 +1,6 @@
 import { extname, join, resolve } from 'path';
 
 import { utils } from 'esbuild-scripts/api';
-import { checkNotNull } from 'lib-common';
 
 import type { Metadata } from '../components/blog-types';
 
@@ -16,9 +15,12 @@ const processBlogPostsPerFile = async () =>
       .map(async (original) => {
         const withOutExtension = original.substring(0, original.lastIndexOf('.'));
         const segments = withOutExtension.split('-');
-        const year = checkNotNull(segments[0]);
-        const month = checkNotNull(segments[1]);
-        const date = checkNotNull(segments[2]);
+        const year = segments[0];
+        const month = segments[1];
+        const date = segments[2];
+        if (year == null || month == null || date == null) {
+          throw new Error(`Invalid date format in filename: ${original}`);
+        }
         const titleSlug = segments.slice(3).join('-');
         const formattedDate = `${year}-${month}-${date}`;
         const dateString = new Date(formattedDate).toISOString();

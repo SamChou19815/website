@@ -4,7 +4,6 @@ name: CD blog
 on:
   push:
     paths:
-      - 'packages/lib-common/**'
       - 'packages/lib-react-prism/**'
       - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'

@@ -1,5 +1,3 @@
-import { checkNotNull } from 'lib-common';
-
 import initialState from './initial-state';
 import { normalize, join, currentDirectoryPath } from './path';
 
@@ -9,8 +7,11 @@ import type { Directory, FileSystemState } from './types';
  * @param state the current filesystem state of the terminal.
  * @returns current directory object.
  */
-export const peek = (state: FileSystemState): readonly [string, Directory] =>
-  checkNotNull(state[state.length - 1]);
+export const peek = (state: FileSystemState): readonly [string, Directory] => {
+  const peeked = state[state.length - 1];
+  if (peeked == null) throw new Error();
+  return peeked;
+};
 
 /**
  * Change the directory stack for one level.

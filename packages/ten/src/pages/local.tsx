@@ -1,4 +1,3 @@
-import { checkNotNull } from 'lib-common';
 import React, { useState } from 'react';
 
 import GameCard from '../components/GameCard';
@@ -6,8 +5,10 @@ import { Move, Board, emptyBoard, makeMove } from '../game/board';
 
 import type { GameStates } from '../game/game-state';
 
+const initialState: GameStates = { currentState: { board: emptyBoard } };
+
 export default function LocalGameCard(): JSX.Element {
-  const [gameStates, setGameStates] = useState<GameStates>({ currentState: { board: emptyBoard } });
+  const [gameStates, setGameStates] = useState<GameStates>(initialState);
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 
   const clickCellCallback = (board: Board, move: Move): void => {
@@ -29,7 +30,7 @@ export default function LocalGameCard(): JSX.Element {
       showUndoButton={gameStates.previousState != null}
       clickCallback={(a, b) => clickCellCallback(gameStates.currentState.board, [a, b])}
       onUndoMove={() => {
-        setGameStates((currentState) => checkNotNull(currentState.previousState));
+        setGameStates(({ previousState }) => previousState ?? initialState);
       }}
     />
   );

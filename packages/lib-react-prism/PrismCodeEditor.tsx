@@ -8,7 +8,6 @@
 // Credit: Adapted from https://github.com/satya164/react-simple-code-editor/blob/master/src/index.js
 
 import autosize from 'autosize';
-import { checkNotNull } from 'lib-common';
 import React, { KeyboardEvent, useState, useRef, useEffect } from 'react';
 
 import CodeBlock from './PrismCodeBlock';
@@ -93,7 +92,8 @@ const PrismCodeEditor = ({
           .join('\n');
 
         if (value !== nextValue) {
-          const startLineText = checkNotNull(linesBeforeCaret[startLine]);
+          const startLineText = linesBeforeCaret[startLine];
+          if (startLineText == null) throw new Error();
 
           updateInput({
             value: nextValue,
@@ -111,7 +111,8 @@ const PrismCodeEditor = ({
         const linesBeforeCaret = getLines(value, selectionStart);
         const startLine = linesBeforeCaret.length - 1;
         const endLine = getLines(value, selectionEnd).length - 1;
-        const startLineText = checkNotNull(linesBeforeCaret[startLine]);
+        const startLineText = linesBeforeCaret[startLine];
+        if (startLineText == null) throw new Error();
 
         updateInput({
           value: value

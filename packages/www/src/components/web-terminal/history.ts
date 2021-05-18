@@ -1,5 +1,3 @@
-import { checkNotNull } from 'lib-common';
-
 type Result = {
   readonly value: string;
   readonly historyPosition: number | null;
@@ -14,24 +12,30 @@ const scrollHistory = (
     return null;
   }
 
+  const historyAt = (index: number) => {
+    const s = history[index];
+    if (s == null) throw new Error();
+    return s;
+  };
+
   // Only run if history is non-empty and in use
   switch (direction) {
     case 'up':
       if (historyPosition == null) {
         // If at no position, get most recent entry
-        return { value: checkNotNull(history[0]), historyPosition: 0 };
+        return { value: historyAt(0), historyPosition: 0 };
       }
       if (historyPosition + 1 === history.length) {
         // If the first entry will be reached on this press,
         // get it and decrement position by 1 to avoid confusing downscroll.
         return {
-          value: checkNotNull(history[history.length - 1]),
+          value: historyAt(history.length - 1),
           historyPosition: history.length - 1,
         };
       }
       // Normal increment by one
       return {
-        value: checkNotNull(history[historyPosition + 1]),
+        value: historyAt(historyPosition + 1),
         historyPosition: historyPosition + 1,
       };
     case 'down':
@@ -41,7 +45,7 @@ const scrollHistory = (
       }
       // Normal decrement by one
       return {
-        value: checkNotNull(history[historyPosition - 1]),
+        value: historyAt(historyPosition - 1),
         historyPosition: historyPosition - 1,
       };
   }

@@ -1,5 +1,3 @@
-import { checkNotNull } from 'lib-common';
-
 import { changeDirectory, peek } from './stack';
 
 import type { Directory, FileSystemState } from './types';
@@ -19,7 +17,9 @@ const listFiles = (state: FileSystemState, pathList: readonly string[]): readonl
     return listFilesInDirectory(peek(state)[1]);
   }
   if (pathList.length === 1) {
-    return listFilesInDirectoryWithRelativePath(state, checkNotNull(pathList[0]));
+    const onlySegment = pathList[0];
+    if (onlySegment == null) throw new Error();
+    return listFilesInDirectoryWithRelativePath(state, onlySegment);
   }
   return pathList
     .map((path) => [`${path}:`, ...listFilesInDirectoryWithRelativePath(state, path)])
