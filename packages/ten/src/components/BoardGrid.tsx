@@ -1,4 +1,3 @@
-import { checkNotNull } from 'lib-common';
 import React from 'react';
 
 import BoardCell from './BoardCell';
@@ -16,7 +15,8 @@ export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): JS
       const a = Math.floor(i / 3) * 3 + Math.floor(j / 3);
       const b = (i % 3) * 3 + (j % 3);
       const index = a * 9 + b;
-      const tileStatus = checkNotNull(tiles[index]);
+      const tileStatus = tiles[index];
+      if (tileStatus == null) throw new Error();
       let doesNeedHighlight = false;
       if (lastMove != null) {
         const [c, d] = lastMove;

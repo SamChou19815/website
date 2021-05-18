@@ -4,7 +4,6 @@ name: CD ten
 on:
   push:
     paths:
-      - 'packages/lib-common/**'
       - 'packages/lib-react-loading/**'
       - 'packages/lib-firebase/**'
       - 'packages/lib-colorful-terminal/**'

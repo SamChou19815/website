@@ -2,37 +2,37 @@
 /* eslint-disable */
 // prettier-ignore
 (() => {
-var h=Object.create,S=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var B=Object.getOwnPropertyNames;var I=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var N=t=>S(t,"__esModule",{value:!0});var O=(t,e,o)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of B(e))!k.call(t,r)&&r!=="default"&&S(t,r,{get:()=>e[r],enumerable:!(o=x(e,r))||o.enumerable});return t},u=t=>O(N(S(t!=null?h(I(t)):{},"default",t&&t.__esModule&&"default"in t?{get:()=>t.default,enumerable:!0}:{value:t,enumerable:!0})),t);var $=u(require("esbuild-scripts/api"));var c=u(require("path")),f=u(require("esbuild-scripts/api"));function V(t){if(t==null)throw new Error(`Value is asserted to be not null, but it is ${t}.`)}var y=t=>(V(t),t);var P="blog",E=async()=>await Promise.all((await f.utils.readDirectory(P,!0)).filter(t=>(0,c.extname)(t)===".md").map(async t=>{let e=t.substring(0,t.lastIndexOf(".")),o=e.split("-"),r=y(o[0]),n=y(o[1]),s=y(o[2]),m=o.slice(3).join("-"),a=`${r}-${n}-${s}`,i=new Date(a).toISOString(),l=`/${r}/${n}/${s}/${m}`,g=await f.utils.readFile((0,c.join)(P,t));try{let p=f.utils.parseMarkdownTitle(g);return{original:t,withOutExtension:e,date:i,formattedDate:a,path:(0,c.join)(r,n,s,m),permalink:l,title:p}}catch(p){throw new Error(`Failed to parse ${t}, error: ${p.message}`)}})),T=async()=>{let t=await E();return t.map((e,o)=>{let{original:r,date:n,formattedDate:s,path:m,permalink:a}=e,i=t[o-1],l=t[o+1],g={date:n,formattedDate:s,permalink:a,nextItem:l!=null?{title:l.title,permalink:l.permalink}:void 0,prevItem:i!=null?{title:i.title,permalink:i.permalink}:void 0},p=JSON.stringify(g);return{original:r,path:m,metadataString:p}})},R=(t,e)=>e.map(o=>{let{original:r,metadataString:n}=o,s=(0,c.resolve)((0,c.join)(P,r));return[o.path,`import React from 'react';
+var C=Object.create,S=Object.defineProperty;var B=Object.getOwnPropertyDescriptor;var I=Object.getOwnPropertyNames;var h=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var O=t=>S(t,"__esModule",{value:!0});var k=(t,e,r)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of I(e))!x.call(t,o)&&o!=="default"&&S(t,o,{get:()=>e[o],enumerable:!(r=B(e,o))||r.enumerable});return t},u=t=>k(O(S(t!=null?C(h(t)):{},"default",t&&t.__esModule&&"default"in t?{get:()=>t.default,enumerable:!0}:{value:t,enumerable:!0})),t);var $=u(require("esbuild-scripts/api"));var c=u(require("path")),f=u(require("esbuild-scripts/api")),y="blog",E=async()=>await Promise.all((await f.utils.readDirectory(y,!0)).filter(t=>(0,c.extname)(t)===".md").map(async t=>{let e=t.substring(0,t.lastIndexOf(".")),r=e.split("-"),o=r[0],n=r[1],i=r[2];if(o==null||n==null||i==null)throw new Error(`Invalid date format in filename: ${t}`);let m=r.slice(3).join("-"),a=`${o}-${n}-${i}`,s=new Date(a).toISOString(),l=`/${o}/${n}/${i}/${m}`,d=await f.utils.readFile((0,c.join)(y,t));try{let p=f.utils.parseMarkdownTitle(d);return{original:t,withOutExtension:e,date:s,formattedDate:a,path:(0,c.join)(o,n,i,m),permalink:l,title:p}}catch(p){throw new Error(`Failed to parse ${t}, error: ${p.message}`)}})),T=async()=>{let t=await E();return t.map((e,r)=>{let{original:o,date:n,formattedDate:i,path:m,permalink:a}=e,s=t[r-1],l=t[r+1],d={date:n,formattedDate:i,permalink:a,nextItem:l!=null?{title:l.title,permalink:l.permalink}:void 0,prevItem:s!=null?{title:s.title,permalink:s.permalink}:void 0},p=JSON.stringify(d);return{original:o,path:m,metadataString:p}})},R=(t,e)=>e.map(r=>{let{original:o,metadataString:n}=r,i=(0,c.resolve)((0,c.join)(y,o));return[r.path,`import React from 'react';
 import BlogPostPage from 'lib-react-docs/components/BlogPostPage';
-import Content from '${s}';
+import Content from '${i}';
 const Page = () => <BlogPostPage siteTitle=${t} content={Content} metadata={${n}} />;
 export default Page;
-`]}),j=(t,e)=>{let o=e.map(({original:n},s)=>`import Component${s} from '../../blog/${n}?truncated=true';`).join(`
-`),r=e.map(({metadataString:n},s)=>`  { content: Component${s}, metadata: ${n} },
+`]}),j=(t,e)=>{let r=e.map(({original:n},i)=>`import Component${i} from '../../blog/${n}?truncated=true';`).join(`
+`),o=e.map(({metadataString:n},i)=>`  { content: Component${i}, metadata: ${n} },
 `).join("");return`// @generated
 import React from 'react';
 import BlogListPage from 'lib-react-docs/components/BlogListPage';
-${o}
+${r}
 
 const items = [
-${r}];
+${o}];
 
 const Page = () => <BlogListPage siteTitle=${t} items={items} />;
 export default Page;
-`},v=async t=>{await f.utils.ensureDirectory(P);let e=(await T()).sort((r,n)=>n.original.localeCompare(r.original)),o=JSON.stringify(t);return Object.fromEntries([...R(o,e),["index",j(o,e)]])},D=v;var d=u(require("path")),b=u(require("esbuild-scripts/api")),w=t=>t.substring(0,t.lastIndexOf(".")),F=(t,e,o,r)=>`// @generated
+`},v=async t=>{await f.utils.ensureDirectory(y);let e=(await T()).sort((o,n)=>n.original.localeCompare(o.original)),r=JSON.stringify(t);return Object.fromEntries([...R(r,e),["index",j(r,e)]])},b=v;var g=u(require("path")),P=u(require("esbuild-scripts/api")),D=t=>t.substring(0,t.lastIndexOf(".")),F=(t,e,r,o)=>`// @generated
 import React from 'react';
 import DocPage from 'lib-react-docs/components/DocPage';
-import Content from '${t}/docs/${r}';
+import Content from '${t}/docs/${o}';
 
 const DocumentPage = () => (
   <DocPage
     siteTitle={\`${e}\`}
-    sidebar={${JSON.stringify(o)}}
+    sidebar={${JSON.stringify(r)}}
     content={Content}
   >
     <Content />
   </DocPage>
 );
 export default DocumentPage;
-`,M=async({siteTitle:t,sideBarItems:e})=>{let o=(await b.utils.readDirectory("docs",!0)).filter(a=>(0,d.extname)(a)===".md"),r=await Promise.all(o.map(async a=>({documentPath:a,title:b.utils.parseMarkdownTitle(await b.utils.readFile((0,d.join)("docs",a)))}))),n=a=>Array.isArray(a)?a.map(i=>{let l=r.find(({documentPath:g})=>`/${w(g)}`===i);if(l==null)throw new Error(`No document with href ${i} found on disk.`);return{type:"link",href:`/docs${i}`,label:l.title}}):Object.entries(a).map(([i,l])=>({type:"category",label:i,items:n(l)})),s=n(e),m=(0,d.resolve)(".");return Object.fromEntries(r.map(({documentPath:a})=>[`docs/${w(a)}`,F(m,t,s,a)]))},C=M;(0,$.default)(async()=>{let t=JSON.parse(await $.utils.readFile("package.json")).reactDocs;switch(t.type){case"docs":return await C(t);case"blog":return await D(t.siteTitle);default:console.error(`Unknown type: "${t.type}"`),process.exit(1)}});
+`,N=async({siteTitle:t,sideBarItems:e})=>{let r=(await P.utils.readDirectory("docs",!0)).filter(a=>(0,g.extname)(a)===".md"),o=await Promise.all(r.map(async a=>({documentPath:a,title:P.utils.parseMarkdownTitle(await P.utils.readFile((0,g.join)("docs",a)))}))),n=a=>Array.isArray(a)?a.map(s=>{let l=o.find(({documentPath:d})=>`/${D(d)}`===s);if(l==null)throw new Error(`No document with href ${s} found on disk.`);return{type:"link",href:`/docs${s}`,label:l.title}}):Object.entries(a).map(([s,l])=>({type:"category",label:s,items:n(l)})),i=n(e),m=(0,g.resolve)(".");return Object.fromEntries(o.map(({documentPath:a})=>[`docs/${D(a)}`,F(m,t,i,a)]))},w=N;(0,$.default)(async()=>{let t=JSON.parse(await $.utils.readFile("package.json")).reactDocs;switch(t.type){case"docs":return await w(t);case"blog":return await b(t.siteTitle);default:console.error(`Unknown type: "${t.type}"`),process.exit(1)}});
 })();

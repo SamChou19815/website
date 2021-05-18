@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "lib-common": "workspace:0.0.1",
     "lib-react-prism": "workspace:0.1.0"
   },
   "peerDependencies": {

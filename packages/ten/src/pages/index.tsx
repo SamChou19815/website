@@ -1,4 +1,3 @@
-import { checkNotNull } from 'lib-common';
 import React, { useState } from 'react';
 
 import GameCard from '../components/GameCard';
@@ -41,10 +40,10 @@ const aiResponder = (board: Board): Promise<GameState> =>
       return { board: newBoardAfterAI, aiInfo: { winningPercentage, simulationCounter } };
     });
 
+const initialState: GameStates = { currentState: { board: emptyBoard } };
+
 export default function PlayAgainstAIGameCard(): JSX.Element {
-  const [gameStates, setGameStates] = useState<GameStates>({
-    currentState: { board: emptyBoard },
-  });
+  const [gameStates, setGameStates] = useState<GameStates>(initialState);
   const [playerIdentity, setPlayerIdentity] = useState<'Black' | 'White'>('Black');
   const [playerCanMove, setPlayerCanMove] = useState(true);
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
@@ -82,7 +81,7 @@ export default function PlayAgainstAIGameCard(): JSX.Element {
       showUndoButton={playerCanMove && gameStates.previousState != null}
       clickCallback={(a, b) => clickCellCallback(gameStates.currentState.board, [a, b])}
       onUndoMove={() => {
-        setGameStates((currentState) => checkNotNull(currentState.previousState));
+        setGameStates(({ previousState }) => previousState ?? initialState);
       }}
     >
       {computeCanShowGameStarterButtons(gameStates, playerCanMove) && (

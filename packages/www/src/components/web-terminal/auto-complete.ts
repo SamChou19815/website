@@ -1,5 +1,3 @@
-import { checkNotNull } from 'lib-common';
-
 import { changeDirectory, listFiles } from '../in-memory-fs';
 import { normalize, getParent, getLast, join } from '../in-memory-fs/path';
 import { getFilesystemState } from './global-filesystem-state';
@@ -24,15 +22,12 @@ export const autoCompleteCommand = (sources: readonly string[], prefix: string):
   for (let i = prefix.length; ; i += 1) {
     const characterSet = new Set<string>();
     for (let j = 0; j < matchedPrefix.length; j += 1) {
-      const source = checkNotNull(matchedPrefix[j]);
-      if (i >= source.length) {
-        return bestPrefix;
-      }
+      const source = matchedPrefix[j];
+      if (source == null) throw new Error();
+      if (i >= source.length) return bestPrefix;
       characterSet.add(source.charAt(i));
     }
-    if (characterSet.size < 1) {
-      throw new Error('Impossible!');
-    }
+    if (characterSet.size < 1) throw new Error('Impossible!');
     if (characterSet.size > 1) {
       // Choosing either one means loss of generality. We stop here.
       return bestPrefix;
@@ -76,12 +71,12 @@ const autoCompleteCommandLine = (commands: Commands, line: string): string => {
     return '';
   }
   if (parts.length === 1) {
-    return (
-      autoCompleteCommand(Object.keys(commands), checkNotNull(parts[parts.length - 1])) ??
-      checkNotNull(parts[0])
-    );
+    const onlyPart = parts[0];
+    if (onlyPart == null) throw new Error();
+    return autoCompleteCommand(Object.keys(commands), onlyPart) ?? onlyPart;
   }
-  const finalPart = checkNotNull(parts[parts.length - 1]);
+  const finalPart = parts[parts.length - 1];
+  if (finalPart == null) throw new Error();
   const expandedFilename = autoCompleteFilename(getFilesystemState(), finalPart);
   const expandedFinalPart = expandedFilename === null ? finalPart : expandedFilename;
   return [...parts.slice(0, parts.length - 1), expandedFinalPart].join(' ').trim();

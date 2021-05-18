@@ -1,5 +1,3 @@
-import { checkNotNull } from 'lib-common';
-
 type MarkdownHeader = { readonly level: number; readonly label: string };
 
 const markdownHeaderToString = ({ level, label }: MarkdownHeader): string =>
@@ -48,7 +46,8 @@ const treeifyMarkdownHeaders = (
   headers: readonly MarkdownHeader[],
   index: number
 ): { element: MarkdownTablesOfContentsElement; level: number; finishedIndex: number } => {
-  const current = checkNotNull(headers[index]);
+  const current = headers[index];
+  if (current == null) throw new Error();
   const children: MarkdownTablesOfContentsElement[] = [];
   let i = index + 1;
   while (i < headers.length) {
@@ -69,7 +68,10 @@ const parseMarkdownHeaderTree = (source: string): MarkdownTablesOfContentsElemen
   return treeifyMarkdownHeaders(headers, 0).element;
 };
 
-export const parseMarkdownTitle = (source: string): string =>
-  checkNotNull(extractAndValidateMarkdownHeaders(source)[0]).label;
+export const parseMarkdownTitle = (source: string): string => {
+  const header = extractAndValidateMarkdownHeaders(source)[0];
+  if (header == null) throw new Error();
+  return header.label;
+};
 
 export default parseMarkdownHeaderTree;

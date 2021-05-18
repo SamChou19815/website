@@ -1,6 +1,5 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
-import { checkNotNull } from 'lib-common';
 import React, { useRef, useState } from 'react';
 
 import StatelessTerminal from './StatelessTerminal';
@@ -20,7 +19,8 @@ const getNewHistory = (commands: Commands, inputLine: string): readonly Terminal
 
   if (rawCommandLineInput) {
     const input = rawCommandLineInput.split(' ');
-    const commandName = checkNotNull(input[0]);
+    const commandName = input[0];
+    if (commandName == null) throw new Error();
     const args = input.slice(1);
 
     const command = commands[commandName];

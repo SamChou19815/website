@@ -4,7 +4,6 @@
 
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
-import { checkNotNull } from 'lib-common';
 import React from 'react';
 
 import DocLayout from './DocLayout';
@@ -41,7 +40,8 @@ const DocPage = ({ siteTitle, sidebar, content: Content }: Props): JSX.Element =
   const items = flattenDocs(sidebar);
 
   const index = items.findIndex((it) => it.href === activePath);
-  const item = checkNotNull(items[index]);
+  const item = items[index];
+  if (item == null) throw new Error();
 
   const previous = items[index - 1];
   const next = items[index + 1];
