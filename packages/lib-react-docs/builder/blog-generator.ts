@@ -48,8 +48,8 @@ const processBlogPosts = async () => {
   const perFileData = await processBlogPostsPerFile();
   return perFileData.map((parsed, index) => {
     const { original, date, formattedDate, path, permalink } = parsed;
-    const fullPrevItem = perFileData[index - 1];
-    const fullNextItem = perFileData[index + 1];
+    const fullPrevItem = perFileData[index + 1];
+    const fullNextItem = perFileData[index - 1];
 
     const metadata: Metadata = {
       date,
