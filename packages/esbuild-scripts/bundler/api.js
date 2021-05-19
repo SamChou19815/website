@@ -63,6 +63,7 @@ const bundle = async (entryPoint, outFile, externals) =>
     target: 'es2019',
     format: 'cjs',
     outfile: outFile,
+    sourcemap: true,
     banner: {
       // Wrapping the cjs module with another iife,
       // so that // prettier-ignore can be applied to the entire file.
