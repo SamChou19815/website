@@ -3,6 +3,7 @@
 **/build/
 **/out/
 *.tsbuildinfo
+*.js.map
 .eslintcache
 
 # misc
