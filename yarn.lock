@@ -3255,7 +3255,7 @@ __metadata:
     "@types/node": ^15.3.0
     "@types/react": ^17.0.5
     clsx: ^1.1.1
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     infima: 0.2.0-alpha.23
     lib-react-docs: "workspace:0.1.0"
     lib-react-ga: "workspace:0.1.0"
@@ -4189,7 +4189,7 @@ __metadata:
     "@types/node": ^15.3.0
     "@types/react": ^17.0.5
     "@types/react-dom": ^17.0.5
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     infima: 0.2.0-alpha.23
     lib-theme-switcher: 0.1.0
     react: ^17.0.2
@@ -4384,7 +4384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-scripts@workspace:0.2.1, esbuild-scripts@workspace:packages/esbuild-scripts":
+"esbuild-scripts@workspace:0.3.0, esbuild-scripts@workspace:packages/esbuild-scripts":
   version: 0.0.0-use.local
   resolution: "esbuild-scripts@workspace:packages/esbuild-scripts"
   dependencies:
@@ -7226,7 +7226,7 @@ __metadata:
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.2
     clsx: ^1.1.1
     esbuild: ^0.11.23
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
     typescript: ^4.2.4
@@ -7244,7 +7244,7 @@ __metadata:
   dependencies:
     "@types/node": ^15.3.0
     "@types/react": ^17.0.5
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     react: ^17.0.2
     react-ga: ^3.3.0
     typescript: ^4.2.4
@@ -9508,7 +9508,7 @@ resolve@^2.0.0-next.3:
     "@dev-sam/samlang-demo": ^0.4.3
     "@types/react": ^17.0.5
     clsx: ^1.1.1
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     infima: 0.2.0-alpha.23
     lib-react-docs: 0.1.0
     lib-react-prism: 0.1.0
@@ -10388,7 +10388,7 @@ resolve@^2.0.0-next.3:
     "@types/react": ^17.0.5
     "@types/react-dom": ^17.0.5
     clsx: ^1.1.1
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     firebase: ^9.0.0-beta.1
     infima: 0.2.0-alpha.23
     lib-firebase: 0.1.0
@@ -11330,7 +11330,7 @@ typescript@^4.2.4:
     "@types/react-dom": ^17.0.5
     "@types/remarkable": 2.0.1
     clsx: ^1.1.1
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     firebase: ^9.0.0-beta.1
     infima: 0.2.0-alpha.23
     lib-firebase: "workspace:0.1.0"
@@ -11415,7 +11415,7 @@ typescript@^4.2.4:
     "@types/jest": ^26.0.23
     "@types/node": ^15.3.0
     "@types/react": ^17.0.5
-    esbuild-scripts: "workspace:0.2.1"
+    esbuild-scripts: "workspace:0.3.0"
     infima: 0.2.0-alpha.23
     lib-react-ga: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
