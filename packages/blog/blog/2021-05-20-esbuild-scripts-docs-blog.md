@@ -20,7 +20,7 @@ Each file in the docs folder `foo-bar.md` will be mapped to a permalink `/docs/f
 pre-rendered HTML content from markdown. In addition, there is a sidebar and docs paginator to move
 around between documents, and each document page should have a table of contents.
 
-![Docs Page Example](/img/2021-05-19-esbuild-scripts-docs-blog/docs-example.png)
+![Docs Page Example](/img/2021-05-20-esbuild-scripts-docs-blog/docs-example.png)
 
 Figure 1: Docs Page Example
 
@@ -30,11 +30,11 @@ permalink `/year/month/date/dev-sam-haha`. Similar to a docs site, we need pagin
 contents in every blog post. There should also be an index page that lists all the blog posts with
 truncated content.
 
-![Blog Homepage Example](/img/2021-05-19-esbuild-scripts-docs-blog/blog-index-example.png)
+![Blog Homepage Example](/img/2021-05-20-esbuild-scripts-docs-blog/blog-index-example.png)
 
 Figure 2: Blog Homepage Example
 
-![Blog Post Page Example](/img/2021-05-19-esbuild-scripts-docs-blog/blog-post-example.png)
+![Blog Post Page Example](/img/2021-05-20-esbuild-scripts-docs-blog/blog-post-example.png)
 
 Figure 3: Blog Page Example
 
@@ -106,13 +106,13 @@ implement resolvers and loaders for all kinds of non-JS and non-CSS files. Inste
 idea of virtual pages into a plugin, we can make the plugin exposes a slightly lower level concept:
 virtual JS modules. Then we can have a much clearer separation of responsibilities:
 
-![Separation of responsibilities](/img/2021-05-19-esbuild-scripts-docs-blog/responsibilities.png)
+![Separation of responsibilities](/img/2021-05-20-esbuild-scripts-docs-blog/responsibilities.png)
 
 Figure 4: Separation of responsibilities
 
 Using this architecture, the module graph of the generated docs site would look like:
 
-![Example Module Graph](/img/2021-05-19-esbuild-scripts-docs-blog/graph.png)
+![Example Module Graph](/img/2021-05-20-esbuild-scripts-docs-blog/graph.png)
 
 Figure 5: Example Module Graph
 
@@ -125,7 +125,7 @@ to avoid unnecessary IO.
 The point to migrate the build system to an esbuild-based one is for performance. Therefore, we
 should look at the performance metric after the migration.
 
-![10x performance improvements](/img/2021-05-19-esbuild-scripts-docs-blog/performance.png)
+![10x performance improvements](/img/2021-05-20-esbuild-scripts-docs-blog/performance.png)
 
 Figure 6: 10x performance improvements
 
