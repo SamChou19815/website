@@ -4,6 +4,7 @@ import React from 'react';
 
 import BlogPostItem from './BlogPostItem';
 import BlogPostPaginator from './BlogPostPaginator';
+import { useSiteURL } from './useSiteURL';
 
 import type { Metadata } from './blog-types';
 import TOC from 'lib-react-docs/components/TOC';
@@ -19,6 +20,7 @@ export default function BlogPostPage({
   content: BlogPostContents,
   metadata,
 }: Props): JSX.Element {
+  const siteURL = useSiteURL();
   const { nextItem, prevItem } = metadata;
   const title = BlogPostContents.toc.label;
   const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
@@ -28,7 +30,7 @@ export default function BlogPostPage({
       <HeadTitle title={`${title} | ${siteTitle}`} />
       {ogImage && (
         <Head>
-          <meta property="og:image" content={`https://blog.developersam.com${ogImage}`} />
+          <meta property="og:image" content={`${siteURL}${ogImage}`} />
         </Head>
       )}
       <div className="row">

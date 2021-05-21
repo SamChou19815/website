@@ -10,7 +10,7 @@ export default createDocumentComponent({
   description: "Developer Sam's Wiki",
   logo: 'https://developersam.com/logo.png',
   author: 'Developer Sam',
-  url: 'https://wiki.developersam.com/',
+  url: 'https://wiki.developersam.com',
   firstDocumentLink: '/docs/intro',
   otherLinks: [
     { name: 'internals@dev-sam', link: '/intern' },
