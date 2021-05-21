@@ -4,6 +4,7 @@ import Link from 'esbuild-scripts/components/Link';
 import React, { FC, ReactNode } from 'react';
 
 import useActivePath from './useActivePath';
+import { SiteURLProvider } from './useSiteURL';
 
 const NavLink = ({ name, to, active }: Readonly<{ name: string; to: string; active: boolean }>) => (
   <Link className={clsx('navbar__item', 'navbar__link', active && 'navbar__link--active')} to={to}>
@@ -35,13 +36,13 @@ const DocumentTemplate = ({
 }: Props & { readonly children: ReactNode }): JSX.Element => {
   const path = useActivePath();
   return (
-    <>
+    <SiteURLProvider value={url}>
       <CommonHeader
         title={title}
         description={description}
         shortcutIcon={logo}
         ogAuthor={author}
-        ogURL={url}
+        ogURL={url + path}
       />
       <nav className="navbar navbar--fixed-top">
         <div className="navbar__inner">
@@ -86,7 +87,7 @@ const DocumentTemplate = ({
           </div>
         </footer>
       )}
-    </>
+    </SiteURLProvider>
   );
 };
 

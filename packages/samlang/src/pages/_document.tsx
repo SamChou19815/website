@@ -8,7 +8,7 @@ export default createDocumentComponent({
   title: 'samlang',
   description: "Sam's Programming Language",
   logo: '/img/favicon.png',
-  url: 'https://samlang.io/',
+  url: 'https://samlang.io',
   firstDocumentLink: '/docs/introduction',
   otherLinks: [
     { name: 'Demo', link: '/demo' },
