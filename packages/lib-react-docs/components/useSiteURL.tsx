@@ -10,4 +10,8 @@ export const SiteURLProvider = ({
   readonly children: ReactNode;
 }): JSX.Element => <BaseURLContext.Provider value={value}>{children}</BaseURLContext.Provider>;
 
-export const useSiteURL = (): string => useContext(BaseURLContext);
+/** @returns final slash stripped site url */
+export const useSiteURL = (): string => {
+  const url = useContext(BaseURLContext);
+  return url.endsWith('/') ? url.substring(0, url.length - 1) : url;
+};
