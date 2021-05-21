@@ -9,6 +9,7 @@ type CompiledMarkdownComponent = {
   readonly isMDXComponent: true;
   readonly truncated: boolean;
   readonly toc: readonly MarkdownTablesOfContentsElement;
+  readonly additionalProperties?: Readonly<Record<string, string>>;
   (): JSX.Element;
 };
 

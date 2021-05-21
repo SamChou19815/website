@@ -21,7 +21,9 @@ const compileMarkdownToReact = async (text: string, truncated: boolean): Promise
 import mdx from 'esbuild-scripts/__internal-components__/mdx';
 ${await mdx(content, { remarkPlugins: [remarkSlugs] })}
 MDXContent.truncated = ${truncated};
-MDXContent.toc = ${JSON.stringify(parseMarkdownHeaderTree(text), undefined, 2)};`;
+MDXContent.toc = ${JSON.stringify(parseMarkdownHeaderTree(text), undefined, 2)};
+MDXContent.additionalProperties = typeof additionalProperties === 'undefined' ? undefined : additionalProperties;
+`;
 };
 
 export default compileMarkdownToReact;
