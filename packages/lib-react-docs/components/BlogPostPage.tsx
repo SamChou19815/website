@@ -1,3 +1,4 @@
+import Head from 'esbuild-scripts/components/Head';
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import React from 'react';
 
@@ -20,10 +21,16 @@ export default function BlogPostPage({
 }: Props): JSX.Element {
   const { nextItem, prevItem } = metadata;
   const title = BlogPostContents.toc.label;
+  const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
 
   return (
     <div className="container margin-vert--lg">
       <HeadTitle title={`${title} | ${siteTitle}`} />
+      {ogImage && (
+        <Head>
+          <meta property="og:image" content={ogImage} />
+        </Head>
+      )}
       <div className="row">
         <div className="col col--2" />
         <main className="col col--8">

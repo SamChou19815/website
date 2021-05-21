@@ -1,16 +1,22 @@
 import compileMarkdownToReact from './mdx';
 
 it('compileMarkdownToReact without truncate works', async (done) => {
-  expect(await compileMarkdownToReact('# h1\n<!--truncate-->\n## h2', false))
-    .toBe(`import React from 'react';
+  expect(
+    await compileMarkdownToReact(
+      "# h1\n<!--truncate-->\n## h2\n\nexport const additionalProperties = { foo: 'bar' }",
+      false
+    )
+  ).toBe(`import React from 'react';
 import mdx from 'esbuild-scripts/__internal-components__/mdx';
 /* @jsxRuntime classic */
 /* @jsx mdx */
 
-
+export const additionalProperties = {
+  foo: 'bar'
+};
 
 const layoutProps = {
-${'  '}
+  additionalProperties
 };
 const MDXLayout = "wrapper"
 export default function MDXContent({
@@ -24,6 +30,7 @@ export default function MDXContent({
     <h2 {...{
       "id": "h2"
     }}>{\`h2\`}</h2>
+
     </MDXLayout>;
 }
 
@@ -38,7 +45,9 @@ MDXContent.toc = {
       "children": []
     }
   ]
-};`);
+};
+MDXContent.additionalProperties = typeof additionalProperties === 'undefined' ? undefined : additionalProperties;
+`);
   done();
 });
 
@@ -75,6 +84,8 @@ MDXContent.toc = {
       "children": []
     }
   ]
-};`);
+};
+MDXContent.additionalProperties = typeof additionalProperties === 'undefined' ? undefined : additionalProperties;
+`);
   done();
 });

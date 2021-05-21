@@ -1,5 +1,8 @@
 # Building a Static Documentation/Blog Generator with esbuild-scripts
 
+export const additionalProperties = { ogImage: "/img/2021-05-20-esbuild-scripts-docs-blog/graph.png"
+};
+
 In the [last blog post](../../../2021/04/15/esbuild-scripts), I talked about how I rebuild my
 website infrastructure to speed up the build time by 20x. However, it is only able to support a
 subset of my React websites. I also have some websites that are powered by
