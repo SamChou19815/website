@@ -28,7 +28,7 @@ export default function BlogPostPage({
       <HeadTitle title={`${title} | ${siteTitle}`} />
       {ogImage && (
         <Head>
-          <meta property="og:image" content={ogImage} />
+          <meta property="og:image" content={`https://blog.developersam.com${ogImage}`} />
         </Head>
       )}
       <div className="row">
