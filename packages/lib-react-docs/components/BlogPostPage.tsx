@@ -4,9 +4,9 @@ import React from 'react';
 
 import BlogPostItem from './BlogPostItem';
 import BlogPostPaginator from './BlogPostPaginator';
+import type { Metadata } from './blog-types';
 import { useSiteURL } from './useSiteURL';
 
-import type { Metadata } from './blog-types';
 import TOC from 'lib-react-docs/components/TOC';
 
 type Props = {

@@ -10,7 +10,6 @@ import {
   makeMoveWithoutCheck,
   boardToJson,
 } from '../game/board';
-
 import type { GameState, GameStates } from '../game/game-state';
 import type { MctsResponse } from '../game/mcts';
 

@@ -5,12 +5,11 @@ import { RED, BLUE } from 'lib-colorful-terminal/colors';
 import buildCommand from './command-build';
 import initCommand from './command-init';
 import startCommand from './command-start';
+import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
 import * as constants from './utils/constants';
 import * as fs from './utils/fs';
 import parseMarkdownHeaderTree, { parseMarkdownTitle } from './utils/markdown-header-parser';
 import compileMarkdownToReact from './utils/mdx';
-
-import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
 
 const utils = { ...fs, parseMarkdownHeaderTree, parseMarkdownTitle, compileMarkdownToReact };
 export { constants, utils };

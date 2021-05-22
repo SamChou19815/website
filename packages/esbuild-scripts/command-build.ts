@@ -6,6 +6,7 @@ import { build } from 'esbuild';
 import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
+import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
 import {
   SSR_CSS_PATH,
   SSR_JS_PATH,
@@ -18,8 +19,6 @@ import {
 } from './utils/entry-points';
 import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './utils/fs';
 import getGeneratedHTML, { SSRResult } from './utils/html-generator';
-
-import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
 
 const generateBundle = async (
   entryPointVirtualFiles: VirtualPathMappings,

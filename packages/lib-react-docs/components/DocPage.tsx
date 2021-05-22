@@ -8,10 +8,10 @@ import React from 'react';
 
 import DocLayout from './DocLayout';
 import DocPaginator from './DocPaginator';
+import type { SidebarItem, SidebarItemLink } from './DocSidebar';
 import MDXComponents from './MDXComponents';
 import useActivePath from './useActivePath';
 
-import type { SidebarItem, SidebarItemLink } from './DocSidebar';
 import TOC from 'lib-react-docs/components/TOC';
 
 const flattenDocs = (items: readonly SidebarItem[]) => {

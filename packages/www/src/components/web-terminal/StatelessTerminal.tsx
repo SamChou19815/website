@@ -3,7 +3,6 @@
 import React, { RefObject } from 'react';
 
 import TerminalInput from './TerminalInput';
-
 import type { TerminalHistory } from './types';
 
 const TerminalHistoryLine = ({

@@ -1,5 +1,6 @@
 import { extname, resolve } from 'path';
 
+import type { VirtualPathMappings } from '../esbuild/esbuild-virtual-path-plugin';
 import {
   PAGES_PATH,
   VIRTUAL_PATH_PREFIX,
@@ -7,8 +8,6 @@ import {
   VIRTUAL_SERVER_ENTRY_PATH,
 } from './constants';
 import { ensureDirectory, readDirectory } from './fs';
-
-import type { VirtualPathMappings } from '../esbuild/esbuild-virtual-path-plugin';
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
