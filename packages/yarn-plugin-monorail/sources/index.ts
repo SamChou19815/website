@@ -1,11 +1,10 @@
 import { writeFileSync } from 'fs';
 
+import type { Plugin } from '@yarnpkg/core';
 import { Command } from 'clipanion';
 
 import runCodegen from './codegen';
 import incrementalCompile from './compile';
-
-import type { Plugin } from '@yarnpkg/core';
 
 class CompileCommand extends Command {
   // eslint-disable-next-line class-methods-use-this

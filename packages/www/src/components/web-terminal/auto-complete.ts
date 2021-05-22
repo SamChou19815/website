@@ -1,8 +1,7 @@
 import { changeDirectory, listFiles } from '../in-memory-fs';
 import { normalize, getParent, getLast, join } from '../in-memory-fs/path';
-import { getFilesystemState } from './global-filesystem-state';
-
 import type { FileSystemState } from '../in-memory-fs/types';
+import { getFilesystemState } from './global-filesystem-state';
 import type { Commands } from './types';
 
 /**

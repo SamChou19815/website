@@ -1,6 +1,5 @@
-import { Helmet, HelmetProps } from 'react-helmet';
-
 import type { ComponentType } from 'react';
+import { Helmet, HelmetProps } from 'react-helmet';
 
 const Head: ComponentType<HelmetProps> = Helmet;
 

@@ -3,9 +3,8 @@
 import * as fs from 'fs';
 import { join, normalize, sep } from 'path';
 
-import { resolve, legacy } from 'resolve.exports';
-
 import type PnpApiNamespace from 'pnpapi';
+import { resolve, legacy } from 'resolve.exports';
 
 type PnpApi = typeof PnpApiNamespace;
 

@@ -1,6 +1,5 @@
 import initialState from './initial-state';
 import { normalize, join, currentDirectoryPath } from './path';
-
 import type { Directory, FileSystemState } from './types';
 
 /**

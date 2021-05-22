@@ -1,7 +1,7 @@
-import esbuildPlugins from './esbuild-plugins';
-
-import type { VirtualPathMappings } from './esbuild-virtual-path-plugin';
 import type { BuildOptions } from 'esbuild';
+
+import esbuildPlugins from './esbuild-plugins';
+import type { VirtualPathMappings } from './esbuild-virtual-path-plugin';
 
 const baseESBuildConfig = ({
   virtualPathMappings,

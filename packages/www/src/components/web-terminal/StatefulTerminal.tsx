@@ -5,7 +5,6 @@ import React, { useRef, useState } from 'react';
 import StatelessTerminal from './StatelessTerminal';
 import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 import scrollHistory from './history';
-
 import type { Commands, TerminalHistory } from './types';
 
 const initialHistory: readonly TerminalHistory[] = [

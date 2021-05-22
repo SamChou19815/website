@@ -1,6 +1,5 @@
 import { currentDirectoryPath, changeDirectory, listFiles, showFiles } from '../in-memory-fs';
 import { getFilesystemState, setFilesystemState } from './global-filesystem-state';
-
 import type { Commands } from './types';
 
 const baseCommands: Commands = {

@@ -4,13 +4,12 @@ import { serve } from 'esbuild';
 import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
+import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
 import {
   virtualEntryComponentsToVirtualPathMappings,
   createEntryPointsGeneratedVirtualFiles,
 } from './utils/entry-points';
 import getGeneratedHTML from './utils/html-generator';
-
-import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
 
 const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
   if (url == null || !url.startsWith('/')) return undefined;

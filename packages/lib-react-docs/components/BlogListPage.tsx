@@ -2,7 +2,6 @@ import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import React from 'react';
 
 import BlogPostItem from './BlogPostItem';
-
 import type { Metadata } from './blog-types';
 
 type Props = {
