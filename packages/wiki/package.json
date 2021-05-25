@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^15.6.1",
-    "@types/react": "^17.0.6",
+    "@types/react": "^17.0.7",
     "@types/react-dom": "^17.0.5",
     "@types/remarkable": "2.0.1",
     "esbuild-scripts": "workspace:0.3.0",
