@@ -4277,7 +4277,7 @@ __metadata:
     "@types/react-router-dom": ^5.1.7
     "@types/sass": ^1.16.0
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.2
-    esbuild: ^0.12.2
+    esbuild: ^0.12.4
     lib-colorful-terminal: "workspace:0.1.0"
     react-helmet: ^6.1.0
     react-router-dom: ^5.2.0
@@ -4293,12 +4293,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"esbuild@npm:^0.12.2":
-  version: 0.12.2
-  resolution: "esbuild@npm:0.12.2"
+"esbuild@npm:^0.12.4":
+  version: 0.12.4
+  resolution: "esbuild@npm:0.12.4"
   bin:
     esbuild: bin/esbuild
-  checksum: 9e21edd114d8ee7e11448ce4fa7d66d985d91f47ee5a41424dc0d7fa1c1c52e36e5904902208699f58fef4359bf0d64ad07d585bce3c7d6c4323cc39bcbc613a
+  checksum: 77170f047aa2816d29a0b51acf7c69b58182698425bc8b61b5103a8fbf00720bbd35e18ae9203fae3837f490e3c22b709b8994931f7b79ee6f9c5fcffb131226
   languageName: node
   linkType: hard
 
@@ -6721,7 +6721,7 @@ __metadata:
     "@types/react": ^17.0.7
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.2
     clsx: ^1.1.1
-    esbuild: ^0.12.2
+    esbuild: ^0.12.4
     esbuild-scripts: "workspace:0.3.0"
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
@@ -8620,7 +8620,7 @@ resolve@^2.0.0-next.3:
     "@types/node": ^15.6.1
     "@typescript-eslint/eslint-plugin": ^4.25.0
     "@typescript-eslint/parser": ^4.25.0
-    esbuild: ^0.12.2
+    esbuild: ^0.12.4
     eslint: ^7.27.0
     eslint-import-resolver-node: ^0.3.4
     eslint-plugin-import: ^2.23.3
