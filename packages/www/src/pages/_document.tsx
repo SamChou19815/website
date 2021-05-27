@@ -4,7 +4,6 @@ import initializeThemeSwitching from 'lib-theme-switcher';
 import React, { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
 
-import 'infima/dist/css/default/default.min.css';
 import '../components/web-terminal/styles.css';
 import './index.scss';
 import './app.scss';
