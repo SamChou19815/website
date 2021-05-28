@@ -36,13 +36,13 @@ remaining gap, where labels, jumps, and raw pointer arithmetics are allowed.
 - `HIR_NAME(n)` represents a global constant with name `n`. A function name is considered as a
   global constant.
 - `HIR_VARIABLE(n)` represents a local variable with name `n`.
-- `HIR_INDEX_ACCESS(e, i)` has the same semantics of array index access (`e[i]`) in most languages.
-  There will be no index out of bound checks, since it's an invariant that all emitted
-  `HIR_INDEX_ACCESS` is statically known to be type-safe.
-- `HIR_BINARY(op, e1, e2)` is a binary expression`
 
 ### HIR Statements
 
+- `HIR_INDEX_ACCESS(n, e, i)` has the same semantics of array index access (`e[i]`) in most
+  languages. There will be no index out of bound checks, since it's an invariant that all emitted
+  `HIR_INDEX_ACCESS` is statically known to be type-safe. The result is assigned to `n`.
+- `HIR_BINARY(n, op, e1, e2)` is a binary expression with result assigned to `n`.
 - `HIR_FUNCTION_CALL(funExpr, funArgs, returnCollector)` is a statement like
   `let returnCollector = funExpr(...funArgs);` in JavaScript. The `returnCollector` must always
   specified. Useless values will be discarded in later optimization stages.
@@ -111,13 +111,6 @@ val e = (c) -> {
 The struct for function closures has the format
 `{ [0] -> function name, [1] -> environment object }`.
 
-## Mid-level IR
+## LLVM IR
 
-Mid-level IR is almost identical to
-[Appel's IR](https://www.cs.cornell.edu/courses/cs4120/2020sp/lectures/14irgen/lec14-sp16.pdf).
-Therefore, you are better served by reading the lecture notes.
-
-One major difference is that almost all non-canonical MIR expressions and statements are not in
-samlang. The lowering work is done completely in source-level to HIR lowering phase. The only
-exception is `MIR_CJUMP_NON_FALLTHROUGH_NON_CANONICAL`, which is being handled by trace reordering
-code in the MIR lowering phase.
+LLVM IR has the same value set as the HIR, but with more statements than HIR.
