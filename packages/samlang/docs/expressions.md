@@ -127,7 +127,7 @@ In samlang, we don't have ternary expression, because if-else blocks are express
 You can write: `if a == b then c else d`. `c` and `d` must have the same type and the result has the
 same type as `c` and `d`.
 
-## Match Expressions (Pattern Matching!)
+## Match Expressions
 
 Suppose you have a variant type like `class Option<T>(None(unit), Some(T)) {}`. You can match on it
 like:
