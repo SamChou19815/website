@@ -1,15 +1,16 @@
-const MiniReact = '/projects/mini-react.webp';
-const SAMLANG = '/projects/samlang.webp';
-const Samwise = '/projects/samwise.webp';
-const TEN = '/projects/ten.webp';
 const ChunkReader = '/timeline/chunk-reader.webp';
 const CritterCompiler = '/timeline/critter-compiler.webp';
 const CritterWorld = '/timeline/critter-world.webp';
 const FacebookHackerWay = '/timeline/fb-hacker-way.webp';
 const FacebookStickerAndPen = '/timeline/fb-sticker-pen.webp';
+const GraduationSam = '/graduation-sam.webp';
+const MiniReact = '/projects/mini-react.webp';
 const SAMFirst = '/timeline/sam-first.webp';
 const SAMLater = '/timeline/sam-later.webp';
 const SAMPL = '/timeline/sampl.webp';
+const SAMLANG = '/projects/samlang.webp';
+const Samwise = '/projects/samwise.webp';
+const TEN = '/projects/ten.webp';
 const WebsiteV2 = '/timeline/website-v2.webp';
 const WebsiteV3 = '/timeline/website-v3.webp';
 const Wiki = '/projects/wiki.webp';
@@ -25,6 +26,12 @@ export type TimelineItem = {
 };
 
 const DATASET_TIMELINE: readonly TimelineItem[] = [
+  {
+    title: 'Graduated from Cornell University',
+    time: 'May 2021',
+    image: GraduationSam,
+    detail: 'Graduated as an undergrad, still have an M.Eng to do...',
+  },
   {
     title: 'samlang emits LLVM code',
     time: 'January 2021',
