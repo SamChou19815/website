@@ -27,6 +27,11 @@ export type TimelineItem = {
 
 const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
+    title: 'Facebook SWE Intern',
+    time: 'June 2021',
+    image: FacebookHackerWay,
+  },
+  {
     title: 'Graduated from Cornell University',
     time: 'May 2021',
     image: GraduationSam,
