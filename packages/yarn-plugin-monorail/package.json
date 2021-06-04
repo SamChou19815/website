@@ -9,7 +9,7 @@
     "bundle": "builder build plugin"
   },
   "dependencies": {
-    "@types/node": "^15.6.1",
+    "@types/node": "^15.12.0",
     "@yarnpkg/builder": "^2.1.3",
     "@yarnpkg/core": "^2.4.0",
     "clipanion": "2.6.2",
