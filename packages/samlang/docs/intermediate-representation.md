@@ -29,6 +29,20 @@ remaining gap, where labels, jumps, and raw pointer arithmetics are allowed.
 
 ## High-level IR
 
+### HIR Types
+
+Values in HIR only have 3 possible kinds of types:
+
+- primitive type: `int`, `bool`, `string`, `any`.
+- function type
+- identifier type
+
+Note that all tuples, structs, and variant types are translated into identifier type. At the
+top-level, there is a type definition for each of the identifier type.
+
+The `any` type is needed to overcome the limitation of a lower-level type system that could not
+understand all source-level constructs. The `any` type instructs lower level IRs to insert casts.
+
 ### HIR Expressions
 
 - `HIR_INT(v)` represents a 64-bit integer literal with value `v`;
@@ -114,3 +128,8 @@ The struct for function closures has the format
 ## LLVM IR
 
 LLVM IR has the same value set as the HIR, but with more statements than HIR.
+
+## Ongoing Work
+
+Currently, a large refactoring is moving HIR into MIR, and create another HIR will all generics
+specialized. This is necessary to unblock garbage collection work.
