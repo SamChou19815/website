@@ -7,7 +7,7 @@
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md}'",
     "lint": "eslint . --cache",
     "test": "jest",
-    "bump": "yarn up @types/jest @types/node @types/react @types/react-dom typescript prettier jest husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\"",
+    "bump": "yarn up @types/jest @types/node @types/react @types/react-dom prettier jest husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\"",
     "import-plugin": "yarn plugin import ./packages/yarn-plugin-monorail/bundles/@yarnpkg/plugin-monorail.js",
     "setup-plugin": "yarn workspace @dev-sam/yarn-plugin-monorail bundle && yarn import-plugin"
   },
@@ -17,11 +17,11 @@
   "devDependencies": {
     "@dev-sam/eslint-config-common": "workspace:^0.21.0",
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
-    "@types/node": "^15.12.0",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "@typescript-eslint/parser": "^4.26.0",
-    "esbuild": "^0.12.5",
-    "eslint": "^7.27.0",
+    "@types/node": "^15.12.2",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "esbuild": "^0.12.8",
+    "eslint": "^7.28.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
@@ -30,7 +30,7 @@
     "husky": "^6.0.0",
     "jest": "^27.0.4",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
     "typescript": "^4.2.4"
   },
   "dependenciesMeta": {

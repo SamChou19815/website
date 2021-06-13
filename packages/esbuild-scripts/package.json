@@ -21,11 +21,11 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@types/react": "^17.0.9",
-    "@types/react-dom": "^17.0.6",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.7",
     "@types/react-helmet": "^6.1.1",
     "@types/react-router-dom": "^5.1.7",
-    "esbuild": "^0.12.5",
+    "esbuild": "^0.12.8",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
     "remark-slug": "^6.0.0",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@types/html-minifier": "^4.0.0",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.0",
+    "@types/node": "^15.12.2",
     "@types/pnpapi": "^0.0.1",
     "@types/sass": "^1.16.0",
     "@yarnpkg/esbuild-plugin-pnp": "^1.0.0-rc.2",
