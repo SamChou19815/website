@@ -30,6 +30,11 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: 'Facebook SWE Intern',
     time: 'June 2021',
     image: FacebookHackerWay,
+    detail: 'Working on the Flow team.',
+    links: [
+      { name: 'Website', url: 'https://flow.org' },
+      { name: 'GitHub', url: 'https://github.com/facebook/flow' },
+    ],
   },
   {
     title: 'Graduated from Cornell University',
@@ -75,6 +80,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: 'Facebook SWE Intern',
     time: 'June 2020',
     image: FacebookHackerWay,
+    detail: 'Working on the Feed Expressions team.',
   },
   {
     title: 'mini-react',
@@ -95,6 +101,11 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: 'Facebook SWE Intern',
     time: 'May 2019',
     image: FacebookHackerWay,
+    detail: 'Working on the Pyre team.',
+    links: [
+      { name: 'Website', url: 'https://pyre-check.org' },
+      { name: 'GitHub', url: 'https://github.com/facebook/pyre-check' },
+    ],
   },
   {
     title: 'Xi++ Compiler',
