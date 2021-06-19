@@ -3282,7 +3282,7 @@ __metadata:
     "@types/react": ^17.0.11
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
-    infima: 0.2.0-alpha.23
+    infima: ^0.2.0-alpha.26
     lib-react-docs: "workspace:0.1.0"
     lib-react-ga: "workspace:0.1.0"
     prism-react-renderer: ^1.2.0
@@ -4076,7 +4076,7 @@ __metadata:
     "@types/react": ^17.0.11
     "@types/react-dom": ^17.0.7
     esbuild-scripts: "workspace:0.3.0"
-    infima: 0.2.0-alpha.23
+    infima: ^0.2.0-alpha.26
     lib-theme-switcher: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5542,10 +5542,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"infima@npm:0.2.0-alpha.23":
-  version: 0.2.0-alpha.23
-  resolution: "infima@npm:0.2.0-alpha.23"
-  checksum: 01d26aa757fd72c0cfa6ddde2db3082a48c740559075bfa3fa2b403286294f10fb9ca1e16de56844f2a49dfaadee568244cdb8dfdde9656c763e05dc56a9bb41
+"infima@npm:^0.2.0-alpha.26":
+  version: 0.2.0-alpha.26
+  resolution: "infima@npm:0.2.0-alpha.26"
+  checksum: 816c27510da23780b7a7b5a6c4e4e78fed34650c3fdae903037d6c24bed065e0f3b2af6e55412bbbce8a847fc890b06b4c5ad9cafab93af435cb340524f0424e
   languageName: node
   linkType: hard
 
@@ -8760,7 +8760,7 @@ resolve@^2.0.0-next.3:
     "@types/react": ^17.0.11
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
-    infima: 0.2.0-alpha.23
+    infima: ^0.2.0-alpha.26
     lib-react-docs: 0.1.0
     lib-react-prism: 0.1.0
     react: ^17.0.2
@@ -9477,7 +9477,7 @@ resolve@^2.0.0-next.3:
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
     firebase: ^9.0.0-beta.1
-    infima: 0.2.0-alpha.23
+    infima: ^0.2.0-alpha.26
     lib-firebase: 0.1.0
     lib-react-loading: 0.1.0
     react: ^17.0.2
@@ -10265,7 +10265,7 @@ typescript@^4.2.4:
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
     firebase: ^9.0.0-beta.1
-    infima: 0.2.0-alpha.23
+    infima: ^0.2.0-alpha.26
     lib-firebase: "workspace:0.1.0"
     lib-react-docs: "workspace:0.1.0"
     lib-react-loading: "workspace:0.1.0"
@@ -10364,7 +10364,7 @@ typescript@^4.2.4:
     "@types/node": ^15.12.2
     "@types/react": ^17.0.11
     esbuild-scripts: "workspace:0.3.0"
-    infima: 0.2.0-alpha.23
+    infima: ^0.2.0-alpha.26
     lib-react-ga: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
     lib-theme-switcher: "workspace:0.1.0"

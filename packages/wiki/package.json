@@ -27,7 +27,7 @@
   "dependencies": {
     "clsx": "^1.1.1",
     "firebase": "^9.0.0-beta.1",
-    "infima": "0.2.0-alpha.23",
+    "infima": "^0.2.0-alpha.26",
     "lib-firebase": "workspace:0.1.0",
     "lib-react-docs": "workspace:0.1.0",
     "lib-react-loading": "workspace:0.1.0",
