@@ -16,19 +16,16 @@ samlang CLI performs following computation in order:
 
 1. `samlang-cli` collects all sources specified by `sconfig.json` and stores a mapping from
    `ModuleReference` to source code in `String` (`Map<ModuleReference, String>`).
-2. `samlang-core/parser` parses the sources code into AST's. Each source file is parsed into a
+2. `samlang-core-parser` parses the sources code into AST's. Each source file is parsed into a
    `Module`. Then the in-memory representation becomes `Map<ModuleReference, Module>`. At this
    point, the `field` in each AST node is dummy.
-3. `samlang-core/checker` type checks the modules by a constraint-solving based type inference
+3. `samlang-core-checker` type checks the modules by a constraint-solving based type inference
    algorithm. After that, the in-memory representation is still `Map<ModuleReference, Module>`, but
    each node in the AST is guaranteed to have a correct `type` field.
-4. `samlang-core/compiler` gradually turns the source-level AST into assembly AST. It first lowers
-   the AST into a high-level IR. The high level IR can be translated into other high-level languages
-   without much effort. Then it lowers the AST into mid-level IR that is similar to Appel's IR. Then
-   `samlang-core/compiler/asm-toplevel-generator` performs instruction selection to translate IR
-   into abstract assembly. In both stages, `samlang-analysis` will perform some dataflow analysis,
-   which will be consumed by `samlang-core/optimization` to perform various optimizations. Register
-   allocation will be performed at the end.
-5. `samlang-core/printer` prints the assembly AST into assembly files.
+4. `samlang-core-compiler` gradually turns the source-level AST into LLVM AST. It first lowers the
+   AST into a high-level IR. The high level IR can be translated into other high-level languages
+   without much effort. Then it lowers the AST into LLVM IR that is similar to Appel's IR. In both
+   stages, `samlang-core-optimization` will perform various optimizations.
+5. `samlang-core-printer` prints the LLVM AST into LLVM text files.
 6. `samlang-cli` then shells out to `runtime` folder that links the assembly against the samlang
    runtime. Now you get a program that is directly runnable!
