@@ -1,10 +1,10 @@
-const ChunkReader = '/timeline/chunk-reader.webp';
 const CritterCompiler = '/timeline/critter-compiler.webp';
 const CritterWorld = '/timeline/critter-world.webp';
-const FacebookHackerWay = '/timeline/fb-hacker-way.webp';
 const FacebookStickerAndPen = '/timeline/fb-sticker-pen.webp';
+const Flow = '/timeline/flow.webp';
 const GraduationSam = '/graduation-sam.webp';
 const MiniReact = '/projects/mini-react.webp';
+const Pyre = '/timeline/pyre-check.webp';
 const SAMFirst = '/timeline/sam-first.webp';
 const SAMLater = '/timeline/sam-later.webp';
 const SAMPL = '/timeline/sampl.webp';
@@ -29,7 +29,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
     title: 'Facebook SWE Intern',
     time: 'June 2021',
-    image: FacebookHackerWay,
+    image: Flow,
     detail: 'Working on the Flow team.',
     links: [
       { name: 'Website', url: 'https://flow.org' },
@@ -79,7 +79,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
     title: 'Facebook SWE Intern',
     time: 'June 2020',
-    image: FacebookHackerWay,
+    image: FacebookStickerAndPen,
     detail: 'Working on the Feed Expressions team.',
   },
   {
@@ -100,18 +100,12 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
     title: 'Facebook SWE Intern',
     time: 'May 2019',
-    image: FacebookHackerWay,
+    image: Pyre,
     detail: 'Working on the Pyre team.',
     links: [
       { name: 'Website', url: 'https://pyre-check.org' },
       { name: 'GitHub', url: 'https://github.com/facebook/pyre-check' },
     ],
-  },
-  {
-    title: 'Xi++ Compiler',
-    time: 'May 2019',
-    detail:
-      'An optimizing compiler that compiles object-oriented Xi code to x86-64 assembly and Cornell CS 2112 critter language.',
   },
   {
     title: 'Website Redesign v3.0',
@@ -129,12 +123,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: 'Cornell DTI TPM',
     time: 'January 2019',
     detail: 'Technical product manager of the Samwise subteam.',
-    links: [
-      {
-        name: 'Cornell DTI Website',
-        url: 'https://www.cornelldti.org',
-      },
-    ],
+    links: [{ name: 'Cornell DTI Website', url: 'https://www.cornelldti.org' }],
   },
   {
     title: 'samlang',
@@ -145,11 +134,6 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
       { name: 'GitHub Repo', url: 'https://github.com/SamChou19815/samlang' },
       { name: 'Docs', url: 'https://samlang.io/' },
     ],
-  },
-  {
-    title: 'Facebook SWE Intern Final Interview',
-    time: 'October 2018',
-    image: FacebookStickerAndPen,
   },
   {
     title: 'Cornell DTI Software Developer',
@@ -168,14 +152,6 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     ],
   },
   {
-    title: 'Badges for GCP Cloud Build',
-    time: 'August 2018',
-    detail: 'Automatically generating badges for build status on GCP Cloud Build.',
-    links: [
-      { name: 'GitHub Repo', url: 'https://github.com/SamChou19815/badges-4-gcp-cloud-build' },
-    ],
-  },
-  {
     title: 'Website Redesign v2',
     time: 'July 2018',
     image: WebsiteV2,
@@ -186,12 +162,6 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
         url: 'https://web.archive.org/web/20190102202556/https://developersam.com/',
       },
     ],
-  },
-  {
-    title: 'typed-store',
-    time: 'July 2018',
-    detail: 'A type-safe wrapper for Google Cloud Datastore.',
-    links: [{ name: 'GitHub Repo', url: 'https://github.com/SamChou19815/typed-store' }],
   },
   {
     title: 'SAMPL',
@@ -213,16 +183,6 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     time: 'December 2017',
     detail:
       "Sam's critter world implementation. Used as course staff reference solution in Fall 2018 and Fall 2019.",
-  },
-  {
-    title: 'First winning hackathon',
-    time: 'September 2017',
-    image: ChunkReader,
-    detail: 'Developed a text analysis app during Cornell BigRedHack. Best use of Google Cloud.',
-    links: [
-      { name: 'GitHub Repo', url: 'https://github.com/SamChou19815/chunk-reader' },
-      { name: 'DevPost Link', url: 'https://devpost.com/software/chunk-reader' },
-    ],
   },
   { title: 'Entered Cornell University', time: 'August 2017' },
   {
@@ -262,7 +222,6 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
   },
   { title: 'Entered WFLA', time: 'August 2014' },
   { title: 'Graduated from Huayu Middle School', time: 'June 2014' },
-  { title: 'First Non-trivial VB Program Written', time: 'December 2011' },
   {
     title: 'Started Coding',
     time: 'July 2011',
