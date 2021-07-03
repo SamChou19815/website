@@ -104,7 +104,8 @@ export const remove = (path: string): Promise<void> =>
       isDirectory(path)
         .then((isDir) =>
           isDir
-            ? rmdir(path, { recursive: true }, createNoParamCallback(resolve, reject))
+            ? // @ts-expect-error: recursive property is deprecated
+              rmdir(path, { recursive: true }, createNoParamCallback(resolve, reject))
             : unlink(path, createNoParamCallback(resolve, reject))
         )
         .catch((error) => reject(error));

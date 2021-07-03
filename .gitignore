@@ -17,6 +17,7 @@
 **/node_modules
 **/.pnp
 **/.pnp.js
+**/.pnp.cjs
 
 # testing
 **/coverage
