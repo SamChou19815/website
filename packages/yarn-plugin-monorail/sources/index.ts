@@ -7,13 +7,12 @@ import runCodegen from './codegen';
 import incrementalCompile from './compile';
 
 class CompileCommand extends Command {
+  static paths = [['c']];
   // eslint-disable-next-line class-methods-use-this
   async execute(): Promise<number> {
     return (await incrementalCompile()) ? 0 : 1;
   }
 }
-
-CompileCommand.addPath('c');
 
 const plugin: Plugin = {
   hooks: {
