@@ -1,3 +1,7 @@
+/// <reference types="node" />
+/// <reference types="react" />
+/// <reference types="react-dom" />
+
 declare const __SERVER__: boolean;
 
 type MarkdownTablesOfContentsElement = {
