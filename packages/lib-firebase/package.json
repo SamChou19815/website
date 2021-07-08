@@ -7,15 +7,14 @@
   },
   "dependencies": {
     "lib-react-loading": "0.1.0",
-    "rxjs": "^6.6.3"
+    "rxjs": "^7.2.0"
   },
   "peerDependencies": {
     "firebase": "*",
     "react": "^17.0.1"
   },
   "devDependencies": {
-    "@types/node": "^16.0.0",
-    "@types/react": "^17.0.13",
+    "@types/react": "^17.0.14",
     "firebase": "^9.0.0-beta.6",
     "typescript": "^4.3.5"
   }

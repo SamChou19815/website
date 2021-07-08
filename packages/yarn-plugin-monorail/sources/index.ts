@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 
-import type { Plugin } from '@yarnpkg/core';
+import type { Plugin, Hooks } from '@yarnpkg/core';
 import { Command } from 'clipanion';
 
 import runCodegen from './codegen';
@@ -14,9 +14,9 @@ class CompileCommand extends Command {
   }
 }
 
-const plugin: Plugin = {
+const plugin: Plugin<Hooks> = {
   hooks: {
-    afterAllInstalled: (): void => {
+    afterAllInstalled() {
       // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
       const workspacesJson: YarnWorkspacesJson = require('./query').default;
       writeFileSync('workspaces.json', `${JSON.stringify(workspacesJson, undefined, 2)}\n`);
