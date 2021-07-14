@@ -613,7 +613,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
   dependencies:
-    "@types/node": ^16.3.1
+    "@types/node": ^16.3.2
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": "*"
@@ -655,7 +655,7 @@ __metadata:
   resolution: "@dev-sam/yarn-plugin-monorail@workspace:packages/yarn-plugin-monorail"
   dependencies:
     "@types/jest": ^26.0.24
-    "@types/node": ^16.3.1
+    "@types/node": ^16.3.2
     "@yarnpkg/builder": ^3.0.0-rc.9
     "@yarnpkg/core": ^3.0.0-rc.9
     clipanion: 3.0.0-rc.12
@@ -1883,10 +1883,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.3.1":
-  version: 16.3.1
-  resolution: "@types/node@npm:16.3.1"
-  checksum: 2a9d69db32540157827a06893a80dcbc9c86a6287dace38e1ff27490f34ec4b4164426165f2c4146c412eca451bf1b782be17d5ce57a935b1fd1e7c5fae89f43
+"@types/node@npm:^16.3.2":
+  version: 16.3.2
+  resolution: "@types/node@npm:16.3.2"
+  checksum: 242d23b6f9f93afa49eecac179444762000e99667a742c8b1de18c7875c7c952436ab319ea4fe3dca3e66bacb9e4f0ed69a25df9a155c6cedfc8cdaf52cb3453
   languageName: node
   linkType: hard
 
@@ -4349,7 +4349,7 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@types/html-minifier": ^4.0.0
     "@types/jest": ^26.0.24
-    "@types/node": ^16.3.1
+    "@types/node": ^16.3.2
     "@types/pnpapi": ^0.0.1
     "@types/react": ^17.0.14
     "@types/react-dom": ^17.0.9
@@ -6807,7 +6807,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lib-colorful-terminal@workspace:packages/lib-colorful-terminal"
   dependencies:
-    "@types/node": ^16.3.1
+    "@types/node": ^16.3.2
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -6832,7 +6832,7 @@ __metadata:
   resolution: "lib-react-docs@workspace:packages/lib-react-docs"
   dependencies:
     "@types/jest": ^26.0.24
-    "@types/node": ^16.3.1
+    "@types/node": ^16.3.2
     "@types/react": ^17.0.14
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.9
     clsx: ^1.1.1
@@ -6916,9 +6916,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "lint-staged@npm:11.0.0"
+"lint-staged@npm:^11.0.1":
+  version: 11.0.1
+  resolution: "lint-staged@npm:11.0.1"
   dependencies:
     chalk: ^4.1.1
     cli-truncate: ^2.1.0
@@ -6937,7 +6937,7 @@ __metadata:
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 3be24b4a88799264bbb9baeedfc5be278d25aa85dc766c5328da23d5d92300c0a163563b455d530ca2a74510a161f17623e846e1aca81e44f389108274ad2acd
+  checksum: 5046fbaa020e573ca31a4b7a3819cdd5383912c53dc55f5e68db4a525eba1fc23312f4cf0162742ef6a358464394e584b718049cd62b883b1d4f06fdfb163022
   languageName: node
   linkType: hard
 
@@ -8788,7 +8788,7 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@dev-sam/eslint-config-common": "workspace:^0.21.0"
     "@dev-sam/jest-esbuild-transformer": 0.4.0
-    "@types/node": ^16.3.1
+    "@types/node": ^16.3.2
     "@typescript-eslint/eslint-plugin": ^4.28.3
     "@typescript-eslint/parser": ^4.28.3
     esbuild: ^0.12.15
@@ -8800,7 +8800,7 @@ resolve@^2.0.0-next.3:
     eslint-plugin-react-hooks: ^4.2.0
     husky: ^7.0.1
     jest: ^27.0.6
-    lint-staged: ^11.0.0
+    lint-staged: ^11.0.1
     prettier: ^2.3.2
     typescript: ^4.3.5
   dependenciesMeta:

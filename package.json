@@ -17,7 +17,7 @@
   "devDependencies": {
     "@dev-sam/eslint-config-common": "workspace:^0.21.0",
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
-    "@types/node": "^16.3.1",
+    "@types/node": "^16.3.2",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
     "esbuild": "^0.12.15",
@@ -29,7 +29,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^11.0.1",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
   },
