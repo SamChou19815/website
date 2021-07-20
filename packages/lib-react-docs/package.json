@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.3.2",
+    "@types/node": "^16.3.3",
     "@types/react": "^17.0.14",
     "@yarnpkg/esbuild-plugin-pnp": "^1.0.0-rc.9",
     "esbuild": "^0.12.15",
