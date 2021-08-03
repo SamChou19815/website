@@ -27,7 +27,7 @@
   "dependencies": {
     "@dev-sam/samlang-demo": "^0.4.3",
     "clsx": "^1.1.1",
-    "infima": "^0.2.0-alpha.26",
+    "infima": "^0.2.0-alpha.30",
     "lib-react-docs": "0.1.0",
     "lib-react-prism": "0.1.0",
     "react": "^17.0.2",
