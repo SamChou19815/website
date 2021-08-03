@@ -613,7 +613,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
   dependencies:
-    "@types/node": ^16.4.3
+    "@types/node": ^16.4.10
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": "*"
@@ -655,7 +655,7 @@ __metadata:
   resolution: "@dev-sam/yarn-plugin-monorail@workspace:packages/yarn-plugin-monorail"
   dependencies:
     "@types/jest": ^26.0.24
-    "@types/node": ^16.4.3
+    "@types/node": ^16.4.10
     "@yarnpkg/builder": ^3.0.0-rc.9
     "@yarnpkg/core": ^3.0.0-rc.9
     clipanion: 3.0.0-rc.12
@@ -1883,10 +1883,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.4.3":
-  version: 16.4.3
-  resolution: "@types/node@npm:16.4.3"
-  checksum: 6b5fa8b524a9c770dcb96a24d862f240ce8c0072d7360fd088bfb9c5265b48bd1af58a3dd7f59e266b3214684c251e56bea2b2b0702b9901e57804221b6e07f2
+"@types/node@npm:^16.4.10":
+  version: 16.4.10
+  resolution: "@types/node@npm:16.4.10"
+  checksum: b2b550c2330df479a41b2c166814df6f1be45a62535742ad88a42bc0739897b79c1b2fef716635ae0ccd77c42af9a5e1e7c891215e909e10980c469bceebbfdc
   languageName: node
   linkType: hard
 
@@ -2090,12 +2090,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^4.28.5":
-  version: 4.28.5
-  resolution: "@typescript-eslint/eslint-plugin@npm:4.28.5"
+"@typescript-eslint/eslint-plugin@npm:^4.29.0":
+  version: 4.29.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:4.29.0"
   dependencies:
-    "@typescript-eslint/experimental-utils": 4.28.5
-    "@typescript-eslint/scope-manager": 4.28.5
+    "@typescript-eslint/experimental-utils": 4.29.0
+    "@typescript-eslint/scope-manager": 4.29.0
     debug: ^4.3.1
     functional-red-black-tree: ^1.0.1
     regexpp: ^3.1.0
@@ -2107,66 +2107,66 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 8d9147ecca2978e5e0674e33ed20f8183db6932f7005169ef88075f8446efdfe47eef83cd5917bc59db22df794e495d65716fefa248d10fb2900c3135fceaed9
+  checksum: eed42b03c31410126f1cccaf4e97676c2a678ca1ce4d1a5d47b909707fcfc9fd08b398b34fe7bc5919f7b922e1062815a02d7cceef6457a0dbe67c9b30a9b39f
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:4.28.5":
-  version: 4.28.5
-  resolution: "@typescript-eslint/experimental-utils@npm:4.28.5"
+"@typescript-eslint/experimental-utils@npm:4.29.0":
+  version: 4.29.0
+  resolution: "@typescript-eslint/experimental-utils@npm:4.29.0"
   dependencies:
     "@types/json-schema": ^7.0.7
-    "@typescript-eslint/scope-manager": 4.28.5
-    "@typescript-eslint/types": 4.28.5
-    "@typescript-eslint/typescript-estree": 4.28.5
+    "@typescript-eslint/scope-manager": 4.29.0
+    "@typescript-eslint/types": 4.29.0
+    "@typescript-eslint/typescript-estree": 4.29.0
     eslint-scope: ^5.1.1
     eslint-utils: ^3.0.0
   peerDependencies:
     eslint: "*"
-  checksum: 91ea6f703a4eb1c36773a50aca61b63f05f5ed86a65f47f1a20c83027135e8e95b34953701132f8df039f1a75f23d9bce6a8062d531fdcf6d62f6192c9a58462
+  checksum: 1c1daddb9b0464d8df422b598cecd4e931fe40109b9f43067c00aa5fd0a046c2bfc06e82da6ba27d667cb4f12964c21521027c4fec886a97285e6b5a0b3fe943
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^4.28.5":
-  version: 4.28.5
-  resolution: "@typescript-eslint/parser@npm:4.28.5"
+"@typescript-eslint/parser@npm:^4.29.0":
+  version: 4.29.0
+  resolution: "@typescript-eslint/parser@npm:4.29.0"
   dependencies:
-    "@typescript-eslint/scope-manager": 4.28.5
-    "@typescript-eslint/types": 4.28.5
-    "@typescript-eslint/typescript-estree": 4.28.5
+    "@typescript-eslint/scope-manager": 4.29.0
+    "@typescript-eslint/types": 4.29.0
+    "@typescript-eslint/typescript-estree": 4.29.0
     debug: ^4.3.1
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: badd2d294742c4640523134d5eb72157631073b6ba02fd165cbbd1d78394f4ccdfdb8a98be539d90b1739f4b3fcbfcc8d5cb00e89ad048e8738cd3c4d2b9b807
+  checksum: 78d1a558dc92e6baeef3b0bb6850108d3bb792282646678e276626b940b07e601d35abd790f8f02cb4625fe1656c57c9a7ae776c731984f36ab886cb93ed3b26
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:4.28.5":
-  version: 4.28.5
-  resolution: "@typescript-eslint/scope-manager@npm:4.28.5"
+"@typescript-eslint/scope-manager@npm:4.29.0":
+  version: 4.29.0
+  resolution: "@typescript-eslint/scope-manager@npm:4.29.0"
   dependencies:
-    "@typescript-eslint/types": 4.28.5
-    "@typescript-eslint/visitor-keys": 4.28.5
-  checksum: bde38033295c5e6c04f3c4852a7dd42758f7abdacb58eae2f3b8f7e4163bfc0960be985116caff179e3b0f0116a065007e3ccde8d159ca49710d21bab65e4e27
+    "@typescript-eslint/types": 4.29.0
+    "@typescript-eslint/visitor-keys": 4.29.0
+  checksum: 3f3d211ae56a0b35e21d16dca4be5d8599928eb97045d191e2ab8065b90312b92c0b15a9c37dc2022056a1be3a2aa83ff704f3ecf41155df772951e12dc341bc
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:4.28.5":
-  version: 4.28.5
-  resolution: "@typescript-eslint/types@npm:4.28.5"
-  checksum: 54e75890b01949614c9bf11e30cc9da87189fe3d834b39e767202276d7d7a60891d31bb52576c64fa4df4846f61e67e73ac958f90127024fd9fa1709d3df3041
+"@typescript-eslint/types@npm:4.29.0":
+  version: 4.29.0
+  resolution: "@typescript-eslint/types@npm:4.29.0"
+  checksum: ce42a50ba69f6eaa83661b752132ddd058a619025dfccf16f1cc4e21dcfda57787e2bce106b2396cc7ebf6b29473460f90ac12d277a2115c1a9000b6236fcfcb
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:4.28.5":
-  version: 4.28.5
-  resolution: "@typescript-eslint/typescript-estree@npm:4.28.5"
+"@typescript-eslint/typescript-estree@npm:4.29.0":
+  version: 4.29.0
+  resolution: "@typescript-eslint/typescript-estree@npm:4.29.0"
   dependencies:
-    "@typescript-eslint/types": 4.28.5
-    "@typescript-eslint/visitor-keys": 4.28.5
+    "@typescript-eslint/types": 4.29.0
+    "@typescript-eslint/visitor-keys": 4.29.0
     debug: ^4.3.1
     globby: ^11.0.3
     is-glob: ^4.0.1
@@ -2175,17 +2175,17 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: a63847b676c265b9cd1d5370f99ed9049940b42369815c20d768e655ebf7f1af3521e00f9c3e31133bd1848d0290468aa58b1822c0941af02243c3cff089dac1
+  checksum: e1f893c2dff1bb2eb800039871ba08a9d96d8d3ca976389426df8e75438031afa443b863925582fa610d19c40d4b9a787d130ed8bcf11c4aeb2cb63c78d592c3
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:4.28.5":
-  version: 4.28.5
-  resolution: "@typescript-eslint/visitor-keys@npm:4.28.5"
+"@typescript-eslint/visitor-keys@npm:4.29.0":
+  version: 4.29.0
+  resolution: "@typescript-eslint/visitor-keys@npm:4.29.0"
   dependencies:
-    "@typescript-eslint/types": 4.28.5
+    "@typescript-eslint/types": 4.29.0
     eslint-visitor-keys: ^2.0.0
-  checksum: 77fa439f4ae8fbdb4923e34c0aac9b567216becfa848490ae51d15b578431b8f54c083570dd6c8472d57a492d14aa6d426be34364195538ee1072d91a63616f4
+  checksum: 3be974c6b2dd4eee3dbe01409bd6bf0e175bac5fe42df4256782ad1a4b05aded64bee711f0b6e597f732b1b506f72c25f7415370211af4b526557e872fc7f94b
   languageName: node
   linkType: hard
 
@@ -3338,7 +3338,7 @@ __metadata:
     "@types/react": ^17.0.15
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
-    infima: ^0.2.0-alpha.26
+    infima: ^0.2.0-alpha.30
     lib-react-docs: "workspace:0.1.0"
     lib-react-ga: "workspace:0.1.0"
     prism-react-renderer: ^1.2.0
@@ -4133,7 +4133,7 @@ __metadata:
   dependencies:
     "@types/react": ^17.0.15
     esbuild-scripts: "workspace:0.3.0"
-    infima: ^0.2.0-alpha.26
+    infima: ^0.2.0-alpha.30
     lib-theme-switcher: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -4349,7 +4349,7 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@types/html-minifier": ^4.0.0
     "@types/jest": ^26.0.24
-    "@types/node": ^16.4.3
+    "@types/node": ^16.4.10
     "@types/pnpapi": ^0.0.1
     "@types/react": ^17.0.15
     "@types/react-dom": ^17.0.9
@@ -4357,7 +4357,7 @@ __metadata:
     "@types/react-router-dom": ^5.1.7
     "@types/sass": ^1.16.0
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.9
-    esbuild: ^0.12.16
+    esbuild: ^0.12.17
     lib-colorful-terminal: "workspace:0.1.0"
     react-helmet: ^6.1.0
     react-router-dom: ^5.2.0
@@ -4382,12 +4382,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.12.16":
-  version: 0.12.16
-  resolution: "esbuild@npm:0.12.16"
+"esbuild@npm:^0.12.17":
+  version: 0.12.17
+  resolution: "esbuild@npm:0.12.17"
   bin:
     esbuild: bin/esbuild
-  checksum: 1c2d63168a803617ee23605163dc5e9acb7d3bc37973819e5a4fe5afefe0f8e7c570de94869b70f9f52eddbee886b321af6a59836cf2c9fb08158769ebccad69
+  checksum: 9c0c230470a1daa7e1e623bbbf24c8d15187406b862a82258a7df2c3db59bc1f04b5889b50ac940b7b2b3c43dac13e675181a60e828fc39c0288f5c6ccccfec0
   languageName: node
   linkType: hard
 
@@ -4579,9 +4579,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.31.0":
-  version: 7.31.0
-  resolution: "eslint@npm:7.31.0"
+"eslint@npm:^7.32.0":
+  version: 7.32.0
+  resolution: "eslint@npm:7.32.0"
   dependencies:
     "@babel/code-frame": 7.12.11
     "@eslint/eslintrc": ^0.4.3
@@ -4625,7 +4625,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: fd73d07ce0b73e5ea950b295a6eaf8d45914b4e56cba4ef49e55a36dc7e965a4865f63f618c0a096a01d089752d9e44180b80ba8657039b8e631dd40e0af1663
+  checksum: cc85af9985a3a11085c011f3d27abe8111006d34cc274291b3c4d7bea51a4e2ff6135780249becd919ba7f6d6d1ecc38a6b73dacb6a7be08d38453b344dc8d37
   languageName: node
   linkType: hard
 
@@ -5604,10 +5604,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"infima@npm:^0.2.0-alpha.26":
-  version: 0.2.0-alpha.26
-  resolution: "infima@npm:0.2.0-alpha.26"
-  checksum: 9a5bf706793caf748ba6e6de7795fc56ee0bb53cee7f30e753a98afabf6978b4022258eaaa0bce1598d1551d97bbf5cffeff4fbe8878cb84a106ac1500ab438b
+"infima@npm:^0.2.0-alpha.30":
+  version: 0.2.0-alpha.30
+  resolution: "infima@npm:0.2.0-alpha.30"
+  checksum: eb227c82494590d8caa088b2324afcec925e890fc49515d98168b1f2dd303c902cb48d0a8184b33bbe65ff72be72da5a839f91b6d2444f26a1ff5a5cea1ac476
   languageName: node
   linkType: hard
 
@@ -6807,7 +6807,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lib-colorful-terminal@workspace:packages/lib-colorful-terminal"
   dependencies:
-    "@types/node": ^16.4.3
+    "@types/node": ^16.4.10
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -6832,11 +6832,11 @@ __metadata:
   resolution: "lib-react-docs@workspace:packages/lib-react-docs"
   dependencies:
     "@types/jest": ^26.0.24
-    "@types/node": ^16.4.3
+    "@types/node": ^16.4.10
     "@types/react": ^17.0.15
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.9
     clsx: ^1.1.1
-    esbuild: ^0.12.16
+    esbuild: ^0.12.17
     esbuild-scripts: "workspace:0.3.0"
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
@@ -8788,11 +8788,11 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@dev-sam/eslint-config-common": "workspace:^0.21.0"
     "@dev-sam/jest-esbuild-transformer": 0.4.0
-    "@types/node": ^16.4.3
-    "@typescript-eslint/eslint-plugin": ^4.28.5
-    "@typescript-eslint/parser": ^4.28.5
-    esbuild: ^0.12.16
-    eslint: ^7.31.0
+    "@types/node": ^16.4.10
+    "@typescript-eslint/eslint-plugin": ^4.29.0
+    "@typescript-eslint/parser": ^4.29.0
+    esbuild: ^0.12.17
+    eslint: ^7.32.0
     eslint-import-resolver-node: ^0.3.4
     eslint-plugin-import: ^2.23.4
     eslint-plugin-jsx-a11y: ^6.4.1
@@ -8869,7 +8869,7 @@ resolve@^2.0.0-next.3:
     "@types/react": ^17.0.15
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
-    infima: ^0.2.0-alpha.26
+    infima: ^0.2.0-alpha.30
     lib-react-docs: 0.1.0
     lib-react-prism: 0.1.0
     react: ^17.0.2
@@ -9577,7 +9577,7 @@ resolve@^2.0.0-next.3:
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
     firebase: ^9.0.0-beta.6
-    infima: ^0.2.0-alpha.26
+    infima: ^0.2.0-alpha.30
     lib-firebase: 0.1.0
     lib-react-loading: 0.1.0
     react: ^17.0.2
@@ -10378,7 +10378,7 @@ typescript@^4.3.5:
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
     firebase: ^9.0.0-beta.6
-    infima: ^0.2.0-alpha.26
+    infima: ^0.2.0-alpha.30
     lib-firebase: "workspace:0.1.0"
     lib-react-docs: "workspace:0.1.0"
     lib-react-loading: "workspace:0.1.0"
@@ -10476,7 +10476,7 @@ typescript@^4.3.5:
     "@types/jest": ^26.0.24
     "@types/react": ^17.0.15
     esbuild-scripts: "workspace:0.3.0"
-    infima: ^0.2.0-alpha.26
+    infima: ^0.2.0-alpha.30
     lib-react-ga: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
     lib-theme-switcher: "workspace:0.1.0"
