@@ -21,10 +21,9 @@ and be shown in the hover LSP command.
 samlang LSP should support some refactoring capabilities, including renaming variables and
 functions. Autocompletion should be extended to support more cases, like variable completion.
 
-### Optimization
+### Garbage Collection
 
-Some basic form of interprocedural analysis should be explored and implemented to help other
-optimizations to become more powerful.
+samlang should be powered by its own garbage collector, based on reference counting technique.
 
 ## website
 
