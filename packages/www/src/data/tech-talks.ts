@@ -6,20 +6,15 @@ type TechTalkDataEntry = {
 
 const DATASET_TECH_TALKS: readonly TechTalkDataEntry[] = [
   {
-    title: 'How to scale',
+    title: 'Extraction Refactor Code Actions',
+    description: 'Challenges in building a correct refactor action with nice user experiences.',
+    link: '/flow-ide-presentation.pdf',
+  },
+  {
+    title: 'CoursePlan Requirement Computation',
     description:
-      "Tips on scaling your codebase and your workload, with lessons learned from Samwise's codebase.",
-    link: '/how-to-scale.pdf',
-  },
-  {
-    title: 'Intro to Firebase',
-    description: 'Tech stack discussion on Firebase, and why Samwise switched to Firebase.',
-    link: '/intro-to-firebase.pdf',
-  },
-  {
-    title: 'Build your programming language',
-    description: 'A tutorial of making a simple programming language derived from lambda-calculus.',
-    link: '/build-your-own-programming-language.pdf',
+      'An overview of the challanges and solutions of college requirement fulfillment computation.',
+    link: '/courseplan-requirement.pdf',
   },
   {
     title: 'Build a (simplified) React',
@@ -28,10 +23,9 @@ const DATASET_TECH_TALKS: readonly TechTalkDataEntry[] = [
     link: '/build-simplified-react.pdf',
   },
   {
-    title: 'CoursePlan Requirement Computation',
-    description:
-      'An overview of the challanges and solutions of college requirement fulfillment computation.',
-    link: '/courseplan-requirement.pdf',
+    title: 'Build your programming language',
+    description: 'A tutorial of making a simple programming language derived from lambda-calculus.',
+    link: '/build-your-own-programming-language.pdf',
   },
 ];
 
