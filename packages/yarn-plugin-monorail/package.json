@@ -9,8 +9,8 @@
     "bundle": "builder build plugin"
   },
   "dependencies": {
-    "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.13",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
     "@yarnpkg/builder": "^3.0.0-rc.9",
     "@yarnpkg/core": "^3.0.0-rc.9",
     "clipanion": "3.0.0-rc.12",
