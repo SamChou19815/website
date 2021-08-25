@@ -7,7 +7,7 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
-    "@types/node": "^16.6.1"
+    "@types/node": "^16.7.1"
   },
   "devDependencies": {
     "typescript": "^4.3.5"
