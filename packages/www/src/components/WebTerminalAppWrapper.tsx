@@ -1,9 +1,6 @@
 import React, { ReactNode, useEffect } from 'react';
 
-import DATASET_ABOUT from '../data/about';
-import DATASET_PROJECTS from '../data/projects';
-import DATASET_TECH_TALKS from '../data/tech-talks';
-import DATASET_TIMELINE from '../data/timeline';
+import { DATASET_ABOUT, DATASET_PROJECTS, DATASET_TECH_TALKS, DATASET_TIMELINE } from './data';
 import { useSetTerminalForceOnBirthday } from './global-states';
 import WebTerminal from './web-terminal';
 import { WebTerminalCommandsContextProvider } from './web-terminal/WebTerminalCommandsContext';

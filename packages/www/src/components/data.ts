@@ -1,3 +1,148 @@
+import type { WwwSvgIconName } from './Icons';
+
+type AboutSectionFact = { readonly iconName: WwwSvgIconName; readonly text: string };
+type AboutSectionLink = { readonly href: string; readonly text: string };
+
+type AboutDataEntry = {
+  readonly facts: readonly AboutSectionFact[];
+  readonly links: readonly AboutSectionLink[];
+};
+
+type ProjectDataEntry = {
+  readonly name: string;
+  readonly type: string;
+  readonly media: string;
+  readonly description: string;
+  readonly links: readonly { readonly text: string; readonly href: string }[];
+};
+
+type TechTalkDataEntry = {
+  readonly title: string;
+  readonly description: string;
+  readonly link: string;
+};
+
+type NamedLink = { readonly name: string; readonly url: string };
+type TimelineItem = {
+  readonly title: string;
+  readonly time: string;
+  readonly image?: string;
+  readonly detail?: string;
+  readonly links?: readonly NamedLink[];
+};
+
+export const DATASET_ABOUT: AboutDataEntry = {
+  facts: [
+    { iconName: 'facebook', text: 'Facebook SWE Intern' },
+    { iconName: 'work', text: 'Cornell DTI Developer' },
+    { iconName: 'github', text: 'Open source contributor' },
+    { iconName: 'school', text: 'Cornell University' },
+    { iconName: 'domain', text: 'Computer Science' },
+    { iconName: 'code', text: 'Coding since 13' },
+  ],
+  links: [
+    { href: 'https://blog.developersam.com', text: 'Blog' },
+    { href: 'https://github.com/SamChou19815', text: 'GitHub' },
+    { href: '/resume.pdf', text: 'Resume' },
+  ],
+};
+
+export const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
+  {
+    name: 'samlang',
+    type: 'Programming Language',
+    media: '/projects/samlang.webp',
+    description: 'A statically-typed functional programming language with full type inference.',
+    links: [
+      { text: 'Docs', href: 'https://samlang.io' },
+      { text: 'Demo', href: 'https://samlang.io/demo' },
+      { text: 'GitHub', href: 'https://github.com/SamChou19815/samlang' },
+    ],
+  },
+  {
+    name: 'Docusaurus',
+    type: 'Open source contributions',
+    media: '/projects/docusaurus.webp',
+    description:
+      "A static docs site generator created by FB open source. I'm one of the top 10 contributors.",
+    links: [
+      { text: 'Docs', href: 'https://v2.docusaurus.io' },
+      { text: 'GitHub', href: 'https://github.com/facebook/docusaurus' },
+    ],
+  },
+  {
+    name: 'mini-react',
+    type: 'Framework',
+    media: '/projects/mini-react.webp',
+    description:
+      'A simplified version of React runtime with useState and useEffect hook, built from Scratch.',
+    links: [
+      { text: 'Demo', href: 'https://mini-react.developersam.com' },
+      { text: 'GitHub', href: 'https://github.com/SamChou19815/mini-react' },
+      { text: 'Slides', href: '/build-simplified-react.pdf' },
+    ],
+  },
+  {
+    name: 'Samwise',
+    type: 'Web App',
+    media: '/projects/samwise.webp',
+    description:
+      'A Student Planner for Everyone. Designed, developed and maintained by Cornell DTI.',
+    links: [
+      { text: 'App', href: 'https://samwise.today' },
+      { text: 'GitHub', href: 'https://github.com/cornell-dti/samwise' },
+    ],
+  },
+  {
+    name: 'Wiki',
+    type: 'Web App',
+    media: '/projects/wiki.webp',
+    description: 'Documentation for this monoropo and notes from Developer Sam.',
+    links: [
+      { text: 'Website', href: 'https://wiki.developersam.com' },
+      {
+        text: 'GitHub',
+        href: 'https://github.com/SamChou19815/website/tree/master/packages/wiki',
+      },
+    ],
+  },
+  {
+    name: 'TEN',
+    type: 'Game AI',
+    media: '/projects/ten.webp',
+    description: 'Interesting board game with simple rules. Powered by an MCTS AI.',
+    links: [
+      { text: 'Demo', href: 'https://ten.developersam.com' },
+      { text: 'GitHub', href: 'https://github.com/SamChou19815/ten-golang' },
+    ],
+  },
+];
+
+export const DATASET_TECH_TALKS: readonly TechTalkDataEntry[] = [
+  {
+    title: 'Extraction Refactor Code Actions',
+    description: 'Challenges in building a correct refactor action with nice user experiences.',
+    link: '/flow-ide-presentation.pdf',
+  },
+  {
+    title: 'CoursePlan Requirement Computation',
+    description:
+      'An overview of the challanges and solutions of college requirement fulfillment computation.',
+    link: '/courseplan-requirement.pdf',
+  },
+  {
+    title: 'Build a (simplified) React',
+    description:
+      'A tutorial of making a simplified React runtime with support for useState and useEffect hooks.',
+    link: '/build-simplified-react.pdf',
+  },
+  {
+    title: 'Build your programming language',
+    description: 'A tutorial of making a simple programming language derived from lambda-calculus.',
+    link: '/build-your-own-programming-language.pdf',
+  },
+];
+
 const CritterCompiler = '/timeline/critter-compiler.webp';
 const CritterWorld = '/timeline/critter-world.webp';
 const FacebookStickerAndPen = '/timeline/fb-sticker-pen.webp';
@@ -14,18 +159,7 @@ const TEN = '/projects/ten.webp';
 const WebsiteV2 = '/timeline/website-v2.webp';
 const WebsiteV3 = '/timeline/website-v3.webp';
 const Wiki = '/projects/wiki.webp';
-
-type NamedLink = { readonly name: string; readonly url: string };
-
-export type TimelineItem = {
-  readonly title: string;
-  readonly time: string;
-  readonly image?: string;
-  readonly detail?: string;
-  readonly links?: readonly NamedLink[];
-};
-
-const DATASET_TIMELINE: readonly TimelineItem[] = [
+export const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
     title: 'Facebook SWE Intern',
     time: 'June 2021',
@@ -156,7 +290,6 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     time: 'July 2018',
     image: WebsiteV2,
     links: [
-      { name: 'GitHub Repo', url: 'https://github.com/SamChou19815/dev-sam-frontend' },
       {
         name: 'Archive',
         url: 'https://web.archive.org/web/20190102202556/https://developersam.com/',
@@ -176,7 +309,6 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
       },
     ],
   },
-  { title: 'ULearn Educational Group SWE Intern', time: 'May 2018' },
   {
     title: 'CS 2112 Critter World',
     image: CritterWorld,
@@ -192,7 +324,7 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
     links: [{ name: 'GitHub Repo', url: 'https://github.com/SamChou19815/ten' }],
   },
   {
-    title: 'Graduated from WFLA',
+    title: 'Graduated from High School',
     time: 'June 2016',
     links: [
       {
@@ -220,15 +352,13 @@ const DATASET_TIMELINE: readonly TimelineItem[] = [
       },
     ],
   },
-  { title: 'Entered WFLA', time: 'August 2014' },
-  { title: 'Graduated from Huayu Middle School', time: 'June 2014' },
+  { title: 'Entered High School', time: 'August 2014' },
+  { title: 'Graduated from Middle School', time: 'June 2014' },
   {
     title: 'Started Coding',
     time: 'July 2011',
     detail: 'I bought a bad C++ intro book and almost gave up.',
   },
-  { title: 'Entered Huayu Middle School', time: 'September 2010' },
+  { title: 'Entered Middle School', time: 'September 2010' },
   { title: 'Born', time: 'November 1998' },
 ];
-
-export default DATASET_TIMELINE;
