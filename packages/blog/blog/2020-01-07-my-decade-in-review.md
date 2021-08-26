@@ -196,11 +196,9 @@ In February 2015, I was invited to join the club called Computerization that was
 semester. Computerization developed a platform for teachers to send and for students to receive
 homework. I was the main developer from February 2015 to June 2016 and was the club president from
 September 2015 to June 2016. I already covered most of the story in
-[Computer Science in High Schools](/2018/12/31/cs-in-high-schools/) and covered the same story from
-a more technical perspective in
-[The Road to Better Engineering](/2019/08/17/the-road-to-better-engineering/). For the sake of
-avoiding duplicating content and code, I decide to leave readers to read those posts first as an
-exercise. However, I do want to highlight an event that was not discussed in detail before. To avoid
+[Computer Science in High Schools](/2018/12/31/cs-in-high-schools/). For the sake of avoiding
+duplicating content and code, I decide to leave readers to read those posts first as an exercise.
+However, I do want to highlight an event that was not discussed in detail before. To avoid
 discrepancies, I decide to directly quote my words in my college admission essay:
 
 > "Please implement a feature to check whether students have actually seen their homework," a

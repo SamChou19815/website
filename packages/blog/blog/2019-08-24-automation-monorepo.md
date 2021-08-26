@@ -1,18 +1,15 @@
 # Move Fast with Automation Powered Monorepo
 
-In the last article [The Road to Better Engineering](/2019/08/17/the-road-to-better-engineering), I
-promised that there will be a new post about my recent website re-architecturing effort. In the past
-week, I am working to gradually transform the website monorepo into a repository with latest
-technologies and reliable automation. At the time of writing this article, the transformation is
-complete and the repository has reached a state that I am mostly satisfied with.
+In the past week, I am working to gradually transform the website monorepo into a repository with
+latest technologies and reliable automation. At the time of writing this article, the transformation
+is complete and the repository has reached a state that I am mostly satisfied with.
 
 <!--truncate-->
 
 ## Background
 
-The last large-scale architecture update happens almost a year ago.
-[This blog post](/2018/08/01/website-architecture-update) details the journey of moving the website
-into Google Kubernetes Engine.
+The last large-scale architecture update happens almost a year ago. In summary, I moved the website
+into Google Kubernetes Engine after resting on legacy software for a long time.
 
 GKE serves my website well, except that it's too expensive. The minimum cost to setup some running
 cluster is $14 per month, since Kubernetes master eats up a lot of resources. Also, I need to spend
