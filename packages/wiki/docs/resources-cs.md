@@ -31,8 +31,6 @@ assumption that the audidence has a solid CS fundamentals and some software engi
 Some blog posts even cover topics like programming language theory that are unfamiliar to most
 people. Don't feel bad if you can't understand every part of it.
 
-- [A Year of Change - Reflection on My Website's Architecture Update](https://blog.developersam.com/2018/08/01/website-architecture-update/)
-- [The Road to Better Engineering](https://blog.developersam.com/2019/08/17/the-road-to-better-engineering/)
 - [Move Fast with Automation Powered Monorepo](https://blog.developersam.com/2019/08/24/automation-monorepo)
 - [How to Implement Autocomplete](https://blog.developersam.com/2020/01/09/implement-autocomplete/)
 - [Making samlang Run in Browsers](https://blog.developersam.com/2020/05/17/samlang-in-browser)
