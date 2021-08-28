@@ -1,7 +1,7 @@
-import { FirebaseFirestore, getFirestore } from 'firebase/firestore';
+import { Firestore, getFirestore } from 'firebase/firestore';
 
 import firebaseApp from './firebase-initializer';
 
-const firestore: FirebaseFirestore = getFirestore(firebaseApp);
+const firestore: Firestore = getFirestore(firebaseApp);
 
 export default firestore;
