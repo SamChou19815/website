@@ -613,7 +613,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dev-sam/eslint-config-common@workspace:packages/eslint-config-common"
   dependencies:
-    "@types/node": ^16.7.8
+    "@types/node": ^16.7.10
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": "*"
@@ -655,7 +655,7 @@ __metadata:
   resolution: "@dev-sam/yarn-plugin-monorail@workspace:packages/yarn-plugin-monorail"
   dependencies:
     "@types/jest": ^27.0.1
-    "@types/node": ^16.7.8
+    "@types/node": ^16.7.10
     "@yarnpkg/builder": ^3.0.0-rc.9
     "@yarnpkg/core": ^3.0.0-rc.9
     clipanion: 3.0.0-rc.12
@@ -1883,10 +1883,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^16.7.8":
-  version: 16.7.8
-  resolution: "@types/node@npm:16.7.8"
-  checksum: 060ea222ce8f3eb05bd86a7785ca5807503a50602dd805c5be997a5ae684fa6224c9ad8890bcc5551c05d14a8bcd735f94567691342d197f5f7f7f893ed0d46b
+"@types/node@npm:^16.7.10":
+  version: 16.7.10
+  resolution: "@types/node@npm:16.7.10"
+  checksum: 0518803caa1a14f4070e770a280eda1c4b4581a425cbda481cdd54b1f34a7ea497ff067fd23b90e3d4f4fdcfba15c1316182875e9cf9f5b2e880de1e595de053
   languageName: node
   linkType: hard
 
@@ -4333,7 +4333,7 @@ __metadata:
     "@mdx-js/react": ^1.6.22
     "@types/html-minifier": ^4.0.0
     "@types/jest": ^27.0.1
-    "@types/node": ^16.7.8
+    "@types/node": ^16.7.10
     "@types/pnpapi": ^0.0.1
     "@types/react": ^17.0.19
     "@types/react-dom": ^17.0.9
@@ -4341,7 +4341,7 @@ __metadata:
     "@types/react-router-dom": ^5.1.7
     "@types/sass": ^1.16.0
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.9
-    esbuild: ^0.12.24
+    esbuild: ^0.12.25
     lib-colorful-terminal: "workspace:0.1.0"
     react-helmet: ^6.1.0
     react-router-dom: ^5.2.0
@@ -4366,12 +4366,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.12.24":
-  version: 0.12.24
-  resolution: "esbuild@npm:0.12.24"
+"esbuild@npm:^0.12.25":
+  version: 0.12.25
+  resolution: "esbuild@npm:0.12.25"
   bin:
     esbuild: bin/esbuild
-  checksum: 3bb0e48d51ca87506730f9c0dc946c121680439d43dfc89ee9a22117c6d79d0124192b05d113627d1229e31b7e82e463599e48c45ce0572f0099287666e16b16
+  checksum: fd92b0541c17e6d863d3b1cf628a35c9844831a1f1f2d16c3091bc7a130a601a8164083b84a65cd3178209e7c395fc61d454f92c8b1a4869d443fd0ca5a51a8d
   languageName: node
   linkType: hard
 
@@ -6791,7 +6791,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lib-colorful-terminal@workspace:packages/lib-colorful-terminal"
   dependencies:
-    "@types/node": ^16.7.8
+    "@types/node": ^16.7.10
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -6816,11 +6816,11 @@ __metadata:
   resolution: "lib-react-docs@workspace:packages/lib-react-docs"
   dependencies:
     "@types/jest": ^27.0.1
-    "@types/node": ^16.7.8
+    "@types/node": ^16.7.10
     "@types/react": ^17.0.19
     "@yarnpkg/esbuild-plugin-pnp": ^1.0.0-rc.9
     clsx: ^1.1.1
-    esbuild: ^0.12.24
+    esbuild: ^0.12.25
     esbuild-scripts: "workspace:0.3.0"
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
@@ -8766,10 +8766,10 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@dev-sam/eslint-config-common": "workspace:^0.21.0"
     "@dev-sam/jest-esbuild-transformer": 0.4.0
-    "@types/node": ^16.7.8
+    "@types/node": ^16.7.10
     "@typescript-eslint/eslint-plugin": ^4.30.0
     "@typescript-eslint/parser": ^4.30.0
-    esbuild: ^0.12.24
+    esbuild: ^0.12.25
     eslint: ^7.32.0
     eslint-import-resolver-node: ^0.3.6
     eslint-plugin-import: ^2.24.2
