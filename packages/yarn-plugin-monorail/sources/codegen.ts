@@ -29,43 +29,14 @@ const hasScript = (
 const githubActionsCodegenService = (
   workspacesJson: YarnWorkspacesJson
 ): readonly (readonly [string, string])[] => {
-  return [
-    [
-      '.github/workflows/generated-general.yml',
-      `# @${'generated'}
+  return workspacesJson.topologicallyOrdered
+    .filter((name) => hasScript(workspacesJson, name, 'deploy'))
+    .map((workspace) => {
+      const name = `cd-${workspace}`;
 
-name: General
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-
-jobs:
-  lint:${yarnWorkspaceBoilterplateSetupString}
-      - name: Format Check
-        run: yarn format:check
-      - name: Lint
-        run: yarn lint
-  build:${yarnWorkspaceBoilterplateSetupString}
-      - name: Compile
-        run: yarn c
-  validate:${yarnWorkspaceBoilterplateSetupString}
-      - name: Check changed
-        run: if [[ \`git status --porcelain\` ]]; then exit 1; fi
-  test:${yarnWorkspaceBoilterplateSetupString}
-      - name: Test
-        run: yarn test
-`,
-    ] as const,
-    ...workspacesJson.topologicallyOrdered
-      .filter((name) => hasScript(workspacesJson, name, 'deploy'))
-      .map((workspace) => {
-        const name = `cd-${workspace}`;
-
-        return [
-          `.github/workflows/generated-${name}.yml`,
-          `# @${'generated'}
+      return [
+        `.github/workflows/generated-${name}.yml`,
+        `# @${'generated'}
 
 name: CD ${workspace}
 on:
@@ -90,9 +61,8 @@ jobs:
       - name: Deploy
         run: yarn workspace ${workspace} deploy
 `,
-        ] as const;
-      }),
-  ];
+      ] as const;
+    });
 };
 
 const GITHUB_WORKFLOWS_PATH = join('.github', 'workflows');
