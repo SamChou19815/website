@@ -1,5 +1,3 @@
-# @generated
-
 name: General
 on:
   push:
