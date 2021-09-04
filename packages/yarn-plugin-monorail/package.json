@@ -6,14 +6,15 @@
   "license": "AGPLv3",
   "scripts": {
     "compile": "tsc --noEmit",
-    "bundle": "builder build plugin"
+    "bundle": "node build.js"
   },
   "dependencies": {
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.10",
-    "@yarnpkg/builder": "^3.0.2-rc.3",
     "@yarnpkg/core": "^3.1.0-rc.3",
+    "@yarnpkg/esbuild-plugin-pnp": "^1.0.1-rc.3",
     "clipanion": "3.0.1",
+    "esbuild": "^0.12.25",
     "lib-colorful-terminal": "workspace:0.1.0",
     "typescript": "^4.3.5"
   }
