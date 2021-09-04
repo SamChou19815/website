@@ -26,7 +26,6 @@
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.10",
     "@types/react": "^17.0.19",
-    "@yarnpkg/esbuild-plugin-pnp": "^1.0.0-rc.9",
     "esbuild": "^0.12.25",
     "esbuild-scripts": "workspace:0.3.0",
     "react": "^17.0.2",
