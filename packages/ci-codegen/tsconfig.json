@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "lib": ["ES2015"],
+    "noEmit": true
+  },
+  "include": ["index.js"]
+}
