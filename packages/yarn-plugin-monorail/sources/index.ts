@@ -4,6 +4,7 @@ import type { Plugin, Hooks } from '@yarnpkg/core';
 import { Command } from 'clipanion';
 
 import incrementalCompile from './compile';
+import generateYarnWorkspacesJson from './workspaces-json';
 
 class CompileCommand extends Command {
   static paths = [['c']];
@@ -15,9 +16,8 @@ class CompileCommand extends Command {
 
 const plugin: Plugin<Hooks> = {
   hooks: {
-    afterAllInstalled() {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
-      const workspacesJson: YarnWorkspacesJson = require('./query').default;
+    afterAllInstalled(project) {
+      const workspacesJson: YarnWorkspacesJson = generateYarnWorkspacesJson(project);
       writeFileSync('workspaces.json', `${JSON.stringify(workspacesJson, undefined, 2)}\n`);
     },
   },
