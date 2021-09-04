@@ -6,5 +6,5 @@
     "target": "es2018",
     "lib": ["esnext", "dom"]
   },
-  "include": ["sources/**/*.ts"]
+  "include": ["src"]
 }

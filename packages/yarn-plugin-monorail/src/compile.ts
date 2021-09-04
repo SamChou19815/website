@@ -4,8 +4,9 @@ import { spawn, spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 
-import { RED, GREEN, BLUE, MAGENTA } from 'lib-colorful-terminal/colors';
-import startSpinnerProgress from 'lib-colorful-terminal/progress';
+import { RED, GREEN, BLUE, MAGENTA } from './colors';
+import asyncTaskWithSpinner from './spinner-progress';
+import { YarnWorkspacesJson } from './workspaces-json';
 
 const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
   const queryFromGitDiffResult = (base: string, head?: string) => {
@@ -69,28 +70,26 @@ const incrementalCompile = async (): Promise<boolean> => {
     console.error(BLUE(`[i] \`${workspace}\` needs to be recompiled.`));
   });
 
-  const compilingMessageInterval = startSpinnerProgress(
-    (passedTime) => `[?] Compiling (${passedTime})`
-  );
-  const statusAndStdErrorListPromises = Promise.all(
-    tasksToRun.map((workspace) => {
-      const childProcess = spawn('yarn', ['workspace', workspace, 'compile'], {
-        shell: true,
-        stdio: ['ignore', 'pipe', 'ignore'],
-      });
-      let collector = '';
+  const statusAndStdErrorList = await asyncTaskWithSpinner(
+    (passedTime) => `[?] Compiling (${passedTime})`,
+    () =>
+      Promise.all(
+        tasksToRun.map((workspace) => {
+          const childProcess = spawn('yarn', ['workspace', workspace, 'compile'], {
+            shell: true,
+            stdio: ['ignore', 'pipe', 'ignore'],
+          });
+          let collector = '';
 
-      childProcess.stdout.on('data', (chunk) => {
-        collector += chunk.toString();
-      });
-      return new Promise<readonly [string, boolean, string]>((resolve) => {
-        childProcess.on('exit', (code) => resolve([workspace, code === 0, collector]));
-      });
-    })
+          childProcess.stdout.on('data', (chunk) => {
+            collector += chunk.toString();
+          });
+          return new Promise<readonly [string, boolean, string]>((resolve) => {
+            childProcess.on('exit', (code) => resolve([workspace, code === 0, collector]));
+          });
+        })
+      )
   );
-
-  const statusAndStdErrorList = await statusAndStdErrorListPromises;
-  clearInterval(compilingMessageInterval);
 
   const globalStdErrorCollector = statusAndStdErrorList.map((it) => it[2]).join('');
   const failedWorkspacesRuns = statusAndStdErrorList.filter((it) => !it[1]).map((it) => it[0]);

@@ -3,7 +3,7 @@ type YarnInvididualWorkspaceInformation = {
   readonly dependencyChain: readonly string[];
 };
 
-type YarnWorkspacesJson = {
+export type YarnWorkspacesJson = {
   readonly __type__: unknown;
   readonly information: Readonly<Record<string, YarnInvididualWorkspaceInformation>>;
   readonly topologicallyOrdered: readonly string[];
