@@ -45,6 +45,8 @@ jobs:
           cache: 'yarn'
       - name: Yarn Install
         run: yarn install --immutable
+      - name: Codegen
+        run: yarn ci-codegen
       - name: Check changed
         run: if [[ `git status --porcelain` ]]; then exit 1; fi
   test:

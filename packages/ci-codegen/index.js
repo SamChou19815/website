@@ -1,6 +1,30 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'fs';
-import { join } from 'path';
+#!/usr/bin/env node
 
+// @ts-check
+
+const {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  readdirSync,
+  unlinkSync,
+  writeFileSync,
+} = require('fs');
+const { join } = require('path');
+
+/**
+ * @typedef {Object} YarnInvididualWorkspaceInformation
+ * @property {string} workspaceLocation
+ * @property {readonly string[]} dependencyChain
+ */
+
+/**
+ * @typedef {Object} YarnWorkspacesJson
+ * @property {Readonly<Record<string, YarnInvididualWorkspaceInformation>>} information
+ * @property {readonly string[]} topologicallyOrdered
+ */
+
+/** @type {string} */
 const yarnWorkspaceBoilterplateSetupString = `
     runs-on: ubuntu-latest
     steps:
@@ -13,11 +37,12 @@ const yarnWorkspaceBoilterplateSetupString = `
       - name: Yarn Install
         run: yarn install --immutable`;
 
+/** @returns {boolean} */
 const hasScript = (
-  workspacesJson: YarnWorkspacesJson,
-  workspace: string,
-  script: string
-): boolean => {
+  /** @type {YarnWorkspacesJson} */ workspacesJson,
+  /** @type {string} */ workspace,
+  /** @type {string} */ script
+) => {
   const oneWorkspace = workspacesJson.information[workspace];
   if (oneWorkspace == null) throw new Error();
   return (
@@ -26,10 +51,9 @@ const hasScript = (
   );
 };
 
-const githubActionsCodegenService = (
-  workspacesJson: YarnWorkspacesJson
-): readonly (readonly [string, string])[] => {
-  return workspacesJson.topologicallyOrdered
+/** @returns {readonly (readonly [name: string, content: string])[]} */
+const githubActionsCodegenService = (/** @type {YarnWorkspacesJson} */ workspacesJson) =>
+  workspacesJson.topologicallyOrdered
     .filter((name) => hasScript(workspacesJson, name, 'deploy'))
     .map((workspace) => {
       const name = `cd-${workspace}`;
@@ -43,7 +67,7 @@ on:
   push:
     paths:${(workspacesJson.information[workspace]?.dependencyChain ?? [])
       .map(
-        (workspaceDependency: string) =>
+        (workspaceDependency) =>
           `\n      - '${workspacesJson.information[workspaceDependency]?.workspaceLocation}/**'`
       )
       .join('')}
@@ -61,13 +85,12 @@ jobs:
       - name: Deploy
         run: yarn workspace ${workspace} deploy
 `,
-      ] as const;
+      ];
     });
-};
 
 const GITHUB_WORKFLOWS_PATH = join('.github', 'workflows');
 
-const runCodegen = async (workspacesJson: YarnWorkspacesJson): Promise<void> => {
+const runCodegen = async (/** @type {YarnWorkspacesJson} */ workspacesJson) => {
   // Step 1: Cleanup potentially old stale files
   if (existsSync(GITHUB_WORKFLOWS_PATH)) {
     readdirSync(GITHUB_WORKFLOWS_PATH).forEach((it) => {
@@ -86,4 +109,4 @@ const runCodegen = async (workspacesJson: YarnWorkspacesJson): Promise<void> => 
   });
 };
 
-export default runCodegen;
+runCodegen(JSON.parse(readFileSync(join(__dirname, '..', '..', 'workspaces.json')).toString()));

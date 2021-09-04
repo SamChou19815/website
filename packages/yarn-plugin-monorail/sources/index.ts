@@ -3,7 +3,6 @@ import { writeFileSync } from 'fs';
 import type { Plugin, Hooks } from '@yarnpkg/core';
 import { Command } from 'clipanion';
 
-import runCodegen from './codegen';
 import incrementalCompile from './compile';
 
 class CompileCommand extends Command {
@@ -20,7 +19,6 @@ const plugin: Plugin<Hooks> = {
       // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
       const workspacesJson: YarnWorkspacesJson = require('./query').default;
       writeFileSync('workspaces.json', `${JSON.stringify(workspacesJson, undefined, 2)}\n`);
-      runCodegen(workspacesJson);
     },
   },
   // @ts-expect-error: version discrepancy?
