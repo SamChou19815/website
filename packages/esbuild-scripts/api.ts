@@ -1,7 +1,5 @@
 /* eslint-disable no-console */
 
-import { RED, BLUE } from 'lib-colorful-terminal/colors';
-
 import buildCommand from './command-build';
 import initCommand from './command-init';
 import startCommand from './command-start';
@@ -15,7 +13,7 @@ const utils = { ...fs, parseMarkdownHeaderTree, parseMarkdownTitle, compileMarkd
 export { constants, utils };
 
 function help() {
-  console.error(BLUE('Usage:'));
+  console.error('Usage:');
   console.error('- esbuild-script start: start the devserver.');
   console.error('- esbuild-script build: generate production build.');
   console.error('- esbuild-script ssg: generate static site.');
@@ -41,7 +39,7 @@ async function runner(virtualEntryComponents: VirtualPathMappings) {
       help();
       return true;
     default:
-      console.error(RED(`Unknown command: '${command}'`));
+      console.error(`Unknown command: '${command}'`);
       help();
       return false;
   }
@@ -56,7 +54,7 @@ export default async function main(
   try {
     if (!(await runner(virtualEntryComponents))) process.exitCode = 1;
   } catch (error) {
-    console.error(RED(error));
+    console.error(error);
     process.exitCode = 1;
   }
 }

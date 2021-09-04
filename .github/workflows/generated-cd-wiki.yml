@@ -7,7 +7,6 @@ on:
       - 'packages/lib-react-loading/**'
       - 'packages/lib-firebase/**'
       - 'packages/lib-react-prism/**'
-      - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/lib-react-docs/**'
       - 'packages/wiki/**'

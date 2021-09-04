@@ -3,7 +3,6 @@
 import { dirname, join, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
-import { RED, GREEN, YELLOW } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
 import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
@@ -76,11 +75,9 @@ const getSSRFunction = async (
     return require(resolve(SSR_JS_PATH));
   } catch (error) {
     console.error(
-      RED(
-        'Unable to perform server side rendering since the server bundle is not correctly generated.'
-      )
+      'Unable to perform server side rendering since the server bundle is not correctly generated.'
     );
-    console.error(RED(error));
+    console.error(error);
     return null;
   } finally {
     await remove(SSR_CSS_PATH);
@@ -92,7 +89,6 @@ const buildCommand = async (
   staticSiteGeneration: boolean
 ): Promise<boolean> => {
   const startTime = new Date().getTime();
-  console.error(YELLOW('[i] Bundling...'));
   const { entryPointsWithoutExtension, entryPointVirtualFiles } =
     await createEntryPointsGeneratedVirtualFiles(Object.keys(virtualEntryComponents));
   await copyDirectoryContent('public', 'build');
@@ -133,7 +129,7 @@ const buildCommand = async (
   );
 
   const totalTime = new Date().getTime() - startTime;
-  console.error(`⚡ ${GREEN(`Build success in ${totalTime}ms.`)}`);
+  console.error(`⚡ Build success in ${totalTime}ms.`);
   return true;
 };
 
