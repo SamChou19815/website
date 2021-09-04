@@ -1,7 +1,5 @@
 import { join } from 'path';
 
-import { GREEN } from 'lib-colorful-terminal/colors';
-
 import { TEMPLATE_PATH, PAGES_PATH } from './utils/constants';
 import { copyFile, ensureDirectory, writeFile } from './utils/fs';
 
@@ -14,8 +12,6 @@ const initCommand = async (): Promise<void> => {
     writeFile(join('src', 'types.d.ts'), '/// <reference types="esbuild-scripts" />\n'),
     ensureDirectory('public'),
   ]);
-  // eslint-disable-next-line no-console
-  console.error(GREEN('esbuild-scripts app initialized.'));
 };
 
 export default initCommand;

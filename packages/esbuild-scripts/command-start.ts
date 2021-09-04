@@ -1,7 +1,6 @@
 import { createServer, request } from 'http';
 
 import { serve } from 'esbuild';
-import { GREEN, BLUE } from 'lib-colorful-terminal/colors';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
 import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
@@ -83,7 +82,7 @@ const startCommand = async (virtualEntryComponents: VirtualPathMappings): Promis
   }).listen(3000);
 
   // eslint-disable-next-line no-console
-  console.error(`${GREEN('Serving at')} ${BLUE('http://localhost:3000')}`);
+  console.error('Serving at http://localhost:3000');
 
   await esbuildServer.wait;
   proxyServer.close();

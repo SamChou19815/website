@@ -6,7 +6,6 @@ on:
     paths:
       - 'packages/lib-react-loading/**'
       - 'packages/lib-firebase/**'
-      - 'packages/lib-colorful-terminal/**'
       - 'packages/esbuild-scripts/**'
       - 'packages/ten/**'
       - 'configuration/**'
