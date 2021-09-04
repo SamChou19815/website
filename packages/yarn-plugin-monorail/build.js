@@ -6,7 +6,7 @@ const { dirname, join } = require('path');
 const { pnpPlugin } = require('@yarnpkg/esbuild-plugin-pnp');
 const { build } = require('esbuild');
 
-const outFile = join('bundles', '@yarnpkg', 'plugin-monorail.js');
+const outFile = join('bundles', 'plugin-monorail.js');
 mkdirSync(dirname(outFile), { recursive: true });
 
 build({
