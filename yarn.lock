@@ -648,10 +648,8 @@ __metadata:
     "@types/jest": ^27.0.1
     "@types/node": ^16.7.10
     "@yarnpkg/core": ^3.1.0-rc.3
-    "@yarnpkg/esbuild-plugin-pnp": ^1.0.1-rc.3
     clipanion: 3.0.1
     esbuild: ^0.12.25
-    lib-colorful-terminal: "workspace:0.1.0"
     typescript: ^4.3.5
   languageName: unknown
   linkType: soft
@@ -2178,19 +2176,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/esbuild-plugin-pnp@npm:^1.0.1-rc.3":
-  version: 1.0.1-rc.3
-  resolution: "@yarnpkg/esbuild-plugin-pnp@npm:1.0.1-rc.3"
-  dependencies:
-    tslib: ^1.13.0
-  peerDependencies:
-    esbuild: ">=0.8.36"
-  bin:
-    esbuild-plugin-pnp: ./lib/cli.js
-  checksum: 21f4d4d27fe9adae86c0073ab5d38d3946731fed1b3b352184ccf14b19d1efd33a6c0301d07e8e6e6eae71d09b4a8313e29f9df334b2b5a24c76c178b34c7547
-  languageName: node
-  linkType: hard
-
 "@yarnpkg/fslib@npm:^2.5.0, @yarnpkg/fslib@npm:^2.5.2":
   version: 2.5.2
   resolution: "@yarnpkg/fslib@npm:2.5.2"
@@ -3639,7 +3624,6 @@ __metadata:
     "@types/react-helmet": ^6.1.1
     "@types/react-router-dom": ^5.1.7
     "@types/sass": ^1.16.0
-    "@yarnpkg/esbuild-plugin-pnp": ^1.0.1-rc.3
     esbuild: ^0.12.25
     react-helmet: ^6.1.0
     react-router-dom: ^5.2.0
@@ -5911,15 +5895,6 @@ __metadata:
   checksum: 0d084a524231a8246bb10fec48cdbb35282099f6954838604f3c7fc66f2e16fa66fd9cc2f3f20a541a113c4dafdf181e822c887c8a319c9195444e6c64ac395e
   languageName: node
   linkType: hard
-
-"lib-colorful-terminal@workspace:0.1.0, lib-colorful-terminal@workspace:packages/lib-colorful-terminal":
-  version: 0.0.0-use.local
-  resolution: "lib-colorful-terminal@workspace:packages/lib-colorful-terminal"
-  dependencies:
-    "@types/node": ^16.7.10
-    typescript: ^4.3.5
-  languageName: unknown
-  linkType: soft
 
 "lib-firebase@0.1.0, lib-firebase@workspace:0.1.0, lib-firebase@workspace:packages/lib-firebase":
   version: 0.0.0-use.local

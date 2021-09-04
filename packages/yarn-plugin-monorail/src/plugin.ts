@@ -17,8 +17,10 @@ class CompileCommand extends Command<CommandContext> {
 const plugin: Plugin<Hooks> = {
   hooks: {
     afterAllInstalled(project) {
-      const workspacesJson: YarnWorkspacesJson = generateYarnWorkspacesJson(project);
-      writeFileSync('workspaces.json', `${JSON.stringify(workspacesJson, undefined, 2)}\n`);
+      writeFileSync(
+        'workspaces.json',
+        `${JSON.stringify(generateYarnWorkspacesJson(project), undefined, 2)}\n`
+      );
     },
   },
   commands: [CompileCommand],

@@ -2,15 +2,15 @@ import { YELLOW } from './colors';
 
 const spinner = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 
-/**
- * Starts a spinner of progress in supported terminal.
- *
- * @returns a timeout that can be used to cancel the progress spinner.
- */
-const startSpinnerProgress = (getMessage: (passedTime: string) => string): NodeJS.Timeout => {
+export default async function asyncTaskWithSpinner<T>(
+  getMessage: (passedTime: string) => string,
+  asyncTask: () => Promise<T>
+): Promise<T> {
+  if (!process.stderr.isTTY) return asyncTask();
+
   let iteration = 0;
   const startTime = new Date().getTime();
-  return setInterval(
+  const interval = setInterval(
     () => {
       const passedTime = `${((new Date().getTime() - startTime) / 1000).toFixed(1)}s`;
       const message = getMessage(passedTime);
@@ -20,6 +20,7 @@ const startSpinnerProgress = (getMessage: (passedTime: string) => string): NodeJ
     },
     process.stderr.isTTY ? 40 : 1000
   );
-};
-
-export default startSpinnerProgress;
+  const result = await asyncTask();
+  clearInterval(interval);
+  return result;
+}
