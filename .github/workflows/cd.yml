@@ -14,8 +14,6 @@ jobs:
         with:
           fetch-depth: '2'
       - uses: actions/setup-node@v2
-        with:
-          cache: 'yarn'
       - name: Yarn Install
         run: yarn install --immutable
       - name: Build and Deploy
