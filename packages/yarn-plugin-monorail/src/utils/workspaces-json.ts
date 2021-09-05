@@ -1,3 +1,5 @@
+import { readFile } from 'fs';
+
 import type { Locator, Project } from '@yarnpkg/core';
 
 type YarnInvididualWorkspaceInformation = {
@@ -81,7 +83,7 @@ function getYarnWorkspaceInRepoDependencyChain(
   return dependencyChain;
 }
 
-export default function generateYarnWorkspacesJson(project: Project): YarnWorkspacesJson {
+export function generateYarnWorkspacesJson(project: Project): YarnWorkspacesJson {
   const workspaceInformation = getWorkspaceInformation(project);
   return {
     __type__: '@' + 'generated',
@@ -122,4 +124,12 @@ export default function generateYarnWorkspacesJson(project: Project): YarnWorksp
       return sorted;
     })(),
   };
+}
+
+export function readGeneratedYarnWorkspacesJson(): Promise<YarnWorkspacesJson> {
+  return new Promise((resolve, reject) =>
+    readFile('workspaces.json', (error, data) =>
+      error ? reject(error) : resolve(JSON.parse(data.toString()))
+    )
+  );
 }
