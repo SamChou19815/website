@@ -6,6 +6,7 @@ import type { CommandContext, Hooks, Plugin } from '@yarnpkg/core';
 import { Command } from 'clipanion';
 
 import incrementalCompile from './compile';
+import workspacesTargetDeterminator from './utils/target-determinator';
 import {
   generateYarnWorkspacesJson,
   readGeneratedYarnWorkspacesJson,
@@ -32,6 +33,17 @@ class QueryCommand extends Command<CommandContext> {
   }
 }
 
+class TargetDeterminatorCommand extends Command<CommandContext> {
+  static paths = [['t'], ['targets']];
+
+  async execute(): Promise<number> {
+    this.context.stdout.write(
+      `${JSON.stringify(await workspacesTargetDeterminator(), undefined, 2)}\n`
+    );
+    return 0;
+  }
+}
+
 const plugin: Plugin<Hooks> = {
   hooks: {
     afterAllInstalled(project) {
@@ -41,7 +53,7 @@ const plugin: Plugin<Hooks> = {
       );
     },
   },
-  commands: [CompileCommand, QueryCommand],
+  commands: [CompileCommand, QueryCommand, TargetDeterminatorCommand],
 };
 
 export default plugin;

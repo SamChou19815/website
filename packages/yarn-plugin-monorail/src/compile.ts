@@ -1,80 +1,23 @@
 /* eslint-disable no-console */
 
-import { spawn, spawnSync } from 'child_process';
-import { readFileSync } from 'fs';
-import { dirname, join } from 'path';
+import { spawn } from 'child_process';
 
 import { RED, GREEN, BLUE, MAGENTA } from './utils/colors';
 import asyncTaskWithSpinner from './utils/spinner-progress';
-import { YarnWorkspacesJson } from './utils/workspaces-json';
-
-const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
-  const queryFromGitDiffResult = (base: string, head?: string) => {
-    const trimmed = spawnSync('git', [
-      'diff',
-      base,
-      ...(head ? [head] : []),
-      '--name-only',
-      '--',
-      pathPrefix,
-    ])
-      .stdout.toString()
-      .trim();
-
-    return trimmed === '' ? [] : trimmed.split('\n');
-  };
-
-  if (process.env.CI) {
-    return queryFromGitDiffResult('HEAD^', 'HEAD');
-  }
-  return queryFromGitDiffResult('origin/main');
-};
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const readJson = (path: string): any => JSON.parse(readFileSync(path).toString());
-
-const workspaceHasChangedFilesExcludingBundledBinaries = (
-  workspacesJson: YarnWorkspacesJson,
-  workspaceName: string
-): boolean => {
-  const isNotBundledBinary = (filename: string): boolean =>
-    dirname(filename) !==
-    join(workspacesJson.information[workspaceName]?.workspaceLocation ?? '.', 'bin');
-
-  const dependencyChain = workspacesJson.information[workspaceName]?.dependencyChain ?? [];
-  return dependencyChain.some((item) => {
-    const dependencyWorkspaceName = workspacesJson.information[item]?.workspaceLocation ?? '.';
-    const changedFiles = queryChangedFilesSince(dependencyWorkspaceName);
-    return changedFiles.some(isNotBundledBinary);
-  });
-};
-
-const workspacesTargetDeterminator = (workspacesJson: YarnWorkspacesJson): readonly string[] => {
-  return workspacesJson.topologicallyOrdered
-    .map((workspaceName) => {
-      const needRebuild = workspaceHasChangedFilesExcludingBundledBinaries(
-        workspacesJson,
-        workspaceName
-      );
-      return [workspaceName, needRebuild] as const;
-    })
-    .filter(([, needRebuild]) => needRebuild)
-    .map(([workspace]) => workspace);
-};
+import workspacesTargetDeterminator from './utils/target-determinator';
 
 const incrementalCompile = async (): Promise<boolean> => {
-  const workspacesJson: YarnWorkspacesJson = readJson('workspaces.json');
-  const tasksToRun = workspacesTargetDeterminator(workspacesJson);
+  const workspacesToReCompile = await workspacesTargetDeterminator();
 
-  tasksToRun.forEach((workspace) => {
-    console.error(BLUE(`[i] \`${workspace}\` needs to be recompiled.`));
+  workspacesToReCompile.forEach(({ name }) => {
+    console.error(BLUE(`[i] \`${name}\` needs to be recompiled.`));
   });
 
   const statusAndStdErrorList = await asyncTaskWithSpinner(
     (passedTime) => `[?] Compiling (${passedTime})`,
     () =>
       Promise.all(
-        tasksToRun.map((workspace) => {
+        workspacesToReCompile.map(({ name: workspace }) => {
           const childProcess = spawn('yarn', ['workspace', workspace, 'compile'], {
             shell: true,
             stdio: ['ignore', 'pipe', 'ignore'],
