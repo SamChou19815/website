@@ -1,14 +1,6 @@
-# @generated
-
-name: CD dot-dev
+name: CD
 on:
   push:
-    paths:
-      - 'packages/lib-theme-switcher/**'
-      - 'packages/esbuild-scripts/**'
-      - 'packages/dot-dev/**'
-      - 'configuration/**'
-      - '.github/workflows/generated-*-dot-dev.yml'
     branches:
       - main
 env:
@@ -26,7 +18,5 @@ jobs:
           cache: 'yarn'
       - name: Yarn Install
         run: yarn install --immutable
-      - name: Build
-        run: yarn workspace dot-dev build
-      - name: Deploy
-        run: yarn workspace dot-dev deploy
+      - name: Build and Deploy
+        run: scripts/deploy.js

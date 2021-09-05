@@ -1,5 +1,5 @@
 const initializeThemeSwitching = (): void => {
-  const setTheme = (theme: string) => document.documentElement.setAttribute('data-theme', theme);
+  const setTheme = (t: string) => document.documentElement.setAttribute('data-theme', t);
   if (window.matchMedia('(prefers-color-scheme: light)').matches) setTheme('');
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
   window
