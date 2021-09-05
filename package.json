@@ -7,9 +7,7 @@
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md,yml}'",
     "lint": "eslint . --cache",
     "test": "jest",
-    "bump": "yarn up @types/jest @types/node @types/react @types/react-dom prettier jest husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\"",
-    "import-plugin": "yarn plugin import ./packages/yarn-plugin-monorail/bundles/plugin-monorail.js",
-    "setup-plugin": "yarn workspace @dev-sam/yarn-plugin-monorail bundle && yarn import-plugin"
+    "bump": "yarn up @types/jest @types/node @types/react @types/react-dom prettier jest husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\""
   },
   "workspaces": [
     "packages/*"
