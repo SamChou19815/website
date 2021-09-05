@@ -2,16 +2,21 @@ import { readFile } from 'fs';
 
 import type { Locator, Project } from '@yarnpkg/core';
 
-type YarnInvididualWorkspaceInformation = {
+export interface YarnInvididualWorkspaceInformation {
   readonly workspaceLocation: string;
   readonly dependencyChain: readonly string[];
-};
+}
 
-export type YarnWorkspacesJson = {
+export interface NamedYarnInvididualWorkspaceInformation
+  extends YarnInvididualWorkspaceInformation {
+  readonly name: string;
+}
+
+export interface YarnWorkspacesJson {
   readonly __type__: unknown;
   readonly information: Readonly<Record<string, YarnInvididualWorkspaceInformation>>;
   readonly topologicallyOrdered: readonly string[];
-};
+}
 
 type SingleWorkspaceInformationFromYarn = {
   readonly workspaceLocation: string;
