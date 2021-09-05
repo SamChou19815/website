@@ -4,9 +4,9 @@ import { spawn, spawnSync } from 'child_process';
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 
-import { RED, GREEN, BLUE, MAGENTA } from './colors';
-import asyncTaskWithSpinner from './spinner-progress';
-import { YarnWorkspacesJson } from './workspaces-json';
+import { RED, GREEN, BLUE, MAGENTA } from './utils/colors';
+import asyncTaskWithSpinner from './utils/spinner-progress';
+import { YarnWorkspacesJson } from './utils/workspaces-json';
 
 const queryChangedFilesSince = (pathPrefix: string): readonly string[] => {
   const queryFromGitDiffResult = (base: string, head?: string) => {

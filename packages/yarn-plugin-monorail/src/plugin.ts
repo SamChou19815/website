@@ -1,16 +1,34 @@
+/* eslint-disable class-methods-use-this */
+
 import { writeFileSync } from 'fs';
 
 import type { CommandContext, Hooks, Plugin } from '@yarnpkg/core';
 import { Command } from 'clipanion';
 
 import incrementalCompile from './compile';
-import generateYarnWorkspacesJson from './workspaces-json';
+import {
+  generateYarnWorkspacesJson,
+  readGeneratedYarnWorkspacesJson,
+} from './utils/workspaces-json';
 
 class CompileCommand extends Command<CommandContext> {
   static paths = [['c']];
-  // eslint-disable-next-line class-methods-use-this
   async execute(): Promise<number> {
     return (await incrementalCompile()) ? 0 : 1;
+  }
+}
+
+class QueryCommand extends Command<CommandContext> {
+  static paths = [['q'], ['query']];
+
+  async execute(): Promise<number> {
+    try {
+      const json = await readGeneratedYarnWorkspacesJson();
+      this.context.stdout.write(`${JSON.stringify(json, undefined, 2)}\n`);
+      return 0;
+    } catch {
+      return 1;
+    }
   }
 }
 
@@ -23,7 +41,7 @@ const plugin: Plugin<Hooks> = {
       );
     },
   },
-  commands: [CompileCommand],
+  commands: [CompileCommand, QueryCommand],
 };
 
 export default plugin;
