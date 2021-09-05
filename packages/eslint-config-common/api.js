@@ -69,7 +69,6 @@ module.exports = (
       },
     ],
     'no-alert': 'off',
-    'no-await-in-loop': 'error',
     'no-console': 'warn',
     'no-constant-condition': ['error', { checkLoops: false }],
     'no-empty-function': 'off',
@@ -82,26 +81,11 @@ module.exports = (
     'no-lone-blocks': 'off',
     'no-param-reassign': ['error', { props: false }],
     'no-proto': 'error',
-    'no-restricted-properties': [
-      'error',
-      { object: 'arguments', property: 'callee', message: 'arguments.callee is deprecated' },
-      { object: 'global', property: 'isFinite', message: 'Please use Number.isFinite instead' },
-      { object: 'self', property: 'isFinite', message: 'Please use Number.isFinite instead' },
-      { object: 'window', property: 'isFinite', message: 'Please use Number.isFinite instead' },
-      { object: 'global', property: 'isNaN', message: 'Please use Number.isNaN instead' },
-      { object: 'self', property: 'isNaN', message: 'Please use Number.isNaN instead' },
-      { object: 'window', property: 'isNaN', message: 'Please use Number.isNaN instead' },
-      { property: '__defineGetter__', message: 'Please use Object.defineProperty instead.' },
-      { property: '__defineSetter__', message: 'Please use Object.defineProperty instead.' },
-      { object: 'Math', property: 'pow', message: 'Use the exponentiation operator (**) instead.' },
-    ],
     'no-return-assign': ['error', 'always'],
-    'no-self-compare': 'error',
     'no-sequences': 'error',
     'no-shadow': 'error',
     'no-shadow-restricted-names': 'error',
     'no-template-curly-in-string': 'error',
-    'no-throw-literal': 'error',
     'no-underscore-dangle': 'off',
     'no-useless-constructor': 'off',
     'no-useless-return': 'off',
@@ -112,8 +96,6 @@ module.exports = (
     'prefer-const': ['error', { destructuring: 'any', ignoreReadBeforeAssign: true }],
     'prefer-template': 'error',
     radix: 'error',
-    // Need for .d.ts type references
-    'spaced-comment': ['error', 'always', { markers: ['/'] }],
     ...(react
       ? {
           'react/jsx-filename-extension': 'off', // Already covered by TypeScript

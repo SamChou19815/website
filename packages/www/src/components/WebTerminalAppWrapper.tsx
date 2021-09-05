@@ -1,45 +1,12 @@
-import React, { ReactNode, useEffect } from 'react';
+import React from 'react';
 
-import { DATASET_ABOUT, DATASET_PROJECTS, DATASET_TECH_TALKS, DATASET_TIMELINE } from './data';
-import { useSetTerminalForceOnBirthday } from './global-states';
 import WebTerminal from './web-terminal';
 import { WebTerminalCommandsContextProvider } from './web-terminal/WebTerminalCommandsContext';
 import baseCommands from './web-terminal/base-commands';
 import type { Commands } from './web-terminal/types';
 
-const devSam = (command: string): readonly ReactNode[] | ReactNode | void => {
-  const information = `Copyright (C) 2015-${new Date().getFullYear()} Developer Sam. All rights reserved.`;
-  switch (command) {
-    case 'about':
-      return [
-        'Random Facts:',
-        ...DATASET_ABOUT.facts.map(({ text }) => `- ${text}`),
-        'External Links:',
-        ...DATASET_ABOUT.links.map(({ href, text }) => `- [${text}](${href})`),
-      ];
-    case 'projects':
-    case 'project':
-      return DATASET_PROJECTS.flatMap(({ name, type, description, links }) => [
-        `${type} ${name}`,
-        `- ${description}`,
-        '- Links:',
-        ...links.map(({ text, href }) => `  - [${text}](${href})`),
-      ]);
-    case 'tech-talks':
-    case 'tech-talk':
-      return DATASET_TECH_TALKS.flatMap(({ title, description, link }) => [
-        title,
-        `- ${description}`,
-        `- Slide: ${link}`,
-      ]);
-    case 'timeline':
-      return DATASET_TIMELINE.map(({ title, time }) => `${time}: ${title}`);
-    case undefined:
-      return [information];
-    default:
-      return [`Supported commands: about, projects, tech-talks, timeline.\n${information}`];
-  }
-};
+const devSam = () =>
+  `Copyright (C) 2015-${new Date().getFullYear()} Developer Sam. All rights reserved.`;
 
 const TIME_OF_OCT_14_2020_7PM = 1602630000000;
 
@@ -82,19 +49,7 @@ const DevMegan = (): JSX.Element => {
   );
 };
 
-const devMegan = (): JSX.Element => <DevMegan />;
-
-const ForceBirthdayDummyComponent = (): JSX.Element => {
-  const setForceOnBirthday = useSetTerminalForceOnBirthday();
-
-  useEffect(() => {
-    setForceOnBirthday((forced) => !forced);
-  }, [setForceOnBirthday]);
-
-  return <>Toggled birthday state!</>;
-};
-
-const forceBirthday = (): JSX.Element => <ForceBirthdayDummyComponent />;
+const devMegan = () => <DevMegan />;
 
 const commands: Commands = {
   ...baseCommands,
@@ -110,10 +65,6 @@ const commands: Commands = {
         alt="dev-megan"
       />
     ),
-  },
-  'birthday-toggle': {
-    fn: forceBirthday,
-    description: "Make the website to believe that today is Sam's birthday, or reset the belief.",
   },
 };
 

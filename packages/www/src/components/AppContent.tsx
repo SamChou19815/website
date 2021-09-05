@@ -9,7 +9,7 @@ import LazyCardMedia from './LazyCardMedia';
 import ProfilePicture from './ProfilePicture';
 import StickyCodeBlock from './StickyCodeBlock';
 import { DATASET_ABOUT, DATASET_PROJECTS, DATASET_TECH_TALKS, DATASET_TIMELINE } from './data';
-import { useSetDeveloperSamOnBirthday, useTerminalForceOnBirthday } from './global-states';
+import { useSetDeveloperSamOnBirthday } from './global-states';
 
 const WebTerminalAppWrapper = lazy(() => import('./WebTerminalAppWrapper'));
 
@@ -125,16 +125,15 @@ const timelineSection = (
 
 const AppContent = (): JSX.Element => {
   const setOnBirthday = useSetDeveloperSamOnBirthday();
-  const terminalForceOnBirthday = useTerminalForceOnBirthday();
 
   useEffect(() => {
     const interval = setInterval(() => {
       const today = new Date();
       const onBirthday = today.getMonth() === 10 && today.getDate() === 15;
-      setOnBirthday(terminalForceOnBirthday || onBirthday);
+      setOnBirthday(onBirthday);
     }, 200);
     return () => clearInterval(interval);
-  }, [terminalForceOnBirthday, setOnBirthday]);
+  }, [setOnBirthday]);
 
   return (
     <>
