@@ -106,6 +106,7 @@ export const updateWikiPrivateDocumentMetadata = ({
   documentID,
   ...documentMedatata
 }: WikiPrivateDocumentMetadata): void => {
+  // @ts-expect-error: Firebase typedef needs update.
   updateDoc(doc(firestorePrivateDocumentMetadataCollection, documentID), documentMedatata);
 };
 
@@ -113,6 +114,7 @@ export const updateWikiPrivateDocumentContent = ({
   documentID,
   ...documentContent
 }: WikiPrivateDocumentContent): void => {
+  // @ts-expect-error: Firebase typedef needs update.
   updateDoc(doc(firestorePrivateDocumentContentCollection, documentID), documentContent);
 };
 
