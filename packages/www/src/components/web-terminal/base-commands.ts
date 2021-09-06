@@ -8,7 +8,7 @@ const baseCommands: Commands = {
       try {
         return showFiles(getFilesystemState(), paths);
       } catch (exception) {
-        return exception.message;
+        return (exception instanceof Error && exception.message) || 'Unknown Error';
       }
     },
     description: 'Concatenate and print files',
@@ -21,7 +21,7 @@ const baseCommands: Commands = {
         setFilesystemState(changeDirectory(getFilesystemState(), path || '/'));
         return undefined;
       } catch (exception) {
-        return exception.message;
+        return (exception instanceof Error && exception.message) || 'Unknown Error';
       }
     },
     description: 'Change current directory.',
@@ -35,11 +35,11 @@ const baseCommands: Commands = {
   },
 
   ls: {
-    fn: (...paths: string[]): readonly string[] => {
+    fn: (...paths: string[]): readonly string[] | string => {
       try {
         return listFiles(getFilesystemState(), paths);
       } catch (exception) {
-        return exception.message;
+        return (exception instanceof Error && exception.message) || 'Unknown Error';
       }
     },
     description: 'List directory contents.',

@@ -27,7 +27,10 @@ const getResponse = (programString: string): Response | string => {
   try {
     return runSamlangDemo(programString);
   } catch (interpreterError) {
-    return interpreterError.message || 'Unknown interpreter error.';
+    return (
+      (interpreterError instanceof Error && interpreterError.message) ||
+      'Unknown interpreter error.'
+    );
   }
 };
 

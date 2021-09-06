@@ -2478,7 +2478,7 @@ __metadata:
     prism-react-renderer: ^1.2.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -3120,7 +3120,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-ga: ^3.3.0
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -3280,7 +3280,7 @@ __metadata:
     remark-slug: ^6.0.0
     resolve.exports: ^1.0.2
     sass: ^1.32.11
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   peerDependencies:
     react: "*"
     react-dom: "*"
@@ -5466,7 +5466,7 @@ __metadata:
     firebase: ^9.0.0
     lib-react-loading: 0.1.0
     rxjs: ^7.2.0
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   peerDependencies:
     firebase: "*"
     react: ^17.0.1
@@ -5485,7 +5485,7 @@ __metadata:
     esbuild-scripts: "workspace:0.3.0"
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   peerDependencies:
     esbuild-scripts: "*"
     react: ^17.0.0
@@ -5502,7 +5502,7 @@ __metadata:
     esbuild-scripts: "workspace:0.3.0"
     react: ^17.0.2
     react-ga: ^3.3.0
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   peerDependencies:
     esbuild-scripts: "*"
     react: ^17.0.0
@@ -5515,7 +5515,7 @@ __metadata:
   dependencies:
     "@types/react": ^17.0.19
     react: ^17.0.2
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   peerDependencies:
     react: ^17.0.0
   languageName: unknown
@@ -5530,7 +5530,7 @@ __metadata:
     clsx: ^1.1.1
     prism-react-renderer: ^1.2.0
     react: ^17.0.2
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   peerDependencies:
     prism-react-renderer: ^1.2.0
     react: ^17.0.0
@@ -5541,7 +5541,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "lib-theme-switcher@workspace:packages/lib-theme-switcher"
   dependencies:
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -7104,7 +7104,7 @@ resolve@^2.0.0-next.3:
     jest: ^27.1.0
     lint-staged: ^11.1.2
     prettier: ^2.3.2
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   dependenciesMeta:
     core-js:
       built: false
@@ -7176,7 +7176,7 @@ resolve@^2.0.0-next.3:
     lib-react-prism: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -7740,7 +7740,7 @@ resolve@^2.0.0-next.3:
     lib-react-loading: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -7965,23 +7965,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@^4.3.5:
-  version: 4.3.5
-  resolution: "typescript@npm:4.3.5"
+typescript@^4.4.2:
+  version: 4.4.2
+  resolution: "typescript@npm:4.4.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: bab033b5e2b0790dd35b77fd005df976ef80b8d84fd2c6e63cc31808151875beae9216e5a315fe7068e8499905c3c354248fe83272cdfc13b7705635f0c66c97
+  checksum: 194e08e9d1971d667d6fd1a0554616b7022312a2319d70e81a64e502a265992061ee7817ed9a69b52bbabe7a9b85e7938cb8c11c433e40a516b277f8c4dacd51
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>":
-  version: 4.3.5
-  resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
+"typescript@patch:typescript@^4.4.2#~builtin<compat/typescript>":
+  version: 4.4.2
+  resolution: "typescript@patch:typescript@npm%3A4.4.2#~builtin<compat/typescript>::version=4.4.2&hash=32657b"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: bc2c4fdf0f1557fdafe4ef74848c72ebd9c8c60829568248f869121aea2bb20e16649a252431d0acb185ec118143be22bed73d08f64379557810d82756afedde
+  checksum: 3109ae25705746996007161cdd3271857db4f40356b894e34d4cabc216bf9e251f53e0bb6e48df2450b5e3fd948dcbee716a616a4ad4cf7251292025e6163cb1
   languageName: node
   linkType: hard
 
@@ -8354,7 +8354,7 @@ typescript@^4.3.5:
     react-dom: ^17.0.2
     remarkable: ^2.0.1
     rxjs: ^7.2.0
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -8451,7 +8451,7 @@ typescript@^4.3.5:
     react-dom: ^17.0.2
     react-dom-confetti: ^0.2.0
     recoil: ^0.2.0
-    typescript: ^4.3.5
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 

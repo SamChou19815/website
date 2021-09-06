@@ -29,6 +29,6 @@
     "esbuild": "^0.12.25",
     "esbuild-scripts": "workspace:0.3.0",
     "react": "^17.0.2",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.2"
   }
 }

@@ -39,7 +39,7 @@ const processBlogPostsPerFile = async () =>
             title,
           };
         } catch (error) {
-          throw new Error(`Failed to parse ${original}, error: ${error.message}`);
+          throw new Error(`Failed to parse ${original}, error: ${error}`);
         }
       })
   );
