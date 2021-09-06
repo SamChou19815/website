@@ -24,7 +24,6 @@
 **/coverage
 
 # framework generated files
-**/.firebase
 **/.temp
 **/generated-pages
 **/generated-components
