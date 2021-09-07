@@ -27,11 +27,10 @@ mind-blowing and I started to think about whether I can apply even a subset of t
 my side projects. Luckily, towards the end of the internship, I began to touch more CI related code,
 and learned a lot of best practices on CI/CD on a monorepo scale.
 
-The newly-gained experience has led to a [complete refactoring](./2019-08-24-automation-monorepo.md)
-of my website repo. It became an automation-powered monorepo at the end of August. Then I started to
-turn my focus onto the [`cornell-dti`](https://github.com/cornell-dti) GitHub organization, which I
-belong and had to manage it soon. I want developers at DTI to _move fast on a stable
-infrastructure_.
+The newly-gained experience has led to a complete refactoring of my website repo. It became an
+automation-powered monorepo at the end of August. Then I started to turn my focus onto the
+[`cornell-dti`](https://github.com/cornell-dti) GitHub organization, which I belong and had to
+manage it soon. I want developers at DTI to _move fast on a stable infrastructure_.
 
 ## Phase 1: Fall 2019
 

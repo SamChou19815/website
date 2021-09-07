@@ -35,9 +35,6 @@ const Document = ({ children }: { readonly children: ReactNode }): JSX.Element =
             <Link className={activeNavClass('/local')} to="/local">
               Play locally
             </Link>
-            <Link className={activeNavClass('/online')} to="/online">
-              Play online
-            </Link>
             <Link className={activeNavClass('/rules')} to="/rules">
               Rules
             </Link>

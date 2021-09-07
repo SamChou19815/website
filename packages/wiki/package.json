@@ -18,24 +18,14 @@
       "Roadmap": [
         "/oss-roadmap-2020-h2",
         "/oss-roadmap-2021"
-      ],
-      "Resources": [
-        "/resources-cs"
       ]
     }
   },
   "dependencies": {
-    "clsx": "^1.1.1",
-    "firebase": "^9.0.0",
     "infima": "^0.2.0-alpha.30",
-    "lib-firebase": "workspace:0.1.0",
     "lib-react-docs": "workspace:0.1.0",
-    "lib-react-loading": "workspace:0.1.0",
-    "lib-react-prism": "workspace:0.1.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "remarkable": "^2.0.1",
-    "rxjs": "^7.2.0"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.19",
