@@ -23,7 +23,7 @@ class Main {
 }
 `;
 
-const getResponse = (programString: string): Response | string => {
+function getResponse(programString: string): Response | string {
   try {
     return runSamlangDemo(programString);
   } catch (interpreterError) {
@@ -32,9 +32,9 @@ const getResponse = (programString: string): Response | string => {
       'Unknown interpreter error.'
     );
   }
-};
+}
 
-const LanguageDemo = () => {
+function LanguageDemo() {
   const [text, setText] = useState(initialText);
   const [response, setResponse] = useState(() => getResponse(initialText));
 
@@ -106,15 +106,13 @@ const LanguageDemo = () => {
       </div>
     </div>
   );
-};
+}
 
-const Demo = (): JSX.Element => {
+export default function Demo(): JSX.Element {
   return (
     <>
       <HeadTitle title="samlang Demo" />
       <LanguageDemo />
     </>
   );
-};
-
-export default Demo;
+}

@@ -10,7 +10,7 @@ const devSam = () =>
 
 const TIME_OF_OCT_14_2020_7PM = 1602630000000;
 
-const DevMegan = (): JSX.Element => {
+function DevMegan(): JSX.Element {
   return (
     <>
       <div>
@@ -47,7 +47,7 @@ const DevMegan = (): JSX.Element => {
       <a href="https://meganyin.com">{"Visit Megan's Website!"}</a>
     </>
   );
-};
+}
 
 const devMegan = () => <DevMegan />;
 
@@ -68,10 +68,10 @@ const commands: Commands = {
   },
 };
 
-const WebTerminalAppWrapper = (): JSX.Element => (
-  <WebTerminalCommandsContextProvider value={commands}>
-    <WebTerminal />
-  </WebTerminalCommandsContextProvider>
-);
-
-export default WebTerminalAppWrapper;
+export default function WebTerminalAppWrapper(): JSX.Element {
+  return (
+    <WebTerminalCommandsContextProvider value={commands}>
+      <WebTerminal />
+    </WebTerminalCommandsContextProvider>
+  );
+}

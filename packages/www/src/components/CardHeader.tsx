@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = { readonly title: string; readonly subheader?: string };
 
-const CardHeader = ({ title, subheader }: Props): JSX.Element => {
+export default function CardHeader({ title, subheader }: Props): JSX.Element {
   return (
     <div className="card__header">
       <div className="avatar">
@@ -13,6 +13,4 @@ const CardHeader = ({ title, subheader }: Props): JSX.Element => {
       </div>
     </div>
   );
-};
-
-export default CardHeader;
+}

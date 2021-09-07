@@ -37,12 +37,10 @@ const patchedTheme = {
   plain: { ...flexibleTheme.plain, backgroundColor: 'var(--ifm-background-color)' },
 };
 
-const StickyCodeBlock = (): JSX.Element => {
+export default function StickyCodeBlock(): JSX.Element {
   return (
     <CodeBlock language="samlang" theme={patchedTheme} className="sticky-code-block">
       {code}
     </CodeBlock>
   );
-};
-
-export default StickyCodeBlock;
+}

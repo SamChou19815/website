@@ -1074,13 +1074,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/highlight.js@npm:^9.7.0":
-  version: 9.12.4
-  resolution: "@types/highlight.js@npm:9.12.4"
-  checksum: 1a491cc59b58c906b4e1c7263c839b8741f4ef3af395f7e0c90350792d89a832f4c4c39010df577f9c9dd447544c854a45a7c999a7901dc16dc20faedf73e7b5
-  languageName: node
-  linkType: hard
-
 "@types/history@npm:*":
   version: 4.7.8
   resolution: "@types/history@npm:4.7.8"
@@ -1271,16 +1264,6 @@ __metadata:
   version: 0.2.28
   resolution: "@types/relateurl@npm:0.2.28"
   checksum: f836136f1a2837433b0dad7d79d60a8e6e4b8060e9e078fded8ddb55445270ece19c33c54fea1232685ea3bc3e4ff4518d82c8ee811f72eceeab429208f680dc
-  languageName: node
-  linkType: hard
-
-"@types/remarkable@npm:2.0.3":
-  version: 2.0.3
-  resolution: "@types/remarkable@npm:2.0.3"
-  dependencies:
-    "@types/highlight.js": ^9.7.0
-    highlight.js: ^9.7.0
-  checksum: 12dfe1f20ad7d930831b98c8f0ff2a0538965276546b5ace6427eefc301c996713bd373f17ffa3a4449546282c7dcdbaa9b8b3806537a876a0f40d3b80109f80
   languageName: node
   linkType: hard
 
@@ -2506,7 +2489,6 @@ __metadata:
     "@types/react": ^17.0.19
     esbuild-scripts: "workspace:0.3.0"
     infima: ^0.2.0-alpha.30
-    lib-theme-switcher: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
     react-ga: ^3.3.0
@@ -3475,13 +3457,6 @@ __metadata:
     property-information: ^5.0.0
     space-separated-tokens: ^1.0.0
   checksum: 5e50b85af0d2cb7c17979cb1ddca75d6b96b53019dd999b39e7833192c9004201c3cee6445065620ea05d0087d9ae147a4844e582d64868be5bc6b0232dfe52d
-  languageName: node
-  linkType: hard
-
-"highlight.js@npm:^9.7.0":
-  version: 9.18.5
-  resolution: "highlight.js@npm:9.18.5"
-  checksum: a8afdb395869bba8a892dd8891b738d3bd48fe2e5b6843ec3181c93d73f52abf2cab863424caa631442a7bbafac222bafdab3f5a536a69aab9c60d4c1b7f8b77
   languageName: node
   linkType: hard
 
@@ -4808,18 +4783,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"lib-react-loading@0.1.0, lib-react-loading@workspace:packages/lib-react-loading":
-  version: 0.0.0-use.local
-  resolution: "lib-react-loading@workspace:packages/lib-react-loading"
-  dependencies:
-    "@types/react": ^17.0.19
-    react: ^17.0.2
-    typescript: ^4.4.2
-  peerDependencies:
-    react: ^17.0.0
-  languageName: unknown
-  linkType: soft
-
 "lib-react-prism@0.1.0, lib-react-prism@workspace:0.1.0, lib-react-prism@workspace:packages/lib-react-prism":
   version: 0.0.0-use.local
   resolution: "lib-react-prism@workspace:packages/lib-react-prism"
@@ -4833,14 +4796,6 @@ __metadata:
   peerDependencies:
     prism-react-renderer: ^1.2.0
     react: ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"lib-theme-switcher@0.1.0, lib-theme-switcher@workspace:0.1.0, lib-theme-switcher@workspace:packages/lib-theme-switcher":
-  version: 0.0.0-use.local
-  resolution: "lib-theme-switcher@workspace:packages/lib-theme-switcher"
-  dependencies:
-    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -6314,11 +6269,7 @@ resolve@^2.0.0-next.3:
     prettier: ^2.3.2
     typescript: ^4.4.2
   dependenciesMeta:
-    core-js:
-      built: false
     core-js-pure:
-      built: false
-    ejs:
       built: false
   languageName: unknown
   linkType: soft
@@ -6896,7 +6847,6 @@ resolve@^2.0.0-next.3:
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"
     infima: ^0.2.0-alpha.30
-    lib-react-loading: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
     typescript: ^4.4.2
@@ -7446,22 +7396,6 @@ typescript@^4.4.2:
   languageName: node
   linkType: hard
 
-"wiki@workspace:packages/wiki":
-  version: 0.0.0-use.local
-  resolution: "wiki@workspace:packages/wiki"
-  dependencies:
-    "@types/react": ^17.0.19
-    "@types/react-dom": ^17.0.9
-    "@types/remarkable": 2.0.3
-    esbuild-scripts: "workspace:0.3.0"
-    infima: ^0.2.0-alpha.30
-    lib-react-docs: "workspace:0.1.0"
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    typescript: ^4.4.2
-  languageName: unknown
-  linkType: soft
-
 "word-wrap@npm:^1.2.3, word-wrap@npm:~1.2.3":
   version: 1.2.3
   resolution: "word-wrap@npm:1.2.3"
@@ -7535,7 +7469,6 @@ typescript@^4.4.2:
     infima: ^0.2.0-alpha.30
     lib-react-ga: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
-    lib-theme-switcher: "workspace:0.1.0"
     react: ^17.0.2
     react-dom: ^17.0.2
     react-dom-confetti: ^0.2.0

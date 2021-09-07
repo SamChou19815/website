@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'production' && !__SERVER__) {
   ReactGA.initialize('UA-140662756-1');
 }
 
-const usePageTracking = (): void => {
+export default function usePageTracking(): void {
   const location = useLocation();
 
   useEffect(() => {
@@ -14,6 +14,4 @@ const usePageTracking = (): void => {
       ReactGA.pageview(location.pathname + location.search);
     }
   }, [location]);
-};
-
-export default usePageTracking;
+}

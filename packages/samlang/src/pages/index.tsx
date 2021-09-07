@@ -52,37 +52,37 @@ const features = [
   { title: 'Type Inference', code: TYPE_INFERENCE_CODE },
 ];
 
-const Home = (): JSX.Element => (
-  <>
-    <header className="hero hero--primary index-page-hero-banner">
-      <div className="container">
-        <h1 className="hero__title">samlang</h1>
-        <p className="hero__subtitle">{"Sam's Programming Language"}</p>
-        <div className="index-page-buttons">
-          <Link className="button button--secondary button--lg" to="/docs/introduction">
-            Get Started
-          </Link>
-        </div>
-      </div>
-    </header>
-    <main>
-      <section className="index-page-features">
+export default function Home(): JSX.Element {
+  return (
+    <>
+      <header className="hero hero--primary index-page-hero-banner">
         <div className="container">
-          <div className="row">
-            {features.map(({ title, code }) => (
-              <div
-                key={title}
-                className="col col--6 index-page-features index-page-code-block-wrapper"
-              >
-                <h3>{title}</h3>
-                <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
-              </div>
-            ))}
+          <h1 className="hero__title">samlang</h1>
+          <p className="hero__subtitle">{"Sam's Programming Language"}</p>
+          <div className="index-page-buttons">
+            <Link className="button button--secondary button--lg" to="/docs/introduction">
+              Get Started
+            </Link>
           </div>
         </div>
-      </section>
-    </main>
-  </>
-);
-
-export default Home;
+      </header>
+      <main>
+        <section className="index-page-features">
+          <div className="container">
+            <div className="row">
+              {features.map(({ title, code }) => (
+                <div
+                  key={title}
+                  className="col col--6 index-page-features index-page-code-block-wrapper"
+                >
+                  <h3>{title}</h3>
+                  <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
