@@ -35,7 +35,7 @@ const BirthdayProfilePicture = ({ onClick }: { readonly onClick: () => void }) =
   />
 );
 
-const ProfilePicture = (): JSX.Element => {
+export default function ProfilePicture(): JSX.Element {
   const onBirthday = useDeveloperSamOnBirthday();
 
   const [active, setActive] = useState(false);
@@ -55,6 +55,4 @@ const ProfilePicture = (): JSX.Element => {
   }
 
   return normalProfilePicture;
-};
-
-export default ProfilePicture;
+}

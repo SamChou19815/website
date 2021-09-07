@@ -21,14 +21,14 @@ export type Props = {
 
 export const flexibleTheme: PrismTheme = theme as PrismTheme;
 
-const PrismCodeBlock = ({
+export default function PrismCodeBlock({
   language,
   children,
   className: userDefinedClassname,
   style: userDefinedStyles,
   theme: userDefinedTheme,
   excludeWrapper,
-}: Props): JSX.Element => {
+}: Props): JSX.Element {
   return (
     <Highlight
       {...defaultProps}
@@ -62,6 +62,4 @@ const PrismCodeBlock = ({
       }}
     </Highlight>
   );
-};
-
-export default PrismCodeBlock;
+}

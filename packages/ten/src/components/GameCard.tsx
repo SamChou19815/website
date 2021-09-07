@@ -4,11 +4,7 @@ import { Board, getGameStatus } from '../game/board';
 import type { GameState } from '../game/game-state';
 import BoardGrid from './BoardGrid';
 
-const getMessage = (
-  board: Board,
-  playerCanMove: boolean,
-  playerMadeIllegalMove: boolean
-): string => {
+function getMessage(board: Board, playerCanMove: boolean, playerMadeIllegalMove: boolean): string {
   switch (getGameStatus(board)) {
     case 0:
       if (!playerCanMove) {
@@ -20,7 +16,7 @@ const getMessage = (
     case -1:
       return 'White Wins';
   }
-};
+}
 
 type Props = {
   readonly gameState: GameState;

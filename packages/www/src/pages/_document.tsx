@@ -1,6 +1,5 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import usePageTracking from 'lib-react-ga';
-import initializeThemeSwitching from 'lib-theme-switcher';
 import React, { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
 
@@ -9,10 +8,15 @@ import './index.scss';
 import './app.scss';
 
 if (!__SERVER__) {
-  initializeThemeSwitching();
+  const s = (t: string) => document.documentElement.setAttribute('data-theme', t);
+  if (window.matchMedia('(prefers-color-scheme: light)').matches) s('');
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) s('dark');
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', ({ matches: m }) => s(m ? 'dark' : ''));
 }
 
-const Document = ({ children }: { readonly children: ReactNode }): JSX.Element => {
+export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
   usePageTracking();
   return (
     <>
@@ -51,6 +55,4 @@ const Document = ({ children }: { readonly children: ReactNode }): JSX.Element =
       <RecoilRoot>{children}</RecoilRoot>
     </>
   );
-};
-
-export default Document;
+}

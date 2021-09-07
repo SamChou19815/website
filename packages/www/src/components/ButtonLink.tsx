@@ -6,13 +6,13 @@ type Props = {
   readonly children: ReactNode;
 };
 
-const ButtonLink = ({ href, children, className }: Props): JSX.Element => (
-  <a
-    className={className == null ? 'button button--link' : `button button--link ${className}`}
-    href={href}
-  >
-    {typeof children === 'string' ? children.toLocaleUpperCase() : children}
-  </a>
-);
-
-export default ButtonLink;
+export default function ButtonLink({ href, children, className }: Props): JSX.Element {
+  return (
+    <a
+      className={className == null ? 'button button--link' : `button button--link ${className}`}
+      href={href}
+    >
+      {typeof children === 'string' ? children.toLocaleUpperCase() : children}
+    </a>
+  );
+}

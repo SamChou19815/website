@@ -8,20 +8,28 @@ type Props = {
   readonly children: ReactNode;
 };
 
-const ConsoleSection = ({ id, title, className, titleClassName, children }: Props): JSX.Element => (
-  <section id={id} className={className}>
-    <h3
-      className={
-        titleClassName == null ? 'console-section-title' : `console-section-title ${titleClassName}`
-      }
-    >
-      <code>
-        $&nbsp;
-        {title}
-      </code>
-    </h3>
-    {children}
-  </section>
-);
-
-export default ConsoleSection;
+export default function ConsoleSection({
+  id,
+  title,
+  className,
+  titleClassName,
+  children,
+}: Props): JSX.Element {
+  return (
+    <section id={id} className={className}>
+      <h3
+        className={
+          titleClassName == null
+            ? 'console-section-title'
+            : `console-section-title ${titleClassName}`
+        }
+      >
+        <code>
+          $&nbsp;
+          {title}
+        </code>
+      </h3>
+      {children}
+    </section>
+  );
+}

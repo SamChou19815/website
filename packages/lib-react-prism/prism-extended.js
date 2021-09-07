@@ -1,4 +1,4 @@
-const initialize = (Prism) => {
+module.exports = function initialize(Prism) {
   Prism.languages.samlang = {
     comment: [
       {
@@ -51,5 +51,3 @@ const initialize = (Prism) => {
     punctuation: /[{}[\];(),.!*=<>]/,
   };
 };
-
-module.exports = initialize;

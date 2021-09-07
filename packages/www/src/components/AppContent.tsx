@@ -123,7 +123,7 @@ const timelineSection = (
   </ConsoleSection>
 );
 
-const AppContent = (): JSX.Element => {
+export default function AppContent(): JSX.Element {
   const setOnBirthday = useSetDeveloperSamOnBirthday();
 
   useEffect(() => {
@@ -153,6 +153,4 @@ const AppContent = (): JSX.Element => {
       </SSRSuspense>
     </>
   );
-};
-
-export default AppContent;
+}

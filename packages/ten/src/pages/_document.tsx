@@ -7,11 +7,12 @@ import React, { ReactNode } from 'react';
 import './index.scss';
 import './game.scss';
 
-const Document = ({ children }: { readonly children: ReactNode }): JSX.Element => {
+export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
   const path = useLocation().pathname;
 
   const activeNavClass = (expectedPath: string) =>
     clsx('navbar__item', 'navbar__link', path === expectedPath && 'navbar__link--active');
+
   return (
     <>
       <CommonHeader
@@ -47,6 +48,4 @@ const Document = ({ children }: { readonly children: ReactNode }): JSX.Element =
       {children}
     </>
   );
-};
-
-export default Document;
+}

@@ -13,10 +13,7 @@ import {
 import type { GameState, GameStates } from '../game/game-state';
 import type { MctsResponse } from '../game/mcts';
 
-const computeCanShowGameStarterButtons = (
-  gameStates: GameStates,
-  playerCanMove: boolean
-): boolean => {
+function computeCanShowGameStarterButtons(gameStates: GameStates, playerCanMove: boolean): boolean {
   switch (getGameStatus(gameStates.currentState.board)) {
     case 0:
       if (playerCanMove) return gameStates.previousState == null;
@@ -25,7 +22,7 @@ const computeCanShowGameStarterButtons = (
     case -1:
       return true;
   }
-};
+}
 
 const aiResponder = (board: Board): Promise<GameState> =>
   fetch('https://us-central1-developer-sam.cloudfunctions.net/HandleTenAIMoveRequest', {
