@@ -41,7 +41,7 @@ function main() {
   const targets = websitesTargetDeterminator();
   if (targets.length === 0) {
     console.error('No need for re-deploy!');
-    return;
+    return true;
   }
   console.error('The following targets need to be re-deployed.');
   targets.forEach((target) => console.error(`- ${target}`));
