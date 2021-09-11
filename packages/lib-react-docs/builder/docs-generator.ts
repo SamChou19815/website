@@ -13,12 +13,12 @@ export type DocsSiteConfiguration = {
 
 const pathWithoutExtension = (path: string) => path.substring(0, path.lastIndexOf('.'));
 
-const getMarkdownDocsPageTemplate = (
+function getMarkdownDocsPageTemplate(
   absoluteProjectRoot: string,
   siteTitle: string,
   sidebar: readonly SidebarItem[],
   markdownPath: string
-): string => {
+): string {
   return `// ${'@'}generated
 import React from 'react';
 import DocPage from 'lib-react-docs/components/DocPage';
@@ -35,12 +35,12 @@ const DocumentPage = () => (
 );
 export default DocumentPage;
 `;
-};
+}
 
-const generateDocumentationVirtualEntryComponents = async ({
+export default async function generateDocumentationVirtualEntryComponents({
   siteTitle,
   sideBarItems,
-}: DocsSiteConfiguration): Promise<Readonly<Record<string, string>>> => {
+}: DocsSiteConfiguration): Promise<Readonly<Record<string, string>>> {
   const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => extname(it) === '.md');
 
   const docsWithTitles = await Promise.all(
@@ -79,6 +79,4 @@ const generateDocumentationVirtualEntryComponents = async ({
       ];
     })
   );
-};
-
-export default generateDocumentationVirtualEntryComponents;
+}

@@ -22,13 +22,13 @@ export type SidebarItemCategory = {
 
 export type SidebarItem = SidebarItemLink | SidebarItemCategory;
 
-const isActiveSidebarItem = (item: SidebarItem, activePath: string): boolean => {
+function isActiveSidebarItem(item: SidebarItem, activePath: string): boolean {
   if (item.type === 'link') return item.href === activePath;
   if (item.type === 'category') {
     return item.items.some((subItem) => isActiveSidebarItem(subItem, activePath));
   }
   return false;
-};
+}
 
 const renderSidebarItems = (items: readonly SidebarItem[], activePath: string) =>
   items.map((item, index) => <DocSidebarItem key={index} item={item} activePath={activePath} />);
@@ -42,7 +42,7 @@ const DocSidebarItem = ({ item, activePath }: ItemWithactivePath<SidebarItem>) =
     <DocSidebarItemLink item={item} activePath={activePath} />
   );
 
-const DocSidebarItemCategory = ({ item, activePath }: ItemWithactivePath<SidebarItemCategory>) => {
+function DocSidebarItemCategory({ item, activePath }: ItemWithactivePath<SidebarItemCategory>) {
   const { items, label } = item;
   const isActive = isActiveSidebarItem(item, activePath);
   const [collapsed, setCollapsed] = useState(!isActive);
@@ -60,9 +60,9 @@ const DocSidebarItemCategory = ({ item, activePath }: ItemWithactivePath<Sidebar
       <ul className="menu__list">{renderSidebarItems(items, activePath)}</ul>
     </li>
   );
-};
+}
 
-const DocSidebarItemLink = ({ item, activePath }: ItemWithactivePath<SidebarItemLink>) => {
+function DocSidebarItemLink({ item, activePath }: ItemWithactivePath<SidebarItemLink>) {
   const { href, label } = item;
   const isActive = isActiveSidebarItem(item, activePath);
 
@@ -73,7 +73,7 @@ const DocSidebarItemLink = ({ item, activePath }: ItemWithactivePath<SidebarItem
       </Link>
     </li>
   );
-};
+}
 
 type Props = { readonly sidebar: readonly SidebarItem[]; readonly activePath: string };
 
