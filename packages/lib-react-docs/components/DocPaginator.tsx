@@ -8,7 +8,7 @@ type Item = { readonly label: string; readonly href: string };
 
 type Props = { readonly previous?: Item; readonly next?: Item };
 
-const DocPaginator = ({ previous, next }: Props): JSX.Element => {
+export default function DocPaginator({ previous, next }: Props): JSX.Element {
   return (
     <nav className="pagination-nav" aria-label="Docs pages navigation">
       <div className="pagination-nav__item">
@@ -29,6 +29,4 @@ const DocPaginator = ({ previous, next }: Props): JSX.Element => {
       </div>
     </nav>
   );
-};
-
-export default DocPaginator;
+}

@@ -10,7 +10,7 @@ type HeadingsProps = {
   readonly isChild?: boolean;
 };
 
-const Headings = ({ toc, hasLink, isChild }: HeadingsProps) => {
+function Headings({ toc, hasLink, isChild }: HeadingsProps) {
   if (!toc.length) return null;
   return (
     <ul className={isChild ? '' : 'table-of-contents table-of-contents__left-border'}>
@@ -26,17 +26,17 @@ const Headings = ({ toc, hasLink, isChild }: HeadingsProps) => {
         ))}
     </ul>
   );
-};
+}
 
 type Props = {
   readonly toc: readonly MarkdownTablesOfContentsElement[];
   readonly hasLink?: boolean;
 };
 
-const TOC = ({ toc, hasLink = true }: Props): JSX.Element => (
-  <div className="lib-react-table-of-contents thin-scrollbar">
-    <Headings toc={toc} hasLink={hasLink} />
-  </div>
-);
-
-export default TOC;
+export default function TOC({ toc, hasLink = true }: Props): JSX.Element {
+  return (
+    <div className="lib-react-table-of-contents thin-scrollbar">
+      <Headings toc={toc} hasLink={hasLink} />
+    </div>
+  );
+}

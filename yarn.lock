@@ -1849,6 +1849,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "blog@workspace:packages/blog"
   dependencies:
+    "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/react": ^17.0.19
     clsx: ^1.1.1
     esbuild-scripts: "workspace:0.3.0"

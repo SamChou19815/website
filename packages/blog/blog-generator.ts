@@ -1,10 +1,14 @@
 import { extname, join, resolve } from 'path';
 
-import { utils } from 'esbuild-scripts/api';
+import mainRunner, { utils } from 'esbuild-scripts/api';
 
-import type { Metadata } from '../components/blog-types';
+import type { Metadata } from './src/components/blog-types';
+import { TITLE } from './src/constants';
 
 const BLOG_DIRECTORY = 'blog';
+
+const BLOG_LIST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogListPage'));
+const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogPostPage'));
 
 const processBlogPostsPerFile = async () =>
   await Promise.all(
@@ -44,7 +48,7 @@ const processBlogPostsPerFile = async () =>
       })
   );
 
-const processBlogPosts = async () => {
+async function processBlogPosts() {
   const perFileData = await processBlogPostsPerFile();
   return perFileData.map((parsed, index) => {
     const { original, date, formattedDate, path, permalink } = parsed;
@@ -67,7 +71,7 @@ const processBlogPosts = async () => {
     const metadataString = JSON.stringify(metadata);
     return { original, path, metadataString };
   });
-};
+}
 
 type BlogPostProcessedData = {
   readonly original: string;
@@ -86,7 +90,7 @@ const generatedBlogPagesCode = (
     return [
       parsed.path,
       `import React from 'react';
-import BlogPostPage from 'lib-react-docs/components/BlogPostPage';
+import BlogPostPage from '${BLOG_POST_PAGE_COMPONENT_PATH}';
 import Content from '${resovledOriginal}';
 const Page = () => <BlogPostPage siteTitle=${siteTitleString} content={Content} metadata={${metadataString}} />;
 export default Page;
@@ -94,10 +98,10 @@ export default Page;
     ];
   });
 
-const generatedHomePageCode = (
+function generatedHomePageCode(
   siteTitleString: string,
   blogPostParsedDataList: readonly BlogPostProcessedData[]
-): string => {
+): string {
   const contentImports = blogPostParsedDataList
     .map(
       ({ original }, index) =>
@@ -112,7 +116,7 @@ const generatedHomePageCode = (
     .join('');
   return `// @${'generated'}
 import React from 'react';
-import BlogListPage from 'lib-react-docs/components/BlogListPage';
+import BlogListPage from '${BLOG_LIST_PAGE_COMPONENT_PATH}';
 ${contentImports}
 
 const items = [
@@ -121,20 +125,16 @@ ${contentProps}];
 const Page = () => <BlogListPage siteTitle=${siteTitleString} items={items} />;
 export default Page;
 `;
-};
+}
 
-const generateBlogPagesVirtualEntryComponents = async (
-  siteTitle: string
-): Promise<Readonly<Record<string, string>>> => {
+mainRunner(async () => {
   await utils.ensureDirectory(BLOG_DIRECTORY);
   const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
     b.original.localeCompare(a.original)
   );
-  const siteTitleString = JSON.stringify(siteTitle);
+  const siteTitleString = JSON.stringify(TITLE);
   return Object.fromEntries([
     ...generatedBlogPagesCode(siteTitleString, blogPostParsedDataList),
     ['index', generatedHomePageCode(siteTitleString, blogPostParsedDataList)],
   ]);
-};
-
-export default generateBlogPagesVirtualEntryComponents;
+});

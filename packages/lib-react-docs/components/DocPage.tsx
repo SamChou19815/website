@@ -14,7 +14,7 @@ import useActivePath from './useActivePath';
 
 import TOC from 'lib-react-docs/components/TOC';
 
-const flattenDocs = (items: readonly SidebarItem[]) => {
+function flattenDocs(items: readonly SidebarItem[]) {
   const collector: SidebarItemLink[] = [];
 
   const visit = (item: SidebarItem) => {
@@ -27,7 +27,7 @@ const flattenDocs = (items: readonly SidebarItem[]) => {
 
   items.forEach(visit);
   return collector;
-};
+}
 
 type Props = {
   readonly siteTitle: string;
@@ -35,7 +35,7 @@ type Props = {
   readonly content: CompiledMarkdownComponent;
 };
 
-const DocPage = ({ siteTitle, sidebar, content: Content }: Props): JSX.Element => {
+export default function DocPage({ siteTitle, sidebar, content: Content }: Props): JSX.Element {
   const activePath = useActivePath();
   const items = flattenDocs(sidebar);
 
@@ -69,6 +69,4 @@ const DocPage = ({ siteTitle, sidebar, content: Content }: Props): JSX.Element =
       </div>
     </DocLayout>
   );
-};
-
-export default DocPage;
+}

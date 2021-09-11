@@ -1,26 +1,63 @@
-import createDocumentComponent from 'lib-react-docs/components/DocumentTemplate';
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
+import Link from 'esbuild-scripts/components/Link';
+import useActivePath from 'lib-react-docs/components/useActivePath';
 import usePageTracking from 'lib-react-ga';
 import React, { FC } from 'react';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';
-
-const Document = createDocumentComponent({
-  title: 'Developer Sam Blog',
-  description: "Developer Sam's Blog",
-  logo: 'https://developersam.com/logo.png',
-  author: 'Developer Sam',
-  url: 'https://blog.developersam.com',
-  otherLinks: [
-    { name: 'Main Site', link: 'https://developersam.com' },
-    { name: 'GitHub', link: 'https://github.com/SamChou19815/website' },
-  ],
-  copyright: 'Copyright © 2016-2021 Developer Sam.',
-});
+import { LOGO, TITLE, URL } from '../constants';
 
 const DocumentWrapper: FC = ({ children }) => {
   usePageTracking();
-  return <Document>{children}</Document>;
+  const path = useActivePath();
+  return (
+    <>
+      <CommonHeader
+        title="Developer Sam Blog"
+        description="Developer Sam's Blog"
+        shortcutIcon={LOGO}
+        ogAuthor="Developer Sam"
+        ogURL={`${URL}${path}`}
+      />
+      <nav className="navbar navbar--fixed-top">
+        <div className="navbar__inner">
+          <div className="navbar__items">
+            <Link className="navbar__brand" to="/">
+              <img className="navbar__logo" src={LOGO} alt="Logo" />
+              <strong className="navbar__title">{TITLE}</strong>
+            </Link>
+          </div>
+          <div className="navbar__items navbar__items--right">
+            <a
+              className="navbar__item navbar__link"
+              href="https://developersam.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Main Site
+            </a>
+            <a
+              className="navbar__item navbar__link"
+              href="https://github.com/SamChou19815/website"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div className="main-wrapper">{children}</div>
+      <footer className="footer footer--dark">
+        <div className="container">
+          <div className="footer__bottom text--center">
+            <div className="footer__copyright">Copyright © 2016-2021 Developer Sam.</div>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
 };
 
 export default DocumentWrapper;
