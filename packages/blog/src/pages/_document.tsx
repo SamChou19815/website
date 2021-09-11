@@ -1,12 +1,12 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
-import useActivePath from 'lib-react-docs/components/useActivePath';
+import useActivePath from 'lib-react-docs/useActivePath';
 import usePageTracking from 'lib-react-ga';
 import React, { FC } from 'react';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';
-import { LOGO, TITLE, URL } from '../constants';
+import { BLOG_LOGO, BLOG_TITLE, BLOG_URL } from '../constants';
 
 const DocumentWrapper: FC = ({ children }) => {
   usePageTracking();
@@ -16,16 +16,16 @@ const DocumentWrapper: FC = ({ children }) => {
       <CommonHeader
         title="Developer Sam Blog"
         description="Developer Sam's Blog"
-        shortcutIcon={LOGO}
+        shortcutIcon={BLOG_LOGO}
         ogAuthor="Developer Sam"
-        ogURL={`${URL}${path}`}
+        ogURL={`${BLOG_URL}${path}`}
       />
       <nav className="navbar navbar--fixed-top">
         <div className="navbar__inner">
           <div className="navbar__items">
             <Link className="navbar__brand" to="/">
-              <img className="navbar__logo" src={LOGO} alt="Logo" />
-              <strong className="navbar__title">{TITLE}</strong>
+              <img className="navbar__logo" src={BLOG_LOGO} alt="Logo" />
+              <strong className="navbar__title">{BLOG_TITLE}</strong>
             </Link>
           </div>
           <div className="navbar__items navbar__items--right">

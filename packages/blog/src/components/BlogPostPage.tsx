@@ -1,6 +1,6 @@
 import Head from 'esbuild-scripts/components/Head';
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
-import TOC from 'lib-react-docs/components/TOC';
+import TOC from 'lib-react-docs/TOC';
 import React from 'react';
 
 import BlogPostItem from './BlogPostItem';

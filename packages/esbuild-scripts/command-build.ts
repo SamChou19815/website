@@ -19,10 +19,10 @@ import {
 import { copyDirectoryContent, ensureDirectory, remove, writeFile } from './utils/fs';
 import getGeneratedHTML, { SSRResult } from './utils/html-generator';
 
-const generateBundle = async (
+async function generateBundle(
   entryPointVirtualFiles: VirtualPathMappings,
   virtualEntryComponents: VirtualPathMappings
-): Promise<readonly string[]> => {
+): Promise<readonly string[]> {
   const allVirtualPathMappings = {
     ...entryPointVirtualFiles,
     ...virtualEntryComponentsToVirtualPathMappings(virtualEntryComponents),
@@ -47,14 +47,14 @@ const generateBundle = async (
     })
   );
   return outputFiles.map(({ path }) => relative(absoluteBuildDirectory, path));
-};
+}
 
 type SSRFunction = (path: string) => SSRResult;
 
-const getSSRFunction = async (
+async function getSSRFunction(
   entryPointVirtualFiles: VirtualPathMappings,
   virtualEntryComponents: VirtualPathMappings
-): Promise<SSRFunction | null> => {
+): Promise<SSRFunction | null> {
   await build({
     ...baseESBuildConfig({
       virtualPathMappings: {
@@ -82,12 +82,12 @@ const getSSRFunction = async (
   } finally {
     await remove(SSR_CSS_PATH);
   }
-};
+}
 
-const buildCommand = async (
+export default async function buildCommand(
   virtualEntryComponents: VirtualPathMappings,
   staticSiteGeneration: boolean
-): Promise<boolean> => {
+): Promise<boolean> {
   const startTime = new Date().getTime();
   const { entryPointsWithoutExtension, entryPointVirtualFiles } =
     await createEntryPointsGeneratedVirtualFiles(Object.keys(virtualEntryComponents));
@@ -131,6 +131,4 @@ const buildCommand = async (
   const totalTime = new Date().getTime() - startTime;
   console.error(`⚡ Build success in ${totalTime}ms.`);
   return true;
-};
-
-export default buildCommand;
+}

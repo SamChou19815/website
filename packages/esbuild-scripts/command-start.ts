@@ -10,7 +10,7 @@ import {
 } from './utils/entry-points';
 import getGeneratedHTML from './utils/html-generator';
 
-const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
+function getEntryPoint(entryPoints: readonly string[], url?: string) {
   if (url == null || !url.startsWith('/')) return undefined;
   const path = url.substring(1);
   return entryPoints.find((entryPoint) => {
@@ -19,12 +19,14 @@ const getEntryPoint = (entryPoints: readonly string[], url?: string) => {
     }
     return entryPoint === path;
   });
-};
+}
 
 const getHTML = (entryPoint: string) =>
   getGeneratedHTML(undefined, [`${entryPoint}.js`, `${entryPoint}.css`], false);
 
-const startCommand = async (virtualEntryComponents: VirtualPathMappings): Promise<void> => {
+export default async function startCommand(
+  virtualEntryComponents: VirtualPathMappings
+): Promise<void> {
   const { entryPointsWithoutExtension, entryPointVirtualFiles } =
     await createEntryPointsGeneratedVirtualFiles(Object.keys(virtualEntryComponents));
 
@@ -86,6 +88,4 @@ const startCommand = async (virtualEntryComponents: VirtualPathMappings): Promis
 
   await esbuildServer.wait;
   proxyServer.close();
-};
-
-export default startCommand;
+}
