@@ -7,9 +7,6 @@
     "url": "https://github.com/SamChou19815/website.git"
   },
   "private": true,
-  "bin": {
-    "esbuild-scripts-with-docs-generate": "builder/generator.js"
-  },
   "scripts": {
     "compile": "tsc --noEmit"
   },
@@ -26,7 +23,7 @@
     "@types/node": "^16.7.11",
     "@types/react": "^17.0.19",
     "esbuild": "^0.12.25",
-    "esbuild-scripts": "workspace:0.3.0",
+    "esbuild-scripts": "0.4.0",
     "react": "^17.0.2",
     "typescript": "^4.4.3"
   }
