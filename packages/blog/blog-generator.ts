@@ -3,7 +3,7 @@ import { extname, join, resolve } from 'path';
 import mainRunner, { utils } from 'esbuild-scripts/api';
 
 import type { Metadata } from './src/components/blog-types';
-import { TITLE } from './src/constants';
+import { BLOG_TITLE } from './src/constants';
 
 const BLOG_DIRECTORY = 'blog';
 
@@ -132,7 +132,7 @@ mainRunner(async () => {
   const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
     b.original.localeCompare(a.original)
   );
-  const siteTitleString = JSON.stringify(TITLE);
+  const siteTitleString = JSON.stringify(BLOG_TITLE);
   return Object.fromEntries([
     ...generatedBlogPagesCode(siteTitleString, blogPostParsedDataList),
     ['index', generatedHomePageCode(siteTitleString, blogPostParsedDataList)],

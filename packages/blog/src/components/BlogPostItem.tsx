@@ -1,6 +1,6 @@
 import Link from 'esbuild-scripts/components/Link';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
-import MDXComponents from 'lib-react-docs/components/MDXComponents';
+import MDXComponents from 'lib-react-docs/MDXComponents';
 import React from 'react';
 
 import type { Metadata } from './blog-types';
