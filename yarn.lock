@@ -2619,12 +2619,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.12.27":
-  version: 0.12.27
-  resolution: "esbuild@npm:0.12.27"
+"esbuild@npm:^0.12.28":
+  version: 0.12.28
+  resolution: "esbuild@npm:0.12.28"
   bin:
     esbuild: bin/esbuild
-  checksum: b40a7098a51d9d74c50a5912477079ecbd96c211d00cbabde3cb4560609b383265c7bbb0f7e350cfc40ed0e13996be25405d14f560eeaad48105cb7c753e24f8
+  checksum: 9127dc048aad41a59d736460b9ea3cf5e367a7e5a650b2b465e066ee291e3c5e9fa5ad4b56cd4dea76cde9a1dee25a0e9e94f558b24170fc124eb0778e043eae
   languageName: node
   linkType: hard
 
@@ -4713,7 +4713,7 @@ __metadata:
     "@types/node": ^16.9.1
     "@types/react": ^17.0.19
     clsx: ^1.1.1
-    esbuild: ^0.12.27
+    esbuild: ^0.12.28
     esbuild-scripts: 0.4.0
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
@@ -6203,7 +6203,7 @@ resolve@^2.0.0-next.3:
     "@types/node": ^16.9.1
     "@typescript-eslint/eslint-plugin": ^4.31.1
     "@typescript-eslint/parser": ^4.31.1
-    esbuild: ^0.12.27
+    esbuild: ^0.12.28
     eslint: ^7.32.0
     eslint-import-resolver-node: ^0.3.6
     eslint-plugin-import: ^2.24.2
