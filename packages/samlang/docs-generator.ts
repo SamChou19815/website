@@ -5,8 +5,6 @@ import mainRunner, { utils } from 'esbuild-scripts/api';
 import type { SidebarItem } from './src/components/DocSidebar';
 import { SAMLANG_TITLE, SAMLANG_SIDEBAR_ITEMS } from './src/constants';
 
-type SimpleSidebarItems = readonly string[] | { readonly [category: string]: SimpleSidebarItems };
-
 const BLOG_DOC_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'DocPage'));
 
 const pathWithoutExtension = (path: string) => path.substring(0, path.lastIndexOf('.'));
@@ -44,23 +42,16 @@ mainRunner(async () => {
     }))
   );
 
-  const expandSideBar = (items: SimpleSidebarItems): SidebarItem[] => {
-    if (Array.isArray(items)) {
-      return items.map((item: string) => {
-        const relevantDocs = docsWithTitles.find(
-          ({ documentPath }) => `/${pathWithoutExtension(documentPath)}` === item
-        );
-        if (relevantDocs == null) {
-          throw new Error(`No document with href ${item} found on disk.`);
-        }
-        return { type: 'link', href: `/docs${item}`, label: relevantDocs.title };
-      });
-    }
-    return Object.entries(items).map(([label, nested]) => ({
-      type: 'category',
-      label,
-      items: expandSideBar(nested),
-    }));
+  const expandSideBar = (items: readonly string[]): SidebarItem[] => {
+    return items.map((item: string) => {
+      const relevantDocs = docsWithTitles.find(
+        ({ documentPath }) => `/${pathWithoutExtension(documentPath)}` === item
+      );
+      if (relevantDocs == null) {
+        throw new Error(`No document with href ${item} found on disk.`);
+      }
+      return { type: 'link', href: `/docs${item}`, label: relevantDocs.title };
+    });
   };
   const sideBar = expandSideBar(SAMLANG_SIDEBAR_ITEMS);
 

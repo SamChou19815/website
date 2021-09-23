@@ -7,7 +7,7 @@
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md,yml}'",
     "lint": "eslint . --cache",
     "test": "jest",
-    "bump": "yarn up @types/jest @types/node jest husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\""
+    "bump": "yarn up @types/jest @types/node jest husky lint-staged eslint \"@typescript-eslint/*\" \"eslint-*\""
   },
   "workspaces": [
     "packages/*"
