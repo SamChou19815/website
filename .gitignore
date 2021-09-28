@@ -13,7 +13,6 @@
 **/.yarn/*
 !**/.yarn/releases
 !**/.yarn/sdks
-!**/.yarn/cache
 !**/.yarn/plugins
 **/node_modules
 **/.pnp
