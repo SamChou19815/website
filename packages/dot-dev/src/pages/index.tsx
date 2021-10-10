@@ -36,6 +36,11 @@ const FAN_ART_BIRTHDAY_EDITION: FanArtWork = {
   author: MEGAN,
   description: '@dev-sam/fan-art Birthday Edition',
 };
+const FAN_ART_GRADUATION: FanArtWork = {
+  filename: 'graduation-sam.webp',
+  author: MEGAN,
+  description: '@dev-sam/fan-art Graduation Edition',
+};
 
 const FanArtWorkCard = ({
   filename,
@@ -81,6 +86,7 @@ const ArtsPage = (): JSX.Element => (
         </div>
       </div>
     </nav>
+    <FanArtWorkCard {...FAN_ART_GRADUATION} />
     <FanArtWorkCard {...FAN_ART_BIRTHDAY_EDITION} />
     <FanArtWorkCard {...FAN_ART_ITERATION_3} />
     <FanArtWorkCard {...FAN_ART_ITERATION_2} />
