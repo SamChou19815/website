@@ -11,11 +11,14 @@ const devSam = () =>
 const TIME_OF_OCT_14_2020_7PM = 1602630000000;
 
 function DevMegan(): JSX.Element {
+  const timeTogetherInDays = Math.floor(
+    (new Date().getTime() - TIME_OF_OCT_14_2020_7PM) / 86400000
+  );
+  const timeTogetherInYears = Math.floor(timeTogetherInDays / 365);
   return (
     <>
       <div>
-        Time together: {Math.floor((new Date().getTime() - TIME_OF_OCT_14_2020_7PM) / 86400000)}{' '}
-        days.
+        Time together: {timeTogetherInYears} year and {timeTogetherInDays % 365} days.
       </div>
       <div>{"Sam loves Megan's drawings. 💕"}</div>
       <div>
