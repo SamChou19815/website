@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable react/display-name */
-
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
 import MDXComponents from 'lib-react-docs/MDXComponents';

@@ -2,7 +2,6 @@
   "private": true,
   "scripts": {
     "build": "yarn workspaces foreach -ptv run build",
-    "common:netlify": "NODE_NO_WARNINGS=1 netlify",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,md,yml}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md,yml}'",
     "lint": "eslint . --cache",
@@ -13,7 +12,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@dev-sam/eslint-config-common": "0.21.0",
+    "@dev-sam/eslint-config-common": "0.22.0",
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
     "@types/node": "^16.11.6",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
@@ -28,7 +27,7 @@
     "husky": "^7.0.4",
     "jest": "^27.3.1",
     "lint-staged": "^11.2.4",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.1",
     "typescript": "^4.4.3"
   },
   "dependenciesMeta": {

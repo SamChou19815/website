@@ -49,7 +49,6 @@ const StatelessTerminal = ({
     >
       <div className="web-terminal-content">
         {history.map((oneHistoryLine, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <TerminalHistoryLine key={index} history={oneHistoryLine} />
         ))}
         <TerminalInput terminalInput={terminalInput} onArrow={onArrow} onSubmit={processCommand} />

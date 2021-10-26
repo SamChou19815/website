@@ -582,9 +582,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/eslint-config-common@npm:0.21.0":
-  version: 0.21.0
-  resolution: "@dev-sam/eslint-config-common@npm:0.21.0"
+"@dev-sam/eslint-config-common@npm:0.22.0":
+  version: 0.22.0
+  resolution: "@dev-sam/eslint-config-common@npm:0.22.0"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": "*"
     "@typescript-eslint/parser": "*"
@@ -600,7 +600,7 @@ __metadata:
       optional: true
     eslint-plugin-react-hooks:
       optional: true
-  checksum: 54c38a3c3958cd492eb47cb6578bc7eaf8d79c51f55204600faf9a2a6c618233f548c61d797a63572ccc608b1e877f8928873023dacb9efa4e046f0209d66fb3
+  checksum: b87de1e699211b09cbf8451c7a349aef217638c6581cd0be4d558352f51c6bafc6b2d7eecde55f6f8f6651644cd534b9ac22c1e52abb86dced164d7930fdab85
   languageName: node
   linkType: hard
 
@@ -5844,12 +5844,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "prettier@npm:2.3.2"
+"prettier@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "prettier@npm:2.4.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 17ce5784ac67621c292df58e2da60b2ee150c2d6aebea22a6ad9e52fcd6a5e66c349d0a8436ea3bd8ff9d778920a5f68000d7625b74f43558718a49755aa5259
+  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
   languageName: node
   linkType: hard
 
@@ -6354,7 +6354,7 @@ resolve@^2.0.0-next.3:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@dev-sam/eslint-config-common": 0.21.0
+    "@dev-sam/eslint-config-common": 0.22.0
     "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/node": ^16.11.6
     "@typescript-eslint/eslint-plugin": ^5.2.0
@@ -6369,7 +6369,7 @@ resolve@^2.0.0-next.3:
     husky: ^7.0.4
     jest: ^27.3.1
     lint-staged: ^11.2.4
-    prettier: ^2.3.2
+    prettier: ^2.4.1
     typescript: ^4.4.3
   dependenciesMeta:
     core-js-pure:

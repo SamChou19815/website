@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable react/display-name */
 
 import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
@@ -42,7 +41,6 @@ const MDXComponents: CustomizedMDXComponents = {
   code: (props) => <code {...props} />,
   a: ({ href, ...props }) => {
     if (href?.startsWith('http')) {
-      // eslint-disable-next-line jsx-a11y/anchor-has-content
       return <a href={href} {...props} />;
     }
     return <Link {...props} to={href ?? ''} />;
