@@ -107,7 +107,6 @@ const timelineSection = (
                 <div className="card__footer">
                   {item.links.map(
                     ({ name, url }, index): JSX.Element => (
-                      // eslint-disable-next-line react/no-array-index-key
                       <ButtonLink key={index} href={url}>
                         {name}
                       </ButtonLink>

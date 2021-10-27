@@ -43,7 +43,7 @@ export default function PrismCodeBlock({
         const combinedStyle =
           userDefinedStyles == null ? style : { ...style, ...userDefinedStyles };
         const content = tokens.map((line, i) => (
-          // eslint-disable-next-line react/no-array-index-key, react/jsx-key
+          // eslint-disable-next-line react/jsx-key
           <div {...getLineProps({ line, key: i })}>
             {line.map((token, key) => (
               // eslint-disable-next-line react/jsx-key
