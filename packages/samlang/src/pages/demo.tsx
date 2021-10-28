@@ -68,23 +68,9 @@ function LanguageDemo() {
             </div>
           ) : (
             <div>
-              {response.interpreterPrinted && (
-                <div className="colored-result good-result">
-                  <h3>Program Standard Out:</h3>
-                  <PrismCodeBlock language="">{response.interpreterPrinted}</PrismCodeBlock>
-                </div>
-              )}
-              {response.prettyPrintedProgram && (
-                <div className="colored-result good-result">
-                  <h3>Pretty Printed Program:</h3>
-                  <PrismCodeBlock language="samlang">
-                    {response.prettyPrintedProgram.trim()}
-                  </PrismCodeBlock>
-                </div>
-              )}
               {response.jsString && (
                 <div className="colored-result neutral-result">
-                  <h3>Compiled JS:</h3>
+                  <h3>Optimized JS:</h3>
                   <PrismCodeBlock language="javascript">{response.jsString.trim()}</PrismCodeBlock>
                 </div>
               )}
