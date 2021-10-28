@@ -1855,7 +1855,7 @@ __metadata:
     lib-react-ga: "workspace:0.1.0"
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   languageName: unknown
   linkType: soft
 
@@ -2496,7 +2496,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-ga: ^3.3.0
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   languageName: unknown
   linkType: soft
 
@@ -2689,86 +2689,93 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-android-arm64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-android-arm64@npm:0.13.4"
+"esbuild-android-arm64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-android-arm64@npm:0.13.10"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-darwin-64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-darwin-64@npm:0.13.4"
+"esbuild-darwin-64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-darwin-64@npm:0.13.10"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-darwin-arm64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-darwin-arm64@npm:0.13.4"
+"esbuild-darwin-arm64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-darwin-arm64@npm:0.13.10"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-freebsd-64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-freebsd-64@npm:0.13.4"
+"esbuild-freebsd-64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-freebsd-64@npm:0.13.10"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-freebsd-arm64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-freebsd-arm64@npm:0.13.4"
+"esbuild-freebsd-arm64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-freebsd-arm64@npm:0.13.10"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-linux-32@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-linux-32@npm:0.13.4"
+"esbuild-linux-32@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-linux-32@npm:0.13.10"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"esbuild-linux-64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-linux-64@npm:0.13.4"
+"esbuild-linux-64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-linux-64@npm:0.13.10"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-linux-arm64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-linux-arm64@npm:0.13.4"
+"esbuild-linux-arm64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-linux-arm64@npm:0.13.10"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-linux-arm@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-linux-arm@npm:0.13.4"
+"esbuild-linux-arm@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-linux-arm@npm:0.13.10"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"esbuild-linux-mips64le@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-linux-mips64le@npm:0.13.4"
+"esbuild-linux-mips64le@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-linux-mips64le@npm:0.13.10"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"esbuild-linux-ppc64le@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-linux-ppc64le@npm:0.13.4"
+"esbuild-linux-ppc64le@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-linux-ppc64le@npm:0.13.10"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"esbuild-openbsd-64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-openbsd-64@npm:0.13.4"
+"esbuild-netbsd-64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-netbsd-64@npm:0.13.10"
+  conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"esbuild-openbsd-64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-openbsd-64@npm:0.13.10"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
@@ -2798,54 +2805,55 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-sunos-64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-sunos-64@npm:0.13.4"
+"esbuild-sunos-64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-sunos-64@npm:0.13.10"
   conditions: os=sunos & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-windows-32@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-windows-32@npm:0.13.4"
+"esbuild-windows-32@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-windows-32@npm:0.13.10"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"esbuild-windows-64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-windows-64@npm:0.13.4"
+"esbuild-windows-64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-windows-64@npm:0.13.10"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-windows-arm64@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild-windows-arm64@npm:0.13.4"
+"esbuild-windows-arm64@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild-windows-arm64@npm:0.13.10"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild@npm:0.13.4":
-  version: 0.13.4
-  resolution: "esbuild@npm:0.13.4"
+"esbuild@npm:0.13.10":
+  version: 0.13.10
+  resolution: "esbuild@npm:0.13.10"
   dependencies:
-    esbuild-android-arm64: 0.13.4
-    esbuild-darwin-64: 0.13.4
-    esbuild-darwin-arm64: 0.13.4
-    esbuild-freebsd-64: 0.13.4
-    esbuild-freebsd-arm64: 0.13.4
-    esbuild-linux-32: 0.13.4
-    esbuild-linux-64: 0.13.4
-    esbuild-linux-arm: 0.13.4
-    esbuild-linux-arm64: 0.13.4
-    esbuild-linux-mips64le: 0.13.4
-    esbuild-linux-ppc64le: 0.13.4
-    esbuild-openbsd-64: 0.13.4
-    esbuild-sunos-64: 0.13.4
-    esbuild-windows-32: 0.13.4
-    esbuild-windows-64: 0.13.4
-    esbuild-windows-arm64: 0.13.4
+    esbuild-android-arm64: 0.13.10
+    esbuild-darwin-64: 0.13.10
+    esbuild-darwin-arm64: 0.13.10
+    esbuild-freebsd-64: 0.13.10
+    esbuild-freebsd-arm64: 0.13.10
+    esbuild-linux-32: 0.13.10
+    esbuild-linux-64: 0.13.10
+    esbuild-linux-arm: 0.13.10
+    esbuild-linux-arm64: 0.13.10
+    esbuild-linux-mips64le: 0.13.10
+    esbuild-linux-ppc64le: 0.13.10
+    esbuild-netbsd-64: 0.13.10
+    esbuild-openbsd-64: 0.13.10
+    esbuild-sunos-64: 0.13.10
+    esbuild-windows-32: 0.13.10
+    esbuild-windows-64: 0.13.10
+    esbuild-windows-arm64: 0.13.10
   dependenciesMeta:
     esbuild-android-arm64:
       optional: true
@@ -2869,6 +2877,8 @@ __metadata:
       optional: true
     esbuild-linux-ppc64le:
       optional: true
+    esbuild-netbsd-64:
+      optional: true
     esbuild-openbsd-64:
       optional: true
     esbuild-sunos-64:
@@ -2881,7 +2891,7 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-  checksum: 0bde4a312a0a2f2da83254f2bb4c716bd75c18eb7351733c0b3039f54a90e28e1777d89dc0abeccb1f102a31e3bfd35751458bed669d5cb8439cf2d8d514de7f
+  checksum: 22960da2d308624d76f088cd955754a74ab712070e81bc20166e3aeaf475ff0cde14470a96c0f0b5499b04a1ff6f324a9e4dc8be0df135d037b23cef1b156ee2
   languageName: node
   linkType: hard
 
@@ -5035,11 +5045,11 @@ __metadata:
     "@types/node": ^16.11.6
     "@types/react": ^17.0.19
     clsx: ^1.1.1
-    esbuild: ^0.13.9
+    esbuild: ^0.13.10
     esbuild-scripts: 0.4.0
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   peerDependencies:
     esbuild-scripts: "*"
     react: ^17.0.0
@@ -5054,7 +5064,7 @@ __metadata:
     esbuild-scripts: 0.4.0
     react: ^17.0.2
     react-ga: ^3.3.0
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   peerDependencies:
     esbuild-scripts: "*"
     react: ^17.0.0
@@ -5069,7 +5079,7 @@ __metadata:
     autosize: ^4.0.2
     prism-react-renderer: ^1.2.1
     react: ^17.0.2
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   peerDependencies:
     react: ^17.0.0
   languageName: unknown
@@ -6440,7 +6450,7 @@ resolve@^2.0.0-next.3:
     "@types/node": ^16.11.6
     "@typescript-eslint/eslint-plugin": ^5.2.0
     "@typescript-eslint/parser": ^5.2.0
-    esbuild: ^0.13.9
+    esbuild: ^0.13.10
     eslint: ^8.1.0
     eslint-import-resolver-node: ^0.3.6
     eslint-plugin-import: ^2.25.2
@@ -6451,7 +6461,7 @@ resolve@^2.0.0-next.3:
     jest: ^27.3.1
     lint-staged: ^11.2.6
     prettier: ^2.4.1
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   dependenciesMeta:
     core-js-pure:
       built: false
@@ -6504,7 +6514,7 @@ resolve@^2.0.0-next.3:
     lib-react-prism: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   languageName: unknown
   linkType: soft
 
@@ -6986,7 +6996,7 @@ resolve@^2.0.0-next.3:
     infima: ^0.2.0-alpha.30
     react: ^17.0.2
     react-dom: ^17.0.2
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   languageName: unknown
   linkType: soft
 
@@ -7188,23 +7198,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@^4.4.3:
-  version: 4.4.3
-  resolution: "typescript@npm:4.4.3"
+"typescript@npm:^4.4.4":
+  version: 4.4.4
+  resolution: "typescript@npm:4.4.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 05823f21796d450531a7e4ab299715d38fd9ded0e4ce7400876053f4b5166ca3dde7a68cecfe72d9086039f03c0b6edba36516fb10ed83c5837d9600532ea4c2
+  checksum: 89ecb8436bb48ef5594d49289f5f89103071716b6e4844278f4fb3362856e31203e187a9c76d205c3f0b674d221a058fd28310dbcbcf5d95e9a57229bb5203f1
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
-  version: 4.4.3
-  resolution: "typescript@patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=ddd1e8"
+"typescript@patch:typescript@^4.4.4#~builtin<compat/typescript>":
+  version: 4.4.4
+  resolution: "typescript@patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 79f5c13d21c9dea3eb44d2b7002ff25a0569fefc432e083d65a360e3aca990aca25fc733e14aa6883b5e9a68e3e2f0330a34123e048806f91d701732ece00e6f
+  checksum: bd629ad0da4a15d79aaad56baf3ee7d96f6a181760d430ae77f8c5325df7bffd9edee57544a3970e3651e8b796fe03a5838a7eb39c6d46cc3866c0b23d36a0dd
   languageName: node
   linkType: hard
 
@@ -7600,7 +7610,7 @@ typescript@^4.4.3:
     react-dom: ^17.0.2
     react-dom-confetti: ^0.2.0
     recoil: ^0.2.0
-    typescript: ^4.4.3
+    typescript: ^4.4.4
   languageName: unknown
   linkType: soft
 
