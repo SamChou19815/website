@@ -317,8 +317,4 @@ export = runDemo;
 
 ## Final Result
 
-All these hard work has resulted in this published
-[npm package](https://www.npmjs.com/package/@dev-sam/samlang-demo), and a revamped
-[samlang demo website](https://samlang-demo.developersam.com/):
-
 ![new samlang demo website](/img/2020-05-17-samlang-in-browser/samlang-demo.png)

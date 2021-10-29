@@ -642,10 +642,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dev-sam/samlang-demo@npm:^0.4.3":
-  version: 0.4.3
-  resolution: "@dev-sam/samlang-demo@npm:0.4.3"
-  checksum: 9a352e3dc525ab1f8019afe90c0b97fa0b9aa0ebda878d66b82966d00ebe77534e26dab321ac9a0c73b3ae00f57df0e3e87b2fb355bbff37f959b26c79e58692
+"@dev-sam/samlang-core@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@dev-sam/samlang-core@npm:0.5.0"
+  dependencies:
+    binaryen: ^102.0.0
+  checksum: e015eee7c049b81d5d9cd284bc6d96d7afe15a651fc6afdb0afdbc5bf1cb3466de31305602381e311298881a9e59043cfc48476803797a5dcdaaa4fbcbcdae97
   languageName: node
   linkType: hard
 
@@ -1839,6 +1841,15 @@ __metadata:
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
   checksum: ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
+  languageName: node
+  linkType: hard
+
+"binaryen@npm:^102.0.0":
+  version: 102.0.0
+  resolution: "binaryen@npm:102.0.0"
+  bin:
+    wasm-opt: bin/wasm-opt
+  checksum: 70296b87cfcd171dde0d6bc54103e87692122760e47091cc45e80aa9d414b035a11288a0ed75bcab2dbd7ee606a4da09448a065ac1bb2ecb54c23f9e274c39ba
   languageName: node
   linkType: hard
 
@@ -6505,7 +6516,7 @@ resolve@^2.0.0-next.3:
   resolution: "samlang@workspace:packages/samlang"
   dependencies:
     "@dev-sam/jest-esbuild-transformer": 0.4.0
-    "@dev-sam/samlang-demo": ^0.4.3
+    "@dev-sam/samlang-core": ^0.5.0
     "@types/react": ^17.0.19
     clsx: ^1.1.1
     esbuild-scripts: 0.4.0
