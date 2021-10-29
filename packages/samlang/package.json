@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
-    "@dev-sam/samlang-demo": "^0.4.3",
+    "@dev-sam/samlang-core": "^0.5.0",
     "clsx": "^1.1.1",
     "infima": "^0.2.0-alpha.30",
     "lib-react-docs": "0.1.0",

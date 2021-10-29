@@ -5,32 +5,36 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import runSamlangDemo from '@dev-sam/samlang-demo';
+import {
+  SamlangSingleSourceCompilationResult,
+  compileSingleSamlangSource,
+} from '@dev-sam/samlang-core';
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import PrismCodeEditor from 'lib-react-prism/PrismCodeEditor';
 import theme from 'lib-react-prism/prism-theme.json';
 import React, { useState } from 'react';
 
-type Response = ReturnType<typeof runSamlangDemo>;
-
 const initialText = `/* Start to type your program */
 // Add your comments!
 // Press enter to add a new line.
 
 class Main {
-  function main(): unit = println("Hello World!")
+  function main(): unit = Builtins.println("Hello World!")
 }
 `;
 
-function getResponse(programString: string): Response | string {
+function getResponse(programString: string): SamlangSingleSourceCompilationResult {
   try {
-    return runSamlangDemo(programString);
+    return compileSingleSamlangSource(programString);
   } catch (interpreterError) {
-    return (
-      (interpreterError instanceof Error && interpreterError.message) ||
-      'Unknown interpreter error.'
-    );
+    return {
+      __type__: 'ERROR',
+      errors: [
+        (interpreterError instanceof Error && interpreterError.message) ||
+          'Unknown interpreter error.',
+      ],
+    };
   }
 }
 
@@ -59,31 +63,27 @@ function LanguageDemo() {
       </div>
       <div className="card parallel-card">
         <div className="card__body">
-          {typeof response === 'string' ? (
+          {response.__type__ === 'ERROR' ? (
             <div>
               <div className="colored-result bad-result">
-                <h3>Interpreter Error</h3>
-                <code>{response}</code>
+                <h3>Errors:</h3>
+                <PrismCodeBlock language="">{response.errors.join('\n')}</PrismCodeBlock>
               </div>
             </div>
           ) : (
             <div>
-              {response.jsString && (
+              {response.emittedTSCode && (
                 <div className="colored-result neutral-result">
-                  <h3>Optimized JS:</h3>
-                  <PrismCodeBlock language="javascript">{response.jsString.trim()}</PrismCodeBlock>
+                  <h3>Optimized TS:</h3>
+                  <PrismCodeBlock language="typescript">
+                    {response.emittedTSCode.trim()}
+                  </PrismCodeBlock>
                 </div>
               )}
-              {response.llvmString && (
-                <div className="colored-result neutral-result">
-                  <h3>Optimized LLVM Code:</h3>
-                  <PrismCodeBlock language="llvm">{response.llvmString.trim()}</PrismCodeBlock>
-                </div>
-              )}
-              {response.errors.length > 0 && (
-                <div className="colored-result bad-result">
-                  <h3>Compile Time Errors:</h3>
-                  <PrismCodeBlock language="">{response.errors.join('\n')}</PrismCodeBlock>
+              {response.interpreterResult && (
+                <div className="colored-result good-result">
+                  <h3>Program Standard Out:</h3>
+                  <PrismCodeBlock language="">{response.interpreterResult}</PrismCodeBlock>
                 </div>
               )}
             </div>

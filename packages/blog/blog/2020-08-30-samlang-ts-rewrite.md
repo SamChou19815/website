@@ -203,11 +203,7 @@ at [this issue](https://github.com/SamChou19815/samlang/issues/82) asking for he
 
 The hard work of the migration results in a much better codebase that allows me to much faster in
 the future. Since now the samlang codebase is completely in TypeScript, distribution of the work
-becomes much easier. The latest 0.3.0 release is now available at npm as two packages:
-
-- `@dev-sam/samlang-cli`: running the type checker, compiler and LSP from command line;
-- `@dev-sam/samlang-demo`: a demo package powering the
-  [samlang demo site](https://samlang.developersam.com/demo).
+becomes much easier.
 
 Let's end the article with a screenshot of the new demo site powered by samlang in TS:
 
