@@ -1,3 +1,4 @@
+import { readdir, readFile } from 'fs/promises';
 import { extname, join, resolve } from 'path';
 
 import mainRunner, { utils } from 'esbuild-scripts/api';
@@ -33,12 +34,12 @@ export default DocumentPage;
 }
 
 mainRunner(async () => {
-  const docsPaths = (await utils.readDirectory('docs', true)).filter((it) => extname(it) === '.md');
+  const docsPaths = (await readdir('docs')).filter((it) => extname(it) === '.md');
 
   const docsWithTitles = await Promise.all(
     docsPaths.map(async (documentPath) => ({
       documentPath,
-      title: utils.parseMarkdownTitle(await utils.readFile(join('docs', documentPath))),
+      title: utils.parseMarkdownTitle((await readFile(join('docs', documentPath))).toString()),
     }))
   );
 

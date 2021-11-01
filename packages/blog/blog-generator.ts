@@ -1,3 +1,4 @@
+import { mkdir, readdir, readFile } from 'fs/promises';
 import { extname, join, resolve } from 'path';
 
 import mainRunner, { utils } from 'esbuild-scripts/api';
@@ -13,7 +14,7 @@ const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogPos
 const processBlogPostsPerFile = async () =>
   await Promise.all(
     (
-      await utils.readDirectory(BLOG_DIRECTORY, true)
+      await readdir(BLOG_DIRECTORY)
     )
       .filter((it) => extname(it) === '.md')
       .map(async (original) => {
@@ -30,7 +31,7 @@ const processBlogPostsPerFile = async () =>
         const dateString = new Date(formattedDate).toISOString();
         const permalink = `/${year}/${month}/${date}/${titleSlug}`;
 
-        const content = await utils.readFile(join(BLOG_DIRECTORY, original));
+        const content = (await readFile(join(BLOG_DIRECTORY, original))).toString();
         try {
           const title = utils.parseMarkdownTitle(content);
           return {
@@ -128,7 +129,7 @@ export default Page;
 }
 
 mainRunner(async () => {
-  await utils.ensureDirectory(BLOG_DIRECTORY);
+  await mkdir(BLOG_DIRECTORY, { recursive: true });
   const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
     b.original.localeCompare(a.original)
   );
