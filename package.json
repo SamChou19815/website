@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "yarn workspaces foreach -ptv run build",
+    "build": "yarn workspace esbuild-scripts bundle && yarn workspaces foreach -ptv run build",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,scss,css,html,md,yml}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,scss,css,html,md,yml}'",
     "lint": "eslint . --cache",
@@ -15,9 +15,9 @@
     "@dev-sam/eslint-config-common": "0.22.0",
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
     "@types/node": "^16.11.6",
-    "@typescript-eslint/eslint-plugin": "^5.2.0",
-    "@typescript-eslint/parser": "^5.2.0",
-    "esbuild": "^0.13.10",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.3.0",
+    "esbuild": "^0.13.12",
     "eslint": "^8.1.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-import": "^2.25.2",
@@ -50,9 +50,6 @@
     "transform": {
       "^.+\\.(ts|tsx)$": "@dev-sam/jest-esbuild-transformer"
     }
-  },
-  "resolutions": {
-    "esbuild": "0.13.10"
   },
   "lint-staged": {
     "**/*.{ts,js,tsx,jsx,scss,css,html,md,yml}": [

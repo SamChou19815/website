@@ -1,0 +1,6 @@
+{
+  "extends": "../../configuration/tsconfig.react.json",
+  "compilerOptions": {},
+  "include": ["**/*.ts", "**/*.tsx", "*.d.ts"],
+  "exclude": []
+}
