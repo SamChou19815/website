@@ -1,6 +1,6 @@
 {
   "name": "esbuild-scripts",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A fast, opinioned web development toolkit for building React based websites.",
   "author": "Developer Sam",
   "license": "AGPL-3.0",

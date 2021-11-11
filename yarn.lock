@@ -1923,7 +1923,7 @@ __metadata:
     "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/react": ^17.0.34
     clsx: ^1.1.1
-    esbuild-scripts: "workspace:0.4.0"
+    esbuild-scripts: "workspace:0.5.0"
     infima: ^0.2.0-alpha.34
     lib-react-docs: "workspace:0.1.0"
     lib-react-ga: "workspace:0.1.0"
@@ -2565,7 +2565,7 @@ __metadata:
   resolution: "dot-dev@workspace:packages/dot-dev"
   dependencies:
     "@types/react": ^17.0.34
-    esbuild-scripts: "workspace:0.4.0"
+    esbuild-scripts: "workspace:0.5.0"
     infima: ^0.2.0-alpha.34
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2804,7 +2804,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-scripts@workspace:0.4.0, esbuild-scripts@workspace:packages/esbuild-scripts":
+"esbuild-scripts@workspace:0.5.0, esbuild-scripts@workspace:packages/esbuild-scripts":
   version: 0.0.0-use.local
   resolution: "esbuild-scripts@workspace:packages/esbuild-scripts"
   dependencies:
@@ -5076,7 +5076,7 @@ __metadata:
     "@types/react": ^17.0.34
     clsx: ^1.1.1
     esbuild: ^0.13.13
-    esbuild-scripts: "workspace:0.4.0"
+    esbuild-scripts: "workspace:0.5.0"
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2
     typescript: ^4.4.4
@@ -5091,7 +5091,7 @@ __metadata:
   resolution: "lib-react-ga@workspace:packages/lib-react-ga"
   dependencies:
     "@types/react": ^17.0.34
-    esbuild-scripts: "workspace:0.4.0"
+    esbuild-scripts: "workspace:0.5.0"
     react: ^17.0.2
     react-ga: ^3.3.0
     typescript: ^4.4.4
@@ -6519,7 +6519,7 @@ resolve@^2.0.0-next.3:
     "@dev-sam/samlang-core": ^0.5.0
     "@types/react": ^17.0.34
     clsx: ^1.1.1
-    esbuild-scripts: "workspace:0.4.0"
+    esbuild-scripts: "workspace:0.5.0"
     infima: ^0.2.0-alpha.34
     lib-react-docs: 0.1.0
     lib-react-prism: 0.1.0
@@ -7012,7 +7012,7 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@types/react": ^17.0.34
     clsx: ^1.1.1
-    esbuild-scripts: "workspace:0.4.0"
+    esbuild-scripts: "workspace:0.5.0"
     infima: ^0.2.0-alpha.34
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -7622,7 +7622,7 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@types/jest": ^27.0.2
     "@types/react": ^17.0.34
-    esbuild-scripts: "workspace:0.4.0"
+    esbuild-scripts: "workspace:0.5.0"
     infima: ^0.2.0-alpha.34
     lib-react-ga: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
