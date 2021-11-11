@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import type { OnLoadArgs, Plugin, PluginBuild } from 'esbuild';
 import type PnpApi from 'pnpapi';
 
-import resolveRequest from './pnp-resolution';
+const extensions = ['.tsx', '.ts', '.jsx', '.mjs', '.cjs', '.js', '.json'];
 
 const matchAll = /()/;
 
@@ -26,12 +26,11 @@ const pnpPlugin = (): Plugin => ({
 
       const queryIndex = args.path.lastIndexOf('?');
       const pathForPnp = queryIndex === -1 ? args.path : args.path.substring(0, queryIndex);
-      const pnpResolvedPath = resolveRequest(
-        pathForPnp,
-        effectiveImporter,
-        pnpApi,
-        build.initialOptions.platform !== 'node'
-      );
+      const pnpResolvedPath = pnpApi.resolveRequest(pathForPnp, effectiveImporter, {
+        extensions,
+        // @ts-expect-error: not available
+        conditions: new Set(['browser', 'default', 'node', 'require']),
+      });
       if (pnpResolvedPath == null) return { external: true };
 
       return {
