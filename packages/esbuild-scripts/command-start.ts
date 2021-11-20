@@ -3,7 +3,7 @@ import { createServer, request } from 'http';
 import { serve } from 'esbuild';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
-import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
+import type { VirtualPathMappings } from './esbuild/esbuild-plugins';
 import {
   virtualEntryComponentsToVirtualPathMappings,
   createEntryPointsGeneratedVirtualFiles,

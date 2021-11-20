@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import Head from 'esbuild-scripts/components/Head';
-import HeadTitle from 'esbuild-scripts/components/HeadTitle';
+import Head from './Head';
+import HeadTitle from './HeadTitle';
 
 type Props = {
   // Required

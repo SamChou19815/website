@@ -97,10 +97,6 @@ You can import css by using the import syntax:
 
 ```typescript
 import './index.css';
-// Note that SCSS/SASS is also supported.
-import './app.scss';
-// Unfortunately, css modules are not supported.
-// import styles from './App.module.css';
 ```
 
 ### Markdown

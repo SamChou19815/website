@@ -1,8 +1,5 @@
 // Forked from https://github.com/facebook/docusaurus/blob/master/packages/docusaurus-theme-classic/src/theme/DocSidebar/index.tsx
 
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import clsx from 'clsx';
 import Link from 'esbuild-scripts/components/Link';
 import React, { useState } from 'react';
@@ -76,12 +73,12 @@ function DocSidebarItemLink({ item, activePath }: ItemWithactivePath<SidebarItem
 
 type Props = { readonly sidebar: readonly SidebarItem[]; readonly activePath: string };
 
-const DocSidebar = ({ sidebar, activePath }: Props): JSX.Element => (
-  <div className="lib-react-docs-sidebar">
-    <div className="menu menu--responsive thin-scrollbar">
-      <ul className="menu__list">{renderSidebarItems(sidebar, activePath)}</ul>
+export default function DocSidebar({ sidebar, activePath }: Props): JSX.Element {
+  return (
+    <div className="lib-react-docs-sidebar">
+      <div className="menu menu--responsive thin-scrollbar">
+        <ul className="menu__list">{renderSidebarItems(sidebar, activePath)}</ul>
+      </div>
     </div>
-  </div>
-);
-
-export default DocSidebar;
+  );
+}

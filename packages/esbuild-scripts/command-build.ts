@@ -6,7 +6,7 @@ import { dirname, join, resolve, relative } from 'path';
 import { build } from 'esbuild';
 
 import baseESBuildConfig from './esbuild/esbuild-config';
-import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
+import type { VirtualPathMappings } from './esbuild/esbuild-plugins';
 import {
   SSR_CSS_PATH,
   SSR_JS_PATH,

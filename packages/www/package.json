@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "esbuild-scripts start",
-    "build": "esbuild-scripts ssg",
+    "start": "./node_modules/esbuild-scripts/index.js start",
+    "build": "./node_modules/esbuild-scripts/index.js ssg",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s developersam.com --prod"
   },
@@ -18,9 +18,9 @@
     "recoil": "^0.2.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.0.3",
     "@types/react": "^17.0.34",
-    "esbuild-scripts": "workspace:0.5.0",
-    "typescript": "^4.4.4"
+    "esbuild-scripts": "workspace:0.6.0",
+    "typescript": "^4.5.2"
   }
 }

@@ -7,6 +7,7 @@ import type { Metadata } from './src/components/blog-types';
 import { BLOG_TITLE } from './src/constants';
 
 const BLOG_DIRECTORY = 'blog';
+const RESOLVED_BLOG_DIRECTORY = resolve(BLOG_DIRECTORY);
 
 const BLOG_LIST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogListPage'));
 const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogPostPage'));
@@ -106,7 +107,7 @@ function generatedHomePageCode(
   const contentImports = blogPostParsedDataList
     .map(
       ({ original }, index) =>
-        `import Component${index} from '../../blog/${original}?truncated=true';`
+        `import Component${index} from '${RESOLVED_BLOG_DIRECTORY}/${original}?truncated=true';`
     )
     .join('\n');
   const contentProps = blogPostParsedDataList

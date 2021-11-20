@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 
 import buildCommand from './command-build';
-import initCommand from './command-init';
 import startCommand from './command-start';
-import type { VirtualPathMappings } from './esbuild/esbuild-virtual-path-plugin';
+import type { VirtualPathMappings } from './esbuild/esbuild-plugins';
 import * as constants from './utils/constants';
 import parseMarkdownHeaderTree, { parseMarkdownTitle } from './utils/markdown-header-parser';
 import compileMarkdownToReact from './utils/mdx';
@@ -16,16 +15,12 @@ function help() {
   console.error('- esbuild-script start: start the devserver.');
   console.error('- esbuild-script build: generate production build.');
   console.error('- esbuild-script ssg: generate static site.');
-  console.error('- esbuild-script ssg --no-js: generate static site without JS.');
   console.error('- esbuild-script help: display command line usages.');
 }
 
 async function runner(virtualEntryComponents: VirtualPathMappings) {
   const command = process.argv[2] || '';
   switch (command) {
-    case 'init':
-      await initCommand();
-      return true;
     case 'start':
       await startCommand(virtualEntryComponents);
       return true;
@@ -53,7 +48,6 @@ export default async function main(
   try {
     if (!(await runner(virtualEntryComponents))) process.exitCode = 1;
   } catch (error) {
-    console.error(error);
     process.exitCode = 1;
   }
 }

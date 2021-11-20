@@ -15,10 +15,6 @@
 !**/.yarn/sdks
 !**/.yarn/plugins
 **/node_modules
-**/.pnp
-**/.pnp.js
-**/.pnp.cjs
-**/.pnp.loader.mjs
 
 # testing
 **/coverage

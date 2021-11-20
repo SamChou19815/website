@@ -1,13 +1,9 @@
 import { readFile } from 'fs/promises';
-import { createRequire } from 'module';
-import { dirname, resolve } from 'path';
+import { resolve } from 'path';
 
 import type { Plugin } from 'esbuild';
-import { Result as SassResult, render } from 'sass';
 
 import compileMarkdownToReact from '../utils/mdx';
-import pnpPlugin from './esbuild-pnp-plugin';
-import virtualPathResolvePlugin, { VirtualPathMappings } from './esbuild-virtual-path-plugin';
 
 const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',
@@ -16,24 +12,26 @@ const webAppResolvePlugin: Plugin = {
   },
 };
 
-const sassPlugin: Plugin = {
-  name: 'sass',
-  setup(buildConfig) {
-    buildConfig.onResolve({ filter: /.\.(scss|sass)$/ }, async (args) => {
-      if (args.path.startsWith('.')) return { path: resolve(dirname(args.importer), args.path) };
-      return { path: createRequire(args.importer).resolve(args.path) };
-    });
+/** A mapping from a virtual path to its content. */
+export type VirtualPathMappings = { readonly [virtualPath: string]: string };
 
-    buildConfig.onLoad({ filter: /.\.(scss|sass)$/ }, async (args) => {
-      const { css } = await new Promise<SassResult>((promiseResolve, reject) => {
-        render({ file: args.path }, (error, result) => {
-          error ? reject(error) : promiseResolve(result);
-        });
-      });
-      return { contents: css.toString(), loader: 'css', watchFiles: [args.path] };
-    });
+const VIRTURL_PATH_FILTER = /^esbuild-scripts-internal\/virtual\//;
+const currentProjectDirectory = resolve('.');
+const virtualPathResolvePlugin = (virtualPathMappings: VirtualPathMappings): Plugin => ({
+  name: 'VirtualPathResolvePlugin',
+  setup(buildConfig) {
+    buildConfig.onResolve({ filter: VIRTURL_PATH_FILTER }, (args) => ({
+      path: args.path,
+      namespace: 'virtual-path',
+    }));
+
+    buildConfig.onLoad({ filter: VIRTURL_PATH_FILTER, namespace: 'virtual-path' }, (args) => ({
+      contents: virtualPathMappings[args.path],
+      resolveDir: currentProjectDirectory,
+      loader: 'jsx',
+    }));
   },
-};
+});
 
 const mdxPlugin: Plugin = {
   name: 'mdx',
@@ -55,9 +53,7 @@ const mdxPlugin: Plugin = {
 const esbuildPlugins = (virtualPathMappings: VirtualPathMappings): Plugin[] => [
   webAppResolvePlugin,
   virtualPathResolvePlugin(virtualPathMappings),
-  sassPlugin,
   mdxPlugin,
-  pnpPlugin(),
 ];
 
 export default esbuildPlugins;
