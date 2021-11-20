@@ -1,7 +1,7 @@
 import { mkdir } from 'fs/promises';
 import { extname, resolve } from 'path';
 
-import type { VirtualPathMappings } from '../esbuild/esbuild-virtual-path-plugin';
+import type { VirtualPathMappings } from '../esbuild/esbuild-plugins';
 import {
   PAGES_PATH,
   VIRTUAL_PATH_PREFIX,

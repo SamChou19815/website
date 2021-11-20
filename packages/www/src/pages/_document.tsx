@@ -4,8 +4,8 @@ import React, { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
 
 import '../components/web-terminal/styles.css';
-import './index.scss';
-import './app.scss';
+import './index.css';
+import './app.css';
 
 if (!__SERVER__) {
   const s = (t: string) => document.documentElement.setAttribute('data-theme', t);

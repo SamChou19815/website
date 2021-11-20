@@ -4,8 +4,8 @@ import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import React, { ReactNode } from 'react';
 
-import './index.scss';
-import './game.scss';
+import './index.css';
+import './game.css';
 
 export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
   const path = useLocation().pathname;

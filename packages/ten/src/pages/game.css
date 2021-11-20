@@ -13,38 +13,37 @@
   position: relative;
   width: 300px;
   height: 300px;
+}
 
-  .v-line {
-    background-color: #333333;
-    width: 1px;
-    height: 300px;
-    position: absolute;
-    top: 0;
+.v-line {
+  background-color: #333333;
+  width: 1px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+}
 
-    &.l1 {
-      left: 103px;
-    }
+.h-line {
+  background-color: #333333;
+  width: 300px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+}
 
-    &.l2 {
-      left: 197px;
-    }
-  }
+.v-line.l1 {
+  left: 103px;
+}
 
-  .h-line {
-    background-color: #333333;
-    width: 300px;
-    height: 1px;
-    position: absolute;
-    left: 0;
+.v-line.l2 {
+  left: 197px;
+}
 
-    &.l1 {
-      top: 99px;
-    }
-
-    &.l2 {
-      top: 199px;
-    }
-  }
+.h-line.l1 {
+  top: 99px;
+}
+.h-line.l2 {
+  top: 99px;
 }
 
 .game-cell {

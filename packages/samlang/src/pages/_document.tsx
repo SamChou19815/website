@@ -7,7 +7,7 @@ import React, { ReactNode } from 'react';
 import { SAMLANG_TITLE, SAMLANG_LOGO, SAMLANG_URL } from '../constants';
 
 import 'infima/dist/css/default/default.min.css';
-import './docs-styles.scss';
+import './docs-styles.css';
 import './custom.css';
 
 const NavLink = ({ name, to, active }: Readonly<{ name: string; to: string; active: boolean }>) => (

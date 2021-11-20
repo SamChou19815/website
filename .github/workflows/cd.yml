@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v2
       - uses: actions/cache@v2
         with:
-          path: ".yarn/cache\n.pnp.js"
+          path: '.yarn/cache'
           key: "yarn-berry-${{ hashFiles('**/yarn.lock') }}"
           restore-keys: 'yarn-berry-'
       - name: Yarn Install

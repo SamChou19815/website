@@ -1,7 +1,7 @@
 import type { BuildOptions } from 'esbuild';
 
 import esbuildPlugins from './esbuild-plugins';
-import type { VirtualPathMappings } from './esbuild-virtual-path-plugin';
+import type { VirtualPathMappings } from './esbuild-plugins';
 
 const baseESBuildConfig = ({
   virtualPathMappings,
@@ -24,6 +24,7 @@ const baseESBuildConfig = ({
   platform: 'browser',
   target: 'es2019',
   logLevel: 'error',
+  external: ['path', 'fs'],
   plugins: esbuildPlugins(virtualPathMappings),
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Head from 'esbuild-scripts/components/Head';
+import Head from './Head';
 
 type Props = { readonly title: string };
 

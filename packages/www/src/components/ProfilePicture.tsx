@@ -22,19 +22,6 @@ const normalProfilePicture = (
   />
 );
 
-const BirthdayProfilePicture = ({ onClick }: { readonly onClick: () => void }) => (
-  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-  <img
-    className="avatar__photo birthday-profile-picture"
-    src="/birthday-sam-by-megan-square.webp"
-    alt="birthday-sam fan art by dev-megan"
-    onClick={onClick}
-    onKeyDown={(e) => {
-      if (e.key === 'Enter') onClick();
-    }}
-  />
-);
-
 export default function ProfilePicture(): JSX.Element {
   const onBirthday = useDeveloperSamOnBirthday();
 
@@ -49,7 +36,12 @@ export default function ProfilePicture(): JSX.Element {
     return (
       <>
         <Confetti active={active} config={confettiConfig} />
-        <BirthdayProfilePicture onClick={startConfetti} />
+        <img
+          className="avatar__photo birthday-profile-picture"
+          src="/birthday-sam-by-megan-square.webp"
+          alt="birthday-sam fan art by dev-megan"
+          onClick={startConfetti}
+        />
       </>
     );
   }

@@ -8,19 +8,13 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc --noEmit"
+    "compile": "exit 0"
   },
   "dependencies": {
-    "react-ga": "^3.3.0"
-  },
-  "peerDependencies": {
-    "esbuild-scripts": "*",
+    "esbuild-scripts": "0.6.0",
     "react": "^17.0.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.34",
-    "esbuild-scripts": "workspace:0.5.0",
-    "react": "^17.0.2",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   }
 }
