@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "esr docs-generator.ts start",
-    "build": "esr docs-generator.ts ssg",
+    "start": "./node_modules/esbuild-scripts/index.js start",
+    "build": "./node_modules/esbuild-scripts/index.js ssg",
     "compile": "tsc --noEmit",
     "deploy": "netlify deploy -d build -s samlang.io --prod"
   },
   "dependencies": {
-    "@dev-sam/jest-esbuild-transformer": "0.4.0",
     "@dev-sam/samlang-core": "^0.5.0",
     "clsx": "^1.1.1",
     "infima": "^0.2.0-alpha.34",

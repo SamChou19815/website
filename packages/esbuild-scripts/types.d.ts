@@ -11,8 +11,8 @@ type MarkdownTablesOfContentsElement = {
 
 type CompiledMarkdownComponent = {
   readonly isMDXComponent: true;
-  readonly truncated: boolean;
-  readonly toc: readonly MarkdownTablesOfContentsElement;
+  readonly truncated?: boolean;
+  readonly toc: MarkdownTablesOfContentsElement;
   readonly additionalProperties?: Readonly<Record<string, string>>;
   (): JSX.Element;
 };

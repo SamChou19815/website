@@ -5,9 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React from 'react';
+
+import PAGE_DOCS_CONTENT from '../docs';
 
 const HELLO_WORLD_CODE = `class Main {
   function main(): string = "Hello World"
@@ -60,9 +61,9 @@ export default function Home(): JSX.Element {
           <h1 className="hero__title">samlang</h1>
           <p className="hero__subtitle">{"Sam's Programming Language"}</p>
           <div className="index-page-buttons">
-            <Link className="button button--secondary button--lg" to="/docs/introduction">
+            <a className="button button--secondary button--lg" href="#introduction">
               Get Started
-            </Link>
+            </a>
           </div>
         </div>
       </header>
@@ -82,6 +83,7 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </section>
+        {PAGE_DOCS_CONTENT}
       </main>
     </>
   );

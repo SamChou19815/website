@@ -7,7 +7,6 @@ import React, { ReactNode } from 'react';
 import { SAMLANG_TITLE, SAMLANG_LOGO, SAMLANG_URL } from '../constants';
 
 import 'infima/dist/css/default/default.min.css';
-import './docs-styles.css';
 import './custom.css';
 
 const NavLink = ({ name, to, active }: Readonly<{ name: string; to: string; active: boolean }>) => (
@@ -37,7 +36,6 @@ export default function DocumentTemplate({
               <img className="navbar__logo" src={SAMLANG_LOGO} alt="Logo" />
               <strong className="navbar__title">{SAMLANG_TITLE}</strong>
             </Link>
-            <NavLink name="Docs" to="/docs/introduction" active={path.startsWith('/docs')} />
             <NavLink name="Demo" to="/demo" active={path === '/demo'} />
           </div>
           <div className="navbar__items navbar__items--right">

@@ -8,7 +8,7 @@ import type { Metadata } from './blog-types';
 type Props = {
   readonly title: string;
   readonly metadata: Metadata;
-  readonly truncated: boolean;
+  readonly truncated?: boolean;
   readonly children: JSX.Element;
 };
 
