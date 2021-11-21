@@ -36,17 +36,20 @@ const virtualPathResolvePlugin = (virtualPathMappings: VirtualPathMappings): Plu
 const mdxPlugin: Plugin = {
   name: 'mdx',
   setup(buildConfig) {
-    buildConfig.onLoad({ filter: /\.md\?truncated=true$/ }, async (args) => ({
+    buildConfig.onResolve({ filter: /\.mdtruncated$/ }, (args) => ({ path: args.path }));
+    buildConfig.onLoad({ filter: /\.mdtruncated$/ }, async (args) => ({
       contents: await compileMarkdownToReact(
-        (await readFile(args.path.substring(0, args.path.lastIndexOf('?')))).toString(),
+        (await readFile(args.path.substring(0, args.path.length - 9))).toString(),
         true
       ),
       loader: 'jsx',
     }));
-    buildConfig.onLoad({ filter: /\.md$/ }, async (args) => ({
-      contents: await compileMarkdownToReact((await readFile(args.path)).toString(), false),
-      loader: 'jsx',
-    }));
+    buildConfig.onLoad({ filter: /\.md$/ }, async (args) => {
+      return {
+        contents: await compileMarkdownToReact((await readFile(args.path)).toString(), false),
+        loader: 'jsx',
+      };
+    });
   },
 };
 

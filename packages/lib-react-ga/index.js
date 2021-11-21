@@ -24,9 +24,13 @@ export default function usePageTracking() {
   const location = useLocation();
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production' && !__SERVER__) {
+    if (!__SERVER__) {
       const rawPath = location.pathname + location.search;
-      window.ga('send', { hitType: 'pageview', page: rawPath.replace(/^\s+|\s+$/g, '') });
+      if (process.env.NODE_ENV === 'production') {
+        window.ga('send', { hitType: 'pageview', page: rawPath.replace(/^\s+|\s+$/g, '') });
+      } else {
+        console.info('lib-react-ga', `Visited: ${rawPath}`);
+      }
     }
   }, [location]);
 }
