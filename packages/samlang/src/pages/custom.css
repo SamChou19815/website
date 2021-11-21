@@ -20,6 +20,11 @@ pre {
   margin-bottom: 0;
 }
 
+.docs-container {
+  border-top: 1px solid #ccc;
+  padding: 2em;
+}
+
 .markdown > pre {
   border: none;
   border-radius: 0;

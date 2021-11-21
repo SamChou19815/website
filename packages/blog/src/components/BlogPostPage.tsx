@@ -1,6 +1,5 @@
 import Head from 'esbuild-scripts/components/Head';
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
-import TOC from 'lib-react-docs/TOC';
 import React from 'react';
 
 import BlogPostItem from './BlogPostItem';
@@ -42,9 +41,6 @@ export default function BlogPostPage({
             </div>
           )}
         </main>
-        <div className="col col--2">
-          <TOC toc={BlogPostContents.toc.children} />
-        </div>
       </div>
     </div>
   );

@@ -3,7 +3,10 @@ import remarkSlugs from 'remark-slug';
 
 import parseMarkdownHeaderTree from './markdown-header-parser';
 
-const compileMarkdownToReact = async (text: string, truncated: boolean): Promise<string> => {
+export default async function compileMarkdownToReact(
+  text: string,
+  truncated: boolean
+): Promise<string> {
   const contentLinesWithoutTitle = text.trim().split('\n').slice(1);
 
   let content: string;
@@ -24,6 +27,4 @@ MDXContent.truncated = ${truncated};
 MDXContent.toc = ${JSON.stringify(parseMarkdownHeaderTree(text), undefined, 2)};
 MDXContent.additionalProperties = typeof additionalProperties === 'undefined' ? undefined : additionalProperties;
 `;
-};
-
-export default compileMarkdownToReact;
+}
