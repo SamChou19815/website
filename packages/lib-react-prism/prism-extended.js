@@ -18,10 +18,9 @@ module.exports = function initialize(Prism) {
     keyword: [
       {
         pattern:
-          /(class|val|function|method|import|private|if|then|else|match|from|unit|int|bool|string|this)\b/,
+          /(class|val|function|method|import|private|if|then|else|match|from|unit|int|bool|string|this|true|false)\b/,
       },
     ],
-    boolean: /\b(?:true|false)\b/,
     'class-name': [
       {
         pattern: /(\b)[A-Z][A-Za-z0-9]*/,

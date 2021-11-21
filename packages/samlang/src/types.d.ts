@@ -1,2 +1,6 @@
 /// <reference types="esbuild-scripts/types" />
-/// <reference types="lib-react-prism/types" />
+
+declare module 'autosize' {
+  const autosize: (element: HTMLElement) => void;
+  export default autosize;
+}
