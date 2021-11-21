@@ -1,9 +1,9 @@
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React from 'react';
 
-const PAGE_DOCS_CONTENT = (
-  <section className="container docs-container">
-    <article>
+function Introduction() {
+  return (
+    <div>
       <h2 id="introduction">Introduction</h2>
       <p>
         samlang is a statically-typed functional programming language designed and implemented by
@@ -11,11 +11,25 @@ const PAGE_DOCS_CONTENT = (
         at any time.
       </p>
       <p>The language can be compiled down to X86 assembly and machine code.</p>
-      <h3>Getting Started</h3>
+    </div>
+  );
+}
+
+function GettingStarted() {
+  return (
+    <div>
+      <h2 id="getting-started">Getting Started</h2>
       <PrismCodeBlock language="bash">
         {'yarn add @dev-sam/samlang-cli\nyarn samlang --help'}
       </PrismCodeBlock>
-      <h3>Program Layout</h3>
+    </div>
+  );
+}
+
+function ProgramLayout() {
+  return (
+    <div>
+      <h2 id="program-layout">Program Layout</h2>
       <p>Here is an example program:</p>
       <PrismCodeBlock language="samlang">
         {`class HelloWorld(val message: string) {
@@ -31,9 +45,8 @@ function getGlobalMessage(): string = {
 }
 
 class Main {
-function main(): string = HelloWorld.getGlobalMessage()
-}
-`}
+  function main(): string = HelloWorld.getGlobalMessage()
+}`}
       </PrismCodeBlock>
       <p>
         A module contains a list of classes, and a class can either be a normal class or utility
@@ -51,16 +64,22 @@ function main(): string = HelloWorld.getGlobalMessage()
 import { ClassC, ClassD } from Baz.Foo.Module
 
 class ClassD {
-function main(): int = ClassA.value() + ClassC.value()
-}
-`}
+  function main(): int = ClassA.value() + ClassC.value()
+}`}
       </PrismCodeBlock>
       <p>
         Cyclic dependencies and mutual recursion between different classes are allowed. However,
         cyclic dependencies between modules are strongly discouraged.
       </p>
+    </div>
+  );
+}
 
-      <h2>Classes and Types</h2>
+function ClassesTypes() {
+  return (
+    <div>
+      <h2 id="classes-types">Classes and Types</h2>
+
       <h3>Utility Class</h3>
       <p>
         We first introduce the simplest utility class. Utility classes serve as collections of
@@ -68,8 +87,8 @@ function main(): int = ClassA.value() + ClassC.value()
       </p>
       <PrismCodeBlock language="samlang">
         {`class Math {
-function plus(a: int, b: int): int = a + b
-function cosine(angleInDegree: int): int = panic("Not supported!")
+  function plus(a: int, b: int): int = a + b
+  function cosine(angleInDegree: int): int = panic("Not supported!")
 }`}
       </PrismCodeBlock>
       <p>
@@ -83,6 +102,7 @@ function cosine(angleInDegree: int): int = panic("Not supported!")
         There is a special kind of function called <em>method</em>. You can define methods in
         utility classes although they are not very useful.
       </p>
+
       <h3>Primitive and Compound Types</h3>
       <p>
         You already see two several <em>primitive</em> types: <code>string</code> and{' '}
@@ -106,6 +126,7 @@ tuple types like `}
       </p>
       <p>{`You may want to have some named tuple so that the code is more readable. samlang allows that by
 letting you create an object class.`}</p>
+
       <h3>Object Class</h3>
       <p>
         Here we introduce the first kind of class: <em>object class</em>. You can define it like
@@ -113,9 +134,9 @@ letting you create an object class.`}</p>
       </p>
       <PrismCodeBlock language="samlang">
         {`class Student(private val name: string, val age: int) {
-method getName(): string = this.name
-private method getAge(): int = this.age
-function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
+  method getName(): string = this.name
+  private method getAge(): int = this.age
+  function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
 }`}
       </PrismCodeBlock>
       <p>
@@ -133,6 +154,7 @@ function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
         The <code>{`private`}</code> keyword tells the type-checker that this function, field or
         method cannot be used outside of the class that defines it.
       </p>
+
       <h3>Variant Class</h3>
       <p>{`An object class defines a producct type; a variant class defines a sum type. With variant
 class, you can define a type that can be either A or B or C. Here is an example:`}</p>
@@ -143,20 +165,20 @@ class, you can define a type that can be either A or B or C. Here is an example:
   S(string),
   B(bool),
 ) {
-// some random functions
-function getUnit(): PrimitiveType = U({})
-function getInteger(): PrimitiveType = I(42)
-function getString(): PrimitiveType = S("Answer to life, universe, and everything.")
-function getBool(): PrimitiveType = B(false)
+  // some random functions
+  function getUnit(): PrimitiveType = U({})
+  function getInteger(): PrimitiveType = I(42)
+  function getString(): PrimitiveType = S("Answer to life, universe, and everything.")
+  function getBool(): PrimitiveType = B(false)
 
-// pattern matching!
-method isTruthy(): bool =
-  match this {
-    | U _ -> false
-    | I i -> i != 0
-    | S s -> s != ""
-    | B b -> b
-  }
+  // pattern matching!
+  method isTruthy(): bool =
+    match this {
+      | U _ -> false
+      | I i -> i != 0
+      | S s -> s != ""
+      | B b -> b
+    }
 }`}
       </PrismCodeBlock>
       <p>
@@ -167,6 +189,7 @@ method isTruthy(): bool =
         possibilities, you can use the <code>{`match`}</code> expression to pattern match on the
         expression.
       </p>
+
       <h3>Generics</h3>
       <p>Generics is supported in all kinds of classes. Here are some examples.</p>
       <PrismCodeBlock language="samlang">
@@ -192,20 +215,29 @@ method <R> map(f: (T) -> R): Option<R> =
   }
 }`}
       </PrismCodeBlock>
-      <h2>Expressions</h2>
+    </div>
+  );
+}
+
+function Expressions() {
+  return (
+    <div>
+      <h2 id="expressions">Expressions</h2>
       <p>{`The expressions are listed in order of precedence so you know where to add parenthesis.`}</p>
+
       <h3>Literal</h3>
       <p>
-        These are all valid literals: <code>{`42`}</code>, <code>{`true`}</code>,{' '}
-        <code>{`false`}</code>, <code>{`"aaa"`}</code>.
+        These are all valid literals: <code>{`42, true, false, "aaa"`}</code>.
       </p>
       <p>
-        These are not: <code>{`3.14`}</code>, <code>{`'c'`}</code>.
+        These are not: <code>{"3.14, 'c'"}</code>.
       </p>
+
       <h3>This</h3>
       <p>
-        The syntax is simple: <code>{`this`}</code>. It can be only used inside a method.
+        The syntax is simple: <code>this</code>. It can be only used inside a method.
       </p>
+
       <h3>Variable</h3>
       <p>
         You can refer to a local variable or function parameter just by typing its name. For
@@ -216,6 +248,7 @@ method <R> map(f: (T) -> R): Option<R> =
       <PrismCodeBlock language="samlang">
         {`function random(): int = { val a = 42; a }`}
       </PrismCodeBlock>
+
       <h3>Class Function</h3>
       <p>
         You can refer to a class function by <code>{`ClassName.functionName`}</code>.
@@ -223,17 +256,18 @@ method <R> map(f: (T) -> R): Option<R> =
       <p>For example, you can write:</p>
       <PrismCodeBlock language="samlang">
         {`class Foo(a: int) {
-public function bar(): int = 3
+  function bar(): int = 3
 }
 
 class Main {
-function oof(): int = 14
-function main(): int = Foo.bar() * Main.oof()
+  function oof(): int = 14
+  function main(): int = Foo.bar() * Main.oof()
 }`}
       </PrismCodeBlock>
+
       <h3>Tuple</h3>
       <p>
-        You can construct a tuple by surrounding a list of comma separated expressions with{' '}
+        You can construct a tuple by surrounding a list of comma separated expressions within{' '}
         <code>{`[]`}</code>.
       </p>
       <ul>
@@ -247,6 +281,7 @@ function main(): int = Foo.bar() * Main.oof()
           Tuples can live inside another tuple: <code>{`[["hi", "how"], ["are", "you"]]`}</code>;
         </li>
       </ul>
+
       <h3>Variant</h3>
       <p>
         A variant constructor is like a function, but it must start with an uppercase letter:{' '}
@@ -254,19 +289,21 @@ function main(): int = Foo.bar() * Main.oof()
       </p>
       <h3>Field/Method Access</h3>
       <p>
-        You can access a field/method simply by using the dot syntax: <code>{`expr.name`}</code>.
-        You always need to use this syntax to access the field. i.e. <code>{`this.field`}</code> and{' '}
-        <code>{`field`}</code> refer to different things.
+        You can access a field/method simply by using the dot syntax: <code>expr.name</code>. You
+        always need to use this syntax to access the field. i.e. <code>this.field</code> and{' '}
+        <code>field</code> refer to different things.
       </p>
+
       <h3>Unary Expressions</h3>
       <ul>
         <li>
-          Negation: <code>{`-42`}</code>, <code>{`-(-42)`}</code>
+          Negation: <code>{`-42, -(-42)`}</code>
         </li>
         <li>
-          Not: <code>{`!true`}</code>, <code>{`!(!(false))`}</code>
+          Not: <code>{`!true, !(!(false))`}</code>
         </li>
       </ul>
+
       <h3>Function Call</h3>
       <p>
         You can call a function as you would expect: <code>{`functionName(arg1, arg2)`}</code>.
@@ -276,6 +313,7 @@ function main(): int = Foo.bar() * Main.oof()
         <code>{`((x) -> x)(3)`}</code>.
       </p>
       <p>Currying is not supported.</p>
+
       <h3>Binary Expressions</h3>
       <p>Here are the supported ones:</p>
       <ul>
@@ -305,6 +343,7 @@ function main(): int = Foo.bar() * Main.oof()
           <code>{`a`}</code> and <code>{`b`}</code> must be string, and the result is string.
         </li>
       </ul>
+
       <h3>If-Else Expressions</h3>
       <p>In samlang, we do not have ternary expression, because if-else blocks are expressions.</p>
       <p>
@@ -312,6 +351,7 @@ function main(): int = Foo.bar() * Main.oof()
         <code>{`d`}</code> must have the same type and the result has the same type as{' '}
         <code>{`c`}</code> and <code>{`d`}</code>.
       </p>
+
       <h3>Match Expressions</h3>
       <p>
         Suppose you have a variant type like{' '}
@@ -319,9 +359,9 @@ function main(): int = Foo.bar() * Main.oof()
       </p>
       <PrismCodeBlock language="samlang">
         {`function matchExample(opt: Option<int>): int =
-match (opt) {
-  | None _ -> 42
-  | Some a -> a
+  match (opt) {
+    | None _ -> 42
+    | Some a -> a
 }`}
       </PrismCodeBlock>
       <p>
@@ -330,11 +370,12 @@ match (opt) {
       </p>
       <PrismCodeBlock language="samlang">
         {`function badMatchExample(opt: Option<int>): int =
-match (opt) {
-  | None _ -> 42
-  // missing the Some case, bad code
+  match (opt) {
+    | None _ -> 42
+    // missing the Some case, bad code
 }`}
       </PrismCodeBlock>
+
       <h3>Lambda</h3>
       <p>
         You can easily define an anonymous function as a lambda. Here is the simpliest one:{' '}
@@ -344,6 +385,7 @@ match (opt) {
       <p>
         You can optionally type-annotate some parameters: <code>{`(x: int, y) -> x + y`}</code>.
       </p>
+
       <h3>Statement Block Expression</h3>
       <p>
         You can define new local variables by using the val statement within a block of statements:
@@ -369,21 +411,28 @@ function valExample(): int = {
       <p>Statement blocks can be nested:</p>
       <PrismCodeBlock language="samlang">
         {`function nestedBlocks(): int = {
-val a = {
-  val b = 4;
-  val c = {
-    val d = b;
+  val a = {
+    val b = 4;
+    val c = {
+      val d = b;
+      b
+    };
     b
   };
-  b
-};
-a + 1
+  a + 1
 }`}
       </PrismCodeBlock>
       <p>
         You can create a <code>{`unit`}</code> value by <code>{`{}`}</code>.
       </p>
-      <h2>Type Inference</h2>
+    </div>
+  );
+}
+
+function TypeInference() {
+  return (
+    <div>
+      <h2 id="type-inference">Type Inference</h2>
       <p>
         The only required type annotated happens at the top-level class function and method level.
         The type-checker can infer most of the types at the local level.
@@ -419,8 +468,21 @@ a + 1
         generic because we want every expression to have a concrete type. In this case, the type
         checker will instantiate the generic type <code>{`T`}</code> as <code>{`unit`}</code>.
       </p>
-    </article>
-  </section>
-);
+    </div>
+  );
+}
 
-export default PAGE_DOCS_CONTENT;
+export default function Docs(): JSX.Element {
+  return (
+    <section className="container docs-container">
+      <article>
+        <Introduction />
+        <GettingStarted />
+        <ProgramLayout />
+        <ClassesTypes />
+        <Expressions />
+        <TypeInference />
+      </article>
+    </section>
+  );
+}

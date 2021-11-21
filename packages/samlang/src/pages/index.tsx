@@ -8,41 +8,36 @@
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React from 'react';
 
-import PAGE_DOCS_CONTENT from '../docs';
+import LanguageDemo from '../components/demo';
+import Docs from '../components/docs';
 
-const HELLO_WORLD_CODE = `class Main {
-  function main(): string = "Hello World"
+const HELLO_WORLD_CODE = `class HelloWorld {
+  function getString(): string =
+    "Hello World"
 }`;
 
-const FOURTY_TWO_CODE = `class Main {
-  function main(): int = 2 * 21
+const FOURTY_TWO_CODE = `class Math {
+  function answerToLife(): int =
+    2 * 21
 }`;
 
-const PATTERN_MATCHING_CODE = `class Option<T>(None(unit), Some(T)) {
-
-  function <T> getNone(): Option<T> = None(unit)
-
-  function <T> getSome(d: T): Option<T> = Some(d)
-
-  method <R> map(f: (T) -> R): Option<R> =
+const PATTERN_MATCHING_CODE = `class Option<T>(
+  None(unit), Some(T)
+) {
+  method isEmpty(): bool =
     match (this) {
-      | None _ -> None(unit)
-      | Some d -> Some(f(d))
+      | None _ -> true
+      | Some _ -> false
     }
-
 }`;
 
 const TYPE_INFERENCE_CODE = `class TypeInference {
-  function notAnnotated(): unit = {
-    val _ = (a, b, c) -> if a(b + 1) then b else c;
-  }
-
-  // Read the docs to see how we do the type inference.
-  function annotated(): unit = {
-    val _: ((int) -> bool, int, int) -> int =
-      (a: (int) -> bool, b: int, c: int) -> (
-        if a(b + 1) then b else c
-      );
+  function example(): unit = {
+    // a: (int) -> bool
+    // b: int, c: int
+    val _ = (a, b, c) -> (
+      if a(b + 1) then b else c
+    );
   }
 }`;
 
@@ -55,36 +50,72 @@ const features = [
 
 export default function Home(): JSX.Element {
   return (
-    <>
-      <header className="hero hero--primary index-page-hero-banner">
-        <div className="container">
-          <h1 className="hero__title">samlang</h1>
-          <p className="hero__subtitle">{"Sam's Programming Language"}</p>
-          <div className="index-page-buttons">
-            <a className="button button--secondary button--lg" href="#introduction">
-              Get Started
+    <div className="homepage-container">
+      <div className="sidebar-container">
+        <div className="navbar-items-block">
+          <div className="navbar-toplevels">
+            <a className="homepage-navlink brand" href="/#">
+              <img className="logo" src="/img/logo.png" alt="Logo" />
+              <strong className="navbar__title">samlang</strong>
+            </a>
+            <a className="homepage-navlink" href="#demo">
+              Demo
+            </a>
+            <a
+              className="homepage-navlink"
+              href="https://github.com/SamChou19815/samlang"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+          <div>
+            <a className="homepage-navlink" href="#introduction">
+              Introduction
+            </a>
+            <a className="homepage-navlink" href="#getting-started">
+              Getting Started
+            </a>
+            <a className="homepage-navlink" href="#program-layout">
+              Program Layout
+            </a>
+            <a className="homepage-navlink" href="#classes-types">
+              Classes and Types
+            </a>
+            <a className="homepage-navlink" href="#expressions">
+              Expressions
+            </a>
+            <a className="homepage-navlink" href="#type-inference">
+              Type Inference
             </a>
           </div>
         </div>
-      </header>
-      <main>
+      </div>
+      <main className="homepage-main-container">
+        <header className="index-page-hero-banner" id="">
+          <h1 className="hero-title">
+            <img className="logo" src="/img/logo.png" alt="Logo" width="64px" height="64px" />
+            samlang
+          </h1>
+          <p className="hero-subtitle">
+            A statically-typed functional programming language with type inference.
+          </p>
+        </header>
         <section className="index-page-features">
-          <div className="container">
-            <div className="row">
-              {features.map(({ title, code }) => (
-                <div
-                  key={title}
-                  className="col col--6 index-page-features index-page-code-block-wrapper"
-                >
-                  <h3>{title}</h3>
-                  <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
-                </div>
-              ))}
+          {features.map(({ title, code }) => (
+            <div
+              key={title}
+              className="col col--6 index-page-features index-page-code-block-wrapper"
+            >
+              <h3>{title}</h3>
+              <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
             </div>
-          </div>
+          ))}
         </section>
-        {PAGE_DOCS_CONTENT}
+        <LanguageDemo />
+        <Docs />
       </main>
-    </>
+    </div>
   );
 }

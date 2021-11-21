@@ -8,10 +8,9 @@
 // Credit: Adapted from https://github.com/satya164/react-simple-code-editor/blob/master/src/index.js
 
 import autosize from 'autosize';
+import CodeBlock from 'lib-react-prism/PrismCodeBlock';
 import type { PrismTheme } from 'prism-react-renderer';
 import React, { KeyboardEvent, useState, useRef, useEffect } from 'react';
-
-import CodeBlock from './PrismCodeBlock';
 
 import './PrismCodeEditor.css';
 
