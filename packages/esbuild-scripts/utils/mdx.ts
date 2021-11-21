@@ -1,5 +1,4 @@
 import mdx from '@mdx-js/mdx';
-import remarkSlugs from 'remark-slug';
 
 import parseMarkdownHeaderTree from './markdown-header-parser';
 
@@ -22,7 +21,7 @@ export default async function compileMarkdownToReact(
 
   return `import React from 'react';
 import mdx from 'esbuild-scripts/__internal-components__/mdx';
-${await mdx(content, { remarkPlugins: [remarkSlugs] })}
+${await mdx(content)}
 MDXContent.truncated = ${truncated};
 MDXContent.toc = ${JSON.stringify(parseMarkdownHeaderTree(text), undefined, 2)};
 MDXContent.additionalProperties = typeof additionalProperties === 'undefined' ? undefined : additionalProperties;

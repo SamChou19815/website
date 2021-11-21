@@ -107,7 +107,7 @@ function generatedHomePageCode(
   const contentImports = blogPostParsedDataList
     .map(
       ({ original }, index) =>
-        `import Component${index} from '${RESOLVED_BLOG_DIRECTORY}/${original}?truncated=true';`
+        `import Component${index} from '${RESOLVED_BLOG_DIRECTORY}/${original}truncated';`
     )
     .join('\n');
   const contentProps = blogPostParsedDataList

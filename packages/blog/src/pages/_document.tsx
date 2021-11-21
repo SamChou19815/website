@@ -1,16 +1,18 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
-import useActivePath from 'lib-react-docs/useActivePath';
+import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import usePageTracking from 'lib-react-ga';
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 
 import 'infima/dist/css/default/default.min.css';
 import './index.css';
 import { BLOG_LOGO, BLOG_TITLE, BLOG_URL } from '../constants';
 
-const DocumentWrapper: FC = ({ children }) => {
+export default function DocumentWrapper({ children }: { children: ReactNode }): JSX.Element {
   usePageTracking();
-  const path = useActivePath();
+  let path = useLocation().pathname;
+  if (path.endsWith('/')) path = path.substring(0, path.length - 1);
+
   return (
     <>
       <CommonHeader
@@ -58,6 +60,4 @@ const DocumentWrapper: FC = ({ children }) => {
       </footer>
     </>
   );
-};
-
-export default DocumentWrapper;
+}
