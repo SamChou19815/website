@@ -2,7 +2,7 @@ import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React from 'react';
 
 const PAGE_DOCS_CONTENT = (
-  <section className="docs-container">
+  <section className="container docs-container">
     <article>
       <h2 id="introduction">Introduction</h2>
       <p>
