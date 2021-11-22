@@ -1771,7 +1771,6 @@ __metadata:
   dependencies:
     "@dev-sam/jest-esbuild-transformer": 0.4.0
     "@types/react": ^17.0.34
-    clsx: ^1.1.1
     esbuild-scripts: "workspace:0.6.0"
     infima: ^0.2.0-alpha.34
     lib-react-ga: "workspace:0.1.0"
@@ -2001,13 +2000,6 @@ __metadata:
     strip-ansi: ^6.0.0
     wrap-ansi: ^7.0.0
   checksum: ce2e8f578a4813806788ac399b9e866297740eecd4ad1823c27fd344d78b22c5f8597d548adbcc46f0573e43e21e751f39446c5a5e804a12aace402b7a315d7f
-  languageName: node
-  linkType: hard
-
-"clsx@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "clsx@npm:1.1.1"
-  checksum: ff052650329773b9b245177305fc4c4dc3129f7b2be84af4f58dc5defa99538c61d4207be7419405a5f8f3d92007c954f4daba5a7b74e563d5de71c28c830063
   languageName: node
   linkType: hard
 
@@ -5965,9 +5957,7 @@ resolve@^2.0.0-next.3:
     "@dev-sam/samlang-core": ^0.5.0
     "@types/react": ^17.0.34
     autosize: ^5.0.1
-    clsx: ^1.1.1
     esbuild-scripts: "workspace:0.6.0"
-    infima: ^0.2.0-alpha.34
     lib-react-prism: 0.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -6399,7 +6389,6 @@ resolve@^2.0.0-next.3:
   resolution: "ten@workspace:packages/ten"
   dependencies:
     "@types/react": ^17.0.34
-    clsx: ^1.1.1
     esbuild-scripts: "workspace:0.6.0"
     infima: ^0.2.0-alpha.34
     react: ^17.0.2
@@ -6993,7 +6982,6 @@ resolve@^2.0.0-next.3:
     "@types/jest": ^27.0.3
     "@types/react": ^17.0.34
     esbuild-scripts: "workspace:0.6.0"
-    infima: ^0.2.0-alpha.34
     lib-react-ga: "workspace:0.1.0"
     lib-react-prism: "workspace:0.1.0"
     react: ^17.0.2

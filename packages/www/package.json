@@ -9,7 +9,6 @@
     "deploy": "netlify deploy -d build -s developersam.com --prod"
   },
   "dependencies": {
-    "infima": "^0.2.0-alpha.34",
     "lib-react-ga": "workspace:0.1.0",
     "lib-react-prism": "workspace:0.1.0",
     "react": "^17.0.2",

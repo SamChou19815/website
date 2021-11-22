@@ -9,17 +9,6 @@
   --prism-code-block-comment-color: rgb(100, 100, 100);
 }
 
-html[data-theme='dark'] {
-  --prism-code-block-plain-color: #f8f8f2;
-  --prism-code-block-background-color: #282a36;
-  --prism-code-block-keyword-color: rgb(189, 147, 249);
-  --prism-code-block-property-color: rgb(241, 250, 140);
-  --prism-code-block-number-color: rgb(189, 147, 249);
-  --prism-code-block-string-color: rgb(255, 121, 198);
-  --prism-code-block-function-color: rgb(80, 250, 123);
-  --prism-code-block-comment-color: rgb(138, 154, 214);
-}
-
 .prism-code {
   color: var(--prism-code-block-plain-color);
   background-color: var(--prism-code-block-background-color);
