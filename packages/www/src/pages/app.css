@@ -85,6 +85,15 @@
 }
 
 /* information card */
+.info-card .avatar {
+  justify-content: center;
+}
+.info-card .card__header .avatar .avatar__intro .avatar__name {
+  line-height: 3em;
+}
+.info-card .card__header .avatar .avatar__intro {
+  flex: 0 0 100px;
+}
 .info-card .icon-lines {
   display: flex;
   flex-direction: row;
@@ -205,7 +214,7 @@
   align-content: flex-start;
 }
 .timeline-section .connector-dot {
-  margin-top: 27px;
+  margin-top: 24px;
   width: 8px;
   height: 8px;
   border-radius: 4px;

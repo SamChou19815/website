@@ -1,17 +1,85 @@
 import SSRSuspense from 'esbuild-scripts/components/SSRSuspense';
-import React, { lazy, useEffect } from 'react';
+import React, { ReactNode, lazy, useEffect } from 'react';
 
-import ButtonLink from './ButtonLink';
-import CardHeader from './CardHeader';
-import ConsoleSection from './ConsoleSection';
 import WwwSvgIcon from './Icons';
-import LazyCardMedia from './LazyCardMedia';
 import ProfilePicture from './ProfilePicture';
 import StickyCodeBlock from './StickyCodeBlock';
 import { DATASET_ABOUT, DATASET_PROJECTS, DATASET_TECH_TALKS, DATASET_TIMELINE } from './data';
 import { useSetDeveloperSamOnBirthday } from './global-states';
 
 const WebTerminalAppWrapper = lazy(() => import('./WebTerminalAppWrapper'));
+
+type ButtonLinkProps = {
+  readonly href: string;
+  readonly className?: string;
+  readonly children: ReactNode;
+};
+function ButtonLink({ href, children, className }: ButtonLinkProps): JSX.Element {
+  return (
+    <a
+      className={className == null ? 'button button--link' : `button button--link ${className}`}
+      href={href}
+    >
+      {typeof children === 'string' ? children.toLocaleUpperCase() : children}
+    </a>
+  );
+}
+
+type CardHeaderProps = { readonly title: string; readonly subheader?: string };
+function CardHeader({ title, subheader }: CardHeaderProps): JSX.Element {
+  return (
+    <div className="card__header">
+      <div className="avatar">
+        <div className="avatar__intro">
+          <h4 className="avatar__name">{title}</h4>
+          {subheader && <small className="avatar__subtitle">{subheader}</small>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type ConsoleSectionProps = {
+  readonly id: string;
+  readonly title: string;
+  readonly className?: string;
+  readonly titleClassName?: string;
+  readonly children: ReactNode;
+};
+function ConsoleSection({
+  id,
+  title,
+  className,
+  titleClassName,
+  children,
+}: ConsoleSectionProps): JSX.Element {
+  return (
+    <section id={id} className={className}>
+      <h3
+        className={
+          titleClassName == null
+            ? 'console-section-title'
+            : `console-section-title ${titleClassName}`
+        }
+      >
+        <code>
+          $&nbsp;
+          {title}
+        </code>
+      </h3>
+      {children}
+    </section>
+  );
+}
+
+type LazyCardMediaProps = { readonly image: string; readonly title: string };
+function LazyCardMedia({ image, title }: LazyCardMediaProps): JSX.Element {
+  return (
+    <div className="card__image">
+      <img src={image} alt={title} title={title} loading="lazy" />
+    </div>
+  );
+}
 
 const aboutSection = (
   <ConsoleSection id="about" title="dev-sam about" className="about-section" titleClassName="title">

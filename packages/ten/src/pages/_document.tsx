@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
@@ -11,7 +10,9 @@ export default function Document({ children }: { readonly children: ReactNode })
   const path = useLocation().pathname;
 
   const activeNavClass = (expectedPath: string) =>
-    clsx('navbar__item', 'navbar__link', path === expectedPath && 'navbar__link--active');
+    path === expectedPath
+      ? 'navbar__item navbar__link navbar__link--active'
+      : 'navbar__item navbar__link';
 
   return (
     <>

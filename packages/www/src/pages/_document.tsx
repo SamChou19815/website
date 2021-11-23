@@ -7,15 +7,6 @@ import '../components/web-terminal/styles.css';
 import './index.css';
 import './app.css';
 
-if (!__SERVER__) {
-  const s = (t: string) => document.documentElement.setAttribute('data-theme', t);
-  if (window.matchMedia('(prefers-color-scheme: light)').matches) s('');
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) s('dark');
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', ({ matches: m }) => s(m ? 'dark' : ''));
-}
-
 export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
   usePageTracking();
   return (
