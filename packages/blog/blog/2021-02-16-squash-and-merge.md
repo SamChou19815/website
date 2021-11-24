@@ -8,8 +8,6 @@ commit.
 
 ![Squash and merge](/img/2021-02-16-squash-and-merge/squash.png)
 
-<!--truncate-->
-
 ## Git as a Graph
 
 Before we go deeper into the argument, we first need to understand some git internals to appreciate

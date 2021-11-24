@@ -15,8 +15,6 @@ sometimes it's all about compromises.
 Therefore, I decided to write this blog post as both a reflection for myself and as documentation
 for future leads.
 
-<!--truncate-->
-
 ## The grand plan
 
 On August 16, 2019, I finished my 12-week internship at Facebook. In the same month, our sibling

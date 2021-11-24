@@ -11,8 +11,6 @@ definitive guidance to something.
 (To be friendlier to not-so-technical readers, I _italicized_ all the technical jokes that are not
 essential to understand the story.)
 
-<!--truncate-->
-
 ## 2010: Nothing Big
 
 People have different opinions on whether 2010 is in the decade that contains 2019 or the previous

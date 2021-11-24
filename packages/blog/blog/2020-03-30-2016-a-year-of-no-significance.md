@@ -15,8 +15,6 @@ protest that is beyond the imagination of school administrators.
 
 Let's start with something small.
 
-<!--truncate-->
-
 ## The Themed Showcase
 
 According to my memory, there will be a club showcase every spring semester in the school. Clubs are

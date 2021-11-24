@@ -1,7 +1,7 @@
 import { mkdir, readdir, readFile } from 'fs/promises';
 import { extname, join, resolve } from 'path';
 
-import mainRunner, { utils } from 'esbuild-scripts/api';
+import mainRunner from 'esbuild-scripts/api';
 
 import type { Metadata } from './src/components/blog-types';
 import { BLOG_TITLE } from './src/constants';
@@ -11,6 +11,13 @@ const RESOLVED_BLOG_DIRECTORY = resolve(BLOG_DIRECTORY);
 
 const BLOG_LIST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogListPage'));
 const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogPostPage'));
+
+function parseMarkdownTitle(source: string): string {
+  const firstLine = source.split('\n')[0];
+  if (firstLine == null) throw new Error(`No title.`);
+  if (!firstLine.startsWith('#')) throw new Error(`Invalid title line:\n${firstLine}`);
+  return firstLine.substring(1).trim();
+}
 
 const processBlogPostsPerFile = async () =>
   await Promise.all(
@@ -34,7 +41,7 @@ const processBlogPostsPerFile = async () =>
 
         const content = (await readFile(join(BLOG_DIRECTORY, original))).toString();
         try {
-          const title = utils.parseMarkdownTitle(content);
+          const title = parseMarkdownTitle(content);
           return {
             original,
             withOutExtension,
@@ -53,11 +60,12 @@ const processBlogPostsPerFile = async () =>
 async function processBlogPosts() {
   const perFileData = await processBlogPostsPerFile();
   return perFileData.map((parsed, index) => {
-    const { original, date, formattedDate, path, permalink } = parsed;
+    const { original, date, formattedDate, path, permalink, title } = parsed;
     const fullPrevItem = perFileData[index + 1];
     const fullNextItem = perFileData[index - 1];
 
     const metadata: Metadata = {
+      title,
       date,
       formattedDate,
       permalink,
@@ -104,22 +112,12 @@ function generatedHomePageCode(
   siteTitleString: string,
   blogPostParsedDataList: readonly BlogPostProcessedData[]
 ): string {
-  const contentImports = blogPostParsedDataList
-    .map(
-      ({ original }, index) =>
-        `import Component${index} from '${RESOLVED_BLOG_DIRECTORY}/${original}truncated';`
-    )
-    .join('\n');
   const contentProps = blogPostParsedDataList
-    .map(
-      ({ metadataString }, index) =>
-        `  { content: Component${index}, metadata: ${metadataString} },\n`
-    )
+    .map(({ metadataString }) => `  ${metadataString},\n`)
     .join('');
   return `// @${'generated'}
 import React from 'react';
 import BlogListPage from '${BLOG_LIST_PAGE_COMPONENT_PATH}';
-${contentImports}
 
 const items = [
 ${contentProps}];

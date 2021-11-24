@@ -6,10 +6,7 @@ import type { Metadata } from './blog-types';
 
 type Props = {
   readonly siteTitle: string;
-  readonly items: readonly {
-    readonly content: CompiledMarkdownComponent;
-    readonly metadata: Metadata;
-  }[];
+  readonly items: readonly Metadata[];
 };
 
 export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
@@ -19,15 +16,8 @@ export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
       <div className="row">
         <div className="col col--2" />
         <main className="col col--8">
-          {items.map(({ content: BlogPostContent, metadata }) => (
-            <BlogPostItem
-              key={metadata.permalink}
-              title={BlogPostContent.toc.label}
-              metadata={metadata}
-              truncated={BlogPostContent.truncated}
-            >
-              <BlogPostContent />
-            </BlogPostItem>
+          {items.map((metadata) => (
+            <BlogPostItem key={metadata.permalink} metadata={metadata} truncated />
           ))}
         </main>
       </div>

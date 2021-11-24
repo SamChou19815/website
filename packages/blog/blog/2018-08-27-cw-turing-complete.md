@@ -6,8 +6,6 @@ primitive and not Turing complete, but it's still useful and expressive enough t
 one step of a critter move. You can see the spec publicly
 [here](http://www.cs.cornell.edu/courses/cs2112/2018fa/project/project.pdf).
 
-<!--truncate-->
-
 Although the critter language is not Turing complete, a running critter world simulation, under some
 circumstances, can be used to simulate a Turing machine, thus making it Turing complete.
 

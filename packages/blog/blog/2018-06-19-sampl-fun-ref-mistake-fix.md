@@ -25,8 +25,6 @@ function test(f, a) {
 const ignoreMe = test(f, '3');
 ```
 
-<!--truncate-->
-
 However, functions do not have first-class support on JVM. Although Java 8 and Kotlin have good and
 reasonable support for FP, function reference still need a special syntax like `::test` in Kotlin.
 

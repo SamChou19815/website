@@ -6,8 +6,6 @@ Since the release of Apple M1 MacBook, a ticking bomb starts: eventually there w
 cannot run the compiled samlang code anymore, if samlang compiler does not change. samlang must
 change to adapt to the new world.
 
-<!--truncate-->
-
 ## Background
 
 At that time, samlang emits x86 assembly code. Nine months ago, I made the first move to emit

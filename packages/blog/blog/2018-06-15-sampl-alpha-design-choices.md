@@ -8,8 +8,6 @@ language for a while, because I was frustrated by the ugliness of OCaml's namesp
 nice functional features. The exact name of the language was not chosen with much deliberation: I
 just want the name to contain a substring SAM.
 
-<!--truncate-->
-
 As soon as I started to design the language, I realized that I need to clearly specify the scope of
 this project. In other words, I need to answer following questions before even writing a single line
 of code:

@@ -34,7 +34,7 @@ class Main {
 
 const patchedTheme = {
   ...flexibleTheme,
-  plain: { ...flexibleTheme.plain, backgroundColor: 'var(--ifm-background-color)' },
+  plain: { ...flexibleTheme.plain, backgroundColor: 'var(--background-color)' },
 };
 
 export default function StickyCodeBlock(): JSX.Element {

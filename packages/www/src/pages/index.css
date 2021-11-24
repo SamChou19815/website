@@ -1,12 +1,12 @@
 :root {
-  --ifm-color-primary: #3e7ae2;
+  --color-primary: #3e7ae2;
   --gray-0: white;
   --gray-900: #1c1e21;
   --ifm-color-content: var(--gray-900);
-  --ifm-background-color: #f7f7f7;
-  --ifm-background-color-transparent: rgba(62, 122, 226, 0.07);
-  --ifm-background-surface-color: var(--gray-0);
-  --ifm-font-color-base: var(--gray-900);
+  --background-color: #f7f7f7;
+  --background-color-transparent: rgba(62, 122, 226, 0.07);
+  --background-surface-color: var(--gray-0);
+  --font-color-base: var(--gray-900);
   --border-radius: 6px;
   --global-spacing: 1em;
 }
@@ -15,8 +15,8 @@
   :root {
     --gray-0: black;
     --gray-900: #f5f6f7;
-    --ifm-background-color: #18191a;
-    --ifm-background-surface-color: #242526;
+    --background-color: #18191a;
+    --background-surface-color: #242526;
   }
 
   pre {
@@ -38,13 +38,13 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--ifm-font-color-base);
-  background: var(--ifm-background-color);
+  color: var(--font-color-base);
+  background: var(--background-color);
   overflow-x: hidden;
 }
 
 svg {
-  fill: var(--ifm-font-color-base);
+  fill: var(--font-color-base);
 }
 
 html {
@@ -104,7 +104,7 @@ img {
 }
 
 .card {
-  background-color: var(--ifm-background-surface-color);
+  background-color: var(--background-surface-color);
   border-radius: var(--border-radius);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   display: flex;
@@ -162,14 +162,14 @@ img {
 }
 
 .button--link {
-  color: var(--ifm-color-primary);
+  color: var(--color-primary);
   padding: 0.5em;
   border-radius: 0.2rem !important;
 }
 
 .button--link:hover {
-  color: var(--ifm-color-primary);
-  background-color: var(--ifm-background-color-transparent);
+  color: var(--color-primary);
+  background-color: var(--background-color-transparent);
 }
 
 .card-container {

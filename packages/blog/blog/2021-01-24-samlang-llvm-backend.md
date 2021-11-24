@@ -9,8 +9,6 @@ I was always planning to migrate the samlang backend to LLVM since Apple announc
 would be running on ARM chips and I want the ability to run compiled samlang code natively. Such a
 plan finally came true this winter when I was stuck in Ithaca having nothing else to do.
 
-<!--truncate-->
-
 ## Runtime Library for LLVM
 
 Compiling a language from source-level down to assembly is not all about code transformation. The
