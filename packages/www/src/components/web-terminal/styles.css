@@ -10,7 +10,7 @@
   width: 24px;
   height: 24px;
   padding: 4px;
-  border: 1px solid var(--ifm-font-color-base);
+  border: 1px solid var(--font-color-base);
   background-color: var(--ifm-code-background-color);
 }
 
@@ -21,7 +21,7 @@
 }
 
 .web-terminal-trigger-button:hover {
-  background-color: var(--ifm-background-color);
+  background-color: var(--background-color);
 }
 
 .web-terminal-first-edge {
@@ -29,7 +29,7 @@
   width: 2px;
   height: 6px;
   transform: skew(45deg);
-  background: var(--ifm-font-color-base);
+  background: var(--font-color-base);
 }
 
 .web-terminal-second-edge {
@@ -37,7 +37,7 @@
   width: 2px;
   height: 6px;
   transform: skew(-45deg);
-  background: var(--ifm-font-color-base);
+  background: var(--font-color-base);
 }
 
 .web-terminal-text {
@@ -54,7 +54,7 @@
   box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.2), 0px 0px 5px 0px rgba(0, 0, 0, 0.14),
     0px 0px 5px 0px rgba(0, 0, 0, 0.2);
   border-top: 1px solid #cfd8dc;
-  background-color: var(--ifm-background-color);
+  background-color: var(--background-color);
 }
 
 .web-terminal-title {
@@ -71,7 +71,7 @@
   border-radius: 0;
   overflow: auto;
   cursor: text;
-  background-color: var(--ifm-background-color);
+  background-color: var(--background-color);
 }
 
 .web-terminal-content {

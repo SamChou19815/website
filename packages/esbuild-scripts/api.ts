@@ -3,12 +3,6 @@
 import buildCommand from './command-build';
 import startCommand from './command-start';
 import type { VirtualPathMappings } from './esbuild/esbuild-plugins';
-import * as constants from './utils/constants';
-import parseMarkdownHeaderTree, { parseMarkdownTitle } from './utils/markdown-header-parser';
-import compileMarkdownToReact from './utils/mdx';
-
-const utils = { parseMarkdownHeaderTree, parseMarkdownTitle, compileMarkdownToReact };
-export { constants, utils };
 
 function help() {
   console.error('Usage:');

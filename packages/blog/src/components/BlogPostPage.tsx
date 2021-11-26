@@ -17,8 +17,7 @@ export default function BlogPostPage({
   content: BlogPostContents,
   metadata,
 }: Props): JSX.Element {
-  const { nextItem, prevItem } = metadata;
-  const title = BlogPostContents.toc.label;
+  const { title, nextItem, prevItem } = metadata;
   const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
 
   return (
@@ -32,7 +31,7 @@ export default function BlogPostPage({
       <div className="row">
         <div className="col col--2" />
         <main className="col col--8">
-          <BlogPostItem title={title} metadata={metadata} truncated={BlogPostContents.truncated}>
+          <BlogPostItem metadata={metadata} truncated={false}>
             <BlogPostContents />
           </BlogPostItem>
           {(nextItem || prevItem) && (

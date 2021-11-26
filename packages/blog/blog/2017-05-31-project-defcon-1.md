@@ -10,8 +10,6 @@ second-step authenticator. Since it dramatically increased the complexity of log
 recommended to switch it on only when you feel imminent threat, as suggested by the name
 '[DEFCON](https://en.wikipedia.org/wiki/DEFCON) 1'.
 
-<!--truncate-->
-
 ## 2. Architecture
 
 The system will automatically generate a new random string as the second-step password, which only

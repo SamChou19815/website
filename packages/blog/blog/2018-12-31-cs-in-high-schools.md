@@ -6,8 +6,6 @@ not matter at all, so I can honestly reflect on it. I reviewed again all my comp
 records and writings to ensure the content in this article is as accurate as possible. I hope it
 still helps.
 
-<!--truncate-->
-
 ## 1. The Story
 
 I came into my high school with a declared intention to major in computer science in college.

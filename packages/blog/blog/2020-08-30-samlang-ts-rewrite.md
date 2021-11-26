@@ -6,8 +6,6 @@ as a [demo tab](https://samlang.developersam.com/demo). In addition, samlang can
 JavaScript code as its second target language. However, the most exciting changes come from a
 complete overhaul of the codebase: _rewriting samlang in TypeScript_.
 
-<!--truncate-->
-
 ## Engineering problems with Kotlin
 
 Kotlin is a great language. It has a powerful static type system that can catch a lot of issues

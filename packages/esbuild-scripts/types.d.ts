@@ -4,15 +4,8 @@
 
 declare const __SERVER__: boolean;
 
-type MarkdownTablesOfContentsElement = {
-  readonly label: string;
-  readonly children: readonly MarkdownTablesOfContentsElement[];
-};
-
 type CompiledMarkdownComponent = {
   readonly isMDXComponent: true;
-  readonly truncated?: boolean;
-  readonly toc: MarkdownTablesOfContentsElement;
   readonly additionalProperties?: Readonly<Record<string, string>>;
   (): JSX.Element;
 };

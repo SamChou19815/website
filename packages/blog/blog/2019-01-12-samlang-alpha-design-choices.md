@@ -8,8 +8,6 @@ for a self-designed functional programming language with only the knowledge to i
 interpreter for a toy language in Cornell CS 3110. I was particularly proud of the module system and
 generics in that language.
 
-<!--truncate-->
-
 However, that language has some fundamental limitations. Type inference isn't great because it
 requires type annotation for all functional arguments; the code I used to I solve generic parameter
 inference looks long and hacky; more importantly, the error messages are really unhelpful which

@@ -4,8 +4,6 @@ On the evening of December 8, 2016, exactly on 5:01 PM in Eastern Standard Time,
 Cornell Engineering acceptance letter struck my eyes. For me, it was a confirmation, a confirmation
 for an unexpected success of a rebellion.
 
-<!--truncate-->
-
 I can imagine what would happen if things were the other way around. There would have been some
 discussions in teachers' office. "Another failed example, just like John Shi two years ago,"
 commented Mr. Alpha. John was the leader of the student union, founder, and president of the robotic

@@ -35,7 +35,7 @@
   width: 100%;
   padding: 1em 0;
   text-align: center;
-  background-color: var(--ifm-background-color);
+  background-color: var(--background-color);
   font-weight: 500;
 }
 
@@ -198,7 +198,7 @@
   width: 2px;
   top: 34px;
   bottom: 76px;
-  background-color: var(--ifm-color-primary);
+  background-color: var(--color-primary);
 }
 
 .timeline-section .card-container {

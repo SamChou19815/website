@@ -10,8 +10,6 @@ The end result is a 20x speedup on my [personal website](https://developersam.co
 
 ![20x performance improvement](/img/2021-04-15-esbuild-scripts/performance.png)
 
-<!--truncate-->
-
 ## Introduction to JS Bundlers
 
 A JavaScript bundler takes in one or several entry points, starts from there to include in the files

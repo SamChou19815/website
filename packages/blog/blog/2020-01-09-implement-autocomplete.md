@@ -7,8 +7,6 @@ Without the infrastructure discussed in this post, that code snippet mentioned h
 I will walk through my journey to implement autocomplete in this blog post, using my programming
 language [samlang](https://samlang.developersam.com) as an example.
 
-<!--truncate-->
-
 ## Background
 
 First, let's understand what is the autocomplete that I'm talking about. Here are some examples:

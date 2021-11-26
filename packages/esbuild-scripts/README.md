@@ -111,9 +111,6 @@ The imported markdown file is required to start with title `# Your title`, and w
 nestings. The component you imported will have type `CompiledMarkdownComponent`, which you can see
 in [`types.d.ts`](./types.d.ts).
 
-You can postfix the markdown filepath with `?truncated=true`. Then only the markdown content before
-the `<!--truncate-->` comment will be preserved.
-
 You can use these primitives provided by `esbuild-scripts` to build static documentation sites or
 blogs.
 
