@@ -175,13 +175,30 @@ section.index-page-features {
   flex-wrap: wrap;
 }
 
-.index-page-features.index-page-code-block-wrapper {
+.index-page-code-block-wrapper {
   padding: 0.5em;
-  flex: 0 0 50%;
-  max-width: 50%;
+}
+
+@media screen and (min-width: 700px) {
+  .index-page-code-block-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .index-page-code-block-wrapper {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 /* Language Demo */
+
+@media screen and (max-width: 900px) {
+  .language-demo {
+    display: none;
+  }
+}
 
 .language-demo {
   background-color: white;

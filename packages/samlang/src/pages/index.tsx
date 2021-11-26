@@ -104,10 +104,7 @@ export default function Home(): JSX.Element {
         </header>
         <section className="index-page-features">
           {features.map(({ title, code }) => (
-            <div
-              key={title}
-              className="col col--6 index-page-features index-page-code-block-wrapper"
-            >
+            <div key={title} className="index-page-code-block-wrapper">
               <h3>{title}</h3>
               <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
             </div>
