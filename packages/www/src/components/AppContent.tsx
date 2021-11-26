@@ -1,13 +1,11 @@
-import SSRSuspense from 'esbuild-scripts/components/SSRSuspense';
-import React, { ReactNode, lazy, useEffect } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 
 import WwwSvgIcon from './Icons';
 import ProfilePicture from './ProfilePicture';
 import StickyCodeBlock from './StickyCodeBlock';
+import WebTerminalAppWrapper from './WebTerminalAppWrapper';
 import { DATASET_ABOUT, DATASET_PROJECTS, DATASET_TECH_TALKS, DATASET_TIMELINE } from './data';
 import { useSetDeveloperSamOnBirthday } from './global-states';
-
-const WebTerminalAppWrapper = lazy(() => import('./WebTerminalAppWrapper'));
 
 type ButtonLinkProps = {
   readonly href: string;
@@ -215,9 +213,7 @@ export default function AppContent(): JSX.Element {
           {timelineSection}
         </div>
       </div>
-      <SSRSuspense fallback={null}>
-        <WebTerminalAppWrapper />
-      </SSRSuspense>
+      <WebTerminalAppWrapper />
     </>
   );
 }
