@@ -10,9 +10,10 @@ function loadGA() {
   ga.l = 1 * new Date();
   window.ga = ga;
   const a = document.createElement('script');
+  const m = document.getElementsByTagName('script')[0];
   a.async = true;
   a.src = 'https://www.google-analytics.com/analytics.js';
-  document.getElementsByTagName('script')[0].parentNode.insertBefore(a, m);
+  m.parentNode.insertBefore(a, m);
 }
 
 if (process.env.NODE_ENV === 'production' && !__SERVER__) {
