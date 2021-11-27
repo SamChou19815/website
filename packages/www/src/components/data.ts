@@ -83,30 +83,6 @@ export const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
     ],
   },
   {
-    name: 'Samwise',
-    type: 'Web App',
-    media: '/projects/samwise.webp',
-    description:
-      'A Student Planner for Everyone. Designed, developed and maintained by Cornell DTI.',
-    links: [
-      { text: 'App', href: 'https://samwise.today' },
-      { text: 'GitHub', href: 'https://github.com/cornell-dti/samwise' },
-    ],
-  },
-  {
-    name: 'Wiki',
-    type: 'Web App',
-    media: '/projects/wiki.webp',
-    description: 'Documentation for this monoropo and notes from Developer Sam.',
-    links: [
-      { text: 'Website', href: 'https://wiki.developersam.com' },
-      {
-        text: 'GitHub',
-        href: 'https://github.com/SamChou19815/website/tree/master/packages/wiki',
-      },
-    ],
-  },
-  {
     name: 'TEN',
     type: 'Game AI',
     media: '/projects/ten.webp',
