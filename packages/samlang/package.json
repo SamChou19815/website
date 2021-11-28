@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/esbuild-scripts/index.js start",
-    "build": "./node_modules/esbuild-scripts/index.js ssg",
+    "start": "esbuild-scripts start",
+    "build": "esbuild-scripts ssg",
     "compile": "tsc --noEmit",
     "deploy": "netlify deploy -d build -s samlang.io --prod"
   },
