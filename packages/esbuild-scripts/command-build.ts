@@ -113,7 +113,7 @@ export default async function buildCommand(
     const relevantOutputFiles = outputFiles.filter(
       (it) => it.startsWith('chunk') || it.startsWith(entryPoint)
     );
-    const html = getGeneratedHTML(ssrFunction?.(entryPoint), relevantOutputFiles, true);
+    const html = getGeneratedHTML(ssrFunction?.(entryPoint), relevantOutputFiles);
     return { entryPoint, html };
   });
   await Promise.all(
