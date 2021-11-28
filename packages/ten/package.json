@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/esbuild-scripts/index.js start",
-    "build": "./node_modules/esbuild-scripts/index.js build",
+    "start": "esbuild-scripts start",
+    "build": "esbuild-scripts build",
     "compile": "tsc",
     "deploy": "netlify deploy -d build -s ten.developersam.com --prod"
   },
