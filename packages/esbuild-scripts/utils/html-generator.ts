@@ -6,13 +6,7 @@ export type SSRResult = {
   readonly helmet: HelmetData;
 };
 
-const scriptElement = (href: string, esModule: boolean) =>
-  esModule ? `<script type="module" src="/${href}"></script>` : `<script src="/${href}"></script>`;
-
-const linkScriptElement = (href: string, esModule: boolean) =>
-  `<link rel="${esModule ? 'modulepreload' : 'preload'}" href="/${href}" />`;
-
-const getLinks = (files: readonly string[], esModule: boolean, noJS?: boolean) => {
+const getLinks = (files: readonly string[], noJS?: boolean) => {
   const jsFiles: string[] = [];
   const cssFiles: string[] = [];
   files.forEach((filename) => {
@@ -24,9 +18,11 @@ const getLinks = (files: readonly string[], esModule: boolean, noJS?: boolean) =
   });
 
   const headLinks =
-    cssFiles.map((filename) => `<link rel="stylesheet" href="/${filename}" />`).join('') +
-    jsFiles.map((filename) => linkScriptElement(filename, esModule)).join('');
-  const bodyScriptLinks = jsFiles.map((filename) => scriptElement(filename, esModule)).join('');
+    cssFiles.map((href) => `<link rel="stylesheet" href="/${href}" />`).join('') +
+    jsFiles.map((href) => `<link rel="modulepreload" href="/${href}" />`).join('');
+  const bodyScriptLinks = jsFiles
+    .map((href) => `<script type="module" src="/${href}"></script>`)
+    .join('');
   return { headLinks, bodyScriptLinks };
 };
 
@@ -42,12 +38,8 @@ const getHeadHTML = (headLinks: string, helmet?: HelmetData) => {
   return `<head>${parts.join('')}</head>`;
 };
 
-const getGeneratedHTML = (
-  ssrResult: SSRResult | undefined,
-  files: readonly string[],
-  esModule: boolean
-): string => {
-  const { headLinks, bodyScriptLinks } = getLinks(files, esModule, ssrResult?.noJS);
+const getGeneratedHTML = (ssrResult: SSRResult | undefined, files: readonly string[]): string => {
+  const { headLinks, bodyScriptLinks } = getLinks(files, ssrResult?.noJS);
   if (ssrResult == null) {
     const head = getHeadHTML(headLinks);
     const body = `<body><div id="root"></div>${bodyScriptLinks}</body>`;
