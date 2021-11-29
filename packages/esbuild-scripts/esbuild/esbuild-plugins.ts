@@ -1,8 +1,9 @@
 import { readFile } from 'fs/promises';
 import { resolve } from 'path';
 
-import mdx from '@mdx-js/mdx';
 import type { Plugin } from 'esbuild';
+
+const mdxPromise = import('@mdx-js/mdx');
 
 const webAppResolvePlugin: Plugin = {
   name: 'WebAppResolvePlugin',
@@ -33,9 +34,14 @@ const virtualPathResolvePlugin = (virtualPathMappings: VirtualPathMappings): Plu
 });
 
 async function compileMarkdownToReact(text: string): Promise<string> {
-  return `import React from 'react';
-import mdx from 'esbuild-scripts/__internal-components__/mdx';
-${await mdx(text.trim().split('\n').slice(1).join('\n').trim())}
+  const mainComponentCode = await (
+    await mdxPromise
+  ).compile(text.trim().split('\n').slice(1).join('\n').trim(), {
+    providerImportSource: 'esbuild-scripts/__internal-components__/mdx',
+    jsxRuntime: 'classic',
+  });
+  return `// @${'generated'}
+${mainComponentCode.value}
 MDXContent.additionalProperties = typeof additionalProperties === 'undefined' ? undefined : additionalProperties;
 `;
 }

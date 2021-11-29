@@ -5,20 +5,20 @@ import { dirname, join, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
 
-import baseESBuildConfig from './esbuild/esbuild-config';
-import type { VirtualPathMappings } from './esbuild/esbuild-plugins';
+import baseESBuildConfig from '../esbuild/esbuild-config';
+import type { VirtualPathMappings } from '../esbuild/esbuild-plugins';
 import {
   SSR_CSS_PATH,
   SSR_JS_PATH,
   BUILD_PATH,
   VIRTUAL_SERVER_ENTRY_PATH,
-} from './utils/constants';
+} from '../utils/constants';
 import {
   virtualEntryComponentsToVirtualPathMappings,
   createEntryPointsGeneratedVirtualFiles,
-} from './utils/entry-points';
-import { copyDirectoryContent } from './utils/fs';
-import getGeneratedHTML, { SSRResult } from './utils/html-generator';
+} from '../utils/entry-points';
+import { copyDirectoryContent } from '../utils/fs';
+import getGeneratedHTML, { SSRResult } from '../utils/html-generator';
 
 async function generateBundle(
   entryPointVirtualFiles: VirtualPathMappings,

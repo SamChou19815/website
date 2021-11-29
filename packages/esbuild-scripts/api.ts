@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-import buildCommand from './command-build';
-import startCommand from './command-start';
+import buildCommand from './commands/command-build';
+import startCommand from './commands/command-start';
 import type { VirtualPathMappings } from './esbuild/esbuild-plugins';
 
 function help() {
