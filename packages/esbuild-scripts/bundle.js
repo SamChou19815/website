@@ -20,7 +20,7 @@ build({
 (() => {`,
   },
   footer: { js: '})();' },
-  external: ['@mdx-js/mdx', 'esbuild', 'express'],
+  external: ['@mdx-js/mdx', 'esbuild', 'express', 'express-ws'],
 })
   .catch(() => process.exit(1))
   // eslint-disable-next-line no-console
