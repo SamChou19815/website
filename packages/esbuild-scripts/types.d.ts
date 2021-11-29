@@ -14,5 +14,3 @@ declare module '*.md' {
   const MarkdownComponent: CompiledMarkdownComponent;
   export default MarkdownComponent;
 }
-
-declare module '@mdx-js/react';
