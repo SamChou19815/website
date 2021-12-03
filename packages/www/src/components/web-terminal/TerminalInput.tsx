@@ -47,12 +47,12 @@ const TerminalInput = ({ terminalInput, onArrow, onSubmit }: Props): JSX.Element
   }, [terminalInput, line, justProcessedArrowKey]);
 
   return (
-    <div className="web-terminal-input-area">
-      <span className="web-terminal-prompt-label">$</span>
+    <div className="inline-flex justify-center w-full">
+      <span className="text-blue-500 pr-2">$</span>
       <input
         name="terminal-input"
         ref={terminalInput}
-        className="web-terminal-input"
+        className="border-0 flex-grow w-full h-6 bg-transparent font-mono outline-none"
         value={line}
         onChange={(event) => setLine(event.currentTarget.value)}
         onKeyDown={onKeyDown}

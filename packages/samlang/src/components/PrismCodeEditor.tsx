@@ -5,8 +5,6 @@ import CodeBlock from 'lib-react-prism/PrismCodeBlock';
 import type { PrismTheme } from 'prism-react-renderer';
 import React, { KeyboardEvent, useState, useRef, useEffect } from 'react';
 
-import './PrismCodeEditor.css';
-
 type Record = {
   readonly value: string;
   readonly selectionStart: number;
@@ -219,10 +217,10 @@ export default function PrismCodeEditor({
   };
 
   return (
-    <div className="prism-code-editor-container">
+    <div className="relative max-h-full overflow-scroll">
       <textarea
         ref={inputRef}
-        className="prism-code-editor text-area"
+        className="prism-code-editor text-area relative leading-snug z-40 min-w-full resize-none bg-transparent outline-none border-0 p-4 text-transparent font-mono"
         value={code}
         onChange={(event) => onCodeChange(event.currentTarget.value)}
         onKeyDown={handleKeyDown}
@@ -234,7 +232,7 @@ export default function PrismCodeEditor({
       />
       <CodeBlock
         language={language}
-        className={`prism-code-editor code-block`}
+        className="prism-code-editor absolute p-4 inset-0 z-10 min-w-full pointer-events-none overflow-y-visible"
         theme={theme}
         style={{ height: codeBlockHeight + 16 }}
       >

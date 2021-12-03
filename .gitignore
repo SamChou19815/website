@@ -21,8 +21,7 @@
 
 # framework generated files
 **/.temp
-**/generated-pages
-**/generated-components
+packages/esbuild-scripts/api.js
 workspaces.json
 
 # env

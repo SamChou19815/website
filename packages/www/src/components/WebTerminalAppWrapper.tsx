@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import WebTerminal from './web-terminal';
+import StatefulTerminal from './web-terminal/StatefulTerminal';
 import { WebTerminalCommandsContextProvider } from './web-terminal/WebTerminalCommandsContext';
 import baseCommands from './web-terminal/base-commands';
 import type { Commands } from './web-terminal/types';
@@ -52,29 +52,24 @@ function DevMegan(): JSX.Element {
   );
 }
 
-const devMegan = () => <DevMegan />;
+function Home(): JSX.Element {
+  useEffect(() => {
+    window.location.href = '/';
+  }, []);
+  return <div>Redirecting...</div>;
+}
 
 const commands: Commands = {
   ...baseCommands,
+  home: { fn: () => <Home />, description: 'Redirect to homepage.' },
   'dev-sam': { fn: devSam, description: 'You guess what it is.' },
-  'dev-megan': {
-    fn: devMegan,
-    description: (
-      <img
-        src="/emojis/devmegan.webp"
-        width={20}
-        height={20}
-        style={{ marginBottom: '-4px' }}
-        alt="dev-megan"
-      />
-    ),
-  },
+  'dev-megan': { fn: DevMegan, description: `${'💕'}` },
 };
 
 export default function WebTerminalAppWrapper(): JSX.Element {
   return (
     <WebTerminalCommandsContextProvider value={commands}>
-      <WebTerminal />
+      <StatefulTerminal />
     </WebTerminalCommandsContextProvider>
   );
 }

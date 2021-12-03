@@ -18,14 +18,22 @@
     console.info('The development server has disconnected.\nRefresh the page if necessary.');
 
   connection.onmessage = (m) => {
-    /** @type {{building: boolean, hasErrors: boolean}} */
-    const { building, hasErrors } = JSON.parse(m.data);
+    /** @type {{hasErrors: boolean; cssOnlyChange: string}} */
+    const { hasErrors, cssOnlyChange } = JSON.parse(m.data);
 
-    if (building) {
-      clearOutdatedErrors();
-    } else if (!hasErrors) {
+    if (!hasErrors) {
       hasCompileErrors = false;
-      if (!isFirstCompilation) window.location.reload();
+      if (!isFirstCompilation) {
+        if (cssOnlyChange) {
+          [...document.getElementsByTagName('link')].forEach((it) => {
+            if (it.rel === 'stylesheet') {
+              it.href = cssOnlyChange;
+            }
+          });
+        } else {
+          window.location.reload();
+        }
+      }
     } else {
       hasCompileErrors = true;
       clearOutdatedErrors();

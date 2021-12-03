@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Button from '../components/Button';
 import GameCard from '../components/GameCard';
 import {
   Move,
@@ -40,7 +41,6 @@ const initialState: GameStates = { currentState: { board: emptyBoard } };
 
 export default function PlayAgainstAIGameCard(): JSX.Element {
   const [gameStates, setGameStates] = useState<GameStates>(initialState);
-  const [playerIdentity, setPlayerIdentity] = useState<'Black' | 'White'>('Black');
   const [playerCanMove, setPlayerCanMove] = useState(true);
   const [playerMadeIllegalMove, setPlayerMadeIllegalMove] = useState(false);
 
@@ -64,14 +64,12 @@ export default function PlayAgainstAIGameCard(): JSX.Element {
 
   const onSelectSide = (id: 'Black' | 'White') => {
     const newBoard = id === 'Black' ? emptyBoard : makeMoveWithoutCheck(emptyBoard, [4, 4]);
-    setPlayerIdentity(id);
     setGameStates({ currentState: { board: newBoard } });
   };
 
   return (
     <GameCard
       gameState={gameStates.currentState}
-      playerIdentity={playerIdentity}
       playerCanMove={playerCanMove && getGameStatus(gameStates.currentState.board) === 0}
       playerMadeIllegalMove={playerMadeIllegalMove}
       showUndoButton={playerCanMove && gameStates.previousState != null}
@@ -81,19 +79,9 @@ export default function PlayAgainstAIGameCard(): JSX.Element {
       }}
     >
       {computeCanShowGameStarterButtons(gameStates, playerCanMove) && (
-        <div className="card__footer">
-          <button
-            className="button button--outline button--primary"
-            onClick={() => onSelectSide('Black')}
-          >
-            Play as Black
-          </button>
-          <button
-            className="button button--outline button--primary"
-            onClick={() => onSelectSide('White')}
-          >
-            Play as White
-          </button>
+        <div className="p-4 pt-0 flex justify-center items-center">
+          <Button onClick={() => onSelectSide('Black')}>Play as Black</Button>
+          <Button onClick={() => onSelectSide('White')}>Play as White</Button>
         </div>
       )}
     </GameCard>

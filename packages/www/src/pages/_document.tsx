@@ -1,14 +1,9 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
-import usePageTracking from 'lib-react-ga';
 import React, { ReactNode } from 'react';
-import { RecoilRoot } from 'recoil';
 
-import '../components/web-terminal/styles.css';
 import './index.css';
-import './app.css';
 
 export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
-  usePageTracking();
   return (
     <>
       <CommonHeader
@@ -46,7 +41,7 @@ export default function Document({ children }: { readonly children: ReactNode })
   "https://www.linkedin.com/in/sam-zhou-30b91610b/"]}`}
         </script>
       </CommonHeader>
-      <RecoilRoot>{children}</RecoilRoot>
+      {children}
     </>
   );
 }

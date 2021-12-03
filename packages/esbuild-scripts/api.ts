@@ -2,7 +2,7 @@
 
 import buildCommand from './commands/command-build';
 import startCommand from './commands/command-start';
-import type { VirtualPathMappings } from './esbuild/esbuild-plugins';
+import type { VirtualPathMappings } from './utils/esbuild-config';
 
 function help() {
   console.error('Usage:');

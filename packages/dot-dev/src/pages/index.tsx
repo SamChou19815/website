@@ -42,59 +42,65 @@ const FAN_ART_GRADUATION: FanArtWork = {
   description: '@dev-sam/fan-art Graduation Edition',
 };
 
-const FanArtWorkCard = ({
+function FanArtWorkCard({
   filename,
   author: { authorName, authorWebsite },
   description,
-}: FanArtWork): JSX.Element => (
-  <div className="card">
-    <div className="card__image">
-      <img
-        src={`https://developersam.com/fan-arts/${filename}`}
-        alt={description}
-        title={description}
-        loading="lazy"
-      />
-    </div>
-    <div className="card__header">
-      <h3>{description}</h3>
-    </div>
-    <div className="card__body">Author: {authorName}</div>
-    <div className="card__footer">
-      <div className="button-group button-group--block">
-        <a className="button button--link" href={authorWebsite}>
+}: FanArtWork): JSX.Element {
+  return (
+    <div className="bg-white flex flex-col filter drop-shadow-sm mx-auto my-4 w-11/12 md:w-96 lg:mx-4">
+      <div>
+        <img
+          src={`https://developersam.com/fan-arts/${filename}`}
+          alt={description}
+          title={description}
+          loading="lazy"
+        />
+      </div>
+      <h2 className="p-4 pb-0 text-lg font-bold">{description}</h2>
+      <div className="p-4">Author: {authorName}</div>
+      <div className="p-4 pt-0">
+        <a
+          className="p-2 rounded-md flex justify-center font-bold text-blue-500 hover:bg-blue-500 hover:bg-opacity-10"
+          href={authorWebsite}
+        >
           {`${authorName}'s website`}
         </a>
       </div>
     </div>
-  </div>
-);
+  );
+}
 
-const ArtsPage = (): JSX.Element => (
-  <div>
-    <nav className="navbar">
-      <div className="navbar__inner">
-        <div className="navbar__items">
-          <a className="navbar__brand" href="/">
-            Fan Arts | Random@dev-sam
-          </a>
+export default function ArtsPage(): JSX.Element {
+  return (
+    <div>
+      <nav className="flex bg-white filter drop-shadow-sm px-4 py-2 h-16">
+        <div className="flex flex-wrap justify-between w-full">
+          <div className="flex items-center flex-auto min-w-0">
+            <a className="flex mr-8 items-center text-gray-900 min-w-0 font-bold" href="/">
+              Fan Arts | Random@dev-sam
+            </a>
+          </div>
+          <div className="flex items-center min-w-0 flex-initial justify-end">
+            <a
+              className="px-3 py-1 text-gray-900 font-medium hover:text-blue-500"
+              href="https://developersam.com"
+            >
+              Home
+            </a>
+          </div>
         </div>
-        <div className="navbar__items navbar__items--right">
-          <a className="navbar__item navbar__link" href="https://developersam.com">
-            Home
-          </a>
-        </div>
+      </nav>
+      <div className="lg:flex lg:flex-row lg:flex-wrap lg:justify-center">
+        <FanArtWorkCard {...FAN_ART_GRADUATION} />
+        <FanArtWorkCard {...FAN_ART_BIRTHDAY_EDITION} />
+        <FanArtWorkCard {...FAN_ART_ITERATION_3} />
+        <FanArtWorkCard {...FAN_ART_ITERATION_2} />
+        <FanArtWorkCard {...FAN_ART_ITERATION_1} />
+        <FanArtWorkCard {...FAN_ART_ITERATION_0} />
       </div>
-    </nav>
-    <FanArtWorkCard {...FAN_ART_GRADUATION} />
-    <FanArtWorkCard {...FAN_ART_BIRTHDAY_EDITION} />
-    <FanArtWorkCard {...FAN_ART_ITERATION_3} />
-    <FanArtWorkCard {...FAN_ART_ITERATION_2} />
-    <FanArtWorkCard {...FAN_ART_ITERATION_1} />
-    <FanArtWorkCard {...FAN_ART_ITERATION_0} />
-  </div>
-);
+    </div>
+  );
+}
 
 ArtsPage.noJS = true;
-
-export default ArtsPage;

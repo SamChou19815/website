@@ -21,26 +21,23 @@ export default function BlogPostPage({
   const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
 
   return (
-    <div className="container margin-vert--lg">
+    <>
       <HeadTitle title={`${title} | ${siteTitle}`} />
       {ogImage && (
         <Head>
           <meta property="og:image" content={`https://blog.developersam.com${ogImage}`} />
         </Head>
       )}
-      <div className="row">
-        <div className="col col--2" />
-        <main className="col col--8">
+      <div className="flex flex-row flex-wrap justify-center">
+        <main className="w-full">
           <BlogPostItem metadata={metadata} truncated={false}>
             <BlogPostContents />
           </BlogPostItem>
-          {(nextItem || prevItem) && (
-            <div className="margin-vert--xl">
-              <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
-            </div>
-          )}
+          <div className="my-8">
+            <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+          </div>
         </main>
       </div>
-    </div>
+    </>
   );
 }

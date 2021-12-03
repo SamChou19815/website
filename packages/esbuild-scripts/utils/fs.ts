@@ -1,39 +1,39 @@
-import { copyFile, lstat, mkdir, readdir, rm } from 'fs/promises';
-import { join, relative } from 'path';
+import * as fs from 'fs/promises';
+import * as path from 'path';
 
 export const copyDirectoryContent = async (
   sourceDirectory: string,
   targetDirectory: string
 ): Promise<void> => {
-  await mkdir(targetDirectory, { recursive: true });
+  await fs.mkdir(targetDirectory, { recursive: true });
   await Promise.all(
     (
-      await readdir(targetDirectory)
-    ).map((it) => rm(join(targetDirectory, it), { recursive: true, force: true }))
+      await fs.readdir(targetDirectory)
+    ).map((it) => fs.rm(path.join(targetDirectory, it), { recursive: true, force: true }))
   );
 
   await Promise.all(
     (
-      await readdir(sourceDirectory)
+      await fs.readdir(sourceDirectory)
     ).map(async (file) => {
-      const fullSourcePath = join(sourceDirectory, file);
-      const fullDestinationPath = join(targetDirectory, file);
+      const fullSourcePath = path.join(sourceDirectory, file);
+      const fullDestinationPath = path.join(targetDirectory, file);
       if (await isDirectory(fullSourcePath)) {
         await copyDirectoryContent(fullSourcePath, fullDestinationPath);
       } else {
-        await copyFile(fullSourcePath, fullDestinationPath);
+        await fs.copyFile(fullSourcePath, fullDestinationPath);
       }
     })
   );
 };
 
-const isDirectory = (path: string): Promise<boolean> =>
-  lstat(path).then((stats) => stats.isDirectory());
+const isDirectory = (p: string): Promise<boolean> =>
+  fs.lstat(p).then((stats) => stats.isDirectory());
 
-const readDirectoryRecursive = async (path: string): Promise<string[]> =>
+const readDirectoryRecursive = async (p: string): Promise<string[]> =>
   Promise.all(
-    (await readdir(path)).flatMap(async (it) => {
-      const fullPath = join(path, it);
+    (await fs.readdir(p)).flatMap(async (it) => {
+      const fullPath = path.join(p, it);
       if (await isDirectory(fullPath)) {
         return [fullPath, ...(await readDirectoryRecursive(fullPath))];
       } else {
@@ -42,8 +42,8 @@ const readDirectoryRecursive = async (path: string): Promise<string[]> =>
     })
   ).then((it) => it.flat());
 
-export const readDirectory = async (path: string): Promise<readonly string[]> => {
-  return (await readDirectoryRecursive(path))
-    .map((it) => relative(path, it))
+export const readDirectory = async (p: string): Promise<readonly string[]> => {
+  return (await readDirectoryRecursive(p))
+    .map((it) => path.relative(p, it))
     .sort((a, b) => a.localeCompare(b));
 };

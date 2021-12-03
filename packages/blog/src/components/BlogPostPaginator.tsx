@@ -3,29 +3,28 @@ import React from 'react';
 
 import type { BlogPaginationItem } from './blog-types';
 
-export type Props = {
-  readonly nextItem?: BlogPaginationItem;
-  readonly prevItem?: BlogPaginationItem;
-};
+type PaginationNavItemProps = { readonly item: BlogPaginationItem; readonly isLeft: boolean };
+function PaginationNavItem({ item, isLeft }: PaginationNavItemProps): JSX.Element {
+  return (
+    <Link
+      className="flex-grow p-4 leading-tight border border-solid border-gray-300 rounded-md hover:border-blue-500"
+      to={item.permalink}
+    >
+      <div className="text-sm text-gray-500 font-medium mb-1">
+        {isLeft ? 'Newer Post' : 'Older Post'}
+      </div>
+      <div className="font-bold break-words">{isLeft ? `« ${item.title}` : `${item.title} »`}</div>
+    </Link>
+  );
+}
 
+type Props = { readonly nextItem?: BlogPaginationItem; readonly prevItem?: BlogPaginationItem };
 export default function BlogPostPaginator({ nextItem, prevItem }: Props): JSX.Element {
   return (
-    <nav className="pagination-nav" aria-label="Blog post page navigation">
-      <div className="pagination-nav__item">
-        {prevItem && (
-          <Link className="pagination-nav__link" to={prevItem.permalink}>
-            <div className="pagination-nav__sublabel">Newer Post</div>
-            <div className="pagination-nav__label">&laquo; {prevItem.title}</div>
-          </Link>
-        )}
-      </div>
-      <div className="pagination-nav__item pagination-nav__item--next">
-        {nextItem && (
-          <Link className="pagination-nav__link" to={nextItem.permalink}>
-            <div className="pagination-nav__sublabel">Older Post</div>
-            <div className="pagination-nav__label">{nextItem.title} &raquo;</div>
-          </Link>
-        )}
+    <nav className="flex" aria-label="Blog post page navigation">
+      <div className="flex flex-1">{prevItem && <PaginationNavItem item={prevItem} isLeft />}</div>
+      <div className="flex flex-1 ml-4 text-right">
+        {nextItem && <PaginationNavItem item={nextItem} isLeft={false} />}
       </div>
     </nav>
   );

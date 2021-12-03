@@ -33,17 +33,16 @@ type TimelineItem = {
 
 export const DATASET_ABOUT: AboutDataEntry = {
   facts: [
-    { iconName: 'facebook', text: 'Facebook SWE Intern' },
-    { iconName: 'work', text: 'Cornell DTI Developer' },
-    { iconName: 'github', text: 'Open source contributor' },
+    { iconName: 'work', text: 'Facebook SWE' },
+    { iconName: 'github', text: 'OSS Contributor' },
     { iconName: 'school', text: 'Cornell University' },
-    { iconName: 'domain', text: 'Computer Science' },
     { iconName: 'code', text: 'Coding since 13' },
   ],
   links: [
     { href: 'https://blog.developersam.com', text: 'Blog' },
     { href: 'https://github.com/SamChou19815', text: 'GitHub' },
     { href: '/resume.pdf', text: 'Resume' },
+    { href: '/terminal', text: '>_' },
   ],
 };
 
@@ -126,7 +125,6 @@ const Flow = '/timeline/flow.webp';
 const GraduationSam = '/fan-arts/graduation-sam.webp';
 const MiniReact = '/projects/mini-react.webp';
 const Pyre = '/timeline/pyre-check.webp';
-const SAMFirst = '/timeline/sam-first.webp';
 const SAMLater = '/timeline/sam-later.webp';
 const SAMPL = '/timeline/sampl.webp';
 const SAMLANG = '/projects/samlang.webp';
@@ -135,6 +133,7 @@ const TEN = '/projects/ten.webp';
 const WebsiteV2 = '/timeline/website-v2.webp';
 const WebsiteV3 = '/timeline/website-v3.webp';
 const Wiki = '/projects/wiki.webp';
+
 export const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
     title: 'Facebook SWE Intern',
@@ -310,12 +309,6 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     ],
   },
   { title: 'Computerization Club President', time: 'September 2015', image: SAMLater },
-  {
-    title: 'SAM First Release',
-    time: 'April 2015',
-    image: SAMFirst,
-    links: [{ name: 'GitHub Repo', url: 'https://github.com/SamChou19815/SAM' }],
-  },
   { title: 'Computerization Software Developer', time: 'Feburary 2015' },
   {
     title: 'Bought developersam.com',
@@ -328,13 +321,4 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
       },
     ],
   },
-  { title: 'Entered High School', time: 'August 2014' },
-  { title: 'Graduated from Middle School', time: 'June 2014' },
-  {
-    title: 'Started Coding',
-    time: 'July 2011',
-    detail: 'I bought a bad C++ intro book and almost gave up.',
-  },
-  { title: 'Entered Middle School', time: 'September 2010' },
-  { title: 'Born', time: 'November 1998' },
 ];

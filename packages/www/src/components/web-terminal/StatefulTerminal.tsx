@@ -76,8 +76,8 @@ const Terminal = (): JSX.Element => {
     // This may look ridiculous, but it is necessary to decouple
     // execution for just a millisecond in order to scroll all the way.
     setTimeout(() => {
-      rootNode.scrollTop = rootNode.scrollHeight;
-    }, 1);
+      rootNode.scrollTop = document.body.scrollHeight;
+    }, 100);
   };
 
   const focusTerminal = (): void => {

@@ -19,5 +19,12 @@ export default function BoardCell({ tileStatus, doesNeedHighlight, onClick }: Pr
   }
   const border = doesNeedHighlight ? '1px solid red' : '1px solid #CCC';
   const style = { backgroundColor, border };
-  return <div role="presentation" className="board-cell" style={style} onClick={onClick} />;
+  return (
+    <div
+      role="presentation"
+      className="w-7 h-7 m-0.5 cursor-pointer"
+      style={style}
+      onClick={onClick}
+    />
+  );
 }
