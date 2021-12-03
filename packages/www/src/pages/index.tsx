@@ -130,7 +130,7 @@ export default function IndexPage(): JSX.Element {
       <div className="flex flex-wrap items-center w-full h-screen lg:sticky lg:top-0 sidebar">
         <StickyCodeBlock />
       </div>
-      <div className="content-block my-12">
+      <div className="my-12 w-full content-block">
         {AboutSection}
         {ProjectSection}
         {TechTalkSection}
