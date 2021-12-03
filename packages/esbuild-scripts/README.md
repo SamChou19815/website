@@ -10,13 +10,9 @@ A fast, opinioned web development toolkit for building React based websites.
 
 ## Getting Started
 
-Installing by
-
 ```bash
 yarn add esbuild-scripts
 ```
-
-Then run `yarn esbuild-scripts init`, which will bootstrap your app.
 
 ## Commands
 

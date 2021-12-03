@@ -15,7 +15,8 @@ const { join } = require('path');
  */
 
 /** @returns {readonly ChangedTarget[]} */
-const generalTargetDeterminator = () => JSON.parse(spawnSync('yarn', ['targets']).stdout);
+const generalTargetDeterminator = () =>
+  JSON.parse(spawnSync('yarn', ['targets']).stdout.toString());
 
 /** @returns {boolean} */
 const hasScript = (/** @type {ChangedTarget} */ target, /** @type {string} */ script) =>
@@ -43,6 +44,7 @@ function main() {
     console.error('No need for re-deploy!');
     return true;
   }
+  runYarnScript('esbuild-scripts', 'bundle');
   console.error('The following targets need to be re-deployed.');
   targets.forEach((target) => console.error(`- ${target}`));
   const results = targets.map((target) => {

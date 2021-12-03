@@ -33,15 +33,15 @@ function ProgramLayout() {
       <p>Here is an example program:</p>
       <PrismCodeBlock language="samlang">
         {`class HelloWorld(val message: string) {
-private method getMessage(): string = {
-  val { message } = this;
-  message
-}
+  private method getMessage(): string = {
+    val { message } = this;
+    message
+  }
 
-function getGlobalMessage(): string = {
-  val hw = { message: "Hello World" };
-  hw.getMessage()
-}
+  function getGlobalMessage(): string = {
+    val hw = { message: "Hello World" };
+    hw.getMessage()
+  }
 }
 
 class Main {
@@ -88,7 +88,7 @@ function ClassesTypes() {
       <PrismCodeBlock language="samlang">
         {`class Math {
   function plus(a: int, b: int): int = a + b
-  function cosine(angleInDegree: int): int = panic("Not supported!")
+  function cosine(degree: int): int = 0
 }`}
       </PrismCodeBlock>
       <p>
@@ -136,7 +136,7 @@ letting you create an object class.`}</p>
         {`class Student(private val name: string, val age: int) {
   method getName(): string = this.name
   private method getAge(): int = this.age
-  function dummyStudent(): Student = { name: "RANDOM_BABY", age: 0 }
+  function dummyStudent(): Student = { name: "Immortal", age: 65535 }
 }`}
       </PrismCodeBlock>
       <p>
@@ -168,7 +168,7 @@ class, you can define a type that can be either A or B or C. Here is an example:
   // some random functions
   function getUnit(): PrimitiveType = U({})
   function getInteger(): PrimitiveType = I(42)
-  function getString(): PrimitiveType = S("Answer to life, universe, and everything.")
+  function getString(): PrimitiveType = S("samlang")
   function getBool(): PrimitiveType = B(false)
 
   // pattern matching!
@@ -194,14 +194,15 @@ class, you can define a type that can be either A or B or C. Here is an example:
       <p>Generics is supported in all kinds of classes. Here are some examples.</p>
       <PrismCodeBlock language="samlang">
         {`class FunctionExample {
-function <T> getIdentityFunction(): (T) -> T = (x) -> x
+  function <T> getIdentityFunction(): (T) -> T = (x) -> x
 }
 
 class Box<T>(val content: T) {
-function <T> init(content: T): Box<T> = { content } // object short hand syntax
-method getContent(): T = {
-  val { content } = this; content
-}
+  // object short hand syntax
+  function <T> init(content: T): Box<T> = { content }
+  method getContent(): T = {
+    val { content } = this; content
+  }
 }
 
 class Option<T>(None(unit), Some(T)) {
@@ -392,14 +393,14 @@ class Main {
       </p>
       <PrismCodeBlock language="samlang">
         {`class Obj(val d: int, val e: int) {
-function valExample(): int = {
-  val a: int = 1;
-  val b = 2;
-  val [_, c] = ["dd", 3];
-  val { e as d } = { d: 5, e: 4 }
-  val _ = 42;
-  a + b * c / d
-}
+  function valExample(): int = {
+    val a: int = 1;
+    val b = 2;
+    val [_, c] = ["dd", 3];
+    val { e as d } = { d: 5, e: 4 }
+    val _ = 42;
+    a + b * c / d
+  }
 }`}
       </PrismCodeBlock>
       <p>
@@ -459,7 +460,7 @@ function TypeInference() {
       </p>
       <PrismCodeBlock language="samlang">
         {`class NotEnoughTypeInfo {
-  function <T> randomFunction(): T = panic("I can be any type!")
+  function <T> randomFunction(): T = Builtins.panic("I can be any type!")
   function main(): unit = { val _ = randomFunction(); }
 }`}
       </PrismCodeBlock>
@@ -474,7 +475,7 @@ function TypeInference() {
 
 export default function Docs(): JSX.Element {
   return (
-    <section className="container docs-container">
+    <section className="bg-white my-4 p-4 border border-solid border-gray-300">
       <article>
         <Introduction />
         <GettingStarted />

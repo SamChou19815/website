@@ -1,32 +1,32 @@
-import { mkdir } from 'fs/promises';
+import * as fs from 'fs/promises';
 import { extname, resolve } from 'path';
 
-import type { VirtualPathMappings } from '../esbuild/esbuild-plugins';
 import {
   PAGES_PATH,
   VIRTUAL_PATH_PREFIX,
   VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX,
   VIRTUAL_SERVER_ENTRY_PATH,
 } from './constants';
+import type { VirtualPathMappings } from './esbuild-config';
 import { readDirectory } from './fs';
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
-const rewriteEntryPointPathForRouting = (path: string): string => {
+function rewriteEntryPointPathForRouting(path: string): string {
   if (!path.endsWith('index')) return path;
   return path.substring(0, path.length - (path.endsWith('/index') ? 6 : 5));
-};
+}
 
 const getPathForImport = (absoluteProjectPath: string, path: string, isRealPath: boolean) =>
   isRealPath ? `${absoluteProjectPath}/src/pages/${path}` : `${VIRTUAL_PATH_PREFIX}${path}`;
 
-export const getClientTemplate = (
+export function getClientTemplate(
   absoluteProjectPath: string,
   path: string,
   isRealPath: boolean,
   realPaths: readonly string[],
   virtualPaths: readonly string[]
-): string => {
+): string {
   const otherRealPaths = realPaths.filter((it) => it !== path);
   const otherVirtualPaths = virtualPaths.filter((it) => it !== path);
 
@@ -74,13 +74,13 @@ ${lazyLoadedRoutes}
 const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(element, rootElement);
 `;
-};
+}
 
-export const getServerTemplate = (
+export function getServerTemplate(
   absoluteProjectPath: string,
   realPaths: readonly string[],
   virtualPaths: readonly string[]
-): string => {
+): string {
   const importPath = (p: string, real: boolean) => getPathForImport(absoluteProjectPath, p, real);
 
   const pageImports = [
@@ -109,14 +109,14 @@ module.exports = (path) => ({
   helmet: Helmet.renderStatic(),
 });
 `;
-};
+}
 
 /**
  * @returns a list of entry point paths under `src/pages`.
  * The paths will be relativized against `src/pages` and with extensions removed.
  */
-const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
-  await mkdir(PAGES_PATH, { recursive: true });
+async function getEntryPointsWithoutExtension(): Promise<readonly string[]> {
+  await fs.mkdir(PAGES_PATH, { recursive: true });
   return (await readDirectory(PAGES_PATH))
     .map((it) => {
       const extension = extname(it);
@@ -132,7 +132,7 @@ const getEntryPointsWithoutExtension = async (): Promise<readonly string[]> => {
       return it.substring(0, it.lastIndexOf('.'));
     })
     .filter((it): it is string => it != null && !it.startsWith('_document'));
-};
+}
 
 export const virtualEntryComponentsToVirtualPathMappings = (
   virtualEntryComponents: VirtualPathMappings
@@ -144,12 +144,12 @@ export const virtualEntryComponentsToVirtualPathMappings = (
     ])
   );
 
-export const createEntryPointsGeneratedVirtualFiles = async (
+export async function createEntryPointsGeneratedVirtualFiles(
   virtualEntryPointsWithoutExtension: readonly string[]
 ): Promise<{
   readonly entryPointsWithoutExtension: readonly string[];
   readonly entryPointVirtualFiles: VirtualPathMappings;
-}> => {
+}> {
   const absoluteProjectPath = resolve('.');
   const entryPointsWithoutExtension = await getEntryPointsWithoutExtension();
   const entryPointVirtualFiles = Object.fromEntries([
@@ -180,4 +180,4 @@ export const createEntryPointsGeneratedVirtualFiles = async (
     virtualEntryPointsWithoutExtension
   );
   return { entryPointsWithoutExtension, entryPointVirtualFiles };
-};
+}

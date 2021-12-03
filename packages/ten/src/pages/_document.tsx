@@ -4,15 +4,14 @@ import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import React, { ReactNode } from 'react';
 
 import './index.css';
-import './game.css';
 
 export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
   const path = useLocation().pathname;
 
   const activeNavClass = (expectedPath: string) =>
     path === expectedPath
-      ? 'navbar__item navbar__link navbar__link--active'
-      : 'navbar__item navbar__link';
+      ? 'px-3 py-1 text-gray-900 font-medium text-blue-500'
+      : 'px-3 py-1 text-gray-900 font-medium hover:text-blue-500';
 
   return (
     <>
@@ -22,27 +21,21 @@ export default function Document({ children }: { readonly children: ReactNode })
         shortcutIcon="/favicon.ico"
         htmlLang="en"
       />
-      <nav className="navbar">
-        <div className="navbar__inner">
-          <div className="navbar__items">
-            <a className="navbar__brand" href="/">
-              <img className="navbar__logo" src="/logo.png" alt="TEN App logo" />
-              <strong className="navbar__title">TEN</strong>
+      <nav className="flex bg-white filter drop-shadow-sm px-4 py-2 h-16">
+        <div className="flex flex-wrap justify-between w-full">
+          <div className="flex items-center flex-auto min-w-0">
+            <a className="flex mr-8 items-center text-gray-900 min-w-0" href="/">
+              <img className="flex-initial h-8 mr-2" src="/logo.png" alt="TEN App logo" />
+              <h1 className="flex-auto text-lg font-bold">TEN</h1>
             </a>
           </div>
-          <div className="navbar__items navbar__items--right">
+          <div className="flex items-center min-w-0 flex-initial justify-end">
             <Link className={activeNavClass('/')} to="/">
-              Play against AI
+              Against AI
             </Link>
             <Link className={activeNavClass('/local')} to="/local">
-              Play locally
+              Against Friend
             </Link>
-            <Link className={activeNavClass('/rules')} to="/rules">
-              Rules
-            </Link>
-            <a className="navbar__item navbar__link" href="https://developersam.com">
-              Home
-            </a>
           </div>
         </div>
       </nav>

@@ -1,4 +1,4 @@
-import { mkdir, readdir, readFile } from 'fs/promises';
+import * as fs from 'fs/promises';
 import { extname, join, resolve } from 'path';
 
 import mainRunner from 'esbuild-scripts/api';
@@ -7,7 +7,6 @@ import type { Metadata } from './src/components/blog-types';
 import { BLOG_TITLE } from './src/constants';
 
 const BLOG_DIRECTORY = 'blog';
-const RESOLVED_BLOG_DIRECTORY = resolve(BLOG_DIRECTORY);
 
 const BLOG_LIST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogListPage'));
 const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogPostPage'));
@@ -22,7 +21,7 @@ function parseMarkdownTitle(source: string): string {
 const processBlogPostsPerFile = async () =>
   await Promise.all(
     (
-      await readdir(BLOG_DIRECTORY)
+      await fs.readdir(BLOG_DIRECTORY)
     )
       .filter((it) => extname(it) === '.md')
       .map(async (original) => {
@@ -39,7 +38,7 @@ const processBlogPostsPerFile = async () =>
         const dateString = new Date(formattedDate).toISOString();
         const permalink = `/${year}/${month}/${date}/${titleSlug}`;
 
-        const content = (await readFile(join(BLOG_DIRECTORY, original))).toString();
+        const content = (await fs.readFile(join(BLOG_DIRECTORY, original))).toString();
         try {
           const title = parseMarkdownTitle(content);
           return {
@@ -128,7 +127,7 @@ export default Page;
 }
 
 mainRunner(async () => {
-  await mkdir(BLOG_DIRECTORY, { recursive: true });
+  await fs.mkdir(BLOG_DIRECTORY, { recursive: true });
   const blogPostParsedDataList = (await processBlogPosts()).sort((a, b) =>
     b.original.localeCompare(a.original)
   );

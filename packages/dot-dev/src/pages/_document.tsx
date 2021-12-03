@@ -1,7 +1,6 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import React, { ReactNode } from 'react';
 
-import 'infima/dist/css/default/default.min.css';
 import './index.css';
 
 export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {

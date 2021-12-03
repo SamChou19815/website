@@ -1,3 +1,32 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-3xl font-sans font-semibold leading-5;
+  }
+  h2 {
+    @apply text-2xl font-sans font-semibold leading-5;
+  }
+  h3 {
+    @apply text-xl font-sans font-semibold leading-5;
+  }
+  h4 {
+    @apply text-lg font-sans font-semibold leading-5;
+  }
+  a {
+    @apply text-blue-500;
+  }
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    text-decoration: none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color-primary: #3e7ae2;
   --gray-0: white;
@@ -31,176 +60,52 @@
   }
 }
 
+* {
+  transition: background-color 0.2s ease;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: var(--font-color-base);
   background: var(--background-color);
-  overflow-x: hidden;
+  @apply antialiased;
 }
 
 svg {
   fill: var(--font-color-base);
 }
 
-html {
-  scroll-behavior: smooth;
+.inherit-background {
+  background-color: var(--background-color);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 0 0 1em 0;
+.max-app-width {
+  max-width: 1440px;
 }
 
-pre,
-code {
-  font-family: 'Roboto Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-a:link {
-  text-decoration: none !important;
-}
-
-a:visited {
-  text-decoration: none !important;
-}
-
-a:hover {
-  text-decoration: none !important;
-}
-
-a:active {
-  text-decoration: none !important;
-}
-
-img {
-  max-width: 100%;
-}
-
-* {
-  transition: background-color 0.2s ease;
-}
-
-.card__body,
-.card__footer,
-.card__header {
-  padding: var(--global-spacing);
-}
-
-.card__body:not(:last-child),
-.card__footer:not(:last-child),
-.card__header:not(:last-child) {
-  padding-bottom: 0;
-}
-
-.card {
-  background-color: var(--background-surface-color);
-  border-radius: var(--border-radius);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: 0.2s ease-in-out;
-}
-
-.card__header .avatar {
-  display: flex;
-}
-.card__header .avatar .avatar__photo {
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 1em;
-  width: 3rem;
-  height: 3rem;
-}
-.card__header .avatar .avatar__intro {
-  display: flex;
-  flex: 1 1;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.card__footer {
-  margin-top: auto;
-}
-
-.button-group {
-  display: inline-flex;
-}
-
-.button-group--block {
-  display: flex;
-  justify-content: stretch;
-}
-.button-group--block > .button {
-  flex-grow: 1;
-}
-
-.button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: bold;
-  line-height: 1.5;
-  padding: 0.375rem 1.5rem;
-  text-align: center;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.button--link {
-  color: var(--color-primary);
-  padding: 0.5em;
-  border-radius: 0.2rem !important;
-}
-
-.button--link:hover {
-  color: var(--color-primary);
-  background-color: var(--background-color-transparent);
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: 1296px;
-}
-
-@media screen and (max-width: 800px) {
-  .responsive-card {
-    margin: 1em auto;
-    width: 90vw;
+@media screen and (min-width: 1024px) {
+  .sidebar {
+    width: 550px;
+  }
+  .content-block {
+    width: calc(100% - 550px);
   }
 }
 
-@media screen and (min-width: 800px) {
-  .responsive-card {
-    margin: 1em;
+/* timeline-section */
+@media screen and (min-width: 1280px) {
+  .timeline-card {
+    width: 500px;
+  }
+  .timeline-vertical-bar {
+    left: calc(50% - 255px);
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+  .timeline-card {
     width: 400px;
   }
-}
-
-.horizontal-center {
-  justify-content: center;
-}
-
-.svg-icon {
-  width: 1em;
-  height: 1em;
-  font-size: 1.5em;
+  .timeline-vertical-bar {
+    left: calc(50% - 205px);
+  }
 }

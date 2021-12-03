@@ -11,16 +11,15 @@ type Props = {
 
 export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
   return (
-    <div className="container margin-vert--lg">
+    <>
       <HeadTitle title={siteTitle} />
-      <div className="row">
-        <div className="col col--2" />
-        <main className="col col--8">
+      <div className="flex flex-row flex-wrap justify-center">
+        <main className="w-full">
           {items.map((metadata) => (
             <BlogPostItem key={metadata.permalink} metadata={metadata} truncated />
           ))}
         </main>
       </div>
-    </div>
+    </>
   );
 }

@@ -4,7 +4,6 @@ import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import usePageTracking from 'lib-react-ga';
 import React, { ReactNode } from 'react';
 
-import 'infima/dist/css/default/default.min.css';
 import './index.css';
 import { BLOG_LOGO, BLOG_TITLE, BLOG_URL } from '../constants';
 
@@ -22,42 +21,25 @@ export default function DocumentWrapper({ children }: { children: ReactNode }): 
         ogAuthor="Developer Sam"
         ogURL={`${BLOG_URL}${path}`}
       />
-      <nav className="navbar navbar--fixed-top">
-        <div className="navbar__inner">
-          <div className="navbar__items">
-            <Link className="navbar__brand" to="/">
-              <img className="navbar__logo" src={BLOG_LOGO} alt="Logo" />
-              <strong className="navbar__title">{BLOG_TITLE}</strong>
+      <nav className="flex sticky top-0 z-40 bg-white filter drop-shadow-sm px-4 py-2 h-16">
+        <div className="flex flex-wrap justify-between w-full">
+          <div className="flex items-center flex-auto min-w-0">
+            <Link className="flex mr-8 items-center text-gray-900 min-w-0" to="/">
+              <img className="flex-initial h-8 mr-2" src={BLOG_LOGO} alt="dev-sam logo" />
+              <strong className="flex-auto text-lg font-semibold">{BLOG_TITLE}</strong>
             </Link>
           </div>
-          <div className="navbar__items navbar__items--right">
+          <div className="flex items-center min-w-0 flex-initial justify-end">
             <a
-              className="navbar__item navbar__link"
+              className="px-3 py-1 text-gray-900 font-medium hover:text-blue-500"
               href="https://developersam.com"
-              target="_blank"
-              rel="noreferrer"
             >
               Main Site
-            </a>
-            <a
-              className="navbar__item navbar__link"
-              href="https://github.com/SamChou19815/website"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
             </a>
           </div>
         </div>
       </nav>
-      <div className="main-wrapper">{children}</div>
-      <footer className="footer footer--dark">
-        <div className="container">
-          <div className="footer__bottom text--center">
-            <div className="footer__copyright">Copyright © 2016-2021 Developer Sam.</div>
-          </div>
-        </div>
-      </footer>
+      <div className="custom-container my-8 mx-auto">{children}</div>
     </>
   );
 }

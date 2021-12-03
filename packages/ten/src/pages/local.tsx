@@ -23,7 +23,6 @@ export default function LocalGameCard(): JSX.Element {
   return (
     <GameCard
       gameState={gameStates.currentState}
-      playerIdentity={gameStates.currentState.board.playerIdentity === 1 ? 'Black' : 'White'}
       playerCanMove
       playerMadeIllegalMove={playerMadeIllegalMove}
       showUndoButton={gameStates.previousState != null}

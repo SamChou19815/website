@@ -2,7 +2,7 @@ import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import React, { ReactNode } from 'react';
 
-import './custom.css';
+import './index.css';
 
 export default function DocumentTemplate({
   children,

@@ -1,7 +1,7 @@
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React from 'react';
 
-import LanguageDemo from '../components/demo';
+import SideNav from '../components/SideNav';
 import Docs from '../components/docs';
 
 const HELLO_WORLD_CODE = `class HelloWorld {
@@ -43,69 +43,41 @@ const features = [
 
 export default function Home(): JSX.Element {
   return (
-    <div className="homepage-container">
-      <div className="sidebar-container">
-        <div className="navbar-items-block">
-          <div className="navbar-toplevels">
-            <a className="homepage-navlink brand" href="/#">
-              <img className="logo" src="/img/logo.png" alt="Logo" />
-              <strong className="navbar__title">samlang</strong>
-            </a>
-            <a className="homepage-navlink" href="#demo">
-              Demo
-            </a>
-            <a
-              className="homepage-navlink"
-              href="https://github.com/SamChou19815/samlang"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-          </div>
-          <div>
-            <a className="homepage-navlink" href="#introduction">
-              Introduction
-            </a>
-            <a className="homepage-navlink" href="#getting-started">
-              Getting Started
-            </a>
-            <a className="homepage-navlink" href="#program-layout">
-              Program Layout
-            </a>
-            <a className="homepage-navlink" href="#classes-types">
-              Classes and Types
-            </a>
-            <a className="homepage-navlink" href="#expressions">
-              Expressions
-            </a>
-            <a className="homepage-navlink" href="#type-inference">
-              Type Inference
-            </a>
-          </div>
-        </div>
-      </div>
-      <main className="homepage-main-container">
-        <header className="index-page-hero-banner" id="">
-          <h1 className="hero-title">
-            <img className="logo" src="/img/logo.png" alt="Logo" width="64px" height="64px" />
+    <div className="flex flex-row m-auto max-w-5xl homepage-container">
+      <SideNav />
+      <main className="overflow-hidden w-full">
+        <header
+          className="flex flex-col items-center my-4 mt-0 px-8 py-12 bg-blue-500 text-white"
+          id=""
+        >
+          <h1 className="flex font-extralight text-6xl my-8">
+            <img
+              className="bg-white rounded-full mr-3"
+              src="/img/logo.png"
+              alt="Logo"
+              width="64px"
+              height="64px"
+            />
             samlang
           </h1>
-          <p className="hero-subtitle">
-            A statically-typed functional programming language with type inference.
+          <p className="block text-2xl text-left font-extralight">
+            A statically-typed, functional, and sound&nbsp;
+            <br className="hidden sm:block" />
+            programming language with type inference.
           </p>
         </header>
-        <section className="index-page-features">
+        <section className="flex flex-wrap items-center bg-white my-4 p-4 border border-solid border-gray-300">
           {features.map(({ title, code }) => (
-            <div key={title} className="index-page-code-block-wrapper">
+            <div key={title} className="p-2 w-full half-width-flex">
               <h3>{title}</h3>
               <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
             </div>
           ))}
         </section>
-        <LanguageDemo />
         <Docs />
       </main>
     </div>
   );
 }
+
+Home.noJS = true;

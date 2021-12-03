@@ -10,13 +10,14 @@ const TerminalHistoryLine = ({
 }: {
   readonly history: TerminalHistory;
 }): JSX.Element => {
+  const className = 'm-0 leading-6';
   if (!isCommand) {
-    if (typeof line === 'string') return <p className="web-terminal-message">{line}</p>;
-    return <div className="web-terminal-message">{line}</div>;
+    if (typeof line === 'string') return <p className={className}>{line}</p>;
+    return <div className={className}>{line}</div>;
   }
   return (
-    <p className="web-terminal-message">
-      <span className="web-terminal-prompt-label">$</span>
+    <p className={className}>
+      <span className="text-blue-500 pr-2">$</span>
       {line}
     </p>
   );
@@ -39,20 +40,15 @@ const StatelessTerminal = ({
   onArrow,
   processCommand,
 }: Props): JSX.Element => (
-  <div className="web-terminal-container">
-    <div className="web-terminal-title">Terminal</div>
-    <div
-      role="presentation"
-      ref={terminalRoot}
-      className="web-terminal-body"
-      onClick={focusTerminal}
-    >
-      <div className="web-terminal-content">
-        {history.map((oneHistoryLine, index) => (
-          <TerminalHistoryLine key={index} history={oneHistoryLine} />
-        ))}
-        <TerminalInput terminalInput={terminalInput} onArrow={onArrow} onSubmit={processCommand} />
-      </div>
+  <div ref={terminalRoot} className="h-screen" onClick={focusTerminal}>
+    <div className="sticky top-0 p-2 text-center border-b border-solid border-gray-300 inherit-background">
+      Terminal
+    </div>
+    <div className="p-5 font-mono">
+      {history.map((oneHistoryLine, index) => (
+        <TerminalHistoryLine key={index} history={oneHistoryLine} />
+      ))}
+      <TerminalInput terminalInput={terminalInput} onArrow={onArrow} onSubmit={processCommand} />
     </div>
   </div>
 );

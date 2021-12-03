@@ -2,24 +2,12 @@ import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React, { ComponentProps, isValidElement } from 'react';
 
-import './MDXComponents.css';
-
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 type HeadingComponentType = (props: ComponentProps<HeadingTag>) => JSX.Element;
 
 const Heading = (Tag: HeadingTag): HeadingComponentType =>
   function TargetComponent({ id, children, ...props }: ComponentProps<typeof Tag>) {
-    if (!id) return <Tag {...props}>{children}</Tag>;
-
-    return (
-      <Tag {...props}>
-        <a aria-hidden="true" tabIndex={-1} className="anchor" id={id} />
-        {children}
-        <a className="hash-link" href={`#${id}`} title="Direct link to heading">
-          #
-        </a>
-      </Tag>
-    );
+    return <Tag {...props}>{children}</Tag>;
   };
 
 type CustomizedMDXComponents = {
@@ -49,7 +37,7 @@ const MDXComponents: CustomizedMDXComponents = {
       isValidElement(stringOrComponentChildren) ? stringOrComponentChildren?.props : props
     ) as { className: string; readonly children: string };
     return (
-      <PrismCodeBlock language={className.replace(/language-/, '')}>
+      <PrismCodeBlock language={className.replace(/language-/, '')} className="text-sm">
         {children.trim()}
       </PrismCodeBlock>
     );

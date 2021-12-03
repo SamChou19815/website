@@ -9,8 +9,9 @@ type Props = {
 };
 
 export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): JSX.Element {
-  const children = [];
+  const children: JSX.Element[] = [];
   for (let i = 0; i < 9; i += 1) {
+    const cells: JSX.Element[] = [];
     for (let j = 0; j < 9; j += 1) {
       const a = Math.floor(i / 3) * 3 + Math.floor(j / 3);
       const b = (i % 3) * 3 + (j % 3);
@@ -24,24 +25,28 @@ export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): JS
           doesNeedHighlight = true;
         }
       }
-      const onClick = (): void => clickCallback(a, b);
-      children.push(
+      cells.push(
         <BoardCell
           key={index}
           tileStatus={tileStatus}
           doesNeedHighlight={doesNeedHighlight}
-          onClick={onClick}
+          onClick={() => clickCallback(a, b)}
         />
       );
     }
+    children.push(
+      <div key={i} className="flex justify-center">
+        {cells}
+      </div>
+    );
   }
   return (
-    <div className="board-grid">
+    <div className="flex flex-col justify-center relative w-80 h-80 p-4">
       {children}
-      <div className="h-line l1" />
-      <div className="h-line l2" />
-      <div className="v-line l1" />
-      <div className="v-line l2" />
+      <div className="bg-gray-800 absolute top-4 left-1/3 h-72 w-px transform translate-x-1" />
+      <div className="bg-gray-800 absolute top-4 right-1/3 h-72 w-px transform -translate-x-1" />
+      <div className="bg-gray-800 absolute left-4 top-1/3 w-72 h-px transform translate-y-1" />
+      <div className="bg-gray-800 absolute left-4 bottom-1/3 w-72 h-px transform -translate-y-1" />
     </div>
   );
 }

@@ -1,12 +1,10 @@
 /* eslint-disable no-console */
 
-import { mkdir, writeFile, unlink } from 'fs/promises';
+import * as fs from 'fs/promises';
 import { dirname, join, resolve, relative } from 'path';
 
 import { build } from 'esbuild';
 
-import baseESBuildConfig from '../esbuild/esbuild-config';
-import type { VirtualPathMappings } from '../esbuild/esbuild-plugins';
 import {
   SSR_CSS_PATH,
   SSR_JS_PATH,
@@ -17,6 +15,8 @@ import {
   virtualEntryComponentsToVirtualPathMappings,
   createEntryPointsGeneratedVirtualFiles,
 } from '../utils/entry-points';
+import baseESBuildConfig from '../utils/esbuild-config';
+import type { VirtualPathMappings } from '../utils/esbuild-config';
 import { copyDirectoryContent } from '../utils/fs';
 import getGeneratedHTML, { SSRResult } from '../utils/html-generator';
 
@@ -43,8 +43,8 @@ async function generateBundle(
   const absoluteBuildDirectory = resolve('build');
   await Promise.all(
     outputFiles.map(async (file) => {
-      await mkdir(dirname(file.path), { recursive: true });
-      await writeFile(file.path, file.contents);
+      await fs.mkdir(dirname(file.path), { recursive: true });
+      await fs.writeFile(file.path, file.contents);
     })
   );
   return outputFiles.map(({ path }) => relative(absoluteBuildDirectory, path));
@@ -81,7 +81,7 @@ async function getSSRFunction(
     console.error(error);
     return null;
   } finally {
-    await unlink(SSR_CSS_PATH);
+    await fs.unlink(SSR_CSS_PATH);
   }
 }
 
@@ -110,10 +110,7 @@ export default async function buildCommand(
     ...entryPointsWithoutExtension,
     ...Object.keys(virtualEntryComponents),
   ].map((entryPoint) => {
-    const relevantOutputFiles = outputFiles.filter(
-      (it) => it.startsWith('chunk') || it.startsWith(entryPoint)
-    );
-    const html = getGeneratedHTML(ssrFunction?.(entryPoint), relevantOutputFiles);
+    const html = getGeneratedHTML(ssrFunction?.(entryPoint), entryPoint, outputFiles);
     return { entryPoint, html };
   });
   await Promise.all(
@@ -124,8 +121,8 @@ export default async function buildCommand(
       } else {
         path = join(BUILD_PATH, entryPoint, 'index.html');
       }
-      await mkdir(dirname(path), { recursive: true });
-      await writeFile(path, html);
+      await fs.mkdir(dirname(path), { recursive: true });
+      await fs.writeFile(path, html);
     })
   );
 

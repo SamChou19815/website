@@ -1,16 +1,13 @@
-import CodeBlock, { flexibleTheme } from 'lib-react-prism/PrismCodeBlock';
+import PrismCodeBlock, { flexibleTheme } from 'lib-react-prism/PrismCodeBlock';
 import React from 'react';
 
 const code = `/**
  * Copyright (C) 2015-${new Date().getFullYear()} Developer Sam.
- *
  * @author sam
+ *
+ * Try it by yourself at
+ * https://samlang.io/demo
  */
-
-// Basic information of sam, written in samlang.
-// The code below is a well-typed samlang program.
-// Try it by yourself at
-// https://samlang.io/demo
 
 class List<T>(Nil(unit), Cons([T * List<T>])) {
   function <T> of(t: T): List<T> =
@@ -39,8 +36,12 @@ const patchedTheme = {
 
 export default function StickyCodeBlock(): JSX.Element {
   return (
-    <CodeBlock language="samlang" theme={patchedTheme} className="sticky-code-block">
+    <PrismCodeBlock
+      language="samlang"
+      theme={patchedTheme}
+      className="p-2 leading-6 mx-auto my-0 text-xs sm:text-sm"
+    >
       {code}
-    </CodeBlock>
+    </PrismCodeBlock>
   );
 }

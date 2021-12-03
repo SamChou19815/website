@@ -1,96 +1,61 @@
 /* eslint-disable no-console */
 
+import * as fs from 'fs';
 import type { Socket } from 'net';
-import { relative, join } from 'path';
+import * as path from 'path';
 
-import { BuildOptions, BuildResult, Plugin, build } from 'esbuild';
+import { BuildOptions, BuildResult, build } from 'esbuild';
 import express from 'express';
 import expressWebSocket from 'express-ws';
-import type { Server as WebSocketServer } from 'ws';
 
-import baseESBuildConfig from '../esbuild/esbuild-config';
-import type { VirtualPathMappings } from '../esbuild/esbuild-plugins';
 import { OUT_PATH } from '../utils/constants';
 import {
   virtualEntryComponentsToVirtualPathMappings,
   createEntryPointsGeneratedVirtualFiles,
 } from '../utils/entry-points';
+import baseESBuildConfig from '../utils/esbuild-config';
+import type { VirtualPathMappings } from '../utils/esbuild-config';
 import getGeneratedHTML from '../utils/html-generator';
 
-function createWebSocketReloadPlugin(server: WebSocketServer): Plugin {
-  const publish = (obj: unknown) =>
-    server.clients.forEach(async (socket) => socket.send(JSON.stringify(obj)));
-
-  return {
-    name: 'devserver-websocket-reload',
-    setup(pluginBuild) {
-      let hasErrors = false;
-
-      server.on('connection', () => publish({ building: false, hasErrors }));
-      pluginBuild.onStart(() => publish({ building: true, hasErrors }));
-      pluginBuild.onEnd((result) => {
-        hasErrors = result.errors.length > 0;
-        publish({ building: false, hasErrors });
-      });
-    },
-  };
+function isCSSChangeOnly(oldFiles: readonly string[], newFiles: readonly string[]) {
+  const oldJSKeys = oldFiles
+    .filter((it) => !it.endsWith('.css'))
+    .sort((a, b) => a.localeCompare(b));
+  const newJSKeys = newFiles
+    .filter((it) => !it.endsWith('.css'))
+    .sort((a, b) => a.localeCompare(b));
+  return oldJSKeys.join(',') === newJSKeys.join(',');
 }
 
 class EsbuildScriptsDevServer {
   private readonly expressDevServer = express();
   private readonly expressWebSocket = expressWebSocket(this.expressDevServer);
-  private files: readonly string[] | undefined;
+  private readonly websocketServer = this.expressWebSocket.getWss();
+  private files: readonly string[] = [];
+  private hasErrors = false;
   private shutdownHandlers: (() => void)[] = [];
 
   constructor(
     private readonly allEntryPointsWithoutExtension: readonly string[],
     esbuildBuildOptions: BuildOptions
   ) {
-    this.expressDevServer.use(express.static(OUT_PATH));
-    this.expressDevServer.use(express.static('public'));
-    this.expressDevServer.use(express.static(join(__dirname, 'devserver-js')));
-
-    const websocketServer = this.expressWebSocket.getWss();
-    build({
-      ...esbuildBuildOptions,
-      plugins: [
-        ...(esbuildBuildOptions.plugins || []),
-        createWebSocketReloadPlugin(websocketServer),
-      ],
-      // Code Splitting Configs
-      assetNames: 'assets/[name]-[hash]',
-      chunkNames: 'chunks/[name]-[hash]',
-      entryNames: '[dir]/[name]-[hash]',
-      splitting: true,
-      format: 'esm',
-      // Watch config for devserver serving purposes.
-      outdir: OUT_PATH,
-      metafile: true,
-      watch: {
-        onRebuild: (rebuildFailure, rebuildResult) => {
-          if (rebuildResult != null) this.handleBuildResult(rebuildResult);
-          if (rebuildFailure != null) console.error('[x] Rebuild Failed.');
-        },
-      },
-    }).then((initialRebuildResult) => {
-      this.handleBuildResult(initialRebuildResult);
-    });
+    this.expressDevServer.use(express.static(OUT_PATH, { maxAge: 3600 * 1000 }));
+    this.expressDevServer.use(express.static('public', { maxAge: 3600 * 1000 }));
+    this.expressDevServer.use(
+      express.static(path.join(__dirname, 'devserver-js'), { maxAge: 3600 * 1000 })
+    );
 
     this.expressDevServer.get('*', async (request, response, next) => {
-      const files = this.files;
-      if (files == null) {
-        return response.status(404).send('Unknown build status. Check again later.');
-      }
       const entryPoint = this.getEntryPoint(request.path);
       if (entryPoint == null) return next();
-      const html = `${getGeneratedHTML(undefined, files)}
+      const html = `${getGeneratedHTML(undefined, entryPoint, this.files)}
 <script src="/dev-server-websocket.js"></script>
 `;
       return response.send(html);
     });
     this.expressWebSocket.app.ws('/_ws', () => {});
     const startedExpressServer = this.expressDevServer.listen(3000, () =>
-      console.error('Serving at http://localhost:3000\n')
+      console.error('[i] Serving at http://localhost:3000')
     );
 
     let expressConnections: Socket[] = [];
@@ -100,34 +65,79 @@ class EsbuildScriptsDevServer {
         expressConnections = expressConnections.filter((curr) => curr !== connection);
       });
     });
-    this.shutdownHandlers.push(() => {
-      websocketServer.clients.forEach((it) => it.close());
-      websocketServer.close();
-      expressConnections.forEach((it) => it.destroy());
-      startedExpressServer.close();
+    this.websocketServer.on('connection', () =>
+      this.webSocketServerPublish({ hasErrors: this.hasErrors })
+    );
+
+    build({
+      ...esbuildBuildOptions,
+      // Code Splitting Configs
+      assetNames: 'assets/[name]-[hash]',
+      chunkNames: 'chunks/[name]-[hash]',
+      entryNames: '[dir]/[name]-[hash]',
+      splitting: true,
+      format: 'esm',
+      // Watch config for devserver serving purposes.
+      outdir: OUT_PATH,
+      write: true,
+      metafile: true,
+      incremental: true,
+      watch: {
+        onRebuild: (rebuildFailure, rebuildResult) => {
+          if (rebuildResult != null) this.handleBuildResult(rebuildResult);
+          if (rebuildFailure != null) console.error('[x] Rebuild Failed.');
+        },
+      },
+    })
+      .then((initialRebuildResult) => {
+        this.shutdownHandlers.push(() => initialRebuildResult.stop?.());
+        this.handleBuildResult(initialRebuildResult);
+
+        this.shutdownHandlers.push(() => {
+          this.websocketServer.clients.forEach((it) => it.close());
+          this.websocketServer.close();
+          expressConnections.forEach((it) => it.destroy());
+          startedExpressServer.close();
+        });
+      })
+      .catch(() => {});
+  }
+
+  shutdown = () => {
+    console.error('\n[?] Shutting down...');
+    this.shutdownHandlers.forEach((runner) => runner());
+    fs.rmSync(OUT_PATH, { recursive: true, force: true });
+    console.error('[✓] Server down.');
+  };
+
+  private handleBuildResult({ metafile, errors }: BuildResult): void {
+    const newFiles = Object.keys(metafile?.outputs ?? {}).flatMap((fullPath) => {
+      const relativePath = path.relative(OUT_PATH, fullPath);
+      if (relativePath.startsWith('__server__')) return [];
+      if (relativePath.endsWith('.css') && relativePath.startsWith('index-')) return [relativePath];
+      if (relativePath.endsWith('.js')) return [relativePath];
+      return [];
     });
+    const cssOnlyChange =
+      isCSSChangeOnly(this.files, newFiles) && newFiles.find((it) => it.endsWith('.css'));
+    this.files = newFiles;
+    this.hasErrors = errors.length > 0;
+    this.webSocketServerPublish({ hasErrors: this.hasErrors, cssOnlyChange });
+    console.error(`[✓] Build finished with ${errors.length} errors.`);
   }
 
-  shutdown = () => this.shutdownHandlers.forEach((runner) => runner());
-
-  private handleBuildResult({ metafile, warnings, errors, stop }: BuildResult): void {
-    this.shutdownHandlers.push(() => stop?.());
-    this.files =
-      metafile &&
-      Object.keys(metafile.outputs)
-        .map((it) => relative(OUT_PATH, it))
-        .filter((it) => !it.startsWith('__server__'));
-    console.error(`[✓] Build finished with ${warnings.length} warnings, ${errors.length} errors.`);
+  private webSocketServerPublish(obj: unknown) {
+    this.websocketServer.clients.forEach(async (socket) => socket.send(JSON.stringify(obj)));
   }
 
-  private getEntryPoint(url?: string) {
-    if (url == null || !url.startsWith('/')) return undefined;
-    const path = url.substring(1);
+  private getEntryPoint(url: string) {
+    if (!url.startsWith('/')) return undefined;
+    const urlPath = url.substring(1);
     return this.allEntryPointsWithoutExtension.find((entryPoint) => {
       if (entryPoint.endsWith('index')) {
-        return [entryPoint, entryPoint.substring(0, entryPoint.length - 5)].includes(path);
+        return [entryPoint, entryPoint.substring(0, entryPoint.length - 5)].includes(urlPath);
       }
-      return entryPoint === path;
+      return entryPoint === urlPath;
     });
   }
 }
@@ -154,4 +164,5 @@ export default async function startCommand(
   });
   process.on('SIGINT', devServer.shutdown);
   process.on('SIGTERM', devServer.shutdown);
+  process.stdin.on('end', devServer.shutdown);
 }

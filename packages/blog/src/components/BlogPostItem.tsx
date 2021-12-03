@@ -2,6 +2,7 @@ import Link from 'esbuild-scripts/components/Link';
 import MDXProvider from 'esbuild-scripts/components/MDXProvider';
 import React from 'react';
 
+import Article from './Article';
 import MDXComponents from './MDXComponents';
 import type { Metadata } from './blog-types';
 
@@ -18,24 +19,22 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const TitleHeading = truncated ? 'h2' : 'h1';
 
   return (
-    <>
-      <article className={truncated ? 'margin-bottom--xl' : undefined}>
-        <header>
-          <TitleHeading className="margin-bottom--sm blog-post-title">
-            {truncated ? <Link to={permalink}>{title}</Link> : title}
-          </TitleHeading>
-          <div className="margin-vert--md">
-            <time dateTime={date} className="blog-post-date">
-              {formattedDate}
-            </time>
-          </div>
-        </header>
-        {children && (
-          <div className="markdown">
-            <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-          </div>
-        )}
-      </article>
-    </>
+    <Article>
+      <header>
+        <TitleHeading className="font-sans mb-2">
+          {truncated ? <Link to={permalink}>{title}</Link> : title}
+        </TitleHeading>
+        <div className="my-4">
+          <time dateTime={date} className="text-sm">
+            {formattedDate}
+          </time>
+        </div>
+      </header>
+      {children && (
+        <div className="markdown">
+          <MDXProvider components={MDXComponents}>{children}</MDXProvider>
+        </div>
+      )}
+    </Article>
   );
 }
