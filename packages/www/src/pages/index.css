@@ -67,6 +67,7 @@
 body {
   color: var(--font-color-base);
   background: var(--background-color);
+  overflow-x: hidden;
   @apply antialiased;
 }
 

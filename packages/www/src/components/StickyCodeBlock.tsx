@@ -39,7 +39,7 @@ export default function StickyCodeBlock(): JSX.Element {
     <PrismCodeBlock
       language="samlang"
       theme={patchedTheme}
-      className="p-2 leading-6 mx-auto my-0 text-xs sm:text-sm"
+      className="leading-5 mx-auto my-0 text-xs sm:text-sm"
     >
       {code}
     </PrismCodeBlock>
