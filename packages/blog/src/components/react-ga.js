@@ -30,7 +30,7 @@ export default function usePageTracking() {
       if (process.env.NODE_ENV === 'production') {
         window.ga('send', { hitType: 'pageview', page: rawPath.replace(/^\s+|\s+$/g, '') });
       } else {
-        console.info('lib-react-ga', `Visited: ${rawPath}`);
+        console.info('react-ga', `Visited: ${rawPath}`);
       }
     }
   }, [location]);

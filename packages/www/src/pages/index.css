@@ -79,10 +79,6 @@ svg {
   background-color: var(--background-color);
 }
 
-.max-app-width {
-  max-width: 1440px;
-}
-
 @media screen and (min-width: 1024px) {
   .sidebar {
     width: 550px;

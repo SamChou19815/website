@@ -1,5 +1,5 @@
 import initialState from './initial-state';
-import { stripRoot, normalize, getParent, getLast, join, currentDirectoryPath } from './path';
+import { currentDirectoryPath, getLast, getParent, join, normalize, stripRoot } from './path';
 import { changeDirectoryOneLevel } from './stack';
 
 it('stripRoot works', () => {

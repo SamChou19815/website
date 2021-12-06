@@ -1,11 +1,10 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
-import usePageTracking from 'lib-react-ga';
 import React, { ReactNode } from 'react';
-
-import './index.css';
+import usePageTracking from '../components/react-ga';
 import { BLOG_LOGO, BLOG_TITLE, BLOG_URL } from '../constants';
+import './index.css';
 
 export default function DocumentWrapper({ children }: { children: ReactNode }): JSX.Element {
   usePageTracking();

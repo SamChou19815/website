@@ -2,10 +2,8 @@ import Highlight, { defaultProps, Language, PrismTheme } from 'prism-react-rende
 // @ts-expect-error: no type definition
 import Prism from 'prism-react-renderer/prism';
 import React, { CSSProperties } from 'react';
-
 import extendLibPrism from './prism-extended';
 import theme from './prism-theme.json';
-
 import './PrismCodeBlock.css';
 
 extendLibPrism(Prism);

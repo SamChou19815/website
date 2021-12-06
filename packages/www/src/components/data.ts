@@ -132,7 +132,6 @@ const Samwise = '/projects/samwise.webp';
 const TEN = '/projects/ten.webp';
 const WebsiteV2 = '/timeline/website-v2.webp';
 const WebsiteV3 = '/timeline/website-v3.webp';
-const Wiki = '/projects/wiki.webp';
 
 export const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
@@ -177,13 +176,6 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     links: [
       { name: 'Blog Post', url: 'https://blog.developersam.com/2020/08/30/samlang-ts-rewrite' },
     ],
-  },
-  {
-    title: 'Wiki',
-    time: 'July 2020',
-    image: Wiki,
-    detail: 'Documentation for this monoropo and notes from Developer Sam.',
-    links: [{ name: 'Project', url: 'https://wiki.developersam.com/' }],
   },
   {
     title: 'Facebook SWE Intern',

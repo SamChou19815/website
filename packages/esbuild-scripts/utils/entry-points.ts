@@ -1,10 +1,9 @@
 import * as fs from 'fs/promises';
 import { extname, resolve } from 'path';
-
 import {
   PAGES_PATH,
-  VIRTUAL_PATH_PREFIX,
   VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX,
+  VIRTUAL_PATH_PREFIX,
   VIRTUAL_SERVER_ENTRY_PATH,
 } from './constants';
 import type { VirtualPathMappings } from './esbuild-config';

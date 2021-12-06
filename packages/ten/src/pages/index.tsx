@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-
 import Button from '../components/Button';
 import GameCard from '../components/GameCard';
 import {
-  Move,
   Board,
+  boardToJson,
   emptyBoard,
   getGameStatus,
   makeMove,
   makeMoveWithoutCheck,
-  boardToJson,
+  Move,
 } from '../game/board';
 import type { GameState, GameStates } from '../game/game-state';
 import type { MctsResponse } from '../game/mcts';

@@ -1,8 +1,6 @@
+import mainRunner from 'esbuild-scripts/api';
 import * as fs from 'fs/promises';
 import { extname, join, resolve } from 'path';
-
-import mainRunner from 'esbuild-scripts/api';
-
 import type { Metadata } from './src/components/blog-types';
 import { BLOG_TITLE } from './src/constants';
 

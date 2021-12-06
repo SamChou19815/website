@@ -3,7 +3,7 @@
 import autosize from 'autosize';
 import CodeBlock from 'lib-react-prism/PrismCodeBlock';
 import type { PrismTheme } from 'prism-react-renderer';
-import React, { KeyboardEvent, useState, useRef, useEffect } from 'react';
+import React, { KeyboardEvent, useEffect, useRef, useState } from 'react';
 
 type Record = {
   readonly value: string;

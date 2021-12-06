@@ -1,20 +1,18 @@
 /* eslint-disable no-console */
 
+import { build, BuildOptions, BuildResult } from 'esbuild';
+import express from 'express';
+import expressWebSocket from 'express-ws';
 import * as fs from 'fs';
 import type { Socket } from 'net';
 import * as path from 'path';
-
-import { BuildOptions, BuildResult, build } from 'esbuild';
-import express from 'express';
-import expressWebSocket from 'express-ws';
-
 import { OUT_PATH } from '../utils/constants';
 import {
-  virtualEntryComponentsToVirtualPathMappings,
   createEntryPointsGeneratedVirtualFiles,
+  virtualEntryComponentsToVirtualPathMappings,
 } from '../utils/entry-points';
-import baseESBuildConfig from '../utils/esbuild-config';
 import type { VirtualPathMappings } from '../utils/esbuild-config';
+import baseESBuildConfig from '../utils/esbuild-config';
 import getGeneratedHTML from '../utils/html-generator';
 
 function isCSSChangeOnly(oldFiles: readonly string[], newFiles: readonly string[]) {

@@ -1,11 +1,10 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
 import React, { useRef, useState } from 'react';
-
-import StatelessTerminal from './StatelessTerminal';
-import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 import scrollHistory from './history';
+import StatelessTerminal from './StatelessTerminal';
 import type { Commands, TerminalHistory } from './types';
+import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 
 const initialHistory: readonly TerminalHistory[] = [
   { isCommand: false, line: 'Type `help` to show a list of available commands.' },

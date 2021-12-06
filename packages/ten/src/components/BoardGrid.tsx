@@ -1,5 +1,4 @@
 import React from 'react';
-
 import BoardCell from './BoardCell';
 
 type Props = {

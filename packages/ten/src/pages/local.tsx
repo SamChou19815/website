@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-
 import GameCard from '../components/GameCard';
-import { Move, Board, emptyBoard, makeMove } from '../game/board';
+import { Board, emptyBoard, makeMove, Move } from '../game/board';
 import type { GameStates } from '../game/game-state';
 
 const initialState: GameStates = { currentState: { board: emptyBoard } };

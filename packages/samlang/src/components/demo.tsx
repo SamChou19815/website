@@ -1,11 +1,10 @@
 import {
-  SamlangSingleSourceCompilationResult,
   compileSingleSamlangSource,
+  SamlangSingleSourceCompilationResult,
 } from '@dev-sam/samlang-core';
-import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import theme from 'lib-react-prism/prism-theme.json';
+import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React, { useState } from 'react';
-
 import PrismCodeEditor from './PrismCodeEditor';
 
 const initialText = `class Main {
