@@ -1,5 +1,5 @@
 import initialState, { root } from './initial-state';
-import { peek, changeDirectoryOneLevel, changeDirectory } from './stack';
+import { changeDirectory, changeDirectoryOneLevel, peek } from './stack';
 
 it('peek works', () => expect(peek(initialState)).toStrictEqual(['', root]));
 

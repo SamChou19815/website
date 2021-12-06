@@ -1,7 +1,6 @@
-import React, { KeyboardEvent, RefObject, useState, useEffect } from 'react';
-
-import { useWebTerminalCommands } from './WebTerminalCommandsContext';
+import React, { KeyboardEvent, RefObject, useEffect, useState } from 'react';
 import autoComplete from './auto-complete';
+import { useWebTerminalCommands } from './WebTerminalCommandsContext';
 
 type Props = {
   readonly terminalInput: RefObject<HTMLInputElement>;

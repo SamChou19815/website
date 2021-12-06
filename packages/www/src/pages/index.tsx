@@ -1,18 +1,17 @@
 import React from 'react';
-
 import ButtonLink from '../components/ButtonLink';
 import Card from '../components/Card';
 import CardContainer from '../components/CardContainer';
 import CardHeader from '../components/CardHeader';
 import ConsoleSection from '../components/ConsoleSection';
-import WwwSvgIcon from '../components/Icons';
-import StickyCodeBlock from '../components/StickyCodeBlock';
 import {
   DATASET_ABOUT,
   DATASET_PROJECTS,
   DATASET_TECH_TALKS,
   DATASET_TIMELINE,
 } from '../components/data';
+import WwwSvgIcon from '../components/Icons';
+import StickyCodeBlock from '../components/StickyCodeBlock';
 
 function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.Element {
   return <img src={image} alt={title} title={title} loading="lazy" />;
@@ -101,7 +100,7 @@ const TimelineSection = (
         <CardContainer key={`${item.title}-${item.time}`} className="mb-4 w-full">
           <div className="flex mx-auto my-0 justify-center items-start content-start w-full">
             <span className="connector-dot hidden lg:block mt-6 ml-2 mr-4 w-2 h-2 rounded bg-blue-500" />
-            <Card className="w-11/12 ml-0 timeline-card">
+            <Card className="ml-0 w-11/12 timeline-card">
               {item.image != null && <LazyCardMedia image={item.image} title={item.title} />}
               <CardHeader title={item.title} subheader={item.time} />
               {item.detail != null && <div className="p-4 pb-0 last:pb-4">{item.detail}</div>}
@@ -126,7 +125,7 @@ const TimelineSection = (
 
 export default function IndexPage(): JSX.Element {
   return (
-    <div className="relative flex flex-wrap flex-row justify-start max-app-width mx-auto lg:flex-nowrap">
+    <div className="relative flex flex-wrap flex-row justify-start max-w-[1440px] mx-auto lg:flex-nowrap">
       <div className="flex flex-wrap items-center w-full h-screen lg:sticky lg:top-0 sidebar">
         <StickyCodeBlock />
       </div>

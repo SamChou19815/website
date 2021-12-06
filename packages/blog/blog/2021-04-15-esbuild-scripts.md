@@ -214,7 +214,7 @@ build({
 In React, we can use the lazily-imported components by `lazy` and `Suspense`:
 
 ```tsx
-import React, { Suspense, lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 const LazyComponnet = lazy(() => import('./other-component'));
 
 const element = (

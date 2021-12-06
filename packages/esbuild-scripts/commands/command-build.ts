@@ -1,22 +1,20 @@
 /* eslint-disable no-console */
 
-import * as fs from 'fs/promises';
-import { dirname, join, resolve, relative } from 'path';
-
 import { build } from 'esbuild';
-
+import * as fs from 'fs/promises';
+import { dirname, join, relative, resolve } from 'path';
 import {
+  BUILD_PATH,
   SSR_CSS_PATH,
   SSR_JS_PATH,
-  BUILD_PATH,
   VIRTUAL_SERVER_ENTRY_PATH,
 } from '../utils/constants';
 import {
-  virtualEntryComponentsToVirtualPathMappings,
   createEntryPointsGeneratedVirtualFiles,
+  virtualEntryComponentsToVirtualPathMappings,
 } from '../utils/entry-points';
-import baseESBuildConfig from '../utils/esbuild-config';
 import type { VirtualPathMappings } from '../utils/esbuild-config';
+import baseESBuildConfig from '../utils/esbuild-config';
 import { copyDirectoryContent } from '../utils/fs';
 import getGeneratedHTML, { SSRResult } from '../utils/html-generator';
 
@@ -72,7 +70,7 @@ async function getSSRFunction(
     outfile: SSR_JS_PATH,
   });
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports, import/no-dynamic-require
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     return require(resolve(SSR_JS_PATH));
   } catch (error) {
     console.error(

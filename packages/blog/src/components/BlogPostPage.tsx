@@ -1,10 +1,9 @@
 import Head from 'esbuild-scripts/components/Head';
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import React from 'react';
-
+import type { Metadata } from './blog-types';
 import BlogPostItem from './BlogPostItem';
 import BlogPostPaginator from './BlogPostPaginator';
-import type { Metadata } from './blog-types';
 
 type Props = {
   readonly siteTitle: string;

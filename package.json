@@ -12,13 +12,13 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@dev-sam/eslint-config-common": "0.22.0",
+    "@dev-sam/eslint-config-common": "0.23.0",
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
     "@types/node": "^16.11.11",
-    "@typescript-eslint/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^5.5.0",
-    "esbuild": "^0.14.1",
-    "eslint": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "esbuild": "^0.14.2",
+    "eslint": "^8.4.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-react": "^7.27.1",
@@ -27,7 +27,8 @@
     "jest": "^27.4.3",
     "lint-staged": "^12.1.2",
     "postcss": "^8.4.4",
-    "prettier": "^2.4.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-organize-imports": "^2.3.4",
     "tailwindcss": "^2.2.19",
     "typescript": "^4.5.2"
   },
@@ -40,7 +41,10 @@
     "printWidth": 100,
     "singleQuote": true,
     "endOfLine": "lf",
-    "proseWrap": "always"
+    "proseWrap": "always",
+    "pluginSearchDirs": [
+      "."
+    ]
   },
   "jest": {
     "transform": {
@@ -52,5 +56,5 @@
       "yarn prettier --write"
     ]
   },
-  "packageManager": "yarn@3.2.0-rc.6"
+  "packageManager": "yarn@3.2.0-rc.7"
 }

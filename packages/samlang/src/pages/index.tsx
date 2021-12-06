@@ -1,8 +1,7 @@
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import React from 'react';
-
-import SideNav from '../components/SideNav';
 import Docs from '../components/docs';
+import SideNav from '../components/SideNav';
 
 const HELLO_WORLD_CODE = `class HelloWorld {
   function getString(): string =

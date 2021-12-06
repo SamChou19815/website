@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-
-import StatefulTerminal from './web-terminal/StatefulTerminal';
-import { WebTerminalCommandsContextProvider } from './web-terminal/WebTerminalCommandsContext';
 import baseCommands from './web-terminal/base-commands';
+import StatefulTerminal from './web-terminal/StatefulTerminal';
 import type { Commands } from './web-terminal/types';
+import { WebTerminalCommandsContextProvider } from './web-terminal/WebTerminalCommandsContext';
 
 const devSam = () =>
   `Copyright (C) 2015-${new Date().getFullYear()} Developer Sam. All rights reserved.`;

@@ -1,6 +1,5 @@
 import Link from 'esbuild-scripts/components/Link';
 import React from 'react';
-
 import type { BlogPaginationItem } from './blog-types';
 
 type PaginationNavItemProps = { readonly item: BlogPaginationItem; readonly isLeft: boolean };

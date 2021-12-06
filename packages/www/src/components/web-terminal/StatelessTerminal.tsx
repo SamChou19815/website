@@ -1,7 +1,6 @@
 // Modified from https://github.com/js-rcon/react-console-emulator/blob/master/lib/Terminal.jsx
 
 import React, { RefObject } from 'react';
-
 import TerminalInput from './TerminalInput';
 import type { TerminalHistory } from './types';
 

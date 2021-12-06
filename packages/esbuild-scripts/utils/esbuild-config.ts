@@ -1,10 +1,8 @@
+import type { BuildOptions, Plugin } from 'esbuild';
 import * as fs from 'fs/promises';
 import * as path from 'path';
-
-import type { BuildOptions, Plugin } from 'esbuild';
 import postcss from 'postcss';
 import tailwind from 'tailwindcss';
-
 import getTailwindBaseConfig from './tailwind-config';
 
 const mdxPromise = import('@mdx-js/mdx');
@@ -62,28 +60,20 @@ const mdxPlugin: Plugin = {
   },
 };
 
-function postcssPlugin(production: boolean): Plugin {
+function postcssPlugin(): Plugin {
+  process.env.JEST_WORKER_ID = 'SUPPRESS_WARNING';
+  const processor = postcss([tailwind(getTailwindBaseConfig(true))]);
+  process.env.JEST_WORKER_ID = undefined;
   return {
     name: 'postcss',
     setup(buildConfig) {
       buildConfig.onLoad({ filter: /\.css$/ }, async (args) => {
         const css = await fs.readFile(args.path, 'utf8');
-        const result = await postcss([tailwind(getTailwindBaseConfig(production))]).process(css, {
-          from: args.path,
-        });
-        return { contents: result.css, loader: 'css' };
+        const result = await processor.process(css, { from: args.path });
+        return { contents: result.css, loader: 'css', watchDirs: [path.resolve('src')] };
       });
     },
   };
-}
-
-function esbuildPlugins(virtualPathMappings: VirtualPathMappings, production: boolean): Plugin[] {
-  return [
-    webAppResolvePlugin,
-    virtualPathResolvePlugin(virtualPathMappings),
-    mdxPlugin,
-    postcssPlugin(production),
-  ];
 }
 
 export default function baseESBuildConfig({
@@ -109,6 +99,11 @@ export default function baseESBuildConfig({
     target: 'es2019',
     logLevel: 'error',
     external: ['path', 'fs'],
-    plugins: esbuildPlugins(virtualPathMappings, isProd),
+    plugins: [
+      webAppResolvePlugin,
+      virtualPathResolvePlugin(virtualPathMappings),
+      mdxPlugin,
+      postcssPlugin(),
+    ],
   };
 }

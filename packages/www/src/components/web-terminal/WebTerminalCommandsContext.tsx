@@ -1,5 +1,4 @@
-import React, { ReactNode, Provider, createContext, useContext } from 'react';
-
+import React, { createContext, Provider, ReactNode, useContext } from 'react';
 import type { Commands } from './types';
 
 const WebTerminalCommandsContext = createContext<Commands | null>(null);
