@@ -18,6 +18,6 @@
     "@types/react": "^17.0.34",
     "esbuild": "^0.14.2",
     "esbuild-scripts": "workspace:0.6.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.3"
   }
 }
