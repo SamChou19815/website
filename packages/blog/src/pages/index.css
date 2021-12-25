@@ -45,6 +45,11 @@ a:active {
   }
 }
 
+.markdown p {
+  margin: 0.5em 0;
+  line-height: 1.75rem;
+}
+
 .markdown pre {
   margin: 1rem 0;
   padding: 0.5rem;
