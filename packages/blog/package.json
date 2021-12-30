@@ -16,7 +16,7 @@
   "devDependencies": {
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
     "@types/react": "^17.0.34",
-    "esbuild": "^0.14.5",
+    "esbuild": "^0.14.9",
     "esbuild-scripts": "workspace:0.6.0",
     "typescript": "^4.5.4"
   }
