@@ -288,7 +288,7 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: 'TEN',
     time: 'July 2017',
     image: TEN,
-    links: [{ name: 'GitHub Repo', url: 'https://github.com/SamChou19815/ten' }],
+    links: [{ name: 'GitHub Repo', url: 'https://github.com/SamChou19815/ten-golang' }],
   },
   {
     title: 'Graduated from High School',
