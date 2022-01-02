@@ -14,6 +14,8 @@ type CustomizedMDXComponents = {
   readonly code: (props: ComponentProps<'code'>) => JSX.Element;
   readonly a: (props: ComponentProps<'a'>) => JSX.Element;
   readonly pre: (props: ComponentProps<'pre'>) => JSX.Element;
+  readonly ul: (props: ComponentProps<'ul'>) => JSX.Element;
+  readonly ol: (props: ComponentProps<'ol'>) => JSX.Element;
   readonly h1: HeadingComponentType;
   readonly h2: HeadingComponentType;
   readonly h3: HeadingComponentType;
@@ -42,6 +44,16 @@ const MDXComponents: CustomizedMDXComponents = {
       </PrismCodeBlock>
     );
   },
+  ul: ({ children, ...props }) => (
+    <ul className="list-inside list-disc" {...props}>
+      {children}
+    </ul>
+  ),
+  ol: ({ children, ...props }) => (
+    <ol className="list-inside list-decimal" {...props}>
+      {children}
+    </ol>
+  ),
   h1: Heading('h1'),
   h2: Heading('h2'),
   h3: Heading('h3'),

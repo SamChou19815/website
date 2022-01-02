@@ -45,9 +45,15 @@ a:active {
   }
 }
 
-.markdown p {
-  margin: 0.5em 0;
+.markdown p,
+.markdown ul,
+.markdown ol {
+  margin-bottom: 1em;
   line-height: 1.75rem;
+}
+
+.markdown img {
+  margin-bottom: 2em;
 }
 
 .markdown pre {
