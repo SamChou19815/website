@@ -106,13 +106,11 @@ const TimelineSection = (
               {item.detail != null && <div className="p-4 pb-0 last:pb-4">{item.detail}</div>}
               {item.links != null && (
                 <div className="p-4">
-                  {item.links.map(
-                    ({ name, url }, index): JSX.Element => (
-                      <ButtonLink key={index} href={url} className="px-1.5">
-                        {name}
-                      </ButtonLink>
-                    )
-                  )}
+                  {item.links.map(({ name, url }, index) => (
+                    <ButtonLink key={index} href={url} className="px-1.5">
+                      {name}
+                    </ButtonLink>
+                  ))}
                 </div>
               )}
             </Card>

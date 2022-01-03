@@ -5,15 +5,19 @@ import { useEffect } from 'react';
 
 function loadGA() {
   // https://developers.google.com/analytics/devguides/collection/analyticsjs/
-  window['GoogleAnalyticsObject'] = 'ga';
-  const ga = (...args) => (window.ga.q = window.ga.q || []).push(...args);
-  ga.l = 1 * new Date();
-  window.ga = ga;
-  const a = document.createElement('script');
-  const m = document.getElementsByTagName('script')[0];
-  a.async = true;
-  a.src = 'https://www.google-analytics.com/analytics.js';
-  m.parentNode.insertBefore(a, m);
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    (i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date());
+    (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 }
 
 if (process.env.NODE_ENV === 'production' && !__SERVER__) {
