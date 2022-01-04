@@ -8,7 +8,7 @@
   },
   "private": true,
   "scripts": {
-    "compile": "tsc --noEmit"
+    "compile": "tsc --noEmit --incremental"
   },
   "dependencies": {
     "prism-react-renderer": "^1.2.1"

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts ssg",
-    "compile": "tsc",
+    "compile": "tsc --incremental",
     "deploy": "netlify deploy -d build -s developersam.com --prod"
   },
   "dependencies": {

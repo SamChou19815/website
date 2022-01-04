@@ -1,9 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "check": "pnpm run compile --filter \"...[origin/main]\"",
-    "check:ci": "pnpm run compile --filter \"...[HEAD^]\"",
-    "build": "pnpm bundle --filter esbuild-scripts && pnpm build --parallel",
+    "check": "pnpm turbo run compile",
+    "build": "pnpm turbo run build",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "lint": "eslint . --cache",
@@ -34,7 +33,43 @@
     "prettier": "^2.5.1",
     "prettier-plugin-organize-imports": "^2.3.4",
     "tailwindcss": "^3.0.1",
+    "turbo": "^1.0.24",
     "typescript": "^4.5.4"
+  },
+  "turbo": {
+    "baseBranch": "origin/main",
+    "npmClient": "pnpm",
+    "globalDependencies": [
+      "configuration/*"
+    ],
+    "pipeline": {
+      "compile": {
+        "dependsOn": [
+          "^compile"
+        ],
+        "outputs": [
+          "tsconfig.tsbuildinfo"
+        ]
+      },
+      "build": {
+        "dependsOn": [
+          "esbuild-scripts#bundle"
+        ],
+        "outputs": [
+          "build/**"
+        ]
+      },
+      "esbuild-scripts#bundle": {
+        "outputs": [
+          "api.js"
+        ]
+      },
+      "deploy": {
+        "dependsOn": [
+          "build"
+        ]
+      }
+    }
   },
   "eslintConfig": {
     "extends": [

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "esr blog-generator.ts start",
     "build": "esr blog-generator.ts ssg",
-    "compile": "tsc",
+    "compile": "tsc --incremental",
     "deploy": "netlify deploy -d build -s blog.developersam.com --prod"
   },
   "dependencies": {
