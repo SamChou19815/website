@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "check": "pnpm turbo run compile",
-    "build": "pnpm turbo run build",
+    "compile": "turbo run compile",
+    "build": "turbo run build",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "lint": "eslint . --cache",
