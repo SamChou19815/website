@@ -18,15 +18,15 @@ export default function BlogPostPage({
 }: Props): JSX.Element {
   const { title, nextItem, prevItem } = metadata;
   const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
-
   return (
     <>
       <HeadTitle title={`${title} | ${siteTitle}`} />
-      {ogImage && (
-        <Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        {ogImage && (
           <meta property="og:image" content={`https://blog.developersam.com${ogImage}`} />
-        </Head>
-      )}
+        )}
+      </Head>
       <div className="flex flex-row flex-wrap justify-center">
         <main className="w-full">
           <BlogPostItem metadata={metadata} truncated={false}>
