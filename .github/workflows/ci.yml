@@ -33,8 +33,10 @@ jobs:
           cache: pnpm
       - name: Install
         run: pnpm install --frozen-lockfile
-      - name: Compile
-        run: pnpm compile
+      - name: Type Check
+        run: pnpm check
+      - name: Build
+        run: pnpm build
   test:
     runs-on: ubuntu-latest
     steps:
