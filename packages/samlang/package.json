@@ -5,7 +5,7 @@
   "scripts": {
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts ssg",
-    "compile": "tsc --noEmit",
+    "compile": "tsc --noEmit --incremental",
     "deploy": "netlify deploy -d build -s samlang.io --prod"
   },
   "dependencies": {

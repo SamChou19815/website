@@ -21,8 +21,5 @@ jobs:
           cache: pnpm
       - name: Install
         run: pnpm install --frozen-lockfile
-      - name: Build and Deploy
-        run: |
-          pnpm bundle --filter esbuild-scripts
-          pnpm run build --filter '...[HEAD^]'
-          pnpm run deploy --filter '...[HEAD^]'
+      - name: Deploy
+        run: pnpm turbo run deploy
