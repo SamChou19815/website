@@ -22,4 +22,4 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
       - name: Deploy
-        run: pnpm turbo run deploy
+        run: pnpm turbo run deploy --since="HEAD^"

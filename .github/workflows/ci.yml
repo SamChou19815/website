@@ -34,7 +34,7 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
       - name: Type Check
-        run: pnpm run compile --filter "...[HEAD^]"
+        run: pnpm compile -- --since="HEAD^"
   test:
     runs-on: ubuntu-latest
     steps:
