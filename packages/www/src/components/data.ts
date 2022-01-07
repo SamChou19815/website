@@ -135,6 +135,12 @@ const WebsiteV3 = '/timeline/website-v3.webp';
 
 export const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
+    title: 'Graduated from Cornell University, Again',
+    time: 'December 2021',
+    image: GraduationSam,
+    detail: 'Graduated as an M.Eng student. 👋',
+  },
+  {
     title: 'Facebook SWE Intern',
     time: 'June 2021',
     image: Flow,
@@ -148,7 +154,7 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: 'Graduated from Cornell University',
     time: 'May 2021',
     image: GraduationSam,
-    detail: 'Graduated as an undergrad, still have an M.Eng to do...',
+    detail: 'Graduated as an undergrad.',
   },
   {
     title: 'samlang emits LLVM code',
