@@ -139,15 +139,19 @@ importers:
   packages/samlang:
     specifiers:
       '@dev-sam/samlang-core': ^0.5.0
+      '@monaco-editor/react': ^4.3.1
       autosize: ^5.0.1
       esbuild-scripts: workspace:0.6.0
       lib-react-prism: 0.1.0
+      monaco-editor: ^0.31.1
       react: ^17.0.2
       react-dom: ^17.0.2
     dependencies:
       '@dev-sam/samlang-core': 0.5.0
+      '@monaco-editor/react': 4.3.1_60c53b327c300eabacb72e8cc15737d8
       autosize: 5.0.1
       lib-react-prism: link:../lib-react-prism
+      monaco-editor: 0.31.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     devDependencies:
@@ -812,6 +816,29 @@ packages:
       '@types/mdx': 2.0.1
       '@types/react': 17.0.38
       react: 17.0.2
+    dev: false
+
+  /@monaco-editor/loader/1.2.0_monaco-editor@0.31.1:
+    resolution: {integrity: sha512-cJVCG/T/KxXgzYnjKqyAgsKDbH9mGLjcXxN6AmwumBwa2rVFkwvGcUj1RJtD0ko4XqLqJxwqsN/Z/KURB5f1OQ==}
+    peerDependencies:
+      monaco-editor: '>= 0.21.0 < 1'
+    dependencies:
+      monaco-editor: 0.31.1
+      state-local: 1.0.7
+    dev: false
+
+  /@monaco-editor/react/4.3.1_60c53b327c300eabacb72e8cc15737d8:
+    resolution: {integrity: sha512-f+0BK1PP/W5I50hHHmwf11+Ea92E5H1VZXs+wvKplWUWOfyMa1VVwqkJrXjRvbcqHL+XdIGYWhWNdi4McEvnZg==}
+    peerDependencies:
+      monaco-editor: '>= 0.25.0 < 1'
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@monaco-editor/loader': 1.2.0_monaco-editor@0.31.1
+      monaco-editor: 0.31.1
+      prop-types: 15.8.0
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
@@ -4318,6 +4345,10 @@ packages:
   /minimist/1.2.5:
     resolution: {integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==}
 
+  /monaco-editor/0.31.1:
+    resolution: {integrity: sha512-FYPwxGZAeP6mRRyrr5XTGHD9gRXVjy7GUzF4IPChnyt3fS5WrNxIkS8DNujWf6EQy0Zlzpxw8oTVE+mWI2/D1Q==}
+    dev: false
+
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -5165,6 +5196,10 @@ packages:
     dependencies:
       escape-string-regexp: 2.0.0
     dev: true
+
+  /state-local/1.0.7:
+    resolution: {integrity: sha512-HTEHMNieakEnoe33shBYcZ7NX83ACUjCu8c40iOGEZsngj9zRnkqS9j1pqQPXwobB0ZcVTk27REb7COQ0UR59w==}
+    dev: false
 
   /statuses/1.5.0:
     resolution: {integrity: sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=}
