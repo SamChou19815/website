@@ -50,7 +50,7 @@ export default function LanguageDemo() {
       <h2 id="demo">Demo</h2>
       <div>
         <div style={{ backgroundColor: (theme.plain as Record<string, string>).backgroundColor }}>
-          <PrismCodeEditor language="samlang" code={text} theme={theme} onCodeChange={setText} />
+          <PrismCodeEditor code={text} onCodeChange={setText} />
         </div>
         <button
           type="button"
