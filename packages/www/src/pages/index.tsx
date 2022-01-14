@@ -25,7 +25,7 @@ const AboutSection = (
           <img
             className="rounded-full mr-4 w-12 h-12 overflow-hidden"
             src="/sam-by-megan-3-square.webp"
-            alt="dev-sam fan art by dev-megan"
+            alt="dev-sam fan art"
           />
           <h4 className="m-0">Sam Zhou</h4>
         </div>
