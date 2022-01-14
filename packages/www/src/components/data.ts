@@ -164,14 +164,6 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     ],
   },
   {
-    title: '💕',
-    time: 'October 2020',
-    links: [
-      { name: 'Megan Yin', url: 'https://meganyin.com' },
-      { name: 'dev-megan', url: 'https://github.com/meganyin13' },
-    ],
-  },
-  {
     title: 'Turn samzhou.dev into a fan-art site',
     time: 'September 2020',
     links: [{ name: 'samzhou.dev', url: 'https://samzhou.dev' }],
