@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
-    "esbuild": "^0.14.10",
+    "esbuild": "^0.14.11",
     "esbuild-scripts": "workspace:0.6.0"
   }
 }
