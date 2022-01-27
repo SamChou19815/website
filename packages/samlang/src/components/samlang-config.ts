@@ -1,4 +1,5 @@
-import type { createSamlangLanguageService } from '@dev-sam/samlang-core';
+import { ModuleReference } from '@dev-sam/samlang-core';
+import type createSamlangLanguageService from '@dev-sam/samlang-core/services';
 import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import type { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
 
@@ -201,22 +202,42 @@ const languageDefinition: languages.IMonarchLanguage = {
   },
 };
 
+export const DemoModuleReference = new ModuleReference(['Demo']);
+
 export function initializeMonacoEditor(
   monacoEditor: typeof monaco,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   service: ReturnType<typeof createSamlangLanguageService>
 ) {
   monacoEditor.editor.defineTheme('sam-theme', monacoEditorTheme);
   monacoEditor.languages.register({ id: 'samlang' });
   monacoEditor.languages.setLanguageConfiguration('samlang', languageConfiguration);
   monacoEditor.languages.setMonarchTokensProvider('samlang', languageDefinition);
-  /*
   monacoEditor.languages.registerCompletionItemProvider('samlang', {
     triggerCharacters: ['.'],
-    provideCompletionItems(model, position) {
-      service;
-      return [];
+    provideCompletionItems(_, position) {
+      try {
+        const results = service.autoComplete(DemoModuleReference, {
+          line: position.lineNumber - 1,
+          character: position.column - 1,
+        });
+        return {
+          suggestions: results.map(({ label, insertText, insertTextFormat, kind, detail }) => ({
+            range: {
+              startLineNumber: position.lineNumber,
+              startColumn: position.column,
+              endLineNumber: position.lineNumber,
+              endColumn: position.column,
+            },
+            label,
+            insertText,
+            insertTextRules: insertTextFormat === 2 ? 4 : undefined,
+            kind,
+            detail,
+          })),
+        };
+      } catch {
+        return null;
+      }
     },
   });
-  */
 }

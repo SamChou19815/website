@@ -39,7 +39,7 @@ function ProgramLayout() {
   }
 
   function getGlobalMessage(): string = {
-    val hw = { message: "Hello World" };
+    val hw = HelloWorld.init("Hello World");
     hw.getMessage()
   }
 }
@@ -136,7 +136,7 @@ letting you create an object class.`}</p>
         {`class Student(private val name: string, val age: int) {
   method getName(): string = this.name
   private method getAge(): int = this.age
-  function dummyStudent(): Student = { name: "Immortal", age: 65535 }
+  function dummyStudent(): Student = Student.init("Immortal", 65535)
 }`}
       </PrismCodeBlock>
       <p>
@@ -159,17 +159,17 @@ letting you create an object class.`}</p>
       <p>{`An object class defines a producct type; a variant class defines a sum type. With variant
 class, you can define a type that can be either A or B or C. Here is an example:`}</p>
       <PrismCodeBlock language="samlang">
-        {`class PrimitiveType(
+        {`class Type(
   U(unit),
   I(int),
   S(string),
   B(bool),
 ) {
   // some random functions
-  function getUnit(): PrimitiveType = U({})
-  function getInteger(): PrimitiveType = I(42)
-  function getString(): PrimitiveType = S("samlang")
-  function getBool(): PrimitiveType = B(false)
+  function getUnit(): PrimitiveType = Type.U({})
+  function getInteger(): PrimitiveType = Type.I(42)
+  function getString(): PrimitiveType = Type.S("samlang")
+  function getBool(): PrimitiveType = Type.B(false)
 
   // pattern matching!
   method isTruthy(): bool =
@@ -182,7 +182,8 @@ class, you can define a type that can be either A or B or C. Here is an example:
 }`}
       </PrismCodeBlock>
       <p>
-        Inside the class, you can construct a variant by <code>{`VariantName(expr)`}</code>.
+        Inside the class, you can construct a variant by{' '}
+        <code>{`VariantClass.VariantName(expr)`}</code>.
       </p>
       <p>
         Each variant carries some data with a specific type. To perform a case-analysis on different
@@ -198,8 +199,6 @@ class, you can define a type that can be either A or B or C. Here is an example:
 }
 
 class Box<T>(val content: T) {
-  // object short hand syntax
-  function <T> init(content: T): Box<T> = { content }
   method getContent(): T = {
     val { content } = this; content
   }
@@ -254,10 +253,14 @@ function Expressions() {
       <p>
         You can refer to a class function by <code>{`ClassName.functionName`}</code>.
       </p>
+      <p>
+        An object class implicitly defines a special function <code>init</code> that serves as the
+        constructor.
+      </p>
       <p>For example, you can write:</p>
       <PrismCodeBlock language="samlang">
         {`class Foo(a: int) {
-  function bar(): int = 3
+  function bar(): int = 3 + Foo.init(3).a
 }
 
 class Main {
@@ -285,8 +288,7 @@ class Main {
 
       <h3>Variant</h3>
       <p>
-        A variant constructor is like a function, but it must start with an uppercase letter:{' '}
-        <code>{`Some(42)`}</code>.
+        A variant constructor is a normal function: <code>{`VariantClass.Some(42)`}</code>.
       </p>
       <h3>Field/Method Access</h3>
       <p>

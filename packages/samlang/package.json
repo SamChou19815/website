@@ -9,7 +9,7 @@
     "deploy": "netlify deploy -d build -s samlang.io --prod"
   },
   "dependencies": {
-    "@dev-sam/samlang-core": "^0.5.0",
+    "@dev-sam/samlang-core": "^0.6.0",
     "@monaco-editor/react": "^4.3.1",
     "autosize": "^5.0.1",
     "lib-react-prism": "0.1.0",

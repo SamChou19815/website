@@ -11,18 +11,18 @@ const code = `/**
 
 class List<T>(Nil(unit), Cons([T * List<T>])) {
   function <T> of(t: T): List<T> =
-    Cons([t, Nil({})])
+    List.Cons([t, List.Nil({})])
   method cons(t: T): List<T> =
-    Cons([t, this])
+    List.Cons([t, this])
 }
 class Developer(
   val name: string, val github: string,
   val projects: List<string>
 ) {
   function sam(): Developer = {
-    val l = List.of("samlang").cons("...");
+    val l = List.of("samlang").Cons("...");
     val github = "SamChou19815";
-    { name: "Sam Zhou", github, projects: l }
+    Developer.init("Sam Zhou", github, l)
   }
 }
 class Main {
