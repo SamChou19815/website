@@ -1,4 +1,4 @@
-import { ModuleReference } from '@dev-sam/samlang-core';
+import { ModuleReference, Position, Range } from '@dev-sam/samlang-core';
 import type createSamlangLanguageService from '@dev-sam/samlang-core/services';
 import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import type { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
@@ -204,6 +204,22 @@ const languageDefinition: languages.IMonarchLanguage = {
 
 export const DemoModuleReference = new ModuleReference(['Demo']);
 
+function monacoToSamlangPosition(position: monaco.Position): Position {
+  return {
+    line: position.lineNumber - 1,
+    character: position.column - 1,
+  };
+}
+
+function samlangToMonacoRange(range: Range) {
+  return {
+    startLineNumber: range.start.line + 1,
+    startColumn: range.start.character + 1,
+    endLineNumber: range.end.line + 1,
+    endColumn: range.end.character + 1,
+  };
+}
+
 export function initializeMonacoEditor(
   monacoEditor: typeof monaco,
   service: ReturnType<typeof createSamlangLanguageService>
@@ -212,14 +228,23 @@ export function initializeMonacoEditor(
   monacoEditor.languages.register({ id: 'samlang' });
   monacoEditor.languages.setLanguageConfiguration('samlang', languageConfiguration);
   monacoEditor.languages.setMonarchTokensProvider('samlang', languageDefinition);
+
+  monacoEditor.languages.registerHoverProvider('samlang', {
+    provideHover(_, position) {
+      const result = service.queryForHover(DemoModuleReference, monacoToSamlangPosition(position));
+      if (result == null) return null;
+      return { range: samlangToMonacoRange(result.range), contents: result.contents };
+    },
+  });
+
   monacoEditor.languages.registerCompletionItemProvider('samlang', {
     triggerCharacters: ['.'],
     provideCompletionItems(_, position) {
       try {
-        const results = service.autoComplete(DemoModuleReference, {
-          line: position.lineNumber - 1,
-          character: position.column - 1,
-        });
+        const results = service.autoComplete(
+          DemoModuleReference,
+          monacoToSamlangPosition(position)
+        );
         return {
           suggestions: results.map(({ label, insertText, insertTextFormat, kind, detail }) => ({
             range: {
@@ -238,6 +263,17 @@ export function initializeMonacoEditor(
       } catch {
         return null;
       }
+    },
+  });
+
+  monacoEditor.languages.registerDefinitionProvider('samlang', {
+    provideDefinition(model, position) {
+      const result = service.queryDefinitionLocation(
+        DemoModuleReference,
+        monacoToSamlangPosition(position)
+      );
+      if (result == null) return null;
+      return { uri: model.uri, range: samlangToMonacoRange(result.range) };
     },
   });
 }
