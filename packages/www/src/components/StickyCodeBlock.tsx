@@ -20,7 +20,7 @@ class Developer(
   val projects: List<string>
 ) {
   function sam(): Developer = {
-    val l = List.of("samlang").Cons("...");
+    val l = List.of("samlang").cons("...");
     val github = "SamChou19815";
     Developer.init("Sam Zhou", github, l)
   }
