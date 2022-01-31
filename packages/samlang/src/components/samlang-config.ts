@@ -3,6 +3,8 @@ import type createSamlangLanguageService from '@dev-sam/samlang-core/services';
 import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import type { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
 
+export type MonacoEditor = typeof monaco;
+
 export const monacoEditorOptions: editor.IEditorConstructionOptions = {
   minimap: { enabled: false },
   scrollBeyondLastLine: false,
@@ -211,7 +213,7 @@ function monacoToSamlangPosition(position: monaco.Position): Position {
   };
 }
 
-function samlangToMonacoRange(range: Range) {
+export function samlangToMonacoRange(range: Range) {
   return {
     startLineNumber: range.start.line + 1,
     startColumn: range.start.character + 1,
@@ -221,7 +223,7 @@ function samlangToMonacoRange(range: Range) {
 }
 
 export function initializeMonacoEditor(
-  monacoEditor: typeof monaco,
+  monacoEditor: MonacoEditor,
   service: ReturnType<typeof createSamlangLanguageService>
 ) {
   monacoEditor.editor.defineTheme('sam-theme', monacoEditorTheme);
