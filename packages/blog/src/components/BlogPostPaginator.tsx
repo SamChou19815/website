@@ -6,13 +6,13 @@ type PaginationNavItemProps = { readonly item: BlogPaginationItem; readonly isLe
 function PaginationNavItem({ item, isLeft }: PaginationNavItemProps): JSX.Element {
   return (
     <Link
-      className="flex-grow p-4 leading-tight border border-solid border-gray-300 rounded-md hover:border-blue-500"
+      className="flex-grow rounded-md border border-solid border-gray-300 p-4 leading-tight hover:border-blue-500"
       to={item.permalink}
     >
-      <div className="text-sm text-gray-500 font-medium mb-1">
+      <div className="mb-1 text-sm font-medium text-gray-500">
         {isLeft ? 'Newer Post' : 'Older Post'}
       </div>
-      <div className="font-bold break-words">{isLeft ? `« ${item.title}` : `${item.title} »`}</div>
+      <div className="break-words font-bold">{isLeft ? `« ${item.title}` : `${item.title} »`}</div>
     </Link>
   );
 }
@@ -22,7 +22,7 @@ export default function BlogPostPaginator({ nextItem, prevItem }: Props): JSX.El
   return (
     <nav className="flex" aria-label="Blog post page navigation">
       <div className="flex flex-1">{prevItem && <PaginationNavItem item={prevItem} isLeft />}</div>
-      <div className="flex flex-1 ml-4 text-right">
+      <div className="ml-4 flex flex-1 text-right">
         {nextItem && <PaginationNavItem item={nextItem} isLeft={false} />}
       </div>
     </nav>

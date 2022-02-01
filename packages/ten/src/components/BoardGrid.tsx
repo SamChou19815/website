@@ -40,12 +40,12 @@ export default function BoardGrid({ tiles, lastMove, clickCallback }: Props): JS
     );
   }
   return (
-    <div className="flex flex-col justify-center relative w-80 h-80 p-4">
+    <div className="relative flex h-80 w-80 flex-col justify-center p-4">
       {children}
-      <div className="bg-gray-800 absolute top-4 left-1/3 h-72 w-px transform translate-x-1" />
-      <div className="bg-gray-800 absolute top-4 right-1/3 h-72 w-px transform -translate-x-1" />
-      <div className="bg-gray-800 absolute left-4 top-1/3 w-72 h-px transform translate-y-1" />
-      <div className="bg-gray-800 absolute left-4 bottom-1/3 w-72 h-px transform -translate-y-1" />
+      <div className="absolute top-4 left-1/3 h-72 w-px translate-x-1 transform bg-gray-800" />
+      <div className="absolute top-4 right-1/3 h-72 w-px -translate-x-1 transform bg-gray-800" />
+      <div className="absolute left-4 top-1/3 h-px w-72 translate-y-1 transform bg-gray-800" />
+      <div className="absolute left-4 bottom-1/3 h-px w-72 -translate-y-1 transform bg-gray-800" />
     </div>
   );
 }

@@ -12,7 +12,7 @@ const svgIcons = {
 } as const;
 
 const WwwSvgIcon = ({ iconName }: { readonly iconName: WwwSvgIconName }): JSX.Element => (
-  <svg fontSize="20px" color="inherit" className="w-6 h-6 text-2xl">
+  <svg fontSize="20px" color="inherit" className="h-6 w-6 text-2xl">
     <path d={svgIcons[iconName]} />
   </svg>
 );

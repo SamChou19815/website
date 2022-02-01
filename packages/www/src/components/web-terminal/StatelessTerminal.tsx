@@ -16,7 +16,7 @@ const TerminalHistoryLine = ({
   }
   return (
     <p className={className}>
-      <span className="text-blue-500 pr-2">$</span>
+      <span className="pr-2 text-blue-500">$</span>
       {line}
     </p>
   );
@@ -40,7 +40,7 @@ const StatelessTerminal = ({
   processCommand,
 }: Props): JSX.Element => (
   <div ref={terminalRoot} className="h-screen" onClick={focusTerminal}>
-    <div className="sticky top-0 p-2 text-center border-b border-solid border-gray-300 inherit-background">
+    <div className="inherit-background sticky top-0 border-b border-solid border-gray-300 p-2 text-center">
       Terminal
     </div>
     <div className="p-5 font-mono">

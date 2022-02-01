@@ -20,7 +20,7 @@ export default function BlogPostItem(props: Props): JSX.Element {
   return (
     <Article>
       <header>
-        <TitleHeading className="font-sans mb-2">
+        <TitleHeading className="mb-2 font-sans">
           {truncated ? <Link to={permalink}>{title}</Link> : title}
         </TitleHeading>
         <div className="my-4">

@@ -22,7 +22,7 @@ export default function BoardCell({ tileStatus, doesNeedHighlight, onClick }: Pr
   return (
     <div
       role="presentation"
-      className="w-7 h-7 m-0.5 cursor-pointer"
+      className="m-0.5 h-7 w-7 cursor-pointer"
       style={style}
       onClick={onClick}
     />

@@ -52,22 +52,22 @@ export default function GameCard({
   }
   return (
     <>
-      <div className="m-2 sm:my-8 sm:m-auto bg-white flex flex-col rounded-sm sm:w-96">
+      <div className="m-2 flex flex-col rounded-sm bg-white sm:m-auto sm:my-8 sm:w-96">
         <h2 className="p-4 pb-0 text-lg font-bold">Game</h2>
         <div className="p-4">{getMessage(board, playerCanMove, playerMadeIllegalMove)}</div>
         {aiInfoNode}
-        <div className="p-4 flex justify-center relative">
+        <div className="relative flex justify-center p-4">
           {!playerCanMove && <div className="absolute inset-0 z-10 bg-white bg-opacity-75" />}
           <BoardGrid tiles={tiles} lastMove={board.lastMove} clickCallback={clickCallback} />
         </div>
         {children}
         {showUndoButton && (
-          <div className="p-4 pt-0 flex justify-center items-center">
+          <div className="flex items-center justify-center p-4 pt-0">
             <Button onClick={onUndoMove}>Undo your last move</Button>
           </div>
         )}
       </div>
-      <div className="m-2 sm:my-8 sm:m-auto bg-white flex flex-col rounded-sm sm:w-96">
+      <div className="m-2 flex flex-col rounded-sm bg-white sm:m-auto sm:my-8 sm:w-96">
         <h2 className="p-4 pb-0 text-lg font-bold">Rules</h2>
         <div className="p-4">
           The rules are mostly the same with the original{' '}

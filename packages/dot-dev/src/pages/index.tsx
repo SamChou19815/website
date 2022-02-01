@@ -48,7 +48,7 @@ function FanArtWorkCard({
   description,
 }: FanArtWork): JSX.Element {
   return (
-    <div className="bg-white flex flex-col filter drop-shadow-sm mx-auto my-4 w-11/12 md:w-96 lg:mx-4">
+    <div className="mx-auto my-4 flex w-11/12 flex-col bg-white drop-shadow-sm filter md:w-96 lg:mx-4">
       <div>
         <img
           src={`https://developersam.com/fan-arts/${filename}`}
@@ -61,7 +61,7 @@ function FanArtWorkCard({
       <div className="p-4">Author: {authorName}</div>
       <div className="p-4 pt-0">
         <a
-          className="p-2 rounded-md flex justify-center font-bold text-blue-500 hover:bg-blue-500 hover:bg-opacity-10"
+          className="flex justify-center rounded-md p-2 font-bold text-blue-500 hover:bg-blue-500 hover:bg-opacity-10"
           href={authorWebsite}
         >
           {`${authorName}'s website`}
@@ -74,16 +74,16 @@ function FanArtWorkCard({
 export default function ArtsPage(): JSX.Element {
   return (
     <div>
-      <nav className="flex bg-white filter drop-shadow-sm px-4 py-2 h-16">
-        <div className="flex flex-wrap justify-between w-full">
-          <div className="flex items-center flex-auto min-w-0">
-            <a className="flex mr-8 items-center text-gray-900 min-w-0 font-bold" href="/">
+      <nav className="flex h-16 bg-white px-4 py-2 drop-shadow-sm filter">
+        <div className="flex w-full flex-wrap justify-between">
+          <div className="flex min-w-0 flex-auto items-center">
+            <a className="mr-8 flex min-w-0 items-center font-bold text-gray-900" href="/">
               Fan Arts | Random@dev-sam
             </a>
           </div>
-          <div className="flex items-center min-w-0 flex-initial justify-end">
+          <div className="flex min-w-0 flex-initial items-center justify-end">
             <a
-              className="px-3 py-1 text-gray-900 font-medium hover:text-blue-500"
+              className="px-3 py-1 font-medium text-gray-900 hover:text-blue-500"
               href="https://developersam.com"
             >
               Home

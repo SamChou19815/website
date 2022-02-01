@@ -42,16 +42,16 @@ const features = [
 
 export default function Home(): JSX.Element {
   return (
-    <div className="flex flex-row m-auto max-w-5xl homepage-container">
+    <div className="homepage-container m-auto flex max-w-5xl flex-row">
       <SideNav />
-      <main className="overflow-hidden w-full">
+      <main className="w-full overflow-hidden">
         <header
-          className="flex flex-col items-center my-4 mt-0 px-8 py-12 bg-blue-500 text-white"
+          className="my-4 mt-0 flex flex-col items-center bg-blue-500 px-8 py-12 text-white"
           id=""
         >
-          <h1 className="flex font-extralight text-6xl my-8">
+          <h1 className="my-8 flex text-6xl font-extralight">
             <img
-              className="bg-white rounded-full mr-3"
+              className="mr-3 rounded-full bg-white"
               src="/img/logo.png"
               alt="Logo"
               width="64px"
@@ -59,15 +59,15 @@ export default function Home(): JSX.Element {
             />
             samlang
           </h1>
-          <p className="block text-2xl text-left font-extralight">
+          <p className="block text-left text-2xl font-extralight">
             A statically-typed, functional, and sound&nbsp;
             <br className="hidden sm:block" />
             programming language with type inference.
           </p>
         </header>
-        <section className="flex flex-wrap items-center bg-white my-4 p-4 border border-solid border-gray-300">
+        <section className="my-4 flex flex-wrap items-center border border-solid border-gray-300 bg-white p-4">
           {features.map(({ title, code }) => (
-            <div key={title} className="p-2 w-full half-width-flex">
+            <div key={title} className="half-width-flex w-full p-2">
               <h3>{title}</h3>
               <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
             </div>

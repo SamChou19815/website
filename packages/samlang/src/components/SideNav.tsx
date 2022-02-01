@@ -2,11 +2,11 @@ import React from 'react';
 
 export default function SideNav(): JSX.Element {
   return (
-    <div className="hidden lg:flex flex-col sticky z-20 top-0 bg-white h-screen w-64 mx-4 my-0 px-0 py-8 border-l border-r border-solid border-gray-300">
+    <div className="sticky top-0 z-20 mx-4 my-0 hidden h-screen w-64 flex-col border-l border-r border-solid border-gray-300 bg-white px-0 py-8 lg:flex">
       <div className="mx-auto my-0">
         <div className="mx-0 my-4 border-b border-solid border-gray-300">
           <a className="mx-0 my-4 flex items-center" href="/#">
-            <img className="h-8 mr-2" src="/img/logo.png" alt="Logo" />
+            <img className="mr-2 h-8" src="/img/logo.png" alt="Logo" />
             <strong>samlang</strong>
           </a>
           <a className="mx-0 my-4 block" href="/demo">

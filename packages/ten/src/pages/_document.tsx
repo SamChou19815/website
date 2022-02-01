@@ -20,15 +20,15 @@ export default function Document({ children }: { readonly children: ReactNode })
         shortcutIcon="/favicon.ico"
         htmlLang="en"
       />
-      <nav className="flex bg-white filter drop-shadow-sm px-4 py-2 h-16">
-        <div className="flex flex-wrap justify-between w-full">
-          <div className="flex items-center flex-auto min-w-0">
-            <a className="flex mr-8 items-center text-gray-900 min-w-0" href="/">
-              <img className="flex-initial h-8 mr-2" src="/logo.png" alt="TEN App logo" />
+      <nav className="flex h-16 bg-white px-4 py-2 drop-shadow-sm filter">
+        <div className="flex w-full flex-wrap justify-between">
+          <div className="flex min-w-0 flex-auto items-center">
+            <a className="mr-8 flex min-w-0 items-center text-gray-900" href="/">
+              <img className="mr-2 h-8 flex-initial" src="/logo.png" alt="TEN App logo" />
               <h1 className="flex-auto text-lg font-bold">TEN</h1>
             </a>
           </div>
-          <div className="flex items-center min-w-0 flex-initial justify-end">
+          <div className="flex min-w-0 flex-initial items-center justify-end">
             <Link className={activeNavClass('/')} to="/">
               Against AI
             </Link>
