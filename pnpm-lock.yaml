@@ -23,6 +23,7 @@ importers:
       postcss: ^8.4.5
       prettier: ^2.5.1
       prettier-plugin-organize-imports: ^2.3.4
+      prettier-plugin-tailwindcss: ^0.1.4
       tailwindcss: ^3.0.1
       turbo: ^1.0.24
       typescript: ^4.5.4
@@ -46,6 +47,7 @@ importers:
       postcss: 8.4.5
       prettier: 2.5.1
       prettier-plugin-organize-imports: 2.3.4_prettier@2.5.1+typescript@4.5.4
+      prettier-plugin-tailwindcss: 0.1.4_prettier@2.5.1
       tailwindcss: 3.0.8_postcss@8.4.5
       turbo: 1.0.24
       typescript: 4.5.4
@@ -4726,6 +4728,14 @@ packages:
     dependencies:
       prettier: 2.5.1
       typescript: 4.5.4
+    dev: true
+
+  /prettier-plugin-tailwindcss/0.1.4_prettier@2.5.1:
+    resolution: {integrity: sha512-kt3YFWqxcG9+bilBI0hPF7RjQZNtgBRvjJZGw6B2MNAjPqlfcYIiZnNaIEnq4XimKLTzZYxz6jQnUXmSQ/5njg==}
+    peerDependencies:
+      prettier: '>=2.2.0'
+    dependencies:
+      prettier: 2.5.1
     dev: true
 
   /prettier/2.5.1:

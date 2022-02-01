@@ -20,17 +20,17 @@ export default function DocumentWrapper({ children }: { children: ReactNode }): 
         ogAuthor="Developer Sam"
         ogURL={`${BLOG_URL}${path}`}
       />
-      <nav className="flex sticky top-0 z-40 bg-white filter drop-shadow-sm px-4 py-2 h-16">
-        <div className="flex flex-wrap justify-between w-full">
-          <div className="flex items-center flex-auto min-w-0">
-            <Link className="flex mr-8 items-center text-gray-900 min-w-0" to="/">
-              <img className="flex-initial h-8 mr-2" src={BLOG_LOGO} alt="dev-sam logo" />
+      <nav className="sticky top-0 z-40 flex h-16 bg-white px-4 py-2 drop-shadow-sm filter">
+        <div className="flex w-full flex-wrap justify-between">
+          <div className="flex min-w-0 flex-auto items-center">
+            <Link className="mr-8 flex min-w-0 items-center text-gray-900" to="/">
+              <img className="mr-2 h-8 flex-initial" src={BLOG_LOGO} alt="dev-sam logo" />
               <strong className="flex-auto text-lg font-semibold">{BLOG_TITLE}</strong>
             </Link>
           </div>
-          <div className="flex items-center min-w-0 flex-initial justify-end">
+          <div className="flex min-w-0 flex-initial items-center justify-end">
             <a
-              className="px-3 py-1 text-gray-900 font-medium hover:text-blue-500"
+              className="px-3 py-1 font-medium text-gray-900 hover:text-blue-500"
               href="https://developersam.com"
             >
               Main Site

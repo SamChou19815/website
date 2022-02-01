@@ -78,7 +78,7 @@ export default function PlayAgainstAIGameCard(): JSX.Element {
       }}
     >
       {computeCanShowGameStarterButtons(gameStates, playerCanMove) && (
-        <div className="p-4 pt-0 flex justify-center items-center">
+        <div className="flex items-center justify-center p-4 pt-0">
           <Button onClick={() => onSelectSide('Black')}>Play as Black</Button>
           <Button onClick={() => onSelectSide('White')}>Play as White</Button>
         </div>

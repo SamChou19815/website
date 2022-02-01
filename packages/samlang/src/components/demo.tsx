@@ -34,7 +34,7 @@ type DemoResultProps = {
 };
 function DemoResult({ title, language = '', borderColorCSS, children }: DemoResultProps) {
   return (
-    <div className={`pl-4 pt-2 pb-2 border-l-2 border-solid ${borderColorCSS}`}>
+    <div className={`border-l-2 border-solid pl-4 pt-2 pb-2 ${borderColorCSS}`}>
       <h3>{title}</h3>
       <PrismCodeBlock language={language}>{children}</PrismCodeBlock>
     </div>
@@ -46,7 +46,7 @@ export default function LanguageDemo() {
   const [response, setResponse] = useState(() => getResponse(initialText));
 
   return (
-    <div className="bg-white m-4 p-4 border border-solid border-gray-300">
+    <div className="m-4 border border-solid border-gray-300 bg-white p-4">
       <h2 id="demo">Demo</h2>
       <div>
         <div style={{ backgroundColor: (theme.plain as Record<string, string>).backgroundColor }}>
@@ -54,7 +54,7 @@ export default function LanguageDemo() {
         </div>
         <button
           type="button"
-          className="block w-full border-0 mx-0 my-1 p-2 font-bold rounded-md leading-normal bg-gray-200 hover:bg-gray-100"
+          className="mx-0 my-1 block w-full rounded-md border-0 bg-gray-200 p-2 font-bold leading-normal hover:bg-gray-100"
           onClick={() => setResponse(getResponse(text))}
         >
           Submit Your Program

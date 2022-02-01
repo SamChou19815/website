@@ -2,16 +2,16 @@
 
 @layer base {
   h1 {
-    @apply text-3xl font-sans font-semibold leading-5;
+    @apply font-sans text-3xl font-semibold leading-5;
   }
   h2 {
-    @apply text-2xl font-sans font-semibold leading-5;
+    @apply font-sans text-2xl font-semibold leading-5;
   }
   h3 {
-    @apply text-xl font-sans font-semibold leading-5;
+    @apply font-sans text-xl font-semibold leading-5;
   }
   h4 {
-    @apply text-lg font-sans font-semibold leading-5;
+    @apply font-sans text-lg font-semibold leading-5;
   }
   a {
     @apply text-blue-500;
