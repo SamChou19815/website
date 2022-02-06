@@ -1,0 +1,21 @@
+{
+  "baseBranch": "origin/main",
+  "npmClient": "pnpm",
+  "globalDependencies": ["configuration/*"],
+  "pipeline": {
+    "compile": {
+      "dependsOn": ["^compile"],
+      "outputs": ["tsconfig.tsbuildinfo"]
+    },
+    "build": {
+      "dependsOn": ["esbuild-scripts#bundle"],
+      "outputs": ["build/**"]
+    },
+    "esbuild-scripts#bundle": {
+      "outputs": ["api.js"]
+    },
+    "deploy": {
+      "dependsOn": ["build"]
+    }
+  }
+}
