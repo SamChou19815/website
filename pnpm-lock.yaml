@@ -69,17 +69,6 @@ importers:
       esbuild: 0.14.18
       esbuild-scripts: link:../esbuild-scripts
 
-  packages/dot-dev:
-    specifiers:
-      esbuild-scripts: workspace:0.6.0
-      react: ^17.0.2
-      react-dom: ^17.0.2
-    dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    devDependencies:
-      esbuild-scripts: link:../esbuild-scripts
-
   packages/esbuild-scripts:
     specifiers:
       '@dev-sam/jest-esbuild-transformer': 0.4.0
