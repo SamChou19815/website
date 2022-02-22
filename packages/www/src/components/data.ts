@@ -164,11 +164,6 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     ],
   },
   {
-    title: 'Turn samzhou.dev into a fan-art site',
-    time: 'September 2020',
-    links: [{ name: 'samzhou.dev', url: 'https://samzhou.dev' }],
-  },
-  {
     title: 'samlang rewritten in TypeScript',
     time: 'August 2020',
     links: [
