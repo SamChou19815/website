@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import { Board, getGameStatus } from '../game/board';
-import type { GameState } from '../game/game-state';
+import { Board, getGameStatus } from './game/board';
+import type { GameState } from './game/game-state';
 import BoardGrid from './BoardGrid';
 import Button from './Button';
 

@@ -87,7 +87,7 @@ export const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
     media: '/projects/ten.webp',
     description: 'Interesting board game with simple rules. Powered by an MCTS AI.',
     links: [
-      { text: 'Demo', href: 'https://ten.developersam.com' },
+      { text: 'Demo', href: '/ten' },
       { text: 'GitHub', href: 'https://github.com/SamChou19815/ten-golang' },
     ],
   },

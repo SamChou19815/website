@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Button from '../components/Button';
-import GameCard from '../components/GameCard';
+import TenGameDocumentWrapper from '../../components/ten/TenGameDocumentWrapper';
+import Button from '../../components/ten/Button';
+import GameCard from '../../components/ten/GameCard';
 import {
   Board,
   boardToJson,
@@ -9,9 +10,9 @@ import {
   makeMove,
   makeMoveWithoutCheck,
   Move,
-} from '../game/board';
-import type { GameState, GameStates } from '../game/game-state';
-import type { MctsResponse } from '../game/mcts';
+} from '../../components/ten/game/board';
+import type { GameState, GameStates } from '../../components/ten/game/game-state';
+import type { MctsResponse } from '../../components/ten/game/mcts';
 
 function computeCanShowGameStarterButtons(gameStates: GameStates, playerCanMove: boolean): boolean {
   switch (getGameStatus(gameStates.currentState.board)) {
@@ -67,22 +68,24 @@ export default function PlayAgainstAIGameCard(): JSX.Element {
   };
 
   return (
-    <GameCard
-      gameState={gameStates.currentState}
-      playerCanMove={playerCanMove && getGameStatus(gameStates.currentState.board) === 0}
-      playerMadeIllegalMove={playerMadeIllegalMove}
-      showUndoButton={playerCanMove && gameStates.previousState != null}
-      clickCallback={(a, b) => clickCellCallback(gameStates.currentState.board, [a, b])}
-      onUndoMove={() => {
-        setGameStates(({ previousState }) => previousState ?? initialState);
-      }}
-    >
-      {computeCanShowGameStarterButtons(gameStates, playerCanMove) && (
-        <div className="flex items-center justify-center p-4 pt-0">
-          <Button onClick={() => onSelectSide('Black')}>Play as Black</Button>
-          <Button onClick={() => onSelectSide('White')}>Play as White</Button>
-        </div>
-      )}
-    </GameCard>
+    <TenGameDocumentWrapper>
+      <GameCard
+        gameState={gameStates.currentState}
+        playerCanMove={playerCanMove && getGameStatus(gameStates.currentState.board) === 0}
+        playerMadeIllegalMove={playerMadeIllegalMove}
+        showUndoButton={playerCanMove && gameStates.previousState != null}
+        clickCallback={(a, b) => clickCellCallback(gameStates.currentState.board, [a, b])}
+        onUndoMove={() => {
+          setGameStates(({ previousState }) => previousState ?? initialState);
+        }}
+      >
+        {computeCanShowGameStarterButtons(gameStates, playerCanMove) && (
+          <div className="flex items-center justify-center p-4 pt-0">
+            <Button onClick={() => onSelectSide('Black')}>Play as Black</Button>
+            <Button onClick={() => onSelectSide('White')}>Play as White</Button>
+          </div>
+        )}
+      </GameCard>
+    </TenGameDocumentWrapper>
   );
 }
