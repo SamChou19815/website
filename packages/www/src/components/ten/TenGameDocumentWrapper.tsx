@@ -2,14 +2,17 @@ import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import React, { ReactNode } from 'react';
-import './index.css';
 
-export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
+export default function TenGameDocumentWrapper({
+  children,
+}: {
+  readonly children: ReactNode;
+}): JSX.Element {
   const path = useLocation().pathname;
 
   const activeNavClass = (expectedPath: string) =>
-    path === expectedPath
-      ? 'px-3 py-1 text-gray-900 font-medium text-blue-500'
+    path === expectedPath || path === `${expectedPath}/`
+      ? 'px-3 py-1 font-medium text-blue-500'
       : 'px-3 py-1 text-gray-900 font-medium hover:text-blue-500';
 
   return (
@@ -29,10 +32,10 @@ export default function Document({ children }: { readonly children: ReactNode })
             </a>
           </div>
           <div className="flex min-w-0 flex-initial items-center justify-end">
-            <Link className={activeNavClass('/')} to="/">
+            <Link className={activeNavClass('/ten')} to="/ten">
               Against AI
             </Link>
-            <Link className={activeNavClass('/local')} to="/local">
+            <Link className={activeNavClass('/ten/local')} to="/ten/local">
               Against Friend
             </Link>
           </div>
