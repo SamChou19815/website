@@ -52,7 +52,7 @@ export default function GameCard({
   }
   return (
     <>
-      <div className="m-2 flex flex-col rounded-sm bg-white sm:m-auto sm:my-8 sm:w-96">
+      <div className="m-2 flex flex-col rounded-sm bg-white dark:bg-gray-800 sm:m-auto sm:my-8 sm:w-96">
         <h2 className="p-4 pb-0 text-lg font-bold">Game</h2>
         <div className="p-4">{getMessage(board, playerCanMove, playerMadeIllegalMove)}</div>
         {aiInfoNode}
@@ -67,7 +67,7 @@ export default function GameCard({
           </div>
         )}
       </div>
-      <div className="m-2 flex flex-col rounded-sm bg-white sm:m-auto sm:my-8 sm:w-96">
+      <div className="m-2 flex flex-col rounded-sm bg-white dark:bg-gray-800 sm:m-auto sm:my-8 sm:w-96">
         <h2 className="p-4 pb-0 text-lg font-bold">Rules</h2>
         <div className="p-4">
           The rules are mostly the same with the original{' '}

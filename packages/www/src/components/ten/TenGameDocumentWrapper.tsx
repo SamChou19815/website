@@ -13,7 +13,7 @@ export default function TenGameDocumentWrapper({
   const activeNavClass = (expectedPath: string) =>
     path === expectedPath || path === `${expectedPath}/`
       ? 'px-3 py-1 font-medium text-blue-500'
-      : 'px-3 py-1 text-gray-900 font-medium hover:text-blue-500';
+      : 'px-3 py-1 text-gray-900 dark:text-white font-medium hover:text-blue-500';
 
   return (
     <>
@@ -23,10 +23,10 @@ export default function TenGameDocumentWrapper({
         shortcutIcon="/favicon.ico"
         htmlLang="en"
       />
-      <nav className="flex h-16 bg-white px-4 py-2 drop-shadow-sm filter">
+      <nav className="flex h-16 bg-white px-4 py-2 drop-shadow-sm filter dark:bg-gray-600">
         <div className="flex w-full flex-wrap justify-between">
           <div className="flex min-w-0 flex-auto items-center">
-            <a className="mr-8 flex min-w-0 items-center text-gray-900" href="/">
+            <a className="mr-8 flex min-w-0 items-center text-gray-900 dark:text-white" href="/">
               <img className="mr-2 h-8 flex-initial" src="/logo.png" alt="TEN App logo" />
               <h1 className="flex-auto text-lg font-bold">TEN</h1>
             </a>
