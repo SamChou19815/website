@@ -1,3 +1,5 @@
+import { expect, it } from 'mini-test';
+
 import initialState from './initial-state';
 import { currentDirectoryPath, getLast, getParent, join, normalize, stripRoot } from './path';
 import { changeDirectoryOneLevel } from './stack';
