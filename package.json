@@ -7,7 +7,7 @@
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "lint": "eslint . --cache",
-    "test": "jest",
+    "test": "esr packages/mini-test/runner.ts",
     "bump": "pnpm up -r @types/jest @types/node typescript jest husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\""
   },
   "workspaces": [
@@ -16,27 +16,25 @@
   "devDependencies": {
     "@dev-sam/eslint-config-common": "0.23.0",
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.21",
+    "@types/node": "^17.0.23",
     "@types/react": "^17.0.38",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "esbuild": "^0.14.25",
-    "eslint": "^8.10.0",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "esbuild": "^0.14.30",
+    "eslint": "^8.12.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-react": "^7.29.3",
-    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
     "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "lint-staged": "^12.3.5",
+    "lint-staged": "^12.3.7",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "prettier-plugin-organize-imports": "^2.3.4",
     "prettier-plugin-tailwindcss": "^0.1.8",
     "tailwindcss": "^3.0.1",
     "turbo": "^1.1.2",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.3"
   },
   "eslintConfig": {
     "extends": [

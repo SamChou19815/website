@@ -1,3 +1,4 @@
+import { expect, it } from 'mini-test';
 import initialState, { root } from './initial-state';
 import listFiles, {
   listFilesInDirectory,

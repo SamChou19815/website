@@ -1,0 +1,10 @@
+{
+  "name": "mini-test",
+  "version": "0.1.0",
+  "author": "Developer Sam",
+  "license": "AGPL-3.0",
+  "keywords": [],
+  "scripts": {
+    "compile": "tsc --noEmit --incremental"
+  }
+}

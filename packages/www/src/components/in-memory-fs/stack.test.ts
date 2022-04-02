@@ -1,25 +1,22 @@
+import { expect, it } from 'mini-test';
 import initialState, { root } from './initial-state';
 import { changeDirectory, changeDirectoryOneLevel, peek } from './stack';
 
-it('peek works', () => expect(peek(initialState)).toStrictEqual(['', root]));
+it('peek works', () => expect(peek(initialState)).toEqual(['', root]));
 
 it('changeDirectoryOneLevel works forward and backward', () => {
-  expect(changeDirectoryOneLevel(initialState, '..')).toStrictEqual(initialState);
+  expect(changeDirectoryOneLevel(initialState, '..')).toEqual(initialState);
   const topSecretState = changeDirectoryOneLevel(initialState, 'top-secret');
-  expect(changeDirectoryOneLevel(topSecretState, '..')).toStrictEqual(initialState);
+  expect(changeDirectoryOneLevel(topSecretState, '..')).toEqual(initialState);
   const realSecretState = changeDirectoryOneLevel(topSecretState, 'real-secret');
-  expect(changeDirectoryOneLevel(realSecretState, '..')).toStrictEqual(topSecretState);
+  expect(changeDirectoryOneLevel(realSecretState, '..')).toEqual(topSecretState);
   const randomState = changeDirectoryOneLevel(realSecretState, 'random');
-  expect(changeDirectoryOneLevel(randomState, '..')).toStrictEqual(realSecretState);
+  expect(changeDirectoryOneLevel(randomState, '..')).toEqual(realSecretState);
 });
 
 it('changeDirectoryOneLevel should crash when given bad filename', () => {
-  expect(() => changeDirectoryOneLevel(initialState, 'garbage')).toThrow(
-    'garbage is not found in directory: `/`.'
-  );
-  expect(() => changeDirectoryOneLevel(initialState, 'README.md')).toThrow(
-    '`/README.md` is not a directory.'
-  );
+  expect(() => changeDirectoryOneLevel(initialState, 'garbage')).toThrow();
+  expect(() => changeDirectoryOneLevel(initialState, 'README.md')).toThrow();
 });
 
 it('changeDirectory integration test can pass', () => {
@@ -37,5 +34,5 @@ it('changeDirectory integration test can pass', () => {
     '../../.././top-secret/../top-secret/../top-secret/real-secret/../'
   );
   const stateAfterSimpleOperation = changeDirectory(initialState, '/top-secret/');
-  expect(stateAfterComplexOperations).toStrictEqual(stateAfterSimpleOperation);
+  expect(stateAfterComplexOperations).toEqual(stateAfterSimpleOperation);
 });

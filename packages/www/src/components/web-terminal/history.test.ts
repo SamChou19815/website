@@ -1,3 +1,4 @@
+import { expect, it } from 'mini-test';
 import history from './history';
 
 it('Trivial cases return null.', () => {
@@ -6,15 +7,15 @@ it('Trivial cases return null.', () => {
 });
 
 it('arrow up works.', () => {
-  expect(history('up', ['foo', 'bar'], null)).toStrictEqual({ value: 'foo', historyPosition: 0 });
-  expect(history('up', ['foo', 'bar'], 0)).toStrictEqual({ value: 'bar', historyPosition: 1 });
-  expect(history('up', ['foo', 'bar'], 1)).toStrictEqual({ value: 'bar', historyPosition: 1 });
+  expect(history('up', ['foo', 'bar'], null)).toEqual({ value: 'foo', historyPosition: 0 });
+  expect(history('up', ['foo', 'bar'], 0)).toEqual({ value: 'bar', historyPosition: 1 });
+  expect(history('up', ['foo', 'bar'], 1)).toEqual({ value: 'bar', historyPosition: 1 });
 });
 
 it('arrow down works', () => {
-  expect(history('down', ['foo', 'bar'], 1)).toStrictEqual({ value: 'foo', historyPosition: 0 });
-  expect(history('down', ['foo', 'bar'], 0)).toStrictEqual({ value: '', historyPosition: null });
-  expect(history('down', ['foo', 'bar'], null)).toStrictEqual({ value: '', historyPosition: null });
+  expect(history('down', ['foo', 'bar'], 1)).toEqual({ value: 'foo', historyPosition: 0 });
+  expect(history('down', ['foo', 'bar'], 0)).toEqual({ value: '', historyPosition: null });
+  expect(history('down', ['foo', 'bar'], null)).toEqual({ value: '', historyPosition: null });
 });
 
 it('history integration test', () => {

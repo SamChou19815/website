@@ -1,3 +1,4 @@
+import { expect, it } from 'mini-test';
 import { getClientTemplate, getServerTemplate } from './entry-points';
 
 const GENERATED_COMMENT = `// ${'@'}generated`;

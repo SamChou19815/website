@@ -1,3 +1,4 @@
+import { expect, it } from 'mini-test';
 import { initialState } from '../in-memory-fs';
 import autoComplete, { autoCompleteCommand, autoCompleteFilename } from './auto-complete';
 import baseCommands from './base-commands';
