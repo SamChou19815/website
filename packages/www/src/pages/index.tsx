@@ -4,12 +4,7 @@ import Card from '../components/Card';
 import CardContainer from '../components/CardContainer';
 import CardHeader from '../components/CardHeader';
 import ConsoleSection from '../components/ConsoleSection';
-import {
-  DATASET_ABOUT,
-  DATASET_PROJECTS,
-  DATASET_TECH_TALKS,
-  DATASET_TIMELINE,
-} from '../components/data';
+import { DATASET_ABOUT, DATASET_PROJECTS, DATASET_TIMELINE } from '../components/data';
 import WwwSvgIcon from '../components/Icons';
 import StickyCodeBlock from '../components/StickyCodeBlock';
 
@@ -74,24 +69,6 @@ const ProjectSection = (
   </ConsoleSection>
 );
 
-const TechTalkSection = (
-  <ConsoleSection title="dev-sam tech-talks">
-    <CardContainer className="my-4">
-      {DATASET_TECH_TALKS.map(({ title, description, link }) => (
-        <Card key={title} className="mx-auto my-4 w-11/12 md:m-4 md:w-96">
-          <CardHeader title={title} />
-          <div className="p-4 pb-0">{description}</div>
-          <div className="p-4">
-            <ButtonLink href={link} className="link px-1.5">
-              SLIDES
-            </ButtonLink>
-          </div>
-        </Card>
-      ))}
-    </CardContainer>
-  </ConsoleSection>
-);
-
 const TimelineSection = (
   <ConsoleSection title="dev-sam timeline">
     <div className="timeline-section relative flex flex-row flex-wrap items-center justify-center">
@@ -130,7 +107,6 @@ export default function IndexPage(): JSX.Element {
       <div className="content-block my-12 w-full">
         {AboutSection}
         {ProjectSection}
-        {TechTalkSection}
         {TimelineSection}
       </div>
     </div>
