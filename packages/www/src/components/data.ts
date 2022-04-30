@@ -36,7 +36,6 @@ export const DATASET_ABOUT: AboutDataEntry = {
     { href: 'https://blog.developersam.com', text: 'Blog' },
     { href: 'https://github.com/SamChou19815', text: 'GitHub' },
     { href: '/resume.pdf', text: 'Resume' },
-    { href: '/terminal', text: '>_' },
   ],
 };
 
