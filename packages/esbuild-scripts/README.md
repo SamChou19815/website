@@ -140,7 +140,7 @@ A wrapper around React's `Suspense`, but works under server-side rendering.
 
 ### `router-hooks`
 
-Re-exports `useLocation` and `useHistory` from React Router.
+Re-exports `useLocation` from React Router.
 
 ## FAQ
 

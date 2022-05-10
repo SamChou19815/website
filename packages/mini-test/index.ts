@@ -9,29 +9,29 @@ function compareExpectedAndActual(expected: unknown, actual: unknown) {
 }
 
 class PartialExpect<T> {
-  constructor(private readonly expected: T) {}
+  constructor(private readonly actual: T) {}
 
-  toBe(actual: T): void {
-    compareExpectedAndActual(this.expected, actual);
+  toBe(expected: T): void {
+    compareExpectedAndActual(expected, this.actual);
   }
 
   toBeNull(): void {
     this.toBe(null as unknown as T);
   }
 
-  toEqual(actual: T): void {
+  toEqual(expected: T): void {
     compareExpectedAndActual(
-      JSON.stringify(this.expected, undefined, 2),
-      JSON.stringify(actual, undefined, 2)
+      JSON.stringify(expected, undefined, 2),
+      JSON.stringify(this.actual, undefined, 2)
     );
   }
 
   toThrow() {
-    if (typeof this.expected !== 'function') {
+    if (typeof this.actual !== 'function') {
       throw new TestError('Expected value should be a function');
     }
     try {
-      this.expected();
+      this.actual();
     } catch {
       return;
     }

@@ -73,6 +73,7 @@ class EsbuildScriptsDevServer {
       assetNames: 'assets/[name]-[hash]',
       chunkNames: 'chunks/[name]-[hash]',
       entryNames: '[dir]/[name]-[hash]',
+      sourcemap: 'inline',
       splitting: true,
       format: 'esm',
       // Watch config for devserver serving purposes.

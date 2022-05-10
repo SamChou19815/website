@@ -13,9 +13,9 @@
     "@monaco-editor/react": "^4.3.1",
     "autosize": "^5.0.1",
     "lib-react-prism": "0.1.0",
-    "monaco-editor": "^0.31.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "monaco-editor": "^0.33.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "esbuild-scripts": "workspace:0.6.0"
