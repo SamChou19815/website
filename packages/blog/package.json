@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "lib-react-prism": "workspace:0.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@dev-sam/jest-esbuild-transformer": "0.4.0",
-    "esbuild": "^0.14.30",
+    "esbuild": "^0.14.38",
     "esbuild-scripts": "workspace:0.6.0"
   }
 }

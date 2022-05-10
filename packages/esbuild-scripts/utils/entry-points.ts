@@ -45,33 +45,34 @@ export function getClientTemplate(
   const lazyLoadedRoutes = [
     ...otherRealPaths.map((otherPath, i) => {
       const routePath = rewriteEntryPointPathForRouting(otherPath);
-      return `        <Route exact path="/${routePath}"><Suspense fallback={null}><RealComponent${i} /></Suspense></Route>`;
+      return `        <Route exact path="/${routePath}" element={<Suspense fallback={null}><RealComponent${i} /></Suspense>} />`;
     }),
     ...otherVirtualPaths.map((otherPath, i) => {
       const routePath = rewriteEntryPointPathForRouting(otherPath);
-      return `        <Route exact path="/${routePath}"><Suspense fallback={null}><VirtualComponent${i} /></Suspense></Route>`;
+      return `        <Route exact path="/${routePath}" element={<Suspense fallback={null}><VirtualComponent${i} /></Suspense>}/>`;
     }),
   ].join('\n');
 
   return `${GENERATED_COMMENT}
 import React,{Suspense,lazy} from 'react';
-import {hydrate,render} from 'react-dom';
-import {BrowserRouter,Route,Switch} from 'esbuild-scripts/__internal-components__/react-router';
+import {hydrateRoot} from 'react-dom';
+import {createRoot} from 'react-dom/client';
+import {BrowserRouter,Route,Routes} from 'esbuild-scripts/__internal-components__/react-router';
 import Document from '${absoluteProjectPath}/src/pages/_document';
 import Page from '${currentPageImportPath}';
 ${lazyImports}
 const element = (
   <BrowserRouter>
     <Document>
-      <Switch>
-        <Route exact path="/${rewriteEntryPointPathForRouting(path)}"><Page /></Route>
+      <Routes>
+        <Route exact path="/${rewriteEntryPointPathForRouting(path)}" element={<Page />} />
 ${lazyLoadedRoutes}
-      </Switch>
+      </Routes>
     </Document>
   </BrowserRouter>
 );
 const rootElement = document.getElementById('root');
-if (rootElement.hasChildNodes()) hydrate(element, rootElement); else render(element, rootElement);
+if (rootElement.hasChildNodes()) hydrateRoot(rootElement, element); else createRoot(rootElement).render(element);
 `;
 }
 
@@ -94,7 +95,7 @@ export function getServerTemplate(
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import Helmet from 'esbuild-scripts/components/Head';
-import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router';
+import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router-server';
 import Document from '${absoluteProjectPath}/src/pages/_document';
 ${pageImports}
 const map = { ${mappingObjectInner} };
