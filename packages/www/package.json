@@ -14,7 +14,6 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "esbuild-scripts": "workspace:0.6.0",
-    "mini-test": "0.1.0"
+    "esbuild-scripts": "workspace:0.6.0"
   }
 }

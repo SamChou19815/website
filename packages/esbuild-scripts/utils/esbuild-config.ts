@@ -61,9 +61,7 @@ const mdxPlugin: Plugin = {
 };
 
 function postcssPlugin(): Plugin {
-  process.env.JEST_WORKER_ID = 'SUPPRESS_WARNING';
   const processor = postcss([tailwind(getTailwindBaseConfig())]);
-  process.env.JEST_WORKER_ID = undefined;
   return {
     name: 'postcss',
     setup(buildConfig) {

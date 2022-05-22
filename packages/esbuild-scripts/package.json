@@ -37,7 +37,6 @@
     "@types/tailwindcss": "^2.2.4",
     "@types/ws": "^8.5.3",
     "express": "^4.17.1",
-    "express-ws": "^5.0.2",
-    "mini-test": "0.1.0"
+    "express-ws": "^5.0.2"
   }
 }
