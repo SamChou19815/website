@@ -18,6 +18,7 @@ export default function DocumentTemplate({
         description="Sam's Programming Language"
         shortcutIcon="/img/favicon.png"
         ogURL={`https://samlang.io${path}`}
+        gaId="G-K50MLQ68K6"
       />
       {children}
     </>

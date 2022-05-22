@@ -16,6 +16,7 @@ export default function Document({ children }: { readonly children: ReactNode })
         ogType="profile"
         ogURL="https://developersam.com/"
         ogImage="https://developersam.com/sam-by-megan-3-square.webp"
+        gaId="G-K50MLQ68K6"
       >
         <link rel="canonical" href="https://developersam.com/" />
         <link rel="manifest" href="/manifest.json" />
