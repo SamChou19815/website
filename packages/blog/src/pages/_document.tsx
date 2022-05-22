@@ -2,12 +2,10 @@ import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import React, { ReactNode } from 'react';
-import usePageTracking from '../components/react-ga';
 import { BLOG_LOGO, BLOG_TITLE, BLOG_URL } from '../constants';
 import './index.css';
 
 export default function DocumentWrapper({ children }: { children: ReactNode }): JSX.Element {
-  usePageTracking();
   let path = useLocation().pathname;
   if (path.endsWith('/')) path = path.substring(0, path.length - 1);
 
@@ -19,6 +17,7 @@ export default function DocumentWrapper({ children }: { children: ReactNode }): 
         shortcutIcon={BLOG_LOGO}
         ogAuthor="Developer Sam"
         ogURL={`${BLOG_URL}${path}`}
+        gaId="G-K50MLQ68K6"
       />
       <nav className="sticky top-0 z-40 flex h-16 bg-white px-4 py-2 drop-shadow-sm filter">
         <div className="flex w-full flex-wrap justify-between">

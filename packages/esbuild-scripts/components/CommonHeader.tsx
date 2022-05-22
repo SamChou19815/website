@@ -15,6 +15,8 @@ type Props = {
   readonly ogType?: string;
   readonly ogURL?: string;
   readonly ogImage?: string;
+  // Google Analytics
+  readonly gaId?: string;
   // Additional
   readonly children?: ReactNode;
 };
@@ -30,6 +32,7 @@ const CommonHeader = ({
   ogType,
   ogURL,
   ogImage,
+  gaId,
   children,
 }: Props): JSX.Element => (
   <>
@@ -47,6 +50,15 @@ const CommonHeader = ({
       {ogType && <meta property="og:type" content={ogType} />}
       {ogURL && <meta property="og:url" content={ogURL} />}
       {ogImage && <meta property="og:image" content={ogImage} />}
+      {gaId && <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+      {gaId && (
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+        </script>
+      )}
       {children}
     </Head>
   </>
