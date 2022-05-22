@@ -36,17 +36,3 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Type Check
         run: pnpm compile --since="HEAD^"
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: latest
-      - uses: actions/setup-node@v2
-        with:
-          cache: pnpm
-      - name: Install
-        run: pnpm install --frozen-lockfile
-      - name: Test
-        run: pnpm test

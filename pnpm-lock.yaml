@@ -83,7 +83,6 @@ importers:
       esbuild: ^0.14.38
       express: ^4.17.1
       express-ws: ^5.0.2
-      mini-test: 0.1.0
       postcss: ^8.4.5
       react: ^18.1.0
       react-dom: ^18.1.0
@@ -114,7 +113,6 @@ importers:
       '@types/ws': 8.5.3
       express: 4.17.2
       express-ws: 5.0.2_express@4.17.2
-      mini-test: link:../mini-test
 
   packages/lib-react-prism:
     specifiers:
@@ -124,9 +122,6 @@ importers:
       prism-react-renderer: 1.2.1_react@18.1.0
     devDependencies:
       react: 18.1.0
-
-  packages/mini-test:
-    specifiers: {}
 
   packages/samlang:
     specifiers:
@@ -153,7 +148,6 @@ importers:
     specifiers:
       esbuild-scripts: workspace:0.6.0
       lib-react-prism: workspace:0.1.0
-      mini-test: 0.1.0
       react: ^18.1.0
       react-dom: ^18.1.0
     dependencies:
@@ -162,7 +156,6 @@ importers:
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
       esbuild-scripts: link:../esbuild-scripts
-      mini-test: link:../mini-test
 
 packages:
 
