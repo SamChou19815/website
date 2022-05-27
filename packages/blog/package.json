@@ -2,20 +2,20 @@
   "name": "blog",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "esr blog-generator.ts start",
-    "build": "esr blog-generator.ts ssg",
-    "compile": "tsc --incremental",
+    "start": "node src/generator/blog-generator.mjs start",
+    "build": "node src/generator/blog-generator.mjs ssg",
+    "check": "tsc --incremental",
     "deploy": "netlify deploy -d build -s blog.developersam.com --prod"
   },
   "dependencies": {
-    "lib-react-prism": "workspace:0.1.0",
+    "lib-react-prism": "workspace:*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "@dev-sam/jest-esbuild-transformer": "0.4.0",
-    "esbuild": "^0.14.38",
-    "esbuild-scripts": "workspace:0.6.0"
+    "esbuild": "^0.14.39",
+    "esbuild-scripts": "workspace:*"
   }
 }

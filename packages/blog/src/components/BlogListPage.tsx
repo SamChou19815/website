@@ -1,17 +1,13 @@
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import React from 'react';
-import type { Metadata } from './blog-types';
+import { BLOG_TITLE } from '../constants';
+import items from '../generator/generated-metadata.mjs';
 import BlogPostItem from './BlogPostItem';
 
-type Props = {
-  readonly siteTitle: string;
-  readonly items: readonly Metadata[];
-};
-
-export default function BlogListPage({ siteTitle, items }: Props): JSX.Element {
+export default function BlogListPage(): JSX.Element {
   return (
     <>
-      <HeadTitle title={siteTitle} />
+      <HeadTitle title={BLOG_TITLE} />
       <div className="flex flex-row flex-wrap justify-center">
         <main className="w-full">
           {items.map((metadata) => (

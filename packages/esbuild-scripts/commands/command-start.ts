@@ -7,11 +7,7 @@ import * as fs from 'fs';
 import type { Socket } from 'net';
 import * as path from 'path';
 import { OUT_PATH } from '../utils/constants';
-import {
-  createEntryPointsGeneratedVirtualFiles,
-  virtualEntryComponentsToVirtualPathMappings,
-} from '../utils/entry-points';
-import type { VirtualPathMappings } from '../utils/esbuild-config';
+import { createEntryPointsGeneratedVirtualFiles } from '../utils/entry-points';
 import baseESBuildConfig from '../utils/esbuild-config';
 import getGeneratedHTML from '../utils/html-generator';
 
@@ -141,23 +137,12 @@ class EsbuildScriptsDevServer {
   }
 }
 
-export default async function startCommand(
-  virtualEntryComponents: VirtualPathMappings
-): Promise<void> {
+export default async function startCommand(): Promise<void> {
   const { entryPointsWithoutExtension, entryPointVirtualFiles } =
-    await createEntryPointsGeneratedVirtualFiles(Object.keys(virtualEntryComponents));
+    await createEntryPointsGeneratedVirtualFiles();
 
-  const allVirtualPathMappings = {
-    ...entryPointVirtualFiles,
-    ...virtualEntryComponentsToVirtualPathMappings(virtualEntryComponents),
-  };
-  const allEntryPointsWithoutExtension = [
-    ...entryPointsWithoutExtension,
-    ...Object.keys(virtualEntryComponents),
-  ];
-
-  const devServer = new EsbuildScriptsDevServer(allEntryPointsWithoutExtension, {
-    ...baseESBuildConfig({ virtualPathMappings: allVirtualPathMappings }),
+  const devServer = new EsbuildScriptsDevServer(entryPointsWithoutExtension, {
+    ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles }),
     entryPoints: Object.keys(entryPointVirtualFiles),
     minify: true,
   });

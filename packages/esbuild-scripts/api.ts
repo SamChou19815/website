@@ -2,7 +2,6 @@
 
 import buildCommand from './commands/command-build';
 import startCommand from './commands/command-start';
-import type { VirtualPathMappings } from './utils/esbuild-config';
 
 function help() {
   console.error('Usage:');
@@ -12,16 +11,16 @@ function help() {
   console.error('- esbuild-script help: display command line usages.');
 }
 
-async function runner(virtualEntryComponents: VirtualPathMappings) {
+async function runner() {
   const command = process.argv[2] || '';
   switch (command) {
     case 'start':
-      await startCommand(virtualEntryComponents);
+      await startCommand();
       return true;
     case 'ssg':
-      return buildCommand(virtualEntryComponents, true);
+      return buildCommand(true);
     case 'build':
-      return buildCommand(virtualEntryComponents, false);
+      return buildCommand(false);
     case 'help':
     case '--help':
       help();
@@ -33,15 +32,13 @@ async function runner(virtualEntryComponents: VirtualPathMappings) {
   }
 }
 
-export default async function main(
-  generateVirtualEntryComponents?: () => Promise<VirtualPathMappings>
-): Promise<void> {
-  const virtualEntryComponents = generateVirtualEntryComponents
-    ? await generateVirtualEntryComponents()
-    : {};
+export default async function main(initialization?: () => Promise<unknown>): Promise<void> {
+  await initialization?.();
   try {
-    if (!(await runner(virtualEntryComponents))) process.exitCode = 1;
+    if (!(await runner())) process.exitCode = 1;
   } catch (error) {
+    console.error('Internal Error');
+    console.error(error);
     process.exitCode = 1;
   }
 }
