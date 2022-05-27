@@ -16,6 +16,7 @@
 **/.temp
 .turbo
 packages/esbuild-scripts/api.js
+packages/blog/src/pages/*/*
 
 # env
 .env.local

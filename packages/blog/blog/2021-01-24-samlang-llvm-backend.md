@@ -169,7 +169,7 @@ we must use the special `phi` function to _explicitly_ state what's the value in
 example, the statement `const a = condition ? function1() : function2()` must be translated into
 something like
 
-```llvm
+```text
   br i1 %condition, label %true_branch label %false_branch
 true_branch:
   %t1 = call i64 @function1() nounwind

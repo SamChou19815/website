@@ -1,4 +1,11 @@
 {
   "extends": "../../configuration/tsconfig.react.json",
-  "include": ["src"]
+  "include": [
+    "src/components",
+    "src/generator",
+    "src/pages/index.tsx",
+    "src/pages/_document.tsx",
+    "src/constats.ts",
+    "src/types.d.ts"
+  ]
 }

@@ -78,19 +78,14 @@ if (rootElement.hasChildNodes()) hydrateRoot(rootElement, element); else createR
 
 export function getServerTemplate(
   absoluteProjectPath: string,
-  realPaths: readonly string[],
-  virtualPaths: readonly string[]
+  realPaths: readonly string[]
 ): string {
   const importPath = (p: string, real: boolean) => getPathForImport(absoluteProjectPath, p, real);
 
-  const pageImports = [
-    ...realPaths.map((path, i) => `import RealPage${i} from '${importPath(path, true)}';`),
-    ...virtualPaths.map((path, i) => `import VirtualPage${i} from '${importPath(path, false)}';`),
-  ].join('\n');
-  const mappingObjectInner = [
-    ...realPaths.map((path, i) => `'${path}': RealPage${i}`),
-    ...virtualPaths.map((path, i) => `'${path}': VirtualPage${i}`),
-  ].join(', ');
+  const pageImports = realPaths
+    .map((path, i) => `import RealPage${i} from '${importPath(path, true)}';`)
+    .join('\n');
+  const mappingObjectInner = [...realPaths.map((path, i) => `'${path}': RealPage${i}`)].join(', ');
   return `${GENERATED_COMMENT}
 import React from 'react';
 import {renderToString} from 'react-dom/server';
@@ -134,19 +129,7 @@ async function getEntryPointsWithoutExtension(): Promise<readonly string[]> {
     .filter((it): it is string => it != null && !it.startsWith('_document'));
 }
 
-export const virtualEntryComponentsToVirtualPathMappings = (
-  virtualEntryComponents: VirtualPathMappings
-): VirtualPathMappings =>
-  Object.fromEntries(
-    Object.entries(virtualEntryComponents).map(([key, value]) => [
-      `${VIRTUAL_PATH_PREFIX}${key}`,
-      value,
-    ])
-  );
-
-export async function createEntryPointsGeneratedVirtualFiles(
-  virtualEntryPointsWithoutExtension: readonly string[]
-): Promise<{
+export async function createEntryPointsGeneratedVirtualFiles(): Promise<{
   readonly entryPointsWithoutExtension: readonly string[];
   readonly entryPointVirtualFiles: VirtualPathMappings;
 }> {
@@ -155,29 +138,12 @@ export async function createEntryPointsGeneratedVirtualFiles(
   const entryPointVirtualFiles = Object.fromEntries([
     ...entryPointsWithoutExtension.map((path) => [
       `${VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX}${path}.jsx`,
-      getClientTemplate(
-        absoluteProjectPath,
-        path,
-        true,
-        entryPointsWithoutExtension,
-        virtualEntryPointsWithoutExtension
-      ),
-    ]),
-    ...virtualEntryPointsWithoutExtension.map((path) => [
-      `${VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX}${path}.jsx`,
-      getClientTemplate(
-        absoluteProjectPath,
-        path,
-        false,
-        entryPointsWithoutExtension,
-        virtualEntryPointsWithoutExtension
-      ),
+      getClientTemplate(absoluteProjectPath, path, true, entryPointsWithoutExtension, []),
     ]),
   ]);
   entryPointVirtualFiles[VIRTUAL_SERVER_ENTRY_PATH] = getServerTemplate(
     absoluteProjectPath,
-    entryPointsWithoutExtension,
-    virtualEntryPointsWithoutExtension
+    entryPointsWithoutExtension
   );
   return { entryPointsWithoutExtension, entryPointVirtualFiles };
 }

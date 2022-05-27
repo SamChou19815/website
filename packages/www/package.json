@@ -1,19 +1,20 @@
 {
   "name": "www",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "esbuild-scripts start",
     "build": "esbuild-scripts ssg",
-    "compile": "tsc --incremental",
+    "check": "tsc --incremental",
     "deploy": "netlify deploy -d build -s developersam.com --prod"
   },
   "dependencies": {
-    "lib-react-prism": "workspace:0.1.0",
+    "lib-react-prism": "workspace:*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "esbuild-scripts": "workspace:0.6.0"
+    "esbuild-scripts": "workspace:*"
   }
 }

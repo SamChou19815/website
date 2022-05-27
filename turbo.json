@@ -3,8 +3,8 @@
   "npmClient": "pnpm",
   "globalDependencies": ["configuration/*"],
   "pipeline": {
-    "compile": {
-      "dependsOn": ["^compile"],
+    "check": {
+      "dependsOn": ["^check"],
       "outputs": ["tsconfig.tsbuildinfo"]
     },
     "build": {

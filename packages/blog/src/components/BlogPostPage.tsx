@@ -1,26 +1,20 @@
 import Head from 'esbuild-scripts/components/Head';
 import HeadTitle from 'esbuild-scripts/components/HeadTitle';
 import React from 'react';
-import type { Metadata } from './blog-types';
+import { BLOG_TITLE } from '../constants';
 import BlogPostItem from './BlogPostItem';
 import BlogPostPaginator from './BlogPostPaginator';
+import generatedMetadata from '../generator/generated-metadata.mjs';
 
-type Props = {
-  readonly siteTitle: string;
-  readonly content: CompiledMarkdownComponent;
-  readonly metadata: Metadata;
-};
+type Props = { readonly content: CompiledMarkdownComponent; readonly permalink: string };
 
-export default function BlogPostPage({
-  siteTitle,
-  content: BlogPostContents,
-  metadata,
-}: Props): JSX.Element {
-  const { title, nextItem, prevItem } = metadata;
+export default function BlogPostPage({ content: BlogPostContents, permalink }: Props): JSX.Element {
+  const metadata = generatedMetadata.find((it) => it.permalink === permalink);
+  if (metadata == null) throw permalink;
   const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
   return (
     <>
-      <HeadTitle title={`${title} | ${siteTitle}`} />
+      <HeadTitle title={`${metadata.title} | ${BLOG_TITLE}`} />
       <Head>
         <meta name="twitter:card" content="summary" />
         {ogImage && (
@@ -31,9 +25,12 @@ export default function BlogPostPage({
         <main className="w-full">
           <BlogPostItem metadata={metadata} truncated={false}>
             <BlogPostContents />
-          </BlogPostItem>
+          </BlogPostItem>{' '}
           <div className="my-8">
-            <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+            <BlogPostPaginator
+              nextPermalink={metadata.nextPermalink}
+              prevPermalink={metadata.prevPermalink}
+            />
           </div>
         </main>
       </div>

@@ -9,25 +9,17 @@ import {
   SSR_JS_PATH,
   VIRTUAL_SERVER_ENTRY_PATH,
 } from '../utils/constants';
-import {
-  createEntryPointsGeneratedVirtualFiles,
-  virtualEntryComponentsToVirtualPathMappings,
-} from '../utils/entry-points';
+import { createEntryPointsGeneratedVirtualFiles } from '../utils/entry-points';
 import type { VirtualPathMappings } from '../utils/esbuild-config';
 import baseESBuildConfig from '../utils/esbuild-config';
 import { copyDirectoryContent } from '../utils/fs';
 import getGeneratedHTML, { SSRResult } from '../utils/html-generator';
 
 async function generateBundle(
-  entryPointVirtualFiles: VirtualPathMappings,
-  virtualEntryComponents: VirtualPathMappings
+  entryPointVirtualFiles: VirtualPathMappings
 ): Promise<readonly string[]> {
-  const allVirtualPathMappings = {
-    ...entryPointVirtualFiles,
-    ...virtualEntryComponentsToVirtualPathMappings(virtualEntryComponents),
-  };
   const { outputFiles } = await build({
-    ...baseESBuildConfig({ virtualPathMappings: allVirtualPathMappings, isProd: true }),
+    ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles, isProd: true }),
     entryPoints: Object.keys(entryPointVirtualFiles),
     assetNames: 'assets/[name]-[hash]',
     chunkNames: 'chunks/[name]-[hash]',
@@ -51,17 +43,13 @@ async function generateBundle(
 type SSRFunction = (path: string) => SSRResult;
 
 async function getSSRFunction(
-  entryPointVirtualFiles: VirtualPathMappings,
-  virtualEntryComponents: VirtualPathMappings
+  entryPointVirtualFiles: VirtualPathMappings
 ): Promise<SSRFunction | null> {
   await build({
     ...baseESBuildConfig({
-      virtualPathMappings: {
-        ...entryPointVirtualFiles,
-        ...virtualEntryComponentsToVirtualPathMappings(virtualEntryComponents),
-      },
+      virtualPathMappings: entryPointVirtualFiles,
       isServer: true,
-      isProd: true,
+      isProd: false,
     }),
     entryPoints: [VIRTUAL_SERVER_ENTRY_PATH],
     platform: 'node',
@@ -83,31 +71,25 @@ async function getSSRFunction(
   }
 }
 
-export default async function buildCommand(
-  virtualEntryComponents: VirtualPathMappings,
-  staticSiteGeneration: boolean
-): Promise<boolean> {
+export default async function buildCommand(staticSiteGeneration: boolean): Promise<boolean> {
   const startTime = new Date().getTime();
   const { entryPointsWithoutExtension, entryPointVirtualFiles } =
-    await createEntryPointsGeneratedVirtualFiles(Object.keys(virtualEntryComponents));
+    await createEntryPointsGeneratedVirtualFiles();
   await copyDirectoryContent('public', 'build');
 
   let outputFiles: readonly string[];
   let ssrFunction: SSRFunction | null;
   if (staticSiteGeneration) {
     [outputFiles, ssrFunction] = await Promise.all([
-      generateBundle(entryPointVirtualFiles, virtualEntryComponents),
-      getSSRFunction(entryPointVirtualFiles, virtualEntryComponents),
+      generateBundle(entryPointVirtualFiles),
+      getSSRFunction(entryPointVirtualFiles),
     ]);
     if (ssrFunction == null) return false;
   } else {
-    outputFiles = await generateBundle(entryPointVirtualFiles, virtualEntryComponents);
+    outputFiles = await generateBundle(entryPointVirtualFiles);
     ssrFunction = null;
   }
-  const generatedHTMLs = [
-    ...entryPointsWithoutExtension,
-    ...Object.keys(virtualEntryComponents),
-  ].map((entryPoint) => {
+  const generatedHTMLs = entryPointsWithoutExtension.map((entryPoint) => {
     const html = getGeneratedHTML(ssrFunction?.(entryPoint), entryPoint, outputFiles);
     return { entryPoint, html };
   });

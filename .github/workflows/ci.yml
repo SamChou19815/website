@@ -35,4 +35,6 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
       - name: Type Check
-        run: pnpm compile --since="HEAD^"
+        run: pnpm check --since="HEAD^"
+      - name: Build
+        run: pnpm build
