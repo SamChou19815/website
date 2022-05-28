@@ -1,9 +1,9 @@
-import type { HelmetData } from 'react-helmet';
+import type { HelmetServerState } from 'react-helmet-async';
 
 export type SSRResult = {
   readonly divHTML: string;
   readonly noJS: boolean;
-  readonly helmet: HelmetData;
+  readonly helmet: HelmetServerState;
 };
 
 function getLinks(entryPoint: string, files: readonly string[], noJS?: boolean) {
@@ -29,7 +29,7 @@ function getLinks(entryPoint: string, files: readonly string[], noJS?: boolean) 
   return { headLinks, bodyScriptLinks };
 }
 
-function getHeadHTML(headLinks: string, helmet?: HelmetData) {
+function getHeadHTML(headLinks: string, helmet?: HelmetServerState) {
   if (helmet == null) return `<head>${headLinks}</head>`;
   const parts = [
     helmet.meta.toString(),

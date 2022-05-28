@@ -1,6 +1,2 @@
-import type { ComponentType } from 'react';
-import { Helmet, HelmetProps } from 'react-helmet';
-
-const Head: ComponentType<HelmetProps> = Helmet;
-
+import { Helmet as Head } from 'react-helmet-async';
 export default Head;

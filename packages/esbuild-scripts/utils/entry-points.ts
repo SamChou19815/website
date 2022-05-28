@@ -45,11 +45,11 @@ export function getClientTemplate(
   const lazyLoadedRoutes = [
     ...otherRealPaths.map((otherPath, i) => {
       const routePath = rewriteEntryPointPathForRouting(otherPath);
-      return `        <Route exact path="/${routePath}" element={<Suspense fallback={null}><RealComponent${i} /></Suspense>} />`;
+      return `          <Route exact path="/${routePath}" element={<Suspense fallback={null}><RealComponent${i} /></Suspense>} />`;
     }),
     ...otherVirtualPaths.map((otherPath, i) => {
       const routePath = rewriteEntryPointPathForRouting(otherPath);
-      return `        <Route exact path="/${routePath}" element={<Suspense fallback={null}><VirtualComponent${i} /></Suspense>}/>`;
+      return `          <Route exact path="/${routePath}" element={<Suspense fallback={null}><VirtualComponent${i} /></Suspense>}/>`;
     }),
   ].join('\n');
 
@@ -57,19 +57,22 @@ export function getClientTemplate(
 import React,{Suspense,lazy} from 'react';
 import {hydrateRoot} from 'react-dom';
 import {createRoot} from 'react-dom/client';
+import HelmetProvider from 'esbuild-scripts/__internal-components__/helmet-provider';
 import {BrowserRouter,Route,Routes} from 'esbuild-scripts/__internal-components__/react-router';
 import Document from '${absoluteProjectPath}/src/pages/_document';
 import Page from '${currentPageImportPath}';
 ${lazyImports}
 const element = (
-  <BrowserRouter>
-    <Document>
-      <Routes>
-        <Route exact path="/${rewriteEntryPointPathForRouting(path)}" element={<Page />} />
+  <HelmetProvider>
+    <BrowserRouter>
+      <Document>
+        <Routes>
+          <Route exact path="/${rewriteEntryPointPathForRouting(path)}" element={<Page />} />
 ${lazyLoadedRoutes}
-      </Routes>
-    </Document>
-  </BrowserRouter>
+        </Routes>
+      </Document>
+    </BrowserRouter>
+  </HelmetProvider>
 );
 const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) hydrateRoot(rootElement, element); else createRoot(rootElement).render(element);
@@ -89,20 +92,25 @@ export function getServerTemplate(
   return `${GENERATED_COMMENT}
 import React from 'react';
 import {renderToString} from 'react-dom/server';
-import Helmet from 'esbuild-scripts/components/Head';
+import HelmetProvider from 'esbuild-scripts/__internal-components__/helmet-provider';
 import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router-server';
 import Document from '${absoluteProjectPath}/src/pages/_document';
 ${pageImports}
 const map = { ${mappingObjectInner} };
-module.exports = (path) => ({
-  divHTML: renderToString(
-    <StaticRouter location={'/'+path}>
-      <Document>{React.createElement(map[path])}</Document>
-    </StaticRouter>
-  ),
-  noJS: map[path].noJS,
-  helmet: Helmet.renderStatic(),
-});
+module.exports = (path) => {
+  const helmetContext = {};
+  return {
+    divHTML: renderToString(
+      <HelmetProvider context={helmetContext}>
+        <StaticRouter location={'/'+path}>
+          <Document>{React.createElement(map[path])}</Document>
+        </StaticRouter>
+      </HelmetProvider>
+    ),
+    noJS: map[path].noJS,
+    helmet: helmetContext.helmet,
+  }
+};
 `;
 }
 
