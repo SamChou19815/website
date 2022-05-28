@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "@dev-sam/samlang-core": "^0.6.0",
-    "@monaco-editor/react": "^4.3.1",
-    "autosize": "^5.0.1",
+    "@monaco-editor/react": "^4.4.5",
     "lib-react-prism": "workspace:*",
     "monaco-editor": "^0.33.0",
     "react": "^18.1.0",
