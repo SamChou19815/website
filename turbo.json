@@ -8,7 +8,7 @@
       "outputs": ["tsconfig.tsbuildinfo"]
     },
     "build": {
-      "dependsOn": ["esbuild-scripts#bundle"],
+      "dependsOn": ["esbuild-scripts#bundle", "^build"],
       "outputs": ["build/**"]
     },
     "esbuild-scripts#bundle": {

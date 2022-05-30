@@ -13,7 +13,7 @@ let ( * ) = test f 3
 
 Even for Javascript, this can be done easily:
 
-```javascript
+```typescript
 function f(s) {
   return parseInt(s);
 }

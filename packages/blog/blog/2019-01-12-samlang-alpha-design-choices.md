@@ -49,7 +49,7 @@ fun Student.getNameWithAge(): String = "$name($age)"
 
 If the type system is structural, then the user may choose to write:
 
-```javascript
+```typescript
 const info = { name: 'RANDOM_BABY', age: 0 }.getNameWithAge();
 ```
 
@@ -83,7 +83,7 @@ Nonetheless, it's not all about implementation because no type inference algorit
 type information because there will always be times when there is not enough context. Here is the
 simplest example in JavaScript:
 
-```javascript
+```typescript
 function notEnoughContext() {
   const identity = (x) => x;
 }

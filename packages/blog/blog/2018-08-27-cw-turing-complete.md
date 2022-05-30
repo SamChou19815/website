@@ -53,7 +53,7 @@ We assume the number is given in little-endian format. (i.e. 2 is given as 01 in
 
 Here is what you will do in Turing Machine pseudocode, which is very straight-forward:
 
-```javascript
+```typescript
 let carry = 1; // Initially carry is 1 to represent +1
 
 function transition() {

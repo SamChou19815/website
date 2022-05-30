@@ -271,7 +271,7 @@ the build doesn't contain the function I exported.
 The reason is that Kotlin compiler for JS performs some automatic DCE (dead code elimination). This
 is a very simple optimization in principle. Imagine you have some code like this:
 
-```javascript
+```typescript
 const a = () => console.log('haha');
 const b = () => console.log('ahah');
 const c = () => b();
@@ -291,12 +291,12 @@ hours to debug!
 Then a 1.1MB `samlang-demo.js` is generated, which exports `runDemo` function inside the
 `samlang.demo` namespace. This implies a final push that provides a nicer experience to end-users:
 
-```javascript title="index.js"
+```typescript
 // Re-export the function in a nicer way.
 module.exports = require('./samlang-demo').samlang.demo.runDemo;
 ```
 
-```typescript title="index.d.ts"
+```typescript
 type DemoResult = {
   readonly interpreterResult: string | null;
   readonly interpreterPrinted: string | null;
