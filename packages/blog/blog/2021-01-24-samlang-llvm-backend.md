@@ -19,7 +19,7 @@ In the past, samlang programs were compiled down to X86 assembly and then linked
 of library object files. Now the library must be compiled to LLVM bitcode file (`.bc`) to work with
 LLVM. Fortunately, we can use `clang` to compile the runtime library written in C to LLVM bitcode:
 
-```terminal
+```bash
 clang -emit-llvm library.c -c -o library.bc
 ```
 
@@ -27,7 +27,7 @@ When the source code has been compiled to LLVM IR, it can be outputted to a file
 format (`.ll`). Then it can be linked with the library with `llvm-link`, compiled to target
 platform's object file by `llc`, and finally processed by `gcc`:
 
-```terminal
+```bash
 llvm-link -o linked.bc compiled.bc library.bc
 llc -filetype=obj linked.bc
 gcc -o program linked.o
