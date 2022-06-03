@@ -1,12 +1,11 @@
-// @ts-expect-error: no type definition
-import Prism from 'prism-react-renderer/prism';
 import React from 'react';
 import Highlight, { type PrismTheme } from './Highlight';
-import extendLibPrism from './prism-extended';
+import Prism from './prism-core';
+import registerPrismLanguages from './prism-languages';
 import theme from './prism-theme.json';
 import './PrismCodeBlock.css';
 
-extendLibPrism(Prism);
+registerPrismLanguages(Prism);
 
 export type Props = {
   readonly language: string;
@@ -25,7 +24,8 @@ export default function PrismCodeBlock({
 }: Props): JSX.Element {
   return (
     <Highlight
-      Prism={Prism}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      Prism={Prism as any}
       theme={userDefinedTheme || flexibleTheme}
       code={children}
       language={language}
