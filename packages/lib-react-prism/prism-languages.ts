@@ -27,8 +27,8 @@ function registerSamlang(Prism: typeof PrismType): void {
         lookbehind: true,
       },
     ],
-    operator: /-|\+|\*|\/|%|&&|\|\|/,
-    function: /[a-z][A-Za-z0-9]*\s*(?=\()/,
+    operator: /-|\+|\*|\/|%|&&|\|\|\.\.\.|=>|/,
+    function: /[a-z][A-Za-z0-9]*\s*(?=(\(|<))/,
   };
 }
 
@@ -93,24 +93,37 @@ function registerOCaml(Prism: typeof PrismType) {
   };
 }
 
-function registerJavaScript(Prism: typeof PrismType) {
-  Prism.languages.javascript = {
+function registerTypeScript(Prism: typeof PrismType) {
+  Prism.languages.typescript = {
     comment: [
       { pattern: BLOCK_COMMENT_REGEX, lookbehind: true, greedy: true },
       { pattern: LINE_COMMENT_REGEX, lookbehind: true, greedy: true },
     ],
+    'template-string': {
+      pattern: /`(?:\\[\s\S]|\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}|(?!\$\{)[^\\`])*`/,
+      greedy: true,
+      inside: {
+        'template-punctuation': {
+          pattern: /^`|`$/,
+          alias: 'string',
+        },
+        interpolation: {
+          pattern: /((?:^|[^\\])(?:\\{2})*)\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}/,
+          lookbehind: true,
+          inside: {
+            'interpolation-punctuation': {
+              pattern: /^\$\{|\}$/,
+              alias: 'punctuation',
+            },
+          },
+        },
+        string: /[\s\S]+/,
+      },
+    },
     string: { pattern: STRING_TOKEN_REGEX, greedy: true },
     'class-name': [
       {
-        pattern: /(\b(?:class|extends|implements|instanceof|interface|new)\s+)[\w.\\]+/,
-        lookbehind: true,
-        inside: {
-          punctuation: /[.\\]/,
-        },
-      },
-      {
-        pattern:
-          /(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:constructor|prototype))/,
+        pattern: /(\b)[A-Z][A-Za-z0-9_]*/,
         lookbehind: true,
       },
     ],
@@ -122,19 +135,38 @@ function registerJavaScript(Prism: typeof PrismType) {
     constant: /\b[A-Z](?:[A-Z_]|\dx?)*\b/,
     keyword: [
       {
+        pattern: /\b(?:as|default|export|from|import)\b/,
+        alias: 'module',
+      },
+      {
+        pattern:
+          /\b(?:await|break|catch|continue|do|else|finally|for|if|return|switch|throw|try|while|yield)\b/,
+        alias: 'control-flow',
+      },
+      {
+        pattern: /\bnull\b/,
+        alias: ['null', 'nil'],
+      },
+      {
+        pattern: /\bundefined\b/,
+        alias: 'nil',
+      },
+      {
         pattern: /((?:^|\})\s*)catch\b/,
         lookbehind: true,
       },
       {
         pattern:
-          /(^|[^.]|\.\.\.\s*)\b(?:as|assert(?=\s*\{)|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,
+          /(^|[^.]|\.\.\.\s*)\b(?:as|assert(?=\s*\{)|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|true|false|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,
         lookbehind: true,
       },
+      /\b(?:abstract|declare|is|keyof|readonly|require)\b/,
+      // keywords that have to be followed by an identifier
+      /\b(?:asserts|infer|interface|module|namespace|type)\b(?=\s*(?:[{_$a-zA-Z\xA0-\uFFFF]|$))/,
+      // This is for `import type *, {}`
+      /\btype\b(?=\s*(?:[\{*]|$))/,
     ],
-    // Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
-    function:
-      /#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,
-    boolean: /\b(?:false|true)\b/,
+    function: /[a-z][A-Za-z0-9]*\s*(?=(\(|<))/,
     number: {
       pattern: RegExp(
         // eslint-disable-next-line prefer-template
@@ -167,207 +199,11 @@ function registerJavaScript(Prism: typeof PrismType) {
       /--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/,
     punctuation: /[{}[\];(),.:]/,
   };
-
-  Prism.LanguageUtil.insertBefore('javascript', 'string', {
-    // @ts-expect-error: Too dynamic
-    'template-string': {
-      pattern: /`(?:\\[\s\S]|\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}|(?!\$\{)[^\\`])*`/,
-      greedy: true,
-      inside: {
-        'template-punctuation': {
-          pattern: /^`|`$/,
-          alias: 'string',
-        },
-        interpolation: {
-          pattern: /((?:^|[^\\])(?:\\{2})*)\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}/,
-          lookbehind: true,
-          inside: {
-            'interpolation-punctuation': {
-              pattern: /^\$\{|\}$/,
-              alias: 'punctuation',
-            },
-            rest: Prism.languages.javascript,
-          },
-        },
-        string: /[\s\S]+/,
-      },
-    },
-  });
-
-  Prism.LanguageUtil.insertBefore('javascript', 'function-variable', {
-    'method-variable': {
-      // @ts-expect-error: Too dynamic
-      // eslint-disable-next-line prefer-template
-      pattern: RegExp('(\\.\\s*)' + Prism.languages.javascript['function-variable'].pattern.source),
-      lookbehind: true,
-      alias: ['function-variable', 'method', 'function', 'property-access'],
-    },
-  });
-
-  Prism.LanguageUtil.insertBefore('javascript', 'function', {
-    method: {
-      // @ts-expect-error: Too dynamic
-      // eslint-disable-next-line prefer-template
-      pattern: RegExp('(\\.\\s*)' + Prism.languages.javascript['function'].source),
-      lookbehind: true,
-      alias: ['function', 'property-access'],
-    },
-  });
-
-  /** Replaces the `<ID>` placeholder in the given pattern with a pattern for general JS identifiers. */
-  function withId(source: string, flags?: string): RegExp {
-    return RegExp(
-      source.replace(/<ID>/g, function () {
-        return /(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*/.source;
-      }),
-      flags
-    );
-  }
-  Prism.LanguageUtil.insertBefore('javascript', 'keyword', {
-    imports: {
-      // https://tc39.es/ecma262/#sec-imports
-      pattern: withId(
-        /(\bimport\b\s*)(?:<ID>(?:\s*,\s*(?:\*\s*as\s+<ID>|\{[^{}]*\}))?|\*\s*as\s+<ID>|\{[^{}]*\})(?=\s*\bfrom\b)/
-          .source
-      ),
-      lookbehind: true,
-      inside: Prism.languages.javascript,
-    },
-    exports: {
-      // https://tc39.es/ecma262/#sec-exports
-      pattern: withId(/(\bexport\b\s*)(?:\*(?:\s*as\s+<ID>)?(?=\s*\bfrom\b)|\{[^{}]*\})/.source),
-      lookbehind: true,
-      inside: Prism.languages.javascript,
-    },
-  });
-
-  // @ts-expect-error: Too dynamic
-  Prism.languages.javascript['keyword'].unshift(
-    {
-      pattern: /\b(?:as|default|export|from|import)\b/,
-      alias: 'module',
-    },
-    {
-      pattern:
-        /\b(?:await|break|catch|continue|do|else|finally|for|if|return|switch|throw|try|while|yield)\b/,
-      alias: 'control-flow',
-    },
-    {
-      pattern: /\bnull\b/,
-      alias: ['null', 'nil'],
-    },
-    {
-      pattern: /\bundefined\b/,
-      alias: 'nil',
-    }
-  );
-
-  Prism.LanguageUtil.insertBefore('javascript', 'operator', {
-    spread: {
-      pattern: /\.{3}/,
-      alias: 'operator',
-    },
-    arrow: {
-      pattern: /=>/,
-      alias: 'operator',
-    },
-  });
-
-  Prism.LanguageUtil.insertBefore('javascript', 'punctuation', {
-    'property-access': {
-      pattern: withId(/(\.\s*)#?<ID>/.source),
-      lookbehind: true,
-    },
-    'maybe-class-name': {
-      pattern: /(^|[^$\w\xA0-\uFFFF])[A-Z][$\w\xA0-\uFFFF]+/,
-      lookbehind: true,
-    },
-  });
-
-  // add 'maybe-class-name' to tokens which might be a class name
-  const maybeClassNameTokens = [
-    'function',
-    'function-variable',
-    'method',
-    'method-variable',
-    'property-access',
-  ];
-  maybeClassNameTokens.forEach((token) => {
-    // @ts-expect-error: Too dynamic
-    let value = Prism.languages.javascript[token];
-
-    // convert regex to object
-    if (value instanceof RegExp) {
-      // @ts-expect-error: Too dynamic
-      value = Prism.languages.javascript[token] = {
-        pattern: value,
-      };
-    }
-
-    // keep in mind that we don't support arrays
-
-    // @ts-expect-error: Too dynamic
-    const inside = value.inside || {};
-    // @ts-expect-error: Too dynamic
-    value.inside = inside;
-
-    inside['maybe-class-name'] = /^[A-Z][\s\S]*/;
-  });
-}
-
-function registerTypeScript(Prism: typeof PrismType) {
-  Prism.languages.typescript = Prism.LanguageUtil.extend('javascript', {
-    // @ts-expect-error: Too dynamic
-    'class-name': {
-      pattern:
-        /(\b(?:class|extends|implements|instanceof|interface|new|type)\s+)(?!keyof\b)(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?:\s*<(?:[^<>]|<(?:[^<>]|<[^<>]*>)*>)*>)?/,
-      lookbehind: true,
-      greedy: true,
-      inside: null, // see below
-    },
-    builtin:
-      /\b(?:Array|Function|Promise|any|boolean|console|never|number|string|symbol|unknown)\b/,
-  });
-
-  // The keywords TypeScript adds to JavaScript
-  // @ts-expect-error: Too dynamic
-  Prism.languages.typescript.keyword.push(
-    /\b(?:abstract|declare|is|keyof|readonly|require)\b/,
-    // keywords that have to be followed by an identifier
-    /\b(?:asserts|infer|interface|module|namespace|type)\b(?=\s*(?:[{_$a-zA-Z\xA0-\uFFFF]|$))/,
-    // This is for `import type *, {}`
-    /\btype\b(?=\s*(?:[\{*]|$))/
-  );
-
-  // a version of typescript specifically for highlighting types
-  const typeInside = Prism.LanguageUtil.extend('typescript', {});
-  delete typeInside['class-name'];
-
-  // @ts-expect-error: Too dynamic
-  Prism.languages.typescript['class-name'].inside = typeInside;
-
-  Prism.LanguageUtil.insertBefore('typescript', 'function', {
-    'generic-function': {
-      // e.g. foo<T extends "bar" | "baz">( ...
-      pattern:
-        /#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*<(?:[^<>]|<(?:[^<>]|<[^<>]*>)*>)*>(?=\s*\()/,
-      greedy: true,
-      inside: {
-        function: /^#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*/,
-        generic: {
-          pattern: /<[\s\S]+/, // everything after the first <
-          alias: 'class-name',
-          inside: typeInside,
-        },
-      },
-    },
-  });
 }
 
 export default function registerPrismLanguages(Prism: typeof PrismType): void {
   registerSamlang(Prism);
   registerJson(Prism);
   registerOCaml(Prism);
-  registerJavaScript(Prism);
   registerTypeScript(Prism);
 }
