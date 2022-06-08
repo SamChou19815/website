@@ -1,22 +1,10 @@
 // Forked from: https://github.com/FormidableLabs/prism-react-renderer
 
-import type { Token, PrismToken } from './normalize-tokens';
+import type PrismType from './prism-core';
+import type { Token } from './normalize-tokens';
 import normalizeTokens from './normalize-tokens';
 
 type Language = string;
-
-type PrismGrammar = { readonly [key: string]: unknown };
-
-type LanguagesDict = { readonly [language: Language]: PrismGrammar };
-
-type PrismLib = {
-  readonly languages: LanguagesDict;
-  readonly tokenize: (
-    code: string,
-    grammar: PrismGrammar,
-    language: Language
-  ) => (PrismToken | string)[];
-};
 
 type StyleObj = { readonly [key: string]: string | number | null };
 
@@ -110,7 +98,7 @@ function themeToDict(theme: PrismTheme, language: string): ThemeDict {
 }
 
 type Props = {
-  readonly Prism: PrismLib;
+  readonly Prism: typeof PrismType;
   readonly theme: PrismTheme;
   readonly language: Language;
   readonly code: string;
@@ -153,9 +141,7 @@ export default function Highlight({ Prism, theme, language, code, children }: Pr
   });
 
   const themeDict = themeToDict(theme, language);
-  const grammar = Prism.languages[language];
-
-  const tokens = normalizeTokens(grammar ? Prism.tokenize(code, grammar, language) : [code]);
+  const tokens = normalizeTokens(Prism.tokenize(code, language));
 
   return children({
     tokens,
