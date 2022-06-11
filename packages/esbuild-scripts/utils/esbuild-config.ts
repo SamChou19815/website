@@ -1,4 +1,5 @@
 import type { BuildOptions, Plugin } from 'esbuild';
+import type { Processor as PostCSSProcessor } from 'postcss';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import postcss from 'postcss';
@@ -61,7 +62,7 @@ const mdxPlugin: Plugin = {
 };
 
 function postcssPlugin(): Plugin {
-  const processor = postcss([tailwind(getTailwindBaseConfig())]);
+  const processor = postcss([tailwind(getTailwindBaseConfig()) as PostCSSProcessor]);
   return {
     name: 'postcss',
     setup(buildConfig) {
