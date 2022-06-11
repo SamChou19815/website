@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @returns {import('tailwindcss/tailwind-config').TailwindConfig} */
+ * @returns {import('tailwindcss').Config} */
 module.exports = function getTailwindBaseConfig() {
   return {
     theme: {},
