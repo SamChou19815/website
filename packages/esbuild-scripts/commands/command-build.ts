@@ -53,13 +53,13 @@ async function getSSRFunction(
     }),
     entryPoints: [VIRTUAL_SERVER_ENTRY_PATH],
     platform: 'node',
-    format: 'cjs',
+    format: 'esm',
+    conditions: ['module', 'browser'],
     legalComments: 'none',
     outfile: SSR_JS_PATH,
   });
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    return require(resolve(SSR_JS_PATH));
+    return import(resolve(SSR_JS_PATH)).then((it) => it.default);
   } catch (error) {
     console.error(
       'Unable to perform server side rendering since the server bundle is not correctly generated.'

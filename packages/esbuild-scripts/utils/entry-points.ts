@@ -97,7 +97,7 @@ import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router
 import Document from '${absoluteProjectPath}/src/pages/_document';
 ${pageImports}
 const map = { ${mappingObjectInner} };
-module.exports = (path) => {
+export default (path) => {
   const helmetContext = {};
   return {
     divHTML: renderToString(

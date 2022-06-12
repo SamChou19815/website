@@ -13,9 +13,11 @@ import {
 
 type Props = { readonly code: string; readonly onCodeChange: (value: string) => void };
 
-export default function PrismCodeEditor({ code, onCodeChange }: Props): JSX.Element {
+export default function PrismCodeEditor({ code, onCodeChange }: Props): JSX.Element | null {
   const serviceRef = useRef(createSamlangLanguageService([]));
   const monanoRef = useRef<MonacoEditor | null>(null);
+
+  if (__SERVER__) return null;
 
   function onChange(newCode?: string) {
     if (newCode == null) return;
