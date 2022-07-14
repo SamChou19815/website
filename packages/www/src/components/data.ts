@@ -81,6 +81,16 @@ const WebsiteV3 = '/timeline/website-v3.webp';
 
 export const DATASET_TIMELINE: readonly TimelineItem[] = [
   {
+    title: 'Facebook SWE',
+    time: 'Feburary 2022',
+    image: Flow,
+    detail: "Working on Flow's type system.",
+    links: [
+      { name: 'Website', url: 'https://flow.org' },
+      { name: 'GitHub', url: 'https://github.com/facebook/flow' },
+    ],
+  },
+  {
     title: 'Graduated from Cornell University, Again',
     time: 'December 2021',
     image: GraduationSam,
@@ -90,7 +100,7 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: 'Facebook SWE Intern',
     time: 'June 2021',
     image: Flow,
-    detail: 'Working on the Flow team.',
+    detail: 'Working on the Flow team. Implemented the extraction code action for Flow LSP.',
     links: [
       { name: 'Website', url: 'https://flow.org' },
       { name: 'GitHub', url: 'https://github.com/facebook/flow' },
