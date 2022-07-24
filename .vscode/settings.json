@@ -1,7 +1,6 @@
 {
   "css.validate": false,
   "editor.quickSuggestions": { "strings": true },
-  "search.exclude": { "**/.yarn": true },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
