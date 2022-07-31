@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export default function Article({ children }: { readonly children: ReactNode }): JSX.Element {
   return (

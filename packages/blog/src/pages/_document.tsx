@@ -1,7 +1,7 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { BLOG_LOGO, BLOG_TITLE, BLOG_URL } from '../constants';
 import './index.css';
 

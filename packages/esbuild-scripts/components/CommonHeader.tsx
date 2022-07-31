@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Head from './Head';
 import HeadTitle from './HeadTitle';
 

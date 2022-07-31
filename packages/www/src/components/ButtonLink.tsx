@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const ButtonLinkBaseCSS = [
   'button bg-transparent border-0 cursor-pointer px-6 py-1.5 font-bold text-sm text-center',
