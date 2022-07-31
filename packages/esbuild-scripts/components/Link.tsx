@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes } from 'react';
+import type { AnchorHTMLAttributes } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & { readonly to: string };

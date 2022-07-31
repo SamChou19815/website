@@ -19,7 +19,7 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.3.3",
-    "esbuild": "^0.14.49",
+    "esbuild": "^0.14.51",
     "postcss": "^8.4.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",

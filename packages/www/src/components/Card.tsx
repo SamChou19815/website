@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const CardBaseCSS = 'flex flex-col bg-white dark:bg-gray-800 rounded filter drop-shadow';
 

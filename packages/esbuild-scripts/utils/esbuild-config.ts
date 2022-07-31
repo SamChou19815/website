@@ -93,6 +93,7 @@ export default function baseESBuildConfig({
     },
     bundle: true,
     minify: false,
+    jsx: 'automatic',
     legalComments: 'linked',
     platform: 'browser',
     target: 'es2019',
