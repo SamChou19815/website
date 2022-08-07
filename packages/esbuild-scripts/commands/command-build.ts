@@ -2,7 +2,7 @@
 
 import { build } from 'esbuild';
 import * as fs from 'fs/promises';
-import { dirname, join, relative, resolve } from 'path';
+import * as path from 'path';
 import {
   BUILD_PATH,
   SSR_CSS_PATH,
@@ -30,17 +30,17 @@ async function generateBundle(
     write: false,
     outdir: 'build',
   });
-  const absoluteBuildDirectory = resolve('build');
+  const absoluteBuildDirectory = path.resolve('build');
   await Promise.all(
     outputFiles.map(async (file) => {
-      await fs.mkdir(dirname(file.path), { recursive: true });
+      await fs.mkdir(path.dirname(file.path), { recursive: true });
       await fs.writeFile(file.path, file.contents);
     })
   );
-  return outputFiles.map(({ path }) => relative(absoluteBuildDirectory, path));
+  return outputFiles.map(({ path: p }) => path.relative(absoluteBuildDirectory, p));
 }
 
-type SSRFunction = (path: string) => SSRResult;
+type SSRFunction = (_path: string) => SSRResult;
 
 async function getSSRFunction(
   entryPointVirtualFiles: VirtualPathMappings
@@ -59,7 +59,7 @@ async function getSSRFunction(
     outfile: SSR_JS_PATH,
   });
   try {
-    return import(resolve(SSR_JS_PATH)).then((it) => it.default);
+    return import(path.resolve(SSR_JS_PATH)).then((it) => it.default);
   } catch (error) {
     console.error(
       'Unable to perform server side rendering since the server bundle is not correctly generated.'
@@ -71,38 +71,29 @@ async function getSSRFunction(
   }
 }
 
-export default async function buildCommand(staticSiteGeneration: boolean): Promise<boolean> {
+export default async function buildCommand(): Promise<boolean> {
   const startTime = new Date().getTime();
   const { entryPointsWithoutExtension, entryPointVirtualFiles } =
     await createEntryPointsGeneratedVirtualFiles();
   await copyDirectoryContent('public', 'build');
 
-  let outputFiles: readonly string[];
-  let ssrFunction: SSRFunction | null;
-  if (staticSiteGeneration) {
-    [outputFiles, ssrFunction] = await Promise.all([
-      generateBundle(entryPointVirtualFiles),
-      getSSRFunction(entryPointVirtualFiles),
-    ]);
-    if (ssrFunction == null) return false;
-  } else {
-    outputFiles = await generateBundle(entryPointVirtualFiles);
-    ssrFunction = null;
-  }
+  const outputFiles = await generateBundle(entryPointVirtualFiles);
+  const ssrFunction = await getSSRFunction(entryPointVirtualFiles);
+  if (ssrFunction == null) return false;
   const generatedHTMLs = entryPointsWithoutExtension.map((entryPoint) => {
     const html = getGeneratedHTML(ssrFunction?.(entryPoint), entryPoint, outputFiles);
     return { entryPoint, html };
   });
   await Promise.all(
     generatedHTMLs.map(async ({ entryPoint, html }) => {
-      let path: string;
+      let htmlPath: string;
       if (entryPoint.endsWith('index')) {
-        path = join(BUILD_PATH, `${entryPoint}.html`);
+        htmlPath = path.join(BUILD_PATH, `${entryPoint}.html`);
       } else {
-        path = join(BUILD_PATH, entryPoint, 'index.html');
+        htmlPath = path.join(BUILD_PATH, entryPoint, 'index.html');
       }
-      await fs.mkdir(dirname(path), { recursive: true });
-      await fs.writeFile(path, html);
+      await fs.mkdir(path.dirname(htmlPath), { recursive: true });
+      await fs.writeFile(htmlPath, html);
     })
   );
 

@@ -6,8 +6,7 @@ import startCommand from './commands/command-start';
 function help() {
   console.error('Usage:');
   console.error('- esbuild-script start: start the devserver.');
-  console.error('- esbuild-script build: generate production build.');
-  console.error('- esbuild-script ssg: generate static site.');
+  console.error('- esbuild-script build: generate production build of static site.');
   console.error('- esbuild-script help: display command line usages.');
 }
 
@@ -17,10 +16,8 @@ async function runner() {
     case 'start':
       await startCommand();
       return true;
-    case 'ssg':
-      return buildCommand(true);
     case 'build':
-      return buildCommand(false);
+      return buildCommand();
     case 'help':
     case '--help':
       help();
