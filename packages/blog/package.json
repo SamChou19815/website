@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/generator/blog-generator.mjs start",
-    "build": "node src/generator/blog-generator.mjs ssg",
+    "build": "node src/generator/blog-generator.mjs build",
     "check": "tsc --incremental",
     "deploy": "netlify deploy -d build -s blog.developersam.com --prod"
   },

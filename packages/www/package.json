@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "esbuild-scripts start",
-    "build": "esbuild-scripts ssg",
+    "build": "esbuild-scripts build",
     "check": "tsc --incremental",
     "deploy": "netlify deploy -d build -s developersam.com --prod"
   },
