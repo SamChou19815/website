@@ -1,38 +1,36 @@
 {
   "private": true,
-  "packageManager": "pnpm@7.4.1",
+  "packageManager": "pnpm@7.9.0",
   "scripts": {
     "check": "turbo run check",
     "build": "turbo run build",
     "format": "prettier --write '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "format:check": "prettier --check '**/*.{ts,js,tsx,jsx,css,html,md,yml}'",
     "lint": "eslint . --cache",
-    "bump": "pnpm up -r @types/node typescript husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\""
+    "bump": "pnpm up -r --latest @types/node @types/react @types/react-dom typescript husky lint-staged esbuild eslint \"@typescript-eslint/*\" \"eslint-*\""
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "@dev-sam/eslint-config-common": "0.23.0",
-    "@types/node": "^17.0.45",
-    "@types/react": "^18.0.9",
-    "@typescript-eslint/eslint-plugin": "^5.32.0",
-    "@typescript-eslint/parser": "^5.32.0",
-    "esbuild": "^0.14.51",
-    "eslint": "^8.21.0",
-    "eslint-import-resolver-node": "^0.3.6",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-react": "^7.30.1",
+    "@types/node": "^18.7.13",
+    "@types/react": "^18.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.35.1",
+    "@typescript-eslint/parser": "^5.35.1",
+    "esbuild": "^0.15.5",
+    "eslint": "^8.23.0",
+    "eslint-plugin-react": "^7.31.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
-    "lint-staged": "^12.5.0",
-    "postcss": "^8.4.14",
-    "prettier": "^2.6.2",
-    "prettier-plugin-organize-imports": "^2.3.4",
-    "prettier-plugin-tailwindcss": "^0.1.11",
-    "tailwindcss": "^3.1.2",
-    "turbo": "^1.2.16",
-    "typescript": "^4.7.4"
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.16",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.1.8",
+    "turbo": "^1.4.3",
+    "typescript": "^4.8.2"
   },
   "eslintConfig": {
     "extends": [
