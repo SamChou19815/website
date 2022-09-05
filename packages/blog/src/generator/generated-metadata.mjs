@@ -4,9 +4,16 @@
 /** @type {readonly BlogPostMetadata[]} */
 const generatedMetaDataList = [
   {
+    "title": "Bounded Qualification in samlang",
+    "formattedDate": "2022-09-05",
+    "permalink": "/2022/09/05/bounded-qualification",
+    "nextPermalink": "/2022/01/28/why-useless-code"
+  },
+  {
     "title": "Why I Write Useless Code",
     "formattedDate": "2022-01-28",
     "permalink": "/2022/01/28/why-useless-code",
+    "prevPermalink": "/2022/09/05/bounded-qualification",
     "nextPermalink": "/2022/01/02/courseplan-review"
   },
   {
