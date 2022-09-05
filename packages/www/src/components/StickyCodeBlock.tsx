@@ -9,20 +9,20 @@ const code = `/**
  * https://samlang.io/demo
  */
 
-class List<T>(Nil(unit), Cons([T * List<T>])) {
+class Pair<A, B>(val a: A, val b: B)
+class List<T>(Nil(unit), Cons(Pair<T, List<T>>)) {
   function <T> of(t: T): List<T> =
-    List.Cons([t, List.Nil({})])
+    List.Cons(Pair.init(t, List.Nil<T>({})))
   method cons(t: T): List<T> =
-    List.Cons([t, this])
+    List.Cons(Pair.init(t, this))
 }
 class Developer(
-  val name: string, val github: string,
-  val projects: List<string>
+  val github: string, val projects: List<string>
 ) {
   function sam(): Developer = {
     val l = List.of("samlang").cons("...");
     val github = "SamChou19815";
-    Developer.init("Sam Zhou", github, l)
+    Developer.init(github, l)
   }
 }
 class Main {

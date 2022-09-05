@@ -1,5 +1,4 @@
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
-import React from 'react';
 
 function Introduction() {
   return (
@@ -10,7 +9,10 @@ function Introduction() {
         Sam Zhou. The language is still under development so the syntax and semantics may be changed
         at any time.
       </p>
-      <p>The language can be compiled down to X86 assembly and machine code.</p>
+      <p>
+        The language can be compiled down to WebAssembly with reference counting based garbage
+        collection.
+      </p>
     </div>
   );
 }
@@ -32,7 +34,11 @@ function ProgramLayout() {
       <h2 id="program-layout">Program Layout</h2>
       <p>Here is an example program:</p>
       <PrismCodeBlock language="samlang">
-        {`class HelloWorld(val message: string) {
+        {`interface GlobalMessageProducer {
+  function getGlobalMessage(): string
+}
+
+class HelloWorld(val message: string): GlobalMessageProducer {
   private method getMessage(): string = {
     val { message } = this;
     message
@@ -48,12 +54,11 @@ class Main {
   function main(): string = HelloWorld.getGlobalMessage()
 }`}
       </PrismCodeBlock>
+      <p>A module contains a list of classes and interfaces.</p>
       <p>
-        A module contains a list of classes, and a class can either be a normal class or utility
-        class, which will be explained later. If there is a module named <code>{`Main`}</code>, then
-        the entire program will be evaluated to the evaluation result of the function call{' '}
-        <code>{`Main.main()`}</code>. If there is no such module, then the evaluation result will be{' '}
-        <code>{`unit`}</code>.
+        If there is a module named <code>{`Main`}</code>, then the entire program will be evaluated
+        to the evaluation result of the function call <code>{`Main.main()`}</code>. If there is no
+        such module, then the evaluation result will be <code>{`unit`}</code>.
       </p>
       <p>
         Each <code>{'.sam'}</code> source file defines a module. You can use a different module
@@ -75,34 +80,10 @@ class ClassD {
   );
 }
 
-function ClassesTypes() {
+function Types() {
   return (
     <div>
-      <h2 id="classes-types">Classes and Types</h2>
-
-      <h3>Utility Class</h3>
-      <p>
-        We first introduce the simplest utility class. Utility classes serve as collections of
-        functions. For example, we should put some math functions inside a utility class. i.e.
-      </p>
-      <PrismCodeBlock language="samlang">
-        {`class Math {
-  function plus(a: int, b: int): int = a + b
-  function cosine(degree: int): int = 0
-}`}
-      </PrismCodeBlock>
-      <p>
-        Here you see how you would define functions. Each top-level function defined in the class
-        should have type-annotations for both arguments and return type for documentation purposes.
-        The return value is written after the <code>=</code> sign. Note that we don{"'"}t have the{' '}
-        <code>{`return`}</code> keyword because everything is an expression.
-      </p>
-      <p>A utility class is implicitly a class with no fields.</p>
-      <p>
-        There is a special kind of function called <em>method</em>. You can define methods in
-        utility classes although they are not very useful.
-      </p>
-
+      <h2 id="types">Types</h2>
       <h3>Primitive and Compound Types</h3>
       <p>
         You already see two several <em>primitive</em> types: <code>string</code> and{' '}
@@ -126,7 +107,28 @@ tuple types like `}
       </p>
       <p>{`You may want to have some named tuple so that the code is more readable. samlang allows that by
 letting you create an object class.`}</p>
-
+      <h3>Utility Class</h3>
+      <p>
+        We first introduce the simplest utility class. Utility classes serve as collections of
+        functions. For example, we should put some math functions inside a utility class. i.e.
+      </p>
+      <PrismCodeBlock language="samlang">
+        {`class Math {
+  function plus(a: int, b: int): int = a + b
+  function cosine(degree: int): int = 0
+}`}
+      </PrismCodeBlock>
+      <p>
+        Here you see how you would define functions. Each top-level function defined in the class
+        should have type-annotations for both arguments and return type for documentation purposes.
+        The return value is written after the <code>=</code> sign. Note that we don{"'"}t have the{' '}
+        <code>{`return`}</code> keyword because everything is an expression.
+      </p>
+      <p>A utility class is implicitly a class with no fields.</p>
+      <p>
+        There is a special kind of function called <em>method</em>. You can define methods in
+        utility classes although they are not very useful.
+      </p>
       <h3>Object Class</h3>
       <p>
         Here we introduce the first kind of class: <em>object class</em>. You can define it like
@@ -154,7 +156,6 @@ letting you create an object class.`}</p>
         The <code>{`private`}</code> keyword tells the type-checker that this function, field or
         method cannot be used outside of the class that defines it.
       </p>
-
       <h3>Variant Class</h3>
       <p>{`An object class defines a producct type; a variant class defines a sum type. With variant
 class, you can define a type that can be either A or B or C. Here is an example:`}</p>
@@ -190,9 +191,33 @@ class, you can define a type that can be either A or B or C. Here is an example:
         possibilities, you can use the <code>{`match`}</code> expression to pattern match on the
         expression.
       </p>
+      <h3>Interfaces</h3>
+      <p>
+        An interface defines a set of functions and methods that must be implemented by classes that
+        claim to implement this interface. An interface can extends multiple interfaces, and a class
+        can implement multiple interfaces. Both use the colon syntax to declare the subtyping
+        relationship.
+      </p>
+      <PrismCodeBlock language="samlang">{`interface A { function f1(): int }
 
+interface B {
+  function f1(): int
+  method m2(): bool
+}
+
+interface C : A, B {
+  // f1 exists in both A and B.
+  // Since their signatures are the same, it's OK.
+  function f3(): string
+}
+
+class D : A, C {
+  function f1(): int = 3
+  method m2(): bool = true
+  function f3(): string = "samlang"
+}`}</PrismCodeBlock>
       <h3>Generics</h3>
-      <p>Generics is supported in all kinds of classes. Here are some examples.</p>
+      <p>Generics is supported in all kinds of classes and interfaces. Here are some examples.</p>
       <PrismCodeBlock language="samlang">
         {`class FunctionExample {
   function <T> getIdentityFunction(): (T) -> T = (x) -> x
@@ -215,6 +240,24 @@ method <R> map(f: (T) -> R): Option<R> =
   }
 }`}
       </PrismCodeBlock>
+      <p>
+        Generics can have bounds. The compiler will ensure that type arguments (either explicitly
+        annotated or inferred) are subtypes of the declared bounds. Note that samlang does not
+        support subtyping in general. Most places the samlang compiler still requires that the
+        expected type and the actual type are exactly the same.
+      </p>
+      <PrismCodeBlock language="samlang">{`interface Comparable<T> {
+  method compare(other: T): int
+}
+class BoxedInt(val i: int): Comparable<BoxedInt> {
+  method compare(other: BoxedInt): int = this.i - other.i
+}
+class TwoItemCompare {
+  function <C: Comparable<C>> compare1(v1: C, v2: C): int =
+    v1.compare(v2)
+  function <C: Comparable<C>> compare2(v1: C, v2: C): int =
+    v1.compare<C>(v2)
+}`}</PrismCodeBlock>
     </div>
   );
 }
@@ -268,23 +311,6 @@ class Main {
   function main(): int = Foo.bar() * Main.oof()
 }`}
       </PrismCodeBlock>
-
-      <h3>Tuple</h3>
-      <p>
-        You can construct a tuple by surrounding a list of comma separated expressions within{' '}
-        <code>{`[]`}</code>.
-      </p>
-      <ul>
-        <li>
-          This is a tuple: <code>{`[1, 2]`}</code>;
-        </li>
-        <li>
-          This is also a tuple: <code>{`["foo", "bar", true, 42]`}</code>;
-        </li>
-        <li>
-          Tuples can live inside another tuple: <code>{`[["hi", "how"], ["are", "you"]]`}</code>;
-        </li>
-      </ul>
 
       <h3>Variant</h3>
       <p>
@@ -398,10 +424,9 @@ class Main {
   function valExample(): int = {
     val a: int = 1;
     val b = 2;
-    val [_, c] = ["dd", 3];
-    val { e as d } = { d: 5, e: 4 }
+    val { d as c } = { d: 5, e: 4 }
     val _ = 42;
-    a + b * c / d
+    a + b * c
   }
 }`}
       </PrismCodeBlock>
@@ -437,39 +462,27 @@ function TypeInference() {
     <div>
       <h2 id="type-inference">Type Inference</h2>
       <p>
-        The only required type annotated happens at the top-level class function and method level.
-        The type-checker can infer most of the types at the local level.
-      </p>
-      <p>Here is a simple example to show you the power of the type-inference algorithm:</p>
-      <p>
-        The type checker can correctly deduce the type of lambda{' '}
-        <code>{`(a, b, c) -> if a(b + 1) then b else c`}</code> must be{' '}
-        <code>{`((int) -> bool, int, int) -> int`}</code>.
+        The only absolutely required type annotated happens at the top-level class function and
+        method level. Most other types can be correctly inferred by the compiler and can be omitted
+        from your program.
       </p>
       <p>
-        The type-checker first decides that <code>{`b`}</code> must be <code>{`int`}</code> since{' '}
-        <code>{`+`}</code> adds up two <code>{`int`}</code>s. Then it knows that <code>{`c`}</code>{' '}
-        must also be <code>{`int`}</code>, because <code>{`b`}</code> and <code>{`c`}</code> must
-        have the same type. From the syntax, <code>{`a`}</code> must be a function. Since the
-        function application of <code>{`a`}</code> happens at the boolean expression part of{' '}
-        <code>{`if`}</code>, we know it must return <code>{`bool`}</code>. Since <code>{`a`}</code>{' '}
-        accepts one argument that is <code>{`int`}</code>, the type of <code>{`a`}</code> must be{' '}
-        <code>{`(int) -> bool`}</code>.
+        The type checker uses local type inference to infer types of most expressions. Therefore, it
+        cannot infer types from the whole program like OCaml does. Instead, it will push down type
+        hints from local, nearby contexts.
       </p>
       <p>
-        Although the type-checker is smart, in some cases it simply cannot determine the type
-        because there is not enough information.
+        Despite the fundamental limitation, the compiler can correctly infer most of the local
+        expression types. If your code does not use generics or unannotated lambda parameters, then
+        all types can be inferred correctly. Most of the type arguments can be inferred, so they do
+        not need to be explicitly supplied. Unannotated lambda parameters with local context but
+        without parametric polymorphism can also be inferred perfectly.
       </p>
-      <PrismCodeBlock language="samlang">
-        {`class NotEnoughTypeInfo {
-  function <T> randomFunction(): T = Builtins.panic("I can be any type!")
-  function main(): unit = { val _ = randomFunction(); }
-}`}
-      </PrismCodeBlock>
       <p>
-        The type of <code>{`randomFunction()`}</code> cannot be decided. We decide not to make it
-        generic because we want every expression to have a concrete type. In this case, the type
-        checker will instantiate the generic type <code>{`T`}</code> as <code>{`unit`}</code>.
+        Even when you combine polymorphic function call and unannotated lambda parameters, the type
+        checker still attempts to infer the types from left to right. It will work in most of the
+        code. An illustrating <a href="#example-type-inference">type inference example</a> is
+        available near the top of the page.
       </p>
     </div>
   );
@@ -482,7 +495,7 @@ export default function Docs(): JSX.Element {
         <Introduction />
         <GettingStarted />
         <ProgramLayout />
-        <ClassesTypes />
+        <Types />
         <Expressions />
         <TypeInference />
       </article>

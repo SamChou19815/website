@@ -18,7 +18,7 @@ function registerSamlang(Prism: typeof PrismType): void {
     keyword: [
       {
         pattern:
-          /(class|val|function|method|import|private|if|then|else|match|from|unit|int|bool|string|this|true|false)\b/,
+          /(class|interface|val|function|method|import|private|if|then|else|match|from|unit|int|bool|string|this|true|false)\b/,
       },
     ],
     'class-name': [
@@ -123,7 +123,7 @@ function registerTypeScript(Prism: typeof PrismType) {
     string: { pattern: STRING_TOKEN_REGEX, greedy: true },
     'class-name': [
       {
-        pattern: /(\b)[A-Z][A-Za-z0-9_]*/,
+        pattern: /(\b)[A-Z][A-Za-z0-9_$]*/,
         lookbehind: true,
       },
     ],
@@ -166,7 +166,7 @@ function registerTypeScript(Prism: typeof PrismType) {
       // This is for `import type *, {}`
       /\btype\b(?=\s*(?:[\{*]|$))/,
     ],
-    function: /[a-z][A-Za-z0-9]*\s*(?=(\(|<))/,
+    function: /[_a-z][A-Za-z0-9_$]*\s*(?=(\(|<))/,
     number: {
       pattern: RegExp(
         // eslint-disable-next-line prefer-template
