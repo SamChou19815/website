@@ -31,7 +31,7 @@ export default function PrismCodeEditor({ code, onCodeChange }: Props): JSX.Elem
       model,
       'samlang',
       serviceRef.current.state.getErrors(DemoModuleReference).map((it) => ({
-        ...samlangToMonacoRange(it.range),
+        ...samlangToMonacoRange(it.location),
         message: it.toString(),
         severity: 8,
       }))

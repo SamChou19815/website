@@ -31,8 +31,8 @@ export default function SideNav(): JSX.Element {
           <a className="mx-0 my-4 block" href="#program-layout">
             Program Layout
           </a>
-          <a className="mx-0 my-4 block" href="#classes-types">
-            Classes and Types
+          <a className="mx-0 my-4 block" href="#types">
+            Types
           </a>
           <a className="mx-0 my-4 block" href="#expressions">
             Expressions

@@ -1,4 +1,4 @@
-import { ModuleReference, Position, Range } from '@dev-sam/samlang-core';
+import { Location, ModuleReference, Position } from '@dev-sam/samlang-core';
 import type createSamlangLanguageService from '@dev-sam/samlang-core/services';
 import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import type { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
@@ -204,7 +204,7 @@ const languageDefinition: languages.IMonarchLanguage = {
   },
 };
 
-export const DemoModuleReference = new ModuleReference(['Demo']);
+export const DemoModuleReference = ModuleReference(['Demo']);
 
 function monacoToSamlangPosition(position: monaco.Position): Position {
   return {
@@ -213,7 +213,7 @@ function monacoToSamlangPosition(position: monaco.Position): Position {
   };
 }
 
-export function samlangToMonacoRange(range: Range) {
+export function samlangToMonacoRange(range: Location) {
   return {
     startLineNumber: range.start.line + 1,
     startColumn: range.start.character + 1,
@@ -235,7 +235,7 @@ export function initializeMonacoEditor(
     provideHover(_, position) {
       const result = service.queryForHover(DemoModuleReference, monacoToSamlangPosition(position));
       if (result == null) return null;
-      return { range: samlangToMonacoRange(result.range), contents: result.contents };
+      return { range: samlangToMonacoRange(result.location), contents: result.contents };
     },
   });
 
@@ -275,7 +275,7 @@ export function initializeMonacoEditor(
         monacoToSamlangPosition(position)
       );
       if (result == null) return null;
-      return { uri: model.uri, range: samlangToMonacoRange(result.range) };
+      return { uri: model.uri, range: samlangToMonacoRange(result) };
     },
   });
 }

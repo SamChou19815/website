@@ -108,7 +108,7 @@ importers:
 
   packages/samlang:
     specifiers:
-      '@dev-sam/samlang-core': ^0.6.0
+      '@dev-sam/samlang-core': ^0.7.0
       '@monaco-editor/react': ^4.4.5
       esbuild-scripts: workspace:*
       lib-react-prism: workspace:*
@@ -116,7 +116,7 @@ importers:
       react: ^18.1.0
       react-dom: ^18.1.0
     dependencies:
-      '@dev-sam/samlang-core': 0.6.0
+      '@dev-sam/samlang-core': 0.7.0
       '@monaco-editor/react': 4.4.5_d24t5d2y775ybedwi37th2htxm
       lib-react-prism: link:../lib-react-prism
       monaco-editor: 0.33.0
@@ -167,8 +167,8 @@ packages:
       eslint-plugin-react-hooks: 4.6.0_eslint@8.23.0
     dev: true
 
-  /@dev-sam/samlang-core/0.6.0:
-    resolution: {integrity: sha512-GRb8SpGKSCI2Am7I9WkSJmkiKd259y6ss+lD/bSYLdxFMg06T8vcMA26oTTb/4wMaKSV9EFNLs4WXUT40m5tTg==}
+  /@dev-sam/samlang-core/0.7.0:
+    resolution: {integrity: sha512-OgdSbOrQ8Rf40Vf9y3JaGrAH5WD2u3+m0k6IV6A1g0T3rUPBKztwgY+efR2GUS4mGYLpCifJFJGLEDl/IPX6xQ==}
     dependencies:
       binaryen: 102.0.0
     dev: false

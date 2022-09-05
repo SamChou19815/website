@@ -13,7 +13,7 @@ const FOURTY_TWO_CODE = `class Math {
     2 * 21
 }`;
 
-const PATTERN_MATCHING_CODE = `class Option<T>(
+const PATTERN_MATCHING_CODE = `class Opt<T>(
   None(unit), Some(T)
 ) {
   method isEmpty(): bool =
@@ -21,15 +21,27 @@ const PATTERN_MATCHING_CODE = `class Option<T>(
       | None _ -> true
       | Some _ -> false
     }
+
+  method <R> map(f: (T) -> R): Opt<R> =
+    match (this) {
+      | None _ -> Opt.None({})
+      | Some v -> Opt.Some(f(v))
+    }
 }`;
 
 const TYPE_INFERENCE_CODE = `class TypeInference {
-  function example(): unit = {
-    // a: (int) -> bool
-    // b: int, c: int
-    val _ = (a, b, c) -> (
-      if a(b + 1) then b else c
-    );
+  function <A, B, C> pipe(
+    a: A, f1: (A)->B, f2: (B)->C
+  ): C = f2(f1(a))
+
+  function main(): unit = {
+    // n: int
+    // s: string
+    val _ = Main.pipe(
+      1,
+      (n) -> Builtins.intToString(n),
+      (s) -> Builtins.stringToInt(s)
+    )
   }
 }`;
 
@@ -42,7 +54,7 @@ const features = [
 
 export default function Home(): JSX.Element {
   return (
-    <div className="homepage-container m-auto flex max-w-5xl flex-row">
+    <div className="homepage-container m-auto flex max-w-7xl flex-row">
       <SideNav />
       <main className="w-full overflow-hidden">
         <header
@@ -59,7 +71,7 @@ export default function Home(): JSX.Element {
             />
             samlang
           </h1>
-          <p className="block text-left text-2xl font-extralight">
+          <p className="block text-left text-2xl font-light">
             A statically-typed, functional, and sound&nbsp;
             <br className="hidden sm:block" />
             programming language with type inference.
@@ -68,7 +80,7 @@ export default function Home(): JSX.Element {
         <section className="my-4 flex flex-wrap items-center border border-solid border-gray-300 bg-white p-4">
           {features.map(({ title, code }) => (
             <div key={title} className="half-width-flex w-full p-2">
-              <h3>{title}</h3>
+              <h3 id={`example-${title.toLowerCase().replaceAll(' ', '-')}`}>{title}</h3>
               <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
             </div>
           ))}
