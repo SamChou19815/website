@@ -50,8 +50,10 @@ const CommonHeader = ({
       {ogType && <meta property="og:type" content={ogType} />}
       {ogURL && <meta property="og:url" content={ogURL} />}
       {ogImage && <meta property="og:image" content={ogImage} />}
-      {gaId && <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
-      {gaId && (
+      {process.env.NODE_ENV === 'production' && gaId && (
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+      )}
+      {process.env.NODE_ENV === 'production' && gaId && (
         <script>
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
