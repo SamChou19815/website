@@ -1,21 +1,3 @@
-import type { WwwSvgIconName } from './Icons';
-
-type AboutSectionFact = { readonly iconName: WwwSvgIconName; readonly text: string };
-type AboutSectionLink = { readonly href: string; readonly text: string };
-
-type AboutDataEntry = {
-  readonly facts: readonly AboutSectionFact[];
-  readonly links: readonly AboutSectionLink[];
-};
-
-type ProjectDataEntry = {
-  readonly name: string;
-  readonly type: string;
-  readonly media: string;
-  readonly description: string;
-  readonly links: readonly { readonly text: string; readonly href: string }[];
-};
-
 type NamedLink = { readonly name: string; readonly url: string };
 type TimelineItem = {
   readonly title: string;
@@ -24,44 +6,6 @@ type TimelineItem = {
   readonly detail?: string;
   readonly links?: readonly NamedLink[];
 };
-
-export const DATASET_ABOUT: AboutDataEntry = {
-  facts: [
-    { iconName: 'work', text: 'Facebook SWE' },
-    { iconName: 'github', text: 'OSS Contributor' },
-    { iconName: 'school', text: 'Cornell University' },
-    { iconName: 'code', text: 'Coding since 13' },
-  ],
-  links: [
-    { href: 'https://blog.developersam.com', text: 'Blog' },
-    { href: 'https://github.com/SamChou19815', text: 'GitHub' },
-    { href: '/resume.pdf', text: 'Resume' },
-  ],
-};
-
-export const DATASET_PROJECTS: readonly ProjectDataEntry[] = [
-  {
-    name: 'samlang',
-    type: 'Programming Language',
-    media: '/projects/samlang.webp',
-    description: 'A statically-typed functional programming language with full type inference.',
-    links: [
-      { text: 'Docs', href: 'https://samlang.io' },
-      { text: 'Demo', href: 'https://samlang.io/demo' },
-      { text: 'GitHub', href: 'https://github.com/SamChou19815/samlang' },
-    ],
-  },
-  {
-    name: 'Docusaurus',
-    type: 'Open source contributions',
-    media: '/projects/docusaurus.webp',
-    description: 'A static docs site generator created by FB open source.',
-    links: [
-      { text: 'Docs', href: 'https://v2.docusaurus.io' },
-      { text: 'GitHub', href: 'https://github.com/facebook/docusaurus' },
-    ],
-  },
-];
 
 const CoursePlan = '/timeline/courseplan-promotion.png';
 const CritterCompiler = '/timeline/critter-compiler.webp';

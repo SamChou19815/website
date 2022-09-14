@@ -1,10 +1,9 @@
-import React from 'react';
 import ButtonLink from '../components/ButtonLink';
 import Card from '../components/Card';
 import CardContainer from '../components/CardContainer';
 import CardHeader from '../components/CardHeader';
 import ConsoleSection from '../components/ConsoleSection';
-import { DATASET_ABOUT, DATASET_PROJECTS, DATASET_TIMELINE } from '../components/data';
+import { DATASET_TIMELINE } from '../components/data';
 import WwwSvgIcon from '../components/Icons';
 import StickyCodeBlock from '../components/StickyCodeBlock';
 
@@ -26,46 +25,37 @@ const AboutSection = (
         </div>
       </div>
       <div className="grid grid-cols-1 justify-items-center p-4 sm:grid-cols-2 lg:grid-cols-2">
-        {DATASET_ABOUT.facts.map(({ text, iconName }) => (
-          <div key={text} className="m-2 flex w-40 content-center items-center">
-            <WwwSvgIcon iconName={iconName} />
-            <span className="ml-2">{text}</span>
-          </div>
-        ))}
+        <div className="m-2 flex w-40 content-center items-center">
+          <WwwSvgIcon iconName="work" />
+          <span className="ml-2">Facebook SWE</span>
+        </div>
+        <div className="m-2 flex w-40 content-center items-center">
+          <WwwSvgIcon iconName="github" />
+          <span className="ml-2">OSS Contributor</span>
+        </div>
+        <div className="m-2 flex w-40 content-center items-center">
+          <WwwSvgIcon iconName="school" />
+          <span className="ml-2">Cornell University</span>
+        </div>
+        <div className="m-2 flex w-40 content-center items-center">
+          <WwwSvgIcon iconName="code" />
+          <span className="ml-2">Coding since 13</span>
+        </div>
       </div>
       <div className="p-4">
         <div className="flex flex-grow justify-evenly">
-          {DATASET_ABOUT.links.map(({ href, text }) => (
-            <ButtonLink key={text} href={href} className="link flex-grow">
-              {text}
-            </ButtonLink>
-          ))}
+          <ButtonLink href="https://blog.developersam.com" className="px-1.5">
+            Blog
+          </ButtonLink>
+          <ButtonLink href="https://github.com/SamChou19815" className="px-1.5">
+            GitHub
+          </ButtonLink>
+          <ButtonLink href="/resume.pdf" className="px-1.5">
+            Resume
+          </ButtonLink>
         </div>
       </div>
     </Card>
-  </ConsoleSection>
-);
-
-const ProjectSection = (
-  <ConsoleSection title="dev-sam projects">
-    <CardContainer className="my-4">
-      {DATASET_PROJECTS.map(({ name, type, media, description, links }) => (
-        <Card key={name} className="mx-auto my-4 w-11/12 md:m-4 md:w-96">
-          <LazyCardMedia image={media} title={name} />
-          <CardHeader title={name} subheader={type} />
-          <div className="p-4 pb-0">{description}</div>
-          <div className="p-4">
-            <div className="flex flex-grow justify-evenly">
-              {links.map(({ text, href }) => (
-                <ButtonLink key={text} href={href} className="link flex-grow">
-                  {text}
-                </ButtonLink>
-              ))}
-            </div>
-          </div>
-        </Card>
-      ))}
-    </CardContainer>
   </ConsoleSection>
 );
 
@@ -106,7 +96,6 @@ export default function IndexPage(): JSX.Element {
       </div>
       <div className="content-block my-12 w-full">
         {AboutSection}
-        {ProjectSection}
         {TimelineSection}
       </div>
     </div>
