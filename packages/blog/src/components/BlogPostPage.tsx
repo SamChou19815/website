@@ -10,7 +10,9 @@ type Props = { readonly content: CompiledMarkdownComponent; readonly permalink: 
 
 export default function BlogPostPage({ content: BlogPostContents, permalink }: Props): JSX.Element {
   const metadata = generatedMetadata.find((it) => it.permalink === permalink);
-  if (metadata == null) throw permalink;
+  if (metadata == null) {
+    throw permalink;
+  }
   const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
   return (
     <>

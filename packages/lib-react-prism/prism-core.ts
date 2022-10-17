@@ -65,7 +65,7 @@ class Token {
     public type: string,
     public content: string | TokenStream,
     public alias: string | string[],
-    matchedStr = ''
+    matchedStr = '',
   ) {
     this.length = matchedStr.length;
   }
@@ -95,7 +95,7 @@ function matchPattern(
   pattern: RegExp,
   pos: number,
   text: string,
-  lookbehind: boolean
+  lookbehind: boolean,
 ): RegExpExecArray | null {
   pattern.lastIndex = pos;
   const match = pattern.exec(text);
@@ -115,15 +115,17 @@ function matchGrammar(
   grammar: Grammar,
   startNode: LinkedListNode<Token | string>,
   startPos: number,
-  rematch?: { cause: string; reach: number }
+  rematch?: { cause: string; reach: number },
 ): void {
   for (const token in grammar) {
-    if (!grammar.hasOwnProperty(token) || !grammar[token]) {
+    if (!(grammar.hasOwnProperty(token) && grammar[token])) {
       continue;
     }
 
     let patterns = grammar[token];
-    if (patterns == null) throw new Error();
+    if (patterns == null) {
+      throw new Error();
+    }
     patterns = Array.isArray(patterns) ? patterns : [patterns];
 
     for (let j = 0; j < patterns.length; ++j) {
@@ -132,13 +134,15 @@ function matchGrammar(
       }
 
       const patternObj = patterns[j];
-      if (patternObj == null) throw new Error();
+      if (patternObj == null) {
+        throw new Error();
+      }
       // @ts-expect-error: Too dynamic
       const inside = patternObj.inside;
       // @ts-expect-error: Too dynamic
-      const lookbehind = !!patternObj.lookbehind;
+      const lookbehind = patternObj.lookbehind;
       // @ts-expect-error: Too dynamic
-      const greedy = !!patternObj.greedy;
+      const greedy = patternObj.greedy;
       // @ts-expect-error: Too dynamic
       const alias = patternObj.alias;
 
@@ -227,7 +231,9 @@ function matchGrammar(
 
         const from = match.index;
         const matchStr = match[0];
-        if (matchStr == null) throw new Error();
+        if (matchStr == null) {
+          throw new Error();
+        }
         const before = str.slice(0, from);
         const after = str.slice(from + matchStr.length);
 
@@ -249,7 +255,7 @@ function matchGrammar(
           token,
           inside ? Prism.tokenize(matchStr, inside) : matchStr,
           alias,
-          matchStr
+          matchStr,
         );
         currentNode = addAfter(tokenList, removeFrom, wrapped);
 
@@ -322,7 +328,9 @@ class PrismClass {
 
   tokenize(text: string, language: string): (Token | string)[] {
     const grammar = this.languages[language];
-    if (grammar == null) return [text];
+    if (grammar == null) {
+      return [text];
+    }
 
     const tokenList = new LinkedList<Token | string>();
     addAfter(tokenList, tokenList.head, text);

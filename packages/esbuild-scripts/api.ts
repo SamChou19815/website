@@ -32,7 +32,9 @@ async function runner() {
 export default async function main(initialization?: () => Promise<unknown>): Promise<void> {
   await initialization?.();
   try {
-    if (!(await runner())) process.exitCode = 1;
+    if (!(await runner())) {
+      process.exitCode = 1;
+    }
   } catch (error) {
     console.error('Internal Error');
     console.error(error);

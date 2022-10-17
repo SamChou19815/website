@@ -12,7 +12,9 @@ import { readDirectory } from './fs';
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
 function rewriteEntryPointPathForRouting(path: string): string {
-  if (!path.endsWith('index')) return path;
+  if (!path.endsWith('index')) {
+    return path;
+  }
   return path.substring(0, path.length - (path.endsWith('/index') ? 6 : 5));
 }
 
@@ -24,7 +26,7 @@ export function getClientTemplate(
   path: string,
   isRealPath: boolean,
   realPaths: readonly string[],
-  virtualPaths: readonly string[]
+  virtualPaths: readonly string[],
 ): string {
   const otherRealPaths = realPaths.filter((it) => it !== path);
   const otherVirtualPaths = virtualPaths.filter((it) => it !== path);
@@ -34,11 +36,11 @@ export function getClientTemplate(
   const lazyImports = [
     ...otherRealPaths.map(
       (otherPath, i) =>
-        `const RealComponent${i} = lazy(() => import('${importPath(otherPath, true)}'));`
+        `const RealComponent${i} = lazy(() => import('${importPath(otherPath, true)}'));`,
     ),
     ...otherVirtualPaths.map(
       (otherPath, i) =>
-        `const VirtualComponent${i} = lazy(() => import('${importPath(otherPath, false)}'));`
+        `const VirtualComponent${i} = lazy(() => import('${importPath(otherPath, false)}'));`,
     ),
   ].join('\n');
   const currentPageImportPath = importPath(path, isRealPath);
@@ -81,7 +83,7 @@ if (rootElement.hasChildNodes()) hydrateRoot(rootElement, element); else createR
 
 export function getServerTemplate(
   absoluteProjectPath: string,
-  realPaths: readonly string[]
+  realPaths: readonly string[],
 ): string {
   const importPath = (p: string, real: boolean) => getPathForImport(absoluteProjectPath, p, real);
 
@@ -151,7 +153,7 @@ export async function createEntryPointsGeneratedVirtualFiles(): Promise<{
   ]);
   entryPointVirtualFiles[VIRTUAL_SERVER_ENTRY_PATH] = getServerTemplate(
     absoluteProjectPath,
-    entryPointsWithoutExtension
+    entryPointsWithoutExtension,
   );
   return { entryPointsWithoutExtension, entryPointVirtualFiles };
 }

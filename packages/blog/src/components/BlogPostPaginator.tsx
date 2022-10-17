@@ -6,7 +6,9 @@ type PaginationNavItemProps = { readonly permalink: string; readonly isLeft: boo
 
 function PaginationNavItem({ permalink, isLeft }: PaginationNavItemProps): JSX.Element {
   const metadata = generatedMetadata.find((it) => it.permalink === permalink);
-  if (metadata == null) throw permalink;
+  if (metadata == null) {
+    throw permalink;
+  }
 
   return (
     <Link
@@ -28,7 +30,7 @@ export default function BlogPostPaginator({ nextPermalink, prevPermalink }: Prop
   return (
     <nav className="flex" aria-label="Blog post page navigation">
       <div className="flex flex-1">
-        {prevPermalink && <PaginationNavItem permalink={prevPermalink} isLeft />}
+        {prevPermalink && <PaginationNavItem permalink={prevPermalink} isLeft={true} />}
       </div>
       <div className="ml-4 flex flex-1 text-right">
         {nextPermalink && <PaginationNavItem permalink={nextPermalink} isLeft={false} />}

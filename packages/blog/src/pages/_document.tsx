@@ -7,7 +7,9 @@ import './index.css';
 
 export default function DocumentWrapper({ children }: { children: ReactNode }): JSX.Element {
   let path = useLocation().pathname;
-  if (path.endsWith('/')) path = path.substring(0, path.length - 1);
+  if (path.endsWith('/')) {
+    path = path.substring(0, path.length - 1);
+  }
 
   return (
     <>

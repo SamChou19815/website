@@ -31,17 +31,19 @@ class EsbuildScriptsDevServer {
 
   constructor(
     private readonly allEntryPointsWithoutExtension: readonly string[],
-    esbuildBuildOptions: BuildOptions
+    esbuildBuildOptions: BuildOptions,
   ) {
     this.expressDevServer.use(express.static(OUT_PATH, { maxAge: 3600 * 1000 }));
     this.expressDevServer.use(express.static('public', { maxAge: 3600 * 1000 }));
     this.expressDevServer.use(
-      express.static(path.join(__dirname, 'devserver-js'), { maxAge: 3600 * 1000 })
+      express.static(path.join(__dirname, 'devserver-js'), { maxAge: 3600 * 1000 }),
     );
 
     this.expressDevServer.get('*', async (request, response, next) => {
       const entryPoint = this.getEntryPoint(request.path);
-      if (entryPoint == null) return next();
+      if (entryPoint == null) {
+        return next();
+      }
       const html = `${getGeneratedHTML(undefined, entryPoint, this.files)}
 <script src="/dev-server-websocket.js"></script>
 `;
@@ -49,7 +51,7 @@ class EsbuildScriptsDevServer {
     });
     this.expressWebSocket.app.ws('/_ws', () => {});
     const startedExpressServer = this.expressDevServer.listen(3000, () =>
-      console.error('[i] Serving at http://localhost:3000')
+      console.error('[i] Serving at http://localhost:3000'),
     );
 
     let expressConnections: Socket[] = [];
@@ -60,7 +62,7 @@ class EsbuildScriptsDevServer {
       });
     });
     this.websocketServer.on('connection', () =>
-      this.webSocketServerPublish({ hasErrors: this.hasErrors })
+      this.webSocketServerPublish({ hasErrors: this.hasErrors }),
     );
 
     build({
@@ -79,8 +81,12 @@ class EsbuildScriptsDevServer {
       incremental: true,
       watch: {
         onRebuild: (rebuildFailure, rebuildResult) => {
-          if (rebuildResult != null) this.handleBuildResult(rebuildResult);
-          if (rebuildFailure != null) console.error('[x] Rebuild Failed.');
+          if (rebuildResult != null) {
+            this.handleBuildResult(rebuildResult);
+          }
+          if (rebuildFailure != null) {
+            console.error('[x] Rebuild Failed.');
+          }
         },
       },
     })
@@ -108,9 +114,15 @@ class EsbuildScriptsDevServer {
   private handleBuildResult({ metafile, errors }: BuildResult): void {
     const newFiles = Object.keys(metafile?.outputs ?? {}).flatMap((fullPath) => {
       const relativePath = path.relative(OUT_PATH, fullPath);
-      if (relativePath.startsWith('__server__')) return [];
-      if (relativePath.endsWith('.css') && relativePath.startsWith('index-')) return [relativePath];
-      if (relativePath.endsWith('.js')) return [relativePath];
+      if (relativePath.startsWith('__server__')) {
+        return [];
+      }
+      if (relativePath.endsWith('.css') && relativePath.startsWith('index-')) {
+        return [relativePath];
+      }
+      if (relativePath.endsWith('.js')) {
+        return [relativePath];
+      }
       return [];
     });
     const cssOnlyChange =
@@ -126,7 +138,9 @@ class EsbuildScriptsDevServer {
   }
 
   private getEntryPoint(url: string) {
-    if (!url.startsWith('/')) return undefined;
+    if (!url.startsWith('/')) {
+      return undefined;
+    }
     const urlPath = url.substring(1);
     return this.allEntryPointsWithoutExtension.find((entryPoint) => {
       if (entryPoint.endsWith('index')) {

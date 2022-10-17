@@ -86,7 +86,9 @@ function themeToDict(theme: PrismTheme, language: string): ThemeDict {
 
   theme.styles.forEach((themeEntry) => {
     const { types, languages, style } = themeEntry;
-    if (languages && !languages.includes(language)) return;
+    if (languages && !languages.includes(language)) {
+      return;
+    }
     types.forEach((type) => {
       // @ts-expect-error: void type
       themeDict[type] = { ...themeDict[type], ...style };
@@ -120,7 +122,9 @@ export default function Highlight({ Prism, theme, language, code, children }: Pr
       return empty ? { display: 'inline-block' } : undefined;
     } else if (typesSize === 1 && !empty) {
       const type = types[0];
-      if (type == null) throw new Error();
+      if (type == null) {
+        throw new Error();
+      }
       return themeDict[type];
     }
 

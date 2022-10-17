@@ -16,7 +16,7 @@ import { copyDirectoryContent } from '../utils/fs';
 import getGeneratedHTML, { SSRResult } from '../utils/html-generator';
 
 async function generateBundle(
-  entryPointVirtualFiles: VirtualPathMappings
+  entryPointVirtualFiles: VirtualPathMappings,
 ): Promise<readonly string[]> {
   const { outputFiles } = await build({
     ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles, isProd: true }),
@@ -35,7 +35,7 @@ async function generateBundle(
     outputFiles.map(async (file) => {
       await fs.mkdir(path.dirname(file.path), { recursive: true });
       await fs.writeFile(file.path, file.contents);
-    })
+    }),
   );
   return outputFiles.map(({ path: p }) => path.relative(absoluteBuildDirectory, p));
 }
@@ -43,7 +43,7 @@ async function generateBundle(
 type SSRFunction = (_path: string) => SSRResult;
 
 async function getSSRFunction(
-  entryPointVirtualFiles: VirtualPathMappings
+  entryPointVirtualFiles: VirtualPathMappings,
 ): Promise<SSRFunction | null> {
   await build({
     ...baseESBuildConfig({
@@ -62,7 +62,7 @@ async function getSSRFunction(
     return import(path.resolve(SSR_JS_PATH)).then((it) => it.default);
   } catch (error) {
     console.error(
-      'Unable to perform server side rendering since the server bundle is not correctly generated.'
+      'Unable to perform server side rendering since the server bundle is not correctly generated.',
     );
     console.error(error);
     return null;
@@ -79,7 +79,9 @@ export default async function buildCommand(): Promise<boolean> {
 
   const outputFiles = await generateBundle(entryPointVirtualFiles);
   const ssrFunction = await getSSRFunction(entryPointVirtualFiles);
-  if (ssrFunction == null) return false;
+  if (ssrFunction == null) {
+    return false;
+  }
   const generatedHTMLs = entryPointsWithoutExtension.map((entryPoint) => {
     const html = getGeneratedHTML(ssrFunction?.(entryPoint), entryPoint, outputFiles);
     return { entryPoint, html };
@@ -94,7 +96,7 @@ export default async function buildCommand(): Promise<boolean> {
       }
       await fs.mkdir(path.dirname(htmlPath), { recursive: true });
       await fs.writeFile(htmlPath, html);
-    })
+    }),
   );
 
   const totalTime = new Date().getTime() - startTime;

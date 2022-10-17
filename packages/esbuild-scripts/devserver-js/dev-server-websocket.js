@@ -11,7 +11,9 @@
 
   function clearOutdatedErrors() {
     // Clean up outdated compile errors, if any.
-    if (!isFirstCompilation && hasCompileErrors) console.clear();
+    if (!isFirstCompilation && hasCompileErrors) {
+      console.clear();
+    }
   }
 
   connection.onclose = () =>
@@ -21,7 +23,13 @@
     /** @type {{hasErrors: boolean; cssOnlyChange: string}} */
     const { hasErrors, cssOnlyChange } = JSON.parse(m.data);
 
-    if (!hasErrors) {
+    if (hasErrors) {
+      hasCompileErrors = true;
+      clearOutdatedErrors();
+      console.error('Check the terminal for compile time errors.');
+      document.body.innerHTML =
+        '<div style="text-align: center;font-size: 4em;margin: 2em;">Failed to compile.</div>';
+    } else {
       hasCompileErrors = false;
       if (!isFirstCompilation) {
         if (cssOnlyChange) {
@@ -34,12 +42,6 @@
           window.location.reload();
         }
       }
-    } else {
-      hasCompileErrors = true;
-      clearOutdatedErrors();
-      console.error('Check the terminal for compile time errors.');
-      document.body.innerHTML =
-        '<div style="text-align: center;font-size: 4em;margin: 2em;">Failed to compile.</div>';
     }
     isFirstCompilation = false;
   };
