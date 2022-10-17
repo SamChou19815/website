@@ -3,13 +3,13 @@ import * as path from 'path';
 
 export const copyDirectoryContent = async (
   sourceDirectory: string,
-  targetDirectory: string
+  targetDirectory: string,
 ): Promise<void> => {
   await fs.mkdir(targetDirectory, { recursive: true });
   await Promise.all(
     (
       await fs.readdir(targetDirectory)
-    ).map((it) => fs.rm(path.join(targetDirectory, it), { recursive: true, force: true }))
+    ).map((it) => fs.rm(path.join(targetDirectory, it), { recursive: true, force: true })),
   );
 
   await Promise.all(
@@ -23,7 +23,7 @@ export const copyDirectoryContent = async (
       } else {
         await fs.copyFile(fullSourcePath, fullDestinationPath);
       }
-    })
+    }),
   );
 };
 
@@ -39,7 +39,7 @@ const readDirectoryRecursive = async (p: string): Promise<string[]> =>
       } else {
         return [fullPath];
       }
-    })
+    }),
   ).then((it) => it.flat());
 
 export const readDirectory = async (p: string): Promise<readonly string[]> => {

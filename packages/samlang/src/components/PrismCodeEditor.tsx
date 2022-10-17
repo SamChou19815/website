@@ -17,16 +17,24 @@ export default function PrismCodeEditor({ code, onCodeChange }: Props): JSX.Elem
   const serviceRef = useRef(createSamlangLanguageService([]));
   const monanoRef = useRef<MonacoEditor | null>(null);
 
-  if (__SERVER__) return null;
+  if (__SERVER__) {
+    return null;
+  }
 
   function onChange(newCode?: string) {
-    if (newCode == null) return;
+    if (newCode == null) {
+      return;
+    }
     onCodeChange(newCode);
     serviceRef.current.state.update(DemoModuleReference, newCode);
     const monaco = monanoRef.current;
-    if (monaco == null) return;
+    if (monaco == null) {
+      return;
+    }
     const model = monaco.editor.getModels()[0];
-    if (model == null) return;
+    if (model == null) {
+      return;
+    }
     monaco.editor.setModelMarkers(
       model,
       'samlang',
@@ -34,7 +42,7 @@ export default function PrismCodeEditor({ code, onCodeChange }: Props): JSX.Elem
         ...samlangToMonacoRange(it.location),
         message: it.toString(),
         severity: 8,
-      }))
+      })),
     );
   }
 

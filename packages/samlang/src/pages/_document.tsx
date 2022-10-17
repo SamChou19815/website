@@ -3,13 +3,13 @@ import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import type { ReactNode } from 'react';
 import './index.css';
 
-export default function DocumentTemplate({
-  children,
-}: {
+export default function DocumentTemplate({ children }: {
   readonly children: ReactNode;
 }): JSX.Element {
   let path = useLocation().pathname;
-  if (path.endsWith('/')) path = path.substring(0, path.length - 1);
+  if (path.endsWith('/')) {
+    path = path.substring(0, path.length - 1);
+  }
 
   return (
     <>

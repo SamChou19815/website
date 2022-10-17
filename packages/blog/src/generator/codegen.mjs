@@ -8,8 +8,12 @@ const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join('src', 'components', 'BlogPos
 
 function parseMarkdownTitle(/** @type {string} */ source) {
   const firstLine = source.split('\n')[0];
-  if (firstLine == null) throw new Error(`No title.`);
-  if (!firstLine.startsWith('#')) throw new Error(`Invalid title line:\n${firstLine}`);
+  if (firstLine == null) {
+    throw new Error('No title.');
+  }
+  if (!firstLine.startsWith('#')) {
+    throw new Error(`Invalid title line:\n${firstLine}`);
+  }
   return firstLine.substring(1).trim();
 }
 
@@ -43,9 +47,11 @@ async function computeBlogPostMetadata(/** @type {string} */ original) {
 /** @returns {Promise<BlogPostMetadata[]>} */
 async function computeAllMedatada() {
   const metadataList = await Promise.all(
-    (await fs.readdir(BLOG_DIRECTORY))
+    (
+      await fs.readdir(BLOG_DIRECTORY)
+    )
       .filter((it) => extname(it) === '.md')
-      .map(async (it) => ({ ...(await computeBlogPostMetadata(it)) }))
+      .map(async (it) => ({ ...(await computeBlogPostMetadata(it)) })),
   );
   metadataList.sort((a, b) => b.permalink.localeCompare(a.permalink));
   metadataList.forEach((item, i) => {
@@ -65,7 +71,7 @@ await fs.writeFile(
 /** @type {readonly BlogPostMetadata[]} */
 const generatedMetaDataList = ${JSON.stringify(generatedMetadata, undefined, 2)};
 export default generatedMetaDataList;
-`
+`,
 );
 
 await Promise.all(
@@ -76,12 +82,12 @@ await Promise.all(
     if ((await fs.stat(fullPath)).isDirectory()) {
       await fs.rm(fullPath, { recursive: true });
     }
-  })
+  }),
 );
 
 for (const { permalink } of generatedMetadata) {
   const contentImportPath = resolve(
-    join(BLOG_DIRECTORY, `${permalink.split('/').slice(1).join('-')}.md`)
+    join(BLOG_DIRECTORY, `${permalink.split('/').slice(1).join('-')}.md`),
   );
   const generatedSource = `// @${'generated'}
 // eslint-disable

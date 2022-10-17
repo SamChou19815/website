@@ -51,7 +51,7 @@ const CommonHeader = ({
       {ogURL && <meta property="og:url" content={ogURL} />}
       {ogImage && <meta property="og:image" content={ogImage} />}
       {process.env.NODE_ENV === 'production' && gaId && (
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script async={true} src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
       )}
       {process.env.NODE_ENV === 'production' && gaId && (
         <script>

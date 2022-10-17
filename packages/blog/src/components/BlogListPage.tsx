@@ -11,7 +11,7 @@ export default function BlogListPage(): JSX.Element {
       <div className="flex flex-row flex-wrap justify-center">
         <main className="w-full">
           {items.map((metadata) => (
-            <BlogPostItem key={metadata.permalink} metadata={metadata} truncated />
+            <BlogPostItem key={metadata.permalink} metadata={metadata} truncated={true} />
           ))}
         </main>
       </div>

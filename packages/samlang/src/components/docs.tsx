@@ -56,13 +56,13 @@ class Main {
       </PrismCodeBlock>
       <p>A module contains a list of classes and interfaces.</p>
       <p>
-        If there is a module named <code>{`Main`}</code>, then the entire program will be evaluated
-        to the evaluation result of the function call <code>{`Main.main()`}</code>. If there is no
-        such module, then the evaluation result will be <code>{`unit`}</code>.
+        If there is a module named <code>{'Main'}</code>, then the entire program will be evaluated
+        to the evaluation result of the function call <code>{'Main.main()'}</code>. If there is no
+        such module, then the evaluation result will be <code>{'unit'}</code>.
       </p>
       <p>
         Each <code>{'.sam'}</code> source file defines a module. You can use a different module
-        {"'"}s classes by <code>{`import`}</code>.
+        {"'"}s classes by <code>{'import'}</code>.
       </p>
       <PrismCodeBlock language="samlang">
         {`import { ClassA, ClassB } from Foo.Bar.Module
@@ -91,19 +91,19 @@ function Types() {
         <code>string</code>, <code>bool</code>.
       </p>
       <p>
-        The <code>{`unit`}</code> type has only one possible value, which is <code>{'{}'}</code>. It
-        is usually an indication of some side effects. The <code>{`int`}</code> type includes all
+        The <code>{'unit'}</code> type has only one possible value, which is <code>{'{}'}</code>. It
+        is usually an indication of some side effects. The <code>{'int'}</code> type includes all
         64-bit integers. The string type includes all the strings quoted by double-quotes, like{' '}
-        <code>{`"Hello World!"`}</code>. The <code>{`bool`}</code> types has two possible values:{' '}
-        <code>{`true`}</code> and <code>{`false`}</code>.
+        <code>{`"Hello World!"`}</code>. The <code>{'bool'}</code> types has two possible values:{' '}
+        <code>{'true'}</code> and <code>{'false'}</code>.
       </p>
       <p>
         {`samlang enables you to use these primitive types to construct more complex types. You can also have
 tuple types like `}
-        <code>{`[int, bool, string]`}</code>
-        {` and function types like `}
-        <code>{`((int) -> int, int) -> int`}</code>
-        {`.`}
+        <code>{'[int, bool, string]'}</code>
+        {' and function types like '}
+        <code>{'((int) -> int, int) -> int'}</code>
+        {'.'}
       </p>
       <p>{`You may want to have some named tuple so that the code is more readable. samlang allows that by
 letting you create an object class.`}</p>
@@ -122,7 +122,7 @@ letting you create an object class.`}</p>
         Here you see how you would define functions. Each top-level function defined in the class
         should have type-annotations for both arguments and return type for documentation purposes.
         The return value is written after the <code>=</code> sign. Note that we don{"'"}t have the{' '}
-        <code>{`return`}</code> keyword because everything is an expression.
+        <code>{'return'}</code> keyword because everything is an expression.
       </p>
       <p>A utility class is implicitly a class with no fields.</p>
       <p>
@@ -142,9 +142,9 @@ letting you create an object class.`}</p>
 }`}
       </PrismCodeBlock>
       <p>
-        The class shown above defines a function, 2 methods, and a type <code>{`Student`}</code>.
-        You can see that the type <code>{`Student`}</code> is already used in the type annotation of{' '}
-        <code>{`dummyStudent`}</code> function. You can create a student object by the JavaScript
+        The class shown above defines a function, 2 methods, and a type <code>{'Student'}</code>.
+        You can see that the type <code>{'Student'}</code> is already used in the type annotation of{' '}
+        <code>{'dummyStudent'}</code> function. You can create a student object by the JavaScript
         object syntax as shown above. This kind of expression can only be used inside the class.
       </p>
       <p>
@@ -153,7 +153,7 @@ letting you create an object class.`}</p>
         <code>this</code> as a parameter name because it is a keyword.)
       </p>
       <p>
-        The <code>{`private`}</code> keyword tells the type-checker that this function, field or
+        The <code>{'private'}</code> keyword tells the type-checker that this function, field or
         method cannot be used outside of the class that defines it.
       </p>
       <h3>Variant Class</h3>
@@ -184,11 +184,11 @@ class, you can define a type that can be either A or B or C. Here is an example:
       </PrismCodeBlock>
       <p>
         Inside the class, you can construct a variant by{' '}
-        <code>{`VariantClass.VariantName(expr)`}</code>.
+        <code>{'VariantClass.VariantName(expr)'}</code>.
       </p>
       <p>
         Each variant carries some data with a specific type. To perform a case-analysis on different
-        possibilities, you can use the <code>{`match`}</code> expression to pattern match on the
+        possibilities, you can use the <code>{'match'}</code> expression to pattern match on the
         expression.
       </p>
       <h3>Interfaces</h3>
@@ -266,7 +266,9 @@ function Expressions() {
   return (
     <div>
       <h2 id="expressions">Expressions</h2>
-      <p>{`The expressions are listed in order of precedence so you know where to add parenthesis.`}</p>
+      <p>
+        {'The expressions are listed in order of precedence so you know where to add parenthesis.'}
+      </p>
 
       <h3>Literal</h3>
       <p>
@@ -289,12 +291,12 @@ function Expressions() {
       <PrismCodeBlock language="samlang">{'function identity(a: int): int = a'}</PrismCodeBlock>
       <p>or</p>
       <PrismCodeBlock language="samlang">
-        {`function random(): int = { val a = 42; a }`}
+        {'function random(): int = { val a = 42; a }'}
       </PrismCodeBlock>
 
       <h3>Class Function</h3>
       <p>
-        You can refer to a class function by <code>{`ClassName.functionName`}</code>.
+        You can refer to a class function by <code>{'ClassName.functionName'}</code>.
       </p>
       <p>
         An object class implicitly defines a special function <code>init</code> that serves as the
@@ -314,7 +316,7 @@ class Main {
 
       <h3>Variant</h3>
       <p>
-        A variant constructor is a normal function: <code>{`VariantClass.Some(42)`}</code>.
+        A variant constructor is a normal function: <code>{'VariantClass.Some(42)'}</code>.
       </p>
       <h3>Field/Method Access</h3>
       <p>
@@ -326,20 +328,20 @@ class Main {
       <h3>Unary Expressions</h3>
       <ul>
         <li>
-          Negation: <code>{`-42, -(-42)`}</code>
+          Negation: <code>{'-42, -(-42)'}</code>
         </li>
         <li>
-          Not: <code>{`!true, !(!(false))`}</code>
+          Not: <code>{'!true, !(!(false))'}</code>
         </li>
       </ul>
 
       <h3>Function Call</h3>
       <p>
-        You can call a function as you would expect: <code>{`functionName(arg1, arg2)`}</code>.
+        You can call a function as you would expect: <code>{'functionName(arg1, arg2)'}</code>.
       </p>
       <p>
         However, you do not need to have a function name: a lambda can also be used:{' '}
-        <code>{`((x) -> x)(3)`}</code>.
+        <code>{'((x) -> x)(3)'}</code>.
       </p>
       <p>Currying is not supported.</p>
 
@@ -347,44 +349,44 @@ class Main {
       <p>Here are the supported ones:</p>
       <ul>
         <li>
-          <code>{`a * b, a / b, a % b, a + b, a - b`}</code>
-          {`: `}
-          <code>{`a`}</code> and <code>{`b`}</code> must be int, and the result is int;
-        </li>
-        <li>
-          <code>{`a < b, a <= b, a > b, a >= b`}</code>
-          {`: `}
-          <code>{`a`}</code> and <code>{`b`}</code> must be int, and the result is bool;
-        </li>
-        <li>
-          <code>{`a == b, a != b`}</code>
-          {`: `}
-          <code>{`a`}</code> and <code>{`b`}</code> must have the same type, and the result is bool;
-        </li>
-        <li>
-          <code>{`a && b, a || b`}</code>
-          {`: `}
-          <code>{`a`}</code> and <code>{`b`}</code> must be bool, and the result is bool;
-        </li>
-        <li>
-          <code>{`a::b`}</code> (string concatenation of a and b)
+          <code>{'a * b, a / b, a % b, a + b, a - b'}</code>
           {': '}
-          <code>{`a`}</code> and <code>{`b`}</code> must be string, and the result is string.
+          <code>{'a'}</code> and <code>{'b'}</code> must be int, and the result is int;
+        </li>
+        <li>
+          <code>{'a < b, a <= b, a > b, a >= b'}</code>
+          {': '}
+          <code>{'a'}</code> and <code>{'b'}</code> must be int, and the result is bool;
+        </li>
+        <li>
+          <code>{'a == b, a != b'}</code>
+          {': '}
+          <code>{'a'}</code> and <code>{'b'}</code> must have the same type, and the result is bool;
+        </li>
+        <li>
+          <code>{'a && b, a || b'}</code>
+          {': '}
+          <code>{'a'}</code> and <code>{'b'}</code> must be bool, and the result is bool;
+        </li>
+        <li>
+          <code>{'a::b'}</code> (string concatenation of a and b)
+          {': '}
+          <code>{'a'}</code> and <code>{'b'}</code> must be string, and the result is string.
         </li>
       </ul>
 
       <h3>If-Else Expressions</h3>
       <p>In samlang, we do not have ternary expression, because if-else blocks are expressions.</p>
       <p>
-        You can write: <code>{`if a == b then c else d`}</code>. <code>{`c`}</code> and{' '}
-        <code>{`d`}</code> must have the same type and the result has the same type as{' '}
-        <code>{`c`}</code> and <code>{`d`}</code>.
+        You can write: <code>{'if a == b then c else d'}</code>. <code>{'c'}</code> and{' '}
+        <code>{'d'}</code> must have the same type and the result has the same type as{' '}
+        <code>{'c'}</code> and <code>{'d'}</code>.
       </p>
 
       <h3>Match Expressions</h3>
       <p>
         Suppose you have a variant type like{' '}
-        <code>{`class Option<T>(None(unit), Some(T)) {}`}</code>. You can match on it like:
+        <code>{'class Option<T>(None(unit), Some(T)) {}'}</code>. You can match on it like:
       </p>
       <PrismCodeBlock language="samlang">
         {`function matchExample(opt: Option<int>): int =
@@ -408,11 +410,11 @@ class Main {
       <h3>Lambda</h3>
       <p>
         You can easily define an anonymous function as a lambda. Here is the simpliest one:{' '}
-        <code>{`() -> 0`}</code>. Here is a more complex one: identity function:{' '}
-        <code>{`(x) -> x`}</code>. Note that the argument must always be surrounded by parenthesis.
+        <code>{'() -> 0'}</code>. Here is a more complex one: identity function:{' '}
+        <code>{'(x) -> x'}</code>. Note that the argument must always be surrounded by parenthesis.
       </p>
       <p>
-        You can optionally type-annotate some parameters: <code>{`(x: int, y) -> x + y`}</code>.
+        You can optionally type-annotate some parameters: <code>{'(x: int, y) -> x + y'}</code>.
       </p>
 
       <h3>Statement Block Expression</h3>
@@ -451,7 +453,7 @@ class Main {
 }`}
       </PrismCodeBlock>
       <p>
-        You can create a <code>{`unit`}</code> value by <code>{`{}`}</code>.
+        You can create a <code>{'unit'}</code> value by <code>{'{}'}</code>.
       </p>
     </div>
   );

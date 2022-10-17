@@ -3,30 +3,13 @@ on:
   pull_request:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: latest
-      - uses: actions/setup-node@v2
-        with:
-          cache: pnpm
-      - name: Install
-        run: pnpm install --frozen-lockfile
-      - name: Format Check
-        run: pnpm format:check
-      - name: Lint
-        run: pnpm lint
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: '2'
-      - run: git log
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: latest
       - uses: actions/setup-node@v2
@@ -34,6 +17,10 @@ jobs:
           cache: pnpm
       - name: Install
         run: pnpm install --frozen-lockfile
+      - name: Format
+        run: pnpm format
+      - name: Lint
+        run: pnpm lint
       - name: Type Check
         run: pnpm check --since="HEAD^"
       - name: Build

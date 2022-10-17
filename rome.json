@@ -1,0 +1,36 @@
+{
+  "formatter": {
+    "indentStyle": "space",
+    "indentSize": 2,
+    "lineWidth": 100,
+    "ignore": [
+      "**/build/*",
+      "**/dist/*",
+      "**/out/*",
+      "packages/esbuild-scripts/api.js",
+      "packages/blog/src/pages/**",
+      ".eslintignore"
+    ]
+  },
+  "linter": {
+    "ignore": [
+      "**/build/*",
+      "**/dist/*",
+      "**/out/*",
+      "packages/esbuild-scripts/api.js",
+      "packages/blog/src/pages/**",
+      ".eslintignore"
+    ],
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "useSingleCaseStatement":"off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  }
+}

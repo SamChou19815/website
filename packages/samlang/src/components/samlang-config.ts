@@ -224,7 +224,7 @@ export function samlangToMonacoRange(range: Location) {
 
 export function initializeMonacoEditor(
   monacoEditor: MonacoEditor,
-  service: ReturnType<typeof createSamlangLanguageService>
+  service: ReturnType<typeof createSamlangLanguageService>,
 ) {
   monacoEditor.editor.defineTheme('sam-theme', monacoEditorTheme);
   monacoEditor.languages.register({ id: 'samlang' });
@@ -234,7 +234,9 @@ export function initializeMonacoEditor(
   monacoEditor.languages.registerHoverProvider('samlang', {
     provideHover(_, position) {
       const result = service.queryForHover(DemoModuleReference, monacoToSamlangPosition(position));
-      if (result == null) return null;
+      if (result == null) {
+        return null;
+      }
       return { range: samlangToMonacoRange(result.location), contents: result.contents };
     },
   });
@@ -245,7 +247,7 @@ export function initializeMonacoEditor(
       try {
         const results = service.autoComplete(
           DemoModuleReference,
-          monacoToSamlangPosition(position)
+          monacoToSamlangPosition(position),
         );
         return {
           suggestions: results.map(({ label, insertText, insertTextFormat, kind, detail }) => ({
@@ -272,9 +274,11 @@ export function initializeMonacoEditor(
     provideDefinition(model, position) {
       const result = service.queryDefinitionLocation(
         DemoModuleReference,
-        monacoToSamlangPosition(position)
+        monacoToSamlangPosition(position),
       );
-      if (result == null) return null;
+      if (result == null) {
+        return null;
+      }
       return { uri: model.uri, range: samlangToMonacoRange(result) };
     },
   });

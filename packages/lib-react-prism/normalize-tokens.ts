@@ -15,7 +15,9 @@ export type Token = {
 const NEWLINE_RGGEX = /\r\n|\r|\n/;
 
 function checkNotNull<T>(v: T | null | undefined): T {
-  if (v == null) throw new Error();
+  if (v == null) {
+    throw new Error();
+  }
   return v;
 }
 
@@ -27,13 +29,17 @@ function normalizeEmptyLines(line: Token[]): void {
   }
   if (line.length === 1) {
     const firstLine = checkNotNull(line[0]);
-    if (firstLine.content === '') line[0] = { ...firstLine, content: '\n', empty: true };
+    if (firstLine.content === '') {
+      line[0] = { ...firstLine, content: '\n', empty: true };
+    }
   }
 }
 
 function appendTypes(types: string[], add: readonly string[] | string): string[] {
   const typesSize = types.length;
-  if (typesSize > 0 && types[typesSize - 1] === add) return types;
+  if (typesSize > 0 && types[typesSize - 1] === add) {
+    return types;
+  }
   return types.concat(add);
 }
 
@@ -44,7 +50,7 @@ function appendTypes(types: string[], add: readonly string[] | string): string[]
 // This is not recursive to avoid exceeding the call-stack limit, since it's unclear
 // how nested Prism's tokens can become
 export default function normalizeTokens(
-  tokens: ReadonlyArray<PrismToken | string>
+  tokens: ReadonlyArray<PrismToken | string>,
 ): readonly (readonly Token[])[] {
   const typeArrStack: string[][] = [[]];
   const tokenArrStack = [tokens];

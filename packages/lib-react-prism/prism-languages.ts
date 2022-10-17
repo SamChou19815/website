@@ -170,28 +170,29 @@ function registerTypeScript(Prism: typeof PrismType) {
     number: {
       pattern: RegExp(
         // eslint-disable-next-line prefer-template
-        /(^|[^\w$])/.source +
-          '(?:' +
+        `${
+          // eslint-disable-next-line prefer-template
+          /(^|[^\w$])/.source
+        }(?:${
           // constant
-          (/NaN|Infinity/.source +
-            '|' +
+          `${/NaN|Infinity/.source}|${
             // binary integer
-            /0[bB][01]+(?:_[01]+)*n?/.source +
-            '|' +
+            /0[bB][01]+(?:_[01]+)*n?/.source
+          }|${
             // octal integer
-            /0[oO][0-7]+(?:_[0-7]+)*n?/.source +
-            '|' +
+            /0[oO][0-7]+(?:_[0-7]+)*n?/.source
+          }|${
             // hexadecimal integer
-            /0[xX][\dA-Fa-f]+(?:_[\dA-Fa-f]+)*n?/.source +
-            '|' +
+            /0[xX][\dA-Fa-f]+(?:_[\dA-Fa-f]+)*n?/.source
+          }|${
             // decimal bigint
-            /\d+(?:_\d+)*n/.source +
-            '|' +
+            /\d+(?:_\d+)*n/.source
+          }|${
             // decimal number (integer or float) but no bigint
             /(?:\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\.\d+(?:_\d+)*)(?:[Ee][+-]?\d+(?:_\d+)*)?/
-              .source) +
-          ')' +
-          /(?![\w$])/.source
+              .source
+          }`
+        })${/(?![\w$])/.source}`,
       ),
       lookbehind: true,
     },
