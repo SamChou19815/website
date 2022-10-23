@@ -17,10 +17,8 @@ jobs:
           cache: pnpm
       - name: Install
         run: pnpm install --frozen-lockfile
-      - name: Format
-        run: pnpm format
-      - name: Lint
-        run: pnpm lint
+      - name: Rome CI
+        run: pnpm rome ci .
       - name: Type Check
         run: pnpm check --since="HEAD^"
       - name: Build

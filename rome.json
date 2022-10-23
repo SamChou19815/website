@@ -1,5 +1,6 @@
 {
   "formatter": {
+    "enabled": true,
     "indentStyle": "space",
     "indentSize": 2,
     "lineWidth": 100,
@@ -13,6 +14,7 @@
     ]
   },
   "linter": {
+    "enabled": true,
     "ignore": [
       "**/build/*",
       "**/dist/*",
