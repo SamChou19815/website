@@ -28,12 +28,12 @@ const MDXComponents: CustomizedMDXComponents = {
   code: (props) => <code {...props} />,
   a: ({ href, ...props }) => {
     if (href?.startsWith('http')) {
+      // rome-ignore lint(a11y/useAnchorContent): already suppressed
       return <a href={href} {...props} />;
     }
     return <Link {...props} to={href ?? ''} />;
   },
   pre: (props) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const stringOrComponentChildren = props.children as any;
     const { className, children } = (
       isValidElement(stringOrComponentChildren) ? stringOrComponentChildren?.props : props

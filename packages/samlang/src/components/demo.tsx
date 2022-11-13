@@ -56,6 +56,7 @@ export default function LanguageDemo() {
           type="button"
           className="mx-0 my-1 block w-full rounded-md border-0 bg-gray-200 p-2 font-bold leading-normal hover:bg-gray-100"
           onClick={() => setResponse(getResponse(text))}
+          onKeyDown={() => setResponse(getResponse(text))}
         >
           Submit Your Program
         </button>
