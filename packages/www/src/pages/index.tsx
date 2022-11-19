@@ -4,7 +4,6 @@ import CardContainer from '../components/CardContainer';
 import CardHeader from '../components/CardHeader';
 import ConsoleSection from '../components/ConsoleSection';
 import { DATASET_TIMELINE } from '../components/data';
-import WwwSvgIcon from '../components/Icons';
 import StickyCodeBlock from '../components/StickyCodeBlock';
 
 function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.Element {
@@ -12,51 +11,31 @@ function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.
 }
 
 const AboutSection = (
-  <ConsoleSection title="dev-sam about">
-    <Card className="about-info-card mx-auto my-4 w-11/12">
-      <div className="flex flex-row justify-center p-4">
-        <div className="avatar flex items-center">
-          <img
-            className="mr-4 h-12 w-12 overflow-hidden rounded-full"
-            src="/sam-by-megan-3-square.webp"
-            alt="dev-sam fan art"
-          />
-          <h4 className="m-0">Sam Zhou</h4>
-        </div>
+  <Card className="about-info-card responsive-card mx-auto my-4 w-11/12">
+    <div className="flex flex-row justify-center p-4">
+      <div className="avatar flex items-center">
+        <img
+          className="mr-4 h-12 w-12 overflow-hidden rounded-full"
+          src="/sam-by-megan-3-square.webp"
+          alt="dev-sam fan art"
+        />
+        <h4 className="m-0">Sam Zhou</h4>
       </div>
-      <div className="grid grid-cols-1 justify-items-center p-4 sm:grid-cols-2 lg:grid-cols-2">
-        <div className="m-2 flex w-40 content-center items-center">
-          <WwwSvgIcon iconName="work" />
-          <span className="ml-2">Facebook SWE</span>
-        </div>
-        <div className="m-2 flex w-40 content-center items-center">
-          <WwwSvgIcon iconName="github" />
-          <span className="ml-2">OSS Contributor</span>
-        </div>
-        <div className="m-2 flex w-40 content-center items-center">
-          <WwwSvgIcon iconName="school" />
-          <span className="ml-2">Cornell University</span>
-        </div>
-        <div className="m-2 flex w-40 content-center items-center">
-          <WwwSvgIcon iconName="code" />
-          <span className="ml-2">Coding since 13</span>
-        </div>
+    </div>
+    <div className="p-4">
+      <div className="flex flex-grow justify-evenly">
+        <ButtonLink href="https://blog.developersam.com" className="px-1.5">
+          Blog
+        </ButtonLink>
+        <ButtonLink href="https://github.com/SamChou19815" className="px-1.5">
+          GitHub
+        </ButtonLink>
+        <ButtonLink href="/resume.pdf" className="px-1.5">
+          Resume
+        </ButtonLink>
       </div>
-      <div className="p-4">
-        <div className="flex flex-grow justify-evenly">
-          <ButtonLink href="https://blog.developersam.com" className="px-1.5">
-            Blog
-          </ButtonLink>
-          <ButtonLink href="https://github.com/SamChou19815" className="px-1.5">
-            GitHub
-          </ButtonLink>
-          <ButtonLink href="/resume.pdf" className="px-1.5">
-            Resume
-          </ButtonLink>
-        </div>
-      </div>
-    </Card>
-  </ConsoleSection>
+    </div>
+  </Card>
 );
 
 const TimelineSection = (
@@ -67,7 +46,7 @@ const TimelineSection = (
         <CardContainer key={`${item.title}-${item.time}`} className="mb-4 w-full">
           <div className="mx-auto my-0 flex w-full content-start items-start justify-center">
             <span className="connector-dot mt-6 ml-2 mr-4 hidden h-2 w-2 rounded bg-blue-500 lg:block" />
-            <Card className="timeline-card ml-0 w-11/12">
+            <Card className="responsive-card ml-0 w-11/12">
               {item.image != null && <LazyCardMedia image={item.image} title={item.title} />}
               <CardHeader title={item.title} subheader={item.time} />
               {item.detail != null && <div className="p-4 pb-0 last:pb-4">{item.detail}</div>}

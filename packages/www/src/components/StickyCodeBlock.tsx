@@ -1,12 +1,8 @@
 import PrismCodeBlock, { flexibleTheme } from 'lib-react-prism/PrismCodeBlock';
-import React from 'react';
 
 const code = `/**
  * Copyright (C) 2015-${new Date().getFullYear()} Developer Sam.
- * @author sam
- *
- * Try it by yourself at
- * https://samlang.io/demo
+ * @demo https://samlang.io/demo
  */
 
 class Pair<A, B>(val a: A, val b: B)
@@ -17,12 +13,15 @@ class List<T>(Nil(unit), Cons(Pair<T, List<T>>)) {
     List.Cons(Pair.init(t, this))
 }
 class Developer(
-  val github: string, val projects: List<string>
+  val github: string,
+  val company: string,
+  val projects: List<string>,
 ) {
   function sam(): Developer = {
-    val l = List.of("samlang").cons("...");
     val github = "SamChou19815";
-    Developer.init(github, l)
+    val company = "Facebook";
+    val projects = List.of("samlang").cons("...");
+    Developer.init(github, company, projects)
   }
 }
 class Main {
