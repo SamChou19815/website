@@ -90,7 +90,7 @@ svg {
 
 /* timeline-section */
 @media screen and (min-width: 1280px) {
-  .timeline-card {
+  .responsive-card {
     width: 500px;
   }
   .timeline-vertical-bar {
@@ -99,7 +99,7 @@ svg {
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
-  .timeline-card {
+  .responsive-card {
     width: 400px;
   }
   .timeline-vertical-bar {
