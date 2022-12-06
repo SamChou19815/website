@@ -6,14 +6,14 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/:path(.*)",
       "has": [
         { "type": "host", "value": "blog.developersam.com" }
       ],
       "destination": "/blog/:path*"
     },
     {
-      "source": "/:path*",
+      "source": "/:path(.*)",
       "has": [
         { "type": "host", "value": "www.samlang.io" },
         { "type": "host", "value": "samlang.io" }
@@ -21,7 +21,7 @@
       "destination": "/samlang/:path*"
     },
     {
-      "source": "/:path*",
+      "source": "/:path(.*)",
       "has": [
         { "type": "host", "value": "developersam.com" },
         { "type": "host", "value": "www.developersam.com" }
