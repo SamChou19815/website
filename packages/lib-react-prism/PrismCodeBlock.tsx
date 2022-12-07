@@ -24,7 +24,7 @@ export default function PrismCodeBlock({
 }: Props): JSX.Element {
   return (
     <Highlight
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // rome-ignore lint/suspicious/noExplicitAny: <explanation>
       Prism={Prism as any}
       theme={userDefinedTheme || flexibleTheme}
       code={children}
@@ -34,8 +34,10 @@ export default function PrismCodeBlock({
         const combinedClassname =
           userDefinedClassname == null ? className : `${className} ${userDefinedClassname}`;
         const content = tokens.map((line, i) => (
+          // rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
           <div key={i} {...getLineProps({ line })}>
             {line.map((token, key) => (
+              // rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <span key={key} {...getTokenProps({ token })} />
             ))}
           </div>
