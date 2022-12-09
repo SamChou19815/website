@@ -28,12 +28,13 @@ const MDXComponents: CustomizedMDXComponents = {
   code: (props) => <code {...props} />,
   a: ({ href, ...props }) => {
     if (href?.startsWith('http')) {
-      // rome-ignore lint(a11y/useAnchorContent): already suppressed
+      // rome-ignore lint/a11y/useAnchorContent: already suppressed
       return <a href={href} {...props} />;
     }
     return <Link {...props} to={href ?? ''} />;
   },
   pre: (props) => {
+    // rome-ignore lint/suspicious/noExplicitAny: <explanation>
     const stringOrComponentChildren = props.children as any;
     const { className, children } = (
       isValidElement(stringOrComponentChildren) ? stringOrComponentChildren?.props : props

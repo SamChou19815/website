@@ -5,6 +5,7 @@
     "indentSize": 2,
     "lineWidth": 100,
     "ignore": [
+      "**/.vercel/*",
       "**/build/*",
       "**/dist/*",
       "**/out/*",
@@ -17,6 +18,7 @@
   "linter": {
     "enabled": true,
     "ignore": [
+      "**/.vercel/*",
       "**/build/*",
       "**/dist/*",
       "**/out/*",
@@ -26,10 +28,7 @@
       ".eslintignore"
     ],
     "rules": {
-      "recommended": true,
-      "correctness": {
-        "useSingleCaseStatement":"off"
-      }
+      "recommended": true
     }
   },
   "javascript": {

@@ -103,7 +103,6 @@ function matchPattern(
     // change the match to remove the text matched by the Prism lookbehind group
     const lookbehindLength = match[1].length;
     match.index += lookbehindLength;
-    // @ts-expect-error: indexing
     match[0] = match[0].slice(lookbehindLength);
   }
   return match;
@@ -189,7 +188,6 @@ function matchGrammar(
           }
 
           const from = match.index;
-          // @ts-expect-error: indexing
           const to = match.index + match[0].length;
           let p = pos;
 

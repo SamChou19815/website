@@ -53,6 +53,7 @@ const TimelineSection = (
               {item.links != null && (
                 <div className="p-4">
                   {item.links.map(({ name, url }, index) => (
+                    // rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                     <ButtonLink key={index} href={url} className="px-1.5">
                       {name}
                     </ButtonLink>
