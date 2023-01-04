@@ -41,6 +41,13 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     detail: 'Graduated as an M.Eng student. 👋',
   },
   {
+    title: 'samlang emits WASM code',
+    time: 'October 2021',
+    links: [
+      { name: 'Blog Post', url: 'https://blog.developersam.com/2021/10/29/samlang-wasm-backend' },
+    ],
+  },
+  {
     title: 'Facebook SWE Intern',
     time: 'June 2021',
     image: Flow,
