@@ -1,94 +1,145 @@
-import {
-  compileSingleSamlangSource,
-  SamlangSingleSourceCompilationResult,
-} from '@dev-sam/samlang-core';
 import theme from 'lib-react-prism/prism-theme.json';
-import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
-import React, { useState } from 'react';
-import PrismCodeEditor from './PrismCodeEditor';
+import Editor from '@monaco-editor/react';
+import React, { useState, useRef, useEffect } from 'react';
+import * as samlang from 'samlang-demo';
+import { initializeMonacoEditor, MonacoEditor, monacoEditorOptions } from './samlang-config';
 
-const initialText = `class Main {
+const INITIAL_CODE = `class Main {
   function main(): unit =
     Builtins.println("Hello World!")
-}`;
+}
+`;
 
-function getResponse(programString: string): SamlangSingleSourceCompilationResult {
+const HEIGHT = 'calc(100vh - 2.5rem)';
+
+async function getResponse(programString: string): Promise<samlang.CompilationResult> {
   try {
-    return compileSingleSamlangSource(programString);
+    return samlang.compile(programString);
   } catch (interpreterError) {
-    return {
-      __type__: 'ERROR',
-      errors: [
-        (interpreterError instanceof Error && interpreterError.message) ||
-          'Unknown interpreter error.',
-      ],
-    };
+    console.error(interpreterError);
+    return `Interpreter Error:
+${interpreterError instanceof Error ? interpreterError.message : 'Unknown Error'}`;
   }
 }
 
-type DemoResultProps = {
-  readonly title: string;
-  readonly language?: string;
-  readonly borderColorCSS: string;
-  readonly children: string;
-};
-function DemoResult({ title, language = '', borderColorCSS, children }: DemoResultProps) {
-  return (
-    <div className={`border-l-2 border-solid pl-4 pt-2 pb-2 ${borderColorCSS}`}>
-      <h3>{title}</h3>
-      <PrismCodeBlock language={language}>{children}</PrismCodeBlock>
-    </div>
-  );
+function ReadOnlyResultEditor({
+  response,
+}: { readonly response: samlang.CompilationResult | null }): JSX.Element {
+  if (typeof response === 'string' || response == null) {
+    return (
+      <Editor
+        width="50vw"
+        height={HEIGHT}
+        theme="sam-theme"
+        path='result.txt'
+        value={response ?? 'Loading response...'}
+        options={{ ...monacoEditorOptions, readOnly: true }}
+      />
+    );
+  } else {
+    const text = `// Standard out:
+// ${response.interpreterResult}
+// Optimized TypeScript emit:
+${response.tsCode}`;
+    return (
+      <Editor
+        defaultLanguage="typescript"
+        theme="sam-theme"
+        width="50vw"
+        height={HEIGHT}
+        path='Demo.ts'
+        value={text}
+        options={{ ...monacoEditorOptions, readOnly: true }}
+      />
+    );
+  }
 }
 
 export default function LanguageDemo() {
-  const [text, setText] = useState(initialText);
-  const [response, setResponse] = useState(() => getResponse(initialText));
+  const [code, setCode] = useState(INITIAL_CODE);
+  const [response, setResponse] = useState<samlang.CompilationResult | null>(null);
+  const serviceRef = useRef({ source: '' });
+  const monanoRef = useRef<MonacoEditor | null>(null);
+
+  useEffect(() => {
+    getResponse(INITIAL_CODE).then(setResponse);
+  }, []);
+
+  useEffect(() => {
+    const monaco = monanoRef.current;
+    if (monaco == null) {
+      return;
+    }
+    const model = monaco.editor.getModels()[0];
+    if (model == null) {
+      return;
+    }
+    if (typeof response !== 'string') {
+      monaco.editor.setModelMarkers(model, 'samlang', []);
+      return;
+    }
+    monaco.editor.setModelMarkers(
+      model,
+      'samlang',
+      response.split('\n').flatMap((line) => {
+        const [p1, p2] = line.substring('Demo.sam:'.length).split('-');
+        if (p1 == null || p2 == null) return [];
+        const [lineStart, colStart] = p1.split(':');
+        const [lineEnd, colEnd, ...rest] = p2.split(':');
+        if (lineStart == null || colStart == null || lineEnd == null || colEnd == null) {
+          return [];
+        }
+        return {
+          startLineNumber: parseInt(lineStart, 10),
+          startColumn: parseInt(colStart, 10),
+          endLineNumber: parseInt(lineEnd, 10),
+          endColumn: parseInt(colEnd, 10),
+          message: rest.join(':').trim(),
+          severity: 8,
+        };
+      }),
+    );
+  }, [response]);
 
   return (
-    <div className="m-4 border border-solid border-gray-300 bg-white p-4">
-      <h2 id="demo">Demo</h2>
-      <div>
-        <div style={{ backgroundColor: (theme.plain as Record<string, string>).backgroundColor }}>
-          <PrismCodeEditor code={text} onCodeChange={setText} />
+    <div>
+      <div className="flex w-full">
+        <div className="w-3/6 h-10 leading-10 text-center border-r-2 border-r-gray-300">
+          Demo.sam
         </div>
-        <button
-          type="button"
-          className="mx-0 my-1 block w-full rounded-md border-0 bg-gray-200 p-2 font-bold leading-normal hover:bg-gray-100"
-          onClick={() => setResponse(getResponse(text))}
-          onKeyDown={() => setResponse(getResponse(text))}
-        >
-          Submit Your Program
-        </button>
+        <div className="w-3/6 h-10 leading-10 text-center">
+          Compiler Output & Interpreter Result
+        </div>
       </div>
-      <div className="mt-4">
-        {response.__type__ === 'ERROR' ? (
-          <DemoResult title="Errors" borderColorCSS="border-red-500">
-            {response.errors.join('\n')}
-          </DemoResult>
-        ) : (
+      <div
+        style={{ backgroundColor: (theme.plain as Record<string, string>).backgroundColor }}
+        className="flex"
+      >
+        {__SERVER__ ? null : (
           <>
-            {response.emittedTSCode && (
-              <DemoResult
-                title="Optimized TypeScript"
-                language="typescript"
-                borderColorCSS="border-gray-400"
-              >
-                {response.emittedTSCode.trim()}
-              </DemoResult>
-            )}
-            {response.interpreterResult && (
-              <DemoResult title="Program Standard Out" borderColorCSS="border-green-500">
-                {response.interpreterResult.trim()}
-              </DemoResult>
-            )}
+            <Editor
+              defaultLanguage="samlang"
+              className="border-r-2 border-r-gray-300"
+              theme="sam-theme"
+              width="50vw"
+              height={HEIGHT}
+              defaultValue={code}
+              options={monacoEditorOptions}
+              onChange={(newCode?: string) => {
+                if (newCode != null) {
+                  serviceRef.current.source = code;
+                  setCode(newCode);
+                  getResponse(newCode).then(setResponse);
+                }
+              }}
+              beforeMount={(monaco) => {
+                initializeMonacoEditor(monaco, serviceRef.current);
+                monanoRef.current = monaco;
+              }}
+            />
+            <ReadOnlyResultEditor response={response} />
           </>
         )}
-      </div>
-      <div className="w-full">
-        <a className="mx-0 my-4 block text-center" href="/">
-          Go Back Home
-        </a>
       </div>
     </div>
   );

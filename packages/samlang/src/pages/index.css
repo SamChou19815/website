@@ -62,14 +62,3 @@ p {
     max-width: 50%;
   }
 }
-
-.prism-code-editor {
-  white-space: pre-wrap;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-}
-
-.prism-code-editor.text-area {
-  overflow: scroll !important;
-  caret-color: black;
-}

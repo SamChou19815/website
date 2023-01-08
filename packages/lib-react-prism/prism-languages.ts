@@ -2,8 +2,6 @@
 
 import type PrismType from './prism-core';
 
-/* eslint-disable no-useless-escape */
-
 const STRING_TOKEN_REGEX = /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;
 const BLOCK_COMMENT_REGEX = /(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/;
 const LINE_COMMENT_REGEX = /(^|[^\\:])\/\/.*/;
@@ -169,11 +167,7 @@ function registerTypeScript(Prism: typeof PrismType) {
     function: /[_a-z][A-Za-z0-9_$]*\s*(?=(\(|<))/,
     number: {
       pattern: RegExp(
-        // eslint-disable-next-line prefer-template
-        `${
-          // eslint-disable-next-line prefer-template
-          /(^|[^\w$])/.source
-        }(?:${
+        `${/(^|[^\w$])/.source}(?:${
           // constant
           `${/NaN|Infinity/.source}|${
             // binary integer

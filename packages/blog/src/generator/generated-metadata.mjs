@@ -4,9 +4,16 @@
 /** @type {readonly BlogPostMetadata[]} */
 const generatedMetaDataList = [
   {
+    "title": "Rewriting samlang in Rust",
+    "formattedDate": "2023-01-08",
+    "permalink": "/2023/01/08/samlang-rust-rewrite",
+    "nextPermalink": "/2022/09/05/bounded-qualification"
+  },
+  {
     "title": "Bounded Qualification in samlang",
     "formattedDate": "2022-09-05",
     "permalink": "/2022/09/05/bounded-qualification",
+    "prevPermalink": "/2023/01/08/samlang-rust-rewrite",
     "nextPermalink": "/2022/01/28/why-useless-code"
   },
   {

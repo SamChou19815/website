@@ -90,12 +90,10 @@ for (const { permalink } of generatedMetadata) {
     join(BLOG_DIRECTORY, `${permalink.split('/').slice(1).join('-')}.md`),
   );
   const generatedSource = `// @${'generated'}
-// eslint-disable
 import React from 'react';
 import BlogPostPage from '${BLOG_POST_PAGE_COMPONENT_PATH}';
 import Content from '${contentImportPath}';
 
-// prettier-ignore
 export default () => <BlogPostPage content={Content} permalink="${permalink}" />;
 `;
   const directory = join('src', 'pages', permalink.substring(1));

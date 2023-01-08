@@ -1,5 +1,4 @@
-import { Location, ModuleReference, Position } from '@dev-sam/samlang-core';
-import type createSamlangLanguageService from '@dev-sam/samlang-core/services';
+import * as samlang from 'samlang-demo';
 import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import type { editor, languages } from 'monaco-editor/esm/vs/editor/editor.api';
 
@@ -204,27 +203,9 @@ const languageDefinition: languages.IMonarchLanguage = {
   },
 };
 
-export const DemoModuleReference = ModuleReference(['Demo']);
-
-function monacoToSamlangPosition(position: monaco.Position): Position {
-  return {
-    line: position.lineNumber - 1,
-    character: position.column - 1,
-  };
-}
-
-export function samlangToMonacoRange(range: Location) {
-  return {
-    startLineNumber: range.start.line + 1,
-    startColumn: range.start.character + 1,
-    endLineNumber: range.end.line + 1,
-    endColumn: range.end.character + 1,
-  };
-}
-
 export function initializeMonacoEditor(
   monacoEditor: MonacoEditor,
-  service: ReturnType<typeof createSamlangLanguageService>,
+  sourceBox: { readonly source: string },
 ) {
   monacoEditor.editor.defineTheme('sam-theme', monacoEditorTheme);
   monacoEditor.languages.register({ id: 'samlang' });
@@ -233,53 +214,40 @@ export function initializeMonacoEditor(
 
   monacoEditor.languages.registerHoverProvider('samlang', {
     provideHover(_, position) {
-      const result = service.queryForHover(DemoModuleReference, monacoToSamlangPosition(position));
-      if (result == null) {
-        return null;
-      }
-      return { range: samlangToMonacoRange(result.location), contents: result.contents };
+      return samlang.queryType(sourceBox.source, position.lineNumber, position.column);
     },
   });
 
   monacoEditor.languages.registerCompletionItemProvider('samlang', {
     triggerCharacters: ['.'],
-    provideCompletionItems(_, position) {
+    async provideCompletionItems(editor, position) {
+      const offset = editor.getOffsetAt(position);
+      let source = sourceBox.source;
+      if (sourceBox.source.charAt(offset) !== '.') {
+        source = `${source.substring(0, offset)}.${source.substring(offset)}`;
+      }
       try {
-        const results = service.autoComplete(
-          DemoModuleReference,
-          monacoToSamlangPosition(position),
+        const suggestions = await samlang.autoComplete(
+          source,
+          position.lineNumber,
+          position.column,
         );
-        return {
-          suggestions: results.map(({ label, insertText, insertTextFormat, kind, detail }) => ({
-            range: {
-              startLineNumber: position.lineNumber,
-              startColumn: position.column,
-              endLineNumber: position.lineNumber,
-              endColumn: position.column,
-            },
-            label,
-            insertText,
-            insertTextRules: insertTextFormat === 2 ? 4 : undefined,
-            kind,
-            detail,
-          })),
-        };
-      } catch {
+        return { suggestions };
+      } catch (e) {
+        console.log(e);
         return null;
       }
     },
   });
 
   monacoEditor.languages.registerDefinitionProvider('samlang', {
-    provideDefinition(model, position) {
-      const result = service.queryDefinitionLocation(
-        DemoModuleReference,
-        monacoToSamlangPosition(position),
+    async provideDefinition(model, position) {
+      const range = await samlang.queryDefinitionLocation(
+        sourceBox.source,
+        position.lineNumber,
+        position.column,
       );
-      if (result == null) {
-        return null;
-      }
-      return { uri: model.uri, range: samlangToMonacoRange(result) };
+      return range != null ? { uri: model.uri, range } : null;
     },
   });
 }

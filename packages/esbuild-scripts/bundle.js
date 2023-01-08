@@ -15,5 +15,4 @@ build({
   external: ['esbuild', 'postcss', 'tailwindcss'],
 })
   .catch(() => process.exit(1))
-  // eslint-disable-next-line no-console
   .then(({ warnings }) => warnings.forEach((warning) => console.error(`[!] ${warning.text}`)));

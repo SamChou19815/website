@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import { build, BuildOptions, BuildResult } from 'esbuild';
 import express from 'express';
 import expressWebSocket from 'express-ws';
@@ -61,8 +59,8 @@ class EsbuildScriptsDevServer {
         expressConnections = expressConnections.filter((curr) => curr !== connection);
       });
     });
-    this.websocketServer.on('connection', () =>
-      this.webSocketServerPublish({ hasErrors: this.hasErrors }),
+    this.websocketServer.on('connection', (socket) =>
+      socket.send(JSON.stringify({ hasErrors: this.hasErrors })),
     );
 
     build({
@@ -129,12 +127,15 @@ class EsbuildScriptsDevServer {
       isCSSChangeOnly(this.files, newFiles) && newFiles.find((it) => it.endsWith('.css'));
     this.files = newFiles;
     this.hasErrors = errors.length > 0;
-    this.webSocketServerPublish({ hasErrors: this.hasErrors, cssOnlyChange });
+    this.websocketServer.clients.forEach((socket) =>
+      socket.send(
+        JSON.stringify({
+          hasErrors: this.hasErrors,
+          cssOnlyChange,
+        }),
+      ),
+    );
     console.error(`[✓] Build finished with ${errors.length} errors.`);
-  }
-
-  private webSocketServerPublish(obj: unknown) {
-    this.websocketServer.clients.forEach(async (socket) => socket.send(JSON.stringify(obj)));
   }
 
   private getEntryPoint(url: string) {

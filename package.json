@@ -28,7 +28,7 @@
     "typescript": "^4.9.3"
   },
   "lint-staged": {
-    "**/*.{ts,js,tsx,jsx,scss,css,html,yml}": [
+    "**/*.{ts,js,tsx,jsx,html,yml}": [
       "pnpm rome format --write"
     ]
   }

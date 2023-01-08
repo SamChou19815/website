@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import buildCommand from './commands/command-build';
 import startCommand from './commands/command-start';
 

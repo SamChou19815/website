@@ -39,6 +39,11 @@ a:active {
   text-decoration: none;
 }
 
+blockquote {
+  border-left: 2px solid #CCC;
+  padding-left: 0.5rem;
+}
+
 @media (min-width: 1024px) {
   .custom-container {
     max-width: 968px;

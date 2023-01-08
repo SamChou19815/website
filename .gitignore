@@ -5,7 +5,6 @@
 server/target
 *.tsbuildinfo
 *.js.map
-.eslintcache
 
 # misc
 .DS_Store

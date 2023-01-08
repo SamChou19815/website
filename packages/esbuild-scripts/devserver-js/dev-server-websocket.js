@@ -1,5 +1,4 @@
 // @ts-check
-/* eslint-disable no-console */
 
 (() => {
   const url = new URL('/_ws', window.location.href);
