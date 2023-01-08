@@ -5,13 +5,14 @@ export const additionalProperties = ({ ogImage:
 
 ## Motivation
 
-Unlike my previous blog post on samlang's [TypeScript rewrite](/2020/08/30/samlang-ts-rewrite), the
-Rust rewrite does not have that much stronger motivation. Of course, Rust is much more performant
-than TypeScript. However, the scale of the largest known samlang codebase, which is the integration
-test suite in the samlang repo, doesn't justify a rewrite for the sake of performance. Despite that
-the Rust compiler is rewritten in Rust, a native compiled language, it also doesn't mean that the
-build process in Rust is faster. Instead, due to the complexity of the Rust type system, it's at
-least 2x slower than the previous TypeScript setup.
+Unlike my previous blog post on [samlang](https://samlang.io)'s
+[TypeScript rewrite](/2020/08/30/samlang-ts-rewrite), the Rust rewrite does not have that much
+stronger motivation. Of course, Rust is much more performant than TypeScript. However, the scale of
+the largest known samlang codebase, which is the integration test suite in the samlang repo, doesn't
+justify a rewrite for the sake of performance. Despite that the Rust compiler is rewritten in Rust,
+a native compiled language, it also doesn't mean that the build process in Rust is faster. Instead,
+due to the complexity of the Rust type system, it's at least 2x slower than the previous TypeScript
+setup.
 
 With all the counter-arguments above, it's natural to ask myself: why should I still do it? I found
 the answer to that question from Kennedy's speech:
@@ -136,8 +137,8 @@ export function queryType(
 // ...
 ```
 
-Since now the demo is running on much faster WASM, I was able to afford running all the compilations
-and language services _on every keystroke_:
+Since now the [demo](https://samlang.io/demo) is running on much faster WASM, I was able to afford
+running all the compilations and language services _on every keystroke_:
 
 ![Demo](/img/2023-01-08-samlang-in-rust/demo.gif)
 
