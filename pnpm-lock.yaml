@@ -92,20 +92,20 @@ importers:
 
   packages/samlang:
     specifiers:
-      '@dev-sam/samlang-core': ^0.7.0
       '@monaco-editor/react': ^4.4.5
       esbuild-scripts: workspace:*
       lib-react-prism: workspace:*
       monaco-editor: ^0.33.0
       react: ^18.1.0
       react-dom: ^18.1.0
+      samlang-demo: file:samlang-demo-0.0.1.tgz
     dependencies:
-      '@dev-sam/samlang-core': 0.7.0
       '@monaco-editor/react': 4.4.5_d24t5d2y775ybedwi37th2htxm
       lib-react-prism: link:../lib-react-prism
       monaco-editor: 0.33.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
+      samlang-demo: file:packages/samlang/samlang-demo-0.0.1.tgz
     devDependencies:
       esbuild-scripts: link:../esbuild-scripts
 
@@ -135,12 +135,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
-    dev: false
-
-  /@dev-sam/samlang-core/0.7.0:
-    resolution: {integrity: sha512-OgdSbOrQ8Rf40Vf9y3JaGrAH5WD2u3+m0k6IV6A1g0T3rUPBKztwgY+efR2GUS4mGYLpCifJFJGLEDl/IPX6xQ==}
-    dependencies:
-      binaryen: 102.0.0
     dev: false
 
   /@esbuild/android-arm/0.16.1:
@@ -723,11 +717,6 @@ packages:
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
-
-  /binaryen/102.0.0:
-    resolution: {integrity: sha512-lXemQSay90n49CHlUgWl68/q2/htIJrVrvUkNP3U38RkcyvaqBurIhFadf7NF5v7CT1HzmNufiURE6WRNF1l5g==}
-    hasBin: true
-    dev: false
 
   /body-parser/1.19.1:
     resolution: {integrity: sha512-8ljfQi5eBk8EJfECMrgqNGWPEY5jWP+1IzkzkGdFFEwFQZZyaZ21UqdaHktgiMlH0xLHqIFtE/u2OYE5dOtViA==}
@@ -2781,3 +2770,9 @@ packages:
   /zwitch/2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
     dev: true
+
+  file:packages/samlang/samlang-demo-0.0.1.tgz:
+    resolution: {integrity: sha512-o1ynJGdY7S1FhyxjxqgC/9Zak3Q4ueUua3G/NnZV5p+TGQtW+UMQmc+jX/tg9FIWIXYlF0n5au1kJe+wJSH3XA==, tarball: file:packages/samlang/samlang-demo-0.0.1.tgz}
+    name: samlang-demo
+    version: 0.0.1
+    dev: false

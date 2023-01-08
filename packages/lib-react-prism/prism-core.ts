@@ -1,7 +1,5 @@
 // Forked from https://github.com/PrismJS/prism
 
-/* eslint-disable no-prototype-builtins */
-
 /** The expansion of a simple `RegExp` literal to support additional properties. */
 interface GrammarToken {
   /** The regular expression of the token. */

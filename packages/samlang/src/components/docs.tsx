@@ -157,7 +157,7 @@ letting you create an object class.`}</p>
         method cannot be used outside of the class that defines it.
       </p>
       <h3>Variant Class</h3>
-      <p>{`An object class defines a producct type; a variant class defines a sum type. With variant
+      <p>{`An object class defines a product type; a variant class defines a sum type. With variant
 class, you can define a type that can be either A or B or C. Here is an example:`}</p>
       <PrismCodeBlock language="samlang">
         {`class Type(

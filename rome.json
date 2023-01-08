@@ -12,7 +12,7 @@
       "packages/esbuild-scripts/api.js",
       "packages/blog/src/generator/generated-metadata.mjs",
       "packages/blog/src/pages/**",
-      ".eslintignore"
+      "packages/samlang-demo/index.js"
     ]
   },
   "linter": {
@@ -25,7 +25,7 @@
       "packages/esbuild-scripts/api.js",
       "packages/blog/src/generator/generated-metadata.mjs",
       "packages/blog/src/pages/**",
-      ".eslintignore"
+      "packages/samlang-demo/index.js"
     ],
     "rules": {
       "recommended": true

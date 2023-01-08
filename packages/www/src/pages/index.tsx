@@ -11,7 +11,7 @@ function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.
 }
 
 const AboutSection = (
-  <Card className="about-info-card responsive-card mx-auto my-4 w-11/12">
+  <Card className="responsive-card mx-auto my-4 w-11/12">
     <div className="flex flex-row justify-center p-4">
       <div className="avatar flex items-center">
         <img

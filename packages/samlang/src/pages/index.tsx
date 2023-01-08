@@ -1,7 +1,5 @@
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
-import React from 'react';
 import Docs from '../components/docs';
-import SideNav from '../components/SideNav';
 
 const HELLO_WORLD_CODE = `class HelloWorld {
   function getString(): string =
@@ -37,11 +35,11 @@ const TYPE_INFERENCE_CODE = `class TypeInference {
   function main(): unit = {
     // n: int
     // s: string
-    val _ = Main.pipe(
+    val _ = TypeInference.pipe(
       1,
       (n) -> Builtins.intToString(n),
       (s) -> Builtins.stringToInt(s)
-    )
+    );
   }
 }`;
 
@@ -54,8 +52,7 @@ const features = [
 
 export default function Home(): JSX.Element {
   return (
-    <div className="homepage-container m-auto flex max-w-7xl flex-row">
-      <SideNav />
+    <div className="homepage-container">
       <main className="w-full overflow-hidden">
         <header
           className="my-4 mt-0 flex flex-col items-center bg-blue-500 px-8 py-12 text-white"
@@ -76,16 +73,36 @@ export default function Home(): JSX.Element {
             <br className="hidden sm:block" />
             programming language with type inference.
           </p>
+          <div className="flex">
+            <a
+              href="demo"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md m-4 p-2 w-32 text-xl text-center text-gray-800 bg-gray-100 hover:bg-slate-200"
+            >
+              Demo
+            </a>
+            <a
+              href="https://github.com/SamChou19815/samlang"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md m-4 p-2 w-32 text-xl text-center text-gray-800 bg-gray-100 hover:bg-slate-200"
+            >
+              GitHub
+            </a>
+          </div>
         </header>
-        <section className="my-4 flex flex-wrap items-center border border-solid border-gray-300 bg-white p-4">
-          {features.map(({ title, code }) => (
-            <div key={title} className="half-width-flex w-full p-2">
-              <h3 id={`example-${title.toLowerCase().replaceAll(' ', '-')}`}>{title}</h3>
-              <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
-            </div>
-          ))}
-        </section>
-        <Docs />
+        <div className="max-w-7xl m-auto">
+          <section className="my-4 flex flex-wrap max-w-7xl items-center border border-solid border-gray-300 bg-white p-4">
+            {features.map(({ title, code }) => (
+              <div key={title} className="half-width-flex w-full p-2">
+                <h3 id={`example-${title.toLowerCase().replaceAll(' ', '-')}`}>{title}</h3>
+                <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
+              </div>
+            ))}
+          </section>
+          <Docs />
+        </div>
       </main>
     </div>
   );

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-const CardBaseCSS = 'flex flex-col bg-white dark:bg-gray-800 rounded filter drop-shadow';
+const CardBaseCSS = 'flex flex-col bg-white rounded filter drop-shadow';
 
 type Props = { readonly className?: string; readonly children: ReactNode };
 
