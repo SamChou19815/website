@@ -2,7 +2,6 @@ import ButtonLink from '../components/ButtonLink';
 import Card from '../components/Card';
 import CardContainer from '../components/CardContainer';
 import CardHeader from '../components/CardHeader';
-import ConsoleSection from '../components/ConsoleSection';
 import { DATASET_TIMELINE } from '../components/data';
 import StickyCodeBlock from '../components/StickyCodeBlock';
 
@@ -11,7 +10,7 @@ function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.
 }
 
 const AboutSection = (
-  <Card className="responsive-card mx-auto my-4 w-11/12">
+  <Card className="lg:w-[500px] mx-auto my-4 w-11/12">
     <div className="flex flex-row justify-center p-4">
       <div className="avatar flex items-center">
         <img
@@ -39,14 +38,17 @@ const AboutSection = (
 );
 
 const TimelineSection = (
-  <ConsoleSection title="dev-sam timeline">
-    <div className="timeline-section relative flex flex-row flex-wrap items-center justify-center">
-      <div className="timeline-vertical-bar absolute top-8 bottom-36 hidden w-0.5 bg-blue-500 lg:block" />
+  <section>
+    <div className="top-0 z-10 w-full px-0 py-4 text-xl text-center font-medium">
+      <code>$&nbsp; dev-sam timeline</code>
+    </div>
+    <div className="relative flex flex-row flex-wrap items-center justify-center">
+      <div className="lg:left-[calc(50%-255px)] absolute top-8 bottom-36 hidden w-0.5 bg-blue-500 lg:block" />
       {DATASET_TIMELINE.map((item) => (
         <CardContainer key={`${item.title}-${item.time}`} className="mb-4 w-full">
           <div className="mx-auto my-0 flex w-full content-start items-start justify-center">
             <span className="connector-dot mt-6 ml-2 mr-4 hidden h-2 w-2 rounded bg-blue-500 lg:block" />
-            <Card className="responsive-card ml-0 w-11/12">
+            <Card className="lg:w-[500px] ml-0 w-11/12">
               {item.image != null && <LazyCardMedia image={item.image} title={item.title} />}
               <CardHeader title={item.title} subheader={item.time} />
               {item.detail != null && <div className="p-4 pb-0 last:pb-4">{item.detail}</div>}
@@ -65,16 +67,16 @@ const TimelineSection = (
         </CardContainer>
       ))}
     </div>
-  </ConsoleSection>
+  </section>
 );
 
 export default function IndexPage(): JSX.Element {
   return (
     <div className="relative mx-auto flex max-w-[1440px] flex-row flex-wrap justify-start lg:flex-nowrap">
-      <div className="sidebar flex h-screen w-full flex-wrap items-center lg:sticky lg:top-0">
+      <div className="lg:w-[550px] flex h-screen w-full flex-wrap items-center lg:sticky lg:top-0">
         <StickyCodeBlock />
       </div>
-      <div className="content-block my-12 w-full">
+      <div className="my-12">
         {AboutSection}
         {TimelineSection}
       </div>

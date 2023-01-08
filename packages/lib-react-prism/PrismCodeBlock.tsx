@@ -3,7 +3,6 @@ import Highlight, { type PrismTheme } from './Highlight';
 import Prism from './prism-core';
 import registerPrismLanguages from './prism-languages';
 import theme from './prism-theme.json';
-import './PrismCodeBlock.css';
 
 registerPrismLanguages(Prism);
 

@@ -493,7 +493,7 @@ function TypeInference() {
 export default function Docs(): JSX.Element {
   return (
     <section className="my-4 border border-solid border-gray-300 bg-white p-4">
-      <article>
+      <article className="markdown">
         <Introduction />
         <GettingStarted />
         <ProgramLayout />

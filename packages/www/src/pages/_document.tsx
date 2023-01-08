@@ -1,6 +1,6 @@
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import type { ReactNode } from 'react';
-import './index.css';
+import 'lib-react-prism/common.css';
 
 export default function Document({ children }: { readonly children: ReactNode }): JSX.Element {
   return (

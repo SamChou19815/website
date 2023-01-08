@@ -3,7 +3,7 @@ import Link from 'esbuild-scripts/components/Link';
 import { useLocation } from 'esbuild-scripts/components/router-hooks';
 import type { ReactNode } from 'react';
 import { BLOG_LOGO, BLOG_TITLE, BLOG_URL } from '../constants';
-import './index.css';
+import 'lib-react-prism/common.css';
 
 export default function DocumentWrapper({ children }: { children: ReactNode }): JSX.Element {
   let path = useLocation().pathname;
@@ -39,7 +39,7 @@ export default function DocumentWrapper({ children }: { children: ReactNode }): 
           </div>
         </div>
       </nav>
-      <div className="custom-container my-8 mx-auto">{children}</div>
+      <div className="lg:max-w-screen-lg my-8 mx-auto">{children}</div>
     </>
   );
 }
