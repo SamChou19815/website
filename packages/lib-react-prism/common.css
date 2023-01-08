@@ -1,3 +1,63 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply my-4 font-sans text-4xl font-semibold;
+  }
+  h2 {
+    @apply my-4 font-sans text-3xl font-semibold;
+  }
+  h3 {
+    @apply my-4 font-sans text-2xl font-semibold;
+  }
+  h4 {
+    @apply my-4 font-sans text-xl font-semibold;
+  }
+  h5 {
+    @apply my-4 font-sans text-lg font-semibold;
+  }
+  h6 {
+    @apply my-4 font-semibold;
+  }
+  a {
+    @apply text-blue-500;
+  }
+  blockquote {
+    @apply border-l-4 border-l-gray-300 pl-2;
+  }
+  body {
+    color: #1c1e21;
+    background: #f7f7f7;
+    word-wrap: break-word;
+    @apply antialiased;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  pre {
+    @apply ml-0 mr-0 mt-4 mb-4 p-2 rounded-md text-sm;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+.markdown p,
+.markdown ul,
+.markdown ol {
+  margin-bottom: 1em;
+  line-height: 1.75rem;
+}
+
+.markdown img {
+  margin-bottom: 2em;
+}
+
+.markdown pre {
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
+
 :root {
   --prism-code-block-plain-color: rgb(56, 72, 79);
   --prism-code-block-background-color: #f7f7f7;

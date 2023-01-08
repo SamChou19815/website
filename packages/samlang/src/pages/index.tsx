@@ -95,9 +95,11 @@ export default function Home(): JSX.Element {
         <div className="max-w-7xl m-auto">
           <section className="my-4 flex flex-wrap max-w-7xl items-center border border-solid border-gray-300 bg-white p-4">
             {features.map(({ title, code }) => (
-              <div key={title} className="half-width-flex w-full p-2">
+              <div key={title} className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%] p-2">
                 <h3 id={`example-${title.toLowerCase().replaceAll(' ', '-')}`}>{title}</h3>
-                <PrismCodeBlock language="samlang">{code}</PrismCodeBlock>
+                <PrismCodeBlock language="samlang" className="mb-0">
+                  {code}
+                </PrismCodeBlock>
               </div>
             ))}
           </section>
