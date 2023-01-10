@@ -10,9 +10,8 @@
       "**/dist/*",
       "**/out/*",
       "packages/esbuild-scripts/api.js",
-      "packages/blog/src/generator/generated-metadata.mjs",
-      "packages/blog/src/pages/**",
-      "packages/samlang-demo/index.js"
+      "packages/www/src/generator/generated-metadata.mjs",
+      "packages/www/src/pages/blog/**"
     ]
   },
   "linter": {
@@ -23,9 +22,8 @@
       "**/dist/*",
       "**/out/*",
       "packages/esbuild-scripts/api.js",
-      "packages/blog/src/generator/generated-metadata.mjs",
-      "packages/blog/src/pages/**",
-      "packages/samlang-demo/index.js"
+      "packages/www/src/generator/generated-metadata.mjs",
+      "packages/www/src/pages/blog/**"
     ],
     "rules": {
       "recommended": true
