@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Highlight, { type PrismTheme } from './Highlight';
 import Prism from './prism-core';
 import registerPrismLanguages from './prism-languages';
