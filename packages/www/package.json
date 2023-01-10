@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "esbuild-scripts start",
-    "build": "esbuild-scripts build",
+    "start": "node src/generator/blog-generator.mjs start",
+    "build": "node src/generator/blog-generator.mjs build",
     "check": "tsc --incremental",
     "deploy": "netlify deploy -d build -s developersam.com --prod"
   },

@@ -4,12 +4,14 @@
   "framework": null,
   "public": true,
   "outputDirectory": "dist",
-  "rewrites": [
+  "redirects": [
     {
       "source": "/:path(.*)",
       "has": [{"type": "host", "value": "blog.developersam.com"}],
-      "destination": "/blog/:path*"
-    },
+      "destination": "https://developersam.com/blog/:path*"
+    }
+  ],
+  "rewrites": [
     {
       "source": "/:path(.*)",
       "has": [{"type": "host", "value": "samlang.io"}],

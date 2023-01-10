@@ -97,13 +97,19 @@ export default function normalizeTokens(
       const splitByNewlines = content.split(NEWLINE_RGGEX);
       const newlineCount = splitByNewlines.length;
 
-      currentLine.push({ types, content: checkNotNull(splitByNewlines[0]) });
+      function pushCurrentLine(content: string) {
+        if (content.length > 0) {
+          currentLine.push({ types, content });
+        }
+      }
+
+      pushCurrentLine(checkNotNull(splitByNewlines[0]));
 
       // Create a new line for each string on a new line
       for (let j = 1; j < newlineCount; j += 1) {
         normalizeEmptyLines(currentLine);
         acc.push((currentLine = []));
-        currentLine.push({ types, content: checkNotNull(splitByNewlines[j]) });
+        pushCurrentLine(checkNotNull(splitByNewlines[j]));
       }
     }
 

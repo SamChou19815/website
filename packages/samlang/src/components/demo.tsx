@@ -1,6 +1,6 @@
 import theme from 'lib-react-prism/prism-theme.json';
 import Editor from '@monaco-editor/react';
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import * as samlang from 'samlang-demo';
 import { initializeMonacoEditor, MonacoEditor, monacoEditorOptions } from './samlang-config';
 

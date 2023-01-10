@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import Highlight, { type PrismTheme } from './Highlight';
 import Prism from './prism-core';
 import registerPrismLanguages from './prism-languages';
@@ -10,6 +10,7 @@ export type Props = {
   readonly language: string;
   readonly children: string;
   readonly className?: string;
+  readonly manualSection?: ReactNode;
   readonly theme?: PrismTheme;
 };
 
@@ -20,6 +21,7 @@ export default function PrismCodeBlock({
   children,
   className: userDefinedClassname,
   theme: userDefinedTheme,
+  manualSection,
 }: Props): JSX.Element {
   return (
     <Highlight
@@ -43,6 +45,7 @@ export default function PrismCodeBlock({
         ));
         return (
           <pre className={combinedClassname} style={style}>
+            {manualSection}
             {content}
           </pre>
         );

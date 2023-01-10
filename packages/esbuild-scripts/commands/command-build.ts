@@ -1,12 +1,7 @@
 import { build } from 'esbuild';
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import {
-  BUILD_PATH,
-  SSR_CSS_PATH,
-  SSR_JS_PATH,
-  VIRTUAL_SERVER_ENTRY_PATH,
-} from '../utils/constants';
+import { BUILD_PATH, SSR_JS_PATH, VIRTUAL_SERVER_ENTRY_PATH } from '../utils/constants';
 import { createEntryPointsGeneratedVirtualFiles } from '../utils/entry-points';
 import type { VirtualPathMappings } from '../utils/esbuild-config';
 import baseESBuildConfig from '../utils/esbuild-config';
@@ -64,8 +59,6 @@ async function getSSRFunction(
     );
     console.error(error);
     return null;
-  } finally {
-    await fs.unlink(SSR_CSS_PATH);
   }
 }
 

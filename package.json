@@ -4,8 +4,7 @@
   "scripts": {
     "check": "turbo run check",
     "build": "turbo run build",
-    "cp-dist": "rm -rf dist && mkdir dist && pnpm cp-dist:blog && pnpm cp-dist:samlang && pnpm cp-dist:www",
-    "cp-dist:blog": "cp -r packages/blog/build dist/blog",
+    "cp-dist": "rm -rf dist && mkdir dist && pnpm cp-dist:samlang && pnpm cp-dist:www",
     "cp-dist:samlang": "cp -r packages/samlang/build dist/samlang",
     "cp-dist:www": "cp -r packages/www/build dist/www",
     "format": "rome format --write .",
@@ -28,7 +27,7 @@
     "typescript": "^4.9.3"
   },
   "lint-staged": {
-    "**/*.{ts,js,tsx,jsx,html,yml}": [
+    "**/*.{ts,js,tsx,jsx}": [
       "pnpm rome format --write"
     ]
   }
