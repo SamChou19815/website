@@ -47,11 +47,11 @@ export function getClientTemplate(
   const lazyLoadedRoutes = [
     ...otherRealPaths.map((otherPath, i) => {
       const routePath = rewriteEntryPointPathForRouting(otherPath);
-      return `          <Route exact path="/${routePath}" element={<Suspense fallback={null}><RealComponent${i} /></Suspense>} />`;
+      return `        <Route exact path="/${routePath}" element={<Suspense fallback={null}><RealComponent${i} /></Suspense>} />`;
     }),
     ...otherVirtualPaths.map((otherPath, i) => {
       const routePath = rewriteEntryPointPathForRouting(otherPath);
-      return `          <Route exact path="/${routePath}" element={<Suspense fallback={null}><VirtualComponent${i} /></Suspense>}/>`;
+      return `        <Route exact path="/${routePath}" element={<Suspense fallback={null}><VirtualComponent${i} /></Suspense>}/>`;
     }),
   ].join('\n');
 
@@ -61,18 +61,17 @@ import {hydrateRoot} from 'react-dom';
 import {createRoot} from 'react-dom/client';
 import HelmetProvider from 'esbuild-scripts/__internal-components__/helmet-provider';
 import {BrowserRouter,Route,Routes} from 'esbuild-scripts/__internal-components__/react-router';
-import Document from '${absoluteProjectPath}/src/pages/_document';
 import Page from '${currentPageImportPath}';
+import 'lib-react-prism/common.css';
+
 ${lazyImports}
 const element = (
   <HelmetProvider>
     <BrowserRouter>
-      <Document>
-        <Routes>
-          <Route exact path="/${rewriteEntryPointPathForRouting(path)}" element={<Page />} />
+      <Routes>
+        <Route exact path="/${rewriteEntryPointPathForRouting(path)}" element={<Page />} />
 ${lazyLoadedRoutes}
-        </Routes>
-      </Document>
+      </Routes>
     </BrowserRouter>
   </HelmetProvider>
 );
@@ -96,7 +95,6 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import HelmetProvider from 'esbuild-scripts/__internal-components__/helmet-provider';
 import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router-server';
-import Document from '${absoluteProjectPath}/src/pages/_document';
 ${pageImports}
 const map = { ${mappingObjectInner} };
 export default (path) => {
@@ -105,7 +103,7 @@ export default (path) => {
     divHTML: renderToString(
       <HelmetProvider context={helmetContext}>
         <StaticRouter location={'/'+path}>
-          <Document>{React.createElement(map[path])}</Document>
+          {React.createElement(map[path])}
         </StaticRouter>
       </HelmetProvider>
     ),
@@ -136,7 +134,7 @@ async function getEntryPointsWithoutExtension(): Promise<readonly string[]> {
       }
       return it.substring(0, it.lastIndexOf('.'));
     })
-    .filter((it): it is string => it != null && !it.startsWith('_document'));
+    .filter((it): it is string => it != null);
 }
 
 export async function createEntryPointsGeneratedVirtualFiles(): Promise<{

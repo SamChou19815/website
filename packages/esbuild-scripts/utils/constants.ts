@@ -2,7 +2,6 @@ import * as path from 'path';
 
 export const PAGES_PATH = path.join('src', 'pages');
 export const SSR_JS_PATH = path.join('build', '__ssr.mjs');
-export const SSR_CSS_PATH = path.join('build', '__ssr.css');
 export const BUILD_PATH = 'build';
 export const OUT_PATH = 'out';
 export const VIRTUAL_PATH_PREFIX = 'esbuild-scripts-internal/virtual/';

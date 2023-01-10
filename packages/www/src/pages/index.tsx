@@ -1,47 +1,155 @@
-import ButtonLink from '../components/ButtonLink';
-import Card from '../components/Card';
-import CardContainer from '../components/CardContainer';
-import CardHeader from '../components/CardHeader';
-import { DATASET_TIMELINE } from '../components/data';
-import StickyCodeBlock from '../components/StickyCodeBlock';
+import type { ReactNode } from 'react';
+import CommonHeader from 'esbuild-scripts/components/CommonHeader';
+import Link from 'esbuild-scripts/components/Link';
+import PrismCodeBlock, { flexibleTheme } from 'lib-react-prism/PrismCodeBlock';
+import { DATASET_TIMELINE } from '../lib/home-timeline-data';
+import NavBar from '../lib/NavBar';
 
 function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.Element {
   return <img src={image} alt={title} title={title} loading="lazy" />;
 }
 
-const AboutSection = (
-  <Card className="lg:w-[500px] mx-auto my-4 w-11/12">
-    <div className="flex flex-row justify-center p-4">
-      <div className="avatar flex items-center">
-        <img
-          className="mr-4 h-12 w-12 overflow-hidden rounded-full"
-          src="/sam-by-megan-3-square.webp"
-          alt="dev-sam fan art"
-        />
-        <h4 className="m-0">Sam Zhou</h4>
-      </div>
+function ButtonLink({
+  href,
+  children,
+  className,
+}: {
+  readonly href: string;
+  readonly className?: string;
+  readonly children: ReactNode;
+}): JSX.Element {
+  const classes = [
+    'button bg-transparent border-0 cursor-pointer px-6 py-1.5 font-bold text-sm text-center',
+    'hover:bg-blue-500 hover:bg-opacity-10',
+  ];
+  if (className != null) {
+    classes.push(className);
+  }
+  return (
+    <Link className={classes.join(' ')} to={href}>
+      {typeof children === 'string' ? children.toLocaleUpperCase() : children}
+    </Link>
+  );
+}
+
+function Card({
+  className,
+  children,
+}: { readonly className?: string; readonly children: ReactNode }): JSX.Element {
+  const CardBaseCSS = 'flex flex-col bg-white rounded filter drop-shadow';
+  const classes = className != null ? `${CardBaseCSS} ${className}` : CardBaseCSS;
+  return <div className={classes}>{children}</div>;
+}
+
+function CardHeader({
+  title,
+  subheader,
+}: { readonly title: string; readonly subheader?: string }): JSX.Element {
+  return (
+    <div className="px-4 pb-0 last:pb-4">
+      <h4 className="mb-0">{title}</h4>
+      {subheader && <small>{subheader}</small>}
     </div>
-    <div className="p-4">
-      <div className="flex flex-grow justify-evenly">
-        <ButtonLink href="https://blog.developersam.com" className="px-1.5">
-          Blog
-        </ButtonLink>
-        <ButtonLink href="https://github.com/SamChou19815" className="px-1.5">
-          GitHub
-        </ButtonLink>
-        <ButtonLink href="/resume.pdf" className="px-1.5">
-          Resume
-        </ButtonLink>
-      </div>
-    </div>
-  </Card>
-);
+  );
+}
+
+function CardContainer({
+  className,
+  children,
+}: { readonly className?: string; readonly children: ReactNode }): JSX.Element {
+  const CardContainerBaseCSS = 'flex flex-row flex-wrap justify-center max-w-7xl mx-auto';
+  const classes = className != null ? `${CardContainerBaseCSS} ${className}` : CardContainerBaseCSS;
+  return <div className={classes}>{children}</div>;
+}
+
+function StickyCodeBlock(): JSX.Element {
+  const code = `
+class Pair<A, B>(val a: A, val b: B)
+class List<T>(Nil(unit), Cons(Pair<T, List<T>>)) {
+  function <T> of(t: T): List<T> =
+    List.Cons(Pair.init(t, List.Nil<T>({})))
+  method cons(t: T): List<T> =
+    List.Cons(Pair.init(t, this))
+}
+class Developer(
+  val github: string,
+  val company: string,
+  val projects: List<string>,
+) {
+  function sam(): Developer = {
+    val github = "SamChou19815";
+    val company = "Facebook";
+    val projects = List.of("samlang").cons("...");
+    Developer.init(github, company, projects)
+  }
+}
+class Main {
+  function main(): Developer = Developer.sam()
+}`;
+  return (
+    <PrismCodeBlock
+      language="samlang"
+      theme={{
+        ...flexibleTheme,
+        plain: { ...flexibleTheme.plain, backgroundColor: 'var(--background-color)' },
+      }}
+      className="mx-auto my-0 text-xs leading-5 sm:text-sm"
+      manualSection={
+        <>
+          <div className="token-line">
+            <span className="token comment">/**</span>
+          </div>
+          <div className="token-line">
+            <span className="token comment">
+              * Copyright (C) 2015-{new Date().getFullYear()} Developer Sam.
+            </span>
+          </div>
+          <div className="token-line">
+            <span className="token comment">
+              * @demo{' '}
+              <a
+                className="text-[var(--prism-code-block-comment-color)] underline"
+                href="https://samlang.io/demo"
+              >
+                https://samlang.io/demo
+              </a>
+            </span>
+          </div>
+          <div className="token-line">
+            <span className="token comment">
+              * @github{' '}
+              <a
+                className="text-[var(--prism-code-block-comment-color)] underline"
+                href="https://github.com/SamChou19815"
+              >
+                https://github.com/SamChou19815
+              </a>
+            </span>
+          </div>
+          <div className="token-line">
+            <span className="token comment">
+              * @resume{' '}
+              <a
+                className="text-[var(--prism-code-block-comment-color)] underline"
+                href="https://developersam.com/resume.pdf"
+              >
+                https://developersam.com/resume.pdf
+              </a>
+            </span>
+          </div>
+          <div className="token-line">
+            <span className="token comment">*/</span>
+          </div>
+        </>
+      }
+    >
+      {code}
+    </PrismCodeBlock>
+  );
+}
 
 const TimelineSection = (
   <section>
-    <div className="top-0 z-10 w-full px-0 py-4 text-xl text-center font-medium">
-      <code>$&nbsp; dev-sam timeline</code>
-    </div>
     <div className="relative flex flex-row flex-wrap items-center justify-center">
       <div className="lg:left-[calc(50%-255px)] absolute top-8 bottom-36 hidden w-0.5 bg-blue-500 lg:block" />
       {DATASET_TIMELINE.map((item) => (
@@ -72,16 +180,50 @@ const TimelineSection = (
 
 export default function IndexPage(): JSX.Element {
   return (
-    <div className="relative mx-auto flex max-w-[1440px] flex-row flex-wrap justify-start lg:flex-nowrap">
-      <div className="lg:w-[550px] flex h-screen w-full flex-wrap items-center lg:sticky lg:top-0">
-        <StickyCodeBlock />
+    <>
+      <CommonHeader
+        title="Developer Sam"
+        description="Explore the portfolio and projects created and open sourced by Developer Sam."
+        shortcutIcon="/favicon.ico"
+        htmlLang="en"
+        themeColor="#F7F7F7"
+        ogAuthor="Developer Sam"
+        ogKeywords="Sam, Developer Sam, developer, web apps, open source"
+        ogType="profile"
+        ogURL="https://developersam.com/"
+        ogImage="https://developersam.com/sam-by-megan-3-square.webp"
+        gaId="G-K50MLQ68K6"
+      >
+        <link rel="canonical" href="https://developersam.com/" />
+        <link rel="manifest" href="/manifest.json" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500&display=swap"
+        />
+        <script type="application/ld+json">
+          {`{"@context":"http://schema.org","@type":"Organization","url":"https://developersam.com","logo":"https://developersam.com/logo.png"}`}
+        </script>
+        <script type="application/ld+json">
+          {`{"@context":"http://schema.org","@type":"Person","name":"Developer Sam","url":"https://developersam.com","sameAs":[
+  "https://www.developersam.com",
+  "https://blog.developersam.com",
+  "https://www.facebook.com/SamChou19815",
+  "https://twitter.com/SamChou19815",
+  "https://github.com/SamChou19815",
+  "https://www.linkedin.com/in/sam-zhou-30b91610b/"]}`}
+        </script>
+      </CommonHeader>
+      <NavBar title="Developer Sam" titleLink="/" navItems={[{ name: 'Blog', link: '/blog' }]} />
+      <div className="relative mx-auto flex max-w-7xl flex-row flex-wrap justify-start lg:flex-nowrap">
+        <div className="lg:w-[550px] flex h-[calc(100vh-4rem)] w-full flex-wrap items-center lg:sticky lg:top-0">
+          <StickyCodeBlock />
+        </div>
+        <div className="my-12">{TimelineSection}</div>
       </div>
-      <div className="my-12">
-        {AboutSection}
-        {TimelineSection}
-      </div>
-    </div>
+    </>
   );
 }
-
-IndexPage.noJS = true;
