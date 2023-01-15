@@ -1,5 +1,6 @@
 import * as fs from 'fs/promises';
 import { extname, resolve } from 'path';
+import type { HelmetServerState } from 'react-helmet-async';
 import {
   PAGES_PATH,
   VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX,
@@ -11,7 +12,7 @@ import { readDirectory } from './fs';
 
 const GENERATED_COMMENT = `// ${'@'}generated`;
 
-function rewriteEntryPointPathForRouting(path: string): string {
+export function rewriteEntryPointPathForRouting(path: string): string {
   if (!path.endsWith('index')) {
     return path;
   }
@@ -80,6 +81,13 @@ if (rootElement.hasChildNodes()) hydrateRoot(rootElement, element); else createR
 `;
 }
 
+export type SSRResult = {
+  readonly divHTML: string;
+  readonly noJS: boolean;
+  readonly links: readonly string[];
+  readonly helmet: HelmetServerState;
+};
+
 export function getServerTemplate(
   absoluteProjectPath: string,
   realPaths: readonly string[],
@@ -93,6 +101,7 @@ export function getServerTemplate(
   return `${GENERATED_COMMENT}
 import React from 'react';
 import {renderToString} from 'react-dom/server';
+import {__DO_NOT_USE_SERVER_ONLY_COLLECTED_LINKS__} from 'esbuild-scripts/components/Link';
 import HelmetProvider from 'esbuild-scripts/__internal-components__/helmet-provider';
 import {StaticRouter} from 'esbuild-scripts/__internal-components__/react-router-server';
 ${pageImports}
@@ -108,6 +117,7 @@ export default (path) => {
       </HelmetProvider>
     ),
     noJS: map[path].noJS,
+    links: __DO_NOT_USE_SERVER_ONLY_COLLECTED_LINKS__(),
     helmet: helmetContext.helmet,
   }
 };

@@ -1,36 +1,39 @@
-import { build } from 'esbuild';
+import { assert } from 'console';
+import { build, Metafile } from 'esbuild';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { BUILD_PATH, SSR_JS_PATH, VIRTUAL_SERVER_ENTRY_PATH } from '../utils/constants';
-import { createEntryPointsGeneratedVirtualFiles } from '../utils/entry-points';
+import { createEntryPointsGeneratedVirtualFiles, SSRResult } from '../utils/entry-points';
 import type { VirtualPathMappings } from '../utils/esbuild-config';
 import baseESBuildConfig from '../utils/esbuild-config';
 import { copyDirectoryContent } from '../utils/fs';
-import getGeneratedHTML, { SSRResult } from '../utils/html-generator';
+import { postProcessMetafile, getGeneratedHTML } from '../utils/html-generator';
 
-async function generateBundle(
-  entryPointVirtualFiles: VirtualPathMappings,
-): Promise<readonly string[]> {
-  const { outputFiles } = await build({
+async function generateBundle(entryPointVirtualFiles: VirtualPathMappings): Promise<Metafile> {
+  const { outputFiles, metafile } = await build({
     ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles, isProd: true }),
     entryPoints: Object.keys(entryPointVirtualFiles),
     assetNames: 'assets/[name]-[hash]',
     chunkNames: 'chunks/[name]-[hash]',
     entryNames: '[dir]/[name]-[hash]',
+    metafile: true,
     minify: true,
     format: 'esm',
     splitting: true,
     write: false,
-    outdir: 'build',
+    outdir: BUILD_PATH,
   });
-  const absoluteBuildDirectory = path.resolve('build');
   await Promise.all(
     outputFiles.map(async (file) => {
       await fs.mkdir(path.dirname(file.path), { recursive: true });
       await fs.writeFile(file.path, file.contents);
     }),
   );
-  return outputFiles.map(({ path: p }) => path.relative(absoluteBuildDirectory, p));
+  await fs.writeFile(
+    path.join(BUILD_PATH, 'metafile.json'),
+    JSON.stringify(metafile, undefined, 2) + '\n',
+  );
+  return metafile;
 }
 
 type SSRFunction = (_path: string) => SSRResult;
@@ -68,13 +71,16 @@ export default async function buildCommand(): Promise<boolean> {
     await createEntryPointsGeneratedVirtualFiles();
   await copyDirectoryContent('public', 'build');
 
-  const outputFiles = await generateBundle(entryPointVirtualFiles);
+  const dependencyGraph = postProcessMetafile(
+    await generateBundle(entryPointVirtualFiles),
+    BUILD_PATH,
+  );
   const ssrFunction = await getSSRFunction(entryPointVirtualFiles);
   if (ssrFunction == null) {
     return false;
   }
   const generatedHTMLs = entryPointsWithoutExtension.map((entryPoint) => {
-    const html = getGeneratedHTML(ssrFunction?.(entryPoint), entryPoint, outputFiles);
+    const html = getGeneratedHTML(ssrFunction?.(entryPoint), entryPoint, dependencyGraph);
     return { entryPoint, html };
   });
   await Promise.all(

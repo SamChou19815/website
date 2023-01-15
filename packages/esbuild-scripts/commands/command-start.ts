@@ -1,4 +1,4 @@
-import { build, BuildOptions, BuildResult } from 'esbuild';
+import { context, BuildOptions, BuildResult } from 'esbuild';
 import express from 'express';
 import expressWebSocket from 'express-ws';
 import * as fs from 'fs';
@@ -7,23 +7,16 @@ import * as path from 'path';
 import { OUT_PATH } from '../utils/constants';
 import { createEntryPointsGeneratedVirtualFiles } from '../utils/entry-points';
 import baseESBuildConfig from '../utils/esbuild-config';
-import getGeneratedHTML from '../utils/html-generator';
-
-function isCSSChangeOnly(oldFiles: readonly string[], newFiles: readonly string[]) {
-  const oldJSKeys = oldFiles
-    .filter((it) => !it.endsWith('.css'))
-    .sort((a, b) => a.localeCompare(b));
-  const newJSKeys = newFiles
-    .filter((it) => !it.endsWith('.css'))
-    .sort((a, b) => a.localeCompare(b));
-  return oldJSKeys.join(',') === newJSKeys.join(',');
-}
+import { postProcessMetafile, getGeneratedHTML, DependencyGraph } from '../utils/html-generator';
 
 class EsbuildScriptsDevServer {
   private readonly expressDevServer = express();
   private readonly expressWebSocket = expressWebSocket(this.expressDevServer);
   private readonly websocketServer = this.expressWebSocket.getWss();
-  private files: readonly string[] = [];
+  private dependencyGraph: DependencyGraph = {
+    entryPointImportsMap: new Map(),
+    chunkToEntryPointOwnerMap: new Map(),
+  };
   private hasErrors = false;
   private shutdownHandlers: (() => void)[] = [];
 
@@ -42,7 +35,7 @@ class EsbuildScriptsDevServer {
       if (entryPoint == null) {
         return next();
       }
-      const html = `${getGeneratedHTML(undefined, entryPoint, this.files)}
+      const html = `${getGeneratedHTML(undefined, entryPoint, this.dependencyGraph)}
 <script src="/dev-server-websocket.js"></script>
 `;
       return response.send(html);
@@ -63,7 +56,7 @@ class EsbuildScriptsDevServer {
       socket.send(JSON.stringify({ hasErrors: this.hasErrors })),
     );
 
-    build({
+    const buildConfig: BuildOptions & { metafile: true } = {
       ...esbuildBuildOptions,
       // Code Splitting Configs
       assetNames: 'assets/[name]-[hash]',
@@ -76,23 +69,21 @@ class EsbuildScriptsDevServer {
       outdir: OUT_PATH,
       write: true,
       metafile: true,
-      incremental: true,
-      watch: {
-        onRebuild: (rebuildFailure, rebuildResult) => {
-          if (rebuildResult != null) {
-            this.handleBuildResult(rebuildResult);
-          }
-          if (rebuildFailure != null) {
-            console.error('[x] Rebuild Failed.');
-          }
-        },
+    };
+    buildConfig.plugins?.push({
+      name: 'on-rebuild-plugin',
+      setup: (build) => {
+        build.onEnd((rebuildResult) => {
+          this.handleBuildResult(rebuildResult);
+        });
       },
-    })
-      .then((initialRebuildResult) => {
-        this.shutdownHandlers.push(() => initialRebuildResult.stop?.());
-        this.handleBuildResult(initialRebuildResult);
+    });
+    context(buildConfig)
+      .then((context) => {
+        context.watch();
 
         this.shutdownHandlers.push(() => {
+          context.dispose();
           this.websocketServer.clients.forEach((it) => it.close());
           this.websocketServer.close();
           expressConnections.forEach((it) => it.destroy());
@@ -109,29 +100,16 @@ class EsbuildScriptsDevServer {
     console.error('[✓] Server down.');
   };
 
-  private handleBuildResult({ metafile, errors }: BuildResult): void {
-    const newFiles = Object.keys(metafile?.outputs ?? {}).flatMap((fullPath) => {
-      const relativePath = path.relative(OUT_PATH, fullPath);
-      if (relativePath.startsWith('__server__')) {
-        return [];
-      }
-      if (relativePath.endsWith('.css') && relativePath.startsWith('index-')) {
-        return [relativePath];
-      }
-      if (relativePath.endsWith('.js')) {
-        return [relativePath];
-      }
-      return [];
-    });
-    const cssOnlyChange =
-      isCSSChangeOnly(this.files, newFiles) && newFiles.find((it) => it.endsWith('.css'));
-    this.files = newFiles;
+  private handleBuildResult({
+    metafile,
+    errors,
+  }: BuildResult<BuildOptions & { metafile: true }>): void {
+    this.dependencyGraph = postProcessMetafile(metafile, OUT_PATH);
     this.hasErrors = errors.length > 0;
     this.websocketServer.clients.forEach((socket) =>
       socket.send(
         JSON.stringify({
           hasErrors: this.hasErrors,
-          cssOnlyChange,
         }),
       ),
     );

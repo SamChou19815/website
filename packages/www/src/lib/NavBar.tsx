@@ -13,7 +13,7 @@ export default function NavBar({ title, titleLink, navItems }: Props): JSX.Eleme
         <div className="flex min-w-0 flex-auto items-center">
           <Link className="mr-8 flex min-w-0 items-center text-gray-900" to={titleLink}>
             <img
-              className="mr-2 h-16 flex-initial"
+              className="mr-4 h-16 flex-initial"
               src="/sam-by-megan-3-square.webp"
               alt="dev-sam fan art"
             />
