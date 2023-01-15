@@ -27,7 +27,7 @@ export default function BlogPostPage({ content: BlogPostContents, permalink }: P
         <main className="w-full">
           <BlogPostItem metadata={metadata} truncated={false}>
             <BlogPostContents />
-          </BlogPostItem>{' '}
+          </BlogPostItem>
           <div className="my-8">
             <BlogPostPaginator
               nextPermalink={metadata.nextPermalink}

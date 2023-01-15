@@ -19,8 +19,8 @@
     console.info('The development server has disconnected.\nRefresh the page if necessary.');
 
   connection.onmessage = (m) => {
-    /** @type {{hasErrors: boolean; cssOnlyChange: string}} */
-    const { hasErrors, cssOnlyChange } = JSON.parse(m.data);
+    /** @type {{hasErrors: boolean}} */
+    const { hasErrors } = JSON.parse(m.data);
 
     if (hasErrors) {
       hasCompileErrors = true;
@@ -31,15 +31,7 @@
     } else {
       hasCompileErrors = false;
       if (!isFirstCompilation) {
-        if (cssOnlyChange) {
-          [...document.getElementsByTagName('link')].forEach((it) => {
-            if (it.rel === 'stylesheet') {
-              it.href = cssOnlyChange;
-            }
-          });
-        } else {
-          window.location.reload();
-        }
+        window.location.reload();
       }
     }
     isFirstCompilation = false;
