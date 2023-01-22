@@ -1,55 +1,12 @@
-import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
-import Docs from '../components/docs';
-import SamlangDocumentWrapper from '../components/SamlangDocumentWrapper';
-
-const HELLO_WORLD_CODE = `class HelloWorld {
-  function getString(): string =
-    "Hello World"
-}`;
-
-const FOURTY_TWO_CODE = `class Math {
-  function answerToLife(): int =
-    2 * 21
-}`;
-
-const PATTERN_MATCHING_CODE = `class Opt<T>(
-  None(unit), Some(T)
-) {
-  method isEmpty(): bool =
-    match (this) {
-      | None _ -> true
-      | Some _ -> false
-    }
-
-  method <R> map(f: (T) -> R): Opt<R> =
-    match (this) {
-      | None _ -> Opt.None({})
-      | Some v -> Opt.Some(f(v))
-    }
-}`;
-
-const TYPE_INFERENCE_CODE = `class TypeInference {
-  function <A, B, C> pipe(
-    a: A, f1: (A)->B, f2: (B)->C
-  ): C = f2(f1(a))
-
-  function main(): unit = {
-    // n: int
-    // s: string
-    val _ = TypeInference.pipe(
-      1,
-      (n) -> Builtins.intToString(n),
-      (s) -> Builtins.stringToInt(s)
-    );
-  }
-}`;
-
-const features = [
-  { title: 'Hello World', code: HELLO_WORLD_CODE },
-  { title: '42', code: FOURTY_TWO_CODE },
-  { title: 'Pattern Matching', code: PATTERN_MATCHING_CODE },
-  { title: 'Type Inference', code: TYPE_INFERENCE_CODE },
-];
+import Link from 'esbuild-scripts/components/Link';
+import EditorCodeBlock from '../libs/EditorCodeBlock';
+import SamlangDocumentWrapper from '../libs/SamlangDocumentWrapper';
+import {
+  FOURTY_TWO,
+  HELLO_WORLD_STRING,
+  PATTERN_MATCHING,
+  TYPE_INFERENCE,
+} from '../libs/samlang-programs';
 
 export default function Home(): JSX.Element {
   return (
@@ -76,14 +33,12 @@ export default function Home(): JSX.Element {
               programming language with type inference.
             </p>
             <div className="flex">
-              <a
-                href="demo"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                to="/demo"
                 className="rounded-md m-4 p-2 w-32 text-xl text-center text-gray-800 bg-gray-100 hover:bg-slate-200"
               >
                 Demo
-              </a>
+              </Link>
               <a
                 href="https://github.com/SamChou19815/samlang"
                 target="_blank"
@@ -94,23 +49,94 @@ export default function Home(): JSX.Element {
               </a>
             </div>
           </header>
-          <div className="max-w-7xl m-auto">
-            <section className="my-4 flex flex-wrap max-w-7xl items-center border border-solid border-gray-300 bg-white p-4">
-              {features.map(({ title, code }) => (
-                <div key={title} className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%] p-2">
-                  <h3 id={`example-${title.toLowerCase().replaceAll(' ', '-')}`}>{title}</h3>
-                  <PrismCodeBlock language="samlang" className="mb-0">
-                    {code}
-                  </PrismCodeBlock>
-                </div>
-              ))}
-            </section>
-            <Docs />
-          </div>
+          <section className="max-w-6xl mb-4 m-auto border border-solid border-gray-300 bg-white p-4">
+            <h2>Introduction</h2>
+            <p>
+              samlang is a statically-typed functional programming language designed and implemented
+              by Sam Zhou. The language is still under development so the syntax and semantics may
+              be changed at any time.
+            </p>
+            <p>
+              The language can be compiled down to WebAssembly with reference counting based garbage
+              collection.
+            </p>
+            <div>
+              <h3>Getting Started</h3>
+              <EditorCodeBlock language="bash">
+                {'yarn add @dev-sam/samlang-cli\nyarn samlang --help'}
+              </EditorCodeBlock>
+              <div>
+                <h2 id="example-programs">Notable Examples</h2>
+                <section className="flex flex-wrap items-center">
+                  <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
+                    <h4>Hello World</h4>
+                    <div className='pr-2'>
+                      <EditorCodeBlock path="HelloWorld.sam">{HELLO_WORLD_STRING}</EditorCodeBlock>
+                    </div>
+                  </div>
+                  <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
+                    <h4>42</h4>
+                    <div className='pr-2'>
+                      <EditorCodeBlock path="42.sam">{FOURTY_TWO}</EditorCodeBlock>
+                    </div>
+                  </div>
+                  <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
+                    <h4>Pattern Matching</h4>
+                    <div className='pr-2'>
+                      <EditorCodeBlock path="Match.sam">{PATTERN_MATCHING}</EditorCodeBlock>
+                    </div>
+                  </div>
+                  <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
+                    <h4>Type Inference</h4>
+                    <div className='pr-2'>
+                      <EditorCodeBlock path="Inference.sam">{TYPE_INFERENCE}</EditorCodeBlock>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div>
+              <h3>About the Documentation Site</h3>
+              <p>
+                This is an interactive documentation site where all the code snippets of samlang are
+                editable. These snippets, available after the introduction section, contain inline
+                comments to illustrate the power of the language.
+              </p>
+              <p>
+                You can click the Demo button at the top of the page or follow{' '}
+                <Link to="/demo">this link</Link>.
+              </p>
+            </div>
+            <div>
+              <h3>Power and Limits of Type Inference</h3>
+              <p className="my-2">
+                The only absolutely required type annotated happens at the top-level class function
+                and method level. Most other types can be correctly inferred by the compiler and can
+                be omitted from your program.
+              </p>
+              <p className="my-2">
+                The type checker uses local type inference to infer types of most expressions.
+                Therefore, it cannot infer types from the whole program like OCaml does. Instead, it
+                will push down type hints from local, nearby contexts.
+              </p>
+              <p className="my-2">
+                Despite the fundamental limitation, the compiler can correctly infer most of the
+                local expression types. If your code does not use generics or unannotated lambda
+                parameters, then all types can be inferred correctly. Most of the type arguments can
+                be inferred, so they do not need to be explicitly supplied. Unannotated lambda
+                parameters with local context but without parametric polymorphism can also be
+                inferred perfectly.
+              </p>
+              <p>
+                Even when you combine polymorphic function call and unannotated lambda parameters,
+                the type checker still attempts to infer the types from left to right. It will work
+                in most of the code. An illustratin type inference example is available near the top
+                of the page.
+              </p>
+            </div>
+          </section>
         </main>
       </div>
     </SamlangDocumentWrapper>
   );
 }
-
-Home.noJS = true;

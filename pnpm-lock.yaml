@@ -79,17 +79,17 @@ importers:
 
   packages/samlang:
     specifiers:
-      '@monaco-editor/react': ^4.4.5
+      '@monaco-editor/react': ^4.4.6
       esbuild-scripts: workspace:*
       lib-react-prism: workspace:*
-      monaco-editor: ^0.33.0
+      monaco-editor: ^0.34.1
       react: ^18.1.0
       react-dom: ^18.1.0
       samlang-demo: file:samlang-demo-0.0.1.tgz
     dependencies:
-      '@monaco-editor/react': 4.4.5_d24t5d2y775ybedwi37th2htxm
+      '@monaco-editor/react': 4.4.6_5y2wg35kgf53njpb3laahvdqfa
       lib-react-prism: link:../lib-react-prism
-      monaco-editor: 0.33.0
+      monaco-editor: 0.34.1
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       samlang-demo: file:packages/samlang/samlang-demo-0.0.1.tgz
@@ -334,24 +334,24 @@ packages:
       react: 18.1.0
     dev: false
 
-  /@monaco-editor/loader/1.3.2_monaco-editor@0.33.0:
+  /@monaco-editor/loader/1.3.2_monaco-editor@0.34.1:
     resolution: {integrity: sha512-BTDbpHl3e47r3AAtpfVFTlAi7WXv4UQ/xZmz8atKl4q7epQV5e7+JbigFDViWF71VBi4IIBdcWP57Hj+OWuc9g==}
     peerDependencies:
       monaco-editor: '>= 0.21.0 < 1'
     dependencies:
-      monaco-editor: 0.33.0
+      monaco-editor: 0.34.1
       state-local: 1.0.7
     dev: false
 
-  /@monaco-editor/react/4.4.5_d24t5d2y775ybedwi37th2htxm:
-    resolution: {integrity: sha512-IImtzU7sRc66OOaQVCG+5PFHkSWnnhrUWGBuH6zNmH2h0YgmAhcjHZQc/6MY9JWEbUtVF1WPBMJ9u1XuFbRrVA==}
+  /@monaco-editor/react/4.4.6_5y2wg35kgf53njpb3laahvdqfa:
+    resolution: {integrity: sha512-Gr3uz3LYf33wlFE3eRnta4RxP5FSNxiIV9ENn2D2/rN8KgGAD8ecvcITRtsbbyuOuNkwbuHYxfeaz2Vr+CtyFA==}
     peerDependencies:
       monaco-editor: '>= 0.25.0 < 1'
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@monaco-editor/loader': 1.3.2_monaco-editor@0.33.0
-      monaco-editor: 0.33.0
+      '@monaco-editor/loader': 1.3.2_monaco-editor@0.34.1
+      monaco-editor: 0.34.1
       prop-types: 15.8.1
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -1852,8 +1852,8 @@ packages:
   /minimist/1.2.7:
     resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
 
-  /monaco-editor/0.33.0:
-    resolution: {integrity: sha512-VcRWPSLIUEgQJQIE0pVT8FcGBIgFoxz7jtqctE+IiCxWugD0DwgyQBcZBhdSrdMC84eumoqMZsGl2GTreOzwqw==}
+  /monaco-editor/0.34.1:
+    resolution: {integrity: sha512-FKc80TyiMaruhJKKPz5SpJPIjL+dflGvz4CpuThaPMc94AyN7SeC9HQ8hrvaxX7EyHdJcUY5i4D0gNyJj1vSZQ==}
     dev: false
 
   /mri/1.2.0:
@@ -2759,7 +2759,7 @@ packages:
     dev: true
 
   file:packages/samlang/samlang-demo-0.0.1.tgz:
-    resolution: {integrity: sha512-o1ynJGdY7S1FhyxjxqgC/9Zak3Q4ueUua3G/NnZV5p+TGQtW+UMQmc+jX/tg9FIWIXYlF0n5au1kJe+wJSH3XA==, tarball: file:packages/samlang/samlang-demo-0.0.1.tgz}
+    resolution: {integrity: sha512-bPeRInPqqHXpkTTTqhufRog5Lmal7roW1D175MAXR51DJ0tpfQgBDaTMDQGPVIpqT3H7uPai5SxYisVv6SJKkQ==, tarball: file:packages/samlang/samlang-demo-0.0.1.tgz}
     name: samlang-demo
     version: 0.0.1
     dev: false
