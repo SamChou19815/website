@@ -182,8 +182,19 @@ export function initializeMonacoEditor(monacoEditor: MonacoEditor, fullLSP: bool
   if (!monacoLSPInitialized && fullLSP) {
     monacoLSPInitialized = true;
     monacoEditor.languages.registerHoverProvider('samlang', {
-      provideHover(model, position) {
-        return samlang.queryType(model.getValue(), position.lineNumber, position.column);
+      async provideHover(model, position) {
+        const result = await samlang.queryType(
+          model.getValue(),
+          position.lineNumber,
+          position.column,
+        );
+        if (result == null) return null;
+        return {
+          range: result.range,
+          contents: result.contents.map(({ language, value }) => ({
+            value: `${'```'}${language}\n${value}\n${'```'}`,
+          })),
+        };
       },
     });
 
