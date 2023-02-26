@@ -73,14 +73,12 @@ class List<T>(Nil(unit), Cons(Pair<T, List<T>>)) {
 }
 class Developer(
   val github: string,
-  val company: string,
   val projects: List<string>,
 ) {
   function sam(): Developer = {
     val github = "SamChou19815";
-    val company = "Facebook";
     val projects = List.of("samlang").cons("...");
-    Developer.init(github, company, projects)
+    Developer.init(github, projects)
   }
 }
 class Main {
@@ -101,12 +99,13 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
+              {' '}
               * Copyright (C) 2015-{new Date().getFullYear()} Developer Sam.
             </span>
           </div>
           <div className="token-line">
             <span className="token comment">
-              * @demo{' '}
+              {' * @demo '}
               <a
                 className="text-[var(--prism-code-block-comment-color)] underline"
                 href="https://samlang.io/demo"
@@ -117,7 +116,7 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
-              * @github{' '}
+              {' * @github '}
               <a
                 className="text-[var(--prism-code-block-comment-color)] underline"
                 href="https://github.com/SamChou19815"
@@ -128,6 +127,18 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
+              {' * @discord '}
+              <a
+                className="text-[var(--prism-code-block-comment-color)] underline"
+                href="https://discord.gg/WQQUjspZJa"
+              >
+                https://discord.gg/WQQUjspZJa
+              </a>
+            </span>
+          </div>
+          <div className="token-line">
+            <span className="token comment">
+              {' '}
               * @resume{' '}
               <a
                 className="text-[var(--prism-code-block-comment-color)] underline"
@@ -138,7 +149,7 @@ class Main {
             </span>
           </div>
           <div className="token-line">
-            <span className="token comment">*/</span>
+            <span className="token comment"> */</span>
           </div>
         </>
       }
