@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@7.15.0",
+  "packageManager": "pnpm@8.2.0",
   "scripts": {
     "check": "turbo run check",
     "build": "turbo run build",
@@ -11,24 +11,20 @@
     "lint": "rome check .",
     "bump": "pnpm up -r --latest @types/node @types/react @types/react-dom typescript husky lint-staged esbuild"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "devDependencies": {
-    "@types/node": "^18.13.0",
-    "@types/react": "^18.0.28",
-    "esbuild": "^0.17.7",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.34",
+    "esbuild": "^0.17.16",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.1",
+    "lint-staged": "^13.2.1",
     "postcss": "^8.4.19",
     "rome": "^11.0.0",
     "tailwindcss": "^3.2.4",
-    "turbo": "^1.6.3",
-    "typescript": "^4.9.5"
+    "turbo": "^1.9.1",
+    "typescript": "^5.0.4"
   },
   "lint-staged": {
-    "**/*.{ts,js,tsx,jsx}": [
-      "pnpm rome format --write"
-    ]
+    "**/*.{ts,js,tsx,jsx}": ["pnpm rome format --write"]
   }
 }

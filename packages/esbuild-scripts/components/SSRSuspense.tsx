@@ -1,4 +1,4 @@
-import { ReactNode, Suspense } from 'react';
+import { type ReactNode, Suspense } from 'react';
 
 type SuspenseType = (props: {
   readonly fallback: JSX.Element | null;

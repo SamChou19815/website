@@ -1,7 +1,7 @@
 import type { Metafile } from 'esbuild';
 import { relative } from 'path';
 import type { HelmetServerState } from 'react-helmet-async';
-import { rewriteEntryPointPathForRouting, SSRResult } from './entry-points';
+import { rewriteEntryPointPathForRouting, type SSRResult } from './entry-points';
 
 type EntryPointImports = {
   readonly hardImports: readonly string[];

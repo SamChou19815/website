@@ -1,9 +1,8 @@
-import { assert } from 'console';
-import { build, Metafile } from 'esbuild';
+import { build, type Metafile } from 'esbuild';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { BUILD_PATH, SSR_JS_PATH, VIRTUAL_SERVER_ENTRY_PATH } from '../utils/constants';
-import { createEntryPointsGeneratedVirtualFiles, SSRResult } from '../utils/entry-points';
+import { createEntryPointsGeneratedVirtualFiles, type SSRResult } from '../utils/entry-points';
 import type { VirtualPathMappings } from '../utils/esbuild-config';
 import baseESBuildConfig from '../utils/esbuild-config';
 import { copyDirectoryContent } from '../utils/fs';
