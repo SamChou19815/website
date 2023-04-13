@@ -20,6 +20,6 @@ jobs:
       - name: Rome CI
         run: pnpm rome ci .
       - name: Type Check
-        run: pnpm check --since="HEAD^"
+        run: pnpm check
       - name: Build
         run: pnpm build
