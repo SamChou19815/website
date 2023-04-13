@@ -1,4 +1,4 @@
-import { context, BuildOptions, BuildResult } from 'esbuild';
+import { context, type BuildOptions, type BuildResult } from 'esbuild';
 import express from 'express';
 import expressWebSocket from 'express-ws';
 import * as fs from 'fs';
@@ -7,7 +7,11 @@ import * as path from 'path';
 import { OUT_PATH } from '../utils/constants';
 import { createEntryPointsGeneratedVirtualFiles } from '../utils/entry-points';
 import baseESBuildConfig from '../utils/esbuild-config';
-import { postProcessMetafile, getGeneratedHTML, DependencyGraph } from '../utils/html-generator';
+import {
+  postProcessMetafile,
+  getGeneratedHTML,
+  type DependencyGraph,
+} from '../utils/html-generator';
 
 class EsbuildScriptsDevServer {
   private readonly expressDevServer = express();

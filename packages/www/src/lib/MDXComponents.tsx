@@ -1,6 +1,6 @@
 import Link from 'esbuild-scripts/components/Link';
 import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
-import { ComponentProps, isValidElement } from 'react';
+import { type ComponentProps, isValidElement } from 'react';
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 type HeadingComponentType = (props: ComponentProps<HeadingTag>) => JSX.Element;
