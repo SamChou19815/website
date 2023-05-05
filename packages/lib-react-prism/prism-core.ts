@@ -17,17 +17,6 @@ interface GrammarToken {
   greedy?: boolean;
   /** An optional alias or list of aliases. */
   alias?: string | string[];
-  /**
-   * The nested grammar of this token.
-   *
-   * The `inside` grammar will be used to tokenize the text value of each token of this kind.
-   *
-   * This can be used to make nested and even recursive language definitions.
-   *
-   * Note: This can cause infinite recursion. Be careful when you embed different languages or even
-   * the same language into each another.
-   */
-  inside?: Grammar;
 }
 
 type GrammarValue = RegExp | GrammarToken | Array<RegExp | GrammarToken>;
@@ -130,29 +119,18 @@ function matchGrammar(
         return;
       }
 
-      const patternObj = patterns[j];
-      if (patternObj == null) {
-        throw new Error();
-      }
-      // @ts-expect-error: Too dynamic
-      const inside = patternObj.inside;
-      // @ts-expect-error: Too dynamic
-      const lookbehind = patternObj.lookbehind;
-      // @ts-expect-error: Too dynamic
+      const patternObj = patterns[j] as GrammarToken;
+      const lookbehind = patternObj.lookbehind!;
       const greedy = patternObj.greedy;
-      // @ts-expect-error: Too dynamic
-      const alias = patternObj.alias;
+      const alias = patternObj.alias!;
 
-      // @ts-expect-error: Too dynamic
       if (greedy && !patternObj.pattern.global) {
         // Without the global flag, lastIndex won't work
         // @ts-expect-error: Too dynamic
         const flags = patternObj.pattern.toString().match(/[imsuy]*$/)[0];
-        // @ts-expect-error: Too dynamic
         patternObj.pattern = RegExp(patternObj.pattern.source, `${flags}g`);
       }
 
-      // @ts-expect-error: Too dynamic
       const pattern: RegExp = patternObj.pattern || patternObj;
 
       for (
@@ -247,12 +225,7 @@ function matchGrammar(
 
         removeRange(tokenList, removeFrom, removeCount);
 
-        const wrapped = new Token(
-          token,
-          inside ? Prism.tokenize(matchStr, inside) : matchStr,
-          alias,
-          matchStr,
-        );
+        const wrapped = new Token(token, matchStr, alias, matchStr);
         currentNode = addAfter(tokenList, removeFrom, wrapped);
 
         if (after) {

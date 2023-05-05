@@ -2,7 +2,7 @@
 
 import type PrismType from './prism-core';
 
-const STRING_TOKEN_REGEX = /(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;
+const STRING_TOKEN_REGEX = /(["'`])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;
 const BLOCK_COMMENT_REGEX = /(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/;
 const LINE_COMMENT_REGEX = /(^|[^\\:])\/\/.*/;
 
@@ -97,27 +97,6 @@ function registerTypeScript(Prism: typeof PrismType) {
       { pattern: BLOCK_COMMENT_REGEX, lookbehind: true, greedy: true },
       { pattern: LINE_COMMENT_REGEX, lookbehind: true, greedy: true },
     ],
-    'template-string': {
-      pattern: /`(?:\\[\s\S]|\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}|(?!\$\{)[^\\`])*`/,
-      greedy: true,
-      inside: {
-        'template-punctuation': {
-          pattern: /^`|`$/,
-          alias: 'string',
-        },
-        interpolation: {
-          pattern: /((?:^|[^\\])(?:\\{2})*)\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}/,
-          lookbehind: true,
-          inside: {
-            'interpolation-punctuation': {
-              pattern: /^\$\{|\}$/,
-              alias: 'punctuation',
-            },
-          },
-        },
-        string: /[\s\S]+/,
-      },
-    },
     string: { pattern: STRING_TOKEN_REGEX, greedy: true },
     'class-name': [
       {
