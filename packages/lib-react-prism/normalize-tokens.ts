@@ -35,7 +35,7 @@ function normalizeEmptyLines(line: Token[]): void {
   }
 }
 
-function appendTypes(types: string[], add: readonly string[] | string): string[] {
+function appendTypes(types: readonly string[], add: readonly string[] | string): readonly string[] {
   const typesSize = types.length;
   if (typesSize > 0 && types[typesSize - 1] === add) {
     return types;
@@ -52,7 +52,7 @@ function appendTypes(types: string[], add: readonly string[] | string): string[]
 export default function normalizeTokens(
   tokens: ReadonlyArray<PrismToken | string>,
 ): readonly (readonly Token[])[] {
-  const typeArrStack: string[][] = [[]];
+  const typeArrStack: (readonly string[])[] = [[]];
   const tokenArrStack = [tokens];
   const tokenArrIndexStack = [0];
   const tokenArrSizeStack = [tokens.length];
@@ -66,7 +66,7 @@ export default function normalizeTokens(
   while (stackIndex > -1) {
     while ((i = tokenArrIndexStack[stackIndex]++) < checkNotNull(tokenArrSizeStack[stackIndex])) {
       let content: readonly (PrismToken | string)[] | string;
-      let types = checkNotNull(typeArrStack[stackIndex]);
+      let types: readonly string[] = checkNotNull(typeArrStack[stackIndex]);
       const tokenArr = checkNotNull(tokenArrStack[stackIndex]);
       const token = checkNotNull(tokenArr[i]);
 

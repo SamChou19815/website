@@ -19,6 +19,7 @@ function bar() {}
 function foo<T>() {
   true;
 }
+const templateString = `${foo}`;
 class BBB {
   help<T>() {}
 }
