@@ -11,20 +11,24 @@
     "lint": "rome check .",
     "bump": "pnpm up -r --latest @types/node @types/react @types/react-dom typescript husky lint-staged esbuild"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.34",
-    "esbuild": "^0.17.16",
+    "@types/node": "^20.1.2",
+    "@types/react": "^18.2.6",
+    "esbuild": "^0.17.18",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.1",
+    "lint-staged": "^13.2.2",
     "postcss": "^8.4.19",
-    "rome": "^11.0.0",
+    "rome": "^12.0.0",
     "tailwindcss": "^3.2.4",
-    "turbo": "^1.9.1",
+    "turbo": "^1.9.3",
     "typescript": "^5.0.4"
   },
   "lint-staged": {
-    "**/*.{ts,js,tsx,jsx}": ["pnpm rome format --write"]
+    "**/*.{ts,js,tsx,jsx}": [
+      "pnpm rome format --write"
+    ]
   }
 }

@@ -120,9 +120,9 @@ function matchGrammar(
       }
 
       const patternObj = patterns[j] as GrammarToken;
-      const lookbehind = patternObj.lookbehind!;
+      const lookbehind = patternObj.lookbehind as boolean;
       const greedy = patternObj.greedy;
-      const alias = patternObj.alias!;
+      const alias = patternObj.alias as string | string[];
 
       if (greedy && !patternObj.pattern.global) {
         // Without the global flag, lastIndex won't work

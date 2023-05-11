@@ -13,5 +13,5 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "rome.rome"
-  },
+  }
 }
