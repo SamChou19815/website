@@ -7,19 +7,19 @@
   "redirects": [
     {
       "source": "/:path(.*)",
-      "has": [{"type": "host", "value": "blog.developersam.com"}],
+      "has": [{ "type": "host", "value": "blog.developersam.com" }],
       "destination": "https://developersam.com/blog/:path*"
     }
   ],
   "rewrites": [
     {
       "source": "/:path(.*)",
-      "has": [{"type": "host", "value": "samlang.io"}],
+      "has": [{ "type": "host", "value": "samlang.io" }],
       "destination": "/samlang/:path*"
     },
     {
       "source": "/:path(.*)",
-      "has": [{"type": "host", "value": "developersam.com"}],
+      "has": [{ "type": "host", "value": "developersam.com" }],
       "destination": "/www/:path*"
     }
   ]
