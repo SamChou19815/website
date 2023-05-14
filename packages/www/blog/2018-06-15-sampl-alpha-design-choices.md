@@ -53,13 +53,14 @@ It wasn't hard to realize that if we don't require type inference on functions, 
 was almost trivial to implement: a simple environment model will do the job. In addition, we have a
 good reason to explicitly specify types of functions at the top level.
 
-```ocaml
-let confusing_function g x y = g (g (x,y))
-```
+```typescript
+function confusing(g, x, y) {
+  return g(g([x, y]))
+}
 
-```ocaml
-let confusing_function (g: ('a _ 'b -> 'a _ 'b)) (x: 'a) (y: 'b) : 'a \* 'b =
-g (g (x,y))
+function notConfusing<A, B>(g: (tuple: [A, B]) => [A, B], x: A, y: B): [A, B] {
+  return g(g([x, y]))
+}
 ```
 
 If you take a look at the code below, you may find the first one very confusing. Can you tell what
@@ -88,13 +89,6 @@ function test() {
   const stringList1: string[] = []; // type: string[]
   const stringList2 = new Array<string>(); // type: string[]
 }
-```
-
-This is a huge departure from the OCaml semantics, which permits the polymorphic value:
-
-```ocaml
-type 'a option = None | Some of 'a
-let empty : 'a option = None
 ```
 
 In the end, I decided to forbidden polymorphic type, although I thought it was possible to simulate

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import CommonHeader from 'esbuild-scripts/components/CommonHeader';
 import Link from 'esbuild-scripts/components/Link';
-import PrismCodeBlock, { flexibleTheme } from 'lib-react-prism/PrismCodeBlock';
+import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
 import { DATASET_TIMELINE } from '../lib/home-timeline-data';
 import NavBar from '../lib/NavBar';
 
@@ -87,10 +87,6 @@ class Main {
   return (
     <PrismCodeBlock
       language="samlang"
-      theme={{
-        ...flexibleTheme,
-        plain: { ...flexibleTheme.plain, backgroundColor: 'var(--background-color)' },
-      }}
       className="mx-auto my-0 text-xs leading-5 sm:text-sm"
       manualSection={
         <>

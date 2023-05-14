@@ -3,15 +3,7 @@
 ## Background
 
 In most functional programming languages, a function IS a value. Therefore, it can be easily passed
-as a parameter for a function. For example, this is legal in OCaml:
-
-```ocaml
-let f (i: int): float = float_of_int i
-let test (f: 'a -> 'b) (a: 'a) : 'b = f a
-let ( * ) = test f 3
-```
-
-Even for Javascript, this can be done easily:
+as a parameter for a function. For example, this can be done easily in JS:
 
 ```typescript
 function f(s) {
