@@ -84,8 +84,8 @@ expressive type system, the claim is far from the truth.
 
 Considering the variant type that you can usually find in a functional programming language.
 
-```ocaml
-type list = Nil of unit | Cons of (int, list);
+```typescript
+type list = {type: 'nil'} | {type: 'cons', data: int, next: list};
 ```
 
 At the runtime, a value of the list type would be represented by a struct with two slots, where the
