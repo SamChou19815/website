@@ -1,8 +1,8 @@
-import HeadTitle from 'esbuild-scripts/components/HeadTitle';
-import { BLOG_TITLE } from './blog-constants';
-import items from '../generator/generated-metadata.mjs';
-import BlogDocumentWrapper from './BlogDocumentWrapper';
-import BlogPostItem from './BlogPostItem';
+import HeadTitle from "esbuild-scripts/components/HeadTitle";
+import { BLOG_TITLE } from "./blog-constants";
+import items from "../generator/generated-metadata.mjs";
+import BlogDocumentWrapper from "./BlogDocumentWrapper";
+import BlogPostItem from "./BlogPostItem";
 
 export default function BlogListPage(): JSX.Element {
   return (

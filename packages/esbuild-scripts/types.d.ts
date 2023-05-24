@@ -10,7 +10,7 @@ type CompiledMarkdownComponent = {
   (): JSX.Element;
 };
 
-declare module '*.md' {
+declare module "*.md" {
   const MarkdownComponent: CompiledMarkdownComponent;
   export default MarkdownComponent;
 }

@@ -1,3 +1,3 @@
-import { StaticRouter } from 'react-router-dom/server';
+import { StaticRouter } from "react-router-dom/server";
 
 export { StaticRouter };

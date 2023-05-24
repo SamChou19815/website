@@ -1,1 +1,1 @@
-export * from '@mdx-js/react';
+export * from "@mdx-js/react";

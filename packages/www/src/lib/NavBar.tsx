@@ -1,4 +1,4 @@
-import Link from 'esbuild-scripts/components/Link';
+import Link from "esbuild-scripts/components/Link";
 
 type Props = {
   readonly title: string;

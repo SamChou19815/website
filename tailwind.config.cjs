@@ -1,1 +1,1 @@
-module.exports = require('./packages/esbuild-scripts/utils/tailwind-config')();
+module.exports = require("./packages/esbuild-scripts/utils/tailwind-config")();

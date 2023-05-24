@@ -1,17 +1,17 @@
 // @ts-check
 
-import * as fs from 'fs/promises';
-import { extname, join, resolve } from 'path';
+import * as fs from "fs/promises";
+import { extname, join, resolve } from "path";
 
-const BLOG_DIRECTORY = 'blog';
-const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join('src', 'lib', 'BlogPostPage'));
+const BLOG_DIRECTORY = "blog";
+const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join("src", "lib", "BlogPostPage"));
 
 function parseMarkdownTitle(/** @type {string} */ source) {
-  const firstLine = source.split('\n')[0];
+  const firstLine = source.split("\n")[0];
   if (firstLine == null) {
-    throw new Error('No title.');
+    throw new Error("No title.");
   }
-  if (!firstLine.startsWith('#')) {
+  if (!firstLine.startsWith("#")) {
     throw new Error(`Invalid title line:\n${firstLine}`);
   }
   return firstLine.substring(1).trim();
@@ -23,15 +23,15 @@ function parseMarkdownTitle(/** @type {string} */ source) {
  * @returns {Promise<BlogPostMetadata>}
  */
 async function computeBlogPostMetadata(/** @type {string} */ original) {
-  const withOutExtension = original.substring(0, original.lastIndexOf('.'));
-  const segments = withOutExtension.split('-');
+  const withOutExtension = original.substring(0, original.lastIndexOf("."));
+  const segments = withOutExtension.split("-");
   const year = segments[0];
   const month = segments[1];
   const date = segments[2];
   if (year == null || month == null || date == null) {
     throw new Error(`Invalid date format in filename: ${original}`);
   }
-  const titleSlug = segments.slice(3).join('-');
+  const titleSlug = segments.slice(3).join("-");
   const formattedDate = `${year}-${month}-${date}`;
   const permalink = `/blog/${year}/${month}/${date}/${titleSlug}`;
 
@@ -50,7 +50,7 @@ async function computeAllMedatada() {
     (
       await fs.readdir(BLOG_DIRECTORY)
     )
-      .filter((it) => extname(it) === '.md')
+      .filter((it) => extname(it) === ".md")
       .map(async (it) => ({ ...(await computeBlogPostMetadata(it)) })),
   );
   metadataList.sort((a, b) => b.permalink.localeCompare(a.permalink));
@@ -64,8 +64,8 @@ async function computeAllMedatada() {
 const generatedMetadata = await computeAllMedatada();
 
 await fs.writeFile(
-  join('src', 'generator', 'generated-metadata.mjs'),
-  `// @${'generated'}
+  join("src", "generator", "generated-metadata.mjs"),
+  `// @${"generated"}
 // @ts-check
 // prettier-ignore
 /** @type {readonly BlogPostMetadata[]} */
@@ -76,9 +76,9 @@ export default generatedMetaDataList;
 
 await Promise.all(
   (
-    await fs.readdir(join('src', 'pages', 'blog'))
+    await fs.readdir(join("src", "pages", "blog"))
   ).map(async (path) => {
-    const fullPath = join('src', 'pages', 'blog', path);
+    const fullPath = join("src", "pages", "blog", path);
     if ((await fs.stat(fullPath)).isDirectory()) {
       await fs.rm(fullPath, { recursive: true });
     }
@@ -87,16 +87,16 @@ await Promise.all(
 
 for (const { permalink } of generatedMetadata) {
   const contentImportPath = resolve(
-    join(BLOG_DIRECTORY, `${permalink.split('/').slice(2).join('-')}.md`),
+    join(BLOG_DIRECTORY, `${permalink.split("/").slice(2).join("-")}.md`),
   );
-  const generatedSource = `// @${'generated'}
+  const generatedSource = `// @${"generated"}
 import React from 'react';
 import BlogPostPage from '${BLOG_POST_PAGE_COMPONENT_PATH}';
 import Content from '${contentImportPath}';
 
 export default () => <BlogPostPage content={Content} permalink="${permalink}" />;
 `;
-  const directory = join('src', 'pages', permalink.substring(1));
+  const directory = join("src", "pages", permalink.substring(1));
   await fs.mkdir(directory, { recursive: true });
-  await fs.writeFile(join(directory, 'index.jsx'), generatedSource);
+  await fs.writeFile(join(directory, "index.jsx"), generatedSource);
 }

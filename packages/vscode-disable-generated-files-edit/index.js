@@ -1,23 +1,23 @@
 // @ts-check
 
-const vscode = require('vscode');
+const vscode = require("vscode");
 
 const disabledEditDecorationType = vscode.window.createTextEditorDecorationType({
   isWholeLine: true,
-  cursor: 'not-allowed',
+  cursor: "not-allowed",
   rangeBehavior: vscode.DecorationRangeBehavior.OpenOpen,
   overviewRulerLane: vscode.OverviewRulerLane.Full,
-  overviewRulerColor: new vscode.ThemeColor('widget.shadow'),
-  backgroundColor: 'rgba(255, 255, 0, 0.2)',
+  overviewRulerColor: new vscode.ThemeColor("widget.shadow"),
+  backgroundColor: "rgba(255, 255, 0, 0.2)",
 });
 
 const updateGeneratedHoverForEditor = (/** @type {vscode.TextEditor | undefined} */ editor) => {
   if (editor == null) return;
-  if (editor.document.getText().includes('@' + 'generated')) {
+  if (editor.document.getText().includes("@" + "generated")) {
     editor.setDecorations(disabledEditDecorationType, [
       {
         range: new vscode.Range(0, 0, Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER),
-        hoverMessage: 'Do not edit generated code or risk failing CI jobs.',
+        hoverMessage: "Do not edit generated code or risk failing CI jobs.",
       },
     ]);
   } else {

@@ -1,22 +1,22 @@
-import * as fs from 'fs/promises';
-import { extname, resolve } from 'path';
-import type { HelmetServerState } from 'react-helmet-async';
+import * as fs from "fs/promises";
+import { extname, resolve } from "path";
+import type { HelmetServerState } from "react-helmet-async";
 import {
   PAGES_PATH,
   VIRTUAL_GENERATED_ENTRY_POINT_PATH_PREFIX,
   VIRTUAL_PATH_PREFIX,
   VIRTUAL_SERVER_ENTRY_PATH,
-} from './constants';
-import type { VirtualPathMappings } from './esbuild-config';
-import { readDirectory } from './fs';
+} from "./constants";
+import type { VirtualPathMappings } from "./esbuild-config";
+import { readDirectory } from "./fs";
 
-const GENERATED_COMMENT = `// ${'@'}generated`;
+const GENERATED_COMMENT = `// ${"@"}generated`;
 
 export function rewriteEntryPointPathForRouting(path: string): string {
-  if (!path.endsWith('index')) {
+  if (!path.endsWith("index")) {
     return path;
   }
-  return path.substring(0, path.length - (path.endsWith('/index') ? 6 : 5));
+  return path.substring(0, path.length - (path.endsWith("/index") ? 6 : 5));
 }
 
 const getPathForImport = (absoluteProjectPath: string, path: string, isRealPath: boolean) =>
@@ -43,7 +43,7 @@ export function getClientTemplate(
       (otherPath, i) =>
         `const VirtualComponent${i} = lazy(() => import('${importPath(otherPath, false)}'));`,
     ),
-  ].join('\n');
+  ].join("\n");
   const currentPageImportPath = importPath(path, isRealPath);
   const lazyLoadedRoutes = [
     ...otherRealPaths.map((otherPath, i) => {
@@ -54,7 +54,7 @@ export function getClientTemplate(
       const routePath = rewriteEntryPointPathForRouting(otherPath);
       return `        <Route exact path="/${routePath}" element={<Suspense fallback={null}><VirtualComponent${i} /></Suspense>}/>`;
     }),
-  ].join('\n');
+  ].join("\n");
 
   return `${GENERATED_COMMENT}
 import React,{Suspense,lazy} from 'react';
@@ -96,8 +96,8 @@ export function getServerTemplate(
 
   const pageImports = realPaths
     .map((path, i) => `import RealPage${i} from '${importPath(path, true)}';`)
-    .join('\n');
-  const mappingObjectInner = [...realPaths.map((path, i) => `'${path}': RealPage${i}`)].join(', ');
+    .join("\n");
+  const mappingObjectInner = [...realPaths.map((path, i) => `'${path}': RealPage${i}`)].join(", ");
   return `${GENERATED_COMMENT}
 import React from 'react';
 import {renderToString} from 'react-dom/server';
@@ -134,15 +134,15 @@ async function getEntryPointsWithoutExtension(): Promise<readonly string[]> {
     .map((it) => {
       const extension = extname(it);
       switch (extension) {
-        case '.js':
-        case '.jsx':
-        case '.ts':
-        case '.tsx':
+        case ".js":
+        case ".jsx":
+        case ".ts":
+        case ".tsx":
           break;
         default:
           return null;
       }
-      return it.substring(0, it.lastIndexOf('.'));
+      return it.substring(0, it.lastIndexOf("."));
     })
     .filter((it): it is string => it != null);
 }
@@ -151,7 +151,7 @@ export async function createEntryPointsGeneratedVirtualFiles(): Promise<{
   readonly entryPointsWithoutExtension: readonly string[];
   readonly entryPointVirtualFiles: VirtualPathMappings;
 }> {
-  const absoluteProjectPath = resolve('.');
+  const absoluteProjectPath = resolve(".");
   const entryPointsWithoutExtension = await getEntryPointsWithoutExtension();
   const entryPointVirtualFiles = Object.fromEntries([
     ...entryPointsWithoutExtension.map((path) => [

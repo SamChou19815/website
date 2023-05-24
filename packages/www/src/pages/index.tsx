@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react';
-import CommonHeader from 'esbuild-scripts/components/CommonHeader';
-import Link from 'esbuild-scripts/components/Link';
-import PrismCodeBlock from 'lib-react-prism/PrismCodeBlock';
-import { DATASET_TIMELINE } from '../lib/home-timeline-data';
-import NavBar from '../lib/NavBar';
+import type { ReactNode } from "react";
+import CommonHeader from "esbuild-scripts/components/CommonHeader";
+import Link from "esbuild-scripts/components/Link";
+import PrismCodeBlock from "lib-react-prism/PrismCodeBlock";
+import { DATASET_TIMELINE } from "../lib/home-timeline-data";
+import NavBar from "../lib/NavBar";
 
 function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.Element {
   return <img src={image} alt={title} title={title} loading="lazy" />;
@@ -19,15 +19,15 @@ function ButtonLink({
   readonly children: ReactNode;
 }): JSX.Element {
   const classes = [
-    'button bg-transparent border-0 cursor-pointer px-6 py-1.5 font-bold text-sm text-center',
-    'hover:bg-blue-500 hover:bg-opacity-10',
+    "button bg-transparent border-0 cursor-pointer px-6 py-1.5 font-bold text-sm text-center",
+    "hover:bg-blue-500 hover:bg-opacity-10",
   ];
   if (className != null) {
     classes.push(className);
   }
   return (
-    <Link className={classes.join(' ')} to={href}>
-      {typeof children === 'string' ? children.toLocaleUpperCase() : children}
+    <Link className={classes.join(" ")} to={href}>
+      {typeof children === "string" ? children.toLocaleUpperCase() : children}
     </Link>
   );
 }
@@ -36,7 +36,7 @@ function Card({
   className,
   children,
 }: { readonly className?: string; readonly children: ReactNode }): JSX.Element {
-  const CardBaseCSS = 'flex flex-col bg-white rounded filter drop-shadow';
+  const CardBaseCSS = "flex flex-col bg-white rounded filter drop-shadow";
   const classes = className != null ? `${CardBaseCSS} ${className}` : CardBaseCSS;
   return <div className={classes}>{children}</div>;
 }
@@ -57,7 +57,7 @@ function CardContainer({
   className,
   children,
 }: { readonly className?: string; readonly children: ReactNode }): JSX.Element {
-  const CardContainerBaseCSS = 'flex flex-row flex-wrap justify-center max-w-7xl mx-auto';
+  const CardContainerBaseCSS = "flex flex-row flex-wrap justify-center max-w-7xl mx-auto";
   const classes = className != null ? `${CardContainerBaseCSS} ${className}` : CardContainerBaseCSS;
   return <div className={classes}>{children}</div>;
 }
@@ -95,13 +95,13 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
-              {' '}
+              {" "}
               * Copyright (C) 2015-{new Date().getFullYear()} Developer Sam.
             </span>
           </div>
           <div className="token-line">
             <span className="token comment">
-              {' * @demo '}
+              {" * @demo "}
               <a
                 className="text-[var(--prism-code-block-comment-color)] underline"
                 href="https://samlang.io/demo"
@@ -112,7 +112,7 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
-              {' * @github '}
+              {" * @github "}
               <a
                 className="text-[var(--prism-code-block-comment-color)] underline"
                 href="https://github.com/SamChou19815"
@@ -123,7 +123,7 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
-              {' * @discord '}
+              {" * @discord "}
               <a
                 className="text-[var(--prism-code-block-comment-color)] underline"
                 href="https://discord.gg/WQQUjspZJa"
@@ -134,8 +134,8 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
-              {' '}
-              * @resume{' '}
+              {" "}
+              * @resume{" "}
               <a
                 className="text-[var(--prism-code-block-comment-color)] underline"
                 href="https://developersam.com/resume.pdf"
@@ -224,7 +224,7 @@ export default function IndexPage(): JSX.Element {
   "https://www.linkedin.com/in/sam-zhou-30b91610b/"]}`}
         </script>
       </CommonHeader>
-      <NavBar title="Developer Sam" titleLink="/" navItems={[{ name: 'Blog', link: '/blog' }]} />
+      <NavBar title="Developer Sam" titleLink="/" navItems={[{ name: "Blog", link: "/blog" }]} />
       <div className="relative mx-auto flex max-w-7xl flex-row flex-wrap justify-start lg:flex-nowrap">
         <div className="lg:w-[550px] flex h-[calc(100vh-4rem)] w-full flex-wrap items-center lg:sticky lg:top-0">
           <StickyCodeBlock />

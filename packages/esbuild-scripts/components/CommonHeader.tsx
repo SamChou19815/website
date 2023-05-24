@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
-import Head from './Head';
-import HeadTitle from './HeadTitle';
+import type { ReactNode } from "react";
+import Head from "./Head";
+import HeadTitle from "./HeadTitle";
 
 type Props = {
   // Required
@@ -50,10 +50,10 @@ const CommonHeader = ({
       {ogType && <meta property="og:type" content={ogType} />}
       {ogURL && <meta property="og:url" content={ogURL} />}
       {ogImage && <meta property="og:image" content={ogImage} />}
-      {process.env.NODE_ENV === 'production' && gaId && (
+      {process.env.NODE_ENV === "production" && gaId && (
         <script async={true} src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
       )}
-      {process.env.NODE_ENV === 'production' && gaId && (
+      {process.env.NODE_ENV === "production" && gaId && (
         <script>
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}

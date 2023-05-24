@@ -1,7 +1,7 @@
-import type { Metafile } from 'esbuild';
-import { relative } from 'path';
-import type { HelmetServerState } from 'react-helmet-async';
-import { rewriteEntryPointPathForRouting, type SSRResult } from './entry-points';
+import type { Metafile } from "esbuild";
+import { relative } from "path";
+import type { HelmetServerState } from "react-helmet-async";
+import { rewriteEntryPointPathForRouting, type SSRResult } from "./entry-points";
 
 type EntryPointImports = {
   readonly hardImports: readonly string[];
@@ -16,21 +16,21 @@ export type DependencyGraph = {
 };
 
 const ROUTE_ENTRY_POINT_PREFIX =
-  'virtual-path:esbuild-scripts-internal/virtual/__generated-entry-point__/';
+  "virtual-path:esbuild-scripts-internal/virtual/__generated-entry-point__/";
 
 export function postProcessMetafile(metafile: Metafile, outputPrefix: string): DependencyGraph {
   const entryPointImportsMap = new Map<string, EntryPointImports>();
   const chunkToEntryPointOwnerMap = new Map<string, string>();
   Object.entries(metafile.outputs).forEach(([filename, { imports, entryPoint, cssBundle }]) => {
     const normalizedFilename = relative(outputPrefix, filename);
-    if (normalizedFilename.startsWith('__server__')) {
+    if (normalizedFilename.startsWith("__server__")) {
       return;
     }
-    if (normalizedFilename.endsWith('.js')) {
-      if (normalizedFilename.startsWith('chunk')) {
+    if (normalizedFilename.endsWith(".js")) {
+      if (normalizedFilename.startsWith("chunk")) {
         if (entryPoint) {
           const normalizedEntryPoint = rewriteEntryPointPathForRouting(
-            entryPoint.substring('src/pages/'.length, entryPoint.length - '.jsx'.length),
+            entryPoint.substring("src/pages/".length, entryPoint.length - ".jsx".length),
           );
           chunkToEntryPointOwnerMap.set(normalizedFilename, normalizedEntryPoint);
         }
@@ -39,8 +39,8 @@ export function postProcessMetafile(metafile: Metafile, outputPrefix: string): D
         const lazyImports: string[] = [];
         const cssImports: string[] = [];
         for (const { path, kind } of imports) {
-          if (path.endsWith('.js')) {
-            if (kind === 'dynamic-import') {
+          if (path.endsWith(".js")) {
+            if (kind === "dynamic-import") {
               lazyImports.push(relative(outputPrefix, path));
             } else {
               hardImports.push(relative(outputPrefix, path));
@@ -51,7 +51,7 @@ export function postProcessMetafile(metafile: Metafile, outputPrefix: string): D
           cssImports.push(relative(outputPrefix, cssBundle));
         }
         const normalizedEntryPoint = rewriteEntryPointPathForRouting(
-          entryPoint.substring(ROUTE_ENTRY_POINT_PREFIX.length, entryPoint.length - '.jsx'.length),
+          entryPoint.substring(ROUTE_ENTRY_POINT_PREFIX.length, entryPoint.length - ".jsx".length),
         );
         entryPointImportsMap.set(normalizedEntryPoint, { hardImports, lazyImports, cssImports });
       }
@@ -70,7 +70,7 @@ function getLinks(
 
   const processedLinks = ssrResult?.links
     ? Array.from(
-        new Set(ssrResult.links.filter((it) => it.startsWith('/')).map((it) => it.substring(1))),
+        new Set(ssrResult.links.filter((it) => it.startsWith("/")).map((it) => it.substring(1))),
       )
     : null;
   /**
@@ -89,15 +89,15 @@ function getLinks(
 
   const headCSSLinks = imports.cssImports
     .map((href) => `<link rel="stylesheet" href="/${href}" />`)
-    .join('');
+    .join("");
   const headJSLinks = ssrResult?.noJS
-    ? ''
+    ? ""
     : [...imports.hardImports, ...imports.lazyImports.filter(isRelatedToLinkedEntryPoint)]
         .map((href) => `<link rel="modulepreload" href="/${href}" />`)
-        .join('');
+        .join("");
   const bodyScriptLinks = ssrResult?.noJS
-    ? ''
-    : imports.hardImports.map((href) => `<script type="module" src="/${href}"></script>`).join('');
+    ? ""
+    : imports.hardImports.map((href) => `<script type="module" src="/${href}"></script>`).join("");
 
   return { headLinks: headCSSLinks + headJSLinks, bodyScriptLinks };
 }
@@ -113,7 +113,7 @@ function getHeadHTML(headLinks: string, helmet?: HelmetServerState) {
     helmet.script.toString(),
     headLinks,
   ];
-  return `<head>${parts.join('')}</head>`;
+  return `<head>${parts.join("")}</head>`;
 }
 
 export function getGeneratedHTML(

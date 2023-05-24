@@ -1,7 +1,7 @@
 // Forked from: https://github.com/FormidableLabs/prism-react-renderer
 
-import { tokenize } from './lexer';
-import type { ReactNode } from 'react';
+import { tokenize } from "./lexer";
+import type { ReactNode } from "react";
 
 export type Props = {
   readonly language: string;

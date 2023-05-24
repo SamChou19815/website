@@ -1,5 +1,5 @@
-import Link from 'esbuild-scripts/components/Link';
-import generatedMetadata from '../generator/generated-metadata.mjs';
+import Link from "esbuild-scripts/components/Link";
+import generatedMetadata from "../generator/generated-metadata.mjs";
 
 type PaginationNavItemProps = { readonly permalink: string; readonly isLeft: boolean };
 
@@ -15,7 +15,7 @@ function PaginationNavItem({ permalink, isLeft }: PaginationNavItemProps): JSX.E
       to={permalink}
     >
       <div className="mb-1 text-sm font-medium text-gray-500">
-        {isLeft ? 'Newer Post' : 'Older Post'}
+        {isLeft ? "Newer Post" : "Older Post"}
       </div>
       <div className="break-words font-bold">
         {isLeft ? `« ${metadata.title}` : `${metadata.title} »`}

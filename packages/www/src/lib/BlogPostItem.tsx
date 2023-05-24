@@ -1,6 +1,6 @@
-import Link from 'esbuild-scripts/components/Link';
-import MDXProvider from 'esbuild-scripts/components/MDXProvider';
-import MDXComponents from './MDXComponents';
+import Link from "esbuild-scripts/components/Link";
+import MDXProvider from "esbuild-scripts/components/MDXProvider";
+import MDXComponents from "./MDXComponents";
 
 type Props = {
   readonly metadata: BlogPostMetadata;
@@ -12,7 +12,7 @@ export default function BlogPostItem(props: Props): JSX.Element {
   const { children, metadata, truncated } = props;
   const { title, formattedDate, permalink } = metadata;
 
-  const TitleHeading = truncated ? 'h2' : 'h1';
+  const TitleHeading = truncated ? "h2" : "h1";
 
   return (
     <article className="mb-4 rounded-md border border-solid border-gray-200 bg-white p-4 font-serif drop-shadow-sm filter">

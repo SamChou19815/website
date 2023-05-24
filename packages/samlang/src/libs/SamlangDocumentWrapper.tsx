@@ -1,6 +1,6 @@
-import CommonHeader from 'esbuild-scripts/components/CommonHeader';
-import { useLocation } from 'esbuild-scripts/components/router-hooks';
-import type { ReactNode } from 'react';
+import CommonHeader from "esbuild-scripts/components/CommonHeader";
+import { useLocation } from "esbuild-scripts/components/router-hooks";
+import type { ReactNode } from "react";
 
 export default function SamlangDocumentWrapper({
   children,
@@ -8,7 +8,7 @@ export default function SamlangDocumentWrapper({
   readonly children: ReactNode;
 }): JSX.Element {
   let path = useLocation().pathname;
-  if (path.endsWith('/')) {
+  if (path.endsWith("/")) {
     path = path.substring(0, path.length - 1);
   }
 

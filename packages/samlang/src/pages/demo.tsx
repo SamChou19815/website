@@ -1,23 +1,23 @@
-import type * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
-import type { CompilationResult } from 'samlang-demo';
+import type * as monaco from "monaco-editor/esm/vs/editor/editor.api";
+import type { CompilationResult } from "samlang-demo";
 
-import HeadTitle from 'esbuild-scripts/components/HeadTitle';
-import Link from 'esbuild-scripts/components/Link';
-import Editor from '@monaco-editor/react';
-import { useRef, useState } from 'react';
-import SamlangDocumentWrapper from '../libs/SamlangDocumentWrapper';
+import HeadTitle from "esbuild-scripts/components/HeadTitle";
+import Link from "esbuild-scripts/components/Link";
+import Editor from "@monaco-editor/react";
+import { useRef, useState } from "react";
+import SamlangDocumentWrapper from "../libs/SamlangDocumentWrapper";
 import {
   initializeMonacoEditor,
   monacoEditorOptions,
   onMonacoModelMount,
-} from '../libs/samlang-config';
-import { ALL_EXPRESSIONS, ALL_TYPES, PRINT_HELLO_WORLD, MODULES } from '../libs/samlang-programs';
+} from "../libs/samlang-config";
+import { ALL_EXPRESSIONS, ALL_TYPES, PRINT_HELLO_WORLD, MODULES } from "../libs/samlang-programs";
 
 const DemoPrograms = [
-  { name: 'Hello World', program: PRINT_HELLO_WORLD },
-  { name: 'Modules', program: MODULES },
-  { name: 'Types', program: ALL_TYPES },
-  { name: 'Expressions', program: ALL_EXPRESSIONS },
+  { name: "Hello World", program: PRINT_HELLO_WORLD },
+  { name: "Modules", program: MODULES },
+  { name: "Types", program: ALL_TYPES },
+  { name: "Expressions", program: ALL_EXPRESSIONS },
 ];
 
 function LanguageDemo() {
@@ -59,7 +59,7 @@ function LanguageDemo() {
                     key={name}
                     type="button"
                     className={`cursor-pointer flex-[25%] max-w-[50%] text-sm border-b-2 p-1 pb-3 hover:bg-blue-100 ${
-                      chosenTab === index ? 'border-blue-400' : 'border-transparent'
+                      chosenTab === index ? "border-blue-400" : "border-transparent"
                     }`}
                     onClick={() => {
                       editorRef.current?.getModel()?.setValue(program);
@@ -75,7 +75,7 @@ function LanguageDemo() {
                 className="border-r-2 border-r-gray-300"
                 theme="sam-theme"
                 width="100vw"
-                height={showCompilerOutput ? '60vh' : 'calc(100vh - 5em)'}
+                height={showCompilerOutput ? "60vh" : "calc(100vh - 5em)"}
                 path="Demo.sam"
                 loading={<pre>{PRINT_HELLO_WORLD}</pre>}
                 defaultValue={PRINT_HELLO_WORLD}
@@ -94,13 +94,13 @@ function LanguageDemo() {
                 <div className="h-8 w-full text-center p-1 text-sm">
                   Compiler Output & Interpreter Result
                 </div>
-                {typeof response === 'string' || response == null ? (
+                {typeof response === "string" || response == null ? (
                   <Editor
                     width="100vw"
                     height="calc(40vh - 5em)"
                     theme="sam-theme"
-                    path='result.txt'
-                    value={response ?? 'Loading response...'}
+                    path="result.txt"
+                    value={response ?? "Loading response..."}
                     options={{ ...monacoEditorOptions, readOnly: true }}
                   />
                 ) : (
@@ -109,7 +109,7 @@ function LanguageDemo() {
                     theme="sam-theme"
                     width="100vw"
                     height="calc(40vh - 5em)"
-                    path='Demo.ts'
+                    path="Demo.ts"
                     value={`// Standard out:
 // ${response.interpreterResult}
 // Optimized TypeScript emit:
