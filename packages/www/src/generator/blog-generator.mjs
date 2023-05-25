@@ -1,9 +1,9 @@
 // @ts-check
 
-import mainRunner from 'esbuild-scripts/api.js';
+import mainRunner from "esbuild-scripts/api.js";
 
 // @ts-expect-error CJS-ESM interop
 mainRunner.default(async () => {
-  await import('./codegen.mjs');
+  await import("./codegen.mjs");
   return {};
 });

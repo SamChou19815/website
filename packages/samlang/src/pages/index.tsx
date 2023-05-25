@@ -1,12 +1,12 @@
-import Link from 'esbuild-scripts/components/Link';
-import EditorCodeBlock from '../libs/EditorCodeBlock';
-import SamlangDocumentWrapper from '../libs/SamlangDocumentWrapper';
+import Link from "esbuild-scripts/components/Link";
+import EditorCodeBlock from "../libs/EditorCodeBlock";
+import SamlangDocumentWrapper from "../libs/SamlangDocumentWrapper";
 import {
   FOURTY_TWO,
   HELLO_WORLD_STRING,
   PATTERN_MATCHING,
   TYPE_INFERENCE,
-} from '../libs/samlang-programs';
+} from "../libs/samlang-programs";
 
 export default function Home(): JSX.Element {
   return (
@@ -63,32 +63,32 @@ export default function Home(): JSX.Element {
             <div>
               <h3>Getting Started</h3>
               <EditorCodeBlock language="bash">
-                {'yarn add @dev-sam/samlang-cli\nyarn samlang --help'}
+                {"yarn add @dev-sam/samlang-cli\nyarn samlang --help"}
               </EditorCodeBlock>
               <div>
                 <h2 id="example-programs">Notable Examples</h2>
                 <section className="flex flex-wrap items-center">
                   <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
                     <h4>Hello World</h4>
-                    <div className='pr-2'>
+                    <div className="pr-2">
                       <EditorCodeBlock path="HelloWorld.sam">{HELLO_WORLD_STRING}</EditorCodeBlock>
                     </div>
                   </div>
                   <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
                     <h4>42</h4>
-                    <div className='pr-2'>
+                    <div className="pr-2">
                       <EditorCodeBlock path="42.sam">{FOURTY_TWO}</EditorCodeBlock>
                     </div>
                   </div>
                   <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
                     <h4>Pattern Matching</h4>
-                    <div className='pr-2'>
+                    <div className="pr-2">
                       <EditorCodeBlock path="Match.sam">{PATTERN_MATCHING}</EditorCodeBlock>
                     </div>
                   </div>
                   <div className="flex-grow-0 flex-shrink-0 flex-[50%] max-w-[50%]">
                     <h4>Type Inference</h4>
-                    <div className='pr-2'>
+                    <div className="pr-2">
                       <EditorCodeBlock path="Inference.sam">{TYPE_INFERENCE}</EditorCodeBlock>
                     </div>
                   </div>
@@ -103,7 +103,7 @@ export default function Home(): JSX.Element {
                 comments to illustrate the power of the language.
               </p>
               <p>
-                You can click the Demo button at the top of the page or follow{' '}
+                You can click the Demo button at the top of the page or follow{" "}
                 <Link to="/demo">this link</Link>.
               </p>
             </div>

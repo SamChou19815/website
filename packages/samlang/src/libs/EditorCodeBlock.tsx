@@ -1,5 +1,5 @@
-import Editor from '@monaco-editor/react';
-import { initializeMonacoEditor, monacoEditorOptions, onMonacoModelMount } from './samlang-config';
+import Editor from "@monaco-editor/react";
+import { initializeMonacoEditor, monacoEditorOptions, onMonacoModelMount } from "./samlang-config";
 
 type Props = {
   readonly path?: string;
@@ -8,14 +8,14 @@ type Props = {
 };
 
 export default function EditorCodeBlock({
-  language = 'samlang',
+  language = "samlang",
   path,
   children,
 }: Props): JSX.Element {
   if (__SERVER__) {
     return <pre>{children}</pre>;
   }
-  const height = (children.trim().split('\n').length + 1) * 20;
+  const height = (children.trim().split("\n").length + 1) * 20;
   return (
     <Editor
       defaultLanguage={language}
@@ -29,7 +29,7 @@ export default function EditorCodeBlock({
         ...monacoEditorOptions,
         readOnly: path == null,
         renderFinalNewline: false,
-        scrollbar: { vertical: 'hidden', verticalScrollbarSize: 0, handleMouseWheel: false },
+        scrollbar: { vertical: "hidden", verticalScrollbarSize: 0, handleMouseWheel: false },
         dimension: { width: 0, height },
       }}
       onMount={(editor, monaco) => {

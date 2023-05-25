@@ -1,15 +1,15 @@
-import type { BuildOptions, Plugin } from 'esbuild';
-import type { Processor as PostCSSProcessor } from 'postcss';
-import * as fs from 'fs/promises';
-import * as path from 'path';
-import postcss from 'postcss';
-import tailwind from 'tailwindcss';
-import getTailwindBaseConfig from './tailwind-config';
+import type { BuildOptions, Plugin } from "esbuild";
+import type { Processor as PostCSSProcessor } from "postcss";
+import * as fs from "fs/promises";
+import * as path from "path";
+import postcss from "postcss";
+import tailwind from "tailwindcss";
+import getTailwindBaseConfig from "./tailwind-config";
 
-const mdxPromise = import('@mdx-js/mdx');
+const mdxPromise = import("@mdx-js/mdx");
 
 const webAppResolvePlugin: Plugin = {
-  name: 'WebAppResolvePlugin',
+  name: "WebAppResolvePlugin",
   setup(buildConfig) {
     buildConfig.onResolve({ filter: /^data:/ }, () => ({ external: true }));
   },
@@ -19,19 +19,19 @@ const webAppResolvePlugin: Plugin = {
 export type VirtualPathMappings = { readonly [virtualPath: string]: string };
 
 const VIRTURL_PATH_FILTER = /^esbuild-scripts-internal\/virtual\//;
-const currentProjectDirectory = path.resolve('.');
+const currentProjectDirectory = path.resolve(".");
 const virtualPathResolvePlugin = (virtualPathMappings: VirtualPathMappings): Plugin => ({
-  name: 'VirtualPathResolvePlugin',
+  name: "VirtualPathResolvePlugin",
   setup(buildConfig) {
     buildConfig.onResolve({ filter: VIRTURL_PATH_FILTER }, (args) => ({
       path: args.path,
-      namespace: 'virtual-path',
+      namespace: "virtual-path",
     }));
 
-    buildConfig.onLoad({ filter: VIRTURL_PATH_FILTER, namespace: 'virtual-path' }, (args) => ({
+    buildConfig.onLoad({ filter: VIRTURL_PATH_FILTER, namespace: "virtual-path" }, (args) => ({
       contents: virtualPathMappings[args.path],
       resolveDir: currentProjectDirectory,
-      loader: 'jsx',
+      loader: "jsx",
     }));
   },
 });
@@ -39,23 +39,23 @@ const virtualPathResolvePlugin = (virtualPathMappings: VirtualPathMappings): Plu
 async function compileMarkdownToReact(text: string): Promise<string> {
   const mainComponentCode = await (
     await mdxPromise
-  ).compile(text.trim().split('\n').slice(1).join('\n').trim(), {
-    providerImportSource: 'esbuild-scripts/__internal-components__/mdx',
-    jsxRuntime: 'classic',
+  ).compile(text.trim().split("\n").slice(1).join("\n").trim(), {
+    providerImportSource: "esbuild-scripts/__internal-components__/mdx",
+    jsxRuntime: "classic",
   });
-  return `// @${'generated'}
+  return `// @${"generated"}
 ${mainComponentCode.value}
 MDXContent.additionalProperties = typeof additionalProperties === 'undefined' ? undefined : additionalProperties;
 `;
 }
 
 const mdxPlugin: Plugin = {
-  name: 'mdx',
+  name: "mdx",
   setup(buildConfig) {
     buildConfig.onLoad({ filter: /\.md$/ }, async (args) => {
       return {
         contents: await compileMarkdownToReact((await fs.readFile(args.path)).toString()),
-        loader: 'jsx',
+        loader: "jsx",
       };
     });
   },
@@ -64,12 +64,12 @@ const mdxPlugin: Plugin = {
 function postcssPlugin(): Plugin {
   const processor = postcss([tailwind(getTailwindBaseConfig()) as PostCSSProcessor]);
   return {
-    name: 'postcss',
+    name: "postcss",
     setup(buildConfig) {
       buildConfig.onLoad({ filter: /\.css$/ }, async (args) => {
-        const css = await fs.readFile(args.path, 'utf8');
+        const css = await fs.readFile(args.path, "utf8");
         const result = await processor.process(css, { from: args.path });
-        return { contents: result.css, loader: 'css', watchDirs: [path.resolve('src')] };
+        return { contents: result.css, loader: "css", watchDirs: [path.resolve("src")] };
       });
     },
   };
@@ -89,16 +89,16 @@ export default function baseESBuildConfig({
     define: {
       __dirname: '""',
       __SERVER__: String(isServer),
-      'process.env.NODE_ENV': isProd ? '"production"' : '"development"',
+      "process.env.NODE_ENV": isProd ? '"production"' : '"development"',
     },
     bundle: true,
     minify: false,
-    jsx: 'automatic',
-    legalComments: 'linked',
-    platform: 'browser',
-    target: 'es2019',
-    logLevel: 'error',
-    external: ['path', 'fs'],
+    jsx: "automatic",
+    legalComments: "linked",
+    platform: "browser",
+    target: "es2019",
+    logLevel: "error",
+    external: ["path", "fs"],
     plugins: [
       webAppResolvePlugin,
       virtualPathResolvePlugin(virtualPathMappings),

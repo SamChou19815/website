@@ -1,5 +1,5 @@
-import React from 'react';
-import Head from './Head';
+import React from "react";
+import Head from "./Head";
 
 type Props = { readonly title: string };
 

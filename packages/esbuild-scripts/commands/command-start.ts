@@ -1,17 +1,17 @@
-import { context, type BuildOptions, type BuildResult } from 'esbuild';
-import express from 'express';
-import expressWebSocket from 'express-ws';
-import * as fs from 'fs';
-import type { Socket } from 'net';
-import * as path from 'path';
-import { OUT_PATH } from '../utils/constants';
-import { createEntryPointsGeneratedVirtualFiles } from '../utils/entry-points';
-import baseESBuildConfig from '../utils/esbuild-config';
+import { context, type BuildOptions, type BuildResult } from "esbuild";
+import express from "express";
+import expressWebSocket from "express-ws";
+import * as fs from "fs";
+import type { Socket } from "net";
+import * as path from "path";
+import { OUT_PATH } from "../utils/constants";
+import { createEntryPointsGeneratedVirtualFiles } from "../utils/entry-points";
+import baseESBuildConfig from "../utils/esbuild-config";
 import {
   postProcessMetafile,
   getGeneratedHTML,
   type DependencyGraph,
-} from '../utils/html-generator';
+} from "../utils/html-generator";
 
 class EsbuildScriptsDevServer {
   private readonly expressDevServer = express();
@@ -29,12 +29,12 @@ class EsbuildScriptsDevServer {
     esbuildBuildOptions: BuildOptions,
   ) {
     this.expressDevServer.use(express.static(OUT_PATH, { maxAge: 3600 * 1000 }));
-    this.expressDevServer.use(express.static('public', { maxAge: 3600 * 1000 }));
+    this.expressDevServer.use(express.static("public", { maxAge: 3600 * 1000 }));
     this.expressDevServer.use(
-      express.static(path.join(__dirname, 'devserver-js'), { maxAge: 3600 * 1000 }),
+      express.static(path.join(__dirname, "devserver-js"), { maxAge: 3600 * 1000 }),
     );
 
-    this.expressDevServer.get('*', async (request, response, next) => {
+    this.expressDevServer.get("*", async (request, response, next) => {
       const entryPoint = this.getEntryPoint(request.path);
       if (entryPoint == null) {
         return next();
@@ -44,38 +44,38 @@ class EsbuildScriptsDevServer {
 `;
       return response.send(html);
     });
-    this.expressWebSocket.app.ws('/_ws', () => {});
+    this.expressWebSocket.app.ws("/_ws", () => {});
     const startedExpressServer = this.expressDevServer.listen(3000, () =>
-      console.error('[i] Serving at http://localhost:3000'),
+      console.error("[i] Serving at http://localhost:3000"),
     );
 
     let expressConnections: Socket[] = [];
-    startedExpressServer.on('connection', (connection) => {
+    startedExpressServer.on("connection", (connection) => {
       expressConnections.push(connection);
-      connection.on('close', () => {
+      connection.on("close", () => {
         expressConnections = expressConnections.filter((curr) => curr !== connection);
       });
     });
-    this.websocketServer.on('connection', (socket) =>
+    this.websocketServer.on("connection", (socket) =>
       socket.send(JSON.stringify({ hasErrors: this.hasErrors })),
     );
 
     const buildConfig: BuildOptions & { metafile: true } = {
       ...esbuildBuildOptions,
       // Code Splitting Configs
-      assetNames: 'assets/[name]-[hash]',
-      chunkNames: 'chunks/[name]-[hash]',
-      entryNames: '[dir]/[name]-[hash]',
-      sourcemap: 'inline',
+      assetNames: "assets/[name]-[hash]",
+      chunkNames: "chunks/[name]-[hash]",
+      entryNames: "[dir]/[name]-[hash]",
+      sourcemap: "inline",
       splitting: true,
-      format: 'esm',
+      format: "esm",
       // Watch config for devserver serving purposes.
       outdir: OUT_PATH,
       write: true,
       metafile: true,
     };
     buildConfig.plugins?.push({
-      name: 'on-rebuild-plugin',
+      name: "on-rebuild-plugin",
       setup: (build) => {
         build.onEnd((rebuildResult) => {
           this.handleBuildResult(rebuildResult);
@@ -98,10 +98,10 @@ class EsbuildScriptsDevServer {
   }
 
   shutdown = () => {
-    console.error('\n[?] Shutting down...');
+    console.error("\n[?] Shutting down...");
     this.shutdownHandlers.forEach((runner) => runner());
     fs.rmSync(OUT_PATH, { recursive: true, force: true });
-    console.error('[✓] Server down.');
+    console.error("[✓] Server down.");
   };
 
   private handleBuildResult({
@@ -121,12 +121,12 @@ class EsbuildScriptsDevServer {
   }
 
   private getEntryPoint(url: string) {
-    if (!url.startsWith('/')) {
+    if (!url.startsWith("/")) {
       return undefined;
     }
     const urlPath = url.substring(1);
     return this.allEntryPointsWithoutExtension.find((entryPoint) => {
-      if (entryPoint.endsWith('index')) {
+      if (entryPoint.endsWith("index")) {
         return [entryPoint, entryPoint.substring(0, entryPoint.length - 5)].includes(urlPath);
       }
       return entryPoint === urlPath;
@@ -143,7 +143,7 @@ export default async function startCommand(): Promise<void> {
     entryPoints: Object.keys(entryPointVirtualFiles),
     minify: true,
   });
-  process.on('SIGINT', devServer.shutdown);
-  process.on('SIGTERM', devServer.shutdown);
-  process.stdin.on('end', devServer.shutdown);
+  process.on("SIGINT", devServer.shutdown);
+  process.on("SIGTERM", devServer.shutdown);
+  process.stdin.on("end", devServer.shutdown);
 }

@@ -1,10 +1,10 @@
-import Head from 'esbuild-scripts/components/Head';
-import HeadTitle from 'esbuild-scripts/components/HeadTitle';
-import { BLOG_TITLE } from './blog-constants';
-import BlogDocumentWrapper from './BlogDocumentWrapper';
-import BlogPostItem from './BlogPostItem';
-import BlogPostPaginator from './BlogPostPaginator';
-import generatedMetadata from '../generator/generated-metadata.mjs';
+import Head from "esbuild-scripts/components/Head";
+import HeadTitle from "esbuild-scripts/components/HeadTitle";
+import { BLOG_TITLE } from "./blog-constants";
+import BlogDocumentWrapper from "./BlogDocumentWrapper";
+import BlogPostItem from "./BlogPostItem";
+import BlogPostPaginator from "./BlogPostPaginator";
+import generatedMetadata from "../generator/generated-metadata.mjs";
 
 type Props = { readonly content: CompiledMarkdownComponent; readonly permalink: string };
 
@@ -13,7 +13,7 @@ export default function BlogPostPage({ content: BlogPostContents, permalink }: P
   if (metadata == null) {
     throw permalink;
   }
-  const ogImage = BlogPostContents?.additionalProperties?.['ogImage'];
+  const ogImage = BlogPostContents?.additionalProperties?.["ogImage"];
   return (
     <BlogDocumentWrapper>
       <HeadTitle title={`${metadata.title} | ${BLOG_TITLE}`} />
