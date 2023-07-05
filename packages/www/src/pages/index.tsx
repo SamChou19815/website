@@ -123,17 +123,6 @@ class Main {
           </div>
           <div className="token-line">
             <span className="token comment">
-              {" * @discord "}
-              <a
-                className="text-[var(--prism-code-block-comment-color)] underline"
-                href="https://discord.gg/WQQUjspZJa"
-              >
-                https://discord.gg/WQQUjspZJa
-              </a>
-            </span>
-          </div>
-          <div className="token-line">
-            <span className="token comment">
               {" "}
               * @resume{" "}
               <a
