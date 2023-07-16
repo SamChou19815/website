@@ -266,26 +266,19 @@ function parseToMarkers(response: string): monaco.editor.IMarkerData[] {
 export function onMonacoModelMount(
   editor: monaco.editor.IStandaloneCodeEditor,
   monaco: MonacoEditor,
-  onResponse?: (response: samlang.CompilationResult) => unknown,
+  onCompilationResponse?: (response: samlang.CompilationResult) => unknown,
 ): void {
   const model = editor.getModel();
   if (model == null) return;
 
   const respond = () => {
-    if (onResponse != null) {
-      getWasmResponse(model.getValue()).then((response) => {
-        onResponse(response);
-        if (typeof response !== "string") {
-          monaco.editor.setModelMarkers(model, "samlang", []);
-          return;
-        }
-        monaco.editor.setModelMarkers(model, "samlang", parseToMarkers(response));
-      });
-    } else {
-      samlang.typeCheck(model.getValue()).then((response) => {
-        monaco.editor.setModelMarkers(model, "samlang", parseToMarkers(response));
-      });
+    const value = model.getValue();
+    if (onCompilationResponse != null) {
+      getWasmResponse(value).then(onCompilationResponse);
     }
+    samlang.typeCheck(value).then((response) => {
+      monaco.editor.setModelMarkers(model, "samlang", parseToMarkers(response));
+    });
   };
 
   model.onDidChangeContent(() => respond());
