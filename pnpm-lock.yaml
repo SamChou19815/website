@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -129,6 +133,8 @@ importers:
       esbuild-scripts:
         specifier: workspace:*
         version: link:../esbuild-scripts
+
+  packages/threads-extension: {}
 
   packages/vscode-disable-generated-files-edit:
     devDependencies:

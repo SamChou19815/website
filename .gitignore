@@ -15,7 +15,10 @@ server/target
 # framework generated files
 **/.temp
 .turbo
+
+# package specific generated files
 packages/esbuild-scripts/api.js
+packages/threads-extension/packed.zip
 packages/www/src/pages/blog/*/*
 
 # env

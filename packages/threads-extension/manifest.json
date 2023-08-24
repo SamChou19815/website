@@ -1,0 +1,17 @@
+{
+  "name": "Threads Helper",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "description": "Force defaulting to following feed",
+  "permissions": [],
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.threads.net/*", "*://threads.net/*"],
+      "js": ["background.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
