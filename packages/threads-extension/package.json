@@ -1,0 +1,9 @@
+{
+  "name": "threads-extension",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "check": "tsc --noEmit --incremental",
+    "build": "zip packed.zip icon.png background.js manifest.json"
+  }
+}
