@@ -14,9 +14,9 @@ function ButtonLink({
   children,
   className,
 }: {
-  readonly href: string;
-  readonly className?: string;
-  readonly children: ReactNode;
+  href: string;
+  className?: string;
+  children: ReactNode;
 }): JSX.Element {
   const classes = [
     "button bg-transparent border-0 cursor-pointer px-6 py-1.5 font-bold text-sm text-center",
@@ -32,19 +32,13 @@ function ButtonLink({
   );
 }
 
-function Card({
-  className,
-  children,
-}: { readonly className?: string; readonly children: ReactNode }): JSX.Element {
+function Card({ className, children }: { className?: string; children: ReactNode }): JSX.Element {
   const CardBaseCSS = "flex flex-col bg-white rounded filter drop-shadow";
   const classes = className != null ? `${CardBaseCSS} ${className}` : CardBaseCSS;
   return <div className={classes}>{children}</div>;
 }
 
-function CardHeader({
-  title,
-  subheader,
-}: { readonly title: string; readonly subheader?: string }): JSX.Element {
+function CardHeader({ title, subheader }: { title: string; subheader?: string }): JSX.Element {
   return (
     <div className="px-4 pb-0 last:pb-4">
       <h4 className="mb-0">{title}</h4>
@@ -56,7 +50,7 @@ function CardHeader({
 function CardContainer({
   className,
   children,
-}: { readonly className?: string; readonly children: ReactNode }): JSX.Element {
+}: { className?: string; children: ReactNode }): JSX.Element {
   const CardContainerBaseCSS = "flex flex-row flex-wrap justify-center max-w-7xl mx-auto";
   const classes = className != null ? `${CardContainerBaseCSS} ${className}` : CardContainerBaseCSS;
   return <div className={classes}>{children}</div>;
@@ -145,6 +139,18 @@ class Main {
             </span>
           </div>
           <div className="token-line">
+            <span className="token comment">
+              {" "}
+              * @contact{" "}
+              <a
+                className="text-[var(--prism-code-block-comment-color)] underline"
+                href="https://forms.gle/WtvV8YaBvMk7Fe3b8"
+              >
+                https://forms.gle/WtvV8YaBvMk7Fe3b8
+              </a>
+            </span>
+          </div>
+          <div className="token-line">
             <span className="token comment"> */</span>
           </div>
         </>
@@ -226,7 +232,7 @@ export default function IndexPage(): JSX.Element {
       </CommonHeader>
       <NavBar title="Developer Sam" titleLink="/" navItems={[{ name: "Blog", link: "/blog" }]} />
       <div className="relative mx-auto flex max-w-7xl flex-row flex-wrap justify-start lg:flex-nowrap">
-        <div className="lg:w-[550px] flex h-[calc(100vh-4rem)] w-full flex-wrap items-center lg:sticky lg:top-0">
+        <div className="lg:w-[550px] flex h-[calc(100vh-8rem)] w-full flex-wrap items-center lg:sticky lg:top-0">
           <StickyCodeBlock />
         </div>
         <div className="my-12">{TimelineSection}</div>
