@@ -4,9 +4,16 @@
 /** @type {readonly BlogPostMetadata[]} */
 const generatedMetaDataList = [
   {
+    "title": "Life of a High School CS Club President, from a SWE's Perspective",
+    "formattedDate": "2023-09-11",
+    "permalink": "/blog/2023/09/11/life-of-high-school-cs-club-member",
+    "nextPermalink": "/blog/2023/01/08/samlang-rust-rewrite"
+  },
+  {
     "title": "Rewriting samlang in Rust",
     "formattedDate": "2023-01-08",
     "permalink": "/blog/2023/01/08/samlang-rust-rewrite",
+    "prevPermalink": "/blog/2023/09/11/life-of-high-school-cs-club-member",
     "nextPermalink": "/blog/2022/09/05/bounded-qualification"
   },
   {
