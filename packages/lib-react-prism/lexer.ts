@@ -197,6 +197,8 @@ const SamlangLexer: Lexer = getLexer({
     "class",
     "interface",
     "val",
+    "let",
+    "const",
     "function",
     "method",
     "import",
