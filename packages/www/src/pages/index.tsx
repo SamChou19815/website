@@ -73,6 +73,7 @@ class Developer(
     Developer.init(github, projects)
   }
 }
+
 class Main {
   function main(): Developer = Developer.sam()
 }`;
