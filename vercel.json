@@ -14,11 +14,6 @@
   "rewrites": [
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "samlang.io" }],
-      "destination": "/samlang/:path*"
-    },
-    {
-      "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "developersam.com" }],
       "destination": "/www/:path*"
     }
