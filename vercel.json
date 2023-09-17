@@ -1,21 +1,14 @@
 {
-  "buildCommand": "pnpm build && pnpm cp-dist",
+  "buildCommand": "pnpm build",
   "cleanUrls": true,
   "framework": null,
   "public": true,
-  "outputDirectory": "dist",
+  "outputDirectory": "packages/www/build",
   "redirects": [
     {
       "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "blog.developersam.com" }],
       "destination": "https://developersam.com/blog/:path*"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "developersam.com" }],
-      "destination": "/www/:path*"
     }
   ]
 }
