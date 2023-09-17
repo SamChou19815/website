@@ -4,9 +4,6 @@
   "scripts": {
     "check": "turbo run check",
     "build": "turbo run build",
-    "cp-dist": "rm -rf dist && mkdir dist && pnpm cp-dist:samlang && pnpm cp-dist:www",
-    "cp-dist:samlang": "cp -r packages/samlang/build dist/samlang",
-    "cp-dist:www": "cp -r packages/www/build dist/www",
     "format": "rome format --write .",
     "lint": "rome check .",
     "bump": "pnpm up -r --latest @types/node @types/react @types/react-dom typescript husky lint-staged esbuild turbo"
