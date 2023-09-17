@@ -58,20 +58,18 @@ function CardContainer({
 
 function StickyCodeBlock(): JSX.Element {
   const code = `
-class Pair<A, B>(val a: A, val b: B)
-class List<T>(Nil(unit), Cons(Pair<T, List<T>>)) {
-  function <T> of(t: T): List<T> =
-    List.Cons(Pair.init(t, List.Nil<T>({})))
-  method cons(t: T): List<T> =
-    List.Cons(Pair.init(t, this))
-}
+import {List} from std.list;
+
 class Developer(
-  val github: string,
-  val projects: List<string>,
+  val github: Str,
+  val projects: List<Str>,
 ) {
   function sam(): Developer = {
-    val github = "SamChou19815";
-    val projects = List.of("samlang").cons("...");
+    let github = "SamChou19815";
+    let projects = List
+      .of("samlang")
+      .cons("website")
+      .cons("...");
     Developer.init(github, projects)
   }
 }
