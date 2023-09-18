@@ -85,7 +85,7 @@ expressive type system, the claim is far from the truth.
 Considering the variant type that you can usually find in a functional programming language.
 
 ```typescript
-type list = {type: 'nil'} | {type: 'cons', data: int, next: list};
+type list = { type: "nil" } | { type: "cons"; data: int; next: list };
 ```
 
 At the runtime, a value of the list type would be represented by a struct with two slots, where the
@@ -236,13 +236,13 @@ this setup, the above if-else would be represented by:
 
 ```typescript
 const ifElse = {
-  __type__: 'if-else',
+  __type__: "if-else",
   condition: c,
-  trueBranchStatements: ['const a = b * c' /* ... */],
-  falseBranchStatements: [, /* ... */ 'const t = b * c'],
+  trueBranchStatements: ["const a = b * c" /* ... */],
+  falseBranchStatements: [, /* ... */ "const t = b * c"],
   finalAssignments: [
-    { name: 'v', branch1Value: 1, branch2Value: 0 },
-    { name: 'd', branch1Value: 'a', branch2Value: 't' },
+    { name: "v", branch1Value: 1, branch2Value: 0 },
+    { name: "d", branch1Value: "a", branch2Value: "t" },
   ],
 };
 ```

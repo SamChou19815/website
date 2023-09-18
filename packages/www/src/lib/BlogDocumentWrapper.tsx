@@ -1,8 +1,8 @@
 import CommonHeader from "esbuild-scripts/components/CommonHeader";
 import { useLocation } from "esbuild-scripts/components/router-hooks";
 import type { ReactNode } from "react";
-import { BLOG_TITLE, BLOG_URL } from "./blog-constants";
 import NavBar from "./NavBar";
+import { BLOG_TITLE, BLOG_URL } from "./blog-constants";
 
 export default function BlogDocumentWrapper({ children }: { children: ReactNode }): JSX.Element {
   let path = useLocation().pathname;

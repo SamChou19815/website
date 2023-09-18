@@ -3,7 +3,10 @@ import Link from "esbuild-scripts/components/Link";
 type Props = {
   readonly title: string;
   readonly titleLink: string;
-  readonly navItems: readonly { readonly name: string; readonly link: string }[];
+  readonly navItems: readonly {
+    readonly name: string;
+    readonly link: string;
+  }[];
 };
 
 export default function NavBar({ title, titleLink, navItems }: Props): JSX.Element {

@@ -14,7 +14,7 @@ function test(f, a) {
   return f(a);
 }
 
-const ignoreMe = test(f, '3');
+const ignoreMe = test(f, "3");
 ```
 
 However, functions do not have first-class support on JVM. Although Java 8 and Kotlin have good and

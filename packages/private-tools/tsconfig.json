@@ -1,0 +1,9 @@
+{
+  "extends": "../../configuration/tsconfig.lib.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true,
+    "types": ["node", "bun-types"]
+  },
+  "exclude": []
+}

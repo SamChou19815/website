@@ -108,7 +108,7 @@ function boxCreator<T>(value: T): Box<T> {
 
 function main() {
   const b1: Box<number> = [1, 1];
-  const b2: Box<string> = boxCreator('sdfd');
+  const b2: Box<string> = boxCreator("sdfd");
   const b3: Box<Box<string>> = boxCreator(b2);
 }
 ```
@@ -130,7 +130,7 @@ function boxCreator_Box_string(value: Box_string): Box_Box_string {
 
 function main() {
   const b1: Box_number = [1, 1];
-  const b2: Box_string = boxCreator_string('sdfd');
+  const b2: Box_string = boxCreator_string("sdfd");
   const b3: Box_Box_string = boxCreator_Box_string(b2);
 }
 ```
@@ -182,7 +182,7 @@ function anonymousFun12345(
   // Context parameter
   context: { ONE: number; TWO: number },
   // original parameters follow
-  v: number
+  v: number,
 ): void {
   const ONE = context.ONE;
   const TWO = context.TWO;
@@ -195,18 +195,18 @@ type and the context type fully parameterized. However, this setup simply does n
 recursive data types. Consider the following example of a functional linked list:
 
 ```typescript
-type List<T> = { type: 'nil' } | { type: 'cons'; value: T; next: List<T> };
+type List<T> = { type: "nil" } | { type: "cons"; value: T; next: List<T> };
 
 const listOfFunctions: List<() => void> = {
-  type: 'cons',
+  type: "cons",
   value: () => /* context of type A */ code1,
   next: {
-    type: 'cons',
+    type: "cons",
     value: () => /* context of type B */ code2,
     next: {
-      type: 'cons',
+      type: "cons",
       value: () => /* context of type C */ code3,
-      next: { type: 'nil' },
+      next: { type: "nil" },
     },
   },
 };
@@ -227,7 +227,7 @@ type Closure_UnitReturn = [
   referenceCount: number,
   contextDestructor: (context: unknown) => void,
   context: unknown,
-  functionToCall: () => void
+  functionToCall: () => void,
 ];
 
 type ContextObj1 = [referenceCount: number, ONE: number, TWO: number];

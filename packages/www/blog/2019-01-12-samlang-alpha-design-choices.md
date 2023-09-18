@@ -50,7 +50,7 @@ fun Student.getNameWithAge(): String = "$name($age)"
 If the type system is structural, then the user may choose to write:
 
 ```typescript
-const info = { name: 'RANDOM_BABY', age: 0 }.getNameWithAge();
+const info = { name: "RANDOM_BABY", age: 0 }.getNameWithAge();
 ```
 
 Then deciding which function to call requires iterating over the entire typing environment, which is

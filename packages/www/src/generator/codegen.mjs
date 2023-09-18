@@ -1,7 +1,7 @@
 // @ts-check
 
-import * as fs from "fs/promises";
 import { extname, join, resolve } from "path";
+import * as fs from "fs/promises";
 
 const BLOG_DIRECTORY = "blog";
 const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join("src", "lib", "BlogPostPage"));

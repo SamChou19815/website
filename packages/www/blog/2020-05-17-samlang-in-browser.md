@@ -188,7 +188,7 @@ result, although there is a [tool](https://github.com/kotlin/dukat) that can con
 100% faithful translation of type constraints. For example, a string literal union type like
 
 ```typescript
-type UnaryOperator = '!' | '-';
+type UnaryOperator = "!" | "-";
 ```
 
 will be transformed to `String` in Kotlin, since Kotlin doesn't support union type. Another common
@@ -196,8 +196,8 @@ TypeScript pattern is discriminated union:
 
 ```typescript
 type List<T> =
-  | { readonly type: 'nil' }
-  | { readonly type: 'cons'; readonly element: T; readonly next: List<T> };
+  | { readonly type: "nil" }
+  | { readonly type: "cons"; readonly element: T; readonly next: List<T> };
 ```
 
 Kotlin cannot support this so the generated Kotlin type will simply be `Any`.
@@ -272,8 +272,8 @@ The reason is that Kotlin compiler for JS performs some automatic DCE (dead code
 is a very simple optimization in principle. Imagine you have some code like this:
 
 ```typescript
-const a = () => console.log('haha');
-const b = () => console.log('ahah');
+const a = () => console.log("haha");
+const b = () => console.log("ahah");
 const c = () => b();
 export const main = () => a();
 ```
@@ -293,7 +293,7 @@ Then a 1.1MB `samlang-demo.js` is generated, which exports `runDemo` function in
 
 ```typescript
 // Re-export the function in a nicer way.
-module.exports = require('./samlang-demo').samlang.demo.runDemo;
+module.exports = require("./samlang-demo").samlang.demo.runDemo;
 ```
 
 ```typescript

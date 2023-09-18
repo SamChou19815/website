@@ -165,7 +165,7 @@ users with some ways to put in their courses, and then we compute requirement fu
 ```typescript
 function computeRequirementProgress(
   requirements: readonly Requirement[],
-  courses: readonly Course[]
+  courses: readonly Course[],
 ): Progress;
 ```
 

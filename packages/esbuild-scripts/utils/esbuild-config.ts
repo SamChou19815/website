@@ -1,7 +1,7 @@
-import type { BuildOptions, Plugin } from "esbuild";
-import type { Processor as PostCSSProcessor } from "postcss";
-import * as fs from "fs/promises";
 import * as path from "path";
+import type { BuildOptions, Plugin } from "esbuild";
+import * as fs from "fs/promises";
+import type { Processor as PostCSSProcessor } from "postcss";
 import postcss from "postcss";
 import tailwind from "tailwindcss";
 import getTailwindBaseConfig from "./tailwind-config";
@@ -69,7 +69,11 @@ function postcssPlugin(): Plugin {
       buildConfig.onLoad({ filter: /\.css$/ }, async (args) => {
         const css = await fs.readFile(args.path, "utf8");
         const result = await processor.process(css, { from: args.path });
-        return { contents: result.css, loader: "css", watchDirs: [path.resolve("src")] };
+        return {
+          contents: result.css,
+          loader: "css",
+          watchDirs: [path.resolve("src")],
+        };
       });
     },
   };

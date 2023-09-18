@@ -141,7 +141,10 @@ const getLexer =
           index += 1;
         } else {
           if (index > start) {
-            tokens.push({ kind: "plain", raw: chars.slice(start, index).join("") });
+            tokens.push({
+              kind: "plain",
+              raw: chars.slice(start, index).join(""),
+            });
           }
           tokens.push(
             consumeLineComment() ??

@@ -132,7 +132,10 @@ export function queryType(
   source: string,
   line: number,
   column: number,
-): Promise<{ contents: Array<{ language: string; value: string }>; range: Range } | null>;
+): Promise<{
+  contents: Array<{ language: string; value: string }>;
+  range: Range;
+} | null>;
 
 // ...
 ```

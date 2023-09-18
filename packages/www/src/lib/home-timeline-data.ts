@@ -44,7 +44,10 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: "samlang emits WASM code",
     time: "October 2021",
     links: [
-      { name: "Blog Post", url: "https://blog.developersam.com/2021/10/29/samlang-wasm-backend" },
+      {
+        name: "Blog Post",
+        url: "https://blog.developersam.com/2021/10/29/samlang-wasm-backend",
+      },
     ],
   },
   {
@@ -68,7 +71,10 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: "samlang emits LLVM code",
     time: "January 2021",
     links: [
-      { name: "Blog Post", url: "https://blog.developersam.com/2021/01/24/samlang-llvm-backend" },
+      {
+        name: "Blog Post",
+        url: "https://blog.developersam.com/2021/01/24/samlang-llvm-backend",
+      },
     ],
   },
   {
@@ -86,7 +92,10 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: "samlang rewritten in TypeScript",
     time: "August 2020",
     links: [
-      { name: "Blog Post", url: "https://blog.developersam.com/2020/08/30/samlang-ts-rewrite" },
+      {
+        name: "Blog Post",
+        url: "https://blog.developersam.com/2020/08/30/samlang-ts-rewrite",
+      },
     ],
   },
   {
@@ -102,7 +111,10 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     detail:
       "A simplified version of React runtime with useState and useEffect hook, built from Scratch.",
     links: [
-      { name: "GitHub Repo", url: "https://github.com/SamChou19815/mini-react" },
+      {
+        name: "GitHub Repo",
+        url: "https://github.com/SamChou19815/mini-react",
+      },
       { name: "Demo", url: "https://mini-react.developersam.com/" },
       { name: "Slides", url: "/build-simplified-react.pdf" },
     ],
@@ -168,8 +180,14 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     time: "August 2018",
     image: CritterCompiler,
     links: [
-      { name: "GitHub Repo", url: "https://github.com/SamChou19815/primitivize" },
-      { name: "Blog Post", url: "https://blog.developersam.com/2018/08/27/cw-turing-complete/" },
+      {
+        name: "GitHub Repo",
+        url: "https://github.com/SamChou19815/primitivize",
+      },
+      {
+        name: "Blog Post",
+        url: "https://blog.developersam.com/2018/08/27/cw-turing-complete/",
+      },
     ],
   },
   {
@@ -208,7 +226,12 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
     title: "TEN",
     time: "July 2017",
     image: TEN,
-    links: [{ name: "GitHub Repo", url: "https://github.com/SamChou19815/ten-golang" }],
+    links: [
+      {
+        name: "GitHub Repo",
+        url: "https://github.com/SamChou19815/ten-golang",
+      },
+    ],
   },
   {
     title: "Graduated from High School",
@@ -220,7 +243,11 @@ export const DATASET_TIMELINE: readonly TimelineItem[] = [
       },
     ],
   },
-  { title: "Computerization Club President", time: "September 2015", image: SAMLater },
+  {
+    title: "Computerization Club President",
+    time: "September 2015",
+    image: SAMLater,
+  },
   { title: "Computerization Software Developer", time: "Feburary 2015" },
   {
     title: "Bought developersam.com",

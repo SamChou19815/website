@@ -33,7 +33,7 @@ const MDXComponents: CustomizedMDXComponents = {
     return <Link {...props} to={href ?? ""} />;
   },
   pre: (props) => {
-    // rome-ignore lint/suspicious/noExplicitAny: too dynamic
+    // biome-ignore lint/suspicious/noExplicitAny: shameful children inspection
     const stringOrComponentChildren = props.children as any;
     const { className, children } = (
       isValidElement(stringOrComponentChildren) ? stringOrComponentChildren?.props : props

@@ -34,7 +34,7 @@ Usually, we represent a program as a tree structure instead of a simple string i
 example, this simple TypeScript hello-world program
 
 ```typescript
-console.log('Hello World!');
+console.log("Hello World!");
 ```
 
 can be represented as the following tree:
@@ -196,7 +196,7 @@ check. For example, consider this TypeScript program:
 
 ```typescript
 type ABC = { foo: string };
-const bar: string = { foo: '' }; /* press dot here to autocomplete. */
+const bar: string = { foo: "" }; /* press dot here to autocomplete. */
 ```
 
 When we press dot after `new ABC("")`, we would expect field `foo` to popup. However, the current
@@ -214,7 +214,7 @@ Although the type checking problem still exists, sometimes we are lucky:
 ```typescript
 function run() {
   // "foo" is assignable to `string` here, so we can autocomplete!
-  const bar: string = 'foo'; /* press dot here to autocomplete. */
+  const bar: string = "foo"; /* press dot here to autocomplete. */
 }
 ```
 
@@ -259,7 +259,7 @@ checker first. Here is a quick observation:
 For example, the error in the first line shouldn't affect type checking the second line:
 
 ```typescript
-const a: number = 'foo'; // oops, 'foo' is not assignable to `number`.
+const a: number = "foo"; // oops, 'foo' is not assignable to `number`.
 const b: number = a + 3;
 ```
 
@@ -369,7 +369,7 @@ changed files. Consider these two TypeScript files:
 export const a: number = 1;
 
 // b.ts
-import { a } from './a';
+import { a } from "./a";
 const b: number = a + 1;
 ```
 
