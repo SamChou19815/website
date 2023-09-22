@@ -1,16 +1,19 @@
-import { build, type Metafile } from "esbuild";
-import * as fs from "fs/promises";
 import * as path from "path";
+import { type Metafile, build } from "esbuild";
+import * as fs from "fs/promises";
 import { BUILD_PATH, SSR_JS_PATH, VIRTUAL_SERVER_ENTRY_PATH } from "../utils/constants";
-import { createEntryPointsGeneratedVirtualFiles, type SSRResult } from "../utils/entry-points";
+import { type SSRResult, createEntryPointsGeneratedVirtualFiles } from "../utils/entry-points";
 import type { VirtualPathMappings } from "../utils/esbuild-config";
 import baseESBuildConfig from "../utils/esbuild-config";
 import { copyDirectoryContent } from "../utils/fs";
-import { postProcessMetafile, getGeneratedHTML } from "../utils/html-generator";
+import { getGeneratedHTML, postProcessMetafile } from "../utils/html-generator";
 
 async function generateBundle(entryPointVirtualFiles: VirtualPathMappings): Promise<Metafile> {
   const { outputFiles, metafile } = await build({
-    ...baseESBuildConfig({ virtualPathMappings: entryPointVirtualFiles, isProd: true }),
+    ...baseESBuildConfig({
+      virtualPathMappings: entryPointVirtualFiles,
+      isProd: true,
+    }),
     entryPoints: Object.keys(entryPointVirtualFiles),
     assetNames: "assets/[name]-[hash]",
     chunkNames: "chunks/[name]-[hash]",
@@ -30,7 +33,7 @@ async function generateBundle(entryPointVirtualFiles: VirtualPathMappings): Prom
   );
   await fs.writeFile(
     path.join(BUILD_PATH, "metafile.json"),
-    JSON.stringify(metafile, undefined, 2) + "\n",
+    `${JSON.stringify(metafile, undefined, 2)}\n`,
   );
   return metafile;
 }

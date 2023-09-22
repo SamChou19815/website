@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
 import CommonHeader from "esbuild-scripts/components/CommonHeader";
 import Link from "esbuild-scripts/components/Link";
 import PrismCodeBlock from "lib-react-prism/PrismCodeBlock";
-import { DATASET_TIMELINE } from "../lib/home-timeline-data";
+import type { ReactNode } from "react";
 import NavBar from "../lib/NavBar";
+import { DATASET_TIMELINE } from "../lib/home-timeline-data";
 
 function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.Element {
   return <img src={image} alt={title} title={title} loading="lazy" />;
@@ -50,7 +50,10 @@ function CardHeader({ title, subheader }: { title: string; subheader?: string })
 function CardContainer({
   className,
   children,
-}: { className?: string; children: ReactNode }): JSX.Element {
+}: {
+  className?: string;
+  children: ReactNode;
+}): JSX.Element {
   const CardContainerBaseCSS = "flex flex-row flex-wrap justify-center max-w-7xl mx-auto";
   const classes = className != null ? `${CardContainerBaseCSS} ${className}` : CardContainerBaseCSS;
   return <div className={classes}>{children}</div>;
@@ -175,7 +178,7 @@ const TimelineSection = (
               {item.links != null && (
                 <div className="p-4">
                   {item.links.map(({ name, url }, index) => (
-                    // rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    // biome-ignore lint/suspicious/noArrayIndexKey: no other good choice
                     <ButtonLink key={index} href={url} className="px-1.5">
                       {name}
                     </ButtonLink>

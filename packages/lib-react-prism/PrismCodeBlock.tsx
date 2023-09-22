@@ -1,7 +1,7 @@
 // Forked from: https://github.com/FormidableLabs/prism-react-renderer
 
-import { tokenize } from "./lexer";
 import type { ReactNode } from "react";
+import { tokenize } from "./lexer";
 
 export type Props = {
   readonly language: string;
@@ -23,10 +23,10 @@ export default function PrismCodeBlock({
     <pre className={combinedClassname}>
       {manualSection}
       {tokenize(language, children).map((line, i) => (
-        // rome-ignore lint/suspicious/noArrayIndexKey: no better choice
+        // biome-ignore lint/suspicious/noArrayIndexKey: no other good choice
         <div key={i} className="token-line">
           {line.map((token, key) => (
-            // rome-ignore lint/suspicious/noArrayIndexKey: no better choice
+            // biome-ignore lint/suspicious/noArrayIndexKey: no other good choice
             <span key={key} className={`token ${token.kind}`}>
               {token.raw}
             </span>

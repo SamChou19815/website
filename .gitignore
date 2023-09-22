@@ -12,6 +12,9 @@ server/target
 # dependencies
 **/node_modules
 
+# secret
+packages/private-tools/**/commands/secret-*
+
 # framework generated files
 **/.temp
 .turbo

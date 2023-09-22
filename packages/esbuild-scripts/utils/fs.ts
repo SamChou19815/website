@@ -1,5 +1,5 @@
-import * as fs from "fs/promises";
 import * as path from "path";
+import * as fs from "fs/promises";
 
 export const copyDirectoryContent = async (
   sourceDirectory: string,

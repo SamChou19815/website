@@ -1,4 +1,10 @@
 {
+  "$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
@@ -28,6 +34,18 @@
     "rules": {
       "recommended": true
     }
+  },
+  "organizeImports": {
+    "enabled": true,
+    "ignore": [
+      "**/.vercel/*",
+      "**/build/*",
+      "**/dist/*",
+      "**/out/*",
+      "packages/esbuild-scripts/api.js",
+      "packages/www/src/generator/generated-metadata.mjs",
+      "packages/www/src/pages/blog/**"
+    ]
   },
   "javascript": {
     "formatter": {

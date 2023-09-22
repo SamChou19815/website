@@ -1,16 +1,16 @@
-import { context, type BuildOptions, type BuildResult } from "esbuild";
-import express from "express";
-import expressWebSocket from "express-ws";
 import * as fs from "fs";
 import type { Socket } from "net";
 import * as path from "path";
+import { type BuildOptions, type BuildResult, context } from "esbuild";
+import express from "express";
+import expressWebSocket from "express-ws";
 import { OUT_PATH } from "../utils/constants";
 import { createEntryPointsGeneratedVirtualFiles } from "../utils/entry-points";
 import baseESBuildConfig from "../utils/esbuild-config";
 import {
-  postProcessMetafile,
-  getGeneratedHTML,
   type DependencyGraph,
+  getGeneratedHTML,
+  postProcessMetafile,
 } from "../utils/html-generator";
 
 class EsbuildScriptsDevServer {
@@ -31,7 +31,9 @@ class EsbuildScriptsDevServer {
     this.expressDevServer.use(express.static(OUT_PATH, { maxAge: 3600 * 1000 }));
     this.expressDevServer.use(express.static("public", { maxAge: 3600 * 1000 }));
     this.expressDevServer.use(
-      express.static(path.join(__dirname, "devserver-js"), { maxAge: 3600 * 1000 }),
+      express.static(path.join(__dirname, "devserver-js"), {
+        maxAge: 3600 * 1000,
+      }),
     );
 
     this.expressDevServer.get("*", async (request, response, next) => {

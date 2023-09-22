@@ -1,7 +1,7 @@
-import type { Metafile } from "esbuild";
 import { relative } from "path";
+import type { Metafile } from "esbuild";
 import type { HelmetServerState } from "react-helmet-async";
-import { rewriteEntryPointPathForRouting, type SSRResult } from "./entry-points";
+import { type SSRResult, rewriteEntryPointPathForRouting } from "./entry-points";
 
 type EntryPointImports = {
   readonly hardImports: readonly string[];
@@ -53,7 +53,11 @@ export function postProcessMetafile(metafile: Metafile, outputPrefix: string): D
         const normalizedEntryPoint = rewriteEntryPointPathForRouting(
           entryPoint.substring(ROUTE_ENTRY_POINT_PREFIX.length, entryPoint.length - ".jsx".length),
         );
-        entryPointImportsMap.set(normalizedEntryPoint, { hardImports, lazyImports, cssImports });
+        entryPointImportsMap.set(normalizedEntryPoint, {
+          hardImports,
+          lazyImports,
+          cssImports,
+        });
       }
     }
   });

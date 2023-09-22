@@ -1,7 +1,10 @@
 import Link from "esbuild-scripts/components/Link";
 import generatedMetadata from "../generator/generated-metadata.mjs";
 
-type PaginationNavItemProps = { readonly permalink: string; readonly isLeft: boolean };
+type PaginationNavItemProps = {
+  readonly permalink: string;
+  readonly isLeft: boolean;
+};
 
 function PaginationNavItem({ permalink, isLeft }: PaginationNavItemProps): JSX.Element {
   const metadata = generatedMetadata.find((it) => it.permalink === permalink);
@@ -24,7 +27,10 @@ function PaginationNavItem({ permalink, isLeft }: PaginationNavItemProps): JSX.E
   );
 }
 
-type Props = { readonly nextPermalink?: string; readonly prevPermalink?: string };
+type Props = {
+  readonly nextPermalink?: string;
+  readonly prevPermalink?: string;
+};
 export default function BlogPostPaginator({ nextPermalink, prevPermalink }: Props): JSX.Element {
   return (
     <nav className="flex" aria-label="Blog post page navigation">

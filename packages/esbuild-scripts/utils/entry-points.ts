@@ -1,5 +1,5 @@
-import * as fs from "fs/promises";
 import { extname, resolve } from "path";
+import * as fs from "fs/promises";
 import type { HelmetServerState } from "react-helmet-async";
 import {
   PAGES_PATH,

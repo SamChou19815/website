@@ -55,11 +55,11 @@ good reason to explicitly specify types of functions at the top level.
 
 ```typescript
 function confusing(g, x, y) {
-  return g(g([x, y]))
+  return g(g([x, y]));
 }
 
 function notConfusing<A, B>(g: (tuple: [A, B]) => [A, B], x: A, y: B): [A, B] {
-  return g(g([x, y]))
+  return g(g([x, y]));
 }
 ```
 
