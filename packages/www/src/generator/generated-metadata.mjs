@@ -4,9 +4,16 @@
 /** @type {readonly BlogPostMetadata[]} */
 const generatedMetaDataList = [
   {
+    "title": "Performance Optimization on the samlang Compiler",
+    "formattedDate": "2023-09-23",
+    "permalink": "/blog/2023/09/23/samlang-perf-opt",
+    "nextPermalink": "/blog/2023/09/11/life-of-high-school-cs-club-member"
+  },
+  {
     "title": "Life of a High School CS Club President, from a SWE's Perspective",
     "formattedDate": "2023-09-11",
     "permalink": "/blog/2023/09/11/life-of-high-school-cs-club-member",
+    "prevPermalink": "/blog/2023/09/23/samlang-perf-opt",
     "nextPermalink": "/blog/2023/01/08/samlang-rust-rewrite"
   },
   {
