@@ -22,9 +22,7 @@ export default function BlogPostPage({ content: BlogPostContents, permalink }: P
       <HeadTitle title={`${metadata.title} | ${BLOG_TITLE}`} />
       <Head>
         <meta name="twitter:card" content="summary" />
-        {ogImage && (
-          <meta property="og:image" content={`https://blog.developersam.com${ogImage}`} />
-        )}
+        {ogImage && <meta property="og:image" content={`https://developersam.com${ogImage}`} />}
       </Head>
       <div className="flex flex-row flex-wrap justify-center">
         <main className="w-full">
