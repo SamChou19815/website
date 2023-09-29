@@ -1,3 +1,5 @@
+import type { ConditionalTypeAny } from "./any-flavors";
+
 export type FlagSpec =
   | { readonly short?: string; readonly kind: "boolean" }
   | { readonly short?: string; readonly default?: string; readonly kind: "string" }
@@ -110,6 +112,5 @@ export default function parseArguments<const S extends FlagsSpec>(
     }
   }
 
-  // biome-ignore lint/suspicious/noExplicitAny: too dynamic
-  return { spec: parsedSpec as any, positionals };
+  return { spec: parsedSpec as ConditionalTypeAny, positionals };
 }
