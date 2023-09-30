@@ -58,6 +58,12 @@
   padding: 0.5rem;
 }
 
+.markdown code {
+  background-color: #f7f7f7;
+  font-size: 0.8rem;
+  padding: 0.1rem;
+}
+
 :root {
   --prism-code-block-plain-color: rgb(56, 72, 79);
   --prism-code-block-background-color: #f7f7f7;

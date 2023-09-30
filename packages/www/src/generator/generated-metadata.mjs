@@ -4,9 +4,16 @@
 /** @type {readonly BlogPostMetadata[]} */
 const generatedMetaDataList = [
   {
+    "title": "What Will Happen if React Evaluates JSX Eagerly?",
+    "formattedDate": "2023-10-01",
+    "permalink": "/blog/2023/10/01/what-happens-if-react-is-eager",
+    "nextPermalink": "/blog/2023/09/23/samlang-perf-opt"
+  },
+  {
     "title": "Performance Optimization on the samlang Compiler",
     "formattedDate": "2023-09-23",
     "permalink": "/blog/2023/09/23/samlang-perf-opt",
+    "prevPermalink": "/blog/2023/10/01/what-happens-if-react-is-eager",
     "nextPermalink": "/blog/2023/09/11/life-of-high-school-cs-club-member"
   },
   {

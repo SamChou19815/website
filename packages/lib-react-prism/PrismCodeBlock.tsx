@@ -25,12 +25,16 @@ export default function PrismCodeBlock({
       {tokenize(language, children).map((line, i) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: no other good choice
         <div key={i} className="token-line">
-          {line.map((token, key) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: no other good choice
-            <span key={key} className={`token ${token.kind}`}>
-              {token.raw}
-            </span>
-          ))}
+          {line.length === 0 ? (
+            <span>&nbsp;</span>
+          ) : (
+            line.map((token, key) => (
+              // biome-ignore lint/suspicious/noArrayIndexKey: no other good choice
+              <span key={key} className={`token ${token.kind}`}>
+                {token.raw}
+              </span>
+            ))
+          )}
         </div>
       ))}
     </pre>
