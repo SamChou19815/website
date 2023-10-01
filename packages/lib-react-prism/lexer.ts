@@ -377,6 +377,7 @@ export function tokenize(language: string, source: string): ReadonlyArray<Readon
       case "samlang":
         return SamlangLexer(source);
       case "typescript":
+      case "tsx":
         return TypeScriptLexer(source);
       case "json":
         return JsonLexer(source);
@@ -401,11 +402,11 @@ export function tokenize(language: string, source: string): ReadonlyArray<Readon
     return undefined;
   };
 
-  twoDTokens.forEach((line, i) =>
+  twoDTokens.forEach((line, i) => {
     line.forEach((t, j) => {
       line[j] = commonPostProcess(t, nextTokenFunction(i, j));
-    }),
-  );
+    });
+  });
 
   return twoDTokens;
 }
