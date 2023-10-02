@@ -1,6 +1,4 @@
-import Link from "esbuild-scripts/components/Link";
-import MDXProvider from "esbuild-scripts/components/MDXProvider";
-import MDXComponents from "./MDXComponents";
+import Link from "next/link";
 
 type Props = {
   readonly metadata: BlogPostMetadata;
@@ -18,15 +16,11 @@ export default function BlogPostItem(props: Props): JSX.Element {
     <article className="mb-4 rounded-md border border-solid border-gray-200 bg-white p-4 font-serif drop-shadow-sm filter">
       <header>
         <TitleHeading className="mb-2 font-sans">
-          {truncated ? <Link to={permalink}>{title}</Link> : title}
+          {truncated ? <Link href={permalink}>{title}</Link> : title}
         </TitleHeading>
         <div className="my-4">{formattedDate}</div>
       </header>
-      {children && (
-        <div className="markdown">
-          <MDXProvider components={MDXComponents}>{children}</MDXProvider>
-        </div>
-      )}
+      {children && <div className="markdown">{children}</div>}
     </article>
   );
 }

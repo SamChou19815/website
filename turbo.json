@@ -8,11 +8,8 @@
       "outputs": ["tsconfig.tsbuildinfo"]
     },
     "build": {
-      "dependsOn": ["esbuild-scripts#bundle", "^build"],
+      "dependsOn": ["^build"],
       "outputs": ["build/**"]
-    },
-    "esbuild-scripts#bundle": {
-      "outputs": ["api.js"]
     },
     "deploy": {
       "dependsOn": ["build"]

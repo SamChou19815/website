@@ -2,6 +2,7 @@
 **/dist/
 **/build/
 **/out/
+**/.next
 server/target
 *.tsbuildinfo
 *.js.map
@@ -20,9 +21,9 @@ packages/private-tools/**/commands/secret-*
 .turbo
 
 # package specific generated files
-packages/esbuild-scripts/api.js
 packages/threads-extension/packed.zip
 packages/www/src/pages/blog/*/*
+packages/www/src/app/blog/*/*
 
 # env
 .env.local

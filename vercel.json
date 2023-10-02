@@ -3,7 +3,7 @@
   "cleanUrls": true,
   "framework": null,
   "public": true,
-  "outputDirectory": "packages/www/build",
+  "outputDirectory": "packages/www/out",
   "redirects": [
     {
       "source": "/:path(.*)",

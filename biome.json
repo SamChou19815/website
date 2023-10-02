@@ -15,9 +15,8 @@
       "**/build/*",
       "**/dist/*",
       "**/out/*",
-      "packages/esbuild-scripts/api.js",
       "packages/www/src/generator/generated-metadata.mjs",
-      "packages/www/src/pages/blog/**"
+      "packages/www/src/app/blog/**"
     ]
   },
   "linter": {
@@ -27,9 +26,8 @@
       "**/build/*",
       "**/dist/*",
       "**/out/*",
-      "packages/esbuild-scripts/api.js",
       "packages/www/src/generator/generated-metadata.mjs",
-      "packages/www/src/pages/blog/**"
+      "packages/www/src/app/blog/**"
     ],
     "rules": {
       "recommended": true
@@ -42,9 +40,8 @@
       "**/build/*",
       "**/dist/*",
       "**/out/*",
-      "packages/esbuild-scripts/api.js",
       "packages/www/src/generator/generated-metadata.mjs",
-      "packages/www/src/pages/blog/**"
+      "packages/www/src/app/blog/**"
     ]
   },
   "javascript": {

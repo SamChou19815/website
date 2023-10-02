@@ -1,10 +1,7 @@
-import Head from "esbuild-scripts/components/Head";
-import HeadTitle from "esbuild-scripts/components/HeadTitle";
 import generatedMetadata from "../generator/generated-metadata.mjs";
 import BlogDocumentWrapper from "./BlogDocumentWrapper";
 import BlogPostItem from "./BlogPostItem";
 import BlogPostPaginator from "./BlogPostPaginator";
-import { BLOG_TITLE } from "./blog-constants";
 
 type Props = {
   readonly content: CompiledMarkdownComponent;
@@ -16,14 +13,8 @@ export default function BlogPostPage({ content: BlogPostContents, permalink }: P
   if (metadata == null) {
     throw permalink;
   }
-  const ogImage = BlogPostContents?.additionalProperties?.ogImage;
   return (
     <BlogDocumentWrapper>
-      <HeadTitle title={`${metadata.title} | ${BLOG_TITLE}`} />
-      <Head>
-        <meta name="twitter:card" content="summary" />
-        {ogImage && <meta property="og:image" content={`https://developersam.com${ogImage}`} />}
-      </Head>
       <div className="flex flex-row flex-wrap justify-center">
         <main className="w-full">
           <BlogPostItem metadata={metadata} truncated={false}>

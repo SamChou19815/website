@@ -1,4 +1,4 @@
-import Link from "esbuild-scripts/components/Link";
+import Link from "next/link";
 import generatedMetadata from "../generator/generated-metadata.mjs";
 
 type PaginationNavItemProps = {
@@ -15,7 +15,7 @@ function PaginationNavItem({ permalink, isLeft }: PaginationNavItemProps): JSX.E
   return (
     <Link
       className="flex-grow rounded-md border border-solid border-gray-300 p-4 leading-tight hover:border-blue-500"
-      to={permalink}
+      href={permalink}
     >
       <div className="mb-1 text-sm font-medium text-gray-500">
         {isLeft ? "Newer Post" : "Older Post"}
