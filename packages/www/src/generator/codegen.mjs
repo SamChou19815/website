@@ -2,6 +2,7 @@
 
 import { extname, join, resolve } from "path";
 import * as fs from "fs/promises";
+import { BLOG_TITLE } from "../lib/blog-constants.mjs";
 
 const BLOG_DIRECTORY = "blog";
 const BLOG_POST_PAGE_COMPONENT_PATH = resolve(join("src", "lib", "BlogPostPage"));
@@ -11,10 +12,11 @@ function parseMarkdownTitle(/** @type {string} */ source) {
   if (firstLine == null) {
     throw new Error("No title.");
   }
-  if (!firstLine.startsWith("#")) {
+  const START = 'export const title = "';
+  if (!firstLine.startsWith(START) || !firstLine.endsWith('";')) {
     throw new Error(`Invalid title line:\n${firstLine}`);
   }
-  return firstLine.substring(1).trim();
+  return firstLine.substring(START.length, firstLine.length - 2).trim();
 }
 
 /**
@@ -50,7 +52,7 @@ async function computeAllMedatada() {
     (
       await fs.readdir(BLOG_DIRECTORY)
     )
-      .filter((it) => extname(it) === ".md")
+      .filter((it) => extname(it) === ".mdx")
       .map(async (it) => ({ ...(await computeBlogPostMetadata(it)) })),
   );
   metadataList.sort((a, b) => b.permalink.localeCompare(a.permalink));
@@ -76,9 +78,9 @@ export default generatedMetaDataList;
 
 await Promise.all(
   (
-    await fs.readdir(join("src", "pages", "blog"))
+    await fs.readdir(join("src", "app", "blog"))
   ).map(async (path) => {
-    const fullPath = join("src", "pages", "blog", path);
+    const fullPath = join("src", "app", "blog", path);
     if ((await fs.stat(fullPath)).isDirectory()) {
       await fs.rm(fullPath, { recursive: true });
     }
@@ -87,16 +89,28 @@ await Promise.all(
 
 for (const { permalink } of generatedMetadata) {
   const contentImportPath = resolve(
-    join(BLOG_DIRECTORY, `${permalink.split("/").slice(2).join("-")}.md`),
+    join(BLOG_DIRECTORY, `${permalink.split("/").slice(2).join("-")}.mdx`),
   );
   const generatedSource = `// @${"generated"}
 import React from 'react';
 import BlogPostPage from '${BLOG_POST_PAGE_COMPONENT_PATH}';
 import Content from '${contentImportPath}';
+import * as MdxExports from '${contentImportPath}';
+
+const OG_IMAGE = 'ogImage';
+
+export const metadata = {
+  title: \`\${MdxExports.title} | ${BLOG_TITLE}\`,
+  openGraph: {
+    type: "article",
+    title: \`\${MdxExports.title} | ${BLOG_TITLE}\`,
+    images: MdxExports[OG_IMAGE],
+  },
+};
 
 export default () => <BlogPostPage content={Content} permalink="${permalink}" />;
 `;
-  const directory = join("src", "pages", permalink.substring(1));
+  const directory = join("src", "app", permalink.substring(1));
   await fs.mkdir(directory, { recursive: true });
-  await fs.writeFile(join(directory, "index.jsx"), generatedSource);
+  await fs.writeFile(join(directory, "page.jsx"), generatedSource);
 }

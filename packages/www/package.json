@@ -2,19 +2,23 @@
   "name": "www",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "start": "node src/generator/blog-generator.mjs start",
-    "build": "node src/generator/blog-generator.mjs build",
-    "check": "tsc --incremental",
-    "deploy": "netlify deploy -d build -s developersam.com --prod"
+    "dev": "node src/generator/codegen.mjs && next dev",
+    "build": "node src/generator/codegen.mjs && next build --no-lint",
+    "check": "tsc --incremental"
   },
   "dependencies": {
-    "lib-react-prism": "workspace:*",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "2.0.0",
+    "@next/mdx": "^13.5.3",
+    "@types/mdx": "^2.0.8",
+    "autoprefixer": "^10.4.16",
+    "dev-sam-theme": "^0.0.1",
+    "next": "13.5.3",
+    "postcss": "^8.4.31",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "esbuild-scripts": "workspace:*"
+    "react-dom": "^18.2.0",
+    "shiki": "^0.14.4",
+    "tailwindcss": "^3.3.3"
   }
 }

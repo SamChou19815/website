@@ -1,4 +1,4 @@
-import Link from "esbuild-scripts/components/Link";
+import Link from "next/link";
 
 type Props = {
   readonly title: string;
@@ -14,7 +14,7 @@ export default function NavBar({ title, titleLink, navItems }: Props): JSX.Eleme
     <nav className="sticky top-0 z-40 flex h-16 bg-white pr-4 drop-shadow-sm filter">
       <div className="flex w-full flex-wrap justify-between">
         <div className="flex min-w-0 flex-auto items-center">
-          <Link className="mr-8 flex min-w-0 items-center text-gray-900" to={titleLink}>
+          <Link className="mr-8 flex min-w-0 items-center text-gray-900" href={titleLink}>
             <img
               className="mr-4 h-16 flex-initial"
               src="/sam-by-megan-3-square.webp"
@@ -28,7 +28,7 @@ export default function NavBar({ title, titleLink, navItems }: Props): JSX.Eleme
             <Link
               key={link}
               className="px-3 py-1 font-medium text-gray-900 hover:text-blue-500"
-              to={link}
+              href={link}
             >
               {name}
             </Link>
