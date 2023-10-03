@@ -1,7 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import { type ComponentProps, isValidElement } from "react";
-import PrismCodeBlock from "./lib/PrismCodeBlock";
+import StaticCodeBlock from "./lib/StaticCodeBlock";
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 type HeadingComponentType = (props: ComponentProps<HeadingTag>) => JSX.Element;
@@ -26,9 +26,9 @@ const CustomMDXComponents: MDXComponents = {
       isValidElement(stringOrComponentChildren) ? stringOrComponentChildren?.props : props
     ) as { className: string; readonly children: string };
     return (
-      <PrismCodeBlock language={className.replace(/language-/, "")} className="text-sm">
+      <StaticCodeBlock language={className.replace(/language-/, "")} className="text-sm">
         {children.trim()}
-      </PrismCodeBlock>
+      </StaticCodeBlock>
     );
   },
   ul: ({ children, ...props }) => (

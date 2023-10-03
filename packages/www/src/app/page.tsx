@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
-
-const RobotoMono = Roboto_Mono({
-  weight: ["400", "500"],
-  display: "swap",
-  subsets: ["latin"],
-});
-
 import Link from "next/link";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import NavBar from "../lib/NavBar";
-import PrismCodeBlock from "../lib/PrismCodeBlock";
+import StaticCodeBlock from "../lib/StaticCodeBlock";
 import { DATASET_TIMELINE } from "../lib/home-timeline-data";
 
 function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.Element {
@@ -90,85 +82,88 @@ class Main {
   function main(): Developer = Developer.sam()
 }`;
   return (
-    <PrismCodeBlock
-      language="samlang"
-      className={`mx-auto my-0 text-xs leading-5 sm:text-sm ${RobotoMono}`}
-      manualSection={
-        <>
-          <div className="token-line">
-            <span className="token comment">/**</span>
-          </div>
-          <div className="token-line">
-            <span className="token comment">
-              {" "}
-              * Copyright (C) 2015-{new Date().getFullYear()} Developer Sam.
-            </span>
-          </div>
-          <div className="token-line">
-            <span className="token comment">
-              {" * @demo "}
-              <a
-                className="text-[var(--prism-code-block-comment-color)] underline"
-                href="https://samlang.io/demo"
-              >
-                https://samlang.io/demo
-              </a>
-            </span>
-          </div>
-          <div className="token-line">
-            <span className="token comment">
-              {" * @github "}
-              <a
-                className="text-[var(--prism-code-block-comment-color)] underline"
-                href="https://github.com/SamChou19815"
-              >
-                https://github.com/SamChou19815
-              </a>
-            </span>
-          </div>
-          <div className="token-line">
-            <span className="token comment">
-              {" * @threads "}
-              <a
-                className="text-[var(--prism-code-block-comment-color)] underline"
-                href="https://www.threads.net/@samzhou19815"
-              >
-                https://www.threads.net/@samzhou19815
-              </a>
-            </span>
-          </div>
-          <div className="token-line">
-            <span className="token comment">
-              {" "}
-              * @resume{" "}
-              <a
-                className="text-[var(--prism-code-block-comment-color)] underline"
-                href="https://developersam.com/resume.pdf"
-              >
-                https://developersam.com/resume.pdf
-              </a>
-            </span>
-          </div>
-          <div className="token-line">
-            <span className="token comment">
-              {" "}
-              * @contact{" "}
-              <a
-                className="text-[var(--prism-code-block-comment-color)] underline"
-                href="https://forms.gle/WtvV8YaBvMk7Fe3b8"
-              >
-                https://forms.gle/WtvV8YaBvMk7Fe3b8
-              </a>
-            </span>
-          </div>
-          <div className="token-line">
-            <span className="token comment"> */</span>
-          </div>
-        </>
-      }
-    >
-      {code}
-    </PrismCodeBlock>
+    <>
+      <StaticCodeBlock
+        language="samlang"
+        transparent
+        className="mx-auto my-0 text-xs leading-5 sm:text-sm"
+        manualSection={
+          <>
+            <div className="token-line">
+              <span className="token comment">/**</span>
+            </div>
+            <div className="token-line">
+              <span className="token comment">
+                {" "}
+                * Copyright (C) 2015-{new Date().getFullYear()} Developer Sam.
+              </span>
+            </div>
+            <div className="token-line">
+              <span className="token comment">
+                {" * @demo "}
+                <a
+                  className="text-[var(--prism-code-block-comment-color)] underline"
+                  href="https://samlang.io/demo"
+                >
+                  https://samlang.io/demo
+                </a>
+              </span>
+            </div>
+            <div className="token-line">
+              <span className="token comment">
+                {" * @github "}
+                <a
+                  className="text-[var(--prism-code-block-comment-color)] underline"
+                  href="https://github.com/SamChou19815"
+                >
+                  https://github.com/SamChou19815
+                </a>
+              </span>
+            </div>
+            <div className="token-line">
+              <span className="token comment">
+                {" * @threads "}
+                <a
+                  className="text-[var(--prism-code-block-comment-color)] underline"
+                  href="https://www.threads.net/@samzhou19815"
+                >
+                  https://www.threads.net/@samzhou19815
+                </a>
+              </span>
+            </div>
+            <div className="token-line">
+              <span className="token comment">
+                {" "}
+                * @resume{" "}
+                <a
+                  className="text-[var(--prism-code-block-comment-color)] underline"
+                  href="https://developersam.com/resume.pdf"
+                >
+                  https://developersam.com/resume.pdf
+                </a>
+              </span>
+            </div>
+            <div className="token-line">
+              <span className="token comment">
+                {" "}
+                * @contact{" "}
+                <a
+                  className="text-[var(--prism-code-block-comment-color)] underline"
+                  href="https://forms.gle/WtvV8YaBvMk7Fe3b8"
+                >
+                  https://forms.gle/WtvV8YaBvMk7Fe3b8
+                </a>
+              </span>
+            </div>
+            <div className="token-line">
+              <span className="token comment"> */</span>
+            </div>
+          </>
+        }
+      >
+        {code}
+      </StaticCodeBlock>
+    </>
   );
 }
 
