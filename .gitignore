@@ -22,8 +22,6 @@ packages/private-tools/**/commands/secret-*
 
 # package specific generated files
 packages/threads-extension/packed.zip
-packages/www/src/pages/blog/*/*
-packages/www/src/app/blog/*/*
 
 # env
 .env.local

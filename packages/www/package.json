@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "node src/generator/codegen.mjs && next dev",
-    "build": "node src/generator/codegen.mjs && next build --no-lint",
+    "dev": "next dev",
+    "build": "next build --no-lint",
     "check": "tsc --incremental"
   },
   "dependencies": {

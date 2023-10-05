@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import items from "../../generator/generated-metadata.mjs";
 import BlogDocumentWrapper from "../../lib/BlogDocumentWrapper";
 import BlogPostItem from "../../lib/BlogPostItem";
 import { BLOG_TITLE } from "../../lib/blog-constants.mjs";
+import allMetadata from "../../lib/metadata";
 
 export const metadata: Metadata = {
   title: BLOG_TITLE,
@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogListPage(): JSX.Element {
+export default async function BlogListPage(): Promise<JSX.Element> {
   return (
     <BlogDocumentWrapper>
       <div className="flex flex-row flex-wrap justify-center">
         <main className="w-full">
-          {items.map((metadata) => (
+          {allMetadata.map((metadata) => (
             <BlogPostItem key={metadata.permalink} metadata={metadata} truncated={true} />
           ))}
         </main>
