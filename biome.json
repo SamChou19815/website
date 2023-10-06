@@ -10,39 +10,18 @@
     "indentStyle": "space",
     "indentSize": 2,
     "lineWidth": 100,
-    "ignore": [
-      "**/.vercel/*",
-      "**/build/*",
-      "**/dist/*",
-      "**/out/*",
-      "packages/www/src/generator/generated-metadata.mjs",
-      "packages/www/src/app/blog/**"
-    ]
+    "ignore": ["**/.vercel/*", "**/build/*", "**/dist/*", "**/out/*"]
   },
   "linter": {
     "enabled": true,
-    "ignore": [
-      "**/.vercel/*",
-      "**/build/*",
-      "**/dist/*",
-      "**/out/*",
-      "packages/www/src/generator/generated-metadata.mjs",
-      "packages/www/src/app/blog/**"
-    ],
+    "ignore": ["**/.vercel/*", "**/build/*", "**/dist/*", "**/out/*"],
     "rules": {
       "recommended": true
     }
   },
   "organizeImports": {
     "enabled": true,
-    "ignore": [
-      "**/.vercel/*",
-      "**/build/*",
-      "**/dist/*",
-      "**/out/*",
-      "packages/www/src/generator/generated-metadata.mjs",
-      "packages/www/src/app/blog/**"
-    ]
+    "ignore": ["**/.vercel/*", "**/build/*", "**/dist/*", "**/out/*"]
   },
   "javascript": {
     "formatter": {

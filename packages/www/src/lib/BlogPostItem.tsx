@@ -3,7 +3,7 @@ import Link from "next/link";
 type Props = {
   readonly metadata: BlogPostMetadata;
   readonly truncated?: boolean;
-  readonly children?: JSX.Element;
+  readonly children?: React.ReactNode;
 };
 
 export default function BlogPostItem(props: Props): JSX.Element {

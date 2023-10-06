@@ -1,5 +1,5 @@
 import Link from "next/link";
-import generatedMetadata from "../generator/generated-metadata.mjs";
+import allMetadata from "./metadata";
 
 type PaginationNavItemProps = {
   readonly permalink: string;
@@ -7,7 +7,7 @@ type PaginationNavItemProps = {
 };
 
 function PaginationNavItem({ permalink, isLeft }: PaginationNavItemProps): JSX.Element {
-  const metadata = generatedMetadata.find((it) => it.permalink === permalink);
+  const metadata = allMetadata.find((it) => it.permalink === permalink);
   if (metadata == null) {
     throw permalink;
   }
