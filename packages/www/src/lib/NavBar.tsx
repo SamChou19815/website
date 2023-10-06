@@ -1,15 +1,14 @@
 import Link from "next/link";
 
-type Props = {
-  readonly title: string;
-  readonly titleLink: string;
-  readonly navItems: readonly {
-    readonly name: string;
-    readonly link: string;
-  }[];
-};
-
-export default function NavBar({ title, titleLink, navItems }: Props): JSX.Element {
+export default function NavBar({
+  title,
+  titleLink,
+  navItems,
+}: {
+  title: string;
+  titleLink: string;
+  navItems: ReadonlyArray<{ readonly name: string; readonly link: string }>;
+}): JSX.Element {
   return (
     <nav className="sticky top-0 z-40 flex h-16 bg-white pr-4 drop-shadow-sm filter">
       <div className="flex w-full flex-wrap justify-between">

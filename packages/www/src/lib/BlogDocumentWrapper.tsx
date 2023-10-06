@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import NavBar from "./NavBar";
-import { BLOG_TITLE } from "./blog-constants.mjs";
+import { BLOG_TITLE } from "./blog-constants";
 
 export default function BlogDocumentWrapper({ children }: { children: ReactNode }): JSX.Element {
   return (
