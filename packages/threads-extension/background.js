@@ -3,10 +3,10 @@
 let changed = false;
 window.setInterval(() => {
   if (changed) return;
-  const node = Array.from(document.querySelectorAll("span")).find(
+  const nodes = Array.from(document.querySelectorAll("span")).filter(
     (el) => el.textContent === "For you",
   );
-  if (node) {
+  for (const node of nodes) {
     console.log("[threads-helper] Force following feed");
     node.click();
     changed = true;
