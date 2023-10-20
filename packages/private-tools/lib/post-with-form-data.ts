@@ -8,5 +8,5 @@ export default async function postWithFormData(
   for (const [k, v] of Object.entries(data)) {
     form.set(k, String(v));
   }
-  return await fetch(url, { method: "post", body: form }).then((r) => r.json());
+  return await fetch(url, { method: "post", body: form as BodyInit }).then((r) => r.json());
 }
