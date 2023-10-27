@@ -1,24 +1,24 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.9.2",
+  "packageManager": "pnpm@8.10.0",
   "scripts": {
     "check": "turbo run check",
     "build": "turbo run build",
     "format": "biome format --write .",
     "lint": "biome check .",
-    "fix": "biome lint . --apply-unsafe",
+    "fix": "biome lint . --apply",
     "bump": "pnpm up -r --latest @types/node @types/react @types/react-dom typescript turbo"
   },
   "workspaces": ["packages/*"],
   "devDependencies": {
-    "@biomejs/biome": "^1.2.2",
-    "@types/node": "^20.8.6",
-    "@types/react": "^18.2.28",
-    "@types/react-dom": "^18.2.13",
+    "@biomejs/biome": "^1.3.1",
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3",
-    "turbo": "^1.10.15",
+    "turbo": "^1.10.16",
     "typescript": "^5.2.2"
   }
 }

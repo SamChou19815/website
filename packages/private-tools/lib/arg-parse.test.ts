@@ -1,5 +1,5 @@
-import parseArguments from "./arg-parse";
 import { expect, it } from "bun:test";
+import parseArguments from "./arg-parse";
 
 it("Invalid flag test", () => {
   expect(() => parseArguments({}, ["--foo"])).toThrow();

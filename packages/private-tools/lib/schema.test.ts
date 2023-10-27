@@ -1,5 +1,5 @@
-import { defineSchema, objectSchema, validateAccordingToSchema } from "./schema";
 import { expect, it } from "bun:test";
+import { defineSchema, objectSchema, validateAccordingToSchema } from "./schema";
 
 it("Integration test happy path", () => {
   const schema = defineSchema({
