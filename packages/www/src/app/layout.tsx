@@ -11,7 +11,6 @@ gtag('config', '${GA_ID}');`;
 
 export const metadata: Metadata = {
   icons: ["/logo.png", { rel: "shortcut icon", url: "/favicon.ico" }],
-  themeColor: "#F7F7F7",
   authors: { name: "Developer Sam" },
   keywords: [
     "Sam",

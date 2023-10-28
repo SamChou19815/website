@@ -68,18 +68,20 @@ function validateAccordingToSchemaUntyped<const Spec extends FieldSpec>(
       throw `Expected "${spec.exact}", but got ${unvalidated}`;
     case "array":
       if (Array.isArray(unvalidated)) {
-        unvalidated.forEach((it) => validateAccordingToSchemaUntyped(spec.nested, it));
+        for (const nestedUnvalidated of unvalidated) {
+          validateAccordingToSchemaUntyped(spec.nested, nestedUnvalidated);
+        }
         return;
       }
       throw `Expected array, but got ${unvalidated}`;
     case "object":
       if (unvalidated != null && typeof unvalidated === "object") {
-        Object.entries(unvalidated).forEach(([key, value]) => {
+        for (const [key, value] of Object.entries(unvalidated)) {
           const nestedSpec = spec.nested[key];
           if (nestedSpec != null) {
             validateAccordingToSchemaUntyped(nestedSpec, value);
           }
-        });
+        }
         return;
       }
       throw `Expected array, but got ${unvalidated}`;
