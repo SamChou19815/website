@@ -1,11 +1,11 @@
 {
   "css.validate": false,
+  "editor.codeActionsOnSave": { "quickfix.biome": true, "source.organizeImports.biome": true },
   "editor.quickSuggestions": { "strings": true },
   "prettier.enable": false,
   "tailwindCSS.experimental.configFile": "./tailwind.config.cjs",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "editor.codeActionsOnSave": { "quickfix.biome": true, "source.organizeImports.biome": true },
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
   },

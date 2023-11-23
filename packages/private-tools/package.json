@@ -7,6 +7,6 @@
     "build": "exit 0"
   },
   "devDependencies": {
-    "bun-types": "^1.0.6"
+    "bun-types": "^1.0.14"
   }
 }

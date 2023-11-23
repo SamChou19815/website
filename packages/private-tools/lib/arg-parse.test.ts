@@ -17,7 +17,7 @@ it("boolean spec test", () => {
     positionals: ["3"],
     spec: { foo: true, bar: true },
   });
-  expect(
+  expect<unknown>(
     parseArguments({ foo: { kind: "boolean" }, bar: { kind: "boolean", short: "b" } }, []),
   ).toEqual({
     positionals: [],
