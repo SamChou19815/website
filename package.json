@@ -7,7 +7,8 @@
     "format": "biome format --write .",
     "lint": "biome check .",
     "fix": "biome lint . --apply",
-    "bump": "bun update -y @types/node @types/react @types/react-dom typescript turbo"
+    "bump": "bun update -y @types/node @types/react @types/react-dom typescript turbo",
+    "dev": "bun run --cwd packages/www dev"
   },
   "workspaces": ["packages/*"],
   "devDependencies": {

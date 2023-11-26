@@ -1,18 +1,9 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import { type ComponentProps, isValidElement } from "react";
+import { isValidElement } from "react";
 import StaticCodeBlock from "./lib/StaticCodeBlock";
 
-type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-type HeadingComponentType = (props: ComponentProps<HeadingTag>) => JSX.Element;
-
-const Heading = (Tag: HeadingTag): HeadingComponentType =>
-  function TargetComponent({ id, children, ...props }: ComponentProps<typeof Tag>) {
-    return <Tag {...props}>{children}</Tag>;
-  };
-
 const CustomMDXComponents: MDXComponents = {
-  code: (props) => <code {...props} />,
   a: ({ href, ...props }) => {
     if (href?.startsWith("http")) {
       return <a href={href} {...props} />;
@@ -41,12 +32,6 @@ const CustomMDXComponents: MDXComponents = {
       {children}
     </ol>
   ),
-  h1: Heading("h1"),
-  h2: Heading("h2"),
-  h3: Heading("h3"),
-  h4: Heading("h4"),
-  h5: Heading("h5"),
-  h6: Heading("h6"),
 };
 
 // This file is required to use MDX in `app` directory.
