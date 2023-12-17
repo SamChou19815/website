@@ -11,14 +11,14 @@ export type FlagsSpec = { readonly [long: string]: FlagSpec };
 type FlagSpecToType<T extends FlagSpec> = T["kind"] extends "boolean"
   ? boolean
   : T["kind"] extends "string"
-  ? string
-  : T["kind"] extends "number"
-  ? number
-  : T["kind"] extends "enum"
-  ? T extends { readonly variants: readonly string[] }
-    ? T["variants"][number]
-    : never
-  : never;
+    ? string
+    : T["kind"] extends "number"
+      ? number
+      : T["kind"] extends "enum"
+        ? T extends { readonly variants: readonly string[] }
+          ? T["variants"][number]
+          : never
+        : never;
 
 export type ParsedArgsObject<S extends FlagsSpec> = {
   spec: {
