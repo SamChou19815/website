@@ -28,6 +28,6 @@ if (!availableCommands.includes(command)) {
   process.exit(1);
 }
 
-await (
-  await import(path.resolve(path.join(commandsDirectory, `${command}.ts`)))
-).default(process.argv.slice(3));
+await (await import(path.resolve(path.join(commandsDirectory, `${command}.ts`)))).default(
+  process.argv.slice(3),
+);

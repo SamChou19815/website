@@ -13,20 +13,23 @@ export type FieldSpec =
 export type FieldSpecToType<T extends FieldSpec> = T extends { readonly kind: "unknown" }
   ? unknown
   : T extends { readonly kind: "boolean" }
-  ? boolean
-  : T extends { readonly kind: "number" }
-  ? number
-  : T extends { readonly kind: "string" }
-  ? string
-  : T extends { readonly kind: "enum"; exact: string }
-  ? T["exact"]
-  : T extends { readonly kind: "array"; readonly nested: FieldSpec }
-  ? ReadonlyArray<FieldSpecToType<T["nested"]>>
-  : T extends { readonly kind: "object"; readonly nested: { readonly [field: string]: FieldSpec } }
-  ? { readonly [K in keyof T["nested"]]: FieldSpecToType<T["nested"][K]> }
-  : T extends { readonly kind: "union"; readonly variants: readonly FieldSpec[] }
-  ? FieldSpecToType<T["variants"][number]>
-  : never;
+    ? boolean
+    : T extends { readonly kind: "number" }
+      ? number
+      : T extends { readonly kind: "string" }
+        ? string
+        : T extends { readonly kind: "enum"; exact: string }
+          ? T["exact"]
+          : T extends { readonly kind: "array"; readonly nested: FieldSpec }
+            ? ReadonlyArray<FieldSpecToType<T["nested"]>>
+            : T extends {
+                  readonly kind: "object";
+                  readonly nested: { readonly [field: string]: FieldSpec };
+                }
+              ? { readonly [K in keyof T["nested"]]: FieldSpecToType<T["nested"][K]> }
+              : T extends { readonly kind: "union"; readonly variants: readonly FieldSpec[] }
+                ? FieldSpecToType<T["variants"][number]>
+                : never;
 
 export function objectSchema<const O extends { readonly [field: string]: FieldSpec }>(nested: O): {
   readonly kind: "object";
