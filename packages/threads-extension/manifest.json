@@ -1,7 +1,7 @@
 {
   "name": "Threads Helper",
   "version": "0.0.2",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "description": "Force defaulting to following feed",
   "permissions": [],
   "icons": {
