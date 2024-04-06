@@ -1,6 +1,4 @@
 {
-  "baseBranch": "origin/main",
-  "npmClient": "bun",
   "globalDependencies": ["configuration/*"],
   "pipeline": {
     "check": {

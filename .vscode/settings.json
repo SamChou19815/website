@@ -18,13 +18,13 @@
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome",
     "editor.codeActionsOnSave": {
-      "source.organizeImports.biome": true
+      "source.organizeImports.biome": "explicit"
     }
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome",
     "editor.codeActionsOnSave": {
-      "source.organizeImports.biome": true
+      "source.organizeImports.biome": "explicit"
     }
   },
   "[typescript][typescriptreact]": {
