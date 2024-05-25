@@ -1,6 +1,9 @@
 User-agent: *
 Disallow:
 
+User-agent: *
+Disallow: /2024/05/27/
+
 User-agent: anthropic-ai
 Disallow: /
 
