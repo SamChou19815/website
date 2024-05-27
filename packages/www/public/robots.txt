@@ -2,7 +2,7 @@ User-agent: *
 Disallow:
 
 User-agent: *
-Disallow: /2024/05/27/
+Disallow: /blog/2024/05/27/
 
 User-agent: anthropic-ai
 Disallow: /
