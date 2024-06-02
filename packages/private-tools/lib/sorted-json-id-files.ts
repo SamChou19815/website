@@ -1,4 +1,4 @@
-import * as fs from "fs/promises";
+import * as fs from "node:fs/promises";
 
 /**
  * For the given directory, scan all files with `<number-id>.json` filename format, and returns a
@@ -19,7 +19,7 @@ export default async function sortedJSONIdFiles(
     if (!basename.match(/^[0-9]+\.json$/)) {
       continue;
     }
-    const id = parseInt(basename.substring(0, basename.length - 5));
+    const id = Number.parseInt(basename.substring(0, basename.length - 5));
     if (Number.isNaN(id)) {
       continue;
     }

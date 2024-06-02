@@ -1,7 +1,7 @@
 // @ts-check
 
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 function parseMarkdownTitle(/** @type {string} */ source) {
   const firstLine = source.split("\n")[0];

@@ -11,12 +11,8 @@
     "url": "https://github.com/SamChou19815/website.git",
     "directory": "packages/vscode-disable-generated-files-edit"
   },
-  "activationEvents": [
-    "*"
-  ],
-  "categories": [
-    "Other"
-  ],
+  "activationEvents": ["*"],
+  "categories": ["Other"],
   "engines": {
     "vscode": "^1.47.0"
   },
