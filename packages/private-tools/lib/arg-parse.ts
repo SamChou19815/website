@@ -75,7 +75,7 @@ export default function parseArguments<const S extends FlagsSpec>(
         if (next == null) {
           throw `Missing argument for flag: ${key}`;
         }
-        const n = parseInt(next, 10);
+        const n = Number.parseInt(next, 10);
         if (Number.isNaN(n)) {
           throw `Invalid number argument for flag: ${key}`;
         }

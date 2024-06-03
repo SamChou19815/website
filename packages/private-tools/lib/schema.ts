@@ -31,7 +31,9 @@ export type FieldSpecToType<T extends FieldSpec> = T extends { readonly kind: "u
                 ? FieldSpecToType<T["variants"][number]>
                 : never;
 
-export function objectSchema<const O extends { readonly [field: string]: FieldSpec }>(nested: O): {
+export function objectSchema<const O extends { readonly [field: string]: FieldSpec }>(
+  nested: O,
+): {
   readonly kind: "object";
   nested: O;
 } {

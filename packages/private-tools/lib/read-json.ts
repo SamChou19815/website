@@ -1,4 +1,4 @@
-import * as fs from "fs/promises";
+import * as fs from "node:fs/promises";
 import type { JsonAny } from "./any-flavors";
 
 export default async function readJSON(path: string, defaultValue: unknown): Promise<JsonAny> {

@@ -1,5 +1,5 @@
-import * as path from "path";
-import * as fs from "fs/promises";
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
 
 const commandsDirectory = path.join(__dirname, "commands");
 const availableCommands: Array<string> = [];
