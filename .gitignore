@@ -20,9 +20,6 @@ packages/private-tools/**/commands/secret-*
 **/.temp
 .turbo
 
-# package specific generated files
-packages/threads-extension/packed.zip
-
 # env
 .env.local
 
