@@ -1,6 +1,6 @@
 {
   "globalDependencies": ["configuration/*"],
-  "pipeline": {
+  "tasks": {
     "check": {
       "dependsOn": ["^check"],
       "outputs": ["tsconfig.tsbuildinfo"]
