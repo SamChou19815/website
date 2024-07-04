@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
-      - name: Bun Install
-        run: bun install --frozen-lockfile
+      - uses: pnpm/action-setup@v4
+      - name: PNPM Install
+        run: pnpm install --frozen-lockfile
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build

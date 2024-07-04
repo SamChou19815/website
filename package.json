@@ -1,25 +1,25 @@
 {
+  "name": "website-monorepo",
   "private": true,
-  "packageManager": "bun@1.0.14",
+  "packageManager": "pnpm@9.4.0",
   "scripts": {
     "check": "turbo run check",
     "build": "turbo run build",
     "format": "biome format --write .",
     "lint": "biome check .",
     "fix": "biome lint . --apply",
-    "bump": "bun update -y @types/node @types/react @types/react-dom typescript turbo",
-    "dev": "bun run --cwd packages/www dev"
+    "bump": "pnpm up -r --latest @types/node @types/react @types/react-dom typescript turbo",
+    "dev": "pnpm --filter www dev"
   },
-  "workspaces": ["packages/*"],
   "devDependencies": {
-    "@biomejs/biome": "^1.4.1",
-    "@types/node": "^20.10.5",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
-    "turbo": "^1.11.2",
-    "typescript": "^5.3.3"
+    "turbo": "^2.0.6",
+    "typescript": "^5.5.3"
   }
 }

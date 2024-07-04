@@ -7,14 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: "2"
-      - uses: oven-sh/setup-bun@v1
-      - name: Bun Install
-        run: bun install --frozen-lockfile
+      - uses: pnpm/action-setup@v4
+      - name: PNPM Install
+        run: pnpm install --frozen-lockfile
       - name: Lint
-        run: bun run lint
+        run: pnpm run lint
       - name: Type Check
-        run: bun run check
+        run: pnpm run check
       - name: Build
-        run: bun run build
+        run: pnpm run build

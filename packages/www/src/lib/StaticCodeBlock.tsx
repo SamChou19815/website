@@ -42,7 +42,7 @@ export default async function StaticCodeBlock({
     bg: transparent ? "transparent" : "#F7F7F7",
     type: "light",
   };
-  const highlighter = await shiki.getHighlighter({
+  const highlighter = await shiki.getSingletonHighlighter({
     themes: [theme],
     langs: [lang, "bash", "js", "json", "rust", "typescript", "tsx"],
   });

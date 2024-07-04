@@ -1,5 +1,5 @@
 {
-  "buildCommand": "bun run build",
+  "buildCommand": "pnpm run build",
   "cleanUrls": true,
   "framework": null,
   "public": true,
