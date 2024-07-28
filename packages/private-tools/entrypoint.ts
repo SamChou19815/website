@@ -16,7 +16,7 @@ let command = process.argv[2];
 if (command == null) {
   console.error("No command given.");
   console.error(`Available commands: ${availableCommands.join(", ")}`);
-  process.exit(1);
+  process.exit(2);
 }
 
 if (availableCommands.includes(`secret-${command}`)) {
@@ -25,7 +25,7 @@ if (availableCommands.includes(`secret-${command}`)) {
 if (!availableCommands.includes(command)) {
   console.error("No matching command found. You command is", command);
   console.error(`Available commands: ${availableCommands.join(", ")}`);
-  process.exit(1);
+  process.exit(2);
 }
 
 await (await import(path.resolve(path.join(commandsDirectory, `${command}.ts`)))).default(
