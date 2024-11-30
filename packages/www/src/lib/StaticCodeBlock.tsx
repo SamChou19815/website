@@ -12,9 +12,9 @@ type Props = {
 
 function Token({ token }: { token: shiki.ThemedToken }): JSX.Element {
   switch (token.fontStyle) {
-    case shiki.FontStyle.Bold:
+    case 2:
       return <span style={{ color: token.color, fontWeight: "bold" }}>{token.content}</span>;
-    case shiki.FontStyle.Italic:
+    case 1:
       return <span style={{ color: token.color, fontStyle: "italic" }}>{token.content}</span>;
     default:
       return <span style={{ color: token.color }}>{token.content}</span>;
