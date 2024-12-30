@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   authors: { name: "Developer Sam" },
   keywords: [
     "Sam",
+    "Sam Zhou",
     "Developer Sam",
     "developer",
     "web apps",
