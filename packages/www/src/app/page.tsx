@@ -144,18 +144,6 @@ class Main {
               </span>
             </div>
             <div className="token-line">
-              <span className="token comment">
-                {" "}
-                * @contact{" "}
-                <a
-                  className="text-[var(--prism-code-block-comment-color)] underline"
-                  href="https://forms.gle/WtvV8YaBvMk7Fe3b8"
-                >
-                  https://forms.gle/WtvV8YaBvMk7Fe3b8
-                </a>
-              </span>
-            </div>
-            <div className="token-line">
               <span className="token comment"> */</span>
             </div>
           </>
