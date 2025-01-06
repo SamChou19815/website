@@ -1,10 +1,34 @@
-# website
+# Developer Sam
 
-This is a monorepo of Sam's [website](https://developersam.com).
+```rust
+/**
+ * Copyright (C) 2015-2025 Developer Sam.
+ * @demo https://samlang.io/demo
+ * @github https://github.com/SamChou19815
+ * @bsky https://bsky.app/profile/developersam.com
+ * @resume https://developersam.com/resume.pdf
+ */
 
-## License
+import {List} from std.list;
 
-All the source code is licensed under [AGPL-v3](./LICENSE).
+class Developer(
+  val github: Str,
+  val projects: List<Str>,
+) {
+  function sam(): Developer = {
+    let github = "SamChou19815";
+    let projects = List
+      .of("samlang")
+      .cons("website")
+      .cons("...");
+    Developer.init(github, projects)
+  }
+}
 
-All non-code content is excluded from the AGPL-v3 license, and they are licensed under
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+class Main {
+  function main(): Developer = Developer.sam()
+}
+
+```
+
+Best viewed on [developersam.com](developersam.com).
