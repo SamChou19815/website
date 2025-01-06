@@ -122,7 +122,7 @@ class Main {
             </div>
             <div className="token-line">
               <span className="token comment">
-                {" * @bluesky "}
+                {" * @bsky "}
                 <a
                   className="text-[var(--prism-code-block-comment-color)] underline"
                   href="https://bsky.app/profile/developersam.com"
