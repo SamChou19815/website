@@ -1,0 +1,69 @@
+{
+  "name": "vscode-intentionally-slow-extension",
+  "displayName": "Disable edits for generated files",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "icon": "no-edit.png",
+  "publisher": "dev-sam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SamChou19815/SamChou19815.git",
+    "directory": "packages/vscode-intentionally-slow-extension"
+  },
+  "activationEvents": ["onLanguage:typescript"],
+  "categories": ["Other"],
+  "contributes": {
+    "configuration": [
+      {
+        "title": "intentionally-slow-extension",
+        "properties": {
+          "intentionally-slow-extension.slowErrors": {
+            "type": "boolean",
+            "default": false,
+            "description": "Intentionally make error generation slow"
+          },
+          "intentionally-slow-extension.slowGetDef": {
+            "type": "boolean",
+            "default": false,
+            "description": "Intentionally make get-def slow"
+          },
+          "intentionally-slow-extension.slowHover": {
+            "type": "boolean",
+            "default": false,
+            "description": "Intentionally make hover slow"
+          },
+          "intentionally-slow-extension.slowCompletion": {
+            "type": "boolean",
+            "default": false,
+            "description": "Intentionally make completion slow"
+          },
+          "intentionally-slow-extension.slowCodeAction": {
+            "type": "boolean",
+            "default": false,
+            "description": "Intentionally make code actions slow"
+          },
+          "intentionally-slow-extension.slowFindRef": {
+            "type": "boolean",
+            "default": false,
+            "description": "Intentionally make find-ref slow"
+          },
+          "intentionally-slow-extension.slowRename": {
+            "type": "boolean",
+            "default": false,
+            "description": "Intentionally make rename slow"
+          }
+        }
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "scripts": {
+    "compile": "tsc"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.92.0"
+  }
+}

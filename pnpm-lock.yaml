@@ -48,6 +48,12 @@ importers:
         specifier: 1.47.0
         version: 1.47.0
 
+  packages/vscode-intentionally-slow-extension:
+    devDependencies:
+      '@types/vscode':
+        specifier: 1.92.0
+        version: 1.92.0
+
   packages/www:
     dependencies:
       '@mdx-js/loader':
@@ -445,6 +451,9 @@ packages:
 
   '@types/vscode@1.47.0':
     resolution: {integrity: sha512-nJA37ykkz9FYA0ZOQUSc3OZnhuzEW2vUhUEo4MiduUo82jGwwcLfyvmgd/Q7b0WrZAAceojGhZybg319L24bTA==}
+
+  '@types/vscode@1.92.0':
+    resolution: {integrity: sha512-DcZoCj17RXlzB4XJ7IfKdPTcTGDLYvTOcTNkvtjXWF+K2TlKzHHkBEXNWQRpBIXixNEUgx39cQeTFunY0E2msw==}
 
   '@types/ws@8.5.10':
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
@@ -1907,6 +1916,8 @@ snapshots:
   '@types/unist@3.0.2': {}
 
   '@types/vscode@1.47.0': {}
+
+  '@types/vscode@1.92.0': {}
 
   '@types/ws@8.5.10':
     dependencies:
