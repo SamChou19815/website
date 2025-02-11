@@ -1,6 +1,6 @@
 type CompiledMarkdownComponent = {
   readonly isMDXComponent: true;
-  (): JSX.Element;
+  (): React.JSX.Element;
 };
 
 declare module "*.mdx" {

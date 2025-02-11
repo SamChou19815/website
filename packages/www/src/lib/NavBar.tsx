@@ -8,7 +8,7 @@ export default function NavBar({
   title: string;
   titleLink: string;
   navItems: ReadonlyArray<{ readonly name: string; readonly link: string }>;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <nav className="sticky top-0 z-40 flex h-16 bg-white pr-4 drop-shadow-sm filter">
       <div className="flex w-full flex-wrap justify-between">

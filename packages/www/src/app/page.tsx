@@ -6,7 +6,7 @@ import NavBar from "../lib/NavBar";
 import StaticCodeBlock from "../lib/StaticCodeBlock";
 import { DATASET_TIMELINE } from "../lib/home-timeline-data";
 
-function LazyCardMedia({ image, title }: { image: string; title: string }): JSX.Element {
+function LazyCardMedia({ image, title }: { image: string; title: string }): React.JSX.Element {
   return <img src={image} alt={title} title={title} loading="lazy" />;
 }
 
@@ -18,7 +18,7 @@ function ButtonLink({
   href: string;
   className?: string;
   children: ReactNode;
-}): JSX.Element {
+}): React.JSX.Element {
   const classes = [
     "button bg-transparent border-0 cursor-pointer px-6 py-1.5 font-bold text-sm text-center",
     "hover:bg-blue-500 hover:bg-opacity-10",
@@ -33,13 +33,19 @@ function ButtonLink({
   );
 }
 
-function Card({ className, children }: { className?: string; children: ReactNode }): JSX.Element {
+function Card({
+  className,
+  children,
+}: { className?: string; children: ReactNode }): React.JSX.Element {
   const CardBaseCSS = "flex flex-col bg-white rounded filter drop-shadow";
   const classes = className != null ? `${CardBaseCSS} ${className}` : CardBaseCSS;
   return <div className={classes}>{children}</div>;
 }
 
-function CardHeader({ title, subheader }: { title: string; subheader?: string }): JSX.Element {
+function CardHeader({
+  title,
+  subheader,
+}: { title: string; subheader?: string }): React.JSX.Element {
   return (
     <div className="px-4 pb-0 last:pb-4">
       <h4 className="mb-0">{title}</h4>
@@ -54,13 +60,13 @@ function CardContainer({
 }: {
   className?: string;
   children: ReactNode;
-}): JSX.Element {
+}): React.JSX.Element {
   const CardContainerBaseCSS = "flex flex-row flex-wrap justify-center max-w-7xl mx-auto";
   const classes = className != null ? `${CardContainerBaseCSS} ${className}` : CardContainerBaseCSS;
   return <div className={classes}>{children}</div>;
 }
 
-function StickyCodeBlock(): JSX.Element {
+function StickyCodeBlock(): React.JSX.Element {
   const code = `
 import {List} from std.list;
 
@@ -195,7 +201,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function IndexPage(): JSX.Element {
+export default function IndexPage(): React.JSX.Element {
   return (
     <>
       <Script

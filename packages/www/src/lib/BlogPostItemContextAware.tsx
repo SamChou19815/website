@@ -13,7 +13,7 @@ function PaginationNavItem({
   permalink: string;
   title: string;
   isLeft: boolean;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <Link
       className="flex-grow rounded-md border border-solid border-gray-300 p-4 leading-tight hover:border-blue-500"
