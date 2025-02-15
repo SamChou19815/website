@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function BlogListPage(): Promise<JSX.Element> {
+export default async function BlogListPage(): Promise<React.JSX.Element> {
   return (
     <BlogDocumentWrapper>
       <div className="flex flex-row flex-wrap justify-center">

@@ -10,7 +10,7 @@ type Props = {
   readonly children: string;
 };
 
-function Token({ token }: { token: shiki.ThemedToken }): JSX.Element {
+function Token({ token }: { token: shiki.ThemedToken }): React.JSX.Element {
   switch (token.fontStyle) {
     case 2:
       return <span style={{ color: token.color, fontWeight: "bold" }}>{token.content}</span>;
@@ -34,7 +34,7 @@ export default async function StaticCodeBlock({
   transparent = false,
   manualSection,
   children,
-}: Props): Promise<JSX.Element> {
+}: Props): Promise<React.JSX.Element> {
   const theme: shiki.ThemeInput = {
     ...devSamTheme,
     settings: devSamTheme.tokenColors,

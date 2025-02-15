@@ -3,10 +3,10 @@ export default function BlogPostItem({
   formattedDate,
   children,
 }: {
-  title: JSX.Element | string;
+  title: React.JSX.Element | string;
   formattedDate: string;
   children?: React.ReactNode;
-}): JSX.Element {
+}): React.JSX.Element {
   const TitleHeading = typeof title === "string" ? "h1" : "h2";
 
   return (
