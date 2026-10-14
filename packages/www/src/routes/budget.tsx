@@ -1,12 +1,21 @@
-"use client";
-
+import { createFileRoute } from "@tanstack/react-router";
 import { Suspense } from "react";
-import AuthGate, { signedInEmail } from "../../lib/AuthGate";
-import { useAuth } from "../../lib/useAuth";
-import BudgetApp from "./BudgetApp";
-import { useWhitelist } from "./useWhitelist";
+import BudgetApp from "../app/budget/BudgetApp";
+import { useWhitelist } from "../app/budget/useWhitelist";
+import AuthGate, { signedInEmail } from "../lib/AuthGate";
+import { useAuth } from "../lib/useAuth";
 
-export default function BudgetPage(): React.JSX.Element {
+export const Route = createFileRoute("/budget")({
+  head: () => ({
+    meta: [{ title: "Budget | Developer Sam" }, { name: "robots", content: "noindex, nofollow" }],
+  }),
+  validateSearch: (search: Record<string, unknown>): { tab?: string } => ({
+    tab: typeof search.tab === "string" ? search.tab : undefined,
+  }),
+  component: BudgetPage,
+});
+
+function BudgetPage(): React.JSX.Element {
   const auth = useAuth();
   const access = useWhitelist(signedInEmail(auth));
   return (

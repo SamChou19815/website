@@ -1,5 +1,3 @@
-"use client";
-
 import type { AccessResult } from "../../lib/AuthGate";
 
 // The in-canada app is restricted to this single account.

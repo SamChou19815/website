@@ -6,7 +6,7 @@
 # committed, so `tsc`/oxlint run on a fresh clone without a Rust toolchain.
 packages/www/src/app/generated/*
 !packages/www/src/app/generated/sam_web.d.ts
-**/.next
+**/.tanstack
 /target
 server/target
 *.tsbuildinfo

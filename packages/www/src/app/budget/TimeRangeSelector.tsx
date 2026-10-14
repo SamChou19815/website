@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { endOfCurrentMonth, parseLocalDate, todayISO } from "./utils";
 

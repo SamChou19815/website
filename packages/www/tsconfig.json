@@ -1,11 +1,11 @@
 {
   "extends": "../../configuration/tsconfig.react.json",
-  "include": ["src", ".next/types/**/*.ts"],
+  "include": ["src", "blog-metadata.ts", "vite.config.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "incremental": true,
-    "jsx": "preserve",
-    "plugins": [{ "name": "next" }],
+    "allowImportingTsExtensions": true,
+    "types": ["vite/client", "node"],
     "strictNullChecks": true
   }
 }

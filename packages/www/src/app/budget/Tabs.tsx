@@ -1,6 +1,4 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import { isTabId, TAB_IDS, type TabId } from "./types";
 
 const TAB_LABELS: Record<TabId, string> = {
@@ -12,28 +10,20 @@ const TAB_LABELS: Record<TabId, string> = {
 };
 
 export function useActiveTab(): TabId {
-  const params = useSearchParams();
-  const raw = params.get("tab");
+  const raw = useSearch({ from: "/budget" }).tab ?? null;
   return isTabId(raw) ? raw : "dashboard";
 }
 
 export default function Tabs(): React.JSX.Element {
-  const params = useSearchParams();
+  const navigate = useNavigate();
   const active = useActiveTab();
 
   const onSelect = (id: TabId) => {
-    const next = new URLSearchParams(params.toString());
-    if (id === "dashboard") {
-      next.delete("tab");
-    } else {
-      next.set("tab", id);
-    }
-    const qs = next.toString();
-    // Use the History API instead of router.replace: with `output: "export"`,
-    // the router hydrates with the canonical pathname (no search params), so
-    // after a direct load of /budget?tab=..., router.replace("/budget") is a
-    // same-URL no-op. Next syncs useSearchParams with replaceState.
-    window.history.replaceState(null, "", qs.length > 0 ? `/budget?${qs}` : "/budget");
+    void navigate({
+      to: "/budget",
+      search: (prev) => ({ ...prev, tab: id === "dashboard" ? undefined : id }),
+      replace: true,
+    });
   };
 
   return (
