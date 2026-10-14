@@ -1,7 +1,6 @@
-// @ts-check
-
-const fs = require("node:fs");
-const path = require("node:path");
+import fs from "node:fs";
+import path from "node:path";
+import type { BlogPostMetadata } from "./src/lib/metadata.ts";
 
 /**
  * The post's frontmatter: a `---` fenced block of `key: "value"` lines at the
@@ -9,13 +8,12 @@ const path = require("node:path");
  * enough and the site keeps no YAML dependency.
  * `crates/sam-web/build.rs` parses the same block for the wasm site.
  */
-function parseFrontmatter(/** @type {string} */ source, /** @type {string} */ fullPath) {
+function parseFrontmatter(source: string, fullPath: string): Record<string, string> {
   const lines = source.split("\n");
   if (lines[0] !== "---") {
     throw new Error(`${fullPath}: expected a --- frontmatter fence on the first line.`);
   }
-  /** @type {Record<string, string>} */
-  const fields = {};
+  const fields: Record<string, string> = {};
   for (let index = 1; index < lines.length; index++) {
     const line = lines[index];
     if (line === "---") {
@@ -28,19 +26,21 @@ function parseFrontmatter(/** @type {string} */ source, /** @type {string} */ fu
     if (match == null) {
       throw new Error(`${fullPath}: invalid frontmatter line:\n${line}`);
     }
-    fields[match[1]] = match[2];
+    fields[match[1] as string] = match[2] as string;
   }
   throw new Error(`${fullPath}: the frontmatter fence is never closed.`);
 }
 
-function computeAllMedatada() {
+/**
+ * Read at build time by `vite.config.ts`, which inlines the result as
+ * `process.env.ALL_BLOG_POST_METADATA` and prerenders a page per local post.
+ */
+export function computeAllMetadata(): BlogPostMetadata[] {
   const BLOG_POSTS_ROOT = path.join("src", "blog-posts");
 
-  /** @type {import("./src/lib/metadata").BlogPostMetadata[]} */
-  const allMetadata = [];
+  const allMetadata: BlogPostMetadata[] = [];
 
-  /** @type {Omit<import("./src/lib/metadata").BlogPostMetadata, 'titleSlug'>[]} */
-  const externalPosts = JSON.parse(
+  const externalPosts: Omit<BlogPostMetadata, "titleSlug">[] = JSON.parse(
     fs.readFileSync(path.join("src", "external-blog-posts.json")).toString(),
   );
   for (const post of externalPosts) {
@@ -57,7 +57,7 @@ function computeAllMedatada() {
           const fullPath = path.join(BLOG_POSTS_ROOT, year, month, date, file);
           const { title } = parseFrontmatter(fs.readFileSync(fullPath).toString(), fullPath);
           allMetadata.push({
-            title,
+            title: title as string,
             year,
             month,
             date,
@@ -79,13 +79,3 @@ function computeAllMedatada() {
 
   return allMetadata;
 }
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: { useTypeScriptCli: true },
-  output: "export",
-  env: { ALL_BLOG_POST_METADATA: JSON.stringify(computeAllMedatada()) },
-  typescript: { ignoreBuildErrors: true },
-};
-
-module.exports = nextConfig;

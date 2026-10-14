@@ -1,6 +1,7 @@
 # www (dev-sam-website)
 
-Two distinct purposes under a single next.js project
+Two distinct purposes under a single TanStack Start project (Vite, file routes in
+`src/routes`, every page prerendered to static HTML in `dist/client`)
 
 ## The Portfolio Website + Blog
 

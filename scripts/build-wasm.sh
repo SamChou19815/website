@@ -1,7 +1,7 @@
 #!/bin/sh
 # Builds the sam-web wasm bundle for the website — the binary plus the
 # wasm-bindgen JS glue and .d.ts — into packages/www/src/app/generated/,
-# where Next bundles it as a static asset. Works whether or not a Rust
+# where Vite bundles it as a static asset. Works whether or not a Rust
 # toolchain is preinstalled: CI sets one up before calling this, but a minimal
 # stable toolchain and wasm-pack are bootstrapped when missing.
 set -eu

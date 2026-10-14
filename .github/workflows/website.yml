@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: www-out
-          path: packages/www/out
+          path: packages/www/dist/client
           if-no-files-found: error
           retention-days: 7
 

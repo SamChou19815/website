@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, type ReactNode } from "react";
 import { getSupabase } from "./supabase";
 import type { AuthState } from "./useAuth";

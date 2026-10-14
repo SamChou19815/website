@@ -12,13 +12,14 @@
     "react/set-state-in-effect": "warn"
   },
   "ignorePatterns": [
-    "**/.next/**",
+    "**/.tanstack/**",
     "**/.vercel/**",
     "**/build/**",
     "**/dist/**",
     "**/out/**",
     "**/node_modules/**",
     "packages/www/src/app/generated/**",
+    "packages/www/src/routeTree.gen.ts",
     "packages/vscode-intentionally-slow-extension/test.ts"
   ]
 }

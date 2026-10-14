@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { getSupabase } from "../../lib/supabase";
 import { useAuth } from "../../lib/useAuth";

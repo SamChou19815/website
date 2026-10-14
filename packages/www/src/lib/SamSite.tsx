@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import init, { start } from "../app/generated/sam_web";
 

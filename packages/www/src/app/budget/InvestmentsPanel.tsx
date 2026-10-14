@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { getSupabase } from "../../lib/supabase";
 import { Card } from "./BudgetApp";
