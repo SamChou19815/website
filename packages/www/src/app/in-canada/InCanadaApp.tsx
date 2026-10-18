@@ -6,7 +6,6 @@ import {
   computeCitizenshipProgress,
   findMilestoneDates,
   formatLocalDate,
-  liveCitizenshipPercent,
   MILESTONES,
   parseTravelDays,
   PRE_PR_CREDIT_CAP,
@@ -375,32 +374,11 @@ function ProgressBar({ progress }: { progress: CitizenshipProgress }): React.JSX
   );
 }
 
-/** How often the live percentage re-reads the clock. */
-const PERCENT_TICK_MS = 10_000;
-
 const PERCENT_DECIMALS = 2;
 
-/**
- * The hero's headline percentage. With `live` it re-reads the clock every
- * {@link PERCENT_TICK_MS}; it ticks in its own component so only this figure re-renders, not
- * the whole page and its calendar.
- */
-function PercentFigure({
-  percent,
-  live,
-}: {
-  percent: number;
-  /** The percent at a given instant, or `null` for a fixed (time-travelled) figure. */
-  live: ((now: Date) => number) | null;
-}): React.JSX.Element {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    if (live == null) return;
-    const interval = setInterval(() => setNow(new Date()), PERCENT_TICK_MS);
-    return () => clearInterval(interval);
-  }, [live]);
-  const value = live?.(now) ?? percent;
-  const [whole, fraction] = value.toFixed(PERCENT_DECIMALS).split(".");
+/** The hero's headline percentage, as counted at the start of its day. */
+function PercentFigure({ percent }: { percent: number }): React.JSX.Element {
+  const [whole, fraction] = percent.toFixed(PERCENT_DECIMALS).split(".");
   return (
     // Only the whole part is headline-sized: at full size the decimals wouldn't
     // fit a phone screen.
@@ -418,14 +396,12 @@ function PercentFigure({
  */
 function Hero({
   progress,
-  livePercent,
   eligibleOn,
   today,
   travelling,
   hasPrDate,
 }: {
   progress: CitizenshipProgress | null;
-  livePercent: ((now: Date) => number) | null;
   eligibleOn: Date | null;
   today: Date | null;
   /** Whether `today` is a time-travel destination rather than the real today. */
@@ -447,7 +423,7 @@ function Hero({
           <div>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
               {progress != null ? (
-                <PercentFigure percent={progress.percent} live={livePercent} />
+                <PercentFigure percent={progress.percent} />
               ) : (
                 <span className="text-7xl font-bold leading-none tracking-tight">—</span>
               )}
@@ -502,7 +478,14 @@ export default function InCanadaApp(): React.JSX.Element {
 
   // Rendered only once signed in (behind `AuthGate`), so never on the server:
   // reading the clock in the initializer can't cause a hydration mismatch.
-  const [today] = useState(() => new Date());
+  const [today, setToday] = useState(() => new Date());
+  // Progress is counted in whole days, so the page re-reads the clock once a
+  // day: a tab left open steps to the new day's figures at midnight.
+  useEffect(() => {
+    const midnight = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+    const timer = setTimeout(() => setToday(new Date()), midnight.getTime() - Date.now());
+    return () => clearTimeout(timer);
+  }, [today]);
   // Tagged with the user it was loaded for, so a stale row reads as "loading"
   // instead of being reset synchronously when the user changes.
   const [loaded, setLoaded] = useState<{
@@ -584,14 +567,6 @@ export default function InCanadaApp(): React.JSX.Element {
     () => (asOf == null ? null : computeCitizenshipProgress(asOf, prDate, missingDaysSet)),
     [asOf, prDate, missingDaysSet],
   );
-  // Only the real today is live: a time-travel destination is a fixed day.
-  const livePercent = useMemo(
-    () =>
-      asOf == null || travelling
-        ? null
-        : (now: Date) => liveCitizenshipPercent(now, prDate, missingDaysSet),
-    [asOf, travelling, prDate, missingDaysSet],
-  );
   const eligibleOn = useMemo(
     () => (asOf == null ? null : projectEligibility(asOf, prDate, missingDaysSet)),
     [asOf, prDate, missingDaysSet],
@@ -634,7 +609,6 @@ export default function InCanadaApp(): React.JSX.Element {
     <div>
       <Hero
         progress={progress}
-        livePercent={livePercent}
         eligibleOn={eligibleOn}
         today={asOf}
         travelling={travelling}
